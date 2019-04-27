@@ -2,65 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB4A6B45C
-	for <lists+linux-mtd@lfdr.de>; Sat, 27 Apr 2019 21:02:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A29D4B487
+	for <lists+linux-mtd@lfdr.de>; Sat, 27 Apr 2019 22:32:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5tY01cgm2vMbLFBKl0X+sLKDr44zgyISHH7ffK8Ku+I=; b=IkOLMT8FOiGPv9
-	Op5VoaTMqi4VAaMmI30FsZ0i7ECxd4D40A4KTshIR4hWZvSz6VsmSCGaAF33G9KGBMVq78cvOHksP
-	lbvwXB2aBp7zh9brForbo4myFWDUhGgBvfIciU5cfqudtAeCXDUu9XYJoagzNyYBaESkgQoKo+4iN
-	fD5OvezJOqoMumX85goTt0SBcB9MaUq3XxK9kCttsb991gmNHcdwJAh3e9goEmfx2bLbXsR89TXrh
-	K4W0qEka1Dit2dOlGSkoq1v4YPJQGR0wE7aPC/pXl0ayPqxc+CTvSnoqJwQO7hIpAhwO0PVZyYhfm
-	S/uSh5WI+5qJ4yjQRFCw==;
+	List-Owner; bh=S72KsJMniuGxJdUsqhbj4SWs/SxoNwlTVRbyo6GR+x0=; b=PyKuh8VC+CWlpA
+	q8FUYF+QAjzVMU4LeIUPnZ8BUAW47io1SrAhS/G3Y+fQnjtFsCXmYGZQfkwiPHP3r31Oa++Pnhc8A
+	7gYLxvAxDrAFmkVsCmJYs6GXO3OW2XSWk7JOX3ISykoP4Ys/NXduSj+SjrjTZVZASV67JASmfwdVv
+	JBy2on0xwi6kKlNW8K83ueNlWf5mA9421oI2kjEwM3QB+lU4jtZ9Aeq0xLXjesvDuxT1HYNs9bhG2
+	/rU/zvKQWpuBtuWqzlekrPwa8StFYnJ4qBslGCp/27vp1xbE/f9m38M9OUWU5jN8IA61PF42yWTcs
+	dApQ5vFpQwvTKL4ittvQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hKSah-00044t-PW; Sat, 27 Apr 2019 19:02:27 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1hKTzb-0006dj-Od; Sat, 27 Apr 2019 20:32:15 +0000
+Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hKSaP-0003xL-WC
- for linux-mtd@lists.infradead.org; Sat, 27 Apr 2019 19:02:11 +0000
-Received: by mail-lf1-x142.google.com with SMTP id h18so4774574lfj.11
- for <linux-mtd@lists.infradead.org>; Sat, 27 Apr 2019 12:02:09 -0700 (PDT)
+ id 1hKTzL-0006WK-1K
+ for linux-mtd@lists.infradead.org; Sat, 27 Apr 2019 20:32:00 +0000
+Received: by mail-lj1-x242.google.com with SMTP id l6so5956409ljb.3
+ for <linux-mtd@lists.infradead.org>; Sat, 27 Apr 2019 13:31:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
  h=subject:to:cc:references:from:organization:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=AZgxJWhbIDvKlGzRsWxiCN2W+xAkX6lkUd7t0yIDidU=;
- b=WIyeq621iyHX/Df/naNbN++OglZ6+VJNZpSAlZCMMzGDen3MlM7ODEgIJQ1XQ2Tsqe
- KoJUHEW44tSNFSyj1vxGoq7osfTu8C31TTPKvFDACvT5BT8pCNdNSulm6+SNzryjG0jJ
- ZHJEhTrup0ZDDiurfGdqH+hNSl0x8iXtHBqp64Hxkwc2ccRvHB3cPcalLC9kC/ghLcRc
- 35M5jbvnwnt3gTxeBiJwRtl/Nz9DCtpkHDDFc5i3HECb/37NvQFDD1RM9HKuhymhT1Lg
- 2P3C0WmTAv6VIGddHgt9HGv2f178ruKcl3BbINX6FItiTouYD86sr7pKClUmtBG6Mg8y
- GyVA==
+ bh=O8Yn7rSqSWzJGEK90Lsepo7xnz0psLgDKoYMEPt0f+I=;
+ b=G6ptwH5cQK8gyQQBjLAO0A6t3tRHNZHtJBq+mPC2leXHWTWzfGvtomGLjo9OtR1gc5
+ HPYHPaXTkXSvthv9H3mdSFhLI8CJV0iyu3nxYn89okYEcynAqAEDx1Qfyi0mgEIFS3cB
+ dklbElANUeUmlyNoyU/yLxIkreWZnvPkwOC3/lw7YHdYgDhNihRmjxAHlYaUWuR975dj
+ 3IF5XMjXqAcshY+h+fGHisvx6GHk5xtzqyvmNXM3uJ9iTXk8KzNv2sdzECymZBxlC8hD
+ mSERJt6kTdFr9KXkpn0IIZcTW8G7y489yZETvy6py90/C9wQXf/lxdYMbZU0WB6Z9KkG
+ V/kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:cc:references:from:organization
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=AZgxJWhbIDvKlGzRsWxiCN2W+xAkX6lkUd7t0yIDidU=;
- b=J31Ow5eOkCUtatX+w2jsJqLHr7BlctY4N+xdn4oQqRKJPKbsgUZsHmz2i1hjKAttLU
- I37+EgSvxE18ifaw9qYpVxjrlOxLBBaF0Ve0bDCZHbvotDadV5nXOHLm8IkWGJSOBvuY
- 68FFkC9tRsFe2jHrzDwgzwtS47ArAgkNqrfLGH3MPX13xW/1wua4b+fHzKXZ5no+E5zN
- uFP6smik9OmCwaptrl9UAIO/EYe4uy332I7cL170jeZvi1wqWqEd7CFVMB0/KiTGKzaB
- RHUQAKpvMMDmTOjTTPnw8eXrY4dX8PRDCFHrBKMcxG/QOXy2falBs+aZ66iOPtwDchx0
- IccA==
-X-Gm-Message-State: APjAAAUxiw9hDtKQMS1pYRB6fNZS6RG1+hLnIyLtoo893b/uw4yIqW5K
- I14djFW+q73Os1Hv5Q9pRuJE3Q==
-X-Google-Smtp-Source: APXvYqzzsRMRu10ni8xp9BNlmHXddNxg6m8pR41FcPmRC7oDP+jBy5UZJMOqZ/1dKJN8fNr7zihdcA==
-X-Received: by 2002:a19:428c:: with SMTP id
- p134mr29296072lfa.108.1556391727674; 
- Sat, 27 Apr 2019 12:02:07 -0700 (PDT)
+ bh=O8Yn7rSqSWzJGEK90Lsepo7xnz0psLgDKoYMEPt0f+I=;
+ b=lILFnU8HF2SXI3V7jpi0Gj5wwsDotis1Y2X4ZpqGCUbcif/rr8q/dGuAvsiYyp0lnq
+ JHAZArtun9363UmoBfD1z9PGv6lVKxR/beFWy1t3PWrARwBJjL0s9NnfzhVIcVDsncDp
+ XHA+kevexsEQxfxFzVWmILpiIco2TSP6YWpuZiw/9RW0fpQd6SJTyjwOwon+NlaC6voH
+ KBPtiIOvvArfz3OQcqXmizwiT6wVTaYzfdBVHb5zQIIVTgz8S2tNq/Bgkxo5z/Y6BSz+
+ ob/gQq3kHzigPFBiMy7Q+YQKu5ChLSxB52GR9/K+VPusCdOuPEuZ1cGOYzgbdztImxKQ
+ VHKQ==
+X-Gm-Message-State: APjAAAW2Ni2ExagiLD/AjecaFJnI8uQrOKB2VfnkgE9FlINfwbN4v8o+
+ du3goTLwfycoZHmqNUpoo0b4dA==
+X-Google-Smtp-Source: APXvYqzh1bdAD38MjP/J5rMLGVKNYbnVhRbsJX0POxHShzdSlQUCNYildYReq2IzntSwcVh964tq3w==
+X-Received: by 2002:a2e:99d2:: with SMTP id l18mr14141923ljj.27.1556397117063; 
+ Sat, 27 Apr 2019 13:31:57 -0700 (PDT)
 Received: from wasted.cogentembedded.com ([31.173.81.185])
- by smtp.gmail.com with ESMTPSA id x2sm1199162ljx.13.2019.04.27.12.02.06
+ by smtp.gmail.com with ESMTPSA id o3sm6498817lfn.41.2019.04.27.13.31.55
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sat, 27 Apr 2019 12:02:07 -0700 (PDT)
-Subject: Re: [PATCH v4 1/5] mtd: cfi_cmdset_0002: Add support for polling
- status register
+ Sat, 27 Apr 2019 13:31:56 -0700 (PDT)
+Subject: Re: [PATCH v4 5/5] mtd: hyperbus: Add driver for TI's HyperBus memory
+ controller
 To: Vignesh Raghavendra <vigneshr@ti.com>,
  David Woodhouse <dwmw2@infradead.org>,
  Brian Norris <computersforpeace@gmail.com>,
@@ -68,26 +67,26 @@ To: Vignesh Raghavendra <vigneshr@ti.com>,
  <marek.vasut@gmail.com>, Richard Weinberger <richard@nod.at>,
  Rob Herring <robh+dt@kernel.org>
 References: <20190423104814.5762-1-vigneshr@ti.com>
- <20190423104814.5762-2-vigneshr@ti.com>
+ <20190423104814.5762-6-vigneshr@ti.com>
 From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
 Organization: Cogent Embedded
-Message-ID: <093ef590-ae3d-2db2-09af-573a138a9416@cogentembedded.com>
-Date: Sat, 27 Apr 2019 22:02:05 +0300
+Message-ID: <281a479d-3cfb-b9e1-23ee-c8e3acc37abe@cogentembedded.com>
+Date: Sat, 27 Apr 2019 23:31:54 +0300
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
  Thunderbird/52.2.1
 MIME-Version: 1.0
-In-Reply-To: <20190423104814.5762-2-vigneshr@ti.com>
+In-Reply-To: <20190423104814.5762-6-vigneshr@ti.com>
 Content-Language: en-MW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190427_120210_173785_EAE76A7E 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20190427_133159_261014_182A3B23 
+X-CRM114-Status: GOOD (  18.73  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:142 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:242 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -114,73 +113,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hello!
-
 On 04/23/2019 01:48 PM, Vignesh Raghavendra wrote:
 
-> HyperFlash devices are compliant with CFI AMD/Fujitsu Extended Command
-> Set(0x0002) for flash operations, therefore drivers/mtd/chips/cfi_cmdset_0002.c
-> can be used as is. But these devices do not support DQ polling method of
-> determining chip ready/good status. These flashes provide Status
-> Register whose bits can be polled to know status of flash operation.
+> Add driver for HyperBus memory controller on TI's AM654 SoC. Programming
+> IP is pretty simple and provides direct memory mapped access to
+> connected Flash devices.
 > 
-> Cypress HyperFlash datasheet here[1], talks about CFI Amd/Fujitsu
-> Extended Query version 1.5. Bit 0 of "Software Features supported" field
-> of CFI Primary Vendor-Specific Extended Query table indicates
-> presence/absence of status register and Bit 1 indicates whether or not
-> DQ polling is supported. Using these bits, its possible to determine
-> whether flash supports DQ polling or need to use Status Register.
-> 
-> Add support for polling Status Register to know device ready/status of
-> erase/write operations when DQ polling is not supported.
-> Print error messages on erase/program failure by looking at related
-> Status Register bits.
-> 
-> [1] https://www.cypress.com/file/213346/download
+> Add basic support for the IP without DMA. Second chipSelect is not
+> supported for now.
 > 
 > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-
-   Sorry, only superficial review, I'm not an MTD expert. :-)
-
-> ---
->  drivers/mtd/chips/cfi_cmdset_0002.c | 90 +++++++++++++++++++++++++++++
->  include/linux/mtd/cfi.h             |  5 ++
->  2 files changed, 95 insertions(+)
-> 
-> diff --git a/drivers/mtd/chips/cfi_cmdset_0002.c b/drivers/mtd/chips/cfi_cmdset_0002.c
-> index 7b7286b4d81e..55c4d81098d5 100644
-> --- a/drivers/mtd/chips/cfi_cmdset_0002.c
-> +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-> @@ -49,6 +49,16 @@
->  #define SST49LF008A		0x005a
->  #define AT49BV6416		0x00d6
->  
-> +/*
-> + * Status Register bit description. Used by flash devices that don't
-> + * support DQ polling (Eg.: HyperFlash)
-
-   It's "e.g. " :-)
-
 [...]
-> @@ -97,6 +107,48 @@ static struct mtd_chip_driver cfi_amdstd_chipdrv = {
->  	.module		= THIS_MODULE
->  };
->  
-> +/*
-> + * Use status register to poll for Erase/write completion when DQ is not
-> + * supported. This is indicated by Bit[1:0] of SoftwareFeatures field in
-> + * CFI Primary Vendor-Specific Extended Query table 1.5
-> + */
-> +static int cfi_use_status_reg(struct cfi_private *cfi)
-> +{
-> +	struct cfi_pri_amdstd *extp = cfi->cmdset_priv;
+> diff --git a/drivers/mtd/hyperbus/hbmc-am654.c b/drivers/mtd/hyperbus/hbmc-am654.c
+> new file mode 100644
+> index 000000000000..f458d7226df9
+> --- /dev/null
+> +++ b/drivers/mtd/hyperbus/hbmc-am654.c
+> @@ -0,0 +1,115 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +//
+> +// Copyright (C) 2019 Texas Instruments Incorporated - http://www.ti.com/
+> +// Author: Vignesh Raghavendra <vigneshr@ti.com>
 > +
-> +	return (extp->MinorVersion >= '5') &&
+> +#include <linux/err.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/mtd/hyperbus.h>
+> +#include <linux/mtd/mtd.h>
+> +#include <linux/mux/consumer.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/types.h>
+> +
+> +struct am654_hbmc_priv {
+> +	struct hyperbus_ctlr ctlr;
+> +	struct hyperbus_device hbdev;
+> +	void __iomem	*regbase;
 
-   Parens not needed here, especially as the next operator isn't enclosed.
+   You don't seem to use this field.
 
-> +		(extp->SoftwareFeatures & 0x3) == 0x1;
-> +}
 [...]
 
 MBR, Sergei
