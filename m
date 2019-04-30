@@ -2,54 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E644F3A5
-	for <lists+linux-mtd@lfdr.de>; Tue, 30 Apr 2019 12:05:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2BF9EF3A2
+	for <lists+linux-mtd@lfdr.de>; Tue, 30 Apr 2019 12:04:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ex4SK6IyWtKJSEjPU/TdfNt2g/bxHlMNfHzLhUPzmk8=; b=E7tUT+jNUi/7Rv
-	zYgMmBphyYHSUI+wZXIlvref6jcKL9OOIqrV7U/I0uL9XIC4CKxgYNH1yUPzAnL3Cyw8UUV1fmu4b
-	Ya4SUZJR/WDN7lpHcuEvKn2svv9Nc5eY6KxFPgA5cwFrqZ5o7fI73Pno6uMbApFn767KtrHFrdU4j
-	pCG/+vdcYkLJlRjtPnpAnrMCJ7TRulwQkWW/VLTjBkf7HdL6iW3HIToBuhfniLhzb3owKukJp1Omd
-	3XIL7kE7pvDsT3DV3bENWT+Fc+fsmDN47NQ56W7+rVFfq3QiKPYKlDGllWm8U2vGv0NvU0uAmErMn
-	4Ska/iMsQG3SX3IsNr0A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sslMPdzGGqNF2CDiovvDnyKpRMzLdyXn/bTP40C215g=; b=fc9lulJOff/TQ7
+	alQVvisqSBuKZXIX/IqbDMr5Um9l8CX9X2PIul4iJWKC8CMA0TvAjbu6iQMOIGa+uxKYtg4BSPlNN
+	rAYTsaL0xu+SzzxYpmWDpCg4tC7iSzniJXP3meOXkCfhxizwH1fykPjewFy1wgTtxkIs6Q0f8L4kk
+	l5YOxxDB0MTqh3vTZGv5LHclyC8yWOh7bw6UUVWrnYryki1S3pa4K138hV3swu6PjqKV8BkebMoOv
+	DUR9CgmXF8IPdspIk417nHNpZXpKMu53S7fVXpU65Ot1CQkGvOSOumjdthpOywMtqkM5LnUq6hKpf
+	QmdKH920CsdepOul9Akw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLPdT-0001rZ-Rd; Tue, 30 Apr 2019 10:05:15 +0000
+	id 1hLPcv-0000xi-2g; Tue, 30 Apr 2019 10:04:41 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLPd8-0001SF-FX; Tue, 30 Apr 2019 10:05:03 +0000
-X-UUID: 6725fdf68cbd4ff1a05360cfe4a2ef55-20190430
-X-UUID: 6725fdf68cbd4ff1a05360cfe4a2ef55-20190430
+ id 1hLPcQ-0000UT-7k; Tue, 30 Apr 2019 10:04:12 +0000
+X-UUID: fd97d828dd56461fbde749a8d81d498a-20190430
+X-UUID: fd97d828dd56461fbde749a8d81d498a-20190430
 Received: from mtkcas68.mediatek.inc [(172.29.94.19)] by mailgw02.mediatek.com
  (envelope-from <xiaolei.li@mediatek.com>)
  (musrelay.mediatek.com ESMTP with TLS)
- with ESMTP id 1969360964; Tue, 30 Apr 2019 02:04:15 -0800
-Received: from mtkmbs03n2.mediatek.inc (172.21.101.182) by
- MTKMBS62N1.mediatek.inc (172.29.193.41) with Microsoft SMTP Server (TLS) id
- 15.0.1395.4; Tue, 30 Apr 2019 03:04:13 -0700
+ with ESMTP id 1100900683; Tue, 30 Apr 2019 02:04:03 -0800
+Received: from mtkmbs03n1.mediatek.inc (172.21.101.181) by
+ MTKMBS62N2.mediatek.inc (172.29.193.42) with Microsoft SMTP Server (TLS) id
+ 15.0.1395.4; Tue, 30 Apr 2019 03:04:02 -0700
 Received: from MTKCAS06.mediatek.inc (172.21.101.30) by
- mtkmbs03n2.mediatek.inc (172.21.101.182) with Microsoft SMTP Server (TLS) id
- 15.0.1395.4; Tue, 30 Apr 2019 18:03:59 +0800
+ mtkmbs03n1.mediatek.inc (172.21.101.181) with Microsoft SMTP Server (TLS) id
+ 15.0.1395.4; Tue, 30 Apr 2019 18:04:00 +0800
 Received: from mtkslt306.mediatek.inc (10.21.14.136) by MTKCAS06.mediatek.inc
  (172.21.101.73) with Microsoft SMTP Server id 15.0.1395.4 via
- Frontend Transport; Tue, 30 Apr 2019 18:03:59 +0800
+ Frontend Transport; Tue, 30 Apr 2019 18:04:00 +0800
 From: Xiaolei Li <xiaolei.li@mediatek.com>
 To: <miquel.raynal@bootlin.com>, <richard@nod.at>
-Subject: [PATCH v2 0/5] MTK NAND driver improvements and fixes
-Date: Tue, 30 Apr 2019 18:02:45 +0800
-Message-ID: <20190430100250.28083-1-xiaolei.li@mediatek.com>
+Subject: [PATCH v2 1/5] mtd: rawnand: mtk: Correct low level time calculation
+ of r/w cycle
+Date: Tue, 30 Apr 2019 18:02:46 +0800
+Message-ID: <20190430100250.28083-2-xiaolei.li@mediatek.com>
 X-Mailer: git-send-email 2.18.0
+In-Reply-To: <20190430100250.28083-1-xiaolei.li@mediatek.com>
+References: <20190430100250.28083-1-xiaolei.li@mediatek.com>
 MIME-Version: 1.0
-X-TM-SNTS-SMTP: 42272290F7F6F9F1D3324C0CA791C9B43044521E064D0E551213EB904DC9F18E2000:8
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190430_030455_015636_6926A32B 
-X-CRM114-Status: UNSURE (   6.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190430_030410_285018_0DBC6EA8 
+X-CRM114-Status: GOOD (  13.10  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -70,70 +71,85 @@ List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: linux-mediatek@lists.infradead.org, xiaolei.li@mediatek.com,
- linux-mtd@lists.infradead.org, srv_heupstream@mediatek.com
+ linux-mtd@lists.infradead.org, stable@vger.kernel.org,
+ srv_heupstream@mediatek.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The following patch set mainly contains:
-* Fix low level time calculation of read/write cycle to meet tRC_min
-  and tWC_min requirements.
-* Refine RE# pulse width calculation and data sampling to improve read
-  performance.
-* Add CS validity check.
-* Fix oob buffer pointer wrongly setting and empty page threshold setting.
+At present, the flow of calculating AC timing of read/write cycle in SDR
+mode is that:
+At first, calculate high hold time which is valid for both read and write
+cycle using the max value between tREH_min and tWH_min.
+Secondly, calculate WE# pulse width using tWP_min.
+Thridly, calculate RE# pulse width using the bigger one between tREA_max
+and tRP_min.
 
-Changes on v2 relative to:
---------------------
+But NAND SPEC shows that Controller should also meet write/read cycle time.
+That is write cycle time should be more than tWC_min and read cycle should
+be more than tRC_min. Obviously, we do not achieve that now.
 
-tree    : git://git.infradead.org/linux-mtd.git
-branch  : master
-commit  :
-        'commit 3e35730dd754 ("mtd: powernv_flash: Fix device
-         registration error")
+This patch corrects the low level time calculation to meet minimum
+read/write cycle time required. After getting the high hold time, WE# low
+level time will be promised to meet tWP_min and tWC_min requirement,
+and RE# low level time will be promised to meet tREA_max, tRP_min and
+tRC_min requirement.
 
-Patch v2:
----------
-- Fix type
-- Reference correct faulty patch
-- Refine code to do calculation and condition in separate steps
-- Fix empty threshold calculation
+Fixes: edfee3619c49 ("mtd: nand: mtk: add ->setup_data_interface() hook")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xiaolei Li <xiaolei.li@mediatek.com>
+---
+ drivers/mtd/nand/raw/mtk_nand.c | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
 
-Tests:
-------
-
-* ubifs and jffs2 are validated on NAND device MT29F16G08ADBCA by
-  'dd' command.
-* all drivers/mtd/tests/* pass.
-* speed test:
-  eraseblock write speed is 11087 KiB/s
-  eraseblock read speed is 19986 KiB/s
-  page write speed is 10689 KiB/s
-  page read speed is 18724 KiB/s
-  2 page write speed is 10611 KiB/s
-  2 page read speed is 18713 KiB/s
-  erase speed is 103696 KiB/s
-  2x multi-block erase speed is 354248 KiB/s
-  4x multi-block erase speed is 350459 KiB/s
-  8x multi-block erase speed is 356173 KiB/s
-  16x multi-block erase speed is 356173 KiB/s
-  32x multi-block erase speed is 358120 KiB/s
-  64x multi-block erase speed is 356173 KiB/s
-
-Xiaolei Li (5):
-  mtd: rawnand: mtk: Correct low level time calculation of r/w cycle
-  mtd: rawnand: mtk: Improve data sampling timing for read cycle
-  mtd: rawnand: mtk: Add validity check for CE# pin setting
-  mtd: rawnand: mtk: Fix wrongly assigned OOB buffer pointer issue
-  mtd: rawnand: mtk: Setup empty page threshold correctly
-
- drivers/mtd/nand/raw/mtk_nand.c | 93 ++++++++++++++++++++++++++++-----
- 1 file changed, 79 insertions(+), 14 deletions(-)
-
+diff --git a/drivers/mtd/nand/raw/mtk_nand.c b/drivers/mtd/nand/raw/mtk_nand.c
+index b6b4602f5132..4fbb0c6ecae3 100644
+--- a/drivers/mtd/nand/raw/mtk_nand.c
++++ b/drivers/mtd/nand/raw/mtk_nand.c
+@@ -508,7 +508,8 @@ static int mtk_nfc_setup_data_interface(struct nand_chip *chip, int csline,
+ {
+ 	struct mtk_nfc *nfc = nand_get_controller_data(chip);
+ 	const struct nand_sdr_timings *timings;
+-	u32 rate, tpoecs, tprecs, tc2r, tw2r, twh, twst, trlt;
++	u32 rate, tpoecs, tprecs, tc2r, tw2r, twh, twst = 0, trlt = 0;
++	u32 thold;
+ 
+ 	timings = nand_get_sdr_timings(conf);
+ 	if (IS_ERR(timings))
+@@ -544,11 +545,28 @@ static int mtk_nfc_setup_data_interface(struct nand_chip *chip, int csline,
+ 	twh = DIV_ROUND_UP(twh * rate, 1000000) - 1;
+ 	twh &= 0xf;
+ 
+-	twst = timings->tWP_min / 1000;
++	/* Calculate real WE#/RE# hold time in nanosecond */
++	thold = (twh + 1) * 1000000 / rate;
++	/* nanosecond to picosecond */
++	thold *= 1000;
++
++	/**
++	 * WE# low level time should be expaned to meet WE# pulse time
++	 * and WE# cycle time at the same time.
++	 */
++	if (thold < timings->tWC_min)
++		twst = timings->tWC_min - thold;
++	twst = max(timings->tWP_min, twst) / 1000;
+ 	twst = DIV_ROUND_UP(twst * rate, 1000000) - 1;
+ 	twst &= 0xf;
+ 
+-	trlt = max(timings->tREA_max, timings->tRP_min) / 1000;
++	/**
++	 * RE# low level time should be expaned to meet RE# pulse time,
++	 * RE# access time and RE# cycle time at the same time.
++	 */
++	if (thold < timings->tRC_min)
++		trlt = timings->tRC_min - thold;
++	trlt = max3(trlt, timings->tREA_max, timings->tRP_min) / 1000;
+ 	trlt = DIV_ROUND_UP(trlt * rate, 1000000) - 1;
+ 	trlt &= 0xf;
+ 
 -- 
 2.18.0
-
 
 
 ______________________________________________________
