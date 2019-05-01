@@ -2,77 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 60A6910D26
-	for <lists+linux-mtd@lfdr.de>; Wed,  1 May 2019 21:22:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D60110F45
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 00:46:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=0zmg9haMsoT6NXVKHV3Dh71tiSYPfMnIzYP0BBfhok4=; b=AuD
-	POvLuTSiVPT+V/S02/4i+VItH+Y3wsqj65XFd832SdQgOlGxsLHoi13ixOX7tuZJxWyuCSzxo0g/R
-	gp8r4wyYI2/GTbYRmdV2YnXz18KzVJzJV7GBsZXYuFKC4Q1TJ1Ed2Nk8605utCT2irhYRncJG3vcE
-	4hD5QjBWAZawb50qFwNi45Q61pRmhkf3R+YJOQicRubU9E/q61FLWu7wvMBHLPGYNSVoRPuhADe6b
-	fXXDeE37efIPsgu8HwM3+Xr3w8D8aJbQ63YYWmgUULklNBc/hZH+WlCUL79fLa6G3m9WqP93ptFjy
-	DzuSM5YWQ7sKlhJ7roTFGb+evdrstnQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=OjL0Z3TOQ9btCrF0n3hcA+Z81cV0de8LVb3+zjL8vGI=; b=miCv+wIAmh6srr
+	+ND/8a9mnlIAOt7BtkyyDaap3x0Z7/CcVdnQr3gDxbp7q4m/zG6jS59NqRpBbR1W1k8kAUPzaKN7D
+	TRhI8Agb29ObgbprdLegRcZFsJNVYxmsFx5712Qre7+DZHbS1cwKnK6DnwMxsVE1ORwQJEp5Z9cpG
+	I4zvpKa6jaUL+w3MwheKgNen8NzZB0/rT4+s7iESSbmyQfyiJU1QBeB/nId1f/7pak+dSglC/w/DJ
+	ppMQaTOtB9G8N3ZlIptGQvY6aQW4vMU+vjTfs5a6Lh3GCJd6/k1zJCPDyV3FZ+howtFQBJdnT+oLH
+	HmhTzOs4EEKd7otAGo0A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLuob-00031b-VE; Wed, 01 May 2019 19:22:49 +0000
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
+	id 1hLxze-0006Ji-Kg; Wed, 01 May 2019 22:46:26 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLuoU-00030j-Ax
- for linux-mtd@lists.infradead.org; Wed, 01 May 2019 19:22:43 +0000
-Received: by mail-ed1-x542.google.com with SMTP id j20so114176edq.10
- for <linux-mtd@lists.infradead.org>; Wed, 01 May 2019 12:22:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=T7DidsTvqZaeVynddvHxxBbAAEvCO8/AfOY7nE2AqW8=;
- b=KHu23Ma6nMbPVzQb2iomiVuHbgOJlZeyOzYz7talegjesg/G2vqf5OjeHTAmg4eOE0
- IE+g5ARBtPYe/hV8jYk5sqOifHKJ7YWWHQnxK/XAy0C2Sb2pE90Itd2NzyV5MGGK8ABS
- Jv/HChG970YtLduHqoDISBOiwMWWrO+ixat8GlM2m/GPBxUOCx0C4Er3cAWpJXIIPPhT
- KP5SDDDpnH25A9ZbKiPQK+qkMvrElZA25R0kUqHKFtKO/TV2+THHICcn1NSRnANQpgmF
- RQA51mRYKhpOx1hTiy+JhPhNpsZYkqqDaBBxm/J3go71JPj6yd2BrgULUEhwvqDh7GAG
- 45Ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=T7DidsTvqZaeVynddvHxxBbAAEvCO8/AfOY7nE2AqW8=;
- b=NUhyEdKvj2Kd3Yv5S1PiSsKFuYHrj/Cz04/u1xS/1H5h6SbMBIcSfwHn3u7x09Jh3t
- xUf515+y5Dh1a5YWp87/tERKtbiJ46TgAHpHIDqdpWCzE6gbRWP27fOfFpCp16klAqpf
- vjl2YstjYS/koYBQNNjq9cKREA1qMoYSKaX3Fw3lviTibw4plY2uiwkCgt7Cl2hI1qMr
- C+OGFa79udNCGQhDjF35opxfixphEDhMjjh57L26/UYVS86w4EVP/h2wsVgtgtEmSj5o
- RFZx+JqaapnkMRTTnNt6l47KsTATrke/h2TRrPPMYgUZ7Lo0dffKq69jX9g3rQfQvqNI
- rUuQ==
-X-Gm-Message-State: APjAAAUbYaZFGyMPafeetlAaonadGRpSWTNDWjYalqag8zHp/T35qwB7
- rtCnvwZ+vKptu3wuJXW6iRCbofxi
-X-Google-Smtp-Source: APXvYqz4HSBDn3uHjHJ6HZyzyjEGVF0rgL9wjeexGQka8VXpbC0R4qEfbT9skPtWw3UlnrieJflsYw==
-X-Received: by 2002:a50:e79c:: with SMTP id b28mr9954998edn.277.1556738558952; 
- Wed, 01 May 2019 12:22:38 -0700 (PDT)
-Received: from mail.broadcom.com ([192.19.231.250])
- by smtp.gmail.com with ESMTPSA id g6sm11144033edd.48.2019.05.01.12.22.36
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 01 May 2019 12:22:38 -0700 (PDT)
-From: Kamal Dasu <kdasu.kdev@gmail.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH v2] mtd: rawnand: brcmnand: fix bch ecc layout for large page
- nand
-Date: Wed,  1 May 2019 15:22:14 -0400
-Message-Id: <1556738544-29857-1-git-send-email-kdasu.kdev@gmail.com>
-X-Mailer: git-send-email 1.9.0.138.g2de3478
+ id 1hLxzJ-00065G-Sf
+ for linux-mtd@lists.infradead.org; Wed, 01 May 2019 22:46:07 +0000
+Received: from ebiggers-linuxstation.mtv.corp.google.com (unknown
+ [104.132.1.77])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id DA3792075E;
+ Wed,  1 May 2019 22:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1556750765;
+ bh=oGYtn9WG6er+4eiwYl5cJh2irdpTYgDLIblN4GE18gE=;
+ h=From:To:Cc:Subject:Date:From;
+ b=fY4qq9BAopEMgbyNEunjj+aef9mfWckZY+TJ4tM2F9Yms7jKNXtspSCI4MTU8zXaG
+ b7538Lqq4jiQWV0QrHpbaVi5BTg05KPbB0pix79PFbPT1Ve17AUnOmS6V4Qt4lmAqB
+ G2UwnTy2ET1YrFL8yY0aMeRi7tzVGJLjHvgWyWxA=
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-fscrypt@vger.kernel.org
+Subject: [PATCH 00/13] fscrypt, ext4: prepare for blocksize != PAGE_SIZE
+Date: Wed,  1 May 2019 15:45:02 -0700
+Message-Id: <20190501224515.43059-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.21.0.593.g511ec345e18-goog
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_122242_401341_CA15B679 
-X-CRM114-Status: GOOD (  13.31  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190501_154605_947485_061043A4 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.8 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:542 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (kdasu.kdev[at]gmail.com)
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -81,6 +63,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ -0.1 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -92,43 +75,67 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <bbrezillon@kernel.org>,
- Richard Weinberger <richard@nod.at>, Kamal Dasu <kdasu.kdev@gmail.com>,
- linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@gmail.com>,
- bcm-kernel-feedback-list@broadcom.com,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-MIME-Version: 1.0
+Cc: linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-mtd@lists.infradead.org, Chandan Rajendra <chandan@linux.ibm.com>,
+ linux-f2fs-devel@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The oobregion->offset for large page nand parts was wrong, change
-fixes this error in calculation.
+Hello,
 
-Fixes: ef5eeea6e911 ("mtd: nand: brcm: switch to mtd_ooblayout_ops")
-Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
----
- drivers/mtd/nand/raw/brcmnand/brcmnand.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This patch series prepares fs/crypto/, and partially ext4, for the
+'blocksize != PAGE_SIZE' case.
 
-diff --git a/drivers/mtd/nand/raw/brcmnand/brcmnand.c b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-index 482c6f0..3eefea7 100644
---- a/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-+++ b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-@@ -939,7 +939,7 @@ static int brcmnand_bch_ooblayout_ecc(struct mtd_info *mtd, int section,
- 	if (section >= sectors)
- 		return -ERANGE;
- 
--	oobregion->offset = (section * (sas + 1)) - chip->ecc.bytes;
-+	oobregion->offset = ((section + 1) * sas) - chip->ecc.bytes;
- 	oobregion->length = chip->ecc.bytes;
- 
- 	return 0;
+This basically contains the encryption changes from Chandan Rajendra's
+patch series "[V2,00/13] Consolidate FS read I/O callbacks code"
+(https://patchwork.kernel.org/project/linux-fscrypt/list/?series=111039)
+that don't require introducing the read_callbacks and don't depend on
+fsverity stuff.  But they've been reworked to clean things up a lot.
+
+I propose that to move things forward for ext4 encryption with
+'blocksize != PAGE_SIZE', we apply this series (or something similar) to
+the fscrypt tree for 5.3 on its own merits.  Then the read_callbacks
+series on top of it will much smaller and easier to review.
+
+AFAIK, after this series the only thing stopping ext4 encryption from
+working with blocksize != PAGE_SIZE is the lack of encryption support in
+block_read_full_page(), which the read_callbacks will address.
+
+This series applies to the fscrypt tree, and it can also be retrieved
+from git at https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git
+branch "fscrypt-subpage-blocks-prep".
+
+Chandan Rajendra (3):
+  ext4: clear BH_Uptodate flag on decryption error
+  ext4: decrypt only the needed blocks in ext4_block_write_begin()
+  ext4: decrypt only the needed block in __ext4_block_zero_page_range()
+
+Eric Biggers (10):
+  fscrypt: simplify bounce page handling
+  fscrypt: remove the "write" part of struct fscrypt_ctx
+  fscrypt: rename fscrypt_do_page_crypto() to fscrypt_crypt_block()
+  fscrypt: clean up some BUG_ON()s in block encryption/decryption
+  fscrypt: introduce fscrypt_encrypt_block_inplace()
+  fscrypt: support encrypting multiple filesystem blocks per page
+  fscrypt: handle blocksize < PAGE_SIZE in fscrypt_zeroout_range()
+  fscrypt: introduce fscrypt_decrypt_block_inplace()
+  fscrypt: support decrypting multiple filesystem blocks per page
+  ext4: encrypt only up to last block in ext4_bio_write_page()
+
+ fs/crypto/bio.c             |  73 +++------
+ fs/crypto/crypto.c          | 299 ++++++++++++++++++++----------------
+ fs/crypto/fscrypt_private.h |  14 +-
+ fs/ext4/inode.c             |  35 +++--
+ fs/ext4/page-io.c           |  44 +++---
+ fs/f2fs/data.c              |  17 +-
+ fs/ubifs/crypto.c           |  19 +--
+ include/linux/fscrypt.h     |  96 ++++++++----
+ 8 files changed, 319 insertions(+), 278 deletions(-)
+
 -- 
-1.9.0.138.g2de3478
+2.21.0.593.g511ec345e18-goog
 
 
 ______________________________________________________
