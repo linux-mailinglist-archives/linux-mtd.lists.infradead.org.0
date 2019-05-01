@@ -2,53 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EF2C10F4E
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 00:47:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6427710F53
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 00:48:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xUJq/0faLqsPzd9GdNobv20Jdf86B4+YeA3xLUrTmRE=; b=FNkLMadMbVGe3m
-	XHNITDiQ9j2tgYchdjv8oMygNcAT3c58RMT+4Sx9ScTtxT5g18RfPUrFXawuHoidj8cx4fxV+DPQN
-	Mr/8bcCPs0e+TmZLZoS9ma1V8AbeQz76LaAa01gSqks/6X9UT6NyOVcVA/dacRzugF1e50TjyWlLU
-	2k/BG5ZOHHPWB97SGMuzFpyrjk1oW90oTJn3CQ4tyTuNJ0WDoWRwqEx97iOlEK3X//57vd/rkh0PM
-	L1Ncxv8igpeAELAsJjum9J76EuNrqsrBnQOvKGEsRTa1ldzbDhhDX6kyqKCg8jmT83WaqARqpuTPU
-	KTb+ex7RqVKTMds7dPlA==;
+	List-Owner; bh=SnGLuTajBvIR3pf6LYpDkf1gWPwoBLzgHIanPy7Fkgk=; b=sce5Nq+KCdywtf
+	UUVv4yqoS3Fgi4jyXGNWfABM5Rssvk4VnhLUUD49+1ovJ/frjybtE1slpZZGt14fhlEe8oI5yHZHT
+	fytVCSlKcaByXaPqP21IkcmvxkgL5mZ5JQwXhAxBoesSppTt7ncMlU2kYseTsG0JBFl2oKCnhKFB6
+	sCbnYF8nPMRH3U3FaAJidiLPuNSwgT3h9ghuUbNC/wkYdBBBlRW1EZ8tyuG3HHpapcLWFXc7SYkiW
+	L3wD1tD1ZmECXwZbekHX+Qx9Hu1Bv+ZzGXGgXmMuxUM5gSpwCMWlGPJMXID6GtPArCprqcuBnkNMW
+	HwntUxXxOGxOy8iI/gtg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLy0m-0007tI-Ny; Wed, 01 May 2019 22:47:36 +0000
+	id 1hLy1Z-0000VQ-GK; Wed, 01 May 2019 22:48:25 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLxzN-00068D-7M
- for linux-mtd@lists.infradead.org; Wed, 01 May 2019 22:46:13 +0000
+ id 1hLxzN-000691-IP
+ for linux-mtd@lists.infradead.org; Wed, 01 May 2019 22:46:19 +0000
 Received: from ebiggers-linuxstation.mtv.corp.google.com (unknown
  [104.132.1.77])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 79081217D6;
+ by mail.kernel.org (Postfix) with ESMTPSA id C1E92217D7;
  Wed,  1 May 2019 22:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
  s=default; t=1556750768;
- bh=zasOEShYERzZdFPiCVFwjBxPKVnej4e6HAp2E2v7iWU=;
+ bh=xD7PqOfhddvE9okJKFAirf34SL4fz8KKEtN16Qy6Kso=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=2I2LJrbfXh52sDxFMLokfCyxrGL7QigFr/FKy+FHAoXvpvfKHBnUJFcq+1NVvjmaD
- iT+7TKcp6VAQhvHieFKvYmGR4EHOP4fRV2+SKWnVDRfVQiFYa2f4p75MS749H3YpUs
- Rkz+v4y9xTgIaPCTUkOuRjVQsbymuUVRUFrWkYjI=
+ b=gilxO/PqfpEGq5c0zQGIqQZrLC3gFUWqXtIObS+nLMp9ZEEI5orwUg2BzcJT9mUB0
+ THM/ewxak22G9gQkbw7qJvZ7zyBtX1k20tFJtJctGjT8wJLhM8WiB18YU5BunF+PRW
+ GFG0+lcuMb/OEg+KZIGOYNlpwWk/GuCg7qsQ78Zk=
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-fscrypt@vger.kernel.org
-Subject: [PATCH 12/13] ext4: decrypt only the needed block in
- __ext4_block_zero_page_range()
-Date: Wed,  1 May 2019 15:45:14 -0700
-Message-Id: <20190501224515.43059-13-ebiggers@kernel.org>
+Subject: [PATCH 13/13] ext4: encrypt only up to last block in
+ ext4_bio_write_page()
+Date: Wed,  1 May 2019 15:45:15 -0700
+Message-Id: <20190501224515.43059-14-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.21.0.593.g511ec345e18-goog
 In-Reply-To: <20190501224515.43059-1-ebiggers@kernel.org>
 References: <20190501224515.43059-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_154609_381942_9B5CBA91 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20190501_154609_863660_948D56C3 
+X-CRM114-Status: GOOD (  13.41  )
 X-Spam-Score: -2.8 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.8 points)
@@ -85,38 +85,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Chandan Rajendra <chandan@linux.ibm.com>
+From: Eric Biggers <ebiggers@google.com>
 
-In __ext4_block_zero_page_range(), only decrypt the block that actually
-needs to be decrypted, rather than assuming blocksize == PAGE_SIZE and
-decrypting the whole page.
+As an optimization, don't encrypt blocks fully beyond i_size, since
+those definitely won't need to be written out.  Also add a comment.
 
 This is in preparation for allowing encryption on ext4 filesystems with
 blocksize != PAGE_SIZE.
 
-Signed-off-by: Chandan Rajendra <chandan@linux.ibm.com>
-(EB: rebase onto previous changes, improve the commit message, and use
- bh_offset())
+This is based on work by Chandan Rajendra.
+
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- fs/ext4/inode.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ fs/ext4/page-io.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/fs/ext4/inode.c b/fs/ext4/inode.c
-index d24c50e4598f0..58597db621e1e 100644
---- a/fs/ext4/inode.c
-+++ b/fs/ext4/inode.c
-@@ -4073,9 +4073,8 @@ static int __ext4_block_zero_page_range(handle_t *handle,
- 		if (S_ISREG(inode->i_mode) && IS_ENCRYPTED(inode)) {
- 			/* We expect the key to be set. */
- 			BUG_ON(!fscrypt_has_encryption_key(inode));
--			BUG_ON(blocksize != PAGE_SIZE);
- 			WARN_ON_ONCE(fscrypt_decrypt_pagecache_blocks(
--						page, PAGE_SIZE, 0));
-+					page, blocksize, bh_offset(bh)));
- 		}
- 	}
- 	if (ext4_should_journal_data(inode)) {
+diff --git a/fs/ext4/page-io.c b/fs/ext4/page-io.c
+index 457ddf051608f..ab843ad89df2f 100644
+--- a/fs/ext4/page-io.c
++++ b/fs/ext4/page-io.c
+@@ -468,11 +468,19 @@ int ext4_bio_write_page(struct ext4_io_submit *io,
+ 
+ 	bh = head = page_buffers(page);
+ 
++	/*
++	 * If any blocks are being written to an encrypted file, encrypt them
++	 * into a bounce page.  For simplicity, just encrypt until the last
++	 * block which might be needed.  This may cause some unneeded blocks
++	 * (e.g. holes) to be unnecessarily encrypted, but this is rare and
++	 * can't happen in the common case of blocksize == PAGE_SIZE.
++	 */
+ 	if (IS_ENCRYPTED(inode) && S_ISREG(inode->i_mode) && nr_to_submit) {
+ 		gfp_t gfp_flags = GFP_NOFS;
++		unsigned int enc_bytes = round_up(len, i_blocksize(inode));
+ 
+ 	retry_encrypt:
+-		bounce_page = fscrypt_encrypt_pagecache_blocks(page, PAGE_SIZE,
++		bounce_page = fscrypt_encrypt_pagecache_blocks(page, enc_bytes,
+ 							       0, gfp_flags);
+ 		if (IS_ERR(bounce_page)) {
+ 			ret = PTR_ERR(bounce_page);
 -- 
 2.21.0.593.g511ec345e18-goog
 
