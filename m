@@ -2,83 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 159AB11B87
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 16:34:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 09A1D11B8B
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 16:34:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=32g4R+o6Kgn45gK8Rj91pX+/5009gOMXzAIc3aIEiY0=; b=Ye5KOw38t34uAG
-	z9GpcL0AePkVDPxaW0ux0lqjZSZndtXv+J3aLmiiW0eGkH42KaTCMyr+kmzirzozuoPOkhlIcp8pS
-	oyxNCO3L9xPRCKyqXW0ricvFK2WwwueRvpAqFgV2SR2qi0H/QVtYbFi1r+Ox1P5ugfxBeduQ9hIkN
-	j2DBwjuTEOBcTklnkVeh5VWfGYeyIFPKI9AUUhnH98iBtnuiccFxvBUwGuyFykS1wa1DLgHsADHmB
-	8mjJVLOj3gK/euUGIUUqQCNIOx962w/Xc1gXkjqYCxpsJu4Y0V8faxZFZH6vOytwkjJVA28FNbYXh
-	SnYl5pYoRD2WjfDJevjQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=v8yUtN6vIAd/lI043ek3nasz8tZzzShueR6fOz98NsU=; b=Uie51uBOLT4uEQlxz9c4x/oBQ
+	0vrh7QEStRaC8N/fWZ4I70Zn4RqeVzJvspPnZP4GiOqUYtJmkDq4tmzvjeM3wJDaL79+rTEdzzzEC
+	VkXErU+YZ9oFR5LqBrFImr2fiOrJZl7NrE2VCbpTrDXGG50uNO26RqPtvmaKjdWCFqhfmvNyy3UQX
+	+ujgjjPBAaeioyilC1x3AdN3V3WbEiMKyhHC7HMTvtfULcaNa1PGsOSVBOhWVkQ9r4I9G1i/xoH66
+	UF8Wusg4wg8bnWnOASehW3ubM/qcm2C9BFp4ZDnWVN8YbJql5ZI7g37Cskheii5Mp3dSdKqnjI88b
+	Zc8F9GjFg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hMCmt-0002Df-Db; Thu, 02 May 2019 14:34:15 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1hMCn9-0002es-Re; Thu, 02 May 2019 14:34:31 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hMCm1-0001DK-6P
- for linux-mtd@lists.infradead.org; Thu, 02 May 2019 14:33:34 +0000
-Received: by mail-lf1-x142.google.com with SMTP id j20so2068658lfh.2
- for <linux-mtd@lists.infradead.org>; Thu, 02 May 2019 07:33:20 -0700 (PDT)
+ id 1hMCm3-0001H5-FL
+ for linux-mtd@lists.infradead.org; Thu, 02 May 2019 14:33:44 +0000
+Received: by mail-lj1-x241.google.com with SMTP id z26so2408481ljj.2
+ for <linux-mtd@lists.infradead.org>; Thu, 02 May 2019 07:33:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=o4x2AwA/3CLBONjG7dpZpyuRhgYfsOiX68AZc6HGuSQ=;
- b=ifnaU5YL8TOetW2sEUOBvTwzLn3XYh8p46Mu3ByasHC79TnX5LkzcJYj0lrt9GAufY
- u3HCJDusK4e2Mm6O5/KFbjUpiZtSwULT/OwQzhnrFrNNFmJYxKv0jh2wcLM2Jj8Eb76J
- 5nRi4zC5PpvdlrxnYgzlUfW5/aCX69IHiFKB4cY9GO12gUf8bkIVJOB8k5OqXiIzLh0p
- KLwylVzcK0o8k3ivYK9hIjlOyPSCI45Z97H4MMNMhHJFLjCB52zPoOgw6XlMZiYkor9j
- yEvN7v0P6Mau3Nqqxc33Kb1yMX4I054+mbWG13NGfOlvgwFrQVD5ZlGXxxdm3IGiKUSR
- bQAA==
+ bh=6ohcDEvkPistHHHhOpFFR0NARkPBUpb4Juo62pfPYr0=;
+ b=Wqes9SeNHgt8NqnKfKCZ6AhoUzeRAIz4/tnbpeK/SgJ6K4ycOZENvW/4XsuUS1flPS
+ KqZqA2RKIfiEBzUQJIVwku6thOl25HI7r7GUHaa4PELY0nqsqkbO8CjMMMvxZ9N1KPb+
+ d8pWJe37XHka9oTuxgyNu/3gOiHNOVesGLxaiLfEX0pv2ZjBkDkaVjd5cTz4baOFPhrD
+ 4vcVuoxwYa1m3dV7FhbHvVtC/pPIr46T3WRWCyOvuBcDHdYt/LSGABg0uRFx/D6+hXOc
+ mYDFG2KVCkrimMoVIahumnaoKxh56v+R9EKxv/hSI9z5+Gc4K8LJGZeyvscnfDVbdWmo
+ zLJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=o4x2AwA/3CLBONjG7dpZpyuRhgYfsOiX68AZc6HGuSQ=;
- b=P3PmQtmt5UKkElBllVLTsBW+PsVIjHERUt6aFNuxwXhu1TN1lmCDPRIk09Yzre4nyW
- HC4HFfbLwdPhyCQkXnztsUW80GtFajv8bQrT07EBeaqVFqDAPaWwyBo0EjpgQ5PPGe9A
- 3PmNt+uFyiFaTa5qqLb5z+i6WzPHSvB2POYNDbx9TGUnCS3zu+yPTwTBF9JiH0F0lESk
- 9sD3CR9eGJUXaPQmHBogH7T5GS6COO8hVix08G//JhAuWQMzYVpfZKtIegCqE0tPMTyf
- q9DACVSejmKPSjs+yrE05y6vU3hI06qo2swTyFcPNi05Hj1cWl6dNjvAYEw2H4dMmJwR
- wZyA==
-X-Gm-Message-State: APjAAAVqq+YZggI5PB40vliknfVS/ulYFzxqYwnjOPEcwuXYqlWj8cgk
- WFLbLIsNYPP04mFFVgq0u/w5lw==
-X-Google-Smtp-Source: APXvYqyYNF2NVISrvZs20Oyrrn5VhAEN/vQ2xOGJkPL+Y2qqq1YSPllyCOmckWXpa+27OkASBtZZFA==
-X-Received: by 2002:a19:189:: with SMTP id 131mr650254lfb.74.1556807599102;
- Thu, 02 May 2019 07:33:19 -0700 (PDT)
+ bh=6ohcDEvkPistHHHhOpFFR0NARkPBUpb4Juo62pfPYr0=;
+ b=nbMYhI2Lh3gmsiEEt1A7EN7aZExvcy/rrmRjf4ezLFE5V9CsC8skaT3Bu3IDjI489H
+ JvQ/r091a1swXACC/sHhBwe+1ORZzVxMJsmUEeFNWsIYKnyGphtNScjA2kuJw5Z3eOsr
+ a+tdGr4y29AkET8//pDhQHI+xVFAwsLCud6VT8Hyvmsq7ro8S5hrIWE2usxi6TdQKHDy
+ jL9cln6j8sf3KqyKO/79Y0c/DogEsdzQRDlhdkFp/Rka4yk5ncpdwgELx44L0C2HwiY3
+ CNlaKDceXqmjunYbXO5fFxxrGRB3C3FB10qXLBLAkADJ2N4u3qoZDsQmKdd6pXyma3Z+
+ vaWA==
+X-Gm-Message-State: APjAAAW3/u5c9lUNpMIm3nk3+vxRhpICn1g4cvvrYHeUifZawEYgoAGm
+ EJzQ4j+2oBCYIsGDer5aEVaweA==
+X-Google-Smtp-Source: APXvYqysptrh083qRNGcHfaJOcrm2hEEO9zp7bC5QgjJ1/tvqnCI6Spo6S0+5FLEvEFcss1pubMTjQ==
+X-Received: by 2002:a2e:94ca:: with SMTP id r10mr2096891ljh.33.1556807601756; 
+ Thu, 02 May 2019 07:33:21 -0700 (PDT)
 Received: from localhost.localdomain
  (c-d2cd225c.014-348-6c756e10.bbcust.telenor.se. [92.34.205.210])
- by smtp.gmail.com with ESMTPSA id l79sm9430625lfe.92.2019.05.02.07.33.17
+ by smtp.gmail.com with ESMTPSA id l79sm9430625lfe.92.2019.05.02.07.33.20
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Thu, 02 May 2019 07:33:17 -0700 (PDT)
+ Thu, 02 May 2019 07:33:20 -0700 (PDT)
 From: Linus Walleij <linus.walleij@linaro.org>
 To: David Woodhouse <dwmw2@infradead.org>,
  Brian Norris <computersforpeace@gmail.com>,
  Marek Vasut <marek.vasut@gmail.com>, Richard Weinberger <richard@nod.at>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH 8/9 RESEND 2] mtd: afs: factor the IIS read into partition
- parser
-Date: Thu,  2 May 2019 16:30:33 +0200
-Message-Id: <20190502143034.16781-9-linus.walleij@linaro.org>
+Subject: [PATCH 9/9 RESEND 2] mtd: afs: add v2 partition parsing
+Date: Thu,  2 May 2019 16:30:34 +0200
+Message-Id: <20190502143034.16781-10-linus.walleij@linaro.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190502143034.16781-1-linus.walleij@linaro.org>
 References: <20190502143034.16781-1-linus.walleij@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190502_073321_863816_86E26DE8 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20190502_073324_041490_E69932D5 
+X-CRM114-Status: GOOD (  22.38  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:142 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:241 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -101,110 +100,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: Linus Walleij <linus.walleij@linaro.org>, Liviu Dudau <liviu.dudau@arm.com>,
  Ryan Harkin <ryan.harkin@linaro.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3299517347096104006=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Factor the IIS (Image Information Structure) reading into the
-partition parser, giving us a single, clean partition parser
-function.
+--===============3299517347096104006==
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
+
+The AFS v2 partition type appear in later ARM reference designs
+such as RealView, Versatile Express and the 64bit Juno Development
+Platform.
+
+The image informations is padded with a 32bit word (4 bytes) on
+the 32bit platforms and a 64bit word (8 bytes) on the 64bit
+platforms. The boot monitor source code gives at hand that this
+is because the first entry in the struct mapped over the image
+information is a "next" pointer for a linked list, filled in
+by firmware after reading in the info block, and always zero
+in the flash. We adjust padding by checking what padding gives
+the right checksum.
+
+This was tested on:
+- Integrator/AP (v1 partitions)
+- RealView PB11MPCore (v2 32bit partitions)
+- Juno Development System (v2 64bit partitions)
+
+All systems display the images in flash very nicely as separate
+partitions, e.g on Juno:
+
+4 afs partitions found on MTD device 8000000.flash
+Creating 4 MTD partitions on "8000000.flash":
+0x000000040000-0x0000000c0000 : "fip"
+0x000000ec0000-0x0000018c0000 : "Image"
+0x000000f00000-0x000000f40000 : "juno"
+0x000003ec0000-0x000003f00000 : "bl1"
 
 Cc: Ryan Harkin <ryan.harkin@linaro.org>
 Acked-by: Liviu Dudau <liviu.dudau@arm.com>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/mtd/parsers/afs.c | 59 +++++++++++++--------------------------
- 1 file changed, 20 insertions(+), 39 deletions(-)
+ drivers/mtd/parsers/afs.c | 158 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 157 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/mtd/parsers/afs.c b/drivers/mtd/parsers/afs.c
-index 8ff82a548252..72c688b8a383 100644
+index 72c688b8a383..0c730024f806 100644
 --- a/drivers/mtd/parsers/afs.c
 +++ b/drivers/mtd/parsers/afs.c
-@@ -88,42 +88,6 @@ static bool afs_is_v1(struct mtd_info *mtd, u_int off)
+@@ -3,6 +3,7 @@
+     drivers/mtd/afs.c: ARM Flash Layout/Partitioning
+ 
+     Copyright © 2000 ARM Limited
++    Copyright (C) 2019 Linus Walleij
+ 
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+@@ -35,6 +36,8 @@
+ #include <linux/mtd/partitions.h>
+ 
+ #define AFSV1_FOOTER_MAGIC 0xA0FFFF9F
++#define AFSV2_FOOTER_MAGIC1 0x464C5348 /* "FLSH" */
++#define AFSV2_FOOTER_MAGIC2 0x464F4F54 /* "FOOT" */
+ 
+ struct footer_v1 {
+ 	u32 image_info_base;	/* Address of first word of ImageFooter  */
+@@ -68,6 +71,22 @@ static u32 word_sum(void *words, int num)
+ 	return sum;
+ }
+ 
++static u32 word_sum_v2(u32 *p, u32 num)
++{
++	u32 sum = 0;
++	int i;
++
++	for (i = 0; i < num; i++) {
++		u32 val;
++
++		val = p[i];
++		if (val > ~sum)
++			sum++;
++		sum += val;
++	}
++	return ~sum;
++}
++
+ static bool afs_is_v1(struct mtd_info *mtd, u_int off)
+ {
+ 	/* The magic is 12 bytes from the end of the erase block */
+@@ -88,6 +107,27 @@ static bool afs_is_v1(struct mtd_info *mtd, u_int off)
  	return (magic == AFSV1_FOOTER_MAGIC);
  }
  
--static int
--afs_read_iis_v1(struct mtd_info *mtd, struct image_info_v1 *iis, u_int ptr)
--{
--	size_t sz;
--	int ret, i;
--
--	memset(iis, 0, sizeof(*iis));
--	ret = mtd_read(mtd, ptr, sizeof(*iis), &sz, (u_char *)iis);
--	if (ret < 0)
--		goto failed;
--
--	if (sz != sizeof(*iis)) {
--		ret = -EINVAL;
--		goto failed;
--	}
--
--	ret = 0;
--
--	/*
--	 * Validate the name - it must be NUL terminated.
--	 */
--	for (i = 0; i < sizeof(iis->name); i++)
--		if (iis->name[i] == '\0')
--			break;
--
--	if (i < sizeof(iis->name))
--		ret = 1;
--
--	return ret;
--
-- failed:
--	printk(KERN_ERR "AFS: mtd read failed at 0x%x: %d\n",
--		ptr, ret);
--	return ret;
--}
--
++static bool afs_is_v2(struct mtd_info *mtd, u_int off)
++{
++	/* The magic is the 8 last bytes of the erase block */
++	u_int ptr = off + mtd->erasesize - 8;
++	u32 foot[2];
++	size_t sz;
++	int ret;
++
++	ret = mtd_read(mtd, ptr, 8, &sz, (u_char *)foot);
++	if (ret < 0) {
++		printk(KERN_ERR "AFS: mtd read failed at 0x%x: %d\n",
++		       ptr, ret);
++		return false;
++	}
++	if (ret >= 0 && sz != 8)
++		return false;
++
++	return (foot[0] == AFSV2_FOOTER_MAGIC1 &&
++		foot[1] == AFSV2_FOOTER_MAGIC2);
++}
++
  static int afs_parse_v1_partition(struct mtd_info *mtd,
  				  u_int off, struct mtd_partition *part)
  {
-@@ -139,6 +103,7 @@ static int afs_parse_v1_partition(struct mtd_info *mtd,
- 	u_int ptr;
- 	size_t sz;
- 	int ret;
+@@ -185,6 +225,113 @@ static int afs_parse_v1_partition(struct mtd_info *mtd,
+ 	return 0;
+ }
+ 
++static int afs_parse_v2_partition(struct mtd_info *mtd,
++				  u_int off, struct mtd_partition *part)
++{
++	u_int ptr;
++	u32 footer[12];
++	u32 imginfo[36];
++	char *name;
++	u32 version;
++	u32 entrypoint;
++	u32 attributes;
++	u32 region_count;
++	u32 block_start;
++	u32 block_end;
++	u32 crc;
++	size_t sz;
++	int ret;
 +	int i;
- 
- 	/*
- 	 * This is the address mask; we use this to mask off out of
-@@ -185,9 +150,25 @@ static int afs_parse_v1_partition(struct mtd_info *mtd,
- 		return 0;
- 
- 	/* Read the image info block */
--	ret = afs_read_iis_v1(mtd, &iis, iis_ptr);
--	if (ret < 0)
--		return ret;
-+	memset(&iis, 0, sizeof(iis));
-+	ret = mtd_read(mtd, iis_ptr, sizeof(iis), &sz, (u_char *)&iis);
-+	if (ret < 0) {
-+		printk(KERN_ERR "AFS: mtd read failed at 0x%x: %d\n",
-+		       iis_ptr, ret);
-+		return -EINVAL;
++	int pad = 0;
++
++	pr_debug("Parsing v2 partition @%08x-%08x\n",
++		 off, off + mtd->erasesize);
++
++	/* First read the footer */
++	ptr = off + mtd->erasesize - sizeof(footer);
++	ret = mtd_read(mtd, ptr, sizeof(footer), &sz, (u_char *)footer);
++	if ((ret < 0) || (ret >= 0 && sz != sizeof(footer))) {
++		pr_err("AFS: mtd read failed at 0x%x: %d\n",
++		       ptr, ret);
++		return -EIO;
++	}
++	name = (char *) &footer[0];
++	version = footer[9];
++	ptr = off + mtd->erasesize - sizeof(footer) - footer[8];
++
++	pr_debug("found image \"%s\", version %08x, info @%08x\n",
++		 name, version, ptr);
++
++	/* Then read the image information */
++	ret = mtd_read(mtd, ptr, sizeof(imginfo), &sz, (u_char *)imginfo);
++	if ((ret < 0) || (ret >= 0 && sz != sizeof(imginfo))) {
++		pr_err("AFS: mtd read failed at 0x%x: %d\n",
++		       ptr, ret);
++		return -EIO;
 +	}
 +
-+	if (sz != sizeof(iis))
++	/* 32bit platforms have 4 bytes padding */
++	crc = word_sum_v2(&imginfo[1], 34);
++	if (!crc) {
++		pr_debug("Padding 1 word (4 bytes)\n");
++		pad = 1;
++	} else {
++		/* 64bit platforms have 8 bytes padding */
++		crc = word_sum_v2(&imginfo[2], 34);
++		if (!crc) {
++			pr_debug("Padding 2 words (8 bytes)\n");
++			pad = 2;
++		}
++	}
++	if (crc) {
++		pr_err("AFS: bad checksum on v2 image info: %08x\n", crc);
 +		return -EINVAL;
++	}
++	entrypoint = imginfo[pad];
++	attributes = imginfo[pad+1];
++	region_count = imginfo[pad+2];
++	block_start = imginfo[20];
++	block_end = imginfo[21];
 +
-+	/*
-+	 * Validate the name - it must be NUL terminated.
-+	 */
-+	for (i = 0; i < sizeof(iis.name); i++)
-+		if (iis.name[i] == '\0')
-+			break;
-+	if (i > sizeof(iis.name))
-+		return -EINVAL;
++	pr_debug("image entry=%08x, attr=%08x, regions=%08x, "
++		 "bs=%08x, be=%08x\n",
++		 entrypoint, attributes, region_count,
++		 block_start, block_end);
++
++	for (i = 0; i < region_count; i++) {
++		u32 region_load_addr = imginfo[pad + 3 + i*4];
++		u32 region_size = imginfo[pad + 4 + i*4];
++		u32 region_offset = imginfo[pad + 5 + i*4];
++		u32 region_start;
++		u32 region_end;
++
++		pr_debug("  region %d: address: %08x, size: %08x, "
++			 "offset: %08x\n",
++			 i,
++			 region_load_addr,
++			 region_size,
++			 region_offset);
++
++		region_start = off + region_offset;
++		region_end = region_start + region_size;
++		/* Align partition to end of erase block */
++		region_end += (mtd->erasesize - 1);
++		region_end &= ~(mtd->erasesize -1);
++		pr_debug("   partition start = %08x, partition end = %08x\n",
++			 region_start, region_end);
++
++		/* Create one partition per region */
++		part->name = kstrdup(name, GFP_KERNEL);
++		if (!part->name)
++			return -ENOMEM;
++		part->offset = region_start;
++		part->size = region_end - region_start;
++		part->mask_flags = 0;
++	}
++
++	return 0;
++}
++
+ static int parse_afs_partitions(struct mtd_info *mtd,
+ 				const struct mtd_partition **pparts,
+ 				struct mtd_part_parser_data *data)
+@@ -200,6 +347,10 @@ static int parse_afs_partitions(struct mtd_info *mtd,
+ 			sz += sizeof(struct mtd_partition);
+ 			i += 1;
+ 		}
++		if (afs_is_v2(mtd, off)) {
++			sz += sizeof(struct mtd_partition);
++			i += 1;
++		}
+ 	}
  
- 	part->name = kstrdup(iis.name, GFP_KERNEL);
- 	if (!part->name)
+ 	if (!i)
+@@ -213,13 +364,18 @@ static int parse_afs_partitions(struct mtd_info *mtd,
+ 	 * Identify the partitions
+ 	 */
+ 	for (i = off = 0; off < mtd->size; off += mtd->erasesize) {
+-
+ 		if (afs_is_v1(mtd, off)) {
+ 			ret = afs_parse_v1_partition(mtd, off, &parts[i]);
+ 			if (ret)
+ 				goto out_free_parts;
+ 			i++;
+ 		}
++		if (afs_is_v2(mtd, off)) {
++			ret = afs_parse_v2_partition(mtd, off, &parts[i]);
++			if (ret)
++				goto out_free_parts;
++			i++;
++		}
+ 	}
+ 
+ 	*pparts = parts;
 -- 
 2.20.1
 
 
+
+--===============3299517347096104006==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============3299517347096104006==--
