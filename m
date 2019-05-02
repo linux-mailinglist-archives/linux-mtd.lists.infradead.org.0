@@ -2,97 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1DAD912616
-	for <lists+linux-mtd@lfdr.de>; Fri,  3 May 2019 03:40:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 076D611FEB
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 18:15:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
-	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DR282WfAPKwiDiyT/BmGxjCOcNZCBMxC9XFqjqwiMlA=; b=XVvSl5dPZ9z3Sw
-	ubvwPnH+68CvhEG5vQlLP7QQ5YS6HVGzU/sFhRg/tLvwm5rsJPWBBUEeMnlkCaDjyhNsZIh8WSvVw
-	OxFdNwvoloVC9KB5Z1jQHp86f2jgLofPArEl5HgCeB/ZlNf9BZA5YaELRkH3mX6yNJKQSQ44ZNf0r
-	o0goN4ZH6PdnLpVgHDWCMKBRu87xYUPTnvmaqskmg8DoVk0XnuUICmXx0L3dko/XKMRn3DgnwWY4J
-	BPGhUOUVH4gBN3UG0LdWk5Vd+z0nRdTvPHqN4vSEaqe7A0QyND8fwl+3qjx6os6lM7jDSx2Oi8n3H
-	qizv0g+IHV91f1iCPQ3g==;
+	List-Owner; bh=xRSB4blDzGxW2x5u4aIgHPcQS17pxOdCnQsMW9V8Gnk=; b=lIicv0QUThxYel
+	YUvfzsxX9U+8xyONG9JA3cBhlXIt5jVNtwrfQBEQvGlr8DdPUbR4Yprmmv15qwwhSepsMNSMgUoyi
+	rPE4fLW2fPEO4ADWajtEM+Lr0ewWx+0wpYiiA2Jf2uAlHH2K/5noBrhtIlhHnazfnSh/Lk2baxQ2n
+	IP/Tn3OEFXyMGAhooy3jQIbyJA+F1/xlJEpdviwPTLGCqiZgNBwUwxurGuCBebHl+qgyc6JePKlfp
+	YDAHE+zxl6fyIThLf2esKr+BWqDW8M8hoJSu3t44TW0IBzobjkRlXaylS9ohOwt0lOr2H+gHGZS1P
+	CzntVUJE5o6Aj+CWBhGw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hMNBH-0000IP-9G; Fri, 03 May 2019 01:40:07 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
- helo=mx0a-001b2d01.pphosted.com)
+	id 1hMEMa-00065p-IM; Thu, 02 May 2019 16:15:12 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hMNB6-0000Hh-OJ
- for linux-mtd@lists.infradead.org; Fri, 03 May 2019 01:39:58 +0000
-Received: from pps.filterd (m0098413.ppops.net [127.0.0.1])
- by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x431acuJ136185
- for <linux-mtd@lists.infradead.org>; Thu, 2 May 2019 21:39:54 -0400
-Received: from e06smtp02.uk.ibm.com (e06smtp02.uk.ibm.com [195.75.94.98])
- by mx0b-001b2d01.pphosted.com with ESMTP id 2s889demw8-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-mtd@lists.infradead.org>; Thu, 02 May 2019 21:39:54 -0400
-Received: from localhost
- by e06smtp02.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
- Fri, 3 May 2019 02:39:52 +0100
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
- by e06smtp02.uk.ibm.com (192.168.101.132) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Fri, 3 May 2019 02:39:49 +0100
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
- [9.149.105.58])
- by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x431dmN752625432
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 3 May 2019 01:39:48 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 805664C04A;
- Fri,  3 May 2019 01:39:48 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 405C64C050;
- Fri,  3 May 2019 01:39:47 +0000 (GMT)
-Received: from localhost.localdomain (unknown [9.199.55.113])
- by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Fri,  3 May 2019 01:39:47 +0000 (GMT)
-From: Chandan Rajendra <chandan@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH 03/13] fscrypt: rename fscrypt_do_page_crypto() to
- fscrypt_crypt_block()
-Date: Thu, 02 May 2019 21:13:47 +0530
-Organization: IBM
-In-Reply-To: <20190501224515.43059-4-ebiggers@kernel.org>
-References: <20190501224515.43059-1-ebiggers@kernel.org>
- <20190501224515.43059-4-ebiggers@kernel.org>
-MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-x-cbid: 19050301-0008-0000-0000-000002E2BA70
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19050301-0009-0000-0000-0000224F2AA1
-Message-Id: <3498805.PsyZfXou4z@localhost.localdomain>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-05-03_01:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=699 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1905030009
+ id 1hMEMR-0005W4-T9
+ for linux-mtd@lists.infradead.org; Thu, 02 May 2019 16:15:05 +0000
+Subject: Re: [GIT PULL] MTD fixes for 5.1 final
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1556813703;
+ bh=48dOdRmMVPXBsowhpGEfeSxCWlng0Hchxv8f1hORoPI=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=RPWNbSbD56omBBiQaXhuzBNOZAriW3Ly/T7knVtPG4xedUyC88Eg2S9RQRZHCIvnI
+ kOaS5uj/1RIw4CSLzyFHgXKtFuyaEpW1NqboAESo+ZG+VHdtNLG8bzKRgrgXG53rje
+ Uw99MA7DDkKFzMsg1cEcv40WX3uA/ylfWAQ38qGs=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
+References: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git
+ tags/mtd/fixes-for-5.1-rc6
+X-PR-Tracked-Commit-Id: 9a8f612ca0d6a436e6471c9bed516d34a2cc626f
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: e2a4b102d48be7f6055e0e70696ab243ee791e51
+Message-Id: <155681370345.16515.15182479020110698359.pr-tracker-bot@kernel.org>
+Date: Thu, 02 May 2019 16:15:03 +0000
+To: Richard Weinberger <richard@nod.at>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190502_183956_918428_E8601F8D 
-X-CRM114-Status: GOOD (  16.89  )
-X-Spam-Score: 2.9 (++)
+X-CRM114-CacheID: sfid-20190502_091503_964856_6E2F0BA3 
+X-CRM114-Status: UNSURE (   1.34  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (2.9 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.158.5 listed in list.dnswl.org]
- 1.1 DATE_IN_PAST_06_12     Date: is 6 to 12 hours before Received: date
- 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -104,32 +76,26 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-fsdevel@vger.kernel.org, linux-fscrypt@vger.kernel.org,
- linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
- linux-f2fs-devel@lists.sourceforge.net
+Cc: linux-mtd@lists.infradead.org, torvalds@linux-foundation.org,
+ linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thursday, May 2, 2019 4:15:05 AM IST Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> fscrypt_do_page_crypto() only does a single encryption or decryption
-> operation, with a single logical block number (single IV).  So it
-> actually operates on a filesystem block, not a "page" per se.  To
-> reflect this, rename it to fscrypt_crypt_block().
->
+The pull request you sent on Thu, 2 May 2019 10:54:06 +0200 (CEST):
 
-Looks good to me,
+> git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/fixes-for-5.1-rc6
 
-Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/e2a4b102d48be7f6055e0e70696ab243ee791e51
+
+Thank you!
 
 -- 
-chandan
-
-
-
+Deet-doot-dot, I am a bot.
+https://korg.wiki.kernel.org/userdoc/prtracker
 
 ______________________________________________________
 Linux MTD discussion mailing list
