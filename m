@@ -2,93 +2,95 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F21EE11C42
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 17:10:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1DAD912616
+	for <lists+linux-mtd@lfdr.de>; Fri,  3 May 2019 03:40:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
 	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TsMcgGAv7PYQkKVgU4GUUXXzu+uO52m+9Bka8zoIAIE=; b=rffV7Ug5NykvqQ
-	YaXSz7otlmD2q2hukMfx7fUeeSrqE1xOZ5EU+6Q00MO/Oz9AODHcfK7w0zyVpUMyD58kdmzQ2p6y9
-	CBt7TI7vNzH57abiqDROWO2G8T4aBL7ddNoUMEOYvv9a+RZ0i/wiJDzCl0siTvgzkui/rCkRiKm/e
-	nQJqn6eMrGbAr2FVBt8jlCNTNOAxMshppA/m5pSbxLFL/VCkCS8HBxwJjum7JtALk1e8lYUkB8pXk
-	7c6yRxTOZvecrSGiAR3ig34ZrYTeDCT7em4sQ16ew3W4uqJSmnVnwFN6ZBwW5RoowI877ZG26BgY1
-	kmLKehOR4ERDnYHMsROw==;
+	List-Owner; bh=DR282WfAPKwiDiyT/BmGxjCOcNZCBMxC9XFqjqwiMlA=; b=XVvSl5dPZ9z3Sw
+	ubvwPnH+68CvhEG5vQlLP7QQ5YS6HVGzU/sFhRg/tLvwm5rsJPWBBUEeMnlkCaDjyhNsZIh8WSvVw
+	OxFdNwvoloVC9KB5Z1jQHp86f2jgLofPArEl5HgCeB/ZlNf9BZA5YaELRkH3mX6yNJKQSQ44ZNf0r
+	o0goN4ZH6PdnLpVgHDWCMKBRu87xYUPTnvmaqskmg8DoVk0XnuUICmXx0L3dko/XKMRn3DgnwWY4J
+	BPGhUOUVH4gBN3UG0LdWk5Vd+z0nRdTvPHqN4vSEaqe7A0QyND8fwl+3qjx6os6lM7jDSx2Oi8n3H
+	qizv0g+IHV91f1iCPQ3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hMDMB-00075v-EJ; Thu, 02 May 2019 15:10:43 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1hMNBH-0000IP-9G; Fri, 03 May 2019 01:40:07 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hMDM4-00075M-F9
- for linux-mtd@lists.infradead.org; Thu, 02 May 2019 15:10:37 +0000
-Received: from pps.filterd (m0098404.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x42F7alF131387
- for <linux-mtd@lists.infradead.org>; Thu, 2 May 2019 11:10:35 -0400
+ id 1hMNB6-0000Hh-OJ
+ for linux-mtd@lists.infradead.org; Fri, 03 May 2019 01:39:58 +0000
+Received: from pps.filterd (m0098413.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x431acuJ136185
+ for <linux-mtd@lists.infradead.org>; Thu, 2 May 2019 21:39:54 -0400
 Received: from e06smtp02.uk.ibm.com (e06smtp02.uk.ibm.com [195.75.94.98])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2s82qngqqw-1
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2s889demw8-1
  (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-mtd@lists.infradead.org>; Thu, 02 May 2019 11:10:35 -0400
+ for <linux-mtd@lists.infradead.org>; Thu, 02 May 2019 21:39:54 -0400
 Received: from localhost
  by e06smtp02.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
  Violators will be prosecuted
  for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
- Thu, 2 May 2019 16:10:33 +0100
+ Fri, 3 May 2019 02:39:52 +0100
 Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
  by e06smtp02.uk.ibm.com (192.168.101.132) with IBM ESMTP SMTP Gateway:
  Authorized Use Only! Violators will be prosecuted; 
  (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Thu, 2 May 2019 16:10:30 +0100
+ Fri, 3 May 2019 02:39:49 +0100
 Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com
  [9.149.105.58])
  by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x42FAT6q46202894
+ x431dmN752625432
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 2 May 2019 15:10:29 GMT
+ Fri, 3 May 2019 01:39:48 GMT
 Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 260A74C04E;
- Thu,  2 May 2019 15:10:29 +0000 (GMT)
+ by IMSVA (Postfix) with ESMTP id 805664C04A;
+ Fri,  3 May 2019 01:39:48 +0000 (GMT)
 Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 957674C04A;
- Thu,  2 May 2019 15:10:27 +0000 (GMT)
-Received: from localhost.localdomain (unknown [9.85.71.82])
+ by IMSVA (Postfix) with ESMTP id 405C64C050;
+ Fri,  3 May 2019 01:39:47 +0000 (GMT)
+Received: from localhost.localdomain (unknown [9.199.55.113])
  by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Thu,  2 May 2019 15:10:27 +0000 (GMT)
+ Fri,  3 May 2019 01:39:47 +0000 (GMT)
 From: Chandan Rajendra <chandan@linux.ibm.com>
 To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH 02/13] fscrypt: remove the "write" part of struct
- fscrypt_ctx
-Date: Thu, 02 May 2019 20:41:26 +0530
+Subject: Re: [PATCH 03/13] fscrypt: rename fscrypt_do_page_crypto() to
+ fscrypt_crypt_block()
+Date: Thu, 02 May 2019 21:13:47 +0530
 Organization: IBM
-In-Reply-To: <20190501224515.43059-3-ebiggers@kernel.org>
+In-Reply-To: <20190501224515.43059-4-ebiggers@kernel.org>
 References: <20190501224515.43059-1-ebiggers@kernel.org>
- <20190501224515.43059-3-ebiggers@kernel.org>
+ <20190501224515.43059-4-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-TM-AS-GCONF: 00
-x-cbid: 19050215-0008-0000-0000-000002E297AB
+x-cbid: 19050301-0008-0000-0000-000002E2BA70
 X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19050215-0009-0000-0000-0000224F06AB
-Message-Id: <3076347.dZPG85aNpo@localhost.localdomain>
+x-cbparentid: 19050301-0009-0000-0000-0000224F2AA1
+Message-Id: <3498805.PsyZfXou4z@localhost.localdomain>
 X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-05-02_08:, , signatures=0
+ definitions=2019-05-03_01:, , signatures=0
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  priorityscore=1501
  malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
  clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=442 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1905020102
+ mlxlogscore=699 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1905030009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190502_081036_795864_626800A0 
-X-CRM114-Status: GOOD (  15.43  )
-X-Spam-Score: 1.8 (+)
+X-CRM114-CacheID: sfid-20190502_183956_918428_E8601F8D 
+X-CRM114-Status: GOOD (  16.89  )
+X-Spam-Score: 2.9 (++)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.8 points)
+ Content analysis details:   (2.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.156.1 listed in list.dnswl.org]
+ low trust [148.163.158.5 listed in list.dnswl.org]
+ 1.1 DATE_IN_PAST_06_12     Date: is 6 to 12 hours before Received: date
  2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -110,10 +112,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thursday, May 2, 2019 4:15:04 AM IST Eric Biggers wrote:
+On Thursday, May 2, 2019 4:15:05 AM IST Eric Biggers wrote:
 > From: Eric Biggers <ebiggers@google.com>
 > 
-> Now that fscrypt_ctx is not used for writes, remove the 'w' fields.
+> fscrypt_do_page_crypto() only does a single encryption or decryption
+> operation, with a single logical block number (single IV).  So it
+> actually operates on a filesystem block, not a "page" per se.  To
+> reflect this, rename it to fscrypt_crypt_block().
 >
 
 Looks good to me,
