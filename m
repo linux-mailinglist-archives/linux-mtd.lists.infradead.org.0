@@ -2,84 +2,94 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 616961114F
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 04:20:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 229421117C
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 04:29:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:
-	In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=sWtYmCOkdE63umI/1iXWXvtlUXLSlDYuBOtxu+YYUNc=; b=Fl6
-	8bk12IRAW8UlXxop0gGODZekodzCSEJhTj1j2D1AIt6rG/TGuO29NcQMIyq3w/NYSmx0FqfMLMK51
-	XHAPVHtoMHtSxTBAdIGVechMbjagg3X3VBUFYNioxKJoOqXl47SXM1euGgJck4R/ZAAbnKniXwNrY
-	W5VWaaiXWt6zFg5h7YGUIqiKHeE/6yHsyK3nUud69R5OiphmLgX85c2C1IwPH8FH9HL1URnxz7wpC
-	0Fwr64aw15XWQXnuElOybJiNVYET7foGMgD/+88OWCVFTeAdIlseKCgOdvhQQfNoMx0/tfPO/hv5A
-	trZGeVJXf66vzIMd/Lp4aOTLW/wVhdQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ySoQ2sxAabWXi2sRJCjS1f5FSA7Nr88J4if4hv9VW2c=; b=eK8UmvfPzt8TEf
+	QU0tE+oLFwstGkTycxFkViQFtZV/zJFwy6Q4XZXlm4qpYvYaK2I2XqIy9NEVUxudf1VWqwSNCG/df
+	3n3gWUfYbRoY1RBhL6Lpl/Vjiw4Wq/DxdOusQMPVuTqNRKVZV1MUy4srZ0zgHoQi8lhBBije1+vCa
+	q7BtON3ymcbJMkXsHSa09gT0lOn+rFsf4VSexs4w/pnEJGyXeR7+i8Zkgz0ttoTeIclwVYbVnVdya
+	+opWbT5AD3BoN3v+P4Y/i3A4U8FPHW1xVdyZtZpF68RXRKT7yYQnbxsnh9C4MDmfhPoq5lZAiWNRO
+	eB6geb3RRhqDsZ+6160g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hM1KT-0005l2-NJ; Thu, 02 May 2019 02:20:09 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hM1Tt-0001FK-4D; Thu, 02 May 2019 02:29:53 +0000
+Received: from mail-yw1-xc29.google.com ([2607:f8b0:4864:20::c29])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hM1Jm-00054j-H5
- for linux-mtd@bombadil.infradead.org; Thu, 02 May 2019 02:19:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Date:Message-Id:In-Reply-To:Subject:Cc:
- To:From:Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:References:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=C9XRTvvku7YohEoOselFNompaVQM73w7LtDDtIUkluY=; b=K07MjxJdEyGaxP/Z7/bw19M7Kr
- ggKqIOtc5CXYlJCBeFxjY0loGMDQuVKJuPJgjplPUV2d2L6uPamJU9HRW0YDGPsWoaU69UMLcFyzz
- xOXq8QcNgPyen39fqR4R893Qttn9hRo22fcctDYgAGdZ7u6QZu0xfJMhwHFgGLS8mqDUWoR70jg3i
- NHglixPtdS0ak4IFJ4IrTb+5fI7bMAu1+pISZoOomOcfW1jNTs0fyMNL8KL22U+hSz6kkkPk6Szqu
- DPlRpaOPn25BTiJTr/0rWUGU4HxEF+CpjIhr7FBoV6oBTZ9Iof9X4efZOR7iG23WfERceaMvvTrlc
- CVkgrbyA==;
-Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hM1Ji-0004ND-Ao
- for linux-mtd@lists.infradead.org; Thu, 02 May 2019 02:19:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sirena.org.uk; s=20170815-heliosphere; h=Date:Message-Id:In-Reply-To:
- Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
- List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
- List-Archive; bh=C9XRTvvku7YohEoOselFNompaVQM73w7LtDDtIUkluY=; b=wJ3NgXseGvrx
- iT+1+Lz86m37j/B8N7zsETj6gF1yNMJPOnMGLyfYsa0eyGk26tu1pgcPCFFkSOYQ6bg0RoKSwh6SK
- 5lF7hwsuu7fMpSqi3tl1Ro6DiXr4bqSkQfPXdxeD8wMuGFxIf4w+mRPBeoDAXNsDnqF9CGu5cPCI5
- GJ2RE=;
-Received: from [211.55.52.15] (helo=finisterre.ee.mobilebroadband)
- by heliosphere.sirena.org.uk with esmtpsa
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <broonie@sirena.org.uk>)
- id 1hM1JQ-0005vW-3J; Thu, 02 May 2019 02:19:04 +0000
-Received: by finisterre.ee.mobilebroadband (Postfix, from userid 1000)
- id EAF91441D41; Thu,  2 May 2019 03:19:00 +0100 (BST)
-From: Mark Brown <broonie@kernel.org>
-To: Naga Sureshkumar Relli <naga.sureshkumar.relli@xilinx.com>
-Subject: Applied "spi: spi-mem: zynq-qspi: Fix build error on architectures
- missing readsl/writesl" to the spi tree
-In-Reply-To: <1555918009-13172-1-git-send-email-naga.sureshkumar.relli@xilinx.com>
-X-Patchwork-Hint: ignore
-Message-Id: <20190502021900.EAF91441D41@finisterre.ee.mobilebroadband>
-Date: Thu,  2 May 2019 03:19:00 +0100 (BST)
-X-Bad-Reply: In-Reply-To but no 'Re:' in Subject.
+ id 1hM1Tl-0001F1-NY
+ for linux-mtd@lists.infradead.org; Thu, 02 May 2019 02:29:46 +0000
+Received: by mail-yw1-xc29.google.com with SMTP id j4so464797ywk.11
+ for <linux-mtd@lists.infradead.org>; Wed, 01 May 2019 19:29:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:openpgp:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=H1U2mJXBbnkWOnvmjM7JApU8kCjuCk0GAzDiJe0SSQ8=;
+ b=HhyNhPER21cKXrmuPmPHmnjvXbBpYYCdGpMAWXbBnuVSKm35ii3+zr47c07qUIxCtE
+ kpxIKagdzxPIIgRSrfKgEd7BwxlESTY+lWAn8RzsWw/E5ZP3yQHRL57GtD5cUsViV5Ot
+ 16t1lQ///dE+3A/FI39hvUZadgfIhWD+VnHI3SP5Ic6H3azruGl+VZUqFPILyyadS6GG
+ lbI30N99yOtU5qE+sWz7oKl0fK3kaT7ATJxWt4D+HG+tch1RA93Yegpx2wuD41x0ktMP
+ mETEUEtXJHfn0qPrOI6JGR0o9Z0gRRWQzUZryzc1ph6iwNmK8KVCUivX9qKk/5mEwU33
+ gdyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:openpgp:message-id
+ :date:user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=H1U2mJXBbnkWOnvmjM7JApU8kCjuCk0GAzDiJe0SSQ8=;
+ b=ftA4ex3MfFyL0JwVwV4UhS1q7Tzi/+QEV3/Oe4MIOXp+t3+XVcGyNQLNaQbLxdV9Sr
+ LxjJ7ZrhZAmOnPRQS4b3vngF1539FlkvvE6cRCRuPTICXCCLQCNZy94DnjUuQiKVLqcZ
+ Ojeu6MHK66YERrn0RPS7//vj1aya9pMxCJ+8lGTJXzNqYCMKsTYBdFw7PMZIK8fnU3p8
+ SZ27m3KyMI7ENzXEg4y8gPUy5jQsgfprSLooxxkHe+yt1/kQVtyzS3FOKIfqAaB6ROIw
+ rhzU9yyRqeYhvWJ9Si0afIwG4GSmqL1ndjmQ34d/4OJcBAQ1SA1961RqwRbTyBMUQoYD
+ kCLQ==
+X-Gm-Message-State: APjAAAXIEFddAFoVgP4ByfLUuJM2yMzei5AbQReSTDzWmSwJi5vU/IwV
+ e0ffEZHKp0d92qTwhIjR1g3W502m
+X-Google-Smtp-Source: APXvYqwiqBdAZ2Op0tTtlyQx/W77Z7fZU/x3DkLyj8DO/TL4D0NenRU2IltJnGLYqvLRkaPf6n34xA==
+X-Received: by 2002:a81:9203:: with SMTP id j3mr933715ywg.511.1556764183630;
+ Wed, 01 May 2019 19:29:43 -0700 (PDT)
+Received: from [10.230.25.168] ([192.19.224.250])
+ by smtp.gmail.com with ESMTPSA id h3sm7436807ywb.87.2019.05.01.19.29.41
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 01 May 2019 19:29:42 -0700 (PDT)
+Subject: Re: [PATCH v2] mtd: rawnand: brcmnand: fix bch ecc layout for large
+ page nand
+To: Kamal Dasu <kdasu.kdev@gmail.com>, linux-mtd@lists.infradead.org
+References: <1556738544-29857-1-git-send-email-kdasu.kdev@gmail.com>
+From: Florian Fainelli <f.fainelli@gmail.com>
+Openpgp: preference=signencrypt
+Message-ID: <baffcda4-84f8-cd5f-8872-a2e2572024ff@gmail.com>
+Date: Wed, 1 May 2019 19:29:39 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
+MIME-Version: 1.0
+In-Reply-To: <1556738544-29857-1-git-send-email-kdasu.kdev@gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_221922_476726_46BF9DBB 
-X-CRM114-Status: GOOD (  15.07  )
-X-Spam-Score: -0.1 (/)
-X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
- Content analysis details:   (-0.1 points)
+X-CRM114-CacheID: sfid-20190501_192945_795521_57A881F7 
+X-CRM114-Status: GOOD (  11.37  )
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:c29 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (f.fainelli[at]gmail.com)
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -91,90 +101,29 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: kbuild test robot <lkp@intel.com>, bbrezillon@kernel.org,
- nagasuresh12@gmail.com, linux-kernel@vger.kernel.org,
- linux-spi@vger.kernel.org, marek.vasut@gmail.com,
- Mark Brown <broonie@kernel.org>, linux-mtd@lists.infradead.org, richard@nod.at,
- michals@xilinx.com, dwmw2@infradead.org, vigneshr@ti.com
-MIME-Version: 1.0
+Cc: Boris Brezillon <bbrezillon@kernel.org>,
+ Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
+ Marek Vasut <marek.vasut@gmail.com>, bcm-kernel-feedback-list@broadcom.com,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The patch
 
-   spi: spi-mem: zynq-qspi: Fix build error on architectures missing readsl/writesl
 
-has been applied to the spi tree at
+On 5/1/2019 12:22 PM, Kamal Dasu wrote:
+> The oobregion->offset for large page nand parts was wrong, change
+> fixes this error in calculation.
+> 
+> Fixes: ef5eeea6e911 ("mtd: nand: brcm: switch to mtd_ooblayout_ops")
+> Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-5.2
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.  
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
-From ba3ce8cb3808cad0f9b8303fad4bd1c887834c82 Mon Sep 17 00:00:00 2001
-From: Naga Sureshkumar Relli <naga.sureshkumar.relli@xilinx.com>
-Date: Mon, 22 Apr 2019 12:56:49 +0530
-Subject: [PATCH] spi: spi-mem: zynq-qspi: Fix build error on architectures
- missing readsl/writesl
-
-Alpha and some of the architectures are missing readsl/writesl functions.
-so the zynq-qspi driver won't be able to build on these arches. hence use
-ioread32_rep()/iowrite32_rep() instead of readsl()/writesl().
-
-Signed-off-by: Naga Sureshkumar Relli <naga.sureshkumar.relli@xilinx.com>
-Reported-by: kbuild test robot <lkp@intel.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- drivers/spi/spi-zynq-qspi.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
-index 8079d0062d03..c6bee67decb5 100644
---- a/drivers/spi/spi-zynq-qspi.c
-+++ b/drivers/spi/spi-zynq-qspi.c
-@@ -407,8 +407,8 @@ static void zynq_qspi_write_op(struct zynq_qspi *xqspi, int txcount,
- 		count = txcount;
- 
- 	if (xqspi->txbuf) {
--		writesl(xqspi->regs + ZYNQ_QSPI_TXD_00_00_OFFSET,
--			xqspi->txbuf, count);
-+		iowrite32_rep(xqspi->regs + ZYNQ_QSPI_TXD_00_00_OFFSET,
-+			      xqspi->txbuf, count);
- 		xqspi->txbuf += count * 4;
- 	} else {
- 		for (k = 0; k < count; k++)
-@@ -433,8 +433,8 @@ static void zynq_qspi_read_op(struct zynq_qspi *xqspi, int rxcount)
- 	if (count > rxcount)
- 		count = rxcount;
- 	if (xqspi->rxbuf) {
--		readsl(xqspi->regs + ZYNQ_QSPI_RXD_OFFSET,
--		       xqspi->rxbuf, count);
-+		ioread32_rep(xqspi->regs + ZYNQ_QSPI_RXD_OFFSET,
-+			     xqspi->rxbuf, count);
- 		xqspi->rxbuf += count * 4;
- 	} else {
- 		for (k = 0; k < count; k++)
+Reviewed-by: Florian Fainelli <f.fainelli@gmail.com>
 -- 
-2.20.1
-
+Florian
 
 ______________________________________________________
 Linux MTD discussion mailing list
