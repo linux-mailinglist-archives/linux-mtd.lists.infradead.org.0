@@ -2,69 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 076D611FEB
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 May 2019 18:15:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 281B5129B6
+	for <lists+linux-mtd@lfdr.de>; Fri,  3 May 2019 10:18:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xRSB4blDzGxW2x5u4aIgHPcQS17pxOdCnQsMW9V8Gnk=; b=lIicv0QUThxYel
-	YUvfzsxX9U+8xyONG9JA3cBhlXIt5jVNtwrfQBEQvGlr8DdPUbR4Yprmmv15qwwhSepsMNSMgUoyi
-	rPE4fLW2fPEO4ADWajtEM+Lr0ewWx+0wpYiiA2Jf2uAlHH2K/5noBrhtIlhHnazfnSh/Lk2baxQ2n
-	IP/Tn3OEFXyMGAhooy3jQIbyJA+F1/xlJEpdviwPTLGCqiZgNBwUwxurGuCBebHl+qgyc6JePKlfp
-	YDAHE+zxl6fyIThLf2esKr+BWqDW8M8hoJSu3t44TW0IBzobjkRlXaylS9ohOwt0lOr2H+gHGZS1P
-	CzntVUJE5o6Aj+CWBhGw==;
+	List-Owner; bh=uF6TluNk3xJ7KAfS4NMz2nFdBSpS1FjyvJ7UaJpRL7M=; b=arw1qiEUZ7ZsnT
+	pN7dRUIzhmJ24C7od98KRDwWjJY0KDksfvbbU7gxxUrIk1cIPxlhTDOBjEA1whnOVcpUnUDd+Hs/1
+	5qNwYlXjhrg9VdeWdGyHAyz+B5dKSWBH5Gzbn/CK6MvBWF8wZGxeRi+OwTKHavM9atD+1B5HCcZT4
+	BXjn4JFLIFFnE1PK70Y2IsB/Z2AUAZCNGwp3JVCpYrz0yAyA5pQMxZViT8C1Xfmxmg4tGcJcKcMT9
+	PcmWS/Nv7Ad3LEO8ZbEm3A6x8uoF3N42ksIOTAHu8H6YClvICU3R3xP60nXXi6le9JYoGigkxhFfs
+	hThwGi5wYRPomR1inzQA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hMEMa-00065p-IM; Thu, 02 May 2019 16:15:12 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1hMTP6-0000gD-4C; Fri, 03 May 2019 08:18:48 +0000
+Received: from relay11.mail.gandi.net ([217.70.178.231])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hMEMR-0005W4-T9
- for linux-mtd@lists.infradead.org; Thu, 02 May 2019 16:15:05 +0000
-Subject: Re: [GIT PULL] MTD fixes for 5.1 final
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1556813703;
- bh=48dOdRmMVPXBsowhpGEfeSxCWlng0Hchxv8f1hORoPI=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=RPWNbSbD56omBBiQaXhuzBNOZAriW3Ly/T7knVtPG4xedUyC88Eg2S9RQRZHCIvnI
- kOaS5uj/1RIw4CSLzyFHgXKtFuyaEpW1NqboAESo+ZG+VHdtNLG8bzKRgrgXG53rje
- Uw99MA7DDkKFzMsg1cEcv40WX3uA/ylfWAQ38qGs=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
-References: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <1906022472.41848.1556787246765.JavaMail.zimbra@nod.at>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git
- tags/mtd/fixes-for-5.1-rc6
-X-PR-Tracked-Commit-Id: 9a8f612ca0d6a436e6471c9bed516d34a2cc626f
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: e2a4b102d48be7f6055e0e70696ab243ee791e51
-Message-Id: <155681370345.16515.15182479020110698359.pr-tracker-bot@kernel.org>
-Date: Thu, 02 May 2019 16:15:03 +0000
-To: Richard Weinberger <richard@nod.at>
+ id 1hMTOo-0000Zw-GX; Fri, 03 May 2019 08:18:32 +0000
+Received: from xps13 (aaubervilliers-681-1-29-145.w90-88.abo.wanadoo.fr
+ [90.88.149.145]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id 02129100014;
+ Fri,  3 May 2019 08:18:10 +0000 (UTC)
+Date: Fri, 3 May 2019 10:18:10 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 11/36] mtd: Fix typo in mtd_ooblayout_set_databytes()
+ description
+Message-ID: <20190503101810.2bea0f9f@xps13>
+In-Reply-To: <20190331133246.61645c15@collabora.com>
+References: <20190304222841.13899-1-miquel.raynal@bootlin.com>
+ <20190304222841.13899-12-miquel.raynal@bootlin.com>
+ <20190331133246.61645c15@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190502_091503_964856_6E2F0BA3 
-X-CRM114-Status: UNSURE (   1.34  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20190503_011831_199684_467BBD4A 
+X-CRM114-Status: GOOD (  15.85  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.178.231 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,27 +61,40 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mason Yang <masonccyang@mxic.com.tw>, Vignesh R <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
+ Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
+ Schrempf Frieder <frieder.schrempf@kontron.de>,
+ Paul Cercueil <paul@crapouillou.net>, Marek Vasut <marek.vasut@gmail.com>,
+ linux-mtd@lists.infradead.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The pull request you sent on Thu, 2 May 2019 10:54:06 +0200 (CEST):
-
-> git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/fixes-for-5.1-rc6
-
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/e2a4b102d48be7f6055e0e70696ab243ee791e51
-
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgQm9yaXMsCgpCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29t
+PiB3cm90ZSBvbiBTdW4sIDMxIE1hcgoyMDE5IDEzOjMyOjQ2ICswMjAwOgoKPiBPbiBNb24sICA0
+IE1hciAyMDE5IDIzOjI4OjE2ICswMTAwCj4gTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBi
+b290bGluLmNvbT4gd3JvdGU6Cj4gCj4gPiBGaXggYSBwcm9iYWJsZSBjb3B5L3Bhc3RlIGVycm9y
+OiB0aGUgZnVuY3Rpb24gd29ya3MgbGlrZQo+ID4gbXRkX29vYmxheW91dF9zZXRfYnl0ZXMoKSwg
+bm90IHRoZSAqX2dldF9ieXRlcygpIGFsdGVybmF0ZS4KPiA+IAo+ID4gU2lnbmVkLW9mZi1ieTog
+TWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4KPiA+IC0tLQo+ID4gIGRy
+aXZlcnMvbXRkL210ZGNvcmUuYyB8IDIgKy0KPiA+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRp
+b24oKyksIDEgZGVsZXRpb24oLSkKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL210
+ZGNvcmUuYyBiL2RyaXZlcnMvbXRkL210ZGNvcmUuYwo+ID4gaW5kZXggMjFlM2NkYzA0MDM2Li42
+ZWQ0ODAxODE2M2MgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL210ZC9tdGRjb3JlLmMKPiA+ICsr
+KyBiL2RyaXZlcnMvbXRkL210ZGNvcmUuYwo+ID4gQEAgLTE1OTIsNyArMTU5Miw3IEBAIEVYUE9S
+VF9TWU1CT0xfR1BMKG10ZF9vb2JsYXlvdXRfZ2V0X2RhdGFieXRlcyk7Cj4gPiAgICogQHN0YXJ0
+OiBmaXJzdCBFQ0MgYnl0ZSB0byBzZXQKPiA+ICAgKiBAbmJ5dGVzOiBudW1iZXIgb2YgRUNDIGJ5
+dGVzIHRvIHNldCAgCj4gCj4gTG9va3MgbGlrZSB0aGUgcGFyYW1ldGVyIGRlc2NyaXB0aW9ucyBh
+cmUgd3JvbmcgdG9vLgoKQXJlIHlvdSBzdXJlPyBJIGRvbid0IHNlZSB3aGVyZS4KCj4gCj4gPiAg
+ICoKPiA+IC0gKiBXb3JrcyBsaWtlIG10ZF9vb2JsYXlvdXRfZ2V0X2J5dGVzKCksIGV4Y2VwdCBp
+dCBhY3RzIG9uIGZyZWUgYnl0ZXMuCj4gPiArICogV29ya3MgbGlrZSBtdGRfb29ibGF5b3V0X3Nl
+dF9ieXRlcygpLCBleGNlcHQgaXQgYWN0cyBvbiBmcmVlIGJ5dGVzLgo+ID4gICAqCj4gPiAgICog
+UmV0dXJucyB6ZXJvIG9uIHN1Y2Nlc3MsIGEgbmVnYXRpdmUgZXJyb3IgY29kZSBvdGhlcndpc2Uu
+Cj4gPiAgICovICAKPiAKClRoYW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxp
+bmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LW10ZC8K
