@@ -2,130 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 42DF0147BA
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 11:42:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C62BB1490D
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:37:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=j2BEQl1hZ7VFipCbe8NQtBM5yWq7EjwDN71fWanHtlc=; b=d7dkg62ejzwrgF
-	vpQjV7s5C1H3MFF5pcX5pc4stIZn3SeRi2G2NXYakJzbo/AuqlDpSk/ZPqoRNkqBLdQZyYEzrHa3r
-	7oXBM2+txKJNsuhRD0hYMbvewf0hd5wpWsdpyc89vSWkJF0RXHN+k6x0/e9R/5yjB5VbNfUZ19Xhg
-	5CbWdMpStfVroHuTpK/J+mQMY3DlpGECK6FTViQjxb/xiEy6xGRmQX39/l6oLFf8JDFvRnf6SZ5Ba
-	MzgNxNNng2va0SX63rfiVuKx1/5UEzYP4PC2IaNK/UZXGIXsImJtDQ6wkTg9QtyNIlD5eRho703Kc
-	enkmS2dOjlAB/BHFJTcg==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=CgtG5LcmFi57NLWXhByvF/xXxjXLewz45N9EdqFUTFM=; b=c0lByfpdpxgvbS
+	KoS6HpVKkbYc/oEtZimI1y5O7DBaQ42KKfOQqOQ+RZqSytIajR4It4ql2Ed4wzccCqdpegIBb1agK
+	Ccv+sASyuzupYeqlU1ojUJ/xU3mepvB8ibfe5EopU8+ntxLTe6ulP0lKJZQx/BoycqrHD8MkY2bz8
+	c80ohC9Ze+5ypzdOqQqOx2Q7I7+iZeDCYa6yirtx9+AD/lKA+n7H/wViF4nue0UyUjz/AXBCEu9w2
+	tSqcyq/iOwIj0fmQth3u5IeVyRGIQppm93I8joIX87/LHA4874uzFitYmONXwIxwlCzwQPdDDauAy
+	97H78h+H6QL3t35euMTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNa8f-0005Bo-5e; Mon, 06 May 2019 09:42:25 +0000
-Received: from esa5.microchip.iphmx.com ([216.71.150.166])
+	id 1hNbvZ-0003F9-3F; Mon, 06 May 2019 11:37:01 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNa8X-0005BM-3H
- for linux-mtd@lists.infradead.org; Mon, 06 May 2019 09:42:18 +0000
-Received-SPF: Pass (esa5.microchip.iphmx.com: domain of
- Tudor.Ambarus@microchip.com designates 198.175.253.82 as
- permitted sender) identity=mailfrom;
- client-ip=198.175.253.82; receiver=esa5.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="Tudor.Ambarus@microchip.com";
- x-conformance=spf_only; x-record-type="v=spf1";
- x-record-text="v=spf1 mx a:ushub1.microchip.com
- a:smtpout.microchip.com a:mx1.microchip.iphmx.com
- a:mx2.microchip.iphmx.com include:servers.mcsv.net
- include:mktomail.com include:spf.protection.outlook.com ~all"
-Received-SPF: None (esa5.microchip.iphmx.com: no sender
- authenticity information available from domain of
- postmaster@email.microchip.com) identity=helo;
- client-ip=198.175.253.82; receiver=esa5.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
-Authentication-Results: esa5.microchip.iphmx.com;
- spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
- spf=None smtp.helo=postmaster@email.microchip.com;
- dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
- dmarc=pass (p=none dis=none) d=microchip.com
-X-IronPort-AV: E=Sophos;i="5.60,437,1549954800"; d="scan'208";a="30215431"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa5.microchip.iphmx.com with ESMTP/TLS/DHE-RSA-AES256-SHA;
- 06 May 2019 02:42:15 -0700
-Received: from NAM05-DM3-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.76.38) with Microsoft SMTP Server (TLS) id
- 14.3.352.0; Mon, 6 May 2019 02:42:13 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector1-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f+Q6gTTAe7xtobusGtwdqvfbpYaSWIXJTN7paPCeiks=;
- b=OQ7yN5RXxselppXog7qI80Zy6FMu8aail6ta0pCqAjnTRCpaooHDI6qsMOosyChAtL0WkEEajCTwodYR3oMWDearHCmKOGLqvUM1fDBX1gfm4P9QIsiwDDOkOTYtbZl/TOY/5NFLaM4fouD/eIsMP3A13J/e3jPTW0W39zXJJq8=
-Received: from BN6PR11MB1842.namprd11.prod.outlook.com (10.175.98.146) by
- BN6PR11MB4083.namprd11.prod.outlook.com (10.255.129.15) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1856.10; Mon, 6 May 2019 09:42:10 +0000
-Received: from BN6PR11MB1842.namprd11.prod.outlook.com
- ([fe80::35b3:7af:7216:8808]) by BN6PR11MB1842.namprd11.prod.outlook.com
- ([fe80::35b3:7af:7216:8808%10]) with mapi id 15.20.1856.012; Mon, 6 May 2019
- 09:42:10 +0000
-From: <Tudor.Ambarus@microchip.com>
-To: <richard@nod.at>, <boris.brezillon@collabora.com>,
- <miquel.raynal@bootlin.com>, <vigneshr@ti.com>, <marek.vasut@gmail.com>,
- <computersforpeace@gmail.com>, <dwmw2@infradead.org>
-Subject: [GIT PULL] mtd: spi-nor: Changes for 5.2
-Thread-Topic: [GIT PULL] mtd: spi-nor: Changes for 5.2
-Thread-Index: AQHVA+/61qY+FTnJlkShb3blTj5aRA==
-Date: Mon, 6 May 2019 09:42:10 +0000
-Message-ID: <ab707a79-10e1-6c72-d255-70437995b4f4@microchip.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: VI1PR0801CA0080.eurprd08.prod.outlook.com
- (2603:10a6:800:7d::24) To BN6PR11MB1842.namprd11.prod.outlook.com
- (2603:10b6:404:101::18)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [94.177.32.154]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 72472321-b535-47cb-7de0-08d6d2071c73
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600141)(711020)(4605104)(2017052603328)(7193020);
- SRVR:BN6PR11MB4083; 
-x-ms-traffictypediagnostic: BN6PR11MB4083:
-x-microsoft-antispam-prvs: <BN6PR11MB40836B11214CD5E5050D57CCF0300@BN6PR11MB4083.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:644;
-x-forefront-prvs: 0029F17A3F
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(346002)(39850400004)(376002)(396003)(136003)(366004)(199004)(189003)(31696002)(2501003)(66446008)(66476007)(26005)(110136005)(53936002)(2201001)(99286004)(52116002)(316002)(3846002)(6116002)(71190400001)(2906002)(102836004)(71200400001)(256004)(478600001)(386003)(6506007)(186003)(476003)(486006)(14454004)(2616005)(36756003)(305945005)(66066001)(66556008)(73956011)(66946007)(7736002)(64756008)(8676002)(81156014)(8936002)(81166006)(72206003)(86362001)(6436002)(5660300002)(6486002)(25786009)(68736007)(6512007)(31686004)(4326008);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BN6PR11MB4083;
- H:BN6PR11MB1842.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: microchip.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: 1WaGxdqKGHJQ7iWYSQ2dKnI4v4hse8osi1m57aKSeqyJd+0AQmEW2JRTSbgG+uA73CPEHRyLR3J4rn2dvRETk18vZCIRe3j78aMHQRDD5nLvMrrDo2oJy4vpv2C4h58yJusmvzs4A+lODtyai84je8Z/Uimzehz8K95+SJxmlB1kuJRNM5Ter552xpAZUVldU2dbqgJeIFJ1qbFwXne6zIZVxFWTK7vdDvAq9R5qA/QhTIh42AIFwjZ466KVuH7+FSjAn51Cj/EpQxgnP3QPxpQpX9qWTMM5XwwPSReHGe5Eiidi8oA9PtIRJLOHZ/0J602ju2u/HiZMOThlbu6F+LIlY8Cb/MsCJlS2Ab0KWhizbLqW/HKNe4Rm6dYtjJJ+5SL6+D5HqEDjq/K0scn9zaLg0/0vz85UkQgMRcAZhl8=
-Content-ID: <AE8FCC6FEC7A0C4EB9558CBEF3243728@namprd11.prod.outlook.com>
+ id 1hNbvR-0003Eg-DK
+ for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:36:55 +0000
+Received: by mail-wm1-x341.google.com with SMTP id b10so15367176wmj.4
+ for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 04:36:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Hdgsasm85cLpyR+0zO9UBOEFTYWJLaXCuX6Xh5Umnis=;
+ b=fYrhc+woeaOQFI3Ihy5OmqudKf1+eRh10Qxbl4Lvuz4hKNtsxZUqtwnNC3fb62hECe
+ NPQ2VHuwFUcZCTD8QH1PQGY5vKxe08zPrjqL/pkwICb2GJwRo9J+tmY6qSDD3BDnMBSO
+ YACjIRSjt3l6j8GDnb7Q8swbwNJqDWRayA5/s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Hdgsasm85cLpyR+0zO9UBOEFTYWJLaXCuX6Xh5Umnis=;
+ b=mCVIqgB1/k9Kt7k0UC8lyPLTIntBGhX7hcdpE042FiBQFZ+VFYfYFA694gUZ/Shx62
+ Ctb0oknDDqdOXQIbjAjFuA0u6yK/fV0vobqRqp0zLCRAR6AEA0TZAFv7jXuA4dl2/uvn
+ 6H7k9gBU0p0tlCtGfLofusQunLBIXBUsMO5pYgvHGPKswdKMJ9Xe4JQ1S9mpqvP75eZE
+ 7aFfO1otUORTJAYBKl5d60ZT8k1SC/WvmvV6gaLkKWIsN4LcFDqrVJ2yH2Dc9+roGH/w
+ gxA/OZ1gWSEJ9gbm2wet/TLv1ScUYrck54dUEui0ekerio625xpk3TrPmcIpbRa6HNoS
+ EhlA==
+X-Gm-Message-State: APjAAAXdJkw6qyd0IxOs64W6INKCbhUlprPSZhGZ1I/uNIr/9Uv8kQL2
+ V5OK40/L1DufDNwqSA/G9ZB/9gSuUAvDCfNrQNDGBg==
+X-Google-Smtp-Source: APXvYqxYMwZr850Oc2ms5Uw7wL7Q0E1EzRzwM1i5zWOcTXWfAqDCpRIdvljauq44lHV0qzMKZkH+Q29iPAjW4GLqYWY=
+X-Received: by 2002:a1c:1f92:: with SMTP id
+ f140mr13611692wmf.132.1557142611608; 
+ Mon, 06 May 2019 04:36:51 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 72472321-b535-47cb-7de0-08d6d2071c73
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2019 09:42:10.7592 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB4083
-X-OriginatorOrg: microchip.com
+References: <20190506084414.89702-1-zhuohao@chromium.org>
+ <CANMq1KBpqb5-Ab1z_9zzvNVCkY72pBrAEJ2UVO1CgOjP=xXQ+A@mail.gmail.com>
+In-Reply-To: <CANMq1KBpqb5-Ab1z_9zzvNVCkY72pBrAEJ2UVO1CgOjP=xXQ+A@mail.gmail.com>
+From: Zhuohao Lee <zhuohao@chromium.org>
+Date: Mon, 6 May 2019 19:36:41 +0800
+Message-ID: <CABD5ybnTbKLNUU68+bN9EcbkJECU6egPghUm=h=xHToWGmeWUw@mail.gmail.com>
+Subject: Re: [PATCH v2] mtd: spi-nor: add debugfs nodes for querying the flash
+ name and id
+To: Nicolas Boichat <drinkcat@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_024217_313264_21B27BF3 
-X-CRM114-Status: GOOD (  11.53  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20190506_043653_483978_F772055E 
+X-CRM114-Status: GOOD (  30.84  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [216.71.150.166 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:341 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -137,62 +89,192 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org
+Cc: bbrezillon@kernel.org, richard@nod.at,
+ Brian Norris <briannorris@chromium.org>,
+ =?UTF-8?B?TWFyZWsgVmHFoXV0?= <marek.vasut@gmail.com>,
+ linux-mtd@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
+On Mon, May 6, 2019 at 5:07 PM Nicolas Boichat <drinkcat@chromium.org> wrote:
+>
+> On Mon, May 6, 2019 at 5:44 PM Zhuohao Lee <zhuohao@chromium.org> wrote:
+> >
+> > Currently, we don't have vfs nodes for querying the underlying
+> > flash name and flash id. This information is important especially
+> > when we want to know the flash detail of the defective system.
+> > In order to support the query, we add a function spi_nor_debugfs_create()
+> > to create the debugfs node (ie. flashname and flashid)
+> > This patch is modified based on the SPI-NOR flash system as we
+> > only have the SPI-NOR system now. But the idea should be applied to
+> > the other flash driver like NAND flash.
+> >
+> > The output of new debugfs nodes on my device are:
+> > cat /sys/kernel/debug/mtd/mtd0/flashid
+> > ef6017
+> > cat /sys/kernel/debug/mtd/mtd0/flashname
+> > w25q64dw
+> >
+> > Signed-off-by: Zhuohao Lee <zhuohao@chromium.org>
+> > ---
+>
+> For next time, please include notes/changelog here (after ---), e.g.
+> things like link to previous discussion thread(s), changes since vX,
+> etc.
+>
+> >  drivers/mtd/devices/m25p80.c  |  5 ++-
+> >  drivers/mtd/spi-nor/spi-nor.c | 62 +++++++++++++++++++++++++++++++++++
+> >  include/linux/mtd/spi-nor.h   |  6 ++++
+> >  3 files changed, 72 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
+> > index c4a1d04b8c80..be11e7d96646 100644
+> > --- a/drivers/mtd/devices/m25p80.c
+> > +++ b/drivers/mtd/devices/m25p80.c
+> > @@ -231,8 +231,11 @@ static int m25p_probe(struct spi_mem *spimem)
+>
+> Can we add this to function that is generic to all spi-nor devices,
+> instead of making this specific to m25p?
+I can't find a better way to insert the spi_nor_debugfs_create()
+inside spi_nor.c.
+Another way is adding spi_nor_debugfs_create() to all of the caller.
+What do you think? Any other suggestion?
+>
+> >         if (ret)
+> >                 return ret;
+> >
+> > -       return mtd_device_register(&nor->mtd, data ? data->parts : NULL,
+> > +       ret = mtd_device_register(&nor->mtd, data ? data->parts : NULL,
+> >                                    data ? data->nr_parts : 0);
+> > +       if (!ret)
+> > +               spi_nor_debugfs_create(nor);
+> > +       return ret;
+> >  }
+> >
+> >
+> > diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> > index 6e13bbd1aaa5..004b6adf5866 100644
+> > --- a/drivers/mtd/spi-nor/spi-nor.c
+> > +++ b/drivers/mtd/spi-nor/spi-nor.c
+> > @@ -21,6 +21,8 @@
+> >  #include <linux/of_platform.h>
+> >  #include <linux/spi/flash.h>
+> >  #include <linux/mtd/spi-nor.h>
+> > +#include <linux/debugfs.h>
+> > +#include <linux/seq_file.h>
+> >
+> >  /* Define max times to check status register before we give up. */
+> >
+> > @@ -4161,6 +4163,66 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+> >  }
+> >  EXPORT_SYMBOL_GPL(spi_nor_scan);
+> >
+> > +static int flashid_dbg_show(struct seq_file *s, void *p)
+> > +{
+> > +       struct spi_nor *nor = (struct spi_nor *)s->private;
+> > +       const struct flash_info *info = nor->info;
+> > +
+> > +       if (!info->id_len)
+> > +               return 0;
+> > +       seq_printf(s, "%*phN\n", info->id_len, info->id);
+> > +       return 0;
+> > +}
+> > +
+> > +static int flashid_debugfs_open(struct inode *inode, struct file *file)
+> > +{
+> > +       return single_open(file, flashid_dbg_show, inode->i_private);
+> > +}
+> > +
+> > +static const struct file_operations flashid_dbg_fops = {
+> > +       .open           = flashid_debugfs_open,
+> > +       .read           = seq_read,
+> > +       .llseek         = seq_lseek,
+> > +       .release        = single_release,
+> > +};
+> > +
+> > +static int flashname_dbg_show(struct seq_file *s, void *p)
+> > +{
+> > +       struct spi_nor *nor = (struct spi_nor *)s->private;
+> > +       const struct flash_info *info = nor->info;
+> > +
+> > +       if (!info->name)
+> > +               return 0;
+> > +       seq_printf(s, "%s\n", info->name);
+> > +       return 0;
+> > +}
+> > +
+> > +static int flashname_debugfs_open(struct inode *inode, struct file *file)
+> > +{
+> > +       return single_open(file, flashname_dbg_show, inode->i_private);
+> > +}
+> > +
+> > +static const struct file_operations flashname_dbg_fops = {
+> > +       .open           = flashname_debugfs_open,
+> > +       .read           = seq_read,
+> > +       .llseek         = seq_lseek,
+> > +       .release        = single_release,
+> > +};
+> > +
+> > +void spi_nor_debugfs_create(struct spi_nor *nor)
+> > +{
+> > +       struct mtd_info *mtd = &nor->mtd;
+> > +       struct dentry *root = mtd->dbg.dfs_dir;
+> > +
+> > +       if (IS_ERR_OR_NULL(root) || IS_ERR_OR_NULL(nor)) {
+>
+> The second check looks useless. Or, to be precise, the kernel should
+> already have crashed above. I'd just drop the check.
+Ah.. i restructured the code and forgot to change this. I'll remove
+this on the next patch.
+>
+> > +               return;
+> > +       }
+> > +       debugfs_create_file("flashid", S_IRUSR, root, nor,
+> > +                       &flashid_dbg_fops);
+> > +       debugfs_create_file("flashname", S_IRUSR, root, nor,
+> > +                       &flashname_dbg_fops);
+>
+> Should we do something with the return values?
+ok, i will add it on the next patch.
+>
+> Look at nandsim_debugfs_create for an example (also, we probably want
+> to check for CONFIG_DEBUG_FS before calling these.
+Do you mean adding the change like this?
+                if (IS_ENABLED(CONFIG_DEBUG_FS) &&
+                    !IS_ENABLED(CONFIG_MTD_PARTITIONED_MASTER))
+                        NS_WARN("CONFIG_MTD_PARTITIONED_MASTER must be
+enabled to expose debugfs stuff\n");
+>
+> > +}
+> > +
+> >  MODULE_LICENSE("GPL v2");
+> >  MODULE_AUTHOR("Huang Shijie <shijie8@gmail.com>");
+> >  MODULE_AUTHOR("Mike Lavender");
+> > diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+> > index fa2d89e38e40..eadb5230c6d0 100644
+> > --- a/include/linux/mtd/spi-nor.h
+> > +++ b/include/linux/mtd/spi-nor.h
+> > @@ -530,4 +530,10 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+> >   */
+> >  void spi_nor_restore(struct spi_nor *nor);
+> >
+> > +/**
+> > + * spi_nor_debugfs_create() - create debug fs
+> > + * @mtd:       the spi_nor structure
+>
+> @nor
+>
+> > + */
+> > +void spi_nor_debugfs_create(struct spi_nor *nor);
+> > +
+> >  #endif
+> > --
+> > 2.21.0.1020.gf2820cf01a-goog
+> >
 
-This is the SPI-NOR PR for 5.2.
-
-Cheers,
-ta
-
-The following changes since commit 9e98c678c2d6ae3a17cb2de55d17f69dddaa231b:
-
-  Linux 5.1-rc1 (2019-03-17 14:22:26 -0700)
-
-are available in the git repository at:
-
-  ssh://git@gitolite.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git
-tags/spi-nor/for-5.2
-
-for you to fetch changes up to e43f53c22a937d024f070907d02539e413f20c15:
-
-  spi-nor: intel-spi: Add support for Intel Comet Lake SPI serial flash
-(2019-05-06 11:18:02 +0300)
-
-----------------------------------------------------------------
-SPI NOR core changes:
-- Print all JEDEC ID bytes on error
-- Fix comment of spi_nor_find_best_erase_type()
-- Add region locking flags for s25fl512s
-
-SPI NOR controller drivers changes:
-- intel-spi:
-  * Avoid crossing 4K address boundary on read/write
-  * Add support for Intel Comet Lake SPI serial flash
-
-----------------------------------------------------------------
-Alexander Sverdlin (2):
-      mtd: spi-nor: Fix comment of spi_nor_find_best_erase_type()
-      mtd: spi-nor: intel-spi: Avoid crossing 4K address boundary on read/write
-
-Geert Uytterhoeven (1):
-      mtd: spi-nor: Print all JEDEC ID bytes on error
-
-Jonas Bonn (1):
-      spi-nor: s25fl512s supports region locking
-
-Mika Westerberg (1):
-      spi-nor: intel-spi: Add support for Intel Comet Lake SPI serial flash
-
- drivers/mtd/spi-nor/intel-spi-pci.c |  1 +
- drivers/mtd/spi-nor/intel-spi.c     |  8 ++++++++
- drivers/mtd/spi-nor/spi-nor.c       | 10 ++++++----
- 3 files changed, 15 insertions(+), 4 deletions(-)
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
