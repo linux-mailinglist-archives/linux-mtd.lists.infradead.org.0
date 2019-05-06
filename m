@@ -2,60 +2,96 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2FB9E145E6
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 10:18:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EEBB314907
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:34:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
+	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vVVouQYBpGQOX4e8ZqUXfW/S7UCcwW5QZ8EkL1ABTiA=; b=WlW9/ulR472b93
-	FCtof63sfMMw+nwRhjsNzzBObxTSCwk2MjdB53E9V1VNlKer5P1TjDcYp+NQUtcNi2LHZJXiBu803
-	5lzw8HUrCDmdR0EO61oQlqhEG+Pox6VQqn5vLgmI59qp89wRrND9YGgVG5AJQg1tnbIzilr1kPz0j
-	/rjNxaWZqGvZlEceVogR3PvZLk5XyIgqVeEd9pCHYEdSKpz8R5vG2zALm0RqkEvFACWSXlVcm54uL
-	p9V860n5WSvfoLJJ5MfJASpRsQ1cG4z1VC0MMI9BsFo031ycJ/hndNFmOWzWLQhGKkxaAy6HPYwA2
-	oPgz5hisLcb1OVZM0t4g==;
+	List-Owner; bh=RqWumpIA7wNxRBivRu3Pvc+GuuHrDilgmJCBOVsdZoc=; b=ttyZ33+6h2McQC
+	lm7qphNk9IYHElBCoBfLHTYM6j1G92j5TdZ/K92lRx/dGFHVC5V7xbxjavgj8Wxz1aSDscNvsnbdV
+	RWs1ZBIL+L+LHiSXTUF7Sfc17aKydV0XSsNfrZkaJhX1BWU9YHdExE0WFVCrdIkp2Skjx9OXgNEo7
+	CRexhBmeA8Z8nHNKNyXaGW35C7MpsXpaq+MAEefmR+Uo1wMd6Lm27921g8EE9L3KmlVVnZVAukBOQ
+	1zXPpOJZ9uDfwO8wsEtR3PI+zNp38b/lxpyYkueh7aVkacbtefGSm3Ona0FY46yrERxmV4TG7zwh2
+	5xvKlpliqJN15TiAyJww==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNYpX-0002dH-2d; Mon, 06 May 2019 08:18:35 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1hNbtM-0001SU-Vd; Mon, 06 May 2019 11:34:44 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNYpM-0002cU-KS; Mon, 06 May 2019 08:18:26 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 9227A283701;
- Mon,  6 May 2019 09:18:22 +0100 (BST)
-Date: Mon, 6 May 2019 10:18:19 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: xiaolei li <xiaolei.li@mediatek.com>
-Subject: Re: [RFC PATCH v3 1/1] mtd: rawnand: mtk: Re-license MTK NAND
- driver as Dual MIT/GPL
-Message-ID: <20190506101819.28cff338@collabora.com>
-In-Reply-To: <1557104180.26455.89.camel@mhfsdcap03>
-References: <20190429085116.60081-1-xiaolei.li@mediatek.com>
- <20190429085116.60081-2-xiaolei.li@mediatek.com>
- <82cc648b1e92d5ed6876b025a2da1821@milecki.pl>
- <1557047534.26455.81.camel@mhfsdcap03>
- <79539034414767c95e456a79391a18e7@milecki.pl>
- <1557104180.26455.89.camel@mhfsdcap03>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1hNbt8-0001PO-7S
+ for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:34:37 +0000
+Received: from pps.filterd (m0098394.ppops.net [127.0.0.1])
+ by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x46BYLUK075808
+ for <linux-mtd@lists.infradead.org>; Mon, 6 May 2019 07:34:29 -0400
+Received: from e06smtp01.uk.ibm.com (e06smtp01.uk.ibm.com [195.75.94.97])
+ by mx0a-001b2d01.pphosted.com with ESMTP id 2sagykyu6t-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 07:34:26 -0400
+Received: from localhost
+ by e06smtp01.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
+ Mon, 6 May 2019 12:33:36 +0100
+Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
+ by e06smtp01.uk.ibm.com (192.168.101.131) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Mon, 6 May 2019 12:33:33 +0100
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
+ [9.149.105.62])
+ by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x46BXWb446465208
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 6 May 2019 11:33:32 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 8CA04AE056;
+ Mon,  6 May 2019 11:33:32 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 20D5FAE04D;
+ Mon,  6 May 2019 11:33:31 +0000 (GMT)
+Received: from localhost.localdomain (unknown [9.85.70.42])
+ by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+ Mon,  6 May 2019 11:33:30 +0000 (GMT)
+From: Chandan Rajendra <chandan@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Subject: Re: [PATCH 04/13] fscrypt: clean up some BUG_ON()s in block
+ encryption/decryption
+Date: Mon, 06 May 2019 13:54:45 +0530
+Organization: IBM
+In-Reply-To: <20190501224515.43059-5-ebiggers@kernel.org>
+References: <20190501224515.43059-1-ebiggers@kernel.org>
+ <20190501224515.43059-5-ebiggers@kernel.org>
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+x-cbid: 19050611-4275-0000-0000-00000331DF52
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19050611-4276-0000-0000-000038414613
+Message-Id: <4366146.XrkeSAOiMl@dhcp-9-109-212-164>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-05-06_07:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=585 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1905060102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_011824_934122_1B8281DC 
-X-CRM114-Status: GOOD (  20.86  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190506_043430_466533_50377CF4 
+X-CRM114-Status: GOOD (  17.09  )
+X-Spam-Score: 2.9 (++)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (2.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [148.163.156.1 listed in list.dnswl.org]
+ 1.1 DATE_IN_PAST_03_06     Date: is 3 to 6 hours before Received: date
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -67,82 +103,32 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: daniel.thompson@linaro.org, ryder.lee@mediatek.com,
- srv_heupstream@mediatek.com, richard@nod.at, miquel.raynal@bootlin.com,
- jorge.ramirez-ortiz@linaro.org, yingjoe.chen@mediatek.com,
- linux-mtd@lists.infradead.org, yellowriver2010@hotmail.com,
- =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
- linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-fsdevel@vger.kernel.org, linux-fscrypt@vger.kernel.org,
+ linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
+ linux-f2fs-devel@lists.sourceforge.net
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gTW9uLCA2IE1heSAyMDE5IDA4OjU2OjIwICswODAwCnhpYW9sZWkgbGkgPHhpYW9sZWkubGlA
-bWVkaWF0ZWsuY29tPiB3cm90ZToKCj4gSGkgUmFmYWwsCj4gCj4gT24gU3VuLCAyMDE5LTA1LTA1
-IGF0IDE3OjA2ICswMjAwLCBSYWZhxYIgTWnFgmVja2kgd3JvdGU6Cj4gPiBPbiAyMDE5LTA1LTA1
-IDExOjEyLCB4aWFvbGVpIGxpIHdyb3RlOiAgCj4gPiA+IFVwIHRvIG5vdywKPiA+ID4gWGlhb2xl
-aSBMaSA8eGlhb2xlaS5saUBtZWRpYXRlay5jb20+ICh0aGUgYXV0aG9yIGFuZCBtYWpvciAKPiA+
-ID4gY29udHJpYnV0b3IpLAo+ID4gPiBKb3JnZSBSYW1pcmV6LU9ydGl6IDxqb3JnZS5yYW1pcmV6
-LW9ydGl6QGxpbmFyby5vcmc+ICh0aGUgYXV0aG9yIGFuZAo+ID4gPiBtYWpvciBjb250cmlidXRv
-ciksCj4gPiA+IFJ5ZGVyIExlZSA8cnlkZXIubGVlQG1lZGlhdGVrLmNvbT4gKGRldmVsb3Blciks
-Cj4gPiA+IFJhZmHFgiBNacWCZWNraSA8cmFmYWxAbWlsZWNraS5wbD4gKGRldmVsb3BlcikKPiA+
-ID4gc2VudCBBQ0sgZm9yIHRoaXMgUkZDIHBhdGNoLgo+ID4gPiAKPiA+ID4gTWF5IEkgYXNrIGlm
-IGl0IGlzIGVub3VnaCB0byBhY2NlcHQgdGhpcyBjaGFuZ2U/IE9yIHNob3VsZCBJIHdhaXQgZm9y
-Cj4gPiA+IG90aGVyIGRldmVsb3BlcidzIHJlc3BvbnNlPyAgCj4gPiAKPiA+IEkgY2FuJ3QgaW1h
-Z2luZSByZS1saWNlbnNpbmcgc29tZW9uZSdzIHdvcmsgd2l0aG91dCBhIHBlcm1pc3Npb24uICAK
-PiAKPiBJIGhhdmUgbm8gaW50ZW50aW9uIHRvIG9mZmVuZCBvdGhlcidzIGNvbnRyaWJ1dGlvbi4K
-PiBUaGF0IGlzIHdoeSBJIHNlbnQgdGhpcyBSRkMgcGF0Y2ggdG8gYXNrIGZvciBBQ0tzIGZyb20g
-Y29udHJpYnV0b3JzLgo+IAo+ID4gCj4gPiBUaGUgYmVzdCB5b3UgY2FuIGRvIGlzIGlnbm9yaW5n
-IGNvbnRyaWJ1dG9ycyB0aGF0IHN1Ym1pdHRlZCBjaGFuZ2VzIHRoYXQKPiA+IGFyZW4ndCByZWFs
-bHkgY29weXJpZ2h0YWJsZSAoc29tZXRoaW5nIGxpa2UgZml4aW5nIGEgY29tbWVudCB0eXBvLCBz
-b21lCj4gPiBhdXRvLWdlbmVyYXRlZCBkaWZmLXMpLgo+ID4gCj4gPiBJIHVzZWQgZm9sbG93aW5n
-IGNvbW1hbmQgdG8gY2hlY2sgbXRrX25hbmQuYyBmaWxlIGhpc3Rvcnk6Cj4gPiAjIGdpdCBsb2cg
-LS1mb2xsb3cgZHJpdmVycy9tdGQvbmFuZC9yYXcvbXRrX25hbmQuYyB8IGdyZXAgCj4gPiAiU2ln
-bmVkLW9mZi1ieSIgfCBzb3J0IHwgdW5pcSAtYyB8IHNvcnQgLXIgLW4KPiA+ICAgICAgIDE5ICAg
-ICBTaWduZWQtb2ZmLWJ5OiBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4uY29t
-Pgo+ID4gICAgICAgMTggICAgIFNpZ25lZC1vZmYtYnk6IEJvcmlzIEJyZXppbGxvbiA8Ym9yaXMu
-YnJlemlsbG9uQGJvb3RsaW4uY29tPgo+ID4gICAgICAgMTUgICAgIFNpZ25lZC1vZmYtYnk6IEJv
-cmlzIEJyZXppbGxvbiAKPiA+IDxib3Jpcy5icmV6aWxsb25AZnJlZS1lbGVjdHJvbnMuY29tPgo+
-ID4gICAgICAgIDYgICAgIFNpZ25lZC1vZmYtYnk6IFhpYW9sZWkgTGkgPHhpYW9sZWkubGlAbWVk
-aWF0ZWsuY29tPgo+ID4gICAgICAgIDMgICAgIFNpZ25lZC1vZmYtYnk6IFJvZ2VyQ0MgTGluIDxy
-b2dlcmNjLmxpbkBtZWRpYXRlay5jb20+Cj4gPiAgICAgICAgMiAgICAgU2lnbmVkLW9mZi1ieTog
-TWlxdWVsIFJheW5hbCAKPiA+IDxtaXF1ZWwucmF5bmFsQGZyZWUtZWxlY3Ryb25zLmNvbT4KPiA+
-ICAgICAgICAxICAgICBTaWduZWQtb2ZmLWJ5OiBXZWkgWW9uZ2p1biA8d2VpeW9uZ2p1bjFAaHVh
-d2VpLmNvbT4KPiA+ICAgICAgICAxICAgICBTaWduZWQtb2ZmLWJ5OiBSeWRlciBMZWUgPHJ5ZGVy
-LmxlZUBtZWRpYXRlay5jb20+Cj4gPiAgICAgICAgMSAgICAgU2lnbmVkLW9mZi1ieTogUmFmYcWC
-IE1pxYJlY2tpIDxyYWZhbEBtaWxlY2tpLnBsPgo+ID4gICAgICAgIDEgICAgIFNpZ25lZC1vZmYt
-Ynk6IFBldGVyIFBhbiA8cGV0ZXJwYW5kb25nQG1pY3Jvbi5jb20+Cj4gPiAgICAgICAgMSAgICAg
-U2lnbmVkLW9mZi1ieTogTWFzYWhpcm8gWWFtYWRhIAo+ID4gPHlhbWFkYS5tYXNhaGlyb0Bzb2Np
-b25leHQuY29tPgo+ID4gICAgICAgIDEgICAgIFNpZ25lZC1vZmYtYnk6IEpvcmdlIFJhbWlyZXot
-T3J0aXogCj4gPiA8am9yZ2UucmFtaXJlei1vcnRpekBsaW5hcm8ub3JnPgo+ID4gCj4gPiBJZGVh
-bGx5IHlvdSBzaG91bGQgc3RpbGwgZ2V0IGFja3MgZnJvbToKPiA+IAo+ID4gMSkgTWlxdWVsCj4g
-PiBDb250cmlidXRvciBvZiAyMSBjaGFuZ2VzCj4gPiAKPiA+IDIpIEJvcmlzCj4gPiBDb250cmli
-dXRvciBvZiAzMyBjaGFuZ2VzCgpOb3Qgc3VyZSB0aGF0J3MgcmVhbGx5IG5lY2Vzc2FyeSBnaXZl
-biB0aGUgdHlwZSBvZiBjaGFuZ2VzIGRvbmUgaW4gdGhvc2UKMzMgY29tbWl0cyAobW9zdGx5IG1l
-Y2hhbmljYWwgY2hhbmdlcyBkdWUgdG8gbW9kaWZpY2F0aW9ucyBpbiB0aGUgTkFORApmcmFtZXdv
-cmspLCBidXQgaGVyZSBpcyBteQoKQWNrZWQtYnk6IEJvcmlzIEJyZXppbGxvbiA8Ym9yaXMuYnJl
-emlsbG9uQGNvbGxhYm9yYS5jb20+Cgo+ID4gCj4gPiAzKSBSb2dlckNDCj4gPiBDb250cmlidXRv
-ciBvZiAzIGNoYW5nZXM6Cj4gPiA5OGRlYThkNzE5MzEgKCJtdGQ6IG5hbmQ6IG10azogU3VwcG9y
-dCBNVDc2MjIgTkFORCBmbGFzaCBjb250cm9sbGVyLiIpCj4gPiBiNDVlZTU1MDFlZGUgKCJtdGQ6
-IG5hbmQ6IG10azogU3VwcG9ydCBkaWZmZXJlbnQgTVRLIE5BTkQgZmxhc2ggCj4gPiBjb250cm9s
-bGVyIElQIikKPiA+IDU1OWU1OGU3ZWQyZCAoIm10ZDogbmFuZDogZml4IGNoYW5jZXMgdG8gY3Jl
-YXRlIGluY29tcGxldGUgRUNDIGRhdGEgd2hlbiAKPiA+IHdyaXRpbmciKQo+ID4gCj4gPiA0KSBX
-ZWkKPiA+IENvbnRyaWJ1dG9yIG9mIDEgY2hhbmdlOgo+ID4gMDdmNzY0NDNlZjgxICgibXRkOiBu
-YW5kOiBtZWRpYXRlazogcmVtb3ZlIHJlZHVuZGFudCBkZXZfZXJyIGNhbGwgaW4gCj4gPiBtdGtf
-bmZjX3Byb2JlKCkiKQo+ID4gCj4gPiA1KSBQZXRlcgo+ID4gQ29udHJpYnV0b3Igb2YgMSBjaGFu
-Z2U6Cj4gPiBkNDA5MmQ3NmE0YTQgKCJtdGQ6IG5hbmQ6IFJlbmFtZSBuYW5kLmggaW50byByYXdu
-YW5kLmgiKQo+ID4gCj4gPiA2KSBNYXNhaGlybwo+ID4gQ29udHJpYnV0b3Igb2YgMSBjaGFuZ2U6
-Cj4gPiBmMGRiZTRhYTM1ZTcgKCJtdGQ6IG5hbmQ6IG1lZGlhdGVrOiByZXR1cm4gZXJyb3IgY29k
-ZSBvZiAKPiA+IG5hbmRfc2Nhbl9pZGVudC90YWlsKCkgb24gZXJyb3IiKQo+ID4gCj4gPiBJIGd1
-ZXNzIHdlIGNvdWxkIGFjY2VwdCB5b3VyIHBhdGNoIHdpdGhvdXQgYWNrcyBmcm9tIFdlaSwgUGV0
-ZXIgYW5kIAo+ID4gTWFzYWhpcm8uCj4gPiAKPiA+IFlvdSBkZWZpbml0ZWx5IG5lZWQgYW4gYXBw
-cm92YWwgZnJvbSBNaXF1ZWwsIEJvcmlzIGFuZCBSb2dlckNDLgo+ID4gCj4gPiBJdCBkb2Vzbid0
-IHNlZW0geW91IHRvb2sgdGhpcyByZS1saWNlbnNpbmcgdGFzayB0b28gc2VyaW91c2x5Lgo+ID4g
-Cj4gPiBQbGVhc2UgcGF5IG1vcmUgYXR0ZW50aW9uIHRvIHRoaXMgbGljZW5zaW5nIHByb2JsZW0s
-IHlvdSBjYW4gc3RhcnQgd2l0aCAKPiA+IGRvaW5nCj4gPiBhIHNpbWlsYXIgcmVzZWFyY2ggZm9y
-IG10a19lY2MuYyBhbmQgbXRrX2VjYy5oLiAgCj4gCj4gVGhhbmtzIGZvciB5b3VyIEFDSyBhbmQg
-Z29vZCBzdWdnZXN0aW9uLiBJdCBpcyByZWFsbHkgaGVscGZ1bCBmb3IgbWUuCj4gCj4gVGhhbmtz
-LAo+IFhpYW9sZWkKPiAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+On Thursday, May 2, 2019 4:15:06 AM IST Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
+> 
+> Replace some BUG_ON()s with WARN_ON_ONCE() and returning an error code,
+> and move the check for len divisible by FS_CRYPTO_BLOCK_SIZE into
+> fscrypt_crypt_block() so that it's done for both encryption and
+> decryption, not just encryption.
+
+Looks good to me,
+
+Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
+
+-- 
+chandan
+
+
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
