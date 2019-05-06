@@ -2,81 +2,96 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 963271472F
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 11:07:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 88D7E14904
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:34:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
+	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l2M0hmoXcMLCbXerIXIVk3RmmWFx9Hwf1jaN8ix9u/U=; b=tiiTSnqztuTqhi
-	Y6atBI5NPFnGRw+EwbJSDJbAJXIcl6CdS4Gfk7JmQLeqm3Ukg+gzihCbHcoGDJ2OClGXT1U5V7nKT
-	eocLyvl/sjHOQW/hjNzmeMhRaJ+rse0+ws2ZQS3b7/GhxmdpevCnPixRulQQspPjX2AOOWfThM+ZV
-	UYyjROdxMlOZSxPrWAO/iBKxk8ZScnBof+WO+p+ro1NL/CxiXCGG0ymndxxXhEZ6GTWYdO/3hacPD
-	rvxCgUWkkwEhSG8ETfE9olzORKTiCEX44oH50UIfVbLekr+OFLpWUGAE0BM+JtLTBaCphUMwACNyg
-	9ndZQf8i/+qYm+JKXbgg==;
+	List-Owner; bh=O6sfa//R4AzSQnr62S5wd6D7vK1k2rTQfSnEWi54Zl0=; b=YxjGwhNG9+TYV6
+	9OasgoSALkU4vxlcXXwXwV+AodUAmVlILVV5nLsA45fjVwwdy5rUk3VVmkfz+aV6ygWBUZ9kiEGvc
+	5w97anBXNFI8HOV0l0O9By0oyDXzNEzm/M8OrGhDEQ745S7E9oNK0iLEYL4gOJABI+78ECHXwzSK5
+	xeP5Cy9JFCg08YuaU04Z+Vx+RVsoLmxilb5gytIT6Wpd8Iow/jVsvkgd438mo5qzW7fupNp/xatXM
+	vJW62DmJAzZgnjbUNfAzfUBayclPl0SOXi3QHlHxMES8s5rcgtKe1h89QH5uqlc4fdqnkXoN+kKpd
+	vWN+DbKEszixzej/jzmA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNZb6-0006XQ-OV; Mon, 06 May 2019 09:07:44 +0000
-Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
+	id 1hNbsv-0000vV-5K; Mon, 06 May 2019 11:34:17 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5]
+ helo=mx0a-001b2d01.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNZay-0006X0-8c
- for linux-mtd@lists.infradead.org; Mon, 06 May 2019 09:07:37 +0000
-Received: by mail-qt1-x843.google.com with SMTP id c13so13828487qtn.8
- for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 02:07:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=xgA50M/0jJs+BT3N1e5rHCv72p+QioxO/vjUb5ryGOk=;
- b=XRrLPlI5ckuj1Nfhdo5iApDitaWM+7NXowmuvqtF6DfqNrlS18iVAJYjF/HYpYAzOg
- jZEA4XzMA2n4xZe98eGQEl47wEsZMMDrF/kDTCrA7eehrgNtOXisCnu+lUG53mOOV3kK
- bIUGP2duND3u6OpNvTDB37Asn6KuBA6Gy3F0s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=xgA50M/0jJs+BT3N1e5rHCv72p+QioxO/vjUb5ryGOk=;
- b=bdKVv3vr/OQKA2GcBNAxOxJS6INynfjcMWiwhWdA+8WqqN48SaF1gEmChnr18f8P8d
- IlhvXZwt7B/21qfNVveWMS/OlsvsRMVdMvBsKRssWgSwC0gmgk+OoFQWOkF4qTgjCe7T
- 08LKyD9dUpS0VHhjvI+JjGtwkdlA99CqSja8lT+BIX3Dn1rrF5ySmU9P2M5CXRUNfoS4
- 5rWPltBrqiuqZMMXa3nBoe6CLpc17GoIAdVqCTnPm9Cc+BurO5v7ygw5A2sCW+GLW+g5
- jKtinTG2hGpui4akeMgnN5Rh9KxilP7JvHgoeHNGL5SAvdVonBdOPqqW1FNDYH7CEKZ+
- 9bqg==
-X-Gm-Message-State: APjAAAXtOBtifhmcpjs5UIF+8ndY4QLLGI6FSu7eXNd2nUmc93gyNkZE
- DMHqWnEyKc+FVAm/yo+fgdenbVyhlqZNv+f1irFlZQ==
-X-Google-Smtp-Source: APXvYqyULzGNl/E57EM0wbww56yBmIbc402uRpyk3HrIPzLdThfQ4+riPNkE/Re1qlR6eI6uWkhxGxQwybwy9QYtc+w=
-X-Received: by 2002:a05:6214:322:: with SMTP id
- j2mr10860977qvu.101.1557133654446; 
- Mon, 06 May 2019 02:07:34 -0700 (PDT)
+ id 1hNbsW-0000V0-0T
+ for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:33:55 +0000
+Received: from pps.filterd (m0098413.ppops.net [127.0.0.1])
+ by mx0b-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x46BXP1q072132
+ for <linux-mtd@lists.infradead.org>; Mon, 6 May 2019 07:33:51 -0400
+Received: from e06smtp03.uk.ibm.com (e06smtp03.uk.ibm.com [195.75.94.99])
+ by mx0b-001b2d01.pphosted.com with ESMTP id 2sakgx1mau-1
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
+ for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 07:33:51 -0400
+Received: from localhost
+ by e06smtp03.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
+ Violators will be prosecuted
+ for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
+ Mon, 6 May 2019 12:33:49 +0100
+Received: from b06cxnps3074.portsmouth.uk.ibm.com (9.149.109.194)
+ by e06smtp03.uk.ibm.com (192.168.101.133) with IBM ESMTP SMTP Gateway:
+ Authorized Use Only! Violators will be prosecuted; 
+ (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
+ Mon, 6 May 2019 12:33:46 +0100
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
+ [9.149.105.62])
+ by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
+ x46BXjD750331788
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 6 May 2019 11:33:45 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 8F2B8AE057;
+ Mon,  6 May 2019 11:33:45 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+ by IMSVA (Postfix) with ESMTP id 08F4AAE055;
+ Mon,  6 May 2019 11:33:44 +0000 (GMT)
+Received: from localhost.localdomain (unknown [9.85.70.42])
+ by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+ Mon,  6 May 2019 11:33:43 +0000 (GMT)
+From: Chandan Rajendra <chandan@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Subject: Re: [PATCH 09/13] fscrypt: support decrypting multiple filesystem
+ blocks per page
+Date: Mon, 06 May 2019 14:39:22 +0530
+Organization: IBM
+In-Reply-To: <20190501224515.43059-10-ebiggers@kernel.org>
+References: <20190501224515.43059-1-ebiggers@kernel.org>
+ <20190501224515.43059-10-ebiggers@kernel.org>
 MIME-Version: 1.0
-References: <20190506084414.89702-1-zhuohao@chromium.org>
-In-Reply-To: <20190506084414.89702-1-zhuohao@chromium.org>
-From: Nicolas Boichat <drinkcat@chromium.org>
-Date: Mon, 6 May 2019 18:07:23 +0900
-Message-ID: <CANMq1KBpqb5-Ab1z_9zzvNVCkY72pBrAEJ2UVO1CgOjP=xXQ+A@mail.gmail.com>
-Subject: Re: [PATCH v2] mtd: spi-nor: add debugfs nodes for querying the flash
- name and id
-To: Zhuohao Lee <zhuohao@chromium.org>
+X-TM-AS-GCONF: 00
+x-cbid: 19050611-0012-0000-0000-00000318CA53
+X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
+x-cbparentid: 19050611-0013-0000-0000-0000215142F6
+Message-Id: <2349515.8nsl4jZa1H@dhcp-9-109-212-164>
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-05-06_07:, , signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501
+ malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
+ clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
+ mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.0.1-1810050000 definitions=main-1905060102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_020736_353579_4C57DC73 
-X-CRM114-Status: GOOD (  25.18  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190506_043352_495378_510FB1C3 
+X-CRM114-Status: GOOD (  20.20  )
+X-Spam-Score: 1.8 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (1.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:843 listed in]
- [list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [148.163.158.5 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
+ 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -88,175 +103,38 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: bbrezillon@kernel.org, richard@nod.at, briannorris@chromium.org,
- marek.vasut@gmail.com, linux-mtd@lists.infradead.org,
- computersforpeace@gmail.com, dwmw2@infradead.org
+Cc: linux-fsdevel@vger.kernel.org, linux-fscrypt@vger.kernel.org,
+ linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
+ linux-f2fs-devel@lists.sourceforge.net
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, May 6, 2019 at 5:44 PM Zhuohao Lee <zhuohao@chromium.org> wrote:
->
-> Currently, we don't have vfs nodes for querying the underlying
-> flash name and flash id. This information is important especially
-> when we want to know the flash detail of the defective system.
-> In order to support the query, we add a function spi_nor_debugfs_create()
-> to create the debugfs node (ie. flashname and flashid)
-> This patch is modified based on the SPI-NOR flash system as we
-> only have the SPI-NOR system now. But the idea should be applied to
-> the other flash driver like NAND flash.
->
-> The output of new debugfs nodes on my device are:
-> cat /sys/kernel/debug/mtd/mtd0/flashid
-> ef6017
-> cat /sys/kernel/debug/mtd/mtd0/flashname
-> w25q64dw
->
-> Signed-off-by: Zhuohao Lee <zhuohao@chromium.org>
-> ---
+On Thursday, May 2, 2019 4:15:11 AM IST Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
+> 
+> Rename fscrypt_decrypt_page() to fscrypt_decrypt_pagecache_blocks() and
+> redefine its behavior to decrypt all filesystem blocks in the given
+> region of the given page, rather than assuming that the region consists
+> of just one filesystem block.  Also remove the 'inode' and 'lblk_num'
+> parameters, since they can be retrieved from the page as it's already
+> assumed to be a pagecache page.
+> 
+> This is in preparation for allowing encryption on ext4 filesystems with
+> blocksize != PAGE_SIZE.
+> 
+> This is based on work by Chandan Rajendra.
 
-For next time, please include notes/changelog here (after ---), e.g.
-things like link to previous discussion thread(s), changes since vX,
-etc.
+Looks good to me,
 
->  drivers/mtd/devices/m25p80.c  |  5 ++-
->  drivers/mtd/spi-nor/spi-nor.c | 62 +++++++++++++++++++++++++++++++++++
->  include/linux/mtd/spi-nor.h   |  6 ++++
->  3 files changed, 72 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
-> index c4a1d04b8c80..be11e7d96646 100644
-> --- a/drivers/mtd/devices/m25p80.c
-> +++ b/drivers/mtd/devices/m25p80.c
-> @@ -231,8 +231,11 @@ static int m25p_probe(struct spi_mem *spimem)
+Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
 
-Can we add this to function that is generic to all spi-nor devices,
-instead of making this specific to m25p?
+-- 
+chandan
 
->         if (ret)
->                 return ret;
->
-> -       return mtd_device_register(&nor->mtd, data ? data->parts : NULL,
-> +       ret = mtd_device_register(&nor->mtd, data ? data->parts : NULL,
->                                    data ? data->nr_parts : 0);
-> +       if (!ret)
-> +               spi_nor_debugfs_create(nor);
-> +       return ret;
->  }
->
->
-> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-> index 6e13bbd1aaa5..004b6adf5866 100644
-> --- a/drivers/mtd/spi-nor/spi-nor.c
-> +++ b/drivers/mtd/spi-nor/spi-nor.c
-> @@ -21,6 +21,8 @@
->  #include <linux/of_platform.h>
->  #include <linux/spi/flash.h>
->  #include <linux/mtd/spi-nor.h>
-> +#include <linux/debugfs.h>
-> +#include <linux/seq_file.h>
->
->  /* Define max times to check status register before we give up. */
->
-> @@ -4161,6 +4163,66 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
->  }
->  EXPORT_SYMBOL_GPL(spi_nor_scan);
->
-> +static int flashid_dbg_show(struct seq_file *s, void *p)
-> +{
-> +       struct spi_nor *nor = (struct spi_nor *)s->private;
-> +       const struct flash_info *info = nor->info;
-> +
-> +       if (!info->id_len)
-> +               return 0;
-> +       seq_printf(s, "%*phN\n", info->id_len, info->id);
-> +       return 0;
-> +}
-> +
-> +static int flashid_debugfs_open(struct inode *inode, struct file *file)
-> +{
-> +       return single_open(file, flashid_dbg_show, inode->i_private);
-> +}
-> +
-> +static const struct file_operations flashid_dbg_fops = {
-> +       .open           = flashid_debugfs_open,
-> +       .read           = seq_read,
-> +       .llseek         = seq_lseek,
-> +       .release        = single_release,
-> +};
-> +
-> +static int flashname_dbg_show(struct seq_file *s, void *p)
-> +{
-> +       struct spi_nor *nor = (struct spi_nor *)s->private;
-> +       const struct flash_info *info = nor->info;
-> +
-> +       if (!info->name)
-> +               return 0;
-> +       seq_printf(s, "%s\n", info->name);
-> +       return 0;
-> +}
-> +
-> +static int flashname_debugfs_open(struct inode *inode, struct file *file)
-> +{
-> +       return single_open(file, flashname_dbg_show, inode->i_private);
-> +}
-> +
-> +static const struct file_operations flashname_dbg_fops = {
-> +       .open           = flashname_debugfs_open,
-> +       .read           = seq_read,
-> +       .llseek         = seq_lseek,
-> +       .release        = single_release,
-> +};
-> +
-> +void spi_nor_debugfs_create(struct spi_nor *nor)
-> +{
-> +       struct mtd_info *mtd = &nor->mtd;
-> +       struct dentry *root = mtd->dbg.dfs_dir;
-> +
-> +       if (IS_ERR_OR_NULL(root) || IS_ERR_OR_NULL(nor)) {
 
-The second check looks useless. Or, to be precise, the kernel should
-already have crashed above. I'd just drop the check.
 
-> +               return;
-> +       }
-> +       debugfs_create_file("flashid", S_IRUSR, root, nor,
-> +                       &flashid_dbg_fops);
-> +       debugfs_create_file("flashname", S_IRUSR, root, nor,
-> +                       &flashname_dbg_fops);
-
-Should we do something with the return values?
-
-Look at nandsim_debugfs_create for an example (also, we probably want
-to check for CONFIG_DEBUG_FS before calling these.
-
-> +}
-> +
->  MODULE_LICENSE("GPL v2");
->  MODULE_AUTHOR("Huang Shijie <shijie8@gmail.com>");
->  MODULE_AUTHOR("Mike Lavender");
-> diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-> index fa2d89e38e40..eadb5230c6d0 100644
-> --- a/include/linux/mtd/spi-nor.h
-> +++ b/include/linux/mtd/spi-nor.h
-> @@ -530,4 +530,10 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
->   */
->  void spi_nor_restore(struct spi_nor *nor);
->
-> +/**
-> + * spi_nor_debugfs_create() - create debug fs
-> + * @mtd:       the spi_nor structure
-
-@nor
-
-> + */
-> +void spi_nor_debugfs_create(struct spi_nor *nor);
-> +
->  #endif
-> --
-> 2.21.0.1020.gf2820cf01a-goog
->
 
 ______________________________________________________
 Linux MTD discussion mailing list
