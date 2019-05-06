@@ -2,82 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C62BB1490D
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:37:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1BF9414FD2
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 17:16:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CgtG5LcmFi57NLWXhByvF/xXxjXLewz45N9EdqFUTFM=; b=c0lByfpdpxgvbS
-	KoS6HpVKkbYc/oEtZimI1y5O7DBaQ42KKfOQqOQ+RZqSytIajR4It4ql2Ed4wzccCqdpegIBb1agK
-	Ccv+sASyuzupYeqlU1ojUJ/xU3mepvB8ibfe5EopU8+ntxLTe6ulP0lKJZQx/BoycqrHD8MkY2bz8
-	c80ohC9Ze+5ypzdOqQqOx2Q7I7+iZeDCYa6yirtx9+AD/lKA+n7H/wViF4nue0UyUjz/AXBCEu9w2
-	tSqcyq/iOwIj0fmQth3u5IeVyRGIQppm93I8joIX87/LHA4874uzFitYmONXwIxwlCzwQPdDDauAy
-	97H78h+H6QL3t35euMTg==;
+	List-Owner; bh=rsisqi1bdrdqBtRM7TwdRVs+wFrjenMaJ03JPHBQnRw=; b=tDNE8cL7vlOe/y
+	8OgqcPlVSJu69DgW9YUtIx4XS6wUscc6npeanaDFt7y+W5+9FX7xkGtQkGzZuWN33HbwfACnzCfCD
+	5KKCeW/Lv3HscSP2lg0LuyCSfWMF8hoyk1WevDz90anz0e+JGEWvNCPIsChQWNyf1enmo/PL35Dmt
+	bVmF/AZsiQYmOVU3Vv93sqYbX8ALM9p2tHxAWyY3pk237/gyOQWv7cmx8PV5WSt/YMbS/7H//IIKh
+	8TCOydd1NKxCvhJxjAgqOohBBqGb3izLERBaULVRna/sltgv5GRhEhiJ6MrtxRclBXjxbu8Cvo9fp
+	/5qxipPsfaxI4N2suiJw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNbvZ-0003F9-3F; Mon, 06 May 2019 11:37:01 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1hNfLl-0002wk-QZ; Mon, 06 May 2019 15:16:17 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNbvR-0003Eg-DK
- for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:36:55 +0000
-Received: by mail-wm1-x341.google.com with SMTP id b10so15367176wmj.4
- for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 04:36:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Hdgsasm85cLpyR+0zO9UBOEFTYWJLaXCuX6Xh5Umnis=;
- b=fYrhc+woeaOQFI3Ihy5OmqudKf1+eRh10Qxbl4Lvuz4hKNtsxZUqtwnNC3fb62hECe
- NPQ2VHuwFUcZCTD8QH1PQGY5vKxe08zPrjqL/pkwICb2GJwRo9J+tmY6qSDD3BDnMBSO
- YACjIRSjt3l6j8GDnb7Q8swbwNJqDWRayA5/s=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Hdgsasm85cLpyR+0zO9UBOEFTYWJLaXCuX6Xh5Umnis=;
- b=mCVIqgB1/k9Kt7k0UC8lyPLTIntBGhX7hcdpE042FiBQFZ+VFYfYFA694gUZ/Shx62
- Ctb0oknDDqdOXQIbjAjFuA0u6yK/fV0vobqRqp0zLCRAR6AEA0TZAFv7jXuA4dl2/uvn
- 6H7k9gBU0p0tlCtGfLofusQunLBIXBUsMO5pYgvHGPKswdKMJ9Xe4JQ1S9mpqvP75eZE
- 7aFfO1otUORTJAYBKl5d60ZT8k1SC/WvmvV6gaLkKWIsN4LcFDqrVJ2yH2Dc9+roGH/w
- gxA/OZ1gWSEJ9gbm2wet/TLv1ScUYrck54dUEui0ekerio625xpk3TrPmcIpbRa6HNoS
- EhlA==
-X-Gm-Message-State: APjAAAXdJkw6qyd0IxOs64W6INKCbhUlprPSZhGZ1I/uNIr/9Uv8kQL2
- V5OK40/L1DufDNwqSA/G9ZB/9gSuUAvDCfNrQNDGBg==
-X-Google-Smtp-Source: APXvYqxYMwZr850Oc2ms5Uw7wL7Q0E1EzRzwM1i5zWOcTXWfAqDCpRIdvljauq44lHV0qzMKZkH+Q29iPAjW4GLqYWY=
-X-Received: by 2002:a1c:1f92:: with SMTP id
- f140mr13611692wmf.132.1557142611608; 
- Mon, 06 May 2019 04:36:51 -0700 (PDT)
+ id 1hNfLV-0002qU-Hm; Mon, 06 May 2019 15:16:03 +0000
+X-Originating-IP: 90.88.149.145
+Received: from xps13 (aaubervilliers-681-1-29-145.w90-88.abo.wanadoo.fr
+ [90.88.149.145]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 477A6FF839;
+ Mon,  6 May 2019 15:13:44 +0000 (UTC)
+Date: Mon, 6 May 2019 17:13:44 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 07/36] mtd: rawnand: Avoid a typedef
+Message-ID: <20190506171344.6946b9ed@xps13>
+In-Reply-To: <20190503145006.574af442@collabora.com>
+References: <20190304222841.13899-1-miquel.raynal@bootlin.com>
+ <20190304222841.13899-8-miquel.raynal@bootlin.com>
+ <20190331135513.59257c1d@collabora.com>
+ <20190503144030.7fbbc0d4@xps13>
+ <20190503145006.574af442@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20190506084414.89702-1-zhuohao@chromium.org>
- <CANMq1KBpqb5-Ab1z_9zzvNVCkY72pBrAEJ2UVO1CgOjP=xXQ+A@mail.gmail.com>
-In-Reply-To: <CANMq1KBpqb5-Ab1z_9zzvNVCkY72pBrAEJ2UVO1CgOjP=xXQ+A@mail.gmail.com>
-From: Zhuohao Lee <zhuohao@chromium.org>
-Date: Mon, 6 May 2019 19:36:41 +0800
-Message-ID: <CABD5ybnTbKLNUU68+bN9EcbkJECU6egPghUm=h=xHToWGmeWUw@mail.gmail.com>
-Subject: Re: [PATCH v2] mtd: spi-nor: add debugfs nodes for querying the flash
- name and id
-To: Nicolas Boichat <drinkcat@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_043653_483978_F772055E 
-X-CRM114-Status: GOOD (  30.84  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190506_081601_890518_6AB932E2 
+X-CRM114-Status: GOOD (  30.88  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:341 listed in]
- [list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.199 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -89,192 +63,91 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: bbrezillon@kernel.org, richard@nod.at,
- Brian Norris <briannorris@chromium.org>,
- =?UTF-8?B?TWFyZWsgVmHFoXV0?= <marek.vasut@gmail.com>,
- linux-mtd@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mason Yang <masonccyang@mxic.com.tw>, Vignesh R <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
+ Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
+ Schrempf Frieder <frieder.schrempf@kontron.de>,
+ Paul Cercueil <paul@crapouillou.net>, Marek Vasut <marek.vasut@gmail.com>,
+ linux-mtd@lists.infradead.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, May 6, 2019 at 5:07 PM Nicolas Boichat <drinkcat@chromium.org> wrote:
->
-> On Mon, May 6, 2019 at 5:44 PM Zhuohao Lee <zhuohao@chromium.org> wrote:
-> >
-> > Currently, we don't have vfs nodes for querying the underlying
-> > flash name and flash id. This information is important especially
-> > when we want to know the flash detail of the defective system.
-> > In order to support the query, we add a function spi_nor_debugfs_create()
-> > to create the debugfs node (ie. flashname and flashid)
-> > This patch is modified based on the SPI-NOR flash system as we
-> > only have the SPI-NOR system now. But the idea should be applied to
-> > the other flash driver like NAND flash.
-> >
-> > The output of new debugfs nodes on my device are:
-> > cat /sys/kernel/debug/mtd/mtd0/flashid
-> > ef6017
-> > cat /sys/kernel/debug/mtd/mtd0/flashname
-> > w25q64dw
-> >
-> > Signed-off-by: Zhuohao Lee <zhuohao@chromium.org>
-> > ---
->
-> For next time, please include notes/changelog here (after ---), e.g.
-> things like link to previous discussion thread(s), changes since vX,
-> etc.
->
-> >  drivers/mtd/devices/m25p80.c  |  5 ++-
-> >  drivers/mtd/spi-nor/spi-nor.c | 62 +++++++++++++++++++++++++++++++++++
-> >  include/linux/mtd/spi-nor.h   |  6 ++++
-> >  3 files changed, 72 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
-> > index c4a1d04b8c80..be11e7d96646 100644
-> > --- a/drivers/mtd/devices/m25p80.c
-> > +++ b/drivers/mtd/devices/m25p80.c
-> > @@ -231,8 +231,11 @@ static int m25p_probe(struct spi_mem *spimem)
->
-> Can we add this to function that is generic to all spi-nor devices,
-> instead of making this specific to m25p?
-I can't find a better way to insert the spi_nor_debugfs_create()
-inside spi_nor.c.
-Another way is adding spi_nor_debugfs_create() to all of the caller.
-What do you think? Any other suggestion?
->
-> >         if (ret)
-> >                 return ret;
-> >
-> > -       return mtd_device_register(&nor->mtd, data ? data->parts : NULL,
-> > +       ret = mtd_device_register(&nor->mtd, data ? data->parts : NULL,
-> >                                    data ? data->nr_parts : 0);
-> > +       if (!ret)
-> > +               spi_nor_debugfs_create(nor);
-> > +       return ret;
-> >  }
-> >
-> >
-> > diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-> > index 6e13bbd1aaa5..004b6adf5866 100644
-> > --- a/drivers/mtd/spi-nor/spi-nor.c
-> > +++ b/drivers/mtd/spi-nor/spi-nor.c
-> > @@ -21,6 +21,8 @@
-> >  #include <linux/of_platform.h>
-> >  #include <linux/spi/flash.h>
-> >  #include <linux/mtd/spi-nor.h>
-> > +#include <linux/debugfs.h>
-> > +#include <linux/seq_file.h>
-> >
-> >  /* Define max times to check status register before we give up. */
-> >
-> > @@ -4161,6 +4163,66 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
-> >  }
-> >  EXPORT_SYMBOL_GPL(spi_nor_scan);
-> >
-> > +static int flashid_dbg_show(struct seq_file *s, void *p)
-> > +{
-> > +       struct spi_nor *nor = (struct spi_nor *)s->private;
-> > +       const struct flash_info *info = nor->info;
-> > +
-> > +       if (!info->id_len)
-> > +               return 0;
-> > +       seq_printf(s, "%*phN\n", info->id_len, info->id);
-> > +       return 0;
-> > +}
-> > +
-> > +static int flashid_debugfs_open(struct inode *inode, struct file *file)
-> > +{
-> > +       return single_open(file, flashid_dbg_show, inode->i_private);
-> > +}
-> > +
-> > +static const struct file_operations flashid_dbg_fops = {
-> > +       .open           = flashid_debugfs_open,
-> > +       .read           = seq_read,
-> > +       .llseek         = seq_lseek,
-> > +       .release        = single_release,
-> > +};
-> > +
-> > +static int flashname_dbg_show(struct seq_file *s, void *p)
-> > +{
-> > +       struct spi_nor *nor = (struct spi_nor *)s->private;
-> > +       const struct flash_info *info = nor->info;
-> > +
-> > +       if (!info->name)
-> > +               return 0;
-> > +       seq_printf(s, "%s\n", info->name);
-> > +       return 0;
-> > +}
-> > +
-> > +static int flashname_debugfs_open(struct inode *inode, struct file *file)
-> > +{
-> > +       return single_open(file, flashname_dbg_show, inode->i_private);
-> > +}
-> > +
-> > +static const struct file_operations flashname_dbg_fops = {
-> > +       .open           = flashname_debugfs_open,
-> > +       .read           = seq_read,
-> > +       .llseek         = seq_lseek,
-> > +       .release        = single_release,
-> > +};
-> > +
-> > +void spi_nor_debugfs_create(struct spi_nor *nor)
-> > +{
-> > +       struct mtd_info *mtd = &nor->mtd;
-> > +       struct dentry *root = mtd->dbg.dfs_dir;
-> > +
-> > +       if (IS_ERR_OR_NULL(root) || IS_ERR_OR_NULL(nor)) {
->
-> The second check looks useless. Or, to be precise, the kernel should
-> already have crashed above. I'd just drop the check.
-Ah.. i restructured the code and forgot to change this. I'll remove
-this on the next patch.
->
-> > +               return;
-> > +       }
-> > +       debugfs_create_file("flashid", S_IRUSR, root, nor,
-> > +                       &flashid_dbg_fops);
-> > +       debugfs_create_file("flashname", S_IRUSR, root, nor,
-> > +                       &flashname_dbg_fops);
->
-> Should we do something with the return values?
-ok, i will add it on the next patch.
->
-> Look at nandsim_debugfs_create for an example (also, we probably want
-> to check for CONFIG_DEBUG_FS before calling these.
-Do you mean adding the change like this?
-                if (IS_ENABLED(CONFIG_DEBUG_FS) &&
-                    !IS_ENABLED(CONFIG_MTD_PARTITIONED_MASTER))
-                        NS_WARN("CONFIG_MTD_PARTITIONED_MASTER must be
-enabled to expose debugfs stuff\n");
->
-> > +}
-> > +
-> >  MODULE_LICENSE("GPL v2");
-> >  MODULE_AUTHOR("Huang Shijie <shijie8@gmail.com>");
-> >  MODULE_AUTHOR("Mike Lavender");
-> > diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-> > index fa2d89e38e40..eadb5230c6d0 100644
-> > --- a/include/linux/mtd/spi-nor.h
-> > +++ b/include/linux/mtd/spi-nor.h
-> > @@ -530,4 +530,10 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
-> >   */
-> >  void spi_nor_restore(struct spi_nor *nor);
-> >
-> > +/**
-> > + * spi_nor_debugfs_create() - create debug fs
-> > + * @mtd:       the spi_nor structure
->
-> @nor
->
-> > + */
-> > +void spi_nor_debugfs_create(struct spi_nor *nor);
-> > +
-> >  #endif
-> > --
-> > 2.21.0.1020.gf2820cf01a-goog
-> >
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgQm9yaXMsCgpCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29t
+PiB3cm90ZSBvbiBGcmksIDMgTWF5CjIwMTkgMTQ6NTA6MDYgKzAyMDA6Cgo+IE9uIEZyaSwgMyBN
+YXkgMjAxOSAxNDo0MDozMCArMDIwMAo+IE1pcXVlbCBSYXluYWwgPG1pcXVlbC5yYXluYWxAYm9v
+dGxpbi5jb20+IHdyb3RlOgo+IAo+ID4gSGkgQm9yaXMsCj4gPiAKPiA+IEJvcmlzIEJyZXppbGxv
+biA8Ym9yaXMuYnJlemlsbG9uQGNvbGxhYm9yYS5jb20+IHdyb3RlIG9uIFN1biwgMzEgTWFyCj4g
+PiAyMDE5IDEzOjU1OjEzICswMjAwOgo+ID4gICAKPiA+ID4gT24gTW9uLCAgNCBNYXIgMjAxOSAy
+MzoyODoxMiArMDEwMAo+ID4gPiBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4u
+Y29tPiB3cm90ZToKPiA+ID4gICAgIAo+ID4gPiA+IEluIG5ldyBjb2RlLCB0aGUgdXNlIG9mIHR5
+cGVkZWYgaXMgZGlzY291cmFnZWQuIEJlZm9yZSBtb3ZpbmcgdGhpcwo+ID4gPiA+IHNlY3Rpb24g
+b3V0IG9mIHRoZSByYXcgTkFORCBiYXNlLCBsZXQncyBzd2l0Y2ggdGhlIG5hbmRfZWNjX21vZGVz
+X3QKPiA+ID4gPiB0eXBlIGludG8gYSByZWd1bGFyIG5hbmRfZWNjX21vZGUgZW51bWVyYXRpb24u
+Cj4gPiA+ID4gCj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJh
+eW5hbEBib290bGluLmNvbT4KPiA+ID4gPiAtLS0KPiA+ID4gPiAgZHJpdmVycy9tdGQvbmFuZC9y
+YXcvbmFuZF9iYXNlLmMgICAgICAgICAgICAgICB8IDQgKystLQo+ID4gPiA+ICBpbmNsdWRlL2xp
+bnV4L210ZC9yYXduYW5kLmggICAgICAgICAgICAgICAgICAgIHwgNiArKystLS0KPiA+ID4gPiAg
+aW5jbHVkZS9saW51eC9wbGF0Zm9ybV9kYXRhL210ZC1kYXZpbmNpLmggICAgICB8IDIgKy0KPiA+
+ID4gPiAgaW5jbHVkZS9saW51eC9wbGF0Zm9ybV9kYXRhL210ZC1uYW5kLXMzYzI0MTAuaCB8IDIg
+Ky0KPiA+ID4gPiAgNCBmaWxlcyBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDcgZGVsZXRpb25z
+KC0pCj4gPiA+ID4gCj4gPiA+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L25h
+bmRfYmFzZS5jIGIvZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9iYXNlLmMKPiA+ID4gPiBpbmRl
+eCBlMTRmMDJhMDFlZmQuLjA1MTc0YzZhMzA5OSAxMDA2NDQKPiA+ID4gPiAtLS0gYS9kcml2ZXJz
+L210ZC9uYW5kL3Jhdy9uYW5kX2Jhc2UuYwo+ID4gPiA+ICsrKyBiL2RyaXZlcnMvbXRkL25hbmQv
+cmF3L25hbmRfYmFzZS5jCj4gPiA+ID4gQEAgLTQ4ODEsOCArNDg4MSw4IEBAIHN0YXRpYyBpbnQg
+b2ZfZ2V0X25hbmRfZWNjX21vZGUoc3RydWN0IGRldmljZV9ub2RlICpucCkKPiA+ID4gPiAgCj4g
+PiA+ID4gIAkvKgo+ID4gPiA+ICAJICogRm9yIGJhY2t3YXJkIGNvbXBhdGliaWxpdHkgd2Ugc3Vw
+cG9ydCBmZXcgb2Jzb2xldGVkIHZhbHVlcyB0aGF0IGRvbid0Cj4gPiA+ID4gLQkgKiBoYXZlIHRo
+ZWlyIG1hcHBpbmdzIGludG8gbmFuZF9lY2NfbW9kZXNfdCBhbnltb3JlICh0aGV5IHdlcmUgbWVy
+Z2VkCj4gPiA+ID4gLQkgKiB3aXRoIG90aGVyIGVudW1zKS4KPiA+ID4gPiArCSAqIGhhdmUgdGhl
+aXIgbWFwcGluZ3MgaW50byB0aGUgbmFuZF9lY2NfbW9kZSBlbnVtIGFueW1vcmUgKHRoZXkgd2Vy
+ZQo+ID4gPiA+ICsJICogbWVyZ2VkIHdpdGggb3RoZXIgZW51bXMpLgo+ID4gPiA+ICAJICovCj4g
+PiA+ID4gIAlpZiAoIXN0cmNhc2VjbXAocG0sICJzb2Z0X2JjaCIpKQo+ID4gPiA+ICAJCXJldHVy
+biBOQU5EX0VDQ19TT0ZUOwo+ID4gPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L210ZC9y
+YXduYW5kLmggYi9pbmNsdWRlL2xpbnV4L210ZC9yYXduYW5kLmgKPiA+ID4gPiBpbmRleCAxNDc0
+ODE4MzUwOGIuLmM1YmY2YmI0OTMyOSAxMDA2NDQKPiA+ID4gPiAtLS0gYS9pbmNsdWRlL2xpbnV4
+L210ZC9yYXduYW5kLmgKPiA+ID4gPiArKysgYi9pbmNsdWRlL2xpbnV4L210ZC9yYXduYW5kLmgK
+PiA+ID4gPiBAQCAtODcsMTQgKzg3LDE0IEBAIHN0cnVjdCBuYW5kX2NoaXA7Cj4gPiA+ID4gIC8q
+Cj4gPiA+ID4gICAqIENvbnN0YW50cyBmb3IgRUNDX01PREVTCj4gPiA+ID4gICAqLwo+ID4gPiA+
+IC10eXBlZGVmIGVudW0gewo+ID4gPiA+ICtlbnVtIG5hbmRfZWNjX21vZGUgewo+ID4gPiA+ICAJ
+TkFORF9FQ0NfTk9ORSwKPiA+ID4gPiAgCU5BTkRfRUNDX1NPRlQsCj4gPiA+ID4gIAlOQU5EX0VD
+Q19IVywKPiA+ID4gPiAgCU5BTkRfRUNDX0hXX1NZTkRST01FLAo+ID4gPiA+ICAJTkFORF9FQ0Nf
+SFdfT09CX0ZJUlNULAo+ID4gPiA+ICAJTkFORF9FQ0NfT05fRElFLAo+ID4gPiA+IC19IG5hbmRf
+ZWNjX21vZGVzX3Q7Cj4gPiA+ID4gK307ICAgICAgCj4gPiA+IAo+ID4gPiBIbSwgSSdtIHJlYWxs
+eSBub3QgYSBiaWcgZmFuIG9mIHRoaXMgZW51bSBiZWNhdXNlIGl0J3MgbWl4aW5nIDIKPiA+ID4g
+ZGlmZmVyZW50IGNvbmNlcHRzOiB0aGUgdHlwZSBvZiBFQ0MgZW5naW5lIHRvIHVzZSAob24tZGll
+LAo+ID4gPiBody1jb250cm9sbGVyLXNpZGUsIHNvZnR3YXJlLCBuby1FQ0MpIGFuZCB0aGUgbGF5
+b3V0IG9mCj4gPiA+IEVDQy9GUkVFIGJ5dGVzIChfU1lORFJPTUUsIF9PT0JfRklSU1QpLgo+ID4g
+PiAKPiA+ID4gSSdkIHJlY29tbWVuZCBjcmVhdGluZyBhIG5hbmRfZWNjX2VuZ2luZV90eXBlIGVu
+dW06Cj4gPiA+IAo+ID4gPiBlbnVtIG5hbmRfZWNjX2VuZ2luZV90eXBlIHsKPiA+ID4gCU5BTkRf
+Tk9fRUNDX0VOR0lORSwKPiA+ID4gCU5BTkRfU09GVF9FQ0NfRU5HSU5FLAo+ID4gPiAJTkFORF9I
+V19FQ0NfRU5HSU5FLAo+ID4gPiAJTkFORF9PTl9ESUVfRUNDX0VOR0lORSwKPiA+ID4gfTsKPiA+
+ID4gCj4gPiA+IGFuZCB0aGVuIGNvbnZlcnQgdGhlIHJhdyBOQU5EIGxheWVyIHRvIHRoaXMgZW51
+bSB3aGVuIHRoZSB0aW1lIGNvbWVzLiAgICAKPiA+IAo+ID4gSSBzdGFydGVkIHNvbWV0aGluZyBi
+dXQgdGhpcyBnb2VzIHdheSB0b28gZmFyIGZyb20gd2hhdCBJIHdhbnQgdG8KPiA+IGFjaGlldmUu
+IEkga25vdyBpdCB3b3VsZCBiZSBuaWNlIHRvIGhhdmUgaXQgYnV0IGl0IGhhcyBhbgo+ID4gaW5j
+cmVhc2luZ2x5IG51bWJlciBvZiBzaWRlIGVmZmVjdHMgd2hpY2ggc2NhcmVkIG1lLiBUaGUgd2F5
+IHRoZQo+ID4gc2VyaWVzIGlzIG9yZ2FuaXplZCBkb2VzIG5vdCBhbGxvdyB0byBlYXNpbHkgaWdu
+b3JlIHRoZSByYXcgTkFORCBsYXllcgo+ID4gZmlyc3QgYW5kIHRoZW4gY29udmVydCBpdC4gSSBh
+bSBnaXZpbmcgdXAgb24gdGhpcyBvbmUgZm9yIG5vdywgc29ycnkuICAKPiAKPiBJIGRvbid0IHRo
+aW5rIHRoYXQncyBhIHdpc2UgY2hvaWNlLiBXaHkgbm90IGZvY3VzaW5nIG9uCj4gbmFuZF9kZXZp
+Y2Uvc3BpbmFuZCB3aXRoIGEgY2xlYW4gaW1wbGVtZW50YXRpb24gdGhhdCBkb2VzIG5vdCB0cnkg
+dG8KPiBjb252ZXJ0IHRoZSByYXduYW5kIGxheWVyIHRvIHRoaXMgYXBwcm9hY2g/CgpJIGtub3cs
+IGFuZCB0aGF0IHdhcyBwcm9iYWJseSB0aGUgYmVzdCB0aGluZyB0byBkbywgdW5mb3J0dW5hdGVs
+eSBJCnN0YXJ0ZWQgYmlnZ2VyIGJlY2F1c2UgdGhlcmUgd2FzIHNvIG11Y2ggdGhpbmdzIHRvIGNo
+YW5nZSwgSSBnb3QgYSBiaXQKbG9zdCBhdCB0aGUgYmVnaW5uaW5nLiBJIGtub3cgdGhpcyBpcyBu
+b3QgYSB2YWxpZCByZWFzb24gYnV0IGluCnByYWN0aWNlIEkgY291bGQgbm90IGNvbWUgd2l0aCBz
+b21ldGhpbmcgbGlnaHRlciwgaWUuIGZvY3VzZWQgb24KU1BJLU5BTkQgb25seS4KCj4gVGhlIHJl
+YXNvbiBJIGluaXRpYWxseQo+IHN0YXJ0ZWQgb3ZlciB3aXRoIGEgbmV3IGdlbmVyaWMgTkFORCBs
+YXllciBpbnN0ZWFkIG9mIGNvcHlpbmcgdGhpbmdzCj4gZnJvbSBuYW5kX2Jhc2UgaXMgdGhhdCBJ
+IHdhbnRlZCB0byBhdm9pZCBoYXZpbmcgdG8gZGVhbCB3aXRoIHN0dWZmIHRoYXQKPiB3ZXJlIG5v
+dCBzbyBncmVhdCBpbiB0aGVyZSwgYW5kIGNsZWFybHkgbmFuZF9lY2NfbW9kZSBpcyBvbmUgb2Yg
+dGhlbS4KCkkgdW5kZXJzdGFuZCB0aGF0IHNvIEkgdGhpbmsgSSBtYW5hZ2VkIHRvIGNsZWFuIHRo
+ZSBzaXR1YXRpb24gd2l0aCBhCnByZWxpbWluYXJ5IHNlcmllcyB3aGljaCBJIHdpbGwgc2VuZCBz
+b29uLgoKVGhhbmtzLApNaXF1w6hsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
