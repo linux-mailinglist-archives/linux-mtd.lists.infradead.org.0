@@ -2,94 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EAB4814902
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:34:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9BF981471E
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 11:04:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
-	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cpgAPdDOpFXajG/QLr/QKcvHl2fjIu0bEhhlhdM/vI8=; b=ZGAlrs2h6ByFQp
-	QO897SnQuBOeq8ITXqz5Bun95CIz595zYF5gDkBRcIv8SSfQ+uQFWh3GVn3wM3Dd1e1OPnh3KPaB9
-	g89X6mo33Q35lwRnqS+gNq3d0J183z4Z1m1d/q+pJRdpeouFSba690pbxAxV6W6zzF03PQM9E7oNk
-	lHg74T2WRYjMBh24d4zoyhM2sp6CC7yNBQRO19sUkAEfVyZZhT9JqUHk1XV9Cto+1xHmOrIE4Kv7p
-	DwEjr+CTfpKQzDQWwhJ7SAnD1fkGDBy/c8Hk7NkW+k3IQi88UQBNd29d6hvU7YKHv3JfF4r0dPC/L
-	B+CTAyZdey/DiCqj2A8A==;
+	List-Owner; bh=6flsob6910PPE100QUbmVaHKBmRBdumtu4Bme34MTEs=; b=KDSsx/ezhL7O/z
+	teyWD4rxw3xEKzWbBY539ccftcqclnhoCqEWxj4+ZCZ4kV7H0kjYPon/LEoskMtt06NdxZ9dGcKB6
+	P56q2lSPpDfRAebFC+KxVSNwnbR5FTmwtL7eqBPmVyNSNx2LVREw+t+Hg0nXIFH6mLb3Ko8vECDAR
+	bdGaos4odJMp0FBI+4LIjFDRbUw1Vlq4cWx9HiqyEBf3ZIf5ZOuDC0QBGjVNIoW9+Tsv7P8PyqMOb
+	dUbxkZT2BCiUpeDut+yDaRaNFU7zhv4f6iv/VBfISqpvUxjmyAQ6ShKZAlSn0rlxwv2HK6wUL4bgB
+	8SxPNX+1EYacH7B1yJ7A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNbsi-0000en-W5; Mon, 06 May 2019 11:34:04 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1hNZXj-0004ZT-0u; Mon, 06 May 2019 09:04:15 +0000
+Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNbsV-0000U0-Dx
- for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:33:54 +0000
-Received: from pps.filterd (m0098393.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x46BWomc116690
- for <linux-mtd@lists.infradead.org>; Mon, 6 May 2019 07:33:50 -0400
-Received: from e06smtp03.uk.ibm.com (e06smtp03.uk.ibm.com [195.75.94.99])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2sajd2m9sw-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 07:33:49 -0400
-Received: from localhost
- by e06smtp03.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
- Mon, 6 May 2019 12:33:47 +0100
-Received: from b06cxnps4076.portsmouth.uk.ibm.com (9.149.109.198)
- by e06smtp03.uk.ibm.com (192.168.101.133) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Mon, 6 May 2019 12:33:43 +0100
-Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
- [9.149.105.62])
- by b06cxnps4076.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x46BXgxt39059600
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 6 May 2019 11:33:43 GMT
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id D569DAE055;
- Mon,  6 May 2019 11:33:42 +0000 (GMT)
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 748AAAE053;
- Mon,  6 May 2019 11:33:41 +0000 (GMT)
-Received: from localhost.localdomain (unknown [9.85.70.42])
- by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Mon,  6 May 2019 11:33:41 +0000 (GMT)
-From: Chandan Rajendra <chandan@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH 08/13] fscrypt: introduce fscrypt_decrypt_block_inplace()
-Date: Mon, 06 May 2019 14:31:58 +0530
-Organization: IBM
-In-Reply-To: <20190501224515.43059-9-ebiggers@kernel.org>
-References: <20190501224515.43059-1-ebiggers@kernel.org>
- <20190501224515.43059-9-ebiggers@kernel.org>
+ id 1hNZXO-0004SF-1s; Mon, 06 May 2019 09:03:55 +0000
+Received: by mail-pl1-x641.google.com with SMTP id e92so6049686plb.6;
+ Mon, 06 May 2019 02:03:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=2zkFvMfXSuPxA7TswP4qZ+QIZKRpTzLAUwlBxIZ9PzU=;
+ b=YiczZxhl+N5iLdzUGTmZ+vv61ahbfT5sYkO+ZKl1O183V89+BhJz/LVCYZW69Rs96I
+ B9L09hT9RKBTMzQPy68tiva/wZUTF1HeqiQA0wgIQKQi9hc9wauqzRc3OKkCm1b+45xD
+ /TIxR7gFTxFuR4TGryfYzNp53n1d0MoSOlSKqUI1PygQXIr4DIq/BsZfwXixIBOH9ZxQ
+ yFa4fMS2Zky76vcoykF14xxJXsTp6HA89kojG6J76npL+WXgKQ2KtB8ZUuikGBrAHTkD
+ gd51bYyzDfYbsyUC+pmkXYFFrzi2nJRQ6fAyiK8dpDyV02X1sRuhxEHafOiBQ4LbnHZJ
+ uFzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=2zkFvMfXSuPxA7TswP4qZ+QIZKRpTzLAUwlBxIZ9PzU=;
+ b=oi0rhZRZr0YwXjAQ/5w969TCgW4mg317XT6b96z0sMoLHQDfKWGzfsULXGjj6/qIn2
+ B8Y6SEi1snq2nhaB4DwyV17AJxGESGSnHp3y6Ac82QDJQYAiU9N7bPpiWFu6IY2ul65v
+ cupXlpNBO7GgAiQZnyQkLwiUDFt9HLiy/LCfpJrA/4Vf53YO49NoCGI8K8vcmCydJ8/v
+ nL6oQ7Yrpz0c/l8LUx/KifLaTWfA3DF6ERifgMAEY7N88eeBIjNmCm7XT7yiR0h8yxFG
+ +/7M8SJOPnC85ZMFBNwZ9xfoQVXhoJ4R+6t20StSjVziaJVlpNMrwOts8hBrclKfqfKA
+ M3Ww==
+X-Gm-Message-State: APjAAAWt7GXTe4y37KyTydnrlnsaEZIV6vx1SvN+d0vg2x21KQ3GMTyZ
+ 5MfdUwnPAdibBMg70L/x2gBhdF4E23QzDQ+yjsM=
+X-Google-Smtp-Source: APXvYqzcd/LiJVbbE8cCf+fOVIBhczP6XN4ND6V/1pkV1QnBDFee3E6dAicqEB0BMR5uY867+F0seVXH98gF0RaaX4M=
+X-Received: by 2002:a17:902:8349:: with SMTP id
+ z9mr30421370pln.144.1557133433288; 
+ Mon, 06 May 2019 02:03:53 -0700 (PDT)
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-x-cbid: 19050611-0012-0000-0000-00000318CA52
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19050611-0013-0000-0000-0000215142F5
-Message-Id: <1926821.WNcHRD5IIQ@dhcp-9-109-212-164>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-05-06_07:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=632 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1905060102
+References: <20190416202013.4034148-1-arnd@arndb.de>
+In-Reply-To: <20190416202013.4034148-1-arnd@arndb.de>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 6 May 2019 12:03:42 +0300
+Message-ID: <CAHp75Vc2-zzRYk0vpdPQm5duZwW+v=svEndTPV4Sr59QrGcMHg@mail.gmail.com>
+Subject: Re: [PATCH v3 00/26] compat_ioctl: cleanups
+To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_043351_947310_D5D12D6A 
-X-CRM114-Status: GOOD (  18.71  )
-X-Spam-Score: 1.8 (+)
+X-CRM114-CacheID: sfid-20190506_020354_139980_88B32C66 
+X-CRM114-Status: GOOD (  12.94  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.8 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.156.1 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:641 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (andy.shevchenko[at]gmail.com)
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -101,36 +90,69 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-fsdevel@vger.kernel.org, linux-fscrypt@vger.kernel.org,
- linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
- linux-f2fs-devel@lists.sourceforge.net
+Cc: Linux NVMe Mailinglist <linux-nvme@lists.infradead.org>,
+ linux-iio <linux-iio@vger.kernel.org>, linux-remoteproc@vger.kernel.org,
+ linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ Platform Driver <platform-driver-x86@vger.kernel.org>,
+ linux-ide@vger.kernel.org,
+ "open list:MEMORY TECHNOLOGY..." <linux-mtd@lists.infradead.org>,
+ sparclinux@vger.kernel.org, linux1394-devel@lists.sourceforge.net,
+ devel@driverdev.osuosl.org, linux-s390@vger.kernel.org,
+ linux-scsi <linux-scsi@vger.kernel.org>, linux-bluetooth@vger.kernel.org,
+ y2038@lists.linaro.org, qat-linux@intel.com, amd-gfx@lists.freedesktop.org,
+ linux-input <linux-input@vger.kernel.org>,
+ Marcel Holtmann <marcel@holtmann.org>,
+ Linux Media Mailing List <linux-media@vger.kernel.org>,
+ "open list:REAL TIME CLOCK \(RTC\) SUBSYSTEM" <linux-rtc@vger.kernel.org>,
+ ALSA Development Mailing List <alsa-devel@alsa-project.org>,
+ "James E.J. Bottomley" <jejb@linux.ibm.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>, ceph-devel@vger.kernel.org,
+ linux-arm Mailing List <linux-arm-kernel@lists.infradead.org>,
+ Karsten Keil <isdn@linux-pingi.de>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ USB <linux-usb@vger.kernel.org>,
+ "open list:TI WILINK WIRELES..." <linux-wireless@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ "open list:HFI1 DRIVER" <linux-rdma@vger.kernel.org>,
+ linux-crypto <linux-crypto@vger.kernel.org>, netdev <netdev@vger.kernel.org>,
+ Linux FS Devel <linux-fsdevel@vger.kernel.org>,
+ linux-integrity <linux-integrity@vger.kernel.org>,
+ "open list:LINUX FOR POWERPC PA SEMI PWRFICIENT"
+ <linuxppc-dev@lists.ozlabs.org>, "David S. Miller" <davem@davemloft.net>,
+ linux-btrfs@vger.kernel.org, linux-ppp@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thursday, May 2, 2019 4:15:10 AM IST Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> fscrypt_decrypt_page() behaves very differently depending on whether the
-> filesystem set FS_CFLG_OWN_PAGES in its fscrypt_operations.  This makes
-> the function difficult to understand and document.  It also makes it so
-> that all callers have to provide inode and lblk_num, when fscrypt could
-> determine these itself for pagecache pages.
-> 
-> Therefore, move the FS_CFLG_OWN_PAGES behavior into a new function
-> fscrypt_decrypt_block_inplace().
+On Tue, Apr 16, 2019 at 11:23 PM Arnd Bergmann <arnd@arndb.de> wrote:
 >
+> Hi Al,
+>
+> It took me way longer than I had hoped to revisit this series, see
+> https://lore.kernel.org/lkml/20180912150142.157913-1-arnd@arndb.de/
+> for the previously posted version.
+>
+> I've come to the point where all conversion handlers and most
+> COMPATIBLE_IOCTL() entries are gone from this file, but for
+> now, this series only has the parts that have either been reviewed
+> previously, or that are simple enough to include.
+>
+> The main missing piece is the SG_IO/SG_GET_REQUEST_TABLE conversion.
+> I'll post the patches I made for that later, as they need more
+> testing and review from the scsi maintainers.
+>
+> I hope you can still take these for the coming merge window, unless
+> new problems come up.
 
-Looks good to me,
+>  drivers/platform/x86/wmi.c                  |   2 +-
 
-Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
+Acked-by: Andy Shevchenko <andy.shevchenko@gmail.com>
 
 -- 
-chandan
-
-
-
+With Best Regards,
+Andy Shevchenko
 
 ______________________________________________________
 Linux MTD discussion mailing list
