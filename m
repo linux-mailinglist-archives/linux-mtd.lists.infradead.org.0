@@ -2,95 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC30414916
-	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 13:39:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 20EB1146A6
+	for <lists+linux-mtd@lfdr.de>; Mon,  6 May 2019 10:44:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:MIME-Version:References:
-	In-Reply-To:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M0gjXhlXqEwaXXTxEx0hmny8l1ZUjSFB3t5A3a/qzo0=; b=ZGj2On+AL6dlkv
-	kZqLsQFfpmyLNijHmVIJ5lF+WSmMgAeWstyASWiRPDre4ocLtKSk5pLg8FS13XRYHtu3yDBBAj2MP
-	q6Y4qL8qe/aspMauH2jHmTNbDyWueuyP1k2EVGBquwg9xQoQOxpEBfivEGNvxNKXBeEDgsThevZnT
-	eaiK2H9HcLLfj3rF7MQixNpxwL0cPNvKpx50EuoL3im/nsn+O1bGKOL+P11PtybQAUX/ibNhChG4t
-	ZCTMc/clo4sJziXw9mahAooPDvGRCd2oxVtg+OC+ZEuPt5pxbSD4yQ0hFxONKGfMz6qwYwT8G96Mb
-	Ook78wW6Bn4TAGWQf6IA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HyHLxLnwAEAc65lF0x7ENyes/EANmbCfdvAyU3XNVzg=; b=i/cLMaT+o6LWb+
+	lcsb1vXL8fg9QYsZOWzP1P7xXbDEyyEMKQh0R4ALs/lUulm9ePq9WNvmE1agaF6O8cih/h7twTSmF
+	/1aGUDHX76rs2AAet0VN0uLafOE1HGiJy8JNJbqQtlNx5Nl/dGqXYUq7LhD+jiKLLaqYn+NeyUq/p
+	IwenMGTx88pWuLQ5rsul6sjA+LpVPONYC8Sh+aoiaJOWRthKnHOZXdKOJ+N0mSbFLZz38ZiUNH1H3
+	mgE340qXAxaqOOANcuoReKWPARPLLpkZt1ERB739sowgDbfvlRu4wuwSpULnOpbG9x2KTeX2rRByV
+	SPBxgwFySsi++gbk4rng==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNbxR-0003dD-NS; Mon, 06 May 2019 11:38:57 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1hNZEb-00059V-LT; Mon, 06 May 2019 08:44:29 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNbxI-0003ce-9q
- for linux-mtd@lists.infradead.org; Mon, 06 May 2019 11:38:50 +0000
-Received: from pps.filterd (m0098396.ppops.net [127.0.0.1])
- by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
- x46Bbhqj146767
- for <linux-mtd@lists.infradead.org>; Mon, 6 May 2019 07:38:47 -0400
-Received: from e06smtp07.uk.ibm.com (e06smtp07.uk.ibm.com [195.75.94.103])
- by mx0a-001b2d01.pphosted.com with ESMTP id 2sajd1mq32-1
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
- for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 07:38:47 -0400
-Received: from localhost
- by e06smtp07.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only!
- Violators will be prosecuted
- for <linux-mtd@lists.infradead.org> from <chandan@linux.ibm.com>;
- Mon, 6 May 2019 12:33:44 +0100
-Received: from b06cxnps3074.portsmouth.uk.ibm.com (9.149.109.194)
- by e06smtp07.uk.ibm.com (192.168.101.137) with IBM ESMTP SMTP Gateway:
- Authorized Use Only! Violators will be prosecuted; 
- (version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
- Mon, 6 May 2019 12:33:41 +0100
-Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com
- [9.149.105.62])
- by b06cxnps3074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id
- x46BXeYe35651652
- (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Mon, 6 May 2019 11:33:40 GMT
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id 3FBC0AE05D;
- Mon,  6 May 2019 11:33:40 +0000 (GMT)
-Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
- by IMSVA (Postfix) with ESMTP id DE722AE058;
- Mon,  6 May 2019 11:33:38 +0000 (GMT)
-Received: from localhost.localdomain (unknown [9.85.70.42])
- by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTP;
- Mon,  6 May 2019 11:33:38 +0000 (GMT)
-From: Chandan Rajendra <chandan@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH 07/13] fscrypt: handle blocksize < PAGE_SIZE in
- fscrypt_zeroout_range()
-Date: Mon, 06 May 2019 14:12:57 +0530
-Organization: IBM
-In-Reply-To: <20190501224515.43059-8-ebiggers@kernel.org>
-References: <20190501224515.43059-1-ebiggers@kernel.org>
- <20190501224515.43059-8-ebiggers@kernel.org>
+ id 1hNZES-000543-8A
+ for linux-mtd@lists.infradead.org; Mon, 06 May 2019 08:44:21 +0000
+Received: by mail-pf1-x444.google.com with SMTP id v80so6389947pfa.3
+ for <linux-mtd@lists.infradead.org>; Mon, 06 May 2019 01:44:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/afAazh4wuf+y940dkVcYam7j3ANFrVWHKvnKRTy/6M=;
+ b=fSMu0uHXQndsvIk23RkKsxRruz77vNf6SOMdGLut+jgR3cfoALotNhsL8haU6O7peh
+ roT6F8+mp7TEjccjHKpkXtDyJZzx+2BoLjebHlB7lhQDs4DzPwkC8VdP9JWTMqS1PcDk
+ bdirVpflI2fT5ZXQqbL0Tr3X7wCgnhhEkyN3I=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/afAazh4wuf+y940dkVcYam7j3ANFrVWHKvnKRTy/6M=;
+ b=D5ONYBCncw3McAikMGJLycgGjOO492w9K+WbBfnAtBoIe/FQ86ilUz0XqfgsaBuHa/
+ ar8bARkyr+zQnxS/R+ODRHUcSCrIfkljCciFC7LV/yEhTxZ49MQ4z6sHDYUUAxGHs6Ld
+ y4iTW/O8MiCUnaFponfGiJQWC9DCmqksgHABcN1t9BBOTwLuOiqLncVAwbLM8bLVOz7f
+ xxbJF6R+vTTe/JEiww+AJPiyiJdGuUoXT3jq0QCBPd33rIKQY9ejj38H/3ooAWTlcws5
+ PhJdQZuuUi81cfIhAdC9by8DsH+noQ35/vzNwfX+BYUDC7wKy3boTT6Y1ZAuih4ahQfw
+ jmBg==
+X-Gm-Message-State: APjAAAUvRLSBpeecnf7o1dPZ2naw/cQghrfFtTqGwMUmuvFvLGFzntWP
+ 6ONKnioFjnUWbBU12ZmIBN6zdkbBuQI=
+X-Google-Smtp-Source: APXvYqwM7aKNGJiVn/PdQMmrlU2Prxgyroly/b3lhzQnv7bVuKdUnojhMM2OB0ASoAMa0+hnqf+T9Q==
+X-Received: by 2002:a63:5d44:: with SMTP id o4mr30495476pgm.15.1557132258807; 
+ Mon, 06 May 2019 01:44:18 -0700 (PDT)
+Received: from zhuohao-z440.tpe.corp.google.com
+ ([2401:fa00:1:10:e25c:13cd:9607:cc7f])
+ by smtp.gmail.com with ESMTPSA id 15sm12310214pfy.88.2019.05.06.01.44.16
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 06 May 2019 01:44:18 -0700 (PDT)
+From: Zhuohao Lee <zhuohao@chromium.org>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCH v2] mtd: spi-nor: add debugfs nodes for querying the flash
+ name and id
+Date: Mon,  6 May 2019 16:44:14 +0800
+Message-Id: <20190506084414.89702-1-zhuohao@chromium.org>
+X-Mailer: git-send-email 2.21.0.1020.gf2820cf01a-goog
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-x-cbid: 19050611-0028-0000-0000-0000036ACDB3
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19050611-0029-0000-0000-0000242A4225
-Message-Id: <6183530.UoL3poR4K9@dhcp-9-109-212-164>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
- definitions=2019-05-06_07:, , signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501
- malwarescore=0 suspectscore=1 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=818 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1810050000 definitions=main-1905060103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_043848_466022_5F8ADE12 
-X-CRM114-Status: GOOD (  18.71  )
-X-Spam-Score: 1.8 (+)
+X-CRM114-CacheID: sfid-20190506_014420_320234_C2EF8C7F 
+X-CRM114-Status: GOOD (  16.64  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.8 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [148.163.156.1 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -102,38 +92,150 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-fsdevel@vger.kernel.org, linux-fscrypt@vger.kernel.org,
- linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
- linux-f2fs-devel@lists.sourceforge.net
+Cc: drinkcat@chromium.org, zhuohao@chromium.org, bbrezillon@kernel.org,
+ richard@nod.at, briannorris@chromium.org, marek.vasut@gmail.com,
+ computersforpeace@gmail.com, dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thursday, May 2, 2019 4:15:09 AM IST Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> Adjust fscrypt_zeroout_range() to encrypt a block at a time rather than
-> a page at a time, so that it works when blocksize < PAGE_SIZE.
-> 
-> This isn't optimized for performance, but then again this function
-> already wasn't optimized for performance.  As a future optimization, we
-> could submit much larger bios here.
-> 
-> This is in preparation for allowing encryption on ext4 filesystems with
-> blocksize != PAGE_SIZE.
-> 
-> This is based on work by Chandan Rajendra.
+Currently, we don't have vfs nodes for querying the underlying
+flash name and flash id. This information is important especially
+when we want to know the flash detail of the defective system.
+In order to support the query, we add a function spi_nor_debugfs_create()
+to create the debugfs node (ie. flashname and flashid)
+This patch is modified based on the SPI-NOR flash system as we
+only have the SPI-NOR system now. But the idea should be applied to
+the other flash driver like NAND flash.
 
+The output of new debugfs nodes on my device are:
+cat /sys/kernel/debug/mtd/mtd0/flashid
+ef6017
+cat /sys/kernel/debug/mtd/mtd0/flashname
+w25q64dw
 
-Looks good to me,
+Signed-off-by: Zhuohao Lee <zhuohao@chromium.org>
+---
+ drivers/mtd/devices/m25p80.c  |  5 ++-
+ drivers/mtd/spi-nor/spi-nor.c | 62 +++++++++++++++++++++++++++++++++++
+ include/linux/mtd/spi-nor.h   |  6 ++++
+ 3 files changed, 72 insertions(+), 1 deletion(-)
 
-Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
-
+diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
+index c4a1d04b8c80..be11e7d96646 100644
+--- a/drivers/mtd/devices/m25p80.c
++++ b/drivers/mtd/devices/m25p80.c
+@@ -231,8 +231,11 @@ static int m25p_probe(struct spi_mem *spimem)
+ 	if (ret)
+ 		return ret;
+ 
+-	return mtd_device_register(&nor->mtd, data ? data->parts : NULL,
++	ret = mtd_device_register(&nor->mtd, data ? data->parts : NULL,
+ 				   data ? data->nr_parts : 0);
++	if (!ret)
++		spi_nor_debugfs_create(nor);
++	return ret;
+ }
+ 
+ 
+diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+index 6e13bbd1aaa5..004b6adf5866 100644
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -21,6 +21,8 @@
+ #include <linux/of_platform.h>
+ #include <linux/spi/flash.h>
+ #include <linux/mtd/spi-nor.h>
++#include <linux/debugfs.h>
++#include <linux/seq_file.h>
+ 
+ /* Define max times to check status register before we give up. */
+ 
+@@ -4161,6 +4163,66 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+ }
+ EXPORT_SYMBOL_GPL(spi_nor_scan);
+ 
++static int flashid_dbg_show(struct seq_file *s, void *p)
++{
++	struct spi_nor *nor = (struct spi_nor *)s->private;
++	const struct flash_info *info = nor->info;
++
++	if (!info->id_len)
++		return 0;
++	seq_printf(s, "%*phN\n", info->id_len, info->id);
++	return 0;
++}
++
++static int flashid_debugfs_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, flashid_dbg_show, inode->i_private);
++}
++
++static const struct file_operations flashid_dbg_fops = {
++	.open		= flashid_debugfs_open,
++	.read		= seq_read,
++	.llseek		= seq_lseek,
++	.release	= single_release,
++};
++
++static int flashname_dbg_show(struct seq_file *s, void *p)
++{
++	struct spi_nor *nor = (struct spi_nor *)s->private;
++	const struct flash_info *info = nor->info;
++
++	if (!info->name)
++		return 0;
++	seq_printf(s, "%s\n", info->name);
++	return 0;
++}
++
++static int flashname_debugfs_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, flashname_dbg_show, inode->i_private);
++}
++
++static const struct file_operations flashname_dbg_fops = {
++	.open		= flashname_debugfs_open,
++	.read		= seq_read,
++	.llseek		= seq_lseek,
++	.release	= single_release,
++};
++
++void spi_nor_debugfs_create(struct spi_nor *nor)
++{
++	struct mtd_info *mtd = &nor->mtd;
++	struct dentry *root = mtd->dbg.dfs_dir;
++
++	if (IS_ERR_OR_NULL(root) || IS_ERR_OR_NULL(nor)) {
++		return;
++	}
++	debugfs_create_file("flashid", S_IRUSR, root, nor,
++			&flashid_dbg_fops);
++	debugfs_create_file("flashname", S_IRUSR, root, nor,
++			&flashname_dbg_fops);
++}
++
+ MODULE_LICENSE("GPL v2");
+ MODULE_AUTHOR("Huang Shijie <shijie8@gmail.com>");
+ MODULE_AUTHOR("Mike Lavender");
+diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+index fa2d89e38e40..eadb5230c6d0 100644
+--- a/include/linux/mtd/spi-nor.h
++++ b/include/linux/mtd/spi-nor.h
+@@ -530,4 +530,10 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+  */
+ void spi_nor_restore(struct spi_nor *nor);
+ 
++/**
++ * spi_nor_debugfs_create() - create debug fs
++ * @mtd:	the spi_nor structure
++ */
++void spi_nor_debugfs_create(struct spi_nor *nor);
++
+ #endif
 -- 
-chandan
-
-
+2.21.0.1020.gf2820cf01a-goog
 
 
 ______________________________________________________
