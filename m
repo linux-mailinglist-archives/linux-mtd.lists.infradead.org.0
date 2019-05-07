@@ -2,58 +2,87 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D73015E6C
-	for <lists+linux-mtd@lfdr.de>; Tue,  7 May 2019 09:42:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B413715ED5
+	for <lists+linux-mtd@lfdr.de>; Tue,  7 May 2019 10:09:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=OcYbjVaa2jUKQ5mHhPyLtj1ZIlb20eK2pXIbV/NQeRg=; b=q3Q
-	KbcYzoWk3RcYxBlpz9KS+y+3bavOOSaVY5NhjJqLEtSctJLOB/Vm1R3B8ExLN/iM6AWzCz/MX290c
-	6VpRXtJAmKBZ2ZjFUf+ncz4xroernDMILHDxKtkx0PDLjdj8RJTxGVlCLBhgySUVRNFiMg5CCtXE1
-	ATZlglK1JsDdwocRNDqFYPT+cLqSDYaZLQlfr6dmLm+qySsjtryM+9e+pC1NQQpCQmeM+WFhgrhj5
-	kN6xqgCXLWP09QnRp90w1YYNL6XmLxWrnZGdp/IGiZiw9klp7jUK6awCqefweLXTbXD4Gd4I36eRE
-	EyDiqSuCnrTFEJB/Ecev0f1cbmNJ8QA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Op21IIjsj8IR0mB7PDvO+MNuCpJkJjgHqpeeDn7VJg8=; b=nZqTK/EMfZhB0c
+	hJ5rU/tCf39diljDfPNsMzcsYfdKZxUHo7dw5wJP+95KJgUtyMaJ3FKbzcS93JunGtLUgiSC83LR0
+	mt22L6i86nWofiI/x1Xv0K6pMwKW6E6JRCqxDkUPJ6zVmHTIxdoU52nvtyWAqJTJpQ6AyTK+YOcfp
+	vtCZnrfNHB7ebw6OPGMft6HJcTf7h8VDAUt85GnxryMvCWEQqZ/QScDtGDZq4yTnLIf6njJnsaneA
+	zvpO3k2YKGZEAqaDhtCVpPKAT1MyZQcP7sJbkdWq7plV9MfvVf3GiHZ5wCyT7uQ/ENwKjvWuxK9uV
+	HnO/CI9ZXefdrw01BXUw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNukI-00038G-LV; Tue, 07 May 2019 07:42:38 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1hNvAG-0007l4-QQ; Tue, 07 May 2019 08:09:28 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNukA-00037T-N5
- for linux-mtd@lists.infradead.org; Tue, 07 May 2019 07:42:32 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
- by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id AA5B51A01B0;
- Tue,  7 May 2019 09:42:27 +0200 (CEST)
-Received: from invc005.ap-rdc01.nxp.com (invc005.ap-rdc01.nxp.com
- [165.114.16.14])
- by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id C750B1A0233;
- Tue,  7 May 2019 09:42:24 +0200 (CEST)
-Received: from nxp.com (lsv03080.swis.in-blr01.nxp.com [92.120.146.77])
- by invc005.ap-rdc01.nxp.com (Postfix) with ESMTP id 72B42402F2;
- Tue,  7 May 2019 15:42:21 +0800 (SGT)
-From: Jagdish Gediya <jagdish.gediya@nxp.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH] arm64: defconfig: Enable access to CFI-compliant memory
- mapped NOR flash
-Date: Tue,  7 May 2019 13:12:16 +0530
-Message-Id: <1557214936-2236-1-git-send-email-jagdish.gediya@nxp.com>
-X-Mailer: git-send-email 2.7.4
-X-Virus-Scanned: ClamAV using ClamSMTP
+ id 1hNvA8-0007kh-Ls
+ for linux-mtd@lists.infradead.org; Tue, 07 May 2019 08:09:21 +0000
+Received: by mail-wr1-x442.google.com with SMTP id v10so8655529wrt.6
+ for <linux-mtd@lists.infradead.org>; Tue, 07 May 2019 01:09:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=Zzpdqp++8/ryHIBCey8MOyUBPYqxWWhDztnOr1mfpjk=;
+ b=kMvry6xC+gDc7mlisZN1DyrhTYU+yn4CcTLATfm73dsabJjbAR5KCfwF3/wYiHQxLO
+ 7FLefAgzUdZ6Kp1IK+8AIn2KGIRDH+87l5Csqn7Ozc6r2cSGfYcfgSLTrBTObv9V4pgG
+ +D0nc+iHRpbhYAnQPAJ+l8Q+LSTsMpyeQQkqk3E/UHluOqtomhfNVDkGV2f8YI1VnQhc
+ r4eajyRTEBZL6dz8IVz5QFkTzBVZpqs3cNrnmvWdrA7BXABWAc8hH+sbXHx5ljThk3Do
+ TyWLUVaD37iGbvYCIYWti8gLrvzY2kyS2wdtcDG3cyDWYZ8eZtQ6CuTOip0VrsZ+aRlv
+ wJnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=Zzpdqp++8/ryHIBCey8MOyUBPYqxWWhDztnOr1mfpjk=;
+ b=gp2OwKFLTIVWGKcODxSzbTdU8cP7BOc39/JBDG0ydkhjnWOlpUeqpabr/LDbqV9Bqe
+ WjlLNmqE+gdxeA+KMNjVTpqRcZGBOyOj/A/wRIs0c4adoojsw98pYTki642fEtGIj3wE
+ cZXqvyeEZkTnDiLUR7OSsgFJEa/tpMCVS7hcETMjcIIdx9909H6D1FemkKY8TkJaL1YU
+ gNFolUIT/mIfCSrZD93Ln7rL3d/grlNXE0iXgUe0VP5EC3fOjnM6453jBaLjlKuN+5T+
+ JYWPt83a0PQ7yhe0uLVXqUECZ28hBkaVgd0t2YbhTs+Rc4B08BEId4WazVZBe585yEFT
+ Reiw==
+X-Gm-Message-State: APjAAAW4yZKqcOs9YNykru/bxt1GhuASRZG1drh4IF2Lpn1LRYg8i6CV
+ IUp9gWoiuFr1zZowCFxMCx9dgCpepCIsQFvY2Xs=
+X-Google-Smtp-Source: APXvYqwoID+Da4kuLNbyIz0/+Fz3bLOhjZwkllfDCSzHohgHABWgrd4A4QX+dgXLsVkmqUZKESJTE/WdiDFcuw0Vhoo=
+X-Received: by 2002:a5d:60cd:: with SMTP id x13mr2083601wrt.291.1557216558378; 
+ Tue, 07 May 2019 01:09:18 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190430142823.28044-1-xoxyuxu@gmail.com>
+ <CAFLxGvzMU02By_GUAKwdXUY6Wa33G2FBxwTxg2QQ=1qrf39TOw@mail.gmail.com>
+ <CAEGFndB13wDq6ajdUqJo=ne4XjKMif9oJ1NqJ1wSeVtLm3DKeQ@mail.gmail.com>
+In-Reply-To: <CAEGFndB13wDq6ajdUqJo=ne4XjKMif9oJ1NqJ1wSeVtLm3DKeQ@mail.gmail.com>
+From: Richard Weinberger <richard.weinberger@gmail.com>
+Date: Tue, 7 May 2019 10:09:06 +0200
+Message-ID: <CAFLxGvw_e-b9qZe1snuA-RyXadtcg5EM5=bzVeH_UngvSFKKTw@mail.gmail.com>
+Subject: Re: [PATCH] ubifs: wbuf->offs must be aligned to max_write_size
+To: =?UTF-8?B?44GJ44KF44GF?= <xoxyuxu@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190507_004231_027563_8941C06C 
-X-CRM114-Status: UNSURE (   5.48  )
+X-CRM114-CacheID: sfid-20190507_010920_739221_5FED97B7 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -1.5 (-)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-1.5 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [92.121.34.13 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:442 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.8 UPPERCASE_50_75        message body is 50-75% uppercase
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (richard.weinberger[at]gmail.com)
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -65,166 +94,18 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: boris.brezillon@free-electrons.com, prabhakar.kushwaha@nxp.com,
- Jagdish Gediya <jagdish.gediya@nxp.com>, leoyang.li@nxp.com
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Enable below configs in arm64 defconfig file,
-CONFIG_MTD_CFI=y
-CONFIG_MTD_CFI_INTELEXT=y
-CONFIG_MTD_CFI_AMDSTD=y
-CONFIG_MTD_CFI_STAA=y
-CONFIG_MTD_PHYSMAP=y
-CONFIG_MTD_PHYSMAP_OF=y
-
-These configs are needed to access CFI compliant memory mapped
-NOR flashes e.g. NOR flash connected over Freescale IFC.
-
-Signed-off-by: Jagdish Gediya <jagdish.gediya@nxp.com>
----
- arch/arm64/configs/defconfig | 69 ++++++++++++++++++++++++--------------------
- 1 file changed, 37 insertions(+), 32 deletions(-)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c8432e2..ac06501 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -45,15 +45,6 @@ CONFIG_ARCH_MESON=y
- CONFIG_ARCH_MVEBU=y
- CONFIG_ARCH_QCOM=y
- CONFIG_ARCH_RENESAS=y
--CONFIG_ARCH_R8A774A1=y
--CONFIG_ARCH_R8A774C0=y
--CONFIG_ARCH_R8A7795=y
--CONFIG_ARCH_R8A7796=y
--CONFIG_ARCH_R8A77965=y
--CONFIG_ARCH_R8A77970=y
--CONFIG_ARCH_R8A77980=y
--CONFIG_ARCH_R8A77990=y
--CONFIG_ARCH_R8A77995=y
- CONFIG_ARCH_ROCKCHIP=y
- CONFIG_ARCH_SEATTLE=y
- CONFIG_ARCH_STRATIX10=y
-@@ -67,25 +58,6 @@ CONFIG_ARCH_VEXPRESS=y
- CONFIG_ARCH_XGENE=y
- CONFIG_ARCH_ZX=y
- CONFIG_ARCH_ZYNQMP=y
--CONFIG_PCI=y
--CONFIG_PCIEPORTBUS=y
--CONFIG_PCI_IOV=y
--CONFIG_HOTPLUG_PCI=y
--CONFIG_HOTPLUG_PCI_ACPI=y
--CONFIG_PCI_AARDVARK=y
--CONFIG_PCI_TEGRA=y
--CONFIG_PCIE_RCAR=y
--CONFIG_PCI_HOST_GENERIC=y
--CONFIG_PCI_XGENE=y
--CONFIG_PCI_HOST_THUNDER_PEM=y
--CONFIG_PCI_HOST_THUNDER_ECAM=y
--CONFIG_PCIE_ROCKCHIP_HOST=m
--CONFIG_PCI_LAYERSCAPE=y
--CONFIG_PCI_HISI=y
--CONFIG_PCIE_QCOM=y
--CONFIG_PCIE_ARMADA_8K=y
--CONFIG_PCIE_KIRIN=y
--CONFIG_PCIE_HISI_STB=y
- CONFIG_ARM64_VA_BITS_48=y
- CONFIG_SCHED_MC=y
- CONFIG_NUMA=y
-@@ -193,6 +165,25 @@ CONFIG_MAC80211_LEDS=y
- CONFIG_RFKILL=m
- CONFIG_NET_9P=y
- CONFIG_NET_9P_VIRTIO=y
-+CONFIG_PCI=y
-+CONFIG_PCIEPORTBUS=y
-+CONFIG_PCI_IOV=y
-+CONFIG_HOTPLUG_PCI=y
-+CONFIG_HOTPLUG_PCI_ACPI=y
-+CONFIG_PCI_AARDVARK=y
-+CONFIG_PCI_TEGRA=y
-+CONFIG_PCIE_RCAR=y
-+CONFIG_PCI_HOST_GENERIC=y
-+CONFIG_PCI_XGENE=y
-+CONFIG_PCI_HOST_THUNDER_PEM=y
-+CONFIG_PCI_HOST_THUNDER_ECAM=y
-+CONFIG_PCIE_ROCKCHIP_HOST=m
-+CONFIG_PCI_LAYERSCAPE=y
-+CONFIG_PCI_HISI=y
-+CONFIG_PCIE_QCOM=y
-+CONFIG_PCIE_ARMADA_8K=y
-+CONFIG_PCIE_KIRIN=y
-+CONFIG_PCIE_HISI_STB=y
- CONFIG_UEVENT_HELPER_PATH="/sbin/hotplug"
- CONFIG_DEVTMPFS=y
- CONFIG_DEVTMPFS_MOUNT=y
-@@ -202,6 +193,12 @@ CONFIG_HISILICON_LPC=y
- CONFIG_SIMPLE_PM_BUS=y
- CONFIG_MTD=y
- CONFIG_MTD_BLOCK=y
-+CONFIG_MTD_CFI=y
-+CONFIG_MTD_CFI_INTELEXT=y
-+CONFIG_MTD_CFI_AMDSTD=y
-+CONFIG_MTD_CFI_STAA=y
-+CONFIG_MTD_PHYSMAP=y
-+CONFIG_MTD_PHYSMAP_OF=y
- CONFIG_MTD_M25P80=y
- CONFIG_MTD_NAND=y
- CONFIG_MTD_NAND_DENALI_DT=y
-@@ -374,7 +371,6 @@ CONFIG_PINCTRL_QCS404=y
- CONFIG_PINCTRL_QDF2XXX=y
- CONFIG_PINCTRL_QCOM_SPMI_PMIC=y
- CONFIG_PINCTRL_SDM845=y
--CONFIG_PINCTRL_MTK_MOORE=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_MB86S7X=y
- CONFIG_GPIO_PL061=y
-@@ -502,19 +498,19 @@ CONFIG_SOUND=y
- CONFIG_SND=y
- CONFIG_SND_SOC=y
- CONFIG_SND_BCM2835_SOC_I2S=m
-+CONFIG_SND_MESON_AXG_SOUND_CARD=m
- CONFIG_SND_SOC_ROCKCHIP=m
- CONFIG_SND_SOC_ROCKCHIP_SPDIF=m
- CONFIG_SND_SOC_ROCKCHIP_RT5645=m
- CONFIG_SND_SOC_RK3399_GRU_SOUND=m
--CONFIG_SND_MESON_AXG_SOUND_CARD=m
- CONFIG_SND_SOC_SAMSUNG=y
- CONFIG_SND_SOC_RCAR=m
- CONFIG_SND_SOC_AK4613=m
--CONFIG_SND_SIMPLE_CARD=m
--CONFIG_SND_AUDIO_GRAPH_CARD=m
- CONFIG_SND_SOC_ES7134=m
- CONFIG_SND_SOC_ES7241=m
- CONFIG_SND_SOC_TAS571X=m
-+CONFIG_SND_SIMPLE_CARD=m
-+CONFIG_SND_AUDIO_GRAPH_CARD=m
- CONFIG_I2C_HID=m
- CONFIG_USB=y
- CONFIG_USB_OTG=y
-@@ -656,6 +652,15 @@ CONFIG_QCOM_SMEM=y
- CONFIG_QCOM_SMD_RPM=y
- CONFIG_QCOM_SMP2P=y
- CONFIG_QCOM_SMSM=y
-+CONFIG_ARCH_R8A774A1=y
-+CONFIG_ARCH_R8A774C0=y
-+CONFIG_ARCH_R8A7795=y
-+CONFIG_ARCH_R8A7796=y
-+CONFIG_ARCH_R8A77965=y
-+CONFIG_ARCH_R8A77970=y
-+CONFIG_ARCH_R8A77980=y
-+CONFIG_ARCH_R8A77990=y
-+CONFIG_ARCH_R8A77995=y
- CONFIG_ROCKCHIP_PM_DOMAINS=y
- CONFIG_ARCH_TEGRA_132_SOC=y
- CONFIG_ARCH_TEGRA_210_SOC=y
--- 
-2.7.4
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gTW9uLCBNYXkgNiwgMjAxOSBhdCAxMDo1NCBBTSDjgYnjgoXjgYUgPHhveHl1eHVAZ21haWwu
+Y29tPiB3cm90ZToKPgo+IFRoYW5rcyBmb3IgeW91ciByZXBseSEKPgo+IEkgYW0gc29ycnkgZm9y
+IHRoZSBwYXRjaCB0aGF0IGlzIGhhcmQgdG8gdW5kZXJzdGFuZC4KPiBUaGlzIGlzIG15IGZpcnN0
+IHBhdGNoIHBvc3QuIEkgd2lsbCBkbyBteSBiZXN0IHRvIGNvbnZleSBteSBpbnRlbnRpb25zLgoK
+VGhhbmtzLCBub3cgSSB1bmRlcnN0YW5kIHRoZSBwcm9ibGVtLiA6LSkKSSdtIGN1cnJlbnRseSBj
+aGVja2luZyB3aGV0aGVyIHRoZXJlIGFyZSBtb3JlIHN1Y2ggY2FzZXMgd2UgbmVlZCB0byBmaXgu
+CgotLSAKVGhhbmtzLAovL3JpY2hhcmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
