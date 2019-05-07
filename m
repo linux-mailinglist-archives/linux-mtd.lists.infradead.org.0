@@ -2,70 +2,90 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59B171672F
-	for <lists+linux-mtd@lfdr.de>; Tue,  7 May 2019 17:49:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 90CFA16749
+	for <lists+linux-mtd@lfdr.de>; Tue,  7 May 2019 18:00:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LjDHtKGcpGBAairYVuai9WGrWYbfw2BybhJPkeTE1nI=; b=IqsgxAoxYBX/wx
-	xWgOUnV4T3dBCGaDYiqalmMfcCjcofQJlQrk5pbnquJDsIOUSk3fR5O/KehblOU8PJs00zZidrNTC
-	JSD53Hc6fkL31DVsL8ikJHHP08GkdsEMOjZ8WfTaerMDOAWxJbwrSKxphyk9NNEo1G+/JT3AADqUW
-	H5s7td/0gALQw3SJphlHYgDZYMXMPK5m3jz8BQnsJX0jLG3WsCji7i2LSbogwwJszz3aqePpFyuCq
-	YptklsarsZ9DtAzi+4c1ZMrssaXebB8KlG7ZKSkFEOk2aV5zTYp6ALt03onWeFLPctX10K9qEkdXk
-	0ynmJi8ga36j5rhIQ07w==;
+	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R+crKORO/u57w7RNtCAI0LKxsqYO0A6SaQOUGRnpDRk=; b=kx6dloI4ijONrT
+	EHxFLR78vk7HPoXNhxck3lOqoimod//jgbD1dWVIlLJ5GmbgjjPsoMpI0T2Mr/xYHAGxsjGOu6zWX
+	aSiOzQ6U4ozCmeOubyRsnC8irlt4X+d9sQtanoaUv+vrSCvUpXdhwWfsm1BTsM3r6iCdN4WZ8DgdQ
+	ZiNH1sBwRZ8+ftKBg4/IFbtlO5FhvZhKBzVDD9lqysMz59TWUGwJY+oVfqm7NGx3avuTBX90/wNEx
+	TDCgRoPXJnK5t92A9wgcoY82yOCbXSvi81alMlvGx2N1TiVLIx12XZG10HUUaYlgst+gYrt6TllDJ
+	jJB6lUiLtflEILOyPKjQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hO2LG-0004KS-5u; Tue, 07 May 2019 15:49:18 +0000
-Received: from lithops.sigma-star.at ([195.201.40.130])
+	id 1hO2Vo-0008Ov-53; Tue, 07 May 2019 16:00:12 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hO2L7-0004K8-8G
- for linux-mtd@lists.infradead.org; Tue, 07 May 2019 15:49:11 +0000
-Received: from localhost (localhost [127.0.0.1])
- by lithops.sigma-star.at (Postfix) with ESMTP id 58C0B608F446;
- Tue,  7 May 2019 17:49:07 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
- by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id 8Su0dz-W26oG; Tue,  7 May 2019 17:49:06 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by lithops.sigma-star.at (Postfix) with ESMTP id 0322C6083105;
- Tue,  7 May 2019 17:49:06 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
- by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id 31Kf02fmxQu5; Tue,  7 May 2019 17:49:05 +0200 (CEST)
-Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
- by lithops.sigma-star.at (Postfix) with ESMTP id C33C26083104;
- Tue,  7 May 2019 17:49:05 +0200 (CEST)
-Date: Tue, 7 May 2019 17:49:05 +0200 (CEST)
-From: Richard Weinberger <richard@nod.at>
-To: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-Message-ID: <785015370.48464.1557244145722.JavaMail.zimbra@nod.at>
-In-Reply-To: <3034821c-3cd0-b0c5-a6fd-548fd87486a4@embeddedor.com>
-References: <20190208180202.GA16603@embeddedor>
- <69083203-0720-1943-8549-ddf3cea6060e@embeddedor.com>
- <71df15e7-af2e-0326-78fe-0271a1e240fe@embeddedor.com>
- <20190415104458.7faeec57@xps13>
- <ee1f8c4a-92b0-db9d-6110-3acadeb9e457@embeddedor.com>
- <20190416192408.0e321563@xps13>
- <8df20a3a-3068-1fb7-0421-e6c417550125@embeddedor.com>
- <3034821c-3cd0-b0c5-a6fd-548fd87486a4@embeddedor.com>
-Subject: Re: [PATCH] mtd: cfi_util: mark expected switch fall-throughs
+ id 1hO2VS-0008A7-Q3
+ for linux-mtd@lists.infradead.org; Tue, 07 May 2019 15:59:56 +0000
+Received: by mail-pl1-x643.google.com with SMTP id bi2so8392535plb.13
+ for <linux-mtd@lists.infradead.org>; Tue, 07 May 2019 08:59:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=mime-version:from:to:cc:subject:date:message-id;
+ bh=Jk4l4aIhsSS1QaMGb/xfaCHwS6DqaTwgoIuoYji1K5w=;
+ b=MIaRFN3fv3+GWWwZnBAErq1T33G8rzvbl422n5Qc2yFfjz++rNY//jxFv5G8+cbVGQ
+ qyeY4WCPn7hxzv86c9HWZEWHxzzxQoHAFjjxfZE+1aEcjFLFH4mN/wDg4dw9MM3CQItK
+ vZzfjNK5gcbQ8n+9E5LUpqiywcxxVNOOSihLlQd1KqJQt6Iaem9CcHh3nbMXqsIfxXkI
+ t5IxN7pdYihTH8VdxjCB4Ckeyma451Dmjhvdq7V86U/X4I4ZXAIiYG0O5Vc3G0dJPFy7
+ eTEgNQSBRY4U0BofW4a6Me1G3BmxKOEr5do0Qog9ddXygfCoU8OIYYuQqz+wCjKEBzw0
+ QO6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=mime-version:x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=Jk4l4aIhsSS1QaMGb/xfaCHwS6DqaTwgoIuoYji1K5w=;
+ b=cPsKkI4eDLB0OmUM08rhUVyIoehUmvGpFhbQkHGj0u36L8Huqq/g/eD0Np8rN2ekg/
+ EW2BdF5TGAmgc5DeG7qWrpcqbhpMjj8L3P/7oki6OrCIqmZxLKwhQW2CGUbB+IxoPA/d
+ TrbdubD7X5JiZ7HCXGqbTDNNJGoekf4FpW/blsPllEr+NYk6TpFSvGfUJTtFszB9rOaU
+ xrFte5hQB7N5atlq/o8OfZGoi3xwkzIz5Bi8V3F0gvP+xq0yUSbMm3MRVrIN3glMtJss
+ PK+ndO8qTl2Jy58J8gNdPCeNmiidiL06QyxA0O9GQlWmdvS+7wiB/KgcngGaXYRQGGjQ
+ RCBA==
 MIME-Version: 1.0
-X-Originating-IP: [195.201.40.130]
-X-Mailer: Zimbra 8.8.8_GA_3025 (ZimbraWebClient - FF60 (Linux)/8.8.8_GA_1703)
-Thread-Topic: cfi_util: mark expected switch fall-throughs
-Thread-Index: c1PkOuWOdQy8fEL4I6CUz4FzFPRcPA==
+X-Gm-Message-State: APjAAAUU6rT4kprtVxf1p4R/1cN8LwudRPdPnLll7FGYzF8QLnnhw3Sx
+ 7Bac2Sc2wDhVGcW/IVXfs4TS01Mi0VuHwJ0lQn3icaqhXgDnNFPkzLgwRiz4xKKq4CUyZT+7Si3
+ cJt7STty4lj+3Y6+xjA4=
+X-Google-Smtp-Source: APXvYqzjuXzlJfYmm6OQjWmSFkfZp7p5+/RBKtyuW9GmAw6VaX33RD5pvt2FRSYs/l0C4jzCq+840g==
+X-Received: by 2002:a17:902:9a03:: with SMTP id
+ v3mr42085296plp.27.1557244789768; 
+ Tue, 07 May 2019 08:59:49 -0700 (PDT)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id
+ h187sm22543540pfc.52.2019.05.07.08.59.44
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Tue, 07 May 2019 08:59:49 -0700 (PDT)
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+To: marek.vasut@gmail.com, tudor.ambarus@microchip.com, dwmw2@infradead.org,
+ computersforpeace@gmail.com, bbrezillon@kernel.org, richard@nod.at,
+ palmer@sifive.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: [PATCH v3 v3 1/3] mtd: spi-nor: add support for is25wp256
+Date: Tue,  7 May 2019 21:29:33 +0530
+Message-Id: <1557244775-14206-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190507_084909_587848_3D4C2DE7 
-X-CRM114-Status: GOOD (  15.21  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190507_085951_200301_DC382F17 
+X-CRM114-Status: GOOD (  13.16  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:643 listed in]
+ [list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -77,56 +97,89 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Kees Cook <keescook@chromium.org>, Boris Brezillon <bbrezillon@kernel.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- Marek Vasut <marek.vasut@gmail.com>, linux-mtd <linux-mtd@lists.infradead.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-LS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+IFZvbjogIkd1c3Rhdm8gQS4gUi4gU2ls
-dmEiIDxndXN0YXZvQGVtYmVkZGVkb3IuY29tPgo+IEFuOiAiTWlxdWVsIFJheW5hbCIgPG1pcXVl
-bC5yYXluYWxAYm9vdGxpbi5jb20+Cj4gQ0M6ICJEYXZpZCBXb29kaG91c2UiIDxkd213MkBpbmZy
-YWRlYWQub3JnPiwgIkJyaWFuIE5vcnJpcyIgPGNvbXB1dGVyc2ZvcnBlYWNlQGdtYWlsLmNvbT4s
-ICJCb3JpcyBCcmV6aWxsb24iCj4gPGJicmV6aWxsb25Aa2VybmVsLm9yZz4sICJNYXJlayBWYXN1
-dCIgPG1hcmVrLnZhc3V0QGdtYWlsLmNvbT4sICJyaWNoYXJkIiA8cmljaGFyZEBub2QuYXQ+LCAi
-bGludXgtbXRkIgo+IDxsaW51eC1tdGRAbGlzdHMuaW5mcmFkZWFkLm9yZz4sICJsaW51eC1rZXJu
-ZWwiIDxsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnPiwgIktlZXMgQ29vayIgPGtlZXNjb29r
-QGNocm9taXVtLm9yZz4KPiBHZXNlbmRldDogRGllbnN0YWcsIDcuIE1haSAyMDE5IDE2OjU0OjEy
-Cj4gQmV0cmVmZjogUmU6IFtQQVRDSF0gbXRkOiBjZmlfdXRpbDogbWFyayBleHBlY3RlZCBzd2l0
-Y2ggZmFsbC10aHJvdWdocwoKPiBIaSBhbGwsCj4gCj4gVGhhbmtzIGEgbG90IGZvciB0aGlzLCBS
-aWNoYXJkOgo+IAo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwv
-Z2l0L210ZC9saW51eC5naXQvbG9nLz9oPW10ZCUyRm5leHQmcXQ9Z3JlcCZxPWZhbGwtdGhyb3Vn
-aAo+IAo+IFRoZXJlIGFyZSBvbmx5IHR3byBvZiB0aGVzZSB3YXJuaW5ncyBsZWZ0IHRvIGJlIGFk
-ZHJlc3NlZCBpbgo+IE1URFsxXToKPiAKPiAgICAgICAgPiBAQCAtMzI4MCwxMiArMzI4MCwxNCBA
-QCBzdGF0aWMgdm9pZCBvbmVuYW5kX2NoZWNrX2ZlYXR1cmVzKHN0cnVjdCBtdGRfaW5mbyAqbXRk
-KQo+ICAgICAgICA+ICAgICAgICAgICAgICAgICAgICAgICBpZiAoKHRoaXMtPnZlcnNpb25faWQg
-JiAweGYpID09IDB4ZSkKPiAgICAgICAgPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0
-aGlzLT5vcHRpb25zIHw9IE9ORU5BTkRfSEFTX05PUF8xOwo+ICAgICAgICA+ICAgICAgICAgICAg
-ICAgfQo+ICAgICAgICA+ICsgICAgICAgICAgICAgLyogZmFsbCB0aHJvdWdoICovCj4gICAgICAg
-ID4KPiAgICAgICAgPiAgICAgICBjYXNlIE9ORU5BTkRfREVWSUNFX0RFTlNJVFlfMkdiOgo+ICAg
-ICAgICA+ICAgICAgICAgICAgICAgLyogMkdiIEREUCBkb2VzIG5vdCBoYXZlIDIgcGxhbmUgKi8K
-PiAgICAgICAgPiAgICAgICAgICAgICAgIGlmICghT05FTkFORF9JU19ERFAodGhpcykpCj4gICAg
-ICAgID4gICAgICAgICAgICAgICAgICAgICAgIHRoaXMtPm9wdGlvbnMgfD0gT05FTkFORF9IQVNf
-MlBMQU5FOwo+ICAgICAgICA+ICAgICAgICAgICAgICAgdGhpcy0+b3B0aW9ucyB8PSBPTkVOQU5E
-X0hBU19VTkxPQ0tfQUxMOwo+ICAgICAgICA+ICsgICAgICAgICAgICAgLyogZmFsbCB0aHJvdWdo
-ICovCj4gCj4gICAgICAgIFRoaXMgbG9va3Mgc3RyYW5nZS4KPiAKPiAgICAgICAgSW4gT05FTkFO
-RF9ERVZJQ0VfREVOU0lUWV8yR2I6Cj4gICAgICAgIE9ORU5BTkRfSEFTX1VOTE9DS19BTEwgaXMg
-c2V0IHVuY29uZGl0aW9uYWxseS4KPiAKPiAgICAgICAgQnV0IHRoZW4sIHVuZGVyIE9ORU5BTkRf
-REVWSUNFX0RFTlNJVFlfMUdiLCB0aGUgc2FtZSBvcHRpb24gaXMgc2V0IG9ubHkKPiAgICAgICAg
-aWYgcHJvY2VzcyBpcyBldmFsdWF0ZWQgdG8gdHJ1ZS4KPiAKPiAgICAgICAgU2FtZSBwcm9ibGVt
-IHdpdGggT05FTkFORF9IQVNfMlBMQU5FOgo+ICAgICAgICAtIGl0IGlzIHNldCBpbiBPTkVOQU5E
-X0RFVklDRV9ERU5TSVRZXzRHYiBvbmx5IGlmIE9ORU5BTkRfSVNfRERQKCkKPiAgICAgICAgLSBp
-dCBpcyB1bnNldCBpbiBPTkVOQU5EX0RFVklDRV9ERU5TSVRZXzJHYiBvbmx5IGlmICFPTkVOQU5E
-X0lTX0REUCgpCj4gCj4gICAgICAgIE1heWJlIHRoaXMgcG9ydGlvbiBzaG91bGQgYmUgcmV3b3Jr
-ZWQgYmVjYXVzZSBJIGFtIHVuc3VyZSBpZiB0aGlzIGlzIGEKPiAgICAgICAgbWlzc2luZyBmYWxs
-IHRocm91Z2ggb3IgYSBidWcuCj4gCj4gCj4gVGhhbmtzCj4gLS0KPiBHdXN0YXZvCj4gCj4gWzFd
-IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL3BhdGNod29yay9wYXRjaC8xMDM2MjUxLwoKRGlkIHdl
-IG1pc3MgdGhpcyBwYXRjaD8gQUZBSUNUIGl0IGlzIGluIC1uZXh0IHRvby4KClRoYW5rcywKLy9y
-aWNoYXJkCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+Update spi_nor_id table for is25wp256 (32MB)device from ISSI,
+present on HiFive Unleashed dev board (Rev: A00).
+
+Set method to enable quad mode for ISSI device in flash parameters
+table.
+
+Based on code originally written by Wesley Terpstra <wesley@sifive.com>
+and/or Palmer Dabbelt <palmer@sifive.com>
+https://github.com/riscv/riscv-linux/commit/c94e267766d62bc9a669611c3d0c8ed5ea26569b
+
+Signed-off-by: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+---
+ drivers/mtd/spi-nor/spi-nor.c | 10 +++++++++-
+ include/linux/mtd/spi-nor.h   |  1 +
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+index fae1474..c5408ed 100644
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -1834,6 +1834,10 @@ static int sr2_bit7_quad_enable(struct spi_nor *nor)
+ 			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+ 	{ "is25wp128",  INFO(0x9d7018, 0, 64 * 1024, 256,
+ 			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
++	{ "is25wp256", INFO(0x9d7019, 0, 64 * 1024, 1024,
++			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
++			SPI_NOR_4B_OPCODES)
++	},
+ 
+ 	/* Macronix */
+ 	{ "mx25l512e",   INFO(0xc22010, 0, 64 * 1024,   1, SECT_4K) },
+@@ -3650,6 +3654,10 @@ static int spi_nor_init_params(struct spi_nor *nor,
+ 		case SNOR_MFR_MACRONIX:
+ 			params->quad_enable = macronix_quad_enable;
+ 			break;
++		case SNOR_MFR_ISSI:
++			params->quad_enable = macronix_quad_enable;
++			break;
++
+ 
+ 		case SNOR_MFR_ST:
+ 		case SNOR_MFR_MICRON:
+@@ -4127,7 +4135,7 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+ 	if (ret)
+ 		return ret;
+ 
+-	if (nor->addr_width) {
++	if (nor->addr_width && JEDEC_MFR(info) != SNOR_MFR_ISSI) {
+ 		/* already configured from SFDP */
+ 	} else if (info->addr_width) {
+ 		nor->addr_width = info->addr_width;
+diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+index b3d360b..ff13297 100644
+--- a/include/linux/mtd/spi-nor.h
++++ b/include/linux/mtd/spi-nor.h
+@@ -19,6 +19,7 @@
+ #define SNOR_MFR_ATMEL		CFI_MFR_ATMEL
+ #define SNOR_MFR_GIGADEVICE	0xc8
+ #define SNOR_MFR_INTEL		CFI_MFR_INTEL
++#define SNOR_MFR_ISSI		0x9d		/* ISSI */
+ #define SNOR_MFR_ST		CFI_MFR_ST	/* ST Micro */
+ #define SNOR_MFR_MICRON		CFI_MFR_MICRON	/* Micron */
+ #define SNOR_MFR_MACRONIX	CFI_MFR_MACRONIX
+-- 
+1.9.1
+
+
+-- 
+The information transmitted is intended only for the person or entity to 
+which it is addressed and may contain confidential and/or privileged 
+material. If you are not the intended recipient of this message please do 
+not read, copy, use or disclose this communication and notify the sender 
+immediately. It should be noted that any review, retransmission, 
+dissemination or other use of, or taking action or reliance upon, this 
+information by persons or entities other than the intended recipient is 
+prohibited.
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
