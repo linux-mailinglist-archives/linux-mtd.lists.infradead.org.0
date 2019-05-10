@@ -2,125 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9B46119C26
-	for <lists+linux-mtd@lfdr.de>; Fri, 10 May 2019 13:05:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 29F7C19D19
+	for <lists+linux-mtd@lfdr.de>; Fri, 10 May 2019 14:18:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=onxnXH266irdJ7RTQOoTrlO4kq4dEYfJZtc4X76+qAE=; b=VWlVnHkQCpYEz+
-	7/EJ1sDX+mDg/mCNSbyJo5aDS/KsRQo2oz47a115CMFkFGNy4dFkoqXU9LYtCm3Vk+AQbi1RcIOB/
-	DRRyM6oGfitIsByGozwpGXxifyrVLV2zwQaP3Ra/9dii2IjiOTQ70RJeOa3Cek/xG+DTLI6BFeaQ7
-	bw6tV50O+HbizAiRaH0LCsKusRk8m0ABJRh/NJpZeFmWRCIA4ItFR90J1/29feyZ5z5/Y95VOwzCa
-	l5rpN5CTVYtItV8UYKvlLuqar3+holsBE6D8kdBS7Bw0HeLKp7ivGcrq4K1hf+CQxqSwpxD3PKN5M
-	qoDmN3MjCssN4vZM6MtA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=/STX24s5rsEj4mJ8YBTLnG8K+Vo9pnkJGG9YsjXhT4A=; b=QER
+	QrS0cqbT5Dvp/vju4w4soBcZqN1FUcO7drSDfTxtl24B51yVg+zLtI/lcCYBxUM04mZc9RAeRzvG0
+	EnkIE4kJmAO01mgnUv/W2ZgozkasCKCudXuH9U1rkGSL21JUhusKM0a7gGm+M+JSLsP6cmDp4AB8t
+	mzTEuiROlG7fVCSw2+/jj/uOFMEFZGRQPbd/ZWm1l9XpUWZObgT2QkUjikRwnw1frlkbjxwN2t22e
+	vVvMefMOviYxddlaQIET3pzzrmXac/84Qj2S6EaDFGDur6RCkTvl/Ry0PcOWVu0Z9OdU87Xg15k5d
+	w7xfAVnf6Tx46qlgYee5iHOLYWZsSjA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hP3L0-0000F6-A1; Fri, 10 May 2019 11:05:14 +0000
-Received: from mail-by2nam03on0630.outbound.protection.outlook.com
- ([2a01:111:f400:fe4a::630]
- helo=NAM03-BY2-obe.outbound.protection.outlook.com)
+	id 1hP4TM-0006Fq-Bt; Fri, 10 May 2019 12:17:56 +0000
+Received: from mx.allycomm.com ([138.68.30.55])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hP3Kn-0008Fj-DZ; Fri, 10 May 2019 11:05:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=analog.onmicrosoft.com; s=selector1-analog-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nVlpM+6hUpJfEDjmqqh5buswTi9IXWo+idp+3aYvadA=;
- b=cJaRCIlXlhytsC0WOUjovdUXlHRExZWPjhVf03F0+kh9EW3mb68RI6Rnc3cHyEhKGz4sJV9wA82vpcEx/F+iU3ypyrnsW4/k0e997VS2hIGKO+igCU4zzHHlAx2b/kf5RKAjaKA2W3b6tkRnBRfNgWUAFNGQGOnAYoLiEYdp3VE=
-Received: from BN6PR03CA0017.namprd03.prod.outlook.com (2603:10b6:404:23::27)
- by BY2PR03MB556.namprd03.prod.outlook.com (2a01:111:e400:2c3a::17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.1878.22; Fri, 10 May
- 2019 11:04:54 +0000
-Received: from BL2NAM02FT036.eop-nam02.prod.protection.outlook.com
- (2a01:111:f400:7e46::208) by BN6PR03CA0017.outlook.office365.com
- (2603:10b6:404:23::27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.20.1878.20 via Frontend
- Transport; Fri, 10 May 2019 11:04:54 +0000
-Authentication-Results: spf=pass (sender IP is 137.71.25.57)
- smtp.mailfrom=analog.com; linux.intel.com; dkim=none (message not signed)
- header.d=none;linux.intel.com; dmarc=bestguesspass action=none
- header.from=analog.com;
-Received-SPF: Pass (protection.outlook.com: domain of analog.com designates
- 137.71.25.57 as permitted sender) receiver=protection.outlook.com;
- client-ip=137.71.25.57; helo=nwd2mta2.analog.com;
-Received: from nwd2mta2.analog.com (137.71.25.57) by
- BL2NAM02FT036.mail.protection.outlook.com (10.152.77.154) with Microsoft SMTP
- Server (version=TLS1_0, cipher=TLS_RSA_WITH_AES_256_CBC_SHA) id 15.20.1856.11
- via Frontend Transport; Fri, 10 May 2019 11:04:53 +0000
-Received: from NWD2HUBCAS9.ad.analog.com (nwd2hubcas9.ad.analog.com
- [10.64.69.109])
- by nwd2mta2.analog.com (8.13.8/8.13.8) with ESMTP id x4AB4rkt031706
- (version=TLSv1/SSLv3 cipher=AES256-SHA bits=256 verify=OK);
- Fri, 10 May 2019 04:04:53 -0700
-Received: from NWD2MBX7.ad.analog.com ([fe80::190e:f9c1:9a22:9663]) by
- NWD2HUBCAS9.ad.analog.com ([fe80::44a2:871b:49ab:ea47%12]) with mapi id
- 14.03.0415.000; Fri, 10 May 2019 07:04:53 -0400
-From: "Ardelean, Alexandru" <alexandru.Ardelean@analog.com>
-To: "dan.carpenter@oracle.com" <dan.carpenter@oracle.com>
-Subject: Re: [PATCH 09/16] mmc: sdhci-xenon: use new match_string()
- helper/macro
-Thread-Topic: [PATCH 09/16] mmc: sdhci-xenon: use new match_string()
- helper/macro
-Thread-Index: AQHVBZFjC5krcc3G0k+g00YBPwx6V6ZhaK0AgAAShYCAAt35AIAAHiKAgAABAAA=
-Date: Fri, 10 May 2019 11:04:53 +0000
-Message-ID: <d320a13ad06bba87fcb0c04c4143e911723684ea.camel@analog.com>
-References: <20190508112842.11654-1-alexandru.ardelean@analog.com>
- <20190508112842.11654-11-alexandru.ardelean@analog.com>
- <20190508122010.GC21059@kadam>
- <2ec6812d6bf2f33860c7c816c641167a31eb2ed6.camel@analog.com>
- <31be52eb1a1abbc99a24729f5c65619235cb201f.camel@analog.com>
- <20190510110116.GB18105@kadam>
-In-Reply-To: <20190510110116.GB18105@kadam>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.50.1.244]
-x-adiroutedonprem: True
-Content-ID: <134D0B85CEA25646B3EBD898406EC02C@analog.com>
-MIME-Version: 1.0
-X-EOPAttributedMessage: 0
-X-MS-Office365-Filtering-HT: Tenant
-X-Forefront-Antispam-Report: CIP:137.71.25.57; IPV:NLI; CTRY:US; EFV:NLI;
- SFV:NSPM;
- SFS:(10009020)(1496009)(136003)(396003)(376002)(346002)(39860400002)(2980300002)(189003)(199004)(426003)(76176011)(102836004)(26005)(436003)(70206006)(446003)(8936002)(7696005)(70586007)(36756003)(14444005)(6246003)(186003)(336012)(2486003)(8676002)(6116002)(3846002)(229853002)(5660300002)(11346002)(47776003)(5640700003)(356004)(305945005)(50466002)(2616005)(476003)(6916009)(2906002)(118296001)(478600001)(126002)(7736002)(86362001)(14454004)(2351001)(2501003)(7636002)(23676004)(106002)(246002)(4326008)(316002)(7416002)(7406005)(54906003)(486006);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BY2PR03MB556; H:nwd2mta2.analog.com; FPR:;
- SPF:Pass; LANG:en; PTR:nwd2mail11.analog.com; MX:1; A:1; 
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: f76a2088-dc12-4942-d433-08d6d537549b
-X-Microsoft-Antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600141)(711020)(4605104)(4709054)(2017052603328)(7193020);
- SRVR:BY2PR03MB556; 
-X-MS-TrafficTypeDiagnostic: BY2PR03MB556:
-X-Microsoft-Antispam-PRVS: <BY2PR03MB5567CAEF2048D0CACEA3D3CF90C0@BY2PR03MB556.namprd03.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:8882;
-X-Forefront-PRVS: 0033AAD26D
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam-Message-Info: tULqUEYxx8A1Vcan/qfbE7E/YiNcE+blJBkWLIfZLYQfoW+YJfMk/7pGVcvZ1Zi7zwbrhva5fOWhPlE7BRloVhcy0b7UY+H3u7eHfxlqm2FqcBDBRA6rNCrikJSdpJCdjDevTorMO4v2pbPJ9vgXgpdzx4rSWTBAzaTFpTqnxoN6817pHFRM6OimKYwZT+zkHQBRDborUH0cfCMCTH7W/DYsug3lJUPmoVohbzUw7Qlzb5gflrpKMIIuKRlZUQA5y+LwbgY2fjwZItJ1in7CCdq2yHbgQEyod/D4nUaFXtQNysaVfM6q5P4JW2pJdKeJjrqkRhofhZP8Dy5+VsJYbafZu2hWLTkGR5O0X96SKzhm9VbATpPl5eWgoo6bTpaSEgvMToAEFFE6dQ7aXg+NwW0dDvkkJwZFaifj5Uv3dxk=
-X-OriginatorOrg: analog.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2019 11:04:53.7708 (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f76a2088-dc12-4942-d433-08d6d537549b
-X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=eaa689b4-8f87-40e0-9c6f-7228de4d754a; Ip=[137.71.25.57];
- Helo=[nwd2mta2.analog.com]
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY2PR03MB556
+ id 1hP4TD-0006El-UZ
+ for linux-mtd@lists.infradead.org; Fri, 10 May 2019 12:17:49 +0000
+Received: from localhost.localdomain (184-23-191-103.vpn.dynamic.sonic.net
+ [184.23.191.103])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mx.allycomm.com (Postfix) with ESMTPSA id E7B1D4096F;
+ Fri, 10 May 2019 05:17:43 -0700 (PDT)
+From: lede@allycomm.com
+To: Boris Brezillon <bbrezillon@kernel.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>,
+ Brian Norris <computersforpeace@gmail.com>,
+ Marek Vasut <marek.vasut@gmail.com>
+Subject: [PATCH] mtd: spinand: Add support for GigaDevice GD5F1GQ4UFxxG
+Date: Fri, 10 May 2019 05:17:26 -0700
+Message-Id: <20190510121727.29834-1-lede@allycomm.com>
+X-Mailer: git-send-email 2.11.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190510_040501_512067_84EE93BD 
-X-CRM114-Status: GOOD (  17.13  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190510_051747_983548_304D7699 
+X-CRM114-Status: GOOD (  16.95  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [138.68.30.55 listed in list.dnswl.org]
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -132,113 +60,292 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
- "linux-fbdev@vger.kernel.org" <linux-fbdev@vger.kernel.org>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "devel@driverdev.osuosl.org" <devel@driverdev.osuosl.org>,
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "intel-gfx@lists.freedesktop.org" <intel-gfx@lists.freedesktop.org>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "linux-rpi-kernel@lists.infradead.org" <linux-rpi-kernel@lists.infradead.org>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- "cgroups@vger.kernel.org" <cgroups@vger.kernel.org>,
- "linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
- "linux-ide@vger.kernel.org" <linux-ide@vger.kernel.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-security-module@vger.kernel.org"
- <linux-security-module@vger.kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-integrity@vger.kernel.org" <linux-integrity@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 2019-05-10 at 14:01 +0300, Dan Carpenter wrote:
-> [External]
-> 
-> 
-> On Fri, May 10, 2019 at 09:13:26AM +0000, Ardelean, Alexandru wrote:
-> > On Wed, 2019-05-08 at 16:26 +0300, Alexandru Ardelean wrote:
-> > > On Wed, 2019-05-08 at 15:20 +0300, Dan Carpenter wrote:
-> > > > 
-> > > > 
-> > > > On Wed, May 08, 2019 at 02:28:35PM +0300, Alexandru Ardelean wrote:
-> > > > > -static const char * const phy_types[] = {
-> > > > > -     "emmc 5.0 phy",
-> > > > > -     "emmc 5.1 phy"
-> > > > > -};
-> > > > > -
-> > > > >  enum xenon_phy_type_enum {
-> > > > >       EMMC_5_0_PHY,
-> > > > >       EMMC_5_1_PHY,
-> > > > >       NR_PHY_TYPES
-> > > > 
-> > > > There is no need for NR_PHY_TYPES now so you could remove that as
-> > > > well.
-> > > > 
-> > > 
-> > > I thought the same.
-> > > The only reason to keep NR_PHY_TYPES, is for potential future
-> > > patches,
-> > > where it would be just 1 addition
-> > > 
-> > >  enum xenon_phy_type_enum {
-> > >       EMMC_5_0_PHY,
-> > >       EMMC_5_1_PHY,
-> > > +      EMMC_5_2_PHY,
-> > >       NR_PHY_TYPES
-> > >   }
-> > > 
-> > > Depending on style/preference of how to do enums (allow comma on last
-> > > enum
-> > > or not allow comma on last enum value), adding new enum values woudl
-> > > be 2
-> > > additions + 1 deletion lines.
-> > > 
-> > >  enum xenon_phy_type_enum {
-> > >       EMMC_5_0_PHY,
-> > > -      EMMC_5_1_PHY
-> > > +      EMM
-> > > C_5_1_PHY,
-> > > +      EMMC_5_2_PHY
-> > >  }
-> > > 
-> > > Either way (leave NR_PHY_TYPES or remove NR_PHY_TYPES) is fine from
-> > > my
-> > > side.
-> > > 
-> > 
-> > Preference on this ?
-> > If no objection [nobody insists] I would keep.
-> > 
-> > I don't feel strongly about it [dropping NR_PHY_TYPES or not].
-> 
-> If you end up resending the series could you remove it, but if not then
-> it's not worth it.
+From: Jeff Kletsky <git-commits@allycomm.com>
 
-ack
+The GigaDevice GD5F1GQ4UFxxG SPI NAND is in current production devices
+and, while it has the same logical layout as the E-series devices,
+it differs in the SPI interfacing in significant ways.
 
-thanks
-Alex
+To accommodate these changes, this patch also:
 
-> 
-> regards,
-> dan carpenter
-> 
+  * Adds support for two-byte manufacturer IDs
+  * Adds #define-s for three-byte addressing for read ops
+
+http://www.gigadevice.com/datasheet/gd5f1gq4xfxxg/
+
+Signed-off-by: Jeff Kletsky <git-commits@allycomm.com>
+---
+ drivers/mtd/nand/spi/core.c       |  2 +-
+ drivers/mtd/nand/spi/gigadevice.c | 79 +++++++++++++++++++++++++++++++--------
+ include/linux/mtd/spinand.h       | 34 ++++++++++++++++-
+ 3 files changed, 97 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
+index fa87ae28cdfe..a13154785dad 100644
+--- a/drivers/mtd/nand/spi/core.c
++++ b/drivers/mtd/nand/spi/core.c
+@@ -853,7 +853,7 @@ spinand_select_op_variant(struct spinand_device *spinand,
+  */
+ int spinand_match_and_init(struct spinand_device *spinand,
+ 			   const struct spinand_info *table,
+-			   unsigned int table_size, u8 devid)
++			   unsigned int table_size, u16 devid)
+ {
+ 	struct nand_device *nand = spinand_to_nand(spinand);
+ 	unsigned int i;
+diff --git a/drivers/mtd/nand/spi/gigadevice.c b/drivers/mtd/nand/spi/gigadevice.c
+index 0b49d8264bef..d6497ac4c5d8 100644
+--- a/drivers/mtd/nand/spi/gigadevice.c
++++ b/drivers/mtd/nand/spi/gigadevice.c
+@@ -9,11 +9,17 @@
+ #include <linux/mtd/spinand.h>
+ 
+ #define SPINAND_MFR_GIGADEVICE			0xC8
++
+ #define GD5FXGQ4XA_STATUS_ECC_1_7_BITFLIPS	(1 << 4)
+ #define GD5FXGQ4XA_STATUS_ECC_8_BITFLIPS	(3 << 4)
+ 
+ #define GD5FXGQ4UEXXG_REG_STATUS2		0xf0
+ 
++#define GD5FXGQ4UXFXXG_STATUS_ECC_MASK		(7 << 4)
++#define GD5FXGQ4UXFXXG_STATUS_ECC_NO_BITFLIPS	(0 << 4)
++#define GD5FXGQ4UXFXXG_STATUS_ECC_1_3_BITFLIPS	(1 << 4)
++#define GD5FXGQ4UXFXXG_STATUS_ECC_UNCOR_ERROR	(7 << 4)
++
+ static SPINAND_OP_VARIANTS(read_cache_variants,
+ 		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(0, 2, NULL, 0),
+ 		SPINAND_PAGE_READ_FROM_CACHE_X4_OP(0, 1, NULL, 0),
+@@ -22,6 +28,14 @@ static SPINAND_OP_VARIANTS(read_cache_variants,
+ 		SPINAND_PAGE_READ_FROM_CACHE_OP(true, 0, 1, NULL, 0),
+ 		SPINAND_PAGE_READ_FROM_CACHE_OP(false, 0, 1, NULL, 0));
+ 
++static SPINAND_OP_VARIANTS(read_cache_variants_f,
++		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(0, 2, NULL, 0),
++		SPINAND_PAGE_READ_FROM_CACHE_X4_OP_3A(0, 1, NULL, 0),
++		SPINAND_PAGE_READ_FROM_CACHE_DUALIO_OP(0, 1, NULL, 0),
++		SPINAND_PAGE_READ_FROM_CACHE_X2_OP_3A(0, 1, NULL, 0),
++		SPINAND_PAGE_READ_FROM_CACHE_OP_3A(true, 0, 1, NULL, 0),
++		SPINAND_PAGE_READ_FROM_CACHE_OP_3A(false, 0, 0, NULL, 0));
++
+ static SPINAND_OP_VARIANTS(write_cache_variants,
+ 		SPINAND_PROG_LOAD_X4(true, 0, NULL, 0),
+ 		SPINAND_PROG_LOAD(true, 0, NULL, 0));
+@@ -59,6 +73,11 @@ static int gd5fxgq4xa_ooblayout_free(struct mtd_info *mtd, int section,
+ 	return 0;
+ }
+ 
++static const struct mtd_ooblayout_ops gd5fxgq4xa_ooblayout = {
++	.ecc = gd5fxgq4xa_ooblayout_ecc,
++	.free = gd5fxgq4xa_ooblayout_free,
++};
++
+ static int gd5fxgq4xa_ecc_get_status(struct spinand_device *spinand,
+ 					 u8 status)
+ {
+@@ -83,7 +102,7 @@ static int gd5fxgq4xa_ecc_get_status(struct spinand_device *spinand,
+ 	return -EINVAL;
+ }
+ 
+-static int gd5fxgq4uexxg_ooblayout_ecc(struct mtd_info *mtd, int section,
++static int gd5fxgq4_variant2_ooblayout_ecc(struct mtd_info *mtd, int section,
+ 				       struct mtd_oob_region *region)
+ {
+ 	if (section)
+@@ -95,7 +114,7 @@ static int gd5fxgq4uexxg_ooblayout_ecc(struct mtd_info *mtd, int section,
+ 	return 0;
+ }
+ 
+-static int gd5fxgq4uexxg_ooblayout_free(struct mtd_info *mtd, int section,
++static int gd5fxgq4_variant2_ooblayout_free(struct mtd_info *mtd, int section,
+ 					struct mtd_oob_region *region)
+ {
+ 	if (section)
+@@ -108,6 +127,11 @@ static int gd5fxgq4uexxg_ooblayout_free(struct mtd_info *mtd, int section,
+ 	return 0;
+ }
+ 
++static const struct mtd_ooblayout_ops gd5fxgq4_variant2_ooblayout = {
++	.ecc = gd5fxgq4_variant2_ooblayout_ecc,
++	.free = gd5fxgq4_variant2_ooblayout_free,
++};
++
+ static int gd5fxgq4uexxg_ecc_get_status(struct spinand_device *spinand,
+ 					u8 status)
+ {
+@@ -150,15 +174,25 @@ static int gd5fxgq4uexxg_ecc_get_status(struct spinand_device *spinand,
+ 	return -EINVAL;
+ }
+ 
+-static const struct mtd_ooblayout_ops gd5fxgq4xa_ooblayout = {
+-	.ecc = gd5fxgq4xa_ooblayout_ecc,
+-	.free = gd5fxgq4xa_ooblayout_free,
+-};
++static int gd5fxgq4ufxxg_ecc_get_status(struct spinand_device *spinand,
++					u8 status)
++{
++	switch (status & GD5FXGQ4UXFXXG_STATUS_ECC_MASK) {
++	case GD5FXGQ4UXFXXG_STATUS_ECC_NO_BITFLIPS:
++		return 0;
+ 
+-static const struct mtd_ooblayout_ops gd5fxgq4uexxg_ooblayout = {
+-	.ecc = gd5fxgq4uexxg_ooblayout_ecc,
+-	.free = gd5fxgq4uexxg_ooblayout_free,
+-};
++	case GD5FXGQ4UXFXXG_STATUS_ECC_1_3_BITFLIPS:
++		return 3;
++
++	case GD5FXGQ4UXFXXG_STATUS_ECC_UNCOR_ERROR:
++		return -EBADMSG;
++
++	default: /* (2 << 4) through (6 << 4) are 4-8 corrected errors */
++		return ((status & GD5FXGQ4UXFXXG_STATUS_ECC_MASK) >> 4) + 2;
++	}
++
++	return -EINVAL;
++}
+ 
+ static const struct spinand_info gigadevice_spinand_table[] = {
+ 	SPINAND_INFO("GD5F1GQ4xA", 0xF1,
+@@ -195,25 +229,40 @@ static const struct spinand_info gigadevice_spinand_table[] = {
+ 					      &write_cache_variants,
+ 					      &update_cache_variants),
+ 		     0,
+-		     SPINAND_ECCINFO(&gd5fxgq4uexxg_ooblayout,
++		     SPINAND_ECCINFO(&gd5fxgq4_variant2_ooblayout,
+ 				     gd5fxgq4uexxg_ecc_get_status)),
++	SPINAND_INFO("GD5F1GQ4UFxxG", 0xb148,
++		     NAND_MEMORG(1, 2048, 128, 64, 1024, 1, 1, 1),
++		     NAND_ECCREQ(8, 512),
++		     SPINAND_INFO_OP_VARIANTS(&read_cache_variants_f,
++					      &write_cache_variants,
++					      &update_cache_variants),
++		     0,
++		     SPINAND_ECCINFO(&gd5fxgq4_variant2_ooblayout,
++				     gd5fxgq4ufxxg_ecc_get_status)),
+ };
+ 
+ static int gigadevice_spinand_detect(struct spinand_device *spinand)
+ {
+ 	u8 *id = spinand->id.data;
++	u16 did;
+ 	int ret;
+ 
+ 	/*
+-	 * For GD NANDs, There is an address byte needed to shift in before IDs
+-	 * are read out, so the first byte in raw_id is dummy.
++	 * Earlier GDF5-series devices (A,E) return [0][MID][DID]
++	 * Later (F) devices return [MID][DID1][DID2]
+ 	 */
+-	if (id[1] != SPINAND_MFR_GIGADEVICE)
++
++	if (id[0] == SPINAND_MFR_GIGADEVICE)
++		did = (id[1] << 8) + id[2];
++	else if (id[0] == 0 && id[1] == SPINAND_MFR_GIGADEVICE)
++		did = id[2];
++	else
+ 		return 0;
+ 
+ 	ret = spinand_match_and_init(spinand, gigadevice_spinand_table,
+ 				     ARRAY_SIZE(gigadevice_spinand_table),
+-				     id[2]);
++				     did);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/include/linux/mtd/spinand.h b/include/linux/mtd/spinand.h
+index b92e2aa955b6..8901ba272538 100644
+--- a/include/linux/mtd/spinand.h
++++ b/include/linux/mtd/spinand.h
+@@ -68,30 +68,60 @@
+ 		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 1))
+ 
++#define SPINAND_PAGE_READ_FROM_CACHE_OP_3A(fast, addr, ndummy, buf, len) \
++	SPI_MEM_OP(SPI_MEM_OP_CMD(fast ? 0x0b : 0x03, 1),		\
++		   SPI_MEM_OP_ADDR(3, addr, 1),				\
++		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
++		   SPI_MEM_OP_DATA_IN(len, buf, 1))
++
+ #define SPINAND_PAGE_READ_FROM_CACHE_X2_OP(addr, ndummy, buf, len)	\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x3b, 1),				\
+ 		   SPI_MEM_OP_ADDR(2, addr, 1),				\
+ 		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 2))
+ 
++#define SPINAND_PAGE_READ_FROM_CACHE_X2_OP_3A(addr, ndummy, buf, len)	\
++	SPI_MEM_OP(SPI_MEM_OP_CMD(0x3b, 1),				\
++		   SPI_MEM_OP_ADDR(3, addr, 1),				\
++		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
++		   SPI_MEM_OP_DATA_IN(len, buf, 2))
++
+ #define SPINAND_PAGE_READ_FROM_CACHE_X4_OP(addr, ndummy, buf, len)	\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x6b, 1),				\
+ 		   SPI_MEM_OP_ADDR(2, addr, 1),				\
+ 		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 4))
+ 
++#define SPINAND_PAGE_READ_FROM_CACHE_X4_OP_3A(addr, ndummy, buf, len)	\
++	SPI_MEM_OP(SPI_MEM_OP_CMD(0x6b, 1),				\
++		   SPI_MEM_OP_ADDR(3, addr, 1),				\
++		   SPI_MEM_OP_DUMMY(ndummy, 1),				\
++		   SPI_MEM_OP_DATA_IN(len, buf, 4))
++
+ #define SPINAND_PAGE_READ_FROM_CACHE_DUALIO_OP(addr, ndummy, buf, len)	\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0xbb, 1),				\
+ 		   SPI_MEM_OP_ADDR(2, addr, 2),				\
+ 		   SPI_MEM_OP_DUMMY(ndummy, 2),				\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 2))
+ 
++#define SPINAND_PAGE_READ_FROM_CACHE_DUALIO_OP_3A(addr, ndummy, buf, len) \
++	SPI_MEM_OP(SPI_MEM_OP_CMD(0xbb, 1),				\
++		   SPI_MEM_OP_ADDR(3, addr, 2),				\
++		   SPI_MEM_OP_DUMMY(ndummy, 2),				\
++		   SPI_MEM_OP_DATA_IN(len, buf, 2))
++
+ #define SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(addr, ndummy, buf, len)	\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0xeb, 1),				\
+ 		   SPI_MEM_OP_ADDR(2, addr, 4),				\
+ 		   SPI_MEM_OP_DUMMY(ndummy, 4),				\
+ 		   SPI_MEM_OP_DATA_IN(len, buf, 4))
+ 
++#define SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP_3A(addr, ndummy, buf, len) \
++	SPI_MEM_OP(SPI_MEM_OP_CMD(0xeb, 1),				\
++		   SPI_MEM_OP_ADDR(3, addr, 4),				\
++		   SPI_MEM_OP_DUMMY(ndummy, 4),				\
++		   SPI_MEM_OP_DATA_IN(len, buf, 4))
++
+ #define SPINAND_PROG_EXEC_OP(addr)					\
+ 	SPI_MEM_OP(SPI_MEM_OP_CMD(0x10, 1),				\
+ 		   SPI_MEM_OP_ADDR(3, addr, 1),				\
+@@ -260,7 +290,7 @@ struct spinand_ecc_info {
+  */
+ struct spinand_info {
+ 	const char *model;
+-	u8 devid;
++	u16 devid;
+ 	u32 flags;
+ 	struct nand_memory_organization memorg;
+ 	struct nand_ecc_req eccreq;
+@@ -415,7 +445,7 @@ static inline void spinand_set_of_node(struct spinand_device *spinand,
+ 
+ int spinand_match_and_init(struct spinand_device *dev,
+ 			   const struct spinand_info *table,
+-			   unsigned int table_size, u8 devid);
++			   unsigned int table_size, u16 devid);
+ 
+ int spinand_upd_cfg(struct spinand_device *spinand, u8 mask, u8 val);
+ int spinand_select_target(struct spinand_device *spinand, unsigned int target);
+-- 
+2.11.0
+
+
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
