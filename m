@@ -2,32 +2,32 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D7D61D14D
-	for <lists+linux-mtd@lfdr.de>; Tue, 14 May 2019 23:30:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B5A151E42B
+	for <lists+linux-mtd@lfdr.de>; Tue, 14 May 2019 23:54:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NFQzsC1T+U6d3wjuJY17EBegGQnMLXhb5qY9hsXrBhM=; b=X+44nA4yYQmPeg
-	HRjb7vicz/wpqa1vFoxEuaCyke+bZkPhvADC8mImAg1l3DNinHVzGb+LEllkvm8hPOrkBouM/Qj34
-	VYTwue6hb4bpFmQwao+gfeqE4VxiAEC1i4k+yIHcxr9ldQ5tsjhF+lOdjPlpHflq0WBySE3ZVdWPR
-	DrJDkWuFdPNC6AWW3Yn6z+ZM+CEKq6vH45Et57ljsVucavXrG1x6MfhYL28Ju3w176PPEA3y+/gNA
-	zAZRIlLKOXD4MSZ+CXC/NNuFaihb2DzgOjlDmZSpSdggIgSHKL+Bnp1+lFfZj1XffXjlwX/teTg8Y
-	m2kgnOADkl36xygoxxFw==;
+	List-Owner; bh=NFQzsC1T+U6d3wjuJY17EBegGQnMLXhb5qY9hsXrBhM=; b=h1wWeoia6S8bxm
+	sQ+l6bXtXXUytdU7FqTfxBCUmGXZhb2+xVShrW6oHvH86aOQeTNNuv9OZkQS8R8cVoHLiot134kYH
+	k6wj4CjmbkwEx3Qyqjsq4RR+CxCTlT43X9cKcUmPeBhtFu3Lil9ltduxYZ8tIhN37mGQJ6Kg3YCPj
+	q6Dz3fua0zTQUjD4+8t0nmc/fFLaX21Kd4H+rAJSkI86X+ZVDaMu3wFAL0NcxOiPFZ95cRY/xweC0
+	1SkjXyG01BbrF3frwZwcUlmQeiQz/nFANrUgXtrVy+3vwxOPDkvgFNpaVTbPQ7I+cBYBMWzSCc5jp
+	geuwjpUZNegDCVLUWSkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hQezm-0004gW-Bz; Tue, 14 May 2019 21:29:58 +0000
+	id 1hQfNF-0004rx-0L; Tue, 14 May 2019 21:54:13 +0000
 Received: from mx.allycomm.com ([138.68.30.55])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hQeze-0004gB-7S
- for linux-mtd@lists.infradead.org; Tue, 14 May 2019 21:29:51 +0000
+ id 1hQfN7-0004rg-RQ
+ for linux-mtd@lists.infradead.org; Tue, 14 May 2019 21:54:07 +0000
 Received: from allycomm.com (inet.guidewire.com [199.91.42.30])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by mx.allycomm.com (Postfix) with ESMTPSA id 336653B682;
- Tue, 14 May 2019 14:29:49 -0700 (PDT)
+ by mx.allycomm.com (Postfix) with ESMTPSA id 2633E3B813;
+ Tue, 14 May 2019 14:54:04 -0700 (PDT)
 From: Jeff Kletsky <lede@allycomm.com>
 To: Boris Brezillon <bbrezillon@kernel.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>,
@@ -36,14 +36,14 @@ To: Boris Brezillon <bbrezillon@kernel.org>,
  Marek Vasut <marek.vasut@gmail.com>
 Subject: [PATCH v2 1/3] mtd: spinand: Add #define-s for page-read ops with
  three-byte addresses
-Date: Tue, 14 May 2019 14:29:39 -0700
-Message-Id: <20190514212941.18794-2-lede@allycomm.com>
+Date: Tue, 14 May 2019 14:53:13 -0700
+Message-Id: <20190514215315.19228-2-lede@allycomm.com>
 X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20190514212941.18794-1-lede@allycomm.com>
-References: <20190514212941.18794-1-lede@allycomm.com>
+In-Reply-To: <20190514215315.19228-1-lede@allycomm.com>
+References: <20190514215315.19228-1-lede@allycomm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190514_142950_268925_9B568B04 
+X-CRM114-CacheID: sfid-20190514_145405_890860_D32AEF1E 
 X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.8 (/)
