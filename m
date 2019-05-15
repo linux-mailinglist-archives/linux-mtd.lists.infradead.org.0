@@ -2,62 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 31B411E89A
-	for <lists+linux-mtd@lfdr.de>; Wed, 15 May 2019 08:52:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 332491E8A7
+	for <lists+linux-mtd@lfdr.de>; Wed, 15 May 2019 08:53:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JN4TVFKDhsB+9HAexL0HHuZCyN7fulFmnUu5iClj0wY=; b=WsyPS6Zz8WnP/Q
-	PfiS6zg6F7VHMVwng4flZYP3V4u2NrYrrhmKtVPTD6cxIPNwLa6X7gNcmkUY4mzvV9+5OPc4MXE+U
-	HEqm5k05rUjqODo/iHyCIhFmZyShnplHPyJJ89bL/NGw3PiO7h96VcGDn82cIi1xpPgVjurg9WQuv
-	8ydVUSZFOZaG1cH439NUOjEbWCeK9bR1FTzcI3hHsw1RGGrzhAL9lQN2jhfPqXaQxEyl4hpYfHg7C
-	2oSbS6cZw/C/qAsN29d8u33l7S/oa9ATLyQbXjIfONVWTcciz0pYOKXjeTVzXwqhJ3pmOGU3FuvI4
-	8Be3ddmbDo8C3lDj1ObQ==;
+	List-Owner; bh=+eaBpaulF/JOSerQ9gK8lDYQXEaepG+nxCGiCgWxW6o=; b=ob+PlariB3XyDu
+	X6BltYg3YH0QhBxXbmPXlkpdJQI95+rBZlV+07iAAquimg6OlZfMxE71ECtBsFHz8Hhj1RkkeZr3T
+	TsPnWf6rPkDL2lJJ+tul95lyYYQaAbK7pTG5yhXHmVmEKFe5JJhhPhpMtWn3RlOsYRFdCULgqpQA+
+	mtaCYsMrJO6v4ewB9YGXs+HH7rvtdoOxs9W8JEkSnlztphSpysXgWKr2HJaC0VKWpVhHYv/njW1YT
+	OkQjHeqL8Z+pdh685jd+h2KFuHx+gwftwjM8Kqj+mupuV/5deGAiYh+PWlwzWdOIFJPGdGg06fopz
+	5i7LWPdCbhxC3HndM5+w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hQnlx-0000o5-Po; Wed, 15 May 2019 06:52:17 +0000
-Received: from skedge04.snt-world.com ([91.208.41.69])
+	id 1hQnnK-000184-9y; Wed, 15 May 2019 06:53:42 +0000
+Received: from skedge03.snt-world.com ([91.208.41.68])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hQnlp-0000nG-0V
- for linux-mtd@lists.infradead.org; Wed, 15 May 2019 06:52:10 +0000
+ id 1hQnnC-00017K-Cf
+ for linux-mtd@lists.infradead.org; Wed, 15 May 2019 06:53:36 +0000
 Received: from sntmail14r.snt-is.com (unknown [10.203.32.184])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by skedge04.snt-world.com (Postfix) with ESMTPS id AC04224E2491;
- Wed, 15 May 2019 08:52:06 +0200 (CEST)
+ by skedge03.snt-world.com (Postfix) with ESMTPS id 2D6846024E2;
+ Wed, 15 May 2019 08:53:32 +0200 (CEST)
 Received: from sntmail12r.snt-is.com (10.203.32.182) by sntmail14r.snt-is.com
  (10.203.32.184) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5; Wed, 15 May
- 2019 08:52:06 +0200
+ 2019 08:53:31 +0200
 Received: from sntmail12r.snt-is.com ([fe80::e551:8750:7bba:3305]) by
  sntmail12r.snt-is.com ([fe80::e551:8750:7bba:3305%3]) with mapi id
- 15.01.1713.004; Wed, 15 May 2019 08:52:06 +0200
+ 15.01.1713.004; Wed, 15 May 2019 08:53:31 +0200
 From: Schrempf Frieder <frieder.schrempf@kontron.de>
 To: Jeff Kletsky <lede@allycomm.com>, Boris Brezillon <bbrezillon@kernel.org>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger
  <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>, Brian Norris
  <computersforpeace@gmail.com>, Marek Vasut <marek.vasut@gmail.com>
-Subject: Re: [PATCH v2 2/3] mtd: spinand: Add support for two-byte device IDs
-Thread-Topic: [PATCH v2 2/3] mtd: spinand: Add support for two-byte device IDs
-Thread-Index: AQHVCp/WPaZWYiYCKEGU6+s/F1KvdqZrnqKA
-Date: Wed, 15 May 2019 06:52:06 +0000
-Message-ID: <b7d79b90-a690-6b31-662e-6ad63eb93b50@kontron.de>
+Subject: Re: [PATCH v2 3/3] mtd: spinand: Add support for GigaDevice
+ GD5F1GQ4UFxxG
+Thread-Topic: [PATCH v2 3/3] mtd: spinand: Add support for GigaDevice
+ GD5F1GQ4UFxxG
+Thread-Index: AQHVCp/mj5ODTut3PUyDQllC6aHQS6ZrnwmA
+Date: Wed, 15 May 2019 06:53:31 +0000
+Message-ID: <6705bff0-e929-301a-485e-1a506cccad32@kontron.de>
 References: <20190514215315.19228-1-lede@allycomm.com>
- <20190514215315.19228-3-lede@allycomm.com>
-In-Reply-To: <20190514215315.19228-3-lede@allycomm.com>
+ <20190514215315.19228-4-lede@allycomm.com>
+In-Reply-To: <20190514215315.19228-4-lede@allycomm.com>
 Accept-Language: de-DE, en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 x-originating-ip: [172.25.9.193]
 x-c2processedorg: 51b406b7-48a2-4d03-b652-521f56ac89f3
-Content-ID: <3BAF618DD1E9414784A6D8C384C38383@snt-world.com>
+Content-ID: <985ACC28CD63194E85B68E01C08F9B94@snt-world.com>
 MIME-Version: 1.0
 X-SnT-MailScanner-Information: Please contact the ISP for more information
-X-SnT-MailScanner-ID: AC04224E2491.A8D1F
+X-SnT-MailScanner-ID: 2D6846024E2.ACCA8
 X-SnT-MailScanner: Not scanned: please contact your Internet E-Mail Service
  Provider for details
 X-SnT-MailScanner-SpamCheck: 
@@ -68,15 +70,15 @@ X-SnT-MailScanner-To: bbrezillon@kernel.org, computersforpeace@gmail.com,
  miquel.raynal@bootlin.com, richard@nod.at
 X-Spam-Status: No
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190514_235209_372966_3685C676 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20190514_235334_760942_14D92FF4 
+X-CRM114-Status: GOOD (  19.17  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [91.208.41.69 listed in list.dnswl.org]
+ no trust [91.208.41.68 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -99,7 +101,14 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 On 14.05.19 23:53, Jeff Kletsky wrote:
 > From: Jeff Kletsky <git-commits@allycomm.com>
 > 
-> The GigaDevice GD5F1GQ4UFxxG SPI NAND utilizes two-byte device IDs.
+> The GigaDevice GD5F1GQ4UFxxG SPI NAND is in current production devices
+> and, while it has the same logical layout as the E-series devices,
+> it differs in the SPI interfacing in significant ways.
+> 
+> This support is contingent on previous commits to:
+> 
+>    * Add support for two-byte device IDs
+>    * Add #define-s for page-read ops with three-byte addresses
 > 
 > http://www.gigadevice.com/datasheet/gd5f1gq4xfxxg/
 > 
@@ -108,45 +117,168 @@ On 14.05.19 23:53, Jeff Kletsky wrote:
 Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 
 > ---
->   drivers/mtd/nand/spi/core.c | 2 +-
->   include/linux/mtd/spinand.h | 4 ++--
->   2 files changed, 3 insertions(+), 3 deletions(-)
+>   drivers/mtd/nand/spi/gigadevice.c | 79 +++++++++++++++++++++++++------
+>   1 file changed, 64 insertions(+), 15 deletions(-)
 > 
-> diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
-> index fa87ae28cdfe..a13154785dad 100644
-> --- a/drivers/mtd/nand/spi/core.c
-> +++ b/drivers/mtd/nand/spi/core.c
-> @@ -853,7 +853,7 @@ spinand_select_op_variant(struct spinand_device *spinand,
->    */
->   int spinand_match_and_init(struct spinand_device *spinand,
->   			   const struct spinand_info *table,
-> -			   unsigned int table_size, u8 devid)
-> +			   unsigned int table_size, u16 devid)
+> diff --git a/drivers/mtd/nand/spi/gigadevice.c b/drivers/mtd/nand/spi/gigadevice.c
+> index 0b49d8264bef..d6497ac4c5d8 100644
+> --- a/drivers/mtd/nand/spi/gigadevice.c
+> +++ b/drivers/mtd/nand/spi/gigadevice.c
+> @@ -9,11 +9,17 @@
+>   #include <linux/mtd/spinand.h>
+>   
+>   #define SPINAND_MFR_GIGADEVICE			0xC8
+> +
+>   #define GD5FXGQ4XA_STATUS_ECC_1_7_BITFLIPS	(1 << 4)
+>   #define GD5FXGQ4XA_STATUS_ECC_8_BITFLIPS	(3 << 4)
+>   
+>   #define GD5FXGQ4UEXXG_REG_STATUS2		0xf0
+>   
+> +#define GD5FXGQ4UXFXXG_STATUS_ECC_MASK		(7 << 4)
+> +#define GD5FXGQ4UXFXXG_STATUS_ECC_NO_BITFLIPS	(0 << 4)
+> +#define GD5FXGQ4UXFXXG_STATUS_ECC_1_3_BITFLIPS	(1 << 4)
+> +#define GD5FXGQ4UXFXXG_STATUS_ECC_UNCOR_ERROR	(7 << 4)
+> +
+>   static SPINAND_OP_VARIANTS(read_cache_variants,
+>   		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(0, 2, NULL, 0),
+>   		SPINAND_PAGE_READ_FROM_CACHE_X4_OP(0, 1, NULL, 0),
+> @@ -22,6 +28,14 @@ static SPINAND_OP_VARIANTS(read_cache_variants,
+>   		SPINAND_PAGE_READ_FROM_CACHE_OP(true, 0, 1, NULL, 0),
+>   		SPINAND_PAGE_READ_FROM_CACHE_OP(false, 0, 1, NULL, 0));
+>   
+> +static SPINAND_OP_VARIANTS(read_cache_variants_f,
+> +		SPINAND_PAGE_READ_FROM_CACHE_QUADIO_OP(0, 2, NULL, 0),
+> +		SPINAND_PAGE_READ_FROM_CACHE_X4_OP_3A(0, 1, NULL, 0),
+> +		SPINAND_PAGE_READ_FROM_CACHE_DUALIO_OP(0, 1, NULL, 0),
+> +		SPINAND_PAGE_READ_FROM_CACHE_X2_OP_3A(0, 1, NULL, 0),
+> +		SPINAND_PAGE_READ_FROM_CACHE_OP_3A(true, 0, 1, NULL, 0),
+> +		SPINAND_PAGE_READ_FROM_CACHE_OP_3A(false, 0, 0, NULL, 0));
+> +
+>   static SPINAND_OP_VARIANTS(write_cache_variants,
+>   		SPINAND_PROG_LOAD_X4(true, 0, NULL, 0),
+>   		SPINAND_PROG_LOAD(true, 0, NULL, 0));
+> @@ -59,6 +73,11 @@ static int gd5fxgq4xa_ooblayout_free(struct mtd_info *mtd, int section,
+>   	return 0;
+>   }
+>   
+> +static const struct mtd_ooblayout_ops gd5fxgq4xa_ooblayout = {
+> +	.ecc = gd5fxgq4xa_ooblayout_ecc,
+> +	.free = gd5fxgq4xa_ooblayout_free,
+> +};
+> +
+>   static int gd5fxgq4xa_ecc_get_status(struct spinand_device *spinand,
+>   					 u8 status)
 >   {
->   	struct nand_device *nand = spinand_to_nand(spinand);
->   	unsigned int i;
-> diff --git a/include/linux/mtd/spinand.h b/include/linux/mtd/spinand.h
-> index 05fe98eebe27..8901ba272538 100644
-> --- a/include/linux/mtd/spinand.h
-> +++ b/include/linux/mtd/spinand.h
-> @@ -290,7 +290,7 @@ struct spinand_ecc_info {
->    */
->   struct spinand_info {
->   	const char *model;
-> -	u8 devid;
-> +	u16 devid;
->   	u32 flags;
->   	struct nand_memory_organization memorg;
->   	struct nand_ecc_req eccreq;
-> @@ -445,7 +445,7 @@ static inline void spinand_set_of_node(struct spinand_device *spinand,
+> @@ -83,7 +102,7 @@ static int gd5fxgq4xa_ecc_get_status(struct spinand_device *spinand,
+>   	return -EINVAL;
+>   }
 >   
->   int spinand_match_and_init(struct spinand_device *dev,
->   			   const struct spinand_info *table,
-> -			   unsigned int table_size, u8 devid);
-> +			   unsigned int table_size, u16 devid);
+> -static int gd5fxgq4uexxg_ooblayout_ecc(struct mtd_info *mtd, int section,
+> +static int gd5fxgq4_variant2_ooblayout_ecc(struct mtd_info *mtd, int section,
+>   				       struct mtd_oob_region *region)
+>   {
+>   	if (section)
+> @@ -95,7 +114,7 @@ static int gd5fxgq4uexxg_ooblayout_ecc(struct mtd_info *mtd, int section,
+>   	return 0;
+>   }
 >   
->   int spinand_upd_cfg(struct spinand_device *spinand, u8 mask, u8 val);
->   int spinand_select_target(struct spinand_device *spinand, unsigned int target);
+> -static int gd5fxgq4uexxg_ooblayout_free(struct mtd_info *mtd, int section,
+> +static int gd5fxgq4_variant2_ooblayout_free(struct mtd_info *mtd, int section,
+>   					struct mtd_oob_region *region)
+>   {
+>   	if (section)
+> @@ -108,6 +127,11 @@ static int gd5fxgq4uexxg_ooblayout_free(struct mtd_info *mtd, int section,
+>   	return 0;
+>   }
+>   
+> +static const struct mtd_ooblayout_ops gd5fxgq4_variant2_ooblayout = {
+> +	.ecc = gd5fxgq4_variant2_ooblayout_ecc,
+> +	.free = gd5fxgq4_variant2_ooblayout_free,
+> +};
+> +
+>   static int gd5fxgq4uexxg_ecc_get_status(struct spinand_device *spinand,
+>   					u8 status)
+>   {
+> @@ -150,15 +174,25 @@ static int gd5fxgq4uexxg_ecc_get_status(struct spinand_device *spinand,
+>   	return -EINVAL;
+>   }
+>   
+> -static const struct mtd_ooblayout_ops gd5fxgq4xa_ooblayout = {
+> -	.ecc = gd5fxgq4xa_ooblayout_ecc,
+> -	.free = gd5fxgq4xa_ooblayout_free,
+> -};
+> +static int gd5fxgq4ufxxg_ecc_get_status(struct spinand_device *spinand,
+> +					u8 status)
+> +{
+> +	switch (status & GD5FXGQ4UXFXXG_STATUS_ECC_MASK) {
+> +	case GD5FXGQ4UXFXXG_STATUS_ECC_NO_BITFLIPS:
+> +		return 0;
+>   
+> -static const struct mtd_ooblayout_ops gd5fxgq4uexxg_ooblayout = {
+> -	.ecc = gd5fxgq4uexxg_ooblayout_ecc,
+> -	.free = gd5fxgq4uexxg_ooblayout_free,
+> -};
+> +	case GD5FXGQ4UXFXXG_STATUS_ECC_1_3_BITFLIPS:
+> +		return 3;
+> +
+> +	case GD5FXGQ4UXFXXG_STATUS_ECC_UNCOR_ERROR:
+> +		return -EBADMSG;
+> +
+> +	default: /* (2 << 4) through (6 << 4) are 4-8 corrected errors */
+> +		return ((status & GD5FXGQ4UXFXXG_STATUS_ECC_MASK) >> 4) + 2;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+>   
+>   static const struct spinand_info gigadevice_spinand_table[] = {
+>   	SPINAND_INFO("GD5F1GQ4xA", 0xF1,
+> @@ -195,25 +229,40 @@ static const struct spinand_info gigadevice_spinand_table[] = {
+>   					      &write_cache_variants,
+>   					      &update_cache_variants),
+>   		     0,
+> -		     SPINAND_ECCINFO(&gd5fxgq4uexxg_ooblayout,
+> +		     SPINAND_ECCINFO(&gd5fxgq4_variant2_ooblayout,
+>   				     gd5fxgq4uexxg_ecc_get_status)),
+> +	SPINAND_INFO("GD5F1GQ4UFxxG", 0xb148,
+> +		     NAND_MEMORG(1, 2048, 128, 64, 1024, 1, 1, 1),
+> +		     NAND_ECCREQ(8, 512),
+> +		     SPINAND_INFO_OP_VARIANTS(&read_cache_variants_f,
+> +					      &write_cache_variants,
+> +					      &update_cache_variants),
+> +		     0,
+> +		     SPINAND_ECCINFO(&gd5fxgq4_variant2_ooblayout,
+> +				     gd5fxgq4ufxxg_ecc_get_status)),
+>   };
+>   
+>   static int gigadevice_spinand_detect(struct spinand_device *spinand)
+>   {
+>   	u8 *id = spinand->id.data;
+> +	u16 did;
+>   	int ret;
+>   
+>   	/*
+> -	 * For GD NANDs, There is an address byte needed to shift in before IDs
+> -	 * are read out, so the first byte in raw_id is dummy.
+> +	 * Earlier GDF5-series devices (A,E) return [0][MID][DID]
+> +	 * Later (F) devices return [MID][DID1][DID2]
+>   	 */
+> -	if (id[1] != SPINAND_MFR_GIGADEVICE)
+> +
+> +	if (id[0] == SPINAND_MFR_GIGADEVICE)
+> +		did = (id[1] << 8) + id[2];
+> +	else if (id[0] == 0 && id[1] == SPINAND_MFR_GIGADEVICE)
+> +		did = id[2];
+> +	else
+>   		return 0;
+>   
+>   	ret = spinand_match_and_init(spinand, gigadevice_spinand_table,
+>   				     ARRAY_SIZE(gigadevice_spinand_table),
+> -				     id[2]);
+> +				     did);
+>   	if (ret)
+>   		return ret;
+>   
 > 
 ______________________________________________________
 Linux MTD discussion mailing list
