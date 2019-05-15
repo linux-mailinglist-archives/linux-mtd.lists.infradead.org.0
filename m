@@ -2,135 +2,77 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 577BE1FB9C
-	for <lists+linux-mtd@lfdr.de>; Wed, 15 May 2019 22:45:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 470031FC02
+	for <lists+linux-mtd@lfdr.de>; Wed, 15 May 2019 23:01:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Kf3y7hmdVCkChH0EJFVUbYWolFpsCtNWpMXYmYVJA3M=; b=i861vx7gTMmjsS
-	1BqPTHnu+uxJWu4erXErVO3zRn9KwJ5xjrNMo333HBh38+yH1AfZ8zxZxh3cKor2o9Tg8fmHoHD+x
-	PN0NxSBv4EVS2Fay1AjfYwQCI2J7Qwj8Om0RzJyMrPi7IDnulMR/S3DzJO3fLFKcgPdj1e9Enz1g5
-	lAbd3cR/xar4NnLIsOxRiFOo3BBTHGWxNtMyTaTe2dedSNF8XCoBoCjJ4NVPGAV38glZ0uTqHA1jw
-	2Df26MLRecIVafN/I3fWPBlRUGgpHfBNLVBLC61h1vaS/qR/3g+8AjUCfEunq3CO98ohI+sknwJrG
-	+MN2qe4yKTN+You4J7pQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aHvezOg73MJTjwOPUeSA1wC9Yfp9EFEYzNvoJhUl4dI=; b=A0mR30DG6ro725
+	M5XmAvoHOJTWN0yI6WQMv5H1ls5dlbh5rwXq8TMAkU94En6DQeROuaAbyebqm2cf+g9r1totu2yqV
+	cLjUE9dSCblZGBOp586QbddF9zE4DBm66uAJhnePH41Z/BfGRdD+uqd5Mu9EykgkgMrv2SimD/8YF
+	N7KxeSnPvIsV22HjYTxz0R+xqVOCXrhA81/0Do9PXgNiM/uO+zc8HtuSQRo/2bcH0ktl+H693rtsV
+	o2YMKRof4X7khbktArMuDDBseJkm9ZSbWzrS9Pp6NOlnIsaFe3XmvBmZpOZTINoirjnjZyEhy8uSl
+	IADOXSonaAcpRQGMnvQw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hR0mV-0005iU-Ma; Wed, 15 May 2019 20:45:43 +0000
-Received: from rcdn-iport-8.cisco.com ([173.37.86.79])
+	id 1hR11A-0004IN-1N; Wed, 15 May 2019 21:00:52 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hR0mN-0005i4-DS
- for linux-mtd@lists.infradead.org; Wed, 15 May 2019 20:45:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=cisco.com; i=@cisco.com; l=830; q=dns/txt; s=iport;
- t=1557953135; x=1559162735;
- h=from:to:cc:subject:date:message-id:content-id:
- content-transfer-encoding:mime-version;
- bh=1EW9TDbzRse7TuuGkbStZdCP/HtthI7NcbjgmX//ktw=;
- b=TUw0OUnrrHuz5fqzyVZbb4KsO+LYI18vERZXY+cybKOJ4elCWb3ci+Sb
- jwGrSoiWJM09joTDr3zEKp8COVIKSnZpYlXrWX13Q5iLzAM0f+oGTovOC
- SiF7furVepXpu/P//oAysQfjdssbZ7R1A/0Y9DW+dh3x4SmyBEM8QB5EV Q=;
-IronPort-PHdr: =?us-ascii?q?9a23=3AEtOF/hDQqbSWv3TG3Z/+UyQJPHJ1sqjoPgMT9p?=
- =?us-ascii?q?ssgq5PdaLm5Zn5IUjD/qs03kTRU9Dd7PRJw6rNvqbsVHZIwK7JsWtKMfkuHw?=
- =?us-ascii?q?QAld1QmgUhBMCfDkiuN/7lZio1FcJqX15+9Hb9Ok9QS47z?=
-X-IronPort-Anti-Spam-Filtered: true
-X-IronPort-Anti-Spam-Result: =?us-ascii?q?A0AVDwC1edxc/4sNJK1kHQIfBQeBTQK?=
- =?us-ascii?q?BKBRQA4E+IAQLKIQRg0cDjnKCMpdKglIDVAkBAQEMAQEtAgEBhEAZghQjNwY?=
- =?us-ascii?q?OAQMBAQQBAQIBBG0cAQuFTRYREQwBATcBEQEiAiYCBDAVEgQOJ4MAgWsDHQE?=
- =?us-ascii?q?CoRoCgTWIX3GBL4J5AQEFgkeCOhiCDwmBCyYCAQEBAYtLF4FAP4E4DBOCTIg?=
- =?us-ascii?q?MMoImixuCRYZokxUJAoIJApJcFAeCBJNqLYwHlQoCBAIEBQIOAQEFgWUiKYE?=
- =?us-ascii?q?ucBVlAYJBghgag0yKU3KBKY9GAQE?=
-X-IronPort-AV: E=Sophos;i="5.60,474,1549929600"; d="scan'208";a="558122177"
-Received: from alln-core-6.cisco.com ([173.36.13.139])
- by rcdn-iport-8.cisco.com with ESMTP/TLS/DHE-RSA-SEED-SHA;
- 15 May 2019 20:45:30 +0000
-Received: from XCH-RCD-016.cisco.com (xch-rcd-016.cisco.com [173.37.102.26])
- by alln-core-6.cisco.com (8.15.2/8.15.2) with ESMTPS id x4FKjU44019581
- (version=TLSv1.2 cipher=AES256-SHA bits=256 verify=FAIL);
- Wed, 15 May 2019 20:45:30 GMT
-Received: from xhs-aln-002.cisco.com (173.37.135.119) by XCH-RCD-016.cisco.com
- (173.37.102.26) with Microsoft SMTP Server (TLS) id 15.0.1473.3;
- Wed, 15 May 2019 15:45:30 -0500
-Received: from xhs-rtp-001.cisco.com (64.101.210.228) by xhs-aln-002.cisco.com
- (173.37.135.119) with Microsoft SMTP Server (TLS) id 15.0.1473.3;
- Wed, 15 May 2019 15:45:29 -0500
-Received: from NAM04-SN1-obe.outbound.protection.outlook.com (64.101.32.56) by
- xhs-rtp-001.cisco.com (64.101.210.228) with Microsoft SMTP Server
- (TLS) id
- 15.0.1473.3 via Frontend Transport; Wed, 15 May 2019 16:45:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cisco.onmicrosoft.com; 
- s=selector2-cisco-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1EW9TDbzRse7TuuGkbStZdCP/HtthI7NcbjgmX//ktw=;
- b=r7vy1Nrs1R3m/ImOZpXhhJZ7NeUeqxuVUnFNBbWDasHlHs7CL5yFrdp8aclRmpDT/38A4efNcgEqYNwnY4bkUp0VlEh/HYu1OSAimQXiClcuzXDnb9ERfh4f75e8qAc2MR6Y5ekXpCurEjO25gcG4xunxilf0F28LqfjWE5sAdk=
-Received: from BYAPR11MB3461.namprd11.prod.outlook.com (20.177.187.14) by
- BYAPR11MB3752.namprd11.prod.outlook.com (20.178.238.145) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1900.16; Wed, 15 May 2019 20:45:27 +0000
-Received: from BYAPR11MB3461.namprd11.prod.outlook.com
- ([fe80::494e:92a0:85c6:a3dd]) by BYAPR11MB3461.namprd11.prod.outlook.com
- ([fe80::494e:92a0:85c6:a3dd%7]) with mapi id 15.20.1900.010; Wed, 15 May 2019
- 20:45:27 +0000
-From: "Shreya Gangan (shgangan)" <shgangan@cisco.com>
-To: "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
-Subject: Removal of dump_stack()s from  /fs/ubifs/io.c
-Thread-Topic: Removal of dump_stack()s from  /fs/ubifs/io.c
-Thread-Index: AQHVC18gL8Dvs2CcT0+L+hHPz5/XQA==
-Date: Wed, 15 May 2019 20:45:27 +0000
-Message-ID: <E44E4181-1CFB-493C-8023-147472049D19@cisco.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=shgangan@cisco.com; 
-x-originating-ip: [2001:420:30d:1254:f50a:d60e:60dd:2496]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c7ce545e-ebef-448c-ca29-08d6d9764344
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600141)(711020)(4605104)(2017052603328)(7193020);
- SRVR:BYAPR11MB3752; 
-x-ms-traffictypediagnostic: BYAPR11MB3752:
-x-microsoft-antispam-prvs: <BYAPR11MB3752F0BD46529599D446FA6BDB090@BYAPR11MB3752.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:7691;
-x-forefront-prvs: 0038DE95A2
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(366004)(39860400002)(376002)(396003)(136003)(346002)(199004)(189003)(6436002)(73956011)(66946007)(4744005)(5640700003)(66556008)(64756008)(66476007)(66446008)(102836004)(186003)(478600001)(53936002)(6486002)(33656002)(2906002)(4326008)(76116006)(8676002)(81166006)(81156014)(316002)(2351001)(8936002)(82746002)(86362001)(71190400001)(46003)(305945005)(14454004)(5660300002)(83716004)(71200400001)(6512007)(6916009)(99286004)(36756003)(6506007)(6116002)(25786009)(2616005)(476003)(14444005)(68736007)(256004)(7736002)(2501003)(486006);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BYAPR11MB3752;
- H:BYAPR11MB3461.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: cisco.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: XC1KO1Izp0yu1EXerufzRIZfTaL/MifG1FG8EOeEU6DEBDIZHbl5/BF4UaluqE5aMAISVDnTPhH/cELGHfMbsQSbPpMcQ/O8txlTsmVMScoLEcwYhgXo3Fzx9o2QZ91+aF8XDXCqj8DY/a7wfbNHaMKes+5rxDs/ZTtvjbsRzgmHrukplVDxlP0TdD1Pn/HWEdIHXrS/x9fr44cp0E2kepHscrynmt4qkIQKWBmv5u/7oco9s7de6Cb63o9c7Q5HcFf6aKiGIfEWdm+mUr2Q0hlSly7KLTTMceGW6/X7TxGUp8QFkay03ZUV9Rj+B76tz+Hj/nuZPgGOfZ+rluDImhbWQHDddTmAX7SM1fVMkeSSm1Lg711rGjvFA6ci6vbWrKW2qV90oHLNOUIafvnpo12vZ+IE+iXuG1Seh87iTWE=
-Content-ID: <9B57E62027753246B31A0AEF8BAB1A0A@namprd11.prod.outlook.com>
+ id 1hR112-0004I5-JU
+ for linux-mtd@lists.infradead.org; Wed, 15 May 2019 21:00:45 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id j187so5558716wma.1
+ for <linux-mtd@lists.infradead.org>; Wed, 15 May 2019 14:00:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=0YwmpvP+rMpFcNcCho3HpAkjJLkgqW1dbm3WkulvRrg=;
+ b=igEIO6/J8K34sgtKNUjPKDPsKN4vkuUys4KMlg8IopQ026OHeRqSWSKdNHpCUUZbqd
+ D1Xrfcqgm06WwwCF5wsT6Vu9S8eZa1YMbxrsTPu0Yq2FSGPWe+uFs6Q/uKEibkc+zJQA
+ PIvIQgHoMgpKbH99CgjKjTXXTLCXC85NDt61lASu5p7w1XcxmQrbgKbXhfCVHkxBmoAF
+ Pv+OAyCev9MUXZL/saXvt+HJpppNBYI2Guhfo6oXnjlgmma1pWOSKgfXRL9AZVMtIYjy
+ TQhJnMLNPTSiaxtWQWY6TP/USDuMoqn2/OwNJxvhrxHWxE3mlzHhMyvXFPpefNVVhBWM
+ kiVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=0YwmpvP+rMpFcNcCho3HpAkjJLkgqW1dbm3WkulvRrg=;
+ b=hnoDRUcmwxSvf6YdgWXCwoT/v4zsGxUVVEv74ymYBVX6TzWfjl7H8XnCSEFgGSVSnO
+ 4T5l1alZNnK8/TYSbJOLplMgoyyCtdLwo/kmQBXmrkUbmMzlk4Wc5mbIQXew21Dg5QqE
+ 6TOH0cysPN2AR4JZob2v99Zk/TJDhm7V8EtrcSFTRv67mYiU1c49G694uV8EhgaFd+/W
+ hsuK53wKC90z6/jSopbLQDKVXjNIii3wz8vhNlol1apI8o7X59e+9FScFHRBVzHhbIm2
+ ytftA9nS5jp2RdIwVUNaMw7xsAZPPJCGuDu730lrWJQAdUqwzEBqtZ+4sITUf7nwNE3h
+ AXQg==
+X-Gm-Message-State: APjAAAWJqw5k0pLwuKMuaLP8t/DTnEpSN5xYkZFkkjl8G08Kc3CvbHFv
+ scFzRo8JsHiJGbrl8+jtvv3nlGtlr4zERFhDFHU=
+X-Google-Smtp-Source: APXvYqzOhb4qdA6w14C+vrWsULjPKfJUFNLRxCbEb37m0m1lC0od8W87ILCrAJqKG9Nv/1YErUKc1n4rT3NsNXLX2Rw=
+X-Received: by 2002:a1c:2245:: with SMTP id i66mr9223843wmi.19.1557954043034; 
+ Wed, 15 May 2019 14:00:43 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7ce545e-ebef-448c-ca29-08d6d9764344
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 May 2019 20:45:27.5355 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 5ae1af62-9505-4097-a69a-c1553ef7840e
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB3752
-X-OriginatorOrg: cisco.com
-X-Outbound-SMTP-Client: 173.37.102.26, xch-rcd-016.cisco.com
-X-Outbound-Node: alln-core-6.cisco.com
+References: <E44E4181-1CFB-493C-8023-147472049D19@cisco.com>
+In-Reply-To: <E44E4181-1CFB-493C-8023-147472049D19@cisco.com>
+From: Richard Weinberger <richard.weinberger@gmail.com>
+Date: Wed, 15 May 2019 23:00:31 +0200
+Message-ID: <CAFLxGvysPg3FO4kT0QrRsYTr219WVttQMeat_StqbifTPrGLmA@mail.gmail.com>
+Subject: Re: Removal of dump_stack()s from /fs/ubifs/io.c
+To: "Shreya Gangan (shgangan)" <shgangan@cisco.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190515_134535_619003_9B814BAD 
-X-CRM114-Status: UNSURE (   5.43  )
+X-CRM114-CacheID: sfid-20190515_140044_668642_3C13EF88 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -12.7 (------------)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-12.7 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [173.37.86.79 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:32e listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
- white-list
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (richard.weinberger[at]gmail.com)
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -149,28 +91,32 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
-    
- /fs/ubifs/io.c has dump_stack() in multiple functions upon errors and sometimes warnings. 
-Since the error and warning messages seem to be unique, the functional value of these dump_stacks is not apparent.
-Why are these dump_stacks required and what issues might occur upon the removal of these?
+On Wed, May 15, 2019 at 10:45 PM Shreya Gangan (shgangan)
+<shgangan@cisco.com> wrote:
+>
+> Hi,
+>
+>  /fs/ubifs/io.c has dump_stack() in multiple functions upon errors and sometimes warnings.
+> Since the error and warning messages seem to be unique, the functional value of these dump_stacks is not apparent.
+> Why are these dump_stacks required and what issues might occur upon the removal of these?
 
-Example: 
-What is the usecase of the dump_stack in the following code snippet in file /fs/ubifs/io.c?
-    if (err) {
-    		ubifs_err(c, "changing %d bytes in LEB %d failed, error %d",
-    			  len, lnum, err);
-    		ubifs_ro_mode(c, err);
-    		dump_stack();
-    	}
-    
-Regards,
+They are not required, but they are just useful. While you are right
+that the locations within UBIFS
+are unique, they are not for the whole kernel context.
+Filesystem functions can get called via many different paths from VFS...
+
+Why do you want to remove them, what is the benefit?
+
+-- 
+Thanks,
+//richard
 
 ______________________________________________________
 Linux MTD discussion mailing list
