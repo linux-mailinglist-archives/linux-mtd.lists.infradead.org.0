@@ -2,65 +2,62 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 634C121625
-	for <lists+linux-mtd@lfdr.de>; Fri, 17 May 2019 11:21:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 874B621650
+	for <lists+linux-mtd@lfdr.de>; Fri, 17 May 2019 11:31:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:From:Message-ID:MIME-Version:
+	Subject:To:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MaAXcjmtII6wwdbnB0tAdNOoqnPvA4Q2vkC6xtMH7J4=; b=QNF1qpwPGa1QQS
-	mSNo58nOdC12a305v1ey7Ix/1KMl3RHonoWgoDMtTllv+J0iDo5/O52cjRs/VvkLLQvqwOjQs+G6m
-	fK66u8JkxkdZIm8PgnFdHeF2AbdP0fDeQB1Y5pH0KNfc538BbD8fK/LWuTd3vaxLDZY2G7jsAJ2nV
-	MNjBvZzA7DX7AtsaVP30KRn/K2A7gUx6iXF0WOXDl3puo9DeQIHQMV6hmwtN2vnnPP3trJBy+SVQV
-	2/8gmM9VmzcHI9qticw3Eh5w8x1u5ODT25NFg+QM0W1rIh/P7apvh7R3PhPopo199kQO7gxQvV7/8
-	ljF3QN3fT2xDaiMOLdYQ==;
+	List-Owner; bh=+Z60vGgJyZOhGdmGw1X0uYuQLFN45HGYnXFoZcVPdNE=; b=Xov2GgzukWjdOu
+	lXQLVGkZ1SSuHUvGzhUwUWQe5ofEng6s/5DBg56HyHBy5R44iojLrGrzl2waNq7wCdqe0o2wGJ+VH
+	JnK8t+UIgIVQqGf7gKe2lzGyls1RHmLXrCRjcV8eFcqQk99GlQ1tBe6FtfoYDaQWW2mmg53LKBbnx
+	HbJisPbzQ8ewZwf6l/nUoXqCd2ArGBS9uas2RnSSnMTAnw2F2a7geuw2qK/+5eRt0QBlFifTzD6Yw
+	OAfySRbnUqSlJGK+wXMBfenopIVhg2PbiR8M2yWqeHZB8rOq6h8JuXhNIcR4kpJnYw+Z/ZCXUL8Y4
+	zSkNMOx6ia2gr9pcaMKQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hRZ3d-0007ME-AG; Fri, 17 May 2019 09:21:41 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1hRZD0-0002h1-Jw; Fri, 17 May 2019 09:31:22 +0000
+Received: from twhmllg3.macronix.com ([211.75.127.131])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hRZ3V-0007Lh-IL; Fri, 17 May 2019 09:21:34 +0000
-X-UUID: 44571fe1f5e0477f9175a59ffdaa130c-20190517
-X-UUID: 44571fe1f5e0477f9175a59ffdaa130c-20190517
-Received: from mtkcas66.mediatek.inc [(172.29.193.44)] by mailgw01.mediatek.com
- (envelope-from <xiaolei.li@mediatek.com>)
- (musrelay.mediatek.com ESMTP with TLS)
- with ESMTP id 937721415; Fri, 17 May 2019 01:21:27 -0800
-Received: from mtkmbs03n1.mediatek.inc (172.21.101.181) by
- MTKMBS62N2.mediatek.inc (172.29.193.42) with Microsoft SMTP Server (TLS) id
- 15.0.1395.4; Fri, 17 May 2019 02:21:25 -0700
-Received: from MTKCAS36.mediatek.inc (172.27.4.186) by mtkmbs03n1.mediatek.inc
- (172.21.101.181) with Microsoft SMTP Server (TLS) id 15.0.1395.4;
- Fri, 17 May 2019 17:21:24 +0800
-Received: from [10.17.3.153] (172.27.4.253) by MTKCAS36.mediatek.inc
- (172.27.4.170) with Microsoft SMTP Server id 15.0.1395.4 via Frontend
- Transport; Fri, 17 May 2019 17:21:22 +0800
-Message-ID: <1558084882.26455.106.camel@mhfsdcap03>
-Subject: Re: [PATCH v3 0/4] MTK NAND driver improvements and fixes
-From: xiaolei li <xiaolei.li@mediatek.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 17 May 2019 17:21:22 +0800
-In-Reply-To: <20190517101226.17b23550@xps13>
-References: <20190507102541.34341-1-xiaolei.li@mediatek.com>
- <1558056767.26455.98.camel@mhfsdcap03> <20190517101226.17b23550@xps13>
-X-Mailer: Evolution 3.2.3-0ubuntu6 
+ id 1hRZCs-0002ga-5p
+ for linux-mtd@lists.infradead.org; Fri, 17 May 2019 09:31:15 +0000
+Received: from twhfmlp1.macronix.com (twhfm1p1.macronix.com [172.17.20.91])
+ by TWHMLLG3.macronix.com with ESMTP id x4H9ULi6090469;
+ Fri, 17 May 2019 17:30:21 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+Received: from MXML06C.mxic.com.tw (mxml06c.mxic.com.tw [172.17.14.55])
+ by Forcepoint Email with ESMTP id 6A6869C38E176687E328;
+ Fri, 17 May 2019 17:30:21 +0800 (CST)
+In-Reply-To: <20190512151820.4f2dd9da@xps13>
+References: <1555320234-15802-1-git-send-email-masonccyang@mxic.com.tw>	<1555320234-15802-3-git-send-email-masonccyang@mxic.com.tw>
+ <20190512151820.4f2dd9da@xps13>
+To: "Miquel Raynal" <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v3 2/4] mtd: rawnand: Add Macronix MX25F0A NAND controller
 MIME-Version: 1.0
-X-MTK: N
+X-KeepSent: 074A1F06:5C1A58BE-482583FD:0031CD95;
+ type=4; name=$KeepSent
+X-Mailer: Lotus Notes Release 8.5.3FP4 SHF90 June 10, 2013
+Message-ID: <OF074A1F06.5C1A58BE-ON482583FD.0031CD95-482583FD.003437AD@mxic.com.tw>
+From: masonccyang@mxic.com.tw
+Date: Fri, 17 May 2019 17:30:21 +0800
+X-MIMETrack: Serialize by Router on MXML06C/TAIWAN/MXIC(Release 9.0.1FP10
+ HF265|July 25, 2018) at 2019/05/17 PM 05:30:21,
+ Serialize complete at 2019/05/17 PM 05:30:21
+X-MAIL: TWHMLLG3.macronix.com x4H9ULi6090469
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190517_022133_613215_FD307B15 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190517_023114_507242_FA0A7130 
+X-CRM114-Status: GOOD (  12.15  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [211.75.127.131 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -72,21 +69,138 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, linux-mediatek@lists.infradead.org,
- linux-mtd@lists.infradead.org, srv_heupstream@mediatek.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, christophe.kerello@st.com,
+ bbrezillon@kernel.org, juliensu@mxic.com.tw, lee.jones@linaro.org,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org, linux-spi@vger.kernel.org,
+ marcel.ziswiler@toradex.com, paul.burton@mips.com, broonie@kernel.org,
+ geert@linux-m68k.org, stefan@agner.ch, linux-mtd@lists.infradead.org,
+ richard@nod.at, liang.yang@amlogic.com, computersforpeace@gmail.com,
+ dwmw2@infradead.org, marek.vasut@gmail.com, zhengxunli@mxic.com.tw
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gRnJpLCAyMDE5LTA1LTE3IGF0IDEwOjEyICswMjAwLCBNaXF1ZWwgUmF5bmFsIHdyb3RlOgo+
-IEhpIHhpYW9sZWksCj4gCj4geGlhb2xlaSBsaSA8eGlhb2xlaS5saUBtZWRpYXRlay5jb20+IHdy
-b3RlIG9uIEZyaSwgMTcgTWF5IDIwMTkgMDk6MzI6NDcKPiArMDgwMDoKPiAKPiA+IEhpIE1pcXVl
-bCwKPiA+IAo+ID4gU29ycnkgdG8gYm90aGVyIHlvdSwgYnV0IG1heSBJIGFzayBpZiBpdCBpcyBm
-aW5lIHRvIGFjY2VwdCB0aGlzIHBhdGNoCj4gPiBzZXQgbm93LCBwYXRjaGVzIGFsbCB3aXRoIHlv
-dXIgcmV2aWV3Lgo+IAo+IFdlIGFyZSBpbiB0aGUgbWlkZGxlIG9mIHRoZSBtZXJnZSB3aW5kb3cs
-IHNvIHllcywgSSB3aWxsIHRha2UgeW91cgo+IHBhdGNoZXMsIGJ1dCBub3Qgbm93LgoKR290IGl0
-LiBUaGFua3MgTWlxdWVsLgoKPiAKPiBUaGFua3MsCj4gTWlxdcOobAoKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1
-c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtbXRkLwo=
+
+Hi Miquel,
+
+> > +
+> > +static void mxic_nand_select_chip(struct nand_chip *chip, int chipnr)
+> 
+> _select_target() is preferred now
+
+Do you mean I implement mxic_nand_select_target() to control #CS ?
+
+If so, I need to call mxic_nand_select_target( ) to control #CS ON
+and then #CS OFF in _exec_op() due to nand_select_target()<in nand_base,c>
+is still calling chip->legacy.select_chip ?
+
+> 
+> > +{
+> > +   struct mxic_nand_ctlr *mxic = nand_get_controller_data(chip);
+> > +
+> > +   switch (chipnr) {
+> > +   case 0:
+> > +   case 1:
+> > +      writel(HC_EN_BIT, mxic->mfd->regs + HC_EN);
+> > +      writel(HC_CFG_MAN_CS_ASSERT | readl(mxic->mfd->regs + HC_CFG),
+> > +             mxic->mfd->regs + HC_CFG);
+> 
+> In both case I would prefer a:
+> 
+>         reg = readl(...);
+>         reg &= ~xxx;
+>    reg |= yyy;
+>    writel(reg, ...);
+> 
+> Much easier to read.
+> 
+> > +      break;
+> > +
+> > +   case -1:
+> > +      writel(~HC_CFG_MAN_CS_ASSERT & readl(mxic->mfd->regs + HC_CFG),
+> > +             mxic->mfd->regs + HC_CFG);
+> > +      writel(0, mxic->mfd->regs + HC_EN);
+> > +      break;
+> > +
+> > +   default:
+> 
+> Error?
+> 
+> > +      break;
+> > +   }
+> > +}
+> > +
+
+> > +static int mx25f0a_nand_probe(struct platform_device *pdev)
+> > +{
+> > +   struct mtd_info *mtd;
+> > +   struct mx25f0a_mfd *mfd = dev_get_drvdata(pdev->dev.parent);
+> > +   struct mxic_nand_ctlr *mxic;
+> > +   struct nand_chip *nand_chip;
+> > +   int err;
+> > +
+> > +   mxic = devm_kzalloc(&pdev->dev, sizeof(struct mxic_nand_ctlr),
+> > +             GFP_KERNEL);
+> 
+> mxic for a NAND controller structure is probably not a name meaningful
+> enough.
+> 
+> > +   if (!mxic)
+> > +      return -ENOMEM;
+> > +
+> > +   nand_chip = &mxic->nand;
+> > +   mtd = nand_to_mtd(nand_chip);
+> > +   mtd->dev.parent = pdev->dev.parent;
+> > +   nand_chip->ecc.priv = NULL;
+> > +   nand_set_flash_node(nand_chip, pdev->dev.parent->of_node);
+> > +   nand_chip->priv = mxic;
+> > +
+> > +   mxic->mfd = mfd;
+> > +
+> > +   nand_chip->legacy.select_chip = mxic_nand_select_chip;
+> 
+> Please don't implement legacy interfaces. You can check in
+> marvell_nand.c how this is handled now:
+> 
+> b25251414f6e mtd: rawnand: marvell: Stop implementing ->select_chip()
+> 
+
+Does it mean chip->legacy.select_chip() will phase-out ?
+
+
+thanks & best regards,
+Mason
+
+CONFIDENTIALITY NOTE:
+
+This e-mail and any attachments may contain confidential information 
+and/or personal data, which is protected by applicable laws. Please be 
+reminded that duplication, disclosure, distribution, or use of this e-mail 
+(and/or its attachments) or any part thereof is prohibited. If you receive 
+this e-mail in error, please notify us immediately and delete this mail as 
+well as its attachment(s) from your system. In addition, please be 
+informed that collection, processing, and/or use of personal data is 
+prohibited unless expressly permitted by personal data protection laws. 
+Thank you for your attention and cooperation.
+
+Macronix International Co., Ltd.
+
+=====================================================================
+
+
+
+============================================================================
+
+CONFIDENTIALITY NOTE:
+
+This e-mail and any attachments may contain confidential information and/or personal data, which is protected by applicable laws. Please be reminded that duplication, disclosure, distribution, or use of this e-mail (and/or its attachments) or any part thereof is prohibited. If you receive this e-mail in error, please notify us immediately and delete this mail as well as its attachment(s) from your system. In addition, please be informed that collection, processing, and/or use of personal data is prohibited unless expressly permitted by personal data protection laws. Thank you for your attention and cooperation.
+
+Macronix International Co., Ltd.
+
+=====================================================================
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
