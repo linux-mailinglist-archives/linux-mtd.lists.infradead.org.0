@@ -2,91 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E0A8224B1
-	for <lists+linux-mtd@lfdr.de>; Sat, 18 May 2019 21:30:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D406922876
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 May 2019 20:53:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yVWNN7flo37SDQ5nKwkFqI4LDnw/JuKR0gDdrWNtDw0=; b=DXDp3dgCkSulN8
-	YJYkUriXzDO4/hyjjUXICN8g7u31pDfpL3s9x9V3BLMJ9JDL04aNmbrOzwZdS0m//KQfm71NcKiuR
-	Xukr9/VzFX0n+Vq4sB4SfUGFTthVs1tCga8BM383dS8TXVApOFWEgR+iJAqAgfPfbilbzjgnaD8mN
-	oJBhL1YTkWSMYGouC4DFkI6auMUnHkG9zq1fjk+2yb1wO2sy+ZFrc0yE/5xTsjya/CmTu/9bUq0/S
-	UVfvP0qZi7YQwBlGpwdiR4ysH5OBK+yYGIBpBSHpaF6EJ7zWBEFLpVRCQAniSJEFeAFOtJT4Owj8l
-	u9TBaJ2FVUL8WRUyG2hg==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:To:
+	Subject:Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=eEtVHwK/SYjB8rlE8MGZy8ShU+BC0Qb3qL1a9x8M6KI=; b=hfQ
+	R00ZHkQa1X2DmYyvWyRp0PGBm0XXzRBN6lMzTymBNL+GJbiLyCGfGnk8VcaE+jjnYY3IS3CID4vVp
+	6wMHiMirPnM2SYXKDLisM/y+/Oz0vBY44QiG6A/3qRBVIrjQVxoKHpmuLThu0hm7ezsrG8KT7uvLh
+	nh52iVUzAZ/oaEsYLAJi/JpWRDAyKFzPJkA2sxE1wg5ygSKA3jf87z6P483RfHmt8/haukc1YRgUI
+	Mitooq2aaqnh5gRjOfOPHojYJBCrbVof8cHwhyHmwDcfKCQbOPjbkCzlQ3vpREbCbDB0a57RS6ZbO
+	dwQJ4OFs7Hub3n/IRKWOHuQyDLxClvw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hS51m-0006n9-W3; Sat, 18 May 2019 19:29:55 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1hSQw0-00071n-SJ; Sun, 19 May 2019 18:53:24 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hS51c-0006mj-O1
- for linux-mtd@lists.infradead.org; Sat, 18 May 2019 19:29:46 +0000
-Received: by mail-wr1-x442.google.com with SMTP id f8so3979556wrt.1
- for <linux-mtd@lists.infradead.org>; Sat, 18 May 2019 12:29:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/XidOJA5GQwPOYch3JGHuDtp8yXZWQzLJEMf+yMRqG4=;
- b=DHPFCzm9eCpw+1Uf29CLI2LJvXyBxmckk1ffkypIx3S9ihjynph8jO6oCbNwPkQ5U1
- BJfD0BE73dNzA8cogdZGxT6Z41Y8iaQ9gnlnrEqXyJfp1H6n4BZce+GPXfdrpqNd4s8t
- in1W9WPi0mWaStsiG2JYNuQyXD3gDnuruEvn0G6nudGH2cOWVI2+03P7QMv1/w6SltRb
- OOeLqHXeeSutr1ISmoM7FEIX2IBTRCNDpR2gqVCxMGB6uuWMbvQpzGQxFwWr97fI9B7V
- 6bacTDMblqWl/qAbDUBgGJvaQRFgtoLDc8fM7hQW+IhpjmHdaxWswTD7JTLIReHfNkF/
- p8EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=/XidOJA5GQwPOYch3JGHuDtp8yXZWQzLJEMf+yMRqG4=;
- b=IMo+GgAIvxSv8xgRs9hsadAYNy66nn+iK3dH/86GhB6CMVVHNL9aitnHvNPLPyApfu
- z+KCqCnh3Zj6+qC4CxsabmpQqUaJNXEUdcPAB8bpXLFrlbfQLW2pf9o2+7vd3V8BflQn
- 37uxi4BY1Bbnt3Jihq/zIqVknfwckBKCS3VU6mTwSTdgSBqScP1ie4z69q1U9s7fwOej
- r5z0Q3A1ElwNxaZQyWF/IqP6EztxrdQzMykT3ixhrGHBTdicoYzMIeWnXCqY7gbCUqRE
- 2cHa9c3NZfbrVLxOQXH0kJvtyIt8poTmmTMyNifT6GzPvEpSEXS/1DlZiIF0mpj6AsM+
- qRGg==
-X-Gm-Message-State: APjAAAU3O4hwpd8VKUZMcyG+ULW7/hoJvS8n4jsAUMZ2siMx9vELuHNM
- 8q2jET9kzDsKMN2ysvaSoF0=
-X-Google-Smtp-Source: APXvYqwKuEDD/XfBVC7pqVLxQk62BmacwrHrtYNPU0t8f9f8JMmCdI4jOyD0VAxREvRaySXm3Yv3Qg==
-X-Received: by 2002:adf:f407:: with SMTP id g7mr23436365wro.196.1558207780515; 
- Sat, 18 May 2019 12:29:40 -0700 (PDT)
-Received: from localhost.localdomain (93-143-246-195.adsl.net.t-com.hr.
- [93.143.246.195])
- by smtp.gmail.com with ESMTPSA id b194sm10556073wmb.23.2019.05.18.12.29.39
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sat, 18 May 2019 12:29:39 -0700 (PDT)
-From: Robert Marko <robimarko@gmail.com>
-To: marek.vasut@gmail.com, computersforpeace@gmail.com, bbrezillon@kernel.org,
- richard@nod.at, linux-mtd@lists.infradead.org
-Subject: [PATCH v2] mtd: spi-nor: Add Winbond w25q16jv support
-Date: Sat, 18 May 2019 21:29:35 +0200
-Message-Id: <20190518192935.22684-1-robimarko@gmail.com>
-X-Mailer: git-send-email 2.21.0
+ id 1hSQvu-00071c-Bh
+ for linux-mtd@bombadil.infradead.org; Sun, 19 May 2019 18:53:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Message-Id:Reply-To:Date:From:To:
+ Subject:Content-Description:Content-Transfer-Encoding:MIME-Version:
+ Content-Type:Sender:Cc:Content-ID:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=FWy2LDjCqPLi/Ax+L7hCgxBxq8t1wD1U/4UU5e3C5q0=; b=OkvbHXVsqqP4RVzmnP62j6L5H
+ aDRIhqdfLMIrSqwKOaSBFAudpRwO+E5to2fkWgISU4OX/IxCRIfnx1r7lSmX1OSSiKFOuM5/T7veP
+ 0SGRdlm4Y8EfXblmCv3VfDKJE4ek2YliV+8I8frVE9+CLMS8l5a8fL0pCPT4bn+/Ce3QbBD8GLkQk
+ 5r3/a6hPGWpc6dpNrGqI8Hmpl4bhMnKED215WkeEeCrOoBYk7yt6J5+XMXhXTi97R5cuUWbolEPRc
+ K9IwzBiH0/UKwntqdFNeLpKIGmbDYg0b4N988flOan8sbTGYXzIYr3D2S2f5Q0Nnh6gGS9xTAKk1f
+ XGBiqQCww==;
+Received: from cherokee.natal.rn.gov.br ([177.67.68.34])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hSQvp-00023Q-V0
+ for linux-mtd@lists.infradead.org; Sun, 19 May 2019 18:53:16 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by cherokee.natal.rn.gov.br (Postfix) with ESMTP id 96B7532CEC4;
+ Sun, 19 May 2019 14:57:57 -0300 (-03)
+Received: from cherokee.natal.rn.gov.br ([127.0.0.1])
+ by localhost (cherokee.natal.rn.gov.br [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id nDfJyCS_Bu5J; Sun, 19 May 2019 14:57:56 -0300 (-03)
+Received: from localhost (localhost [127.0.0.1])
+ by cherokee.natal.rn.gov.br (Postfix) with ESMTP id 83D5F33123A;
+ Sun, 19 May 2019 14:57:15 -0300 (-03)
+X-Virus-Scanned: amavisd-new at cherokee.natal.rn.gov.br
+Received: from cherokee.natal.rn.gov.br ([127.0.0.1])
+ by localhost (cherokee.natal.rn.gov.br [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id QwQJkNzSF9xc; Sun, 19 May 2019 14:57:15 -0300 (-03)
+Received: from [192.168.43.98] (unknown [197.210.52.158])
+ by cherokee.natal.rn.gov.br (Postfix) with ESMTPSA id C2385330295;
+ Sun, 19 May 2019 14:56:37 -0300 (-03)
 MIME-Version: 1.0
+Content-Description: Mail message body
+Subject: SPENDE VON 5 MILLIONEN EURO
+To: Recipients <erica.moreira@natal.rn.gov.br>
+From: "shane missler" <erica.moreira@natal.rn.gov.br>
+Date: Sun, 19 May 2019 18:56:30 +0100
+Message-Id: <20190519175637.C2385330295@cherokee.natal.rn.gov.br>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190518_122944_808016_2E8F7EE0 
-X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-CacheID: sfid-20190519_195314_201516_7FC1BD25 
+X-CRM114-Status: UNSURE (  -4.82  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+X-Spam-Score: 4.4 (++++)
+X-Spam-Report: SpamAssassin version 3.4.2 on casper.infradead.org summary:
+ Content analysis details:   (4.4 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:442 listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (robimarko[at]gmail.com)
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ 1.6 SUBJ_ALL_CAPS          Subject is all capitals
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
+ digit (shanemissler.spende111[at]gmail.com)
+ 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,44 +89,20 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Robert Marko <robimarko@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: shanemissler.spende111@gmail.com
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Datasheet: https://www.winbond.com/resource-files/w25q16jv%20spi%20revg%2003222018%20plus.pdf
-
-Testing done on Mikrotik Routerboard RB450Gx4 board under 4.14.119 and 4.19.43 kernels.
-
-Test board does not support Dual or Quad modes.
-
-Signed-off-by: Robert Marko <robimarko@gmail.com>
----
-v1 to v2:
-        Alphabetically order
- drivers/mtd/spi-nor/spi-nor.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-index 6e13bbd1aaa5..36fb216e7cee 100644
---- a/drivers/mtd/spi-nor/spi-nor.c
-+++ b/drivers/mtd/spi-nor/spi-nor.c
-@@ -1976,6 +1976,11 @@ static const struct flash_info spi_nor_ids[] = {
- 			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
- 	},
- 	{ "w25x32", INFO(0xef3016, 0, 64 * 1024,  64, SECT_4K) },
-+	{
-+		"w25q16jv", INFO(0xef7015, 0, 64 * 1024,  32,
-+			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
-+	},
- 	{ "w25q20cl", INFO(0xef4012, 0, 64 * 1024,  4, SECT_4K) },
- 	{ "w25q20bw", INFO(0xef5012, 0, 64 * 1024,  4, SECT_4K) },
- 	{ "w25q20ew", INFO(0xef6012, 0, 64 * 1024,  4, SECT_4K) },
--- 
-2.21.0
-
+Dies ist eine pers=F6nliche Mail, die ich an Sie adressiere. Ich bin SHANE =
+MISSLER aus Florida, USA. Wie Sie bereits wissen, habe ich 2018 einen Lotto=
+-Jackpot in H=F6he von 451 Mio. USD (330 Mio. GBP) gewonnen und das Geld ha=
+t mein Leben und mein Familienleben ver=E4ndert, aber es wird mein Herz nic=
+ht ver=E4ndern, wie ich an dem Tag sagte, an dem ich mein Geld habe Ich wer=
+de dieses Geld f=FCr die Hilfe der Menschheit verwenden. Ich habe beschloss=
+en, Ihnen und Ihrer Gemeinde einen Betrag von 5 Millionen Euro zu spenden, =
+um diese Spende anzufordern.
 
 ______________________________________________________
 Linux MTD discussion mailing list
