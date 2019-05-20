@@ -2,53 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9C5223D76
-	for <lists+linux-mtd@lfdr.de>; Mon, 20 May 2019 18:31:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F28A23D78
+	for <lists+linux-mtd@lfdr.de>; Mon, 20 May 2019 18:31:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H16PuZIbXpYRHmvx++xWfjVZxK+Lt4i75wRdO9kWVBs=; b=Pq/B4nGZf5x36T
-	Q5cmar1D5bMj5oJARqZ0hPNSxCWSWiCkNs3Yd0hD6qtjvnoKemG3C5xFQefVPTv0kY7+Yhhku0WWR
-	eG3blLDcTRBbyEKBdBnj8oH2gbbpLqy4j9c+L3ZA6h9hbzeVYPHuxdGoXnftmfvJ4ztyrHUt06fZi
-	OyzTOiqTcUr/3LsHsOZd+n/5BaUljWmzQzm+9n6KxSc74LB2pZ4wKb5i08QHyBpdPpdncd2btdmtI
-	jSXHFQ6SHvyIt7h+/Db4NYwNap9uskhFq5RCQIRHX7Xg6lQ3MFrioUFb5rT3fUbQzV7/yfbU1gbjS
-	llcF9XpxoM5DtfrzfB1A==;
+	List-Owner; bh=4Hqa5acz7EHfEweY1nYf0TfVD7KHCnNAtXnnu2tfyCs=; b=cWFC97lpoXWMHD
+	iRs8ISs3bPYDWqKATQTLXHFs2gk8RP1tfleO8ygdhhqhsFJ4woB91HiF86mcejTAYwDIXNf8vhh2y
+	M/vJJ5VmgPiyj1McQifhZqcdr8Y4UcUJo6z01H3PzGWKEWBdm+4NV/URz5tg1K7Oy8tIayXScm8PU
+	39beLbSeCHSEz71bEYiXqOIGZ/eVx5dPaPHlZzicXuKlrkX8/0RGYZfSQGdDa2HZDjKd2N3dNWIJA
+	e2hndgI8Sogum+SjLXqv+8AmkmPZ8V4n4yTETzEOxFElBGaBS9JAm4L4zAxiZvNsN1hdraXXGy7D8
+	EiG4EX+EVz3SrifhXfyw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSlBe-0003b6-5E; Mon, 20 May 2019 16:30:54 +0000
+	id 1hSlBx-00042y-JD; Mon, 20 May 2019 16:31:13 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSlB7-00033v-TD
+ id 1hSlB8-00034R-8N
  for linux-mtd@lists.infradead.org; Mon, 20 May 2019 16:30:24 +0000
 Received: from ebiggers-linuxstation.mtv.corp.google.com (unknown
  [104.132.1.77])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 76B6A21721;
+ by mail.kernel.org (Postfix) with ESMTPSA id C7F352173B;
  Mon, 20 May 2019 16:30:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1558369821;
- bh=XtXrJbffquLpHwtOpoiOVw/HH3tmVMU+GtpKaJDAspg=;
+ s=default; t=1558369822;
+ bh=SOcJbbqhRxdEFcK2jyoo821iyc6Vy9fOspmpjn/YoXU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=GHW4B9x7m3ZWBkOgpMwb5OP/nzyIPNmPuX/CqDCRwzqahKES9jD0BvdK2Qn1Rnhei
- fZhojbcoezA7K8IDMn3+ZvDpLoPcEGTgklnC5mhnC/QmVqknQ9TdAZ6YtZ8+60tvLc
- 0MzpUgCuqHIU7JDRfKRayIfjS1I9Cn2o6KNn9L7w=
+ b=hn9O1LhVuFFUT6+gwic7GUq8fqtk7NLzwu97zIhC4CeEhGyFFm6ycdbEusitDGwKS
+ rYTkbj78aIizPi1kdSZbf+s17paPdWO2K3HLebLco/XyWwkGlZVPEN1UCgLIeclM5A
+ PiDcirluP255kpj8n6TkIJmxTTLJWTWYtgyZWceE=
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-fscrypt@vger.kernel.org
-Subject: [PATCH v2 02/14] fscrypt: remove the "write" part of struct
- fscrypt_ctx
-Date: Mon, 20 May 2019 09:29:40 -0700
-Message-Id: <20190520162952.156212-3-ebiggers@kernel.org>
+Subject: [PATCH v2 03/14] fscrypt: rename fscrypt_do_page_crypto() to
+ fscrypt_crypt_block()
+Date: Mon, 20 May 2019 09:29:41 -0700
+Message-Id: <20190520162952.156212-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.21.0.1020.gf2820cf01a-goog
 In-Reply-To: <20190520162952.156212-1-ebiggers@kernel.org>
 References: <20190520162952.156212-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190520_093021_987219_70E0BBFE 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20190520_093022_325805_971CE2E4 
+X-CRM114-Status: GOOD (  12.66  )
 X-Spam-Score: -2.7 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.7 points)
@@ -88,104 +88,114 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that fscrypt_ctx is not used for writes, remove the 'w' fields.
+fscrypt_do_page_crypto() only does a single encryption or decryption
+operation, with a single logical block number (single IV).  So it
+actually operates on a filesystem block, not a "page" per se.  To
+reflect this, rename it to fscrypt_crypt_block().
 
 Reviewed-by: Chandan Rajendra <chandan@linux.ibm.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- fs/crypto/bio.c         | 11 +++++------
- fs/crypto/crypto.c      | 14 +++++++-------
- include/linux/fscrypt.h |  7 ++-----
- 3 files changed, 14 insertions(+), 18 deletions(-)
+ fs/crypto/bio.c             |  6 +++---
+ fs/crypto/crypto.c          | 24 ++++++++++++------------
+ fs/crypto/fscrypt_private.h | 11 +++++------
+ 3 files changed, 20 insertions(+), 21 deletions(-)
 
 diff --git a/fs/crypto/bio.c b/fs/crypto/bio.c
-index c857b70b5328c..c534253483874 100644
+index c534253483874..92b2d5da5d8e1 100644
 --- a/fs/crypto/bio.c
 +++ b/fs/crypto/bio.c
-@@ -53,9 +53,8 @@ EXPORT_SYMBOL(fscrypt_decrypt_bio);
+@@ -83,9 +83,9 @@ int fscrypt_zeroout_range(const struct inode *inode, pgoff_t lblk,
+ 		return -ENOMEM;
  
- static void completion_pages(struct work_struct *work)
- {
--	struct fscrypt_ctx *ctx =
--		container_of(work, struct fscrypt_ctx, r.work);
--	struct bio *bio = ctx->r.bio;
-+	struct fscrypt_ctx *ctx = container_of(work, struct fscrypt_ctx, work);
-+	struct bio *bio = ctx->bio;
- 
- 	__fscrypt_decrypt_bio(bio, true);
- 	fscrypt_release_ctx(ctx);
-@@ -64,9 +63,9 @@ static void completion_pages(struct work_struct *work)
- 
- void fscrypt_enqueue_decrypt_bio(struct fscrypt_ctx *ctx, struct bio *bio)
- {
--	INIT_WORK(&ctx->r.work, completion_pages);
--	ctx->r.bio = bio;
--	fscrypt_enqueue_decrypt_work(&ctx->r.work);
-+	INIT_WORK(&ctx->work, completion_pages);
-+	ctx->bio = bio;
-+	fscrypt_enqueue_decrypt_work(&ctx->work);
- }
- EXPORT_SYMBOL(fscrypt_enqueue_decrypt_bio);
+ 	while (len--) {
+-		err = fscrypt_do_page_crypto(inode, FS_ENCRYPT, lblk,
+-					     ZERO_PAGE(0), ciphertext_page,
+-					     PAGE_SIZE, 0, GFP_NOFS);
++		err = fscrypt_crypt_block(inode, FS_ENCRYPT, lblk,
++					  ZERO_PAGE(0), ciphertext_page,
++					  PAGE_SIZE, 0, GFP_NOFS);
+ 		if (err)
+ 			goto errout;
  
 diff --git a/fs/crypto/crypto.c b/fs/crypto/crypto.c
-index 4b076f8daab75..ebfa13cfecb7d 100644
+index ebfa13cfecb7d..e6802d7aca3c7 100644
 --- a/fs/crypto/crypto.c
 +++ b/fs/crypto/crypto.c
-@@ -58,11 +58,11 @@ void fscrypt_enqueue_decrypt_work(struct work_struct *work)
- EXPORT_SYMBOL(fscrypt_enqueue_decrypt_work);
+@@ -147,10 +147,11 @@ void fscrypt_generate_iv(union fscrypt_iv *iv, u64 lblk_num,
+ 		crypto_cipher_encrypt_one(ci->ci_essiv_tfm, iv->raw, iv->raw);
+ }
  
- /**
-- * fscrypt_release_ctx() - Releases an encryption context
-- * @ctx: The encryption context to release.
-+ * fscrypt_release_ctx() - Release a decryption context
-+ * @ctx: The decryption context to release.
-  *
-- * If the encryption context was allocated from the pre-allocated pool, returns
-- * it to that pool. Else, frees it.
-+ * If the decryption context was allocated from the pre-allocated pool, return
-+ * it to that pool.  Else, free it.
-  */
- void fscrypt_release_ctx(struct fscrypt_ctx *ctx)
+-int fscrypt_do_page_crypto(const struct inode *inode, fscrypt_direction_t rw,
+-			   u64 lblk_num, struct page *src_page,
+-			   struct page *dest_page, unsigned int len,
+-			   unsigned int offs, gfp_t gfp_flags)
++/* Encrypt or decrypt a single filesystem block of file contents */
++int fscrypt_crypt_block(const struct inode *inode, fscrypt_direction_t rw,
++			u64 lblk_num, struct page *src_page,
++			struct page *dest_page, unsigned int len,
++			unsigned int offs, gfp_t gfp_flags)
  {
-@@ -79,12 +79,12 @@ void fscrypt_release_ctx(struct fscrypt_ctx *ctx)
- EXPORT_SYMBOL(fscrypt_release_ctx);
+ 	union fscrypt_iv iv;
+ 	struct skcipher_request *req = NULL;
+@@ -227,9 +228,9 @@ struct page *fscrypt_encrypt_page(const struct inode *inode,
  
- /**
-- * fscrypt_get_ctx() - Gets an encryption context
-+ * fscrypt_get_ctx() - Get a decryption context
-  * @gfp_flags:   The gfp flag for memory allocation
-  *
-- * Allocates and initializes an encryption context.
-+ * Allocate and initialize a decryption context.
-  *
-- * Return: A new encryption context on success; an ERR_PTR() otherwise.
-+ * Return: A new decryption context on success; an ERR_PTR() otherwise.
-  */
- struct fscrypt_ctx *fscrypt_get_ctx(gfp_t gfp_flags)
- {
-diff --git a/include/linux/fscrypt.h b/include/linux/fscrypt.h
-index d016fa384d607..1c7287f146a98 100644
---- a/include/linux/fscrypt.h
-+++ b/include/linux/fscrypt.h
-@@ -63,16 +63,13 @@ struct fscrypt_operations {
- 	unsigned int max_namelen;
- };
+ 	if (inode->i_sb->s_cop->flags & FS_CFLG_OWN_PAGES) {
+ 		/* with inplace-encryption we just encrypt the page */
+-		err = fscrypt_do_page_crypto(inode, FS_ENCRYPT, lblk_num, page,
+-					     ciphertext_page, len, offs,
+-					     gfp_flags);
++		err = fscrypt_crypt_block(inode, FS_ENCRYPT, lblk_num, page,
++					  ciphertext_page, len, offs,
++					  gfp_flags);
+ 		if (err)
+ 			return ERR_PTR(err);
  
-+/* Decryption work */
- struct fscrypt_ctx {
- 	union {
--		struct {
--			struct page *bounce_page;	/* Ciphertext page */
--			struct page *control_page;	/* Original page  */
--		} w;
- 		struct {
- 			struct bio *bio;
- 			struct work_struct work;
--		} r;
-+		};
- 		struct list_head free_list;	/* Free list */
- 	};
- 	u8 flags;				/* Flags */
+@@ -243,9 +244,8 @@ struct page *fscrypt_encrypt_page(const struct inode *inode,
+ 	if (!ciphertext_page)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	err = fscrypt_do_page_crypto(inode, FS_ENCRYPT, lblk_num,
+-				     page, ciphertext_page, len, offs,
+-				     gfp_flags);
++	err = fscrypt_crypt_block(inode, FS_ENCRYPT, lblk_num, page,
++				  ciphertext_page, len, offs, gfp_flags);
+ 	if (err) {
+ 		fscrypt_free_bounce_page(ciphertext_page);
+ 		return ERR_PTR(err);
+@@ -277,8 +277,8 @@ int fscrypt_decrypt_page(const struct inode *inode, struct page *page,
+ 	if (!(inode->i_sb->s_cop->flags & FS_CFLG_OWN_PAGES))
+ 		BUG_ON(!PageLocked(page));
+ 
+-	return fscrypt_do_page_crypto(inode, FS_DECRYPT, lblk_num, page, page,
+-				      len, offs, GFP_NOFS);
++	return fscrypt_crypt_block(inode, FS_DECRYPT, lblk_num, page, page,
++				   len, offs, GFP_NOFS);
+ }
+ EXPORT_SYMBOL(fscrypt_decrypt_page);
+ 
+diff --git a/fs/crypto/fscrypt_private.h b/fs/crypto/fscrypt_private.h
+index 4122ee1a0b7b1..8978eec9d766d 100644
+--- a/fs/crypto/fscrypt_private.h
++++ b/fs/crypto/fscrypt_private.h
+@@ -116,12 +116,11 @@ static inline bool fscrypt_valid_enc_modes(u32 contents_mode,
+ /* crypto.c */
+ extern struct kmem_cache *fscrypt_info_cachep;
+ extern int fscrypt_initialize(unsigned int cop_flags);
+-extern int fscrypt_do_page_crypto(const struct inode *inode,
+-				  fscrypt_direction_t rw, u64 lblk_num,
+-				  struct page *src_page,
+-				  struct page *dest_page,
+-				  unsigned int len, unsigned int offs,
+-				  gfp_t gfp_flags);
++extern int fscrypt_crypt_block(const struct inode *inode,
++			       fscrypt_direction_t rw, u64 lblk_num,
++			       struct page *src_page, struct page *dest_page,
++			       unsigned int len, unsigned int offs,
++			       gfp_t gfp_flags);
+ extern struct page *fscrypt_alloc_bounce_page(gfp_t gfp_flags);
+ extern const struct dentry_operations fscrypt_d_ops;
+ 
 -- 
 2.21.0.1020.gf2820cf01a-goog
 
