@@ -2,41 +2,40 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6186E248B5
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B439248C0
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:09:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cjIRp2vRxVFmQyunyYOMH/R7tSzKG0rb2eFZ/N0OYV4=; b=C/m+3ZQHCykUXM
-	nhY0/KeiQ9CGESRICc6vEllLsEjEDedb/kDSknjHBGlk6xVW97ce9ZjL3CtMwFExiz2NUUcuWmdQz
-	zd+G3N9lUgURwOnVKep0oevvwRcMYapGC53yfaHymGmlDFZK+bLzcoMQDEQ66JCtTBdUFS7CCcALb
-	jfsJnPkObrE+DrjHiiJc+gD+TKadi7CkOX0Oy3tsGhdcGe/YbAkDM9xyaRo4VJeK1qoJt/iW9GqYs
-	5Lt6WqLPR4avnvhiC28pSB5s4XO5uz7Vb60pIrG5E4kc4BEu0cMN4W11mTuLWzPlyMS/EOsFF/qJN
-	DUQ2SsT+XUv0iMgVxrQg==;
+	List-Owner; bh=9sFcIyxX1guccNyBq+U5GoIq4q84gWsEELhT/Q3jNdc=; b=Sdj5YsLxUK1Slr
+	hZs2MAxsJIbm4v/ox45OtYUDzIH9p8kjpvOIIjf2o/4/jieR4+JLzKHWTgsgkIE3KQUfX73gmSN1q
+	us6753CAGehQ3vTLFFNEq58gmleu39eihRH7sYjVyhZZsN+3yTH103G8rIUJU88S746Gsx3ikpRG8
+	9wwa2HVD7434z/otWMBD3twvhG9bc5dOlkxYlPdMuYjd1+X0Vm59EMXgcsvpAE0JMdHciHxyTed6o
+	4UkhwzaSv0uWdSGBiEvw4zRkmF3ns9TmmziTIlCCcqcxIZ2m1YKoil7/XPyvFbisj2d3qw19w8mFK
+	g+7sUpj8vKcLCXbs6QGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSysY-00042G-Gy; Tue, 21 May 2019 07:08:06 +0000
+	id 1hSytW-0005Jm-9o; Tue, 21 May 2019 07:09:06 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyrV-0002oP-I8
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:07 +0000
+ id 1hSyrh-00034i-Dp
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:24 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrL-0006ch-VB; Tue, 21 May 2019 09:06:51 +0200
+ id 1hSyrH-0006ci-Hy; Tue, 21 May 2019 09:06:47 +0200
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrG-0001bc-BW; Tue, 21 May 2019 09:06:46 +0200
+ id 1hSyrG-0001bf-C4; Tue, 21 May 2019 09:06:46 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 08/14] mtd: rawnand: gpmi: Drop unnecessary restoring of
- previous chipselection
-Date: Tue, 21 May 2019 09:06:37 +0200
-Message-Id: <20190521070643.6244-9-s.hauer@pengutronix.de>
+Subject: [PATCH 09/14] mtd: rawnand: gpmi: use runtime PM to manage clocks
+Date: Tue, 21 May 2019 09:06:38 +0200
+Message-Id: <20190521070643.6244-10-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190521070643.6244-1-s.hauer@pengutronix.de>
 References: <20190521070643.6244-1-s.hauer@pengutronix.de>
@@ -47,8 +46,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_000702_219815_E2534308 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20190521_000713_869224_44FD6427 
+X-CRM114-Status: GOOD (  19.76  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -77,77 +76,176 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The i.MX23 specific option read code is called right after nand_scan. We
-can rely on the NAND core having disabled the chipselect, so there's no
-point in restoring the original chip select after NAND operations. Drop
-it.
+The gpmi driver aggressively en/disables the clocks between operations
+which has significant performance cost. Use runtime PM to get rid of
+this bottleneck.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 16 ++--------------
- 1 file changed, 2 insertions(+), 14 deletions(-)
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 69 ++++++++++++++--------
+ 1 file changed, 44 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-index 872ad7e4b3b9..55b37d47804b 100644
+index 55b37d47804b..c9e4a27fc07a 100644
 --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
 +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-@@ -2526,13 +2526,11 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
- 	unsigned int stride;
- 	unsigned int page;
- 	u8 *buffer = nand_get_data_buf(chip);
--	int saved_chip_number;
- 	int found_an_ncb_fingerprint = false;
+@@ -14,6 +14,7 @@
+ #include <linux/mtd/partitions.h>
+ #include <linux/of.h>
+ #include <linux/of_device.h>
++#include <linux/pm_runtime.h>
+ #include "gpmi-nand.h"
+ #include "gpmi-regs.h"
+ #include "bch-regs.h"
+@@ -141,24 +142,11 @@ static int __gpmi_enable_clk(struct gpmi_nand_data *this, bool v)
+ 	return ret;
+ }
  
- 	/* Compute the number of strides in a search area. */
- 	search_area_size_in_strides = 1 << rom_geo->search_area_stride_exponent;
+-static int gpmi_enable_clk(struct gpmi_nand_data *this)
+-{
+-	return __gpmi_enable_clk(this, true);
+-}
+-
+-static int gpmi_disable_clk(struct gpmi_nand_data *this)
+-{
+-	return __gpmi_enable_clk(this, false);
+-}
+-
+ static int gpmi_init(struct gpmi_nand_data *this)
+ {
+ 	struct resources *r = &this->resources;
+ 	int ret;
  
--	saved_chip_number = this->current_chip;
- 	nand_select_target(chip, 0);
+-	ret = gpmi_enable_clk(this);
+-	if (ret)
+-		return ret;
+ 	ret = gpmi_reset_block(r->gpmi_regs, false);
+ 	if (ret)
+ 		goto err_out;
+@@ -190,10 +178,8 @@ static int gpmi_init(struct gpmi_nand_data *this)
+ 	 */
+ 	writel(BM_GPMI_CTRL1_DECOUPLE_CS, r->gpmi_regs + HW_GPMI_CTRL1_SET);
+ 
+-	gpmi_disable_clk(this);
+ 	return 0;
+ err_out:
+-	gpmi_disable_clk(this);
+ 	return ret;
+ }
+ 
+@@ -561,8 +547,8 @@ static int bch_set_geometry(struct gpmi_nand_data *this)
+ 	page_size     = bch_geo->page_size;
+ 	gf_len        = bch_geo->gf_len;
+ 
+-	ret = gpmi_enable_clk(this);
+-	if (ret)
++	ret = pm_runtime_get_sync(this->dev);
++	if (ret < 0)
+ 		return ret;
  
  	/*
-@@ -2560,10 +2558,7 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
+@@ -595,10 +581,11 @@ static int bch_set_geometry(struct gpmi_nand_data *this)
+ 	writel(BM_BCH_CTRL_COMPLETE_IRQ_EN,
+ 				r->bch_regs + HW_BCH_CTRL_SET);
  
+-	gpmi_disable_clk(this);
+-	return 0;
++	ret = 0;
+ err_out:
+-	gpmi_disable_clk(this);
++	pm_runtime_mark_last_busy(this->dev);
++	pm_runtime_put_autosuspend(this->dev);
++
+ 	return ret;
+ }
+ 
+@@ -1754,13 +1741,12 @@ static void gpmi_select_chip(struct nand_chip *chip, int chipnr)
+ 	 * die is selected/unselected.
+ 	 */
+ 	if (this->current_chip < 0 && chipnr >= 0) {
+-		ret = gpmi_enable_clk(this);
+-		if (ret)
++		ret = pm_runtime_get_sync(this->dev);
++		if (ret < 0)
+ 			dev_err(this->dev, "Failed to enable the clock\n");
+ 	} else if (this->current_chip >= 0 && chipnr < 0) {
+-		ret = gpmi_disable_clk(this);
+-		if (ret)
+-			dev_err(this->dev, "Failed to disable the clock\n");
++		pm_runtime_mark_last_busy(this->dev);
++		pm_runtime_put_autosuspend(this->dev);
  	}
  
--	if (saved_chip_number >= 0)
--		nand_select_target(chip, saved_chip_number);
--	else
--		nand_deselect_target(chip);
-+	nand_deselect_target(chip);
+ 	/*
+@@ -2910,6 +2896,16 @@ static int gpmi_nand_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto exit_acquire_resources;
  
- 	if (found_an_ncb_fingerprint)
- 		dev_dbg(dev, "\tFound a fingerprint\n");
-@@ -2587,7 +2582,6 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
- 	unsigned int stride;
- 	unsigned int page;
- 	u8 *buffer = nand_get_data_buf(chip);
--	int saved_chip_number;
- 	int status;
++	ret = __gpmi_enable_clk(this, true);
++	if (ret)
++		goto exit_nfc_init;
++
++	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
++	pm_runtime_use_autosuspend(&pdev->dev);
++	pm_runtime_set_active(&pdev->dev);
++	pm_runtime_enable(&pdev->dev);
++	pm_runtime_get_sync(&pdev->dev);
++
+ 	ret = gpmi_init(this);
+ 	if (ret)
+ 		goto exit_nfc_init;
+@@ -2918,11 +2914,16 @@ static int gpmi_nand_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto exit_nfc_init;
  
- 	/* Compute the search area geometry. */
-@@ -2604,8 +2598,6 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
- 	dev_dbg(dev, "\tin Strides: %u\n", search_area_size_in_strides);
- 	dev_dbg(dev, "\tin Pages  : %u\n", search_area_size_in_pages);
- 
--	/* Select chip 0. */
--	saved_chip_number = this->current_chip;
- 	nand_select_target(chip, 0);
- 
- 	/* Loop over blocks in the first search area, erasing them. */
-@@ -2637,11 +2629,7 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
- 			dev_err(dev, "[%s] Write failed.\n", __func__);
- 	}
- 
--	/* Deselect chip 0. */
--	if (saved_chip_number >= 0)
--		nand_select_target(chip, saved_chip_number);
--	else
--		nand_deselect_target(chip);
-+	nand_deselect_target(chip);
++	pm_runtime_mark_last_busy(&pdev->dev);
++	pm_runtime_put_autosuspend(&pdev->dev);
++
+ 	dev_info(this->dev, "driver registered.\n");
  
  	return 0;
+ 
+ exit_nfc_init:
++	pm_runtime_put(&pdev->dev);
++	pm_runtime_disable(&pdev->dev);
+ 	release_resources(this);
+ exit_acquire_resources:
+ 
+@@ -2933,6 +2934,9 @@ static int gpmi_nand_remove(struct platform_device *pdev)
+ {
+ 	struct gpmi_nand_data *this = platform_get_drvdata(pdev);
+ 
++	pm_runtime_put_sync(&pdev->dev);
++	pm_runtime_disable(&pdev->dev);
++
+ 	nand_release(&this->nand);
+ 	gpmi_free_dma_buffer(this);
+ 	release_resources(this);
+@@ -2975,8 +2979,23 @@ static int gpmi_pm_resume(struct device *dev)
  }
+ #endif /* CONFIG_PM_SLEEP */
+ 
++static int __maybe_unused gpmi_runtime_suspend(struct device *dev)
++{
++	struct gpmi_nand_data *this = dev_get_drvdata(dev);
++
++	return __gpmi_enable_clk(this, false);
++}
++
++static int __maybe_unused gpmi_runtime_resume(struct device *dev)
++{
++	struct gpmi_nand_data *this = dev_get_drvdata(dev);
++
++	return __gpmi_enable_clk(this, true);
++}
++
+ static const struct dev_pm_ops gpmi_pm_ops = {
+ 	SET_SYSTEM_SLEEP_PM_OPS(gpmi_pm_suspend, gpmi_pm_resume)
++	SET_RUNTIME_PM_OPS(gpmi_runtime_suspend, gpmi_runtime_resume, NULL)
+ };
+ 
+ static struct platform_driver gpmi_nand_driver = {
 -- 
 2.20.1
 
