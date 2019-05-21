@@ -2,40 +2,40 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD60C248BF
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:09:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 99F99248BC
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WlD/nfjpMKwFu24Wws7C0tjyEFui0/O4qSHTWKCgYrA=; b=kTD9druE5Hf/Tz
-	1N6NESWrLumeZMUNlIe6sP1k6XZkqDsuWNjKC9vsqfP8AXALEk8E264ytmONL4AwW8jlLUM8F1giE
-	9oPyMqZWeZDF6u96hezh4XHqDv2omF1rP8c2qEHRFRNfoHpXij5tCCf7A/pzwINyX37oiUiCPQNld
-	q3JqZoidKNV//d1/a4z1+Uv1WxpyZa1CMVuTyG3DKNVpQhRtLmrrsU2m44JqPJdvt+pxx7QaMPLsn
-	nSTZcJ0rf8iQqiNLj3Vi6cTIlm2An9RKjpmvyRKNnLzakZ2ay2s2wVzzYZXwjGBX9p0GMt8gQAA2D
-	b5nAykl3OG5c+knill/A==;
+	List-Owner; bh=pmhaPB9M0TH8RkRtfAiDDYZllFuYATFG9NUnkdC9uU8=; b=BgzG7zXoz/a75F
+	LvT86FF4EeSrnPn+a9WwHqaAd/IgsyrcjlmISHQ3zOxvTiCnpeCVqhoDVY9Ki+LsW/pYvHQR/P66s
+	OEdqL43Q0O6Ouw9OJRorSizFVdyAcol8NwaznpydXpEfbJrtoc6l0yx4GpIYfsIsWlYmWsAcQc/uc
+	GkrvmrWH9S8nlvxomuEkEgrdXWZHfL2CSG1FBKlTKkt0/Hg1f5g53LZQr/2aqN3I5BxQRw4RQMEBQ
+	WgNqsB7dp/7epFMAO8m0WRhYjdUqpw7a6kEmWZpWd4rlW5V5uD70alA008zVwIfnROeY/zCNtMKpV
+	m/Z/GWMVwIxfO81ht8Nw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSytN-00056D-Fd; Tue, 21 May 2019 07:08:57 +0000
+	id 1hSyt2-0004gB-H3; Tue, 21 May 2019 07:08:36 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyrh-00034h-Do
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:24 +0000
+ id 1hSyrZ-0002tk-Ii
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:10 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrH-0006ce-Hn; Tue, 21 May 2019 09:06:47 +0200
+ id 1hSyrH-0006cf-Hl; Tue, 21 May 2019 09:06:47 +0200
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrG-0001bT-9k; Tue, 21 May 2019 09:06:46 +0200
+ id 1hSyrG-0001bW-AL; Tue, 21 May 2019 09:06:46 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 05/14] mtd: rawnand: gpmi: Remove unnecessary variables
-Date: Tue, 21 May 2019 09:06:34 +0200
-Message-Id: <20190521070643.6244-6-s.hauer@pengutronix.de>
+Subject: [PATCH 06/14] mtd: rawnand: gpmi: read buf in nand_read_page_op
+Date: Tue, 21 May 2019 09:06:35 +0200
+Message-Id: <20190521070643.6244-7-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190521070643.6244-1-s.hauer@pengutronix.de>
 References: <20190521070643.6244-1-s.hauer@pengutronix.de>
@@ -46,8 +46,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_000714_284742_A2079637 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20190521_000706_285724_5F87D297 
+X-CRM114-Status: GOOD (  15.00  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -76,78 +76,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-this->page_buffer_virt and this->payload_virt are always set to the same
-value, so drop the former and just use the latter. Same for
-this->page_buffer_virt and this->payload_virt.
+The driver calls nand_read_page_op without a buffer passed and then
+calls chip->legacy.read_buf to read the buffer afterwards which is
+the same as passing the buffer nand_read_page_op in the first place.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 15 ++++++---------
- drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h |  2 --
- 2 files changed, 6 insertions(+), 11 deletions(-)
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 12 ++++--------
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-index 53e63eeafcf4..8a3fe04c58b6 100644
+index 8a3fe04c58b6..aacdb15273b7 100644
 --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
 +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-@@ -1637,10 +1637,10 @@ static void gpmi_free_dma_buffer(struct gpmi_nand_data *this)
- {
- 	struct device *dev = this->dev;
+@@ -2250,8 +2250,7 @@ static int gpmi_ecc_read_oob(struct nand_chip *chip, int page)
+ 	memset(chip->oob_poi, ~0, mtd->oobsize);
  
--	if (this->page_buffer_virt && virt_addr_valid(this->page_buffer_virt))
-+	if (this->payload_virt && virt_addr_valid(this->payload_virt))
- 		dma_free_coherent(dev, this->page_buffer_size,
--					this->page_buffer_virt,
--					this->page_buffer_phys);
-+					this->payload_virt,
-+					this->payload_phys);
- 	kfree(this->cmd_buffer);
- 	kfree(this->data_buffer_dma);
- 	kfree(this->raw_buffer);
-@@ -1648,7 +1648,6 @@ static void gpmi_free_dma_buffer(struct gpmi_nand_data *this)
- 	this->cmd_buffer	= NULL;
- 	this->data_buffer_dma	= NULL;
- 	this->raw_buffer	= NULL;
--	this->page_buffer_virt	= NULL;
- 	this->page_buffer_size	=  0;
- }
+ 	/* Read out the conventional OOB. */
+-	nand_read_page_op(chip, page, mtd->writesize, NULL, 0);
+-	chip->legacy.read_buf(chip, chip->oob_poi, mtd->oobsize);
++	nand_read_page_op(chip, page, mtd->writesize, chip->oob_poi, mtd->oobsize);
  
-@@ -1686,9 +1685,9 @@ static int gpmi_alloc_dma_buffer(struct gpmi_nand_data *this)
- 	 * auxiliary buffer will appear on a 32-bit boundary.
+ 	/*
+ 	 * Now, we want to make sure the block mark is correct. In the
+@@ -2260,8 +2259,7 @@ static int gpmi_ecc_read_oob(struct nand_chip *chip, int page)
  	 */
- 	this->page_buffer_size = geo->payload_size + geo->auxiliary_size;
--	this->page_buffer_virt = dma_alloc_coherent(dev, this->page_buffer_size,
--					&this->page_buffer_phys, GFP_DMA);
--	if (!this->page_buffer_virt)
-+	this->payload_virt = dma_alloc_coherent(dev, this->page_buffer_size,
-+					&this->payload_phys, GFP_DMA);
-+	if (!this->payload_virt)
- 		goto error_alloc;
+ 	if (GPMI_IS_MX23(this)) {
+ 		/* Read the block mark into the first byte of the OOB buffer. */
+-		nand_read_page_op(chip, page, 0, NULL, 0);
+-		chip->oob_poi[0] = chip->legacy.read_byte(chip);
++		nand_read_page_op(chip, page, 0, chip->oob_poi, 1);
+ 	}
  
- 	this->raw_buffer = kzalloc(mtd->writesize + mtd->oobsize, GFP_KERNEL);
-@@ -1696,8 +1695,6 @@ static int gpmi_alloc_dma_buffer(struct gpmi_nand_data *this)
- 		goto error_alloc;
- 
- 	/* Slice up the page buffer. */
--	this->payload_virt = this->page_buffer_virt;
--	this->payload_phys = this->page_buffer_phys;
- 	this->auxiliary_virt = this->payload_virt + geo->payload_size;
- 	this->auxiliary_phys = this->payload_phys + geo->payload_size;
  	return 0;
-diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h
-index ba074a35ff01..51a070da84ed 100644
---- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h
-+++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h
-@@ -138,8 +138,6 @@ struct gpmi_nand_data {
- 	struct scatterlist	data_sgl;
- 	char			*data_buffer_dma;
+@@ -2548,8 +2546,7 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
+ 		 * Read the NCB fingerprint. The fingerprint is four bytes long
+ 		 * and starts in the 12th byte of the page.
+ 		 */
+-		nand_read_page_op(chip, page, 12, NULL, 0);
+-		chip->legacy.read_buf(chip, buffer, strlen(fingerprint));
++		nand_read_page_op(chip, page, 12, buffer, strlen(fingerprint));
  
--	void			*page_buffer_virt;
--	dma_addr_t		page_buffer_phys;
- 	unsigned int		page_buffer_size;
+ 		/* Look for the fingerprint. */
+ 		if (!memcmp(buffer, fingerprint, strlen(fingerprint))) {
+@@ -2691,8 +2688,7 @@ static int mx23_boot_init(struct gpmi_nand_data  *this)
  
- 	void			*payload_virt;
+ 		/* Send the command to read the conventional block mark. */
+ 		nand_select_target(chip, chipnr);
+-		nand_read_page_op(chip, page, mtd->writesize, NULL, 0);
+-		block_mark = chip->legacy.read_byte(chip);
++		nand_read_page_op(chip, page, mtd->writesize, &block_mark, 1);
+ 		nand_deselect_target(chip);
+ 
+ 		/*
 -- 
 2.20.1
 
