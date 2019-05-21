@@ -2,67 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C464D248CC
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:12:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DEA91248E2
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:22:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aWf61Jglz2acF2g4GSbPNCkL39aL67Jb1LT5GHv3C4I=; b=eCegPk8jRzWITa
-	8qGVWgvP2jW9IvyqX5XCNuD3PhVo3jALbHm0xKD1D9M3m45rJA1ka0nvxF1DClXbiK3LlnBi7JsNB
-	FTbg7I6UzNruUqY+msuVtQD8Bu72lMm67MSxZp5bWrv142IqNeC5o8DlZuOP+8FPn8lADOyDbGG+0
-	ZUUZYR2BPzD9R90CN8uN5D4kyPbwYeoGWPt+ArZAA7jicb+aEuzF43MsY/7RAB4JSV8/H91w3KBRd
-	nTHa60mISOO6mHGUoVBu4CfcYiNBUKALAiQQARYHq6m8CV5oInFaQZTI2JpLivMzlTuGOQ1R7lqKU
-	75T2CpA8eEvwvmnZQmxA==;
+	List-Owner; bh=qKfCd/wpDzVC5lY3KuRsjs17PX8b0hvQZXwuGad76sM=; b=XNZlCT9KsqoC0G
+	ghd1ij3eFLRCJ2n3ymyPBqMayamkZlwcjLIkrDwRAX+TV8OyQvQIfbZMjrks+9oMq9o+HCAi3snOV
+	gks5nWAHGLc+XBbJCfLheFWR8i4TpJRYiSQiUAZm0zwdDb6MuV//fXqA+fcfv82xcwuWLAA82KQB4
+	nb77qnM2MF+1QgGG704O5rQg1TzljKdlNPGguhL8wHmh1ftncObG7NZuWFIllSMd2sncFo8cD304O
+	HD0hFuaXNrfTfxMskTehNQT0e52Of9dATJYOblYaZAzK8UGXO0x+LjVJ7VflKMpiBd9Q0pHZE/Jce
+	nnIz63sqn10lLZJ23mAw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSyx5-0007vu-04; Tue, 21 May 2019 07:12:47 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1hSz6k-0003bT-JR; Tue, 21 May 2019 07:22:46 +0000
+Received: from lithops.sigma-star.at ([195.201.40.130])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyww-0007vP-OK
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:12:40 +0000
-Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
- (envelope-from <sha@pengutronix.de>)
- id 1hSywu-0007rD-Rd; Tue, 21 May 2019 09:12:36 +0200
-Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <sha@pengutronix.de>)
- id 1hSywu-0004n6-73; Tue, 21 May 2019 09:12:36 +0200
-Date: Tue, 21 May 2019 09:12:36 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v3 00/14] Implement exec_op for GPMI nand driver
-Message-ID: <20190521071236.zuoqdy5yspymxwp4@pengutronix.de>
-References: <20190425125643.29990-1-s.hauer@pengutronix.de>
- <20190520163038.7f38b54a@xps13>
+ id 1hSz6c-0003aC-1w
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:22:39 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 93690608A384;
+ Tue, 21 May 2019 09:22:27 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id TfL5ZIaKlxXl; Tue, 21 May 2019 09:22:26 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id C8A6E608A38B;
+ Tue, 21 May 2019 09:22:26 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id 9IQD62NG9Kwp; Tue, 21 May 2019 09:22:26 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+ by lithops.sigma-star.at (Postfix) with ESMTP id A697C608A384;
+ Tue, 21 May 2019 09:22:26 +0200 (CEST)
+Date: Tue, 21 May 2019 09:22:26 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+Message-ID: <396413492.65658.1558423346551.JavaMail.zimbra@nod.at>
+In-Reply-To: <20190521070937.GA10654@mwanda>
+References: <20190521070937.GA10654@mwanda>
+Subject: Re: [bug report] ubifs: Don't leak orphans on memory during commit
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190520163038.7f38b54a@xps13>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-IRC: #ptxdist @freenode
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-Uptime: 09:08:05 up 3 days, 13:26, 49 users, load average: 0.10, 0.14, 0.11
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.8_GA_3025 (ZimbraWebClient - FF60 (Linux)/8.8.8_GA_1703)
+Thread-Topic: ubifs: Don't leak orphans on memory during commit
+Thread-Index: lMYurwpGHCpORWFhvQOtwvygfB9DZw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_001238_996524_E9C39383 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20190521_002238_242971_855BE353 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -74,99 +72,43 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: kernel@pengutronix.de, Boris Brezillon <bbrezillon@kernel.org>,
- Richard Weinberger <richard@nod.at>, Vinod Koul <vkoul@kernel.org>,
- linux-mtd@lists.infradead.org, NXP Linux Team <linux-imx@nxp.com>,
- Fabio Estevam <festevam@gmail.com>, Han Xu <han.xu@nxp.com>,
- Shawn Guo <shawnguo@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd <linux-mtd@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, May 20, 2019 at 04:30:38PM +0200, Miquel Raynal wrote:
-> Hi Sascha,
-> 
-> Sascha Hauer <s.hauer@pengutronix.de> wrote on Thu, 25 Apr 2019
-> 14:56:29 +0200:
-> 
-> > The GPMI nand driver suffers from very poor performance. The read
-> > performance can be roughly doubled with two steps: First is to use
-> > runtime PM for controlling the clocks which prevents the driver from
-> > spending a good amount of time en/disabling the clocks. The second step
-> > is to implement exec_op which allows us to combine the steps necessary
-> > to do a page read into a single DMA transaction.
-> > 
-> > I would prefer to let this go through the mtd tree with the ack of the
-> > dmaengine maintainers
-> > 
-> > changes since v2:
-> > 
-> > - s/dma/dmaengine in dmaengine specific patches
-> > - s/nand/NAND/
-> > - Add reviewed-by Miquel
-> > - Add Acked-by Vinod
-> > 
-> > changes since v1:
-> > 
-> > - tested and fixed on i.MX28
-> > - remove debugging leftover
-> > - Add mxs dma specific header files to put the oddities of the mxs dma
-> >   driver in
-> > - Turn off BCH engine interrupts when not needed as they result in
-> >   calling complete() on an uninitialized completion. This crashes
-> >   on i.MX28
-> > 
-> > Sascha Hauer (14):
-> >   mtd: rawnand: export NAND operation tracer
-> >   mtd: rawnand: fsmc: Use nand_op_trace for operation tracing
-> >   mtd: rawnand: gpmi: move all driver code into single file
-> >   mtd: rawnand: gpmi: remove unused variable
-> >   mtd: rawnand: gpmi: Remove unnecessary variables
-> >   mtd: rawnand: gpmi: read buf in nand_read_page_op
-> >   mtd: rawnand: gpmi: remove unused parameters
-> >   mtd: rawnand: gpmi: Drop unnecessary restoring of previous chipselection
-> >   mtd: rawnand: gpmi: use runtime PM to manage clocks
-> >   dmaengine: mxs: Drop unnecessary flag
-> >   mtd: rawnand: gpmi: drop unnecessary flag
-> >   dmaengine: mxs: Add header file to be shared with gpmi nand driver
-> >   dmaengine: mxs: rename custom flag
-> >   mtd: rawnand: gpmi: Implement exec_op
-> > 
-> >  drivers/dma/mxs-dma.c                      |   25 +-
-> >  drivers/mtd/nand/raw/fsmc_nand.c           |   19 +-
-> >  drivers/mtd/nand/raw/gpmi-nand/Makefile    |    1 -
-> >  drivers/mtd/nand/raw/gpmi-nand/gpmi-lib.c  |  936 -----------
-> >  drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 1687 ++++++++++++++------
-> >  drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.h |   64 +-
-> >  drivers/mtd/nand/raw/nand_base.c           |   30 +-
-> >  include/linux/dma/mxs-dma.h                |   24 +
-> >  include/linux/mtd/rawnand.h                |   37 +
-> >  9 files changed, 1264 insertions(+), 1559 deletions(-)
-> >  delete mode 100644 drivers/mtd/nand/raw/gpmi-nand/gpmi-lib.c
-> >  create mode 100644 include/linux/dma/mxs-dma.h
-> > 
-> 
-> Please ignore the previous message telling the patch was applied, I
-> have to manually fix all the conflicts, I canceled the operation: would
-> you mind rebasing on v5.2-rc1 and respin?
-
-Yes, due to the patch merging the two files into one the rebase was a
-bit tricky with the changes to the driver in the last merge window. It
-basically meant redoing "mtd: rawnand: gpmi: move all driver code into
-single file" completely to get the changes from the last window into
-that patch. Don't worry, I pretty much expected that. Find a new version
-in your inbox.
-
-Sascha
-
-
--- 
-Pengutronix e.K.                           |                             |
-Industrial Linux Solutions                 | http://www.pengutronix.de/  |
-Peiner Str. 6-8, 31137 Hildesheim, Germany | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+RGFuLAoKLS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+IFZvbjogIkRhbiBDYXJwZW50
+ZXIiIDxkYW4uY2FycGVudGVyQG9yYWNsZS5jb20+Cj4gQW46ICJyaWNoYXJkIiA8cmljaGFyZEBu
+b2QuYXQ+Cj4gQ0M6ICJsaW51eC1tdGQiIDxsaW51eC1tdGRAbGlzdHMuaW5mcmFkZWFkLm9yZz4K
+PiBHZXNlbmRldDogRGllbnN0YWcsIDIxLiBNYWkgMjAxOSAwOTowOTozNwo+IEJldHJlZmY6IFti
+dWcgcmVwb3J0XSB1YmlmczogRG9uJ3QgbGVhayBvcnBoYW5zIG9uIG1lbW9yeSBkdXJpbmcgY29t
+bWl0Cgo+IEhlbGxvIFJpY2hhcmQgV2VpbmJlcmdlciwKPiAKPiBUaGUgcGF0Y2ggYzE2ZTczNTg3
+YWQ2OiAidWJpZnM6IERvbid0IGxlYWsgb3JwaGFucyBvbiBtZW1vcnkgZHVyaW5nCj4gY29tbWl0
+IiBmcm9tIE1heSAxNSwgMjAxOSwgbGVhZHMgdG8gdGhlIGZvbGxvd2luZyBzdGF0aWMgY2hlY2tl
+cgo+IHdhcm5pbmc6Cj4gCj4JZnMvdWJpZnMvb3JwaGFuLmM6MjMxIHViaWZzX2RlbGV0ZV9vcnBo
+YW4oKQo+CXdhcm46ICdvcnBoJyB3YXMgYWxyZWFkeSBmcmVlZC4KPiAKPiBmcy91Ymlmcy9vcnBo
+YW4uYwo+ICAgMjE0ICB2b2lkIHViaWZzX2RlbGV0ZV9vcnBoYW4oc3RydWN0IHViaWZzX2luZm8g
+KmMsIGlub190IGludW0pCj4gICAyMTUgIHsKPiAgIDIxNiAgICAgICAgICBzdHJ1Y3QgdWJpZnNf
+b3JwaGFuICpvcnBoLCAqY2hpbGRfb3JwaCwgKnRtcF9vOwo+ICAgMjE3Cj4gICAyMTggICAgICAg
+ICAgc3Bpbl9sb2NrKCZjLT5vcnBoYW5fbG9jayk7Cj4gICAyMTkKPiAgIDIyMCAgICAgICAgICBv
+cnBoID0gbG9va3VwX29ycGhhbihjLCBpbnVtKTsKPiAgIDIyMSAgICAgICAgICBpZiAoIW9ycGgp
+IHsKPiAgIDIyMiAgICAgICAgICAgICAgICAgIHNwaW5fdW5sb2NrKCZjLT5vcnBoYW5fbG9jayk7
+Cj4gICAyMjMgICAgICAgICAgICAgICAgICB1Ymlmc19lcnIoYywgIm1pc3Npbmcgb3JwaGFuIGlu
+byAlbHUiLCAodW5zaWduZWQKPiAgIGxvbmcpaW51bSk7Cj4gICAyMjQgICAgICAgICAgICAgICAg
+ICBkdW1wX3N0YWNrKCk7Cj4gICAyMjUKPiAgIDIyNiAgICAgICAgICAgICAgICAgIHJldHVybjsK
+PiAgIDIyNyAgICAgICAgICB9Cj4gICAyMjgKPiAgIDIyOSAgICAgICAgICBvcnBoYW5fZGVsZXRl
+KGMsIG9ycGgpOwo+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXl5eXgo+IFRoZSAi
+b3JwaCIgcG9pbnRlciBpcyBzb21ldGltZXMgZnJlZSBpbiBvcnBoYW5fZGVsZXRlKCkuCj4gCj4g
+ICAyMzAKPiAgIDIzMSAgICAgICAgICBsaXN0X2Zvcl9lYWNoX2VudHJ5X3NhZmUoY2hpbGRfb3Jw
+aCwgdG1wX28sICZvcnBoLT5jaGlsZF9saXN0LAo+ICAgY2hpbGRfbGlzdCkgewo+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5eXl4K
+PiB1c2UgYWZ0ZXIgZnJlZT8KPiAKPiAgIDIzMiAgICAgICAgICAgICAgICAgIGxpc3RfZGVsKCZj
+aGlsZF9vcnBoLT5jaGlsZF9saXN0KTsKPiAgIDIzMyAgICAgICAgICAgICAgICAgIG9ycGhhbl9k
+ZWxldGUoYywgY2hpbGRfb3JwaCk7Cj4gICAyMzQgICAgICAgICAgfQo+ICAgMjM1Cj4gICAyMzYg
+ICAgICAgICAgc3Bpbl91bmxvY2soJmMtPm9ycGhhbl9sb2NrKTsKPiAgIDIzNyAgfQoKVGhhbmtz
+IGEgbG90IGZvciB0aGUgaGVhZHMgdXAuClRoaXMgY29tbWl0IGlzIG5vdCByZWFkeSB5ZXQgYW5k
+IHdpbGwgYmUgcmVwbGFjZWQgd2l0aCBhIG5ld2VyIHZlcnNpb24uCgpUaGFua3MsCi8vcmljaGFy
+ZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
