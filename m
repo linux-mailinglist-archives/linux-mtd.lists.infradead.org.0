@@ -2,40 +2,40 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 99F99248BC
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C997F248B0
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:07:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pmhaPB9M0TH8RkRtfAiDDYZllFuYATFG9NUnkdC9uU8=; b=BgzG7zXoz/a75F
-	LvT86FF4EeSrnPn+a9WwHqaAd/IgsyrcjlmISHQ3zOxvTiCnpeCVqhoDVY9Ki+LsW/pYvHQR/P66s
-	OEdqL43Q0O6Ouw9OJRorSizFVdyAcol8NwaznpydXpEfbJrtoc6l0yx4GpIYfsIsWlYmWsAcQc/uc
-	GkrvmrWH9S8nlvxomuEkEgrdXWZHfL2CSG1FBKlTKkt0/Hg1f5g53LZQr/2aqN3I5BxQRw4RQMEBQ
-	WgNqsB7dp/7epFMAO8m0WRhYjdUqpw7a6kEmWZpWd4rlW5V5uD70alA008zVwIfnROeY/zCNtMKpV
-	m/Z/GWMVwIxfO81ht8Nw==;
+	List-Owner; bh=qwIjXIaH1AIEBEaeTsecyEkfbNEaKBcpLf9mRIJlUVY=; b=gQtOcpZKkQD1IN
+	WL9fsIcLD+OFTRjLG3MbW7S2HGZIoyqVGF0G4saNMMw1BKDsRIctBIGFunymaPCKu3Wi0BhPznDOw
+	PdS2BCVDYZ+tXZW2KR5OQvJpw9jR9I3W7ZmtdywKbd2Jau+6m+aHPZjMzm1FCBwubU+ye8ywm0C/P
+	2KNJYIfk2e/kMHEJsDQasbHisbjUUIoPQPc2sC2tXAYxQWSyPQNasiegbyMEL/CKfrpU2d0Ad3yTW
+	T6wy7j6AXVSmpomliIPYLvDzl15N4/cTce4aQJccqD6aw9vk6LIOzwEpOrkwv/JXy7iYLr0dEG2Ja
+	UlW7QJ62MoqUlbeH/fcQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSyt2-0004gB-H3; Tue, 21 May 2019 07:08:36 +0000
+	id 1hSyrp-00034j-Gq; Tue, 21 May 2019 07:07:21 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyrZ-0002tk-Ii
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:10 +0000
+ id 1hSyrN-0002co-G7
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:06:57 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrH-0006cf-Hl; Tue, 21 May 2019 09:06:47 +0200
+ id 1hSyrL-0006cg-VE; Tue, 21 May 2019 09:06:51 +0200
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrG-0001bW-AL; Tue, 21 May 2019 09:06:46 +0200
+ id 1hSyrG-0001bZ-Av; Tue, 21 May 2019 09:06:46 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 06/14] mtd: rawnand: gpmi: read buf in nand_read_page_op
-Date: Tue, 21 May 2019 09:06:35 +0200
-Message-Id: <20190521070643.6244-7-s.hauer@pengutronix.de>
+Subject: [PATCH 07/14] mtd: rawnand: gpmi: remove unused parameters
+Date: Tue, 21 May 2019 09:06:36 +0200
+Message-Id: <20190521070643.6244-8-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190521070643.6244-1-s.hauer@pengutronix.de>
 References: <20190521070643.6244-1-s.hauer@pengutronix.de>
@@ -46,8 +46,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_000706_285724_5F87D297 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20190521_000653_950512_D6C0BC7F 
+X-CRM114-Status: GOOD (  15.84  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -76,60 +76,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The driver calls nand_read_page_op without a buffer passed and then
-calls chip->legacy.read_buf to read the buffer afterwards which is
-the same as passing the buffer nand_read_page_op in the first place.
+gpmi_ecc_read_page_data uses the page parameter only for a debug printf,
+so we can drop the parameter and the debug printf. Moving the oob
+delivery from gpmi_ecc_read_page_data to gpmi_ecc_read_page makes the
+oob_required parameter unnecessary aswell.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 34 ++++++++++++----------
+ 1 file changed, 19 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-index 8a3fe04c58b6..aacdb15273b7 100644
+index aacdb15273b7..872ad7e4b3b9 100644
 --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
 +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-@@ -2250,8 +2250,7 @@ static int gpmi_ecc_read_oob(struct nand_chip *chip, int page)
- 	memset(chip->oob_poi, ~0, mtd->oobsize);
+@@ -1852,9 +1852,7 @@ static void block_mark_swapping(struct gpmi_nand_data *this,
+ 	p[1] = (p[1] & mask) | (from_oob >> (8 - bit));
+ }
  
- 	/* Read out the conventional OOB. */
--	nand_read_page_op(chip, page, mtd->writesize, NULL, 0);
--	chip->legacy.read_buf(chip, chip->oob_poi, mtd->oobsize);
-+	nand_read_page_op(chip, page, mtd->writesize, chip->oob_poi, mtd->oobsize);
+-static int gpmi_ecc_read_page_data(struct nand_chip *chip,
+-				   uint8_t *buf, int oob_required,
+-				   int page)
++static int gpmi_ecc_read_page_data(struct nand_chip *chip, uint8_t *buf)
+ {
+ 	struct gpmi_nand_data *this = nand_get_controller_data(chip);
+ 	struct bch_geometry *nfc_geo = &this->bch_geometry;
+@@ -1866,8 +1864,6 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
+ 	int           ret;
+ 	bool          direct = false;
  
- 	/*
- 	 * Now, we want to make sure the block mark is correct. In the
-@@ -2260,8 +2259,7 @@ static int gpmi_ecc_read_oob(struct nand_chip *chip, int page)
- 	 */
- 	if (GPMI_IS_MX23(this)) {
- 		/* Read the block mark into the first byte of the OOB buffer. */
--		nand_read_page_op(chip, page, 0, NULL, 0);
--		chip->oob_poi[0] = chip->legacy.read_byte(chip);
-+		nand_read_page_op(chip, page, 0, chip->oob_poi, 1);
+-	dev_dbg(this->dev, "page number is : %d\n", page);
+-
+ 	payload_phys = this->payload_phys;
+ 
+ 	if (virt_addr_valid(buf)) {
+@@ -1982,6 +1978,22 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
+ 	/* handle the block mark swapping */
+ 	block_mark_swapping(this, buf, this->auxiliary_virt);
+ 
++	return max_bitflips;
++}
++
++static int gpmi_ecc_read_page(struct nand_chip *chip, uint8_t *buf,
++			      int oob_required, int page)
++{
++	struct gpmi_nand_data *this = nand_get_controller_data(chip);
++	struct mtd_info *mtd = nand_to_mtd(chip);
++	int ret;
++
++	nand_read_page_op(chip, page, 0, NULL, 0);
++
++	ret = gpmi_ecc_read_page_data(chip, buf);
++	if (ret < 0)
++		return ret;
++
+ 	if (oob_required) {
+ 		/*
+ 		 * It's time to deliver the OOB bytes. See gpmi_ecc_read_oob()
+@@ -1997,15 +2009,7 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
+ 		chip->oob_poi[0] = ((uint8_t *)this->auxiliary_virt)[0];
  	}
  
- 	return 0;
-@@ -2548,8 +2546,7 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
- 		 * Read the NCB fingerprint. The fingerprint is four bytes long
- 		 * and starts in the 12th byte of the page.
- 		 */
--		nand_read_page_op(chip, page, 12, NULL, 0);
--		chip->legacy.read_buf(chip, buffer, strlen(fingerprint));
-+		nand_read_page_op(chip, page, 12, buffer, strlen(fingerprint));
+-	return max_bitflips;
+-}
+-
+-static int gpmi_ecc_read_page(struct nand_chip *chip, uint8_t *buf,
+-			      int oob_required, int page)
+-{
+-	nand_read_page_op(chip, page, 0, NULL, 0);
+-
+-	return gpmi_ecc_read_page_data(chip, buf, oob_required, page);
++	return ret;
+ }
  
- 		/* Look for the fingerprint. */
- 		if (!memcmp(buffer, fingerprint, strlen(fingerprint))) {
-@@ -2691,8 +2688,7 @@ static int mx23_boot_init(struct gpmi_nand_data  *this)
+ /* Fake a virtual small page for the subpage read */
+@@ -2086,7 +2090,7 @@ static int gpmi_ecc_read_subpage(struct nand_chip *chip, uint32_t offs,
  
- 		/* Send the command to read the conventional block mark. */
- 		nand_select_target(chip, chipnr);
--		nand_read_page_op(chip, page, mtd->writesize, NULL, 0);
--		block_mark = chip->legacy.read_byte(chip);
-+		nand_read_page_op(chip, page, mtd->writesize, &block_mark, 1);
- 		nand_deselect_target(chip);
+ 	/* Read the subpage now */
+ 	this->swap_block_mark = false;
+-	max_bitflips = gpmi_ecc_read_page_data(chip, buf, 0, page);
++	max_bitflips = gpmi_ecc_read_page_data(chip, buf);
  
- 		/*
+ 	/* Restore */
+ 	writel(r1_old, bch_regs + HW_BCH_FLASH0LAYOUT0);
 -- 
 2.20.1
 
