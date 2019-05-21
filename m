@@ -2,40 +2,41 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D598F248B4
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 37A64248BA
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ujT8Jqf9FnPByxxZF4QxfDNrPZfLZyBCwKg7WmuYTM=; b=PkJnTaArD2QnfG
-	Gsh/r8N18sPbVUhS3u9EeA8MdDchup67Bg77iop4kB14QWOZPhlqLZhwfk4rNf+CbgXIRdY2BR8T1
-	hkxGX2BEIhTmZUNQJWz737nO9Vn/Db7UfiI4cnrZKh6IyLmpgNZzaQygqsSVMsDwFzW2fnNLay/74
-	cgpnCnTl4QWzCNgyFiWLJ7Z0n8Vtvo5sKvYxcOdTKU7rUK0lsyWT7qadWwlwCmM9lZ+B3tisDDNk6
-	5E5y1Ec8KDpPa1PZF+fhaHjg110MBtnqUpbHbeILJhst2gQsfZblLfPR1rDPrpPWpti5lEJsGGsAa
-	MjE6sIxKPMYRrUiOp+QQ==;
+	List-Owner; bh=mM6WVD4EPu3TVfQb5+q58hnKMCh2X5atCfBwH/kHD7I=; b=WVa/kS+GbKixt7
+	WFzyOV5JkKMVxs7vGap0+dUMJM73gfgL1+6jBLlQeuDQc9wLY+UobbDB5qFXB+om67k8qtEznLece
+	jixlPOvuzFltJNUnGpXvQ6MzwCwpR3nnYGfvVGZ61vDOSl0AiiApHQHzGYG/dzADJOmi8SrPht7Vm
+	TnUTXZOG/onmPKarSyv1y5QS8kFP/5FA4rzH05XpLenQrJsZegfCZ6ztFgrZEXVN4vhaPvABcVshw
+	qe4W3fPZx5c7lB5yITwuntcBMTCyj4i4cwNbKAVLIseCPtoRaR9GfGsgvG3KLMsTkEc/KHQtDfgG2
+	WTjCzrc3AKuOBVdvVm8Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSysL-0003lE-IV; Tue, 21 May 2019 07:07:53 +0000
+	id 1hSysi-0004Ee-OW; Tue, 21 May 2019 07:08:16 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyrR-0002i1-DJ
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:05 +0000
+ id 1hSyrZ-0002th-Ct
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:10 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrH-0006ca-Hk; Tue, 21 May 2019 09:06:47 +0200
+ id 1hSyrH-0006cb-Hm; Tue, 21 May 2019 09:06:47 +0200
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrG-0001bH-5z; Tue, 21 May 2019 09:06:46 +0200
+ id 1hSyrG-0001bK-6k; Tue, 21 May 2019 09:06:46 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 01/14] mtd: rawnand: export NAND operation tracer
-Date: Tue, 21 May 2019 09:06:30 +0200
-Message-Id: <20190521070643.6244-2-s.hauer@pengutronix.de>
+Subject: [PATCH 02/14] mtd: rawnand: fsmc: Use nand_op_trace for operation
+ tracing
+Date: Tue, 21 May 2019 09:06:31 +0200
+Message-Id: <20190521070643.6244-3-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190521070643.6244-1-s.hauer@pengutronix.de>
 References: <20190521070643.6244-1-s.hauer@pengutronix.de>
@@ -46,8 +47,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_000658_009302_52F36D97 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20190521_000706_219517_16C569DA 
+X-CRM114-Status: GOOD (  12.50  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -76,107 +77,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The NAND core has a NAND operation tracing function, but it can only
-be used by drivers using the generic option parser from the NAND core.
-Export the tracing function as a static inline function in rawnand.h
-so that drivers implementing exec_op directly do not have to write their
-own operation tracing.
+Replace the different operation tracing functions with a call to
+nand_op_trace.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_base.c | 30 +-------------------------
- include/linux/mtd/rawnand.h      | 36 ++++++++++++++++++++++++++++++++
- 2 files changed, 37 insertions(+), 29 deletions(-)
+ drivers/mtd/nand/raw/fsmc_nand.c | 19 ++-----------------
+ 1 file changed, 2 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index 2cf71060d6f8..7db0f04cf52b 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -2115,35 +2115,7 @@ static void nand_op_parser_trace(const struct nand_op_parser_ctx *ctx)
- 		if (instr == &ctx->subop.instrs[0])
- 			prefix = "    ->";
+diff --git a/drivers/mtd/nand/raw/fsmc_nand.c b/drivers/mtd/nand/raw/fsmc_nand.c
+index 6c7ca41354be..a6964feeec77 100644
+--- a/drivers/mtd/nand/raw/fsmc_nand.c
++++ b/drivers/mtd/nand/raw/fsmc_nand.c
+@@ -613,28 +613,20 @@ static int fsmc_exec_op(struct nand_chip *chip, const struct nand_operation *op,
+ 	for (op_id = 0; op_id < op->ninstrs; op_id++) {
+ 		instr = &op->instrs[op_id];
  
--		switch (instr->type) {
--		case NAND_OP_CMD_INSTR:
--			pr_debug("%sCMD      [0x%02x]\n", prefix,
--				 instr->ctx.cmd.opcode);
--			break;
--		case NAND_OP_ADDR_INSTR:
--			pr_debug("%sADDR     [%d cyc: %*ph]\n", prefix,
--				 instr->ctx.addr.naddrs,
--				 instr->ctx.addr.naddrs < 64 ?
--				 instr->ctx.addr.naddrs : 64,
--				 instr->ctx.addr.addrs);
--			break;
--		case NAND_OP_DATA_IN_INSTR:
--			pr_debug("%sDATA_IN  [%d B%s]\n", prefix,
--				 instr->ctx.data.len,
--				 instr->ctx.data.force_8bit ?
--				 ", force 8-bit" : "");
--			break;
--		case NAND_OP_DATA_OUT_INSTR:
--			pr_debug("%sDATA_OUT [%d B%s]\n", prefix,
--				 instr->ctx.data.len,
--				 instr->ctx.data.force_8bit ?
--				 ", force 8-bit" : "");
--			break;
--		case NAND_OP_WAITRDY_INSTR:
--			pr_debug("%sWAITRDY  [max %d ms]\n", prefix,
--				 instr->ctx.waitrdy.timeout_ms);
--			break;
--		}
-+		nand_op_trace(prefix, instr);
- 
- 		if (instr == &ctx->subop.instrs[ctx->subop.ninstrs - 1])
- 			prefix = "      ";
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index dbfffa5bec7b..f5bb6f11c36b 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -877,6 +877,42 @@ int nand_op_parser_exec_op(struct nand_chip *chip,
- 			   const struct nand_op_parser *parser,
- 			   const struct nand_operation *op, bool check_only);
- 
-+static inline void nand_op_trace(const char *prefix,
-+				 const struct nand_op_instr *instr)
-+{
-+#if IS_ENABLED(CONFIG_DYNAMIC_DEBUG) || defined(DEBUG)
-+	switch (instr->type) {
-+	case NAND_OP_CMD_INSTR:
-+		pr_debug("%sCMD      [0x%02x]\n", prefix,
-+			 instr->ctx.cmd.opcode);
-+		break;
-+	case NAND_OP_ADDR_INSTR:
-+		pr_debug("%sADDR     [%d cyc: %*ph]\n", prefix,
-+			 instr->ctx.addr.naddrs,
-+			 instr->ctx.addr.naddrs < 64 ?
-+			 instr->ctx.addr.naddrs : 64,
-+			 instr->ctx.addr.addrs);
-+		break;
-+	case NAND_OP_DATA_IN_INSTR:
-+		pr_debug("%sDATA_IN  [%d B%s]\n", prefix,
-+			 instr->ctx.data.len,
-+			 instr->ctx.data.force_8bit ?
-+			 ", force 8-bit" : "");
-+		break;
-+	case NAND_OP_DATA_OUT_INSTR:
-+		pr_debug("%sDATA_OUT [%d B%s]\n", prefix,
-+			 instr->ctx.data.len,
-+			 instr->ctx.data.force_8bit ?
-+			 ", force 8-bit" : "");
-+		break;
-+	case NAND_OP_WAITRDY_INSTR:
-+		pr_debug("%sWAITRDY  [max %d ms]\n", prefix,
-+			 instr->ctx.waitrdy.timeout_ms);
-+		break;
-+	}
-+#endif
-+}
++		nand_op_trace("  ", instr);
 +
- /**
-  * struct nand_controller_ops - Controller operations
-  *
+ 		switch (instr->type) {
+ 		case NAND_OP_CMD_INSTR:
+-			pr_debug("  ->CMD      [0x%02x]\n",
+-				 instr->ctx.cmd.opcode);
+-
+ 			writeb_relaxed(instr->ctx.cmd.opcode, host->cmd_va);
+ 			break;
+ 
+ 		case NAND_OP_ADDR_INSTR:
+-			pr_debug("  ->ADDR     [%d cyc]",
+-				 instr->ctx.addr.naddrs);
+-
+ 			for (i = 0; i < instr->ctx.addr.naddrs; i++)
+ 				writeb_relaxed(instr->ctx.addr.addrs[i],
+ 					       host->addr_va);
+ 			break;
+ 
+ 		case NAND_OP_DATA_IN_INSTR:
+-			pr_debug("  ->DATA_IN  [%d B%s]\n", instr->ctx.data.len,
+-				 instr->ctx.data.force_8bit ?
+-				 ", force 8-bit" : "");
+-
+ 			if (host->mode == USE_DMA_ACCESS)
+ 				fsmc_read_buf_dma(host, instr->ctx.data.buf.in,
+ 						  instr->ctx.data.len);
+@@ -644,10 +636,6 @@ static int fsmc_exec_op(struct nand_chip *chip, const struct nand_operation *op,
+ 			break;
+ 
+ 		case NAND_OP_DATA_OUT_INSTR:
+-			pr_debug("  ->DATA_OUT [%d B%s]\n", instr->ctx.data.len,
+-				 instr->ctx.data.force_8bit ?
+-				 ", force 8-bit" : "");
+-
+ 			if (host->mode == USE_DMA_ACCESS)
+ 				fsmc_write_buf_dma(host,
+ 						   instr->ctx.data.buf.out,
+@@ -658,9 +646,6 @@ static int fsmc_exec_op(struct nand_chip *chip, const struct nand_operation *op,
+ 			break;
+ 
+ 		case NAND_OP_WAITRDY_INSTR:
+-			pr_debug("  ->WAITRDY  [max %d ms]\n",
+-				 instr->ctx.waitrdy.timeout_ms);
+-
+ 			ret = nand_soft_waitrdy(chip,
+ 						instr->ctx.waitrdy.timeout_ms);
+ 			break;
 -- 
 2.20.1
 
