@@ -2,40 +2,41 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C997F248B0
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:07:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6186E248B5
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 09:08:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qwIjXIaH1AIEBEaeTsecyEkfbNEaKBcpLf9mRIJlUVY=; b=gQtOcpZKkQD1IN
-	WL9fsIcLD+OFTRjLG3MbW7S2HGZIoyqVGF0G4saNMMw1BKDsRIctBIGFunymaPCKu3Wi0BhPznDOw
-	PdS2BCVDYZ+tXZW2KR5OQvJpw9jR9I3W7ZmtdywKbd2Jau+6m+aHPZjMzm1FCBwubU+ye8ywm0C/P
-	2KNJYIfk2e/kMHEJsDQasbHisbjUUIoPQPc2sC2tXAYxQWSyPQNasiegbyMEL/CKfrpU2d0Ad3yTW
-	T6wy7j6AXVSmpomliIPYLvDzl15N4/cTce4aQJccqD6aw9vk6LIOzwEpOrkwv/JXy7iYLr0dEG2Ja
-	UlW7QJ62MoqUlbeH/fcQ==;
+	List-Owner; bh=cjIRp2vRxVFmQyunyYOMH/R7tSzKG0rb2eFZ/N0OYV4=; b=C/m+3ZQHCykUXM
+	nhY0/KeiQ9CGESRICc6vEllLsEjEDedb/kDSknjHBGlk6xVW97ce9ZjL3CtMwFExiz2NUUcuWmdQz
+	zd+G3N9lUgURwOnVKep0oevvwRcMYapGC53yfaHymGmlDFZK+bLzcoMQDEQ66JCtTBdUFS7CCcALb
+	jfsJnPkObrE+DrjHiiJc+gD+TKadi7CkOX0Oy3tsGhdcGe/YbAkDM9xyaRo4VJeK1qoJt/iW9GqYs
+	5Lt6WqLPR4avnvhiC28pSB5s4XO5uz7Vb60pIrG5E4kc4BEu0cMN4W11mTuLWzPlyMS/EOsFF/qJN
+	DUQ2SsT+XUv0iMgVxrQg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hSyrp-00034j-Gq; Tue, 21 May 2019 07:07:21 +0000
+	id 1hSysY-00042G-Gy; Tue, 21 May 2019 07:08:06 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hSyrN-0002co-G7
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:06:57 +0000
+ id 1hSyrV-0002oP-I8
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 07:07:07 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrL-0006cg-VE; Tue, 21 May 2019 09:06:51 +0200
+ id 1hSyrL-0006ch-VB; Tue, 21 May 2019 09:06:51 +0200
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1hSyrG-0001bZ-Av; Tue, 21 May 2019 09:06:46 +0200
+ id 1hSyrG-0001bc-BW; Tue, 21 May 2019 09:06:46 +0200
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 07/14] mtd: rawnand: gpmi: remove unused parameters
-Date: Tue, 21 May 2019 09:06:36 +0200
-Message-Id: <20190521070643.6244-8-s.hauer@pengutronix.de>
+Subject: [PATCH 08/14] mtd: rawnand: gpmi: Drop unnecessary restoring of
+ previous chipselection
+Date: Tue, 21 May 2019 09:06:37 +0200
+Message-Id: <20190521070643.6244-9-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190521070643.6244-1-s.hauer@pengutronix.de>
 References: <20190521070643.6244-1-s.hauer@pengutronix.de>
@@ -46,8 +47,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_000653_950512_D6C0BC7F 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20190521_000702_219815_E2534308 
+X-CRM114-Status: GOOD (  14.31  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -76,90 +77,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-gpmi_ecc_read_page_data uses the page parameter only for a debug printf,
-so we can drop the parameter and the debug printf. Moving the oob
-delivery from gpmi_ecc_read_page_data to gpmi_ecc_read_page makes the
-oob_required parameter unnecessary aswell.
+The i.MX23 specific option read code is called right after nand_scan. We
+can rely on the NAND core having disabled the chipselect, so there's no
+point in restoring the original chip select after NAND operations. Drop
+it.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 34 ++++++++++++----------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-index aacdb15273b7..872ad7e4b3b9 100644
+index 872ad7e4b3b9..55b37d47804b 100644
 --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
 +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
-@@ -1852,9 +1852,7 @@ static void block_mark_swapping(struct gpmi_nand_data *this,
- 	p[1] = (p[1] & mask) | (from_oob >> (8 - bit));
- }
+@@ -2526,13 +2526,11 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
+ 	unsigned int stride;
+ 	unsigned int page;
+ 	u8 *buffer = nand_get_data_buf(chip);
+-	int saved_chip_number;
+ 	int found_an_ncb_fingerprint = false;
  
--static int gpmi_ecc_read_page_data(struct nand_chip *chip,
--				   uint8_t *buf, int oob_required,
--				   int page)
-+static int gpmi_ecc_read_page_data(struct nand_chip *chip, uint8_t *buf)
- {
- 	struct gpmi_nand_data *this = nand_get_controller_data(chip);
- 	struct bch_geometry *nfc_geo = &this->bch_geometry;
-@@ -1866,8 +1864,6 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
- 	int           ret;
- 	bool          direct = false;
+ 	/* Compute the number of strides in a search area. */
+ 	search_area_size_in_strides = 1 << rom_geo->search_area_stride_exponent;
  
--	dev_dbg(this->dev, "page number is : %d\n", page);
--
- 	payload_phys = this->payload_phys;
+-	saved_chip_number = this->current_chip;
+ 	nand_select_target(chip, 0);
  
- 	if (virt_addr_valid(buf)) {
-@@ -1982,6 +1978,22 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
- 	/* handle the block mark swapping */
- 	block_mark_swapping(this, buf, this->auxiliary_virt);
+ 	/*
+@@ -2560,10 +2558,7 @@ static int mx23_check_transcription_stamp(struct gpmi_nand_data *this)
  
-+	return max_bitflips;
-+}
-+
-+static int gpmi_ecc_read_page(struct nand_chip *chip, uint8_t *buf,
-+			      int oob_required, int page)
-+{
-+	struct gpmi_nand_data *this = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int ret;
-+
-+	nand_read_page_op(chip, page, 0, NULL, 0);
-+
-+	ret = gpmi_ecc_read_page_data(chip, buf);
-+	if (ret < 0)
-+		return ret;
-+
- 	if (oob_required) {
- 		/*
- 		 * It's time to deliver the OOB bytes. See gpmi_ecc_read_oob()
-@@ -1997,15 +2009,7 @@ static int gpmi_ecc_read_page_data(struct nand_chip *chip,
- 		chip->oob_poi[0] = ((uint8_t *)this->auxiliary_virt)[0];
  	}
  
--	return max_bitflips;
--}
--
--static int gpmi_ecc_read_page(struct nand_chip *chip, uint8_t *buf,
--			      int oob_required, int page)
--{
--	nand_read_page_op(chip, page, 0, NULL, 0);
--
--	return gpmi_ecc_read_page_data(chip, buf, oob_required, page);
-+	return ret;
+-	if (saved_chip_number >= 0)
+-		nand_select_target(chip, saved_chip_number);
+-	else
+-		nand_deselect_target(chip);
++	nand_deselect_target(chip);
+ 
+ 	if (found_an_ncb_fingerprint)
+ 		dev_dbg(dev, "\tFound a fingerprint\n");
+@@ -2587,7 +2582,6 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
+ 	unsigned int stride;
+ 	unsigned int page;
+ 	u8 *buffer = nand_get_data_buf(chip);
+-	int saved_chip_number;
+ 	int status;
+ 
+ 	/* Compute the search area geometry. */
+@@ -2604,8 +2598,6 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
+ 	dev_dbg(dev, "\tin Strides: %u\n", search_area_size_in_strides);
+ 	dev_dbg(dev, "\tin Pages  : %u\n", search_area_size_in_pages);
+ 
+-	/* Select chip 0. */
+-	saved_chip_number = this->current_chip;
+ 	nand_select_target(chip, 0);
+ 
+ 	/* Loop over blocks in the first search area, erasing them. */
+@@ -2637,11 +2629,7 @@ static int mx23_write_transcription_stamp(struct gpmi_nand_data *this)
+ 			dev_err(dev, "[%s] Write failed.\n", __func__);
+ 	}
+ 
+-	/* Deselect chip 0. */
+-	if (saved_chip_number >= 0)
+-		nand_select_target(chip, saved_chip_number);
+-	else
+-		nand_deselect_target(chip);
++	nand_deselect_target(chip);
+ 
+ 	return 0;
  }
- 
- /* Fake a virtual small page for the subpage read */
-@@ -2086,7 +2090,7 @@ static int gpmi_ecc_read_subpage(struct nand_chip *chip, uint32_t offs,
- 
- 	/* Read the subpage now */
- 	this->swap_block_mark = false;
--	max_bitflips = gpmi_ecc_read_page_data(chip, buf, 0, page);
-+	max_bitflips = gpmi_ecc_read_page_data(chip, buf);
- 
- 	/* Restore */
- 	writel(r1_old, bch_regs + HW_BCH_FLASH0LAYOUT0);
 -- 
 2.20.1
 
