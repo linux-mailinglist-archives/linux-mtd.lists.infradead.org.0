@@ -2,55 +2,70 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A63624A60
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 10:29:38 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B017E24A78
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 May 2019 10:34:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IqtFXWolLN+WkULAwdDNOM4R3RUFCMqp8clNBL8CBac=; b=oFKuEor7z69lH/
-	NOQWDkrXB1Y/c92lguf9lHXxj/9OmztmL2ypQOUfjyFPaeWPuPPfzbC+1aZQBwUgt+zsZYpg3AOOP
-	meXC7CK2Bwv+HDMmhF51zsS2wY055TjjESe7vyizw5zzlxlAsgDkJQHJ8FaSV9JIicGZENK4AbpRv
-	oYVLOQonflze2VzYAEdmnJCsoma9xdjVo7yVl0V/RZ6279s/hNaTTuIiUg2IY3Sx3EjhtOYSFGA18
-	1+XpcM0vovRmGzCqJwWfJm05zFsYBxDMPhXMGLr9MYNaSTnoJz37QWL4AXw1T55/zasEB73HI+oNh
-	J6dQuD/Ljl95KimR/8lQ==;
+	List-Owner; bh=5UaMioKPyfKvOPLC2Bb90iKtBXFaWGdHinfDonRAi/E=; b=b5fiVnwbazwYm5
+	rb0nkqe86j+dczaFxRVtz6UwW+0uFl6V5KLaSCe7jKcTE4RthpmrzGRZ2Xz6Ev/Ox49KKet9jmvY7
+	Sjbop4sDHMIftLPLTl5CLOAtxCqDcmlEJsVT2IgRW60QTeIoYTo1dFhMy7nplyZoY8swl3Z2daEBw
+	lxaw5KzXMKwBLG4FYAoakjo0M2NQjDBHtydYQxhpyrt5KTJmjtmtkSdOkxBm+jgHNNIFqvgFaVQKS
+	YWu8j9D70e+vCxNdBGzNicNu+glp910tQujGVJrLTslU/995O1uF+5qLc5c23iXJek+VBjNUjgdBW
+	V5rF61FPLv4Gogre+izg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hT09N-00061T-Bs; Tue, 21 May 2019 08:29:33 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1hT0Db-0000fN-KC; Tue, 21 May 2019 08:33:55 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hT09F-000603-2U
- for linux-mtd@lists.infradead.org; Tue, 21 May 2019 08:29:26 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 7D8722676EE;
- Tue, 21 May 2019 09:29:23 +0100 (BST)
-Date: Tue, 21 May 2019 10:29:21 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
+ id 1hT0DR-0000bV-IZ
+ for linux-mtd@bombadil.infradead.org; Tue, 21 May 2019 08:33:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+ MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=o1mzADbX4WWJguEzTmoGBTG/8qeXlXsUKgO1XhAlNME=; b=MjNpwhLoBaO13x2G8JYVZlzH7M
+ adBF/2eRo7X1PC027vSTlVs4Sd9fJ8qOTpCKeq/ui4xgJ9Bw3wQHHkDJCqKYiC27TCoBVT0qHwWK+
+ ZdgnpciAhkwfgiA44T50dt4sK7saqVzy8tQOpISZuoAM/Ld0cJf2pXTpAjSkH2z6T1BNsi2MyH7vM
+ ug2fPmZIHOAUc4ZhSd9gDCVyOWm4AeDrpwAS/1KOVYyfH3DggLw/QvMbe9x5eUPoI5FJ7YeIf1Ok5
+ wDtRHO5yt5kXgkPmAV23Q1/Pqv2Nl4Jqg+PlsRujk/fXUe5euFN2wMFY3a5V1sLRTtrTU9eKZFU2l
+ 0IH1MpEw==;
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+ by casper.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hT0DO-00008D-6L
+ for linux-mtd@lists.infradead.org; Tue, 21 May 2019 08:33:44 +0000
+X-Originating-IP: 90.88.22.185
+Received: from xps13 (aaubervilliers-681-1-80-185.w90-88.abo.wanadoo.fr
+ [90.88.22.185]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id DAB961C001A;
+ Tue, 21 May 2019 08:33:05 +0000 (UTC)
+Date: Tue, 21 May 2019 10:33:04 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Sascha Hauer <s.hauer@pengutronix.de>
 Subject: Re: [PATCH] mtd: rawnand: initialize ntargets with maxchips
-Message-ID: <20190521102921.65353085@collabora.com>
+Message-ID: <20190521103304.45318f4d@xps13>
 In-Reply-To: <20190521081721.541-1-s.hauer@pengutronix.de>
 References: <20190521081721.541-1-s.hauer@pengutronix.de>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_012925_250192_B30E7F11 
-X-CRM114-Status: GOOD (  20.53  )
-X-Spam-Score: -0.0 (/)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+X-CRM114-CacheID: sfid-20190521_093342_254222_2723E838 
+X-CRM114-Status: GOOD (  11.75  )
+X-Spam-Score: -0.7 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on casper.infradead.org summary:
+ Content analysis details:   (-0.7 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.197 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -62,79 +77,28 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
+Cc: Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
  kernel@pengutronix.de, Boris Brezillon <bbrezillon@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 21 May 2019 10:17:21 +0200
-Sascha Hauer <s.hauer@pengutronix.de> wrote:
-
-> memorg->ntargets is initialized with '1'. It should be initialized with
-> the maxchips argument from nand_scan() instead. Otherwise multi chip
-> support errors out on the secondary chip selects when trying to call
-> nand_reset() on them:
-> 
-> WARNING: CPU: 0 PID: 1 at drivers/mtd/nand/raw/internals.h:114
-> nand_reset_op+0x194/0x1c4
-> 
-> With this memorg->ntargets is initialized with the maximum number of
-> chip selects supported by the driver. After having detected the number
-> of actually connected chips memory->ntargets is updated with that
-> number.
-> 
-> Fixes: 2813e288414 ("mtd: rawnand: Get rid of chip->numchips")
-> 
-
-You an get rid of this blank line.
-
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> ---
->  drivers/mtd/nand/raw/nand_base.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-> index 7db0f04cf52b..0c717f3fb906 100644
-> --- a/drivers/mtd/nand/raw/nand_base.c
-> +++ b/drivers/mtd/nand/raw/nand_base.c
-> @@ -4621,7 +4621,8 @@ nand_manufacturer_name(const struct nand_manufacturer *manufacturer)
->  /*
->   * Get the flash and manufacturer id and lookup if the type is supported.
->   */
-> -static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
-> +static int nand_detect(struct nand_chip *chip, unsigned int maxchips,
-> +		       struct nand_flash_dev *type)
->  {
->  	const struct nand_manufacturer *manufacturer;
->  	struct mtd_info *mtd = nand_to_mtd(chip);
-> @@ -4638,7 +4639,7 @@ static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
->  	memorg = nanddev_get_memorg(&chip->base);
->  	memorg->planes_per_lun = 1;
->  	memorg->luns_per_target = 1;
-> -	memorg->ntargets = 1;
-> +	memorg->ntargets = maxchips;
-
-I'd rather move this initialization to nand_scan_ident() as I don't like
-the idea of passing maxchips to nand_detect(), but if you want to
-keep it like that, can we at least rename the argument num_cs.
-
->  
->  	/*
->  	 * Reset the chip, required by some chips (e.g. Micron MT29FxGxxxxx)
-> @@ -5004,7 +5005,7 @@ static int nand_scan_ident(struct nand_chip *chip, unsigned int maxchips,
->  		return ret;
->  
->  	/* Read the flash type */
-> -	ret = nand_detect(chip, table);
-> +	ret = nand_detect(chip, maxchips, table);
->  	if (ret) {
->  		if (!(chip->options & NAND_SCAN_SILENT_NODEV))
->  			pr_warn("No NAND device found\n");
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgU2FzY2hhLAoKU2FzY2hhIEhhdWVyIDxzLmhhdWVyQHBlbmd1dHJvbml4LmRlPiB3cm90ZSBv
+biBUdWUsIDIxIE1heSAyMDE5CjEwOjE3OjIxICswMjAwOgoKPiBtZW1vcmctPm50YXJnZXRzIGlz
+IGluaXRpYWxpemVkIHdpdGggJzEnLiBJdCBzaG91bGQgYmUgaW5pdGlhbGl6ZWQgd2l0aAo+IHRo
+ZSBtYXhjaGlwcyBhcmd1bWVudCBmcm9tIG5hbmRfc2NhbigpIGluc3RlYWQuIE90aGVyd2lzZSBt
+dWx0aSBjaGlwCj4gc3VwcG9ydCBlcnJvcnMgb3V0IG9uIHRoZSBzZWNvbmRhcnkgY2hpcCBzZWxl
+Y3RzIHdoZW4gdHJ5aW5nIHRvIGNhbGwKPiBuYW5kX3Jlc2V0KCkgb24gdGhlbToKPiAKPiBXQVJO
+SU5HOiBDUFU6IDAgUElEOiAxIGF0IGRyaXZlcnMvbXRkL25hbmQvcmF3L2ludGVybmFscy5oOjEx
+NAo+IG5hbmRfcmVzZXRfb3ArMHgxOTQvMHgxYzQKPiAKPiBXaXRoIHRoaXMgbWVtb3JnLT5udGFy
+Z2V0cyBpcyBpbml0aWFsaXplZCB3aXRoIHRoZSBtYXhpbXVtIG51bWJlciBvZgo+IGNoaXAgc2Vs
+ZWN0cyBzdXBwb3J0ZWQgYnkgdGhlIGRyaXZlci4gQWZ0ZXIgaGF2aW5nIGRldGVjdGVkIHRoZSBu
+dW1iZXIKPiBvZiBhY3R1YWxseSBjb25uZWN0ZWQgY2hpcHMgbWVtb3J5LT5udGFyZ2V0cyBpcyB1
+cGRhdGVkIHdpdGggdGhhdAo+IG51bWJlci4KPiAKPiBGaXhlczogMjgxM2UyODg0MTQgKCJtdGQ6
+IHJhd25hbmQ6IEdldCByaWQgb2YgY2hpcC0+bnVtY2hpcHMiKQo+IAoKTXkgR2l0IGhpc3Rvcnkg
+ZG9lcyBub3Qga25vdyB0aGlzIGNvbW1pdCwgYXJlIHlvdSBzdXJlIGl0J3Mgbm90CjMyODEzZTI4
+ODQxNCBpbnN0ZWFkPwoKVGhpcyBjb21taXQgd2lsbCBnbyB0aHJvdWdoIHRoZSBmaXhlcyBicmFu
+Y2guCgpUaGFua3MhCk1pcXXDqGwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
