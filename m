@@ -2,62 +2,62 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0802D25B0A
-	for <lists+linux-mtd@lfdr.de>; Wed, 22 May 2019 02:07:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 20BE925B0F
+	for <lists+linux-mtd@lfdr.de>; Wed, 22 May 2019 02:08:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pMG8+KBNhJB+mUsYdtGXgS67I2O2tfQa5c9wLvxYf4k=; b=KV4WfIdtUpMwOY
-	bo4DiNRGrxIO0dfu8vg39F7klJPzEKR01Q+tPiZTLjDKvpl3HItH4hPMUfa1GxSg+DndwWutibQaE
-	atMfXeoLm3ZRC6e4oUdu9M+e12wiCtiWmkPRlrwMOkjnAlbbGxT64B7ai1ZVSApPGywyExzOFviZ+
-	azgP/cP2R0HhR/2V0N1yoa6zbMrBdzhKgV9o/MbNQaf3FlaHBK8xeqDRmVHfm44n9QtqZfVZNUCNz
-	X/vMZy705kOR8OvGF7jZY12Ogjqo2+lxQnnOTgDnOybpj22NCx/9YKpnsMOSDLeaPe8fTxL5pTPvX
-	JZOGeQeiIHGtNjlG1ONA==;
+	List-Owner; bh=dR2bHz/JO9Rio40IRow2L5Li9an6bfCn/iDiO9DUpdA=; b=phGfninPD1jVke
+	LHGKozFDO4qRpYGY6eQO1vPyt5ner+HW2CsSAbFljn8tG48zALzdpJXYgpCSDf0COt0j8D+B6As1r
+	06g+u1bJMgSaUDvWDunohjiF2f07EA02Hqs+ExUczyhfoBjHv828YkJmb06hUJwsk46ZUOjdkWDWQ
+	DuHXVlEXHESCNS1KyZnfVO6rMlR/qa3pQT0OSZo7xMhd57GZ+FI9kJCLCWwuCTNAmNmNLV7YFU2gf
+	aNm85eOYOrQ/ZokrQF3uVk2Xhsdsj9jp5CFlJ/JnPP36ims5jXGxpSWlw3AmIztvC9Oi1yTQs1pw3
+	qxdzPokgpUS2ji2JiHEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hTEmf-0000FD-Nj; Wed, 22 May 2019 00:07:05 +0000
+	id 1hTEnp-0000gI-Bg; Wed, 22 May 2019 00:08:17 +0000
 Received: from gate2.alliedtelesis.co.nz ([202.36.163.20])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hTEmV-0000EH-Si
- for linux-mtd@lists.infradead.org; Wed, 22 May 2019 00:06:57 +0000
+ id 1hTEnY-0000Wy-SO
+ for linux-mtd@lists.infradead.org; Wed, 22 May 2019 00:08:02 +0000
 Received: from mmarshal3.atlnz.lc (mmarshal3.atlnz.lc [10.32.18.43])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (Client did not present a certificate)
- by gate2.alliedtelesis.co.nz (Postfix) with ESMTPS id 3A41A8365B;
- Wed, 22 May 2019 12:06:46 +1200 (NZST)
+ by gate2.alliedtelesis.co.nz (Postfix) with ESMTPS id 38C8C891A9;
+ Wed, 22 May 2019 12:07:56 +1200 (NZST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alliedtelesis.co.nz;
- s=mail181024; t=1558483606;
- bh=MlTgnlsatXuH34Bkw+JA8k8YCTZyVZxlECoV11VrIxs=;
+ s=mail181024; t=1558483676;
+ bh=4vBMADYmnJSt2XlDMdbmk4Hf0OrCwBXEHiQQvrZH6HM=;
  h=From:To:Cc:Subject:Date;
- b=E8zIP9sC59ehXJK6VZy6paV6rHo+NiA0P6WHFN7rqz0VDtXvd4v8BCB2WbiZ5jTSQ
- z+Y3tmvIDGXTczXZEhdXs5WFpCYgJpP/IA4VU5/aueTMbDpo20pfWzHFwI3qSwBI6w
- NPEooA4J8+7l2ca+CiONV2z6ZPgsYM2zE/c2TwDu6AhAFzAf0ex0r2oIXHbA9ldLxt
- OBKOnR7iopWpnK0Pln9+S/xYa+dGsWeI0RPgRs8PnzmV1Tq+EOKO7vc7UAAFCTGXOQ
- 89fccHlyzPNrAwPAktwLOMzbPsvZDjqWSeg2Q2zp4RoACPb/Lh7tOVBJPf2+cKurL4
- a2+ggnp9eqNcg==
+ b=svj6280mLrmcPUSBHSGiN8f6seclFeA+xN6F74OrwbVPfOoDTnbMznq3Z6R8wYOtX
+ 45zn1y5GHvXrdOcS1tLPOTVNC/j4Lke3YMR6rI3RFomy6LjSssuKZJ1yDb4jLqZUYD
+ 1JsugsEVlPk2APR5lcJx10ms/5lz0ftAnqHFAx6+nSmTnaEpZQAHdoYiPEWykdrZJ+
+ JyZjdIQXdqF5N0V0Q6dRNwrsct2GpcjBr1jh6TGChD6lCmSxOatcWrFEzIg7wojShh
+ rBUj/DVhlVv9sG7s/jYI3+VgwRFgpJ1StJ0TWWDPg1fZJHpfiVO2+LYwBF4Ekgt7as
+ CU6SEUWq+JvQA==
 Received: from smtp (Not Verified[10.32.16.33]) by mmarshal3.atlnz.lc with
  Trustwave SEG (v7, 5, 8, 10121)
- id <B5ce492920000>; Wed, 22 May 2019 12:06:45 +1200
+ id <B5ce492db0000>; Wed, 22 May 2019 12:07:55 +1200
 Received: from chrisp-dl.ws.atlnz.lc (chrisp-dl.ws.atlnz.lc [10.33.22.30])
- by smtp (Postfix) with ESMTP id 1BE1213ED45;
- Wed, 22 May 2019 12:06:43 +1200 (NZST)
+ by smtp (Postfix) with ESMTP id 11E2013ED45;
+ Wed, 22 May 2019 12:07:56 +1200 (NZST)
 Received: by chrisp-dl.ws.atlnz.lc (Postfix, from userid 1030)
- id 726621E1DDA; Wed, 22 May 2019 12:06:42 +1200 (NZST)
+ id 6B6781E1DDA; Wed, 22 May 2019 12:07:55 +1200 (NZST)
 From: Chris Packham <chris.packham@alliedtelesis.co.nz>
 To: dwmw2@infradead.org, computersforpeace@gmail.com, marek.vasut@gmail.com,
  miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com
-Subject: [PATCH] mtd: cfi_cmdset_0002: dynamically determine the max sectors
-Date: Wed, 22 May 2019 12:06:28 +1200
-Message-Id: <20190522000628.13073-1-chris.packham@alliedtelesis.co.nz>
+Subject: [PATCH 1/2] mtd: concat: refactor concat_lock/concat_unlock
+Date: Wed, 22 May 2019 12:07:52 +1200
+Message-Id: <20190522000753.13300-1-chris.packham@alliedtelesis.co.nz>
 X-Mailer: git-send-email 2.21.0
 MIME-Version: 1.0
 x-atlnz-ls: pat
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190521_170656_117277_51388684 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20190521_170801_306143_DD924729 
+X-CRM114-Status: GOOD (  11.59  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
@@ -85,71 +85,90 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: sr@denx.de, linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
- Chris Packham <chris.packham@alliedtelesis.co.nz>
+Cc: Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Because PPB unlocking unlocks the whole chip cfi_ppb_unlock() needs to
-remember the locked status for each sector so it can re-lock the
-unaddressed sectors. Dynamically calculate the maximum number of sectors
-rather than using a hardcoded value that is too small for larger chips.
-
-Tested with Spansion S29GL01GS11TFI flash device.
+concat_lock() and concat_unlock() only differed in terms of the mtd_xx
+operation they called. Refactor them to use a common helper function and
+pass mtd_lock or mtd_unlock as an argument.
 
 Signed-off-by: Chris Packham <chris.packham@alliedtelesis.co.nz>
 ---
- drivers/mtd/chips/cfi_cmdset_0002.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ drivers/mtd/mtdconcat.c | 41 +++++++++--------------------------------
+ 1 file changed, 9 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/mtd/chips/cfi_cmdset_0002.c b/drivers/mtd/chips/cfi_cmdset_0002.c
-index c8fa5906bdf9..a1a7d334aa82 100644
---- a/drivers/mtd/chips/cfi_cmdset_0002.c
-+++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-@@ -2533,8 +2533,6 @@ struct ppb_lock {
- 	int locked;
- };
+diff --git a/drivers/mtd/mtdconcat.c b/drivers/mtd/mtdconcat.c
+index cbc5925e6440..9514cd2db63c 100644
+--- a/drivers/mtd/mtdconcat.c
++++ b/drivers/mtd/mtdconcat.c
+@@ -451,7 +451,8 @@ static int concat_erase(struct mtd_info *mtd, struct erase_info *instr)
+ 	return err;
+ }
  
--#define MAX_SECTORS			512
+-static int concat_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
++static int __concat_xxlock(struct mtd_info *mtd, loff_t ofs, uint64_t len,
++			   int (*mtd_op)(struct mtd_info *mtd, loff_t ofs, uint64_t len))
+ {
+ 	struct mtd_concat *concat = CONCAT(mtd);
+ 	int i, err = -EINVAL;
+@@ -470,7 +471,7 @@ static int concat_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
+ 		else
+ 			size = len;
+ 
+-		err = mtd_lock(subdev, ofs, size);
++		err = mtd_op(subdev, ofs, size);
+ 		if (err)
+ 			break;
+ 
+@@ -485,38 +486,14 @@ static int concat_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
+ 	return err;
+ }
+ 
+-static int concat_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
++static int concat_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
+ {
+-	struct mtd_concat *concat = CONCAT(mtd);
+-	int i, err = 0;
 -
- #define DO_XXLOCK_ONEBLOCK_LOCK		((void *)1)
- #define DO_XXLOCK_ONEBLOCK_UNLOCK	((void *)2)
- #define DO_XXLOCK_ONEBLOCK_GETLOCK	((void *)3)
-@@ -2633,6 +2631,7 @@ static int __maybe_unused cfi_ppb_unlock(struct mtd_info *mtd, loff_t ofs,
- 	int i;
- 	int sectors;
- 	int ret;
-+	int max_sectors;
+-	for (i = 0; i < concat->num_subdev; i++) {
+-		struct mtd_info *subdev = concat->subdev[i];
+-		uint64_t size;
+-
+-		if (ofs >= subdev->size) {
+-			size = 0;
+-			ofs -= subdev->size;
+-			continue;
+-		}
+-		if (ofs + len > subdev->size)
+-			size = subdev->size - ofs;
+-		else
+-			size = len;
+-
+-		err = mtd_unlock(subdev, ofs, size);
+-		if (err)
+-			break;
+-
+-		len -= size;
+-		if (len == 0)
+-			break;
+-
+-		err = -EINVAL;
+-		ofs = 0;
+-	}
++	return __concat_xxlock(mtd, ofs, len, mtd_lock);
++}
  
- 	/*
- 	 * PPB unlocking always unlocks all sectors of the flash chip.
-@@ -2640,7 +2639,11 @@ static int __maybe_unused cfi_ppb_unlock(struct mtd_info *mtd, loff_t ofs,
- 	 * first check the locking status of all sectors and save
- 	 * it for future use.
- 	 */
--	sect = kcalloc(MAX_SECTORS, sizeof(struct ppb_lock), GFP_KERNEL);
-+	max_sectors = 0;
-+	for (i = 0; i < mtd->numeraseregions; i++)
-+		max_sectors += regions[i].numblocks;
-+
-+	sect = kcalloc(max_sectors, sizeof(struct ppb_lock), GFP_KERNEL);
- 	if (!sect)
- 		return -ENOMEM;
+-	return err;
++static int concat_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
++{
++	return __concat_xxlock(mtd, ofs, len, mtd_unlock);
+ }
  
-@@ -2689,9 +2692,9 @@ static int __maybe_unused cfi_ppb_unlock(struct mtd_info *mtd, loff_t ofs,
- 		}
- 
- 		sectors++;
--		if (sectors >= MAX_SECTORS) {
-+		if (sectors >= max_sectors) {
- 			printk(KERN_ERR "Only %d sectors for PPB locking supported!\n",
--			       MAX_SECTORS);
-+			       max_sectors);
- 			kfree(sect);
- 			return -EINVAL;
- 		}
+ static void concat_sync(struct mtd_info *mtd)
 -- 
 2.21.0
 
