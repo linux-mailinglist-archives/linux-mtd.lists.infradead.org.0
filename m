@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 064D62AA7C
-	for <lists+linux-mtd@lfdr.de>; Sun, 26 May 2019 17:40:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 434562AA7E
+	for <lists+linux-mtd@lfdr.de>; Sun, 26 May 2019 17:41:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,70 +11,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=sxUwuu0Ey7IAIYUdnI4vPjRktvQhCbUFs93gsGFwCm0=; b=PNC8lbIsFDnWBEHAs4B6cMFJjF
-	H5N88GjaYKCmlDWgfNUUbqxCbKwC3sghFam5Q0B/s454N+Dpg7LELj8JxDobJoYJgqYIipyj/61yr
-	Rq9ZASwgaYRSWPevuM1AS+NFJgCk8RRxy9HSe9AMAuJ+KyvrUUOA3K06VtUYqKTak9/XLoycAbd7M
-	/FEbpzqTi3spf+bt5Wp/Ww21dU7jQFj7BYlp0QgaVdq8iBLtGnackQPFuzAkbtWVh4GsbnU1InoOj
-	OmxK6rHKzog9jz0Wh36ov/v+1A5uDTgajlhMCypBZCaZOae46Ert6SCe4lGE1+sNF/UJJtSpG72PE
-	aVTaIZFw==;
+	bh=tlwXczaZOIInb6SUWIBtDWwkx1ECDlr45aVnDwlRV40=; b=o927rUU4X4I4TXNhDEIBcXRf3V
+	50IVu9PtUHQaQIG/aISIgN+sSmCtVokCpo9NJwBQFFM6VQFyFUqgMOzVWdojm2mIw+d/MR4qsbKCs
+	jv5z/MFnkbBeD0MLBeqzrdduOX8EL7/iDDIY5J+/HGM8NErWp7cW4E4ysLZcKZn0/zGArhKJczIIb
+	c5kbOhmuE369Kr9ugkwPF1Db9uAB5t4O0VAYNWgqMMjJI8EhIQrVYgltMi0CvO9tQt7HV91UykxtS
+	gy6GJJ0oaHiwSNNHoXxccgfWVjHiZ9y+PAeuwFw5/Tw+EGYdSy5c9YRL0j5crz0+S9PVR/aQbZiTO
+	KnFMGrsQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hUvGY-0001wz-4L; Sun, 26 May 2019 15:40:54 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1hUvGs-0002O7-Eu; Sun, 26 May 2019 15:41:14 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hUvFH-0007oi-Mc
- for linux-mtd@lists.infradead.org; Sun, 26 May 2019 15:39:43 +0000
-Received: by mail-pg1-x544.google.com with SMTP id w34so2992627pga.12
- for <linux-mtd@lists.infradead.org>; Sun, 26 May 2019 08:39:35 -0700 (PDT)
+ id 1hUvFK-0007rZ-05
+ for linux-mtd@lists.infradead.org; Sun, 26 May 2019 15:39:46 +0000
+Received: by mail-pl1-x642.google.com with SMTP id a5so6035456pls.12
+ for <linux-mtd@lists.infradead.org>; Sun, 26 May 2019 08:39:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=897Q6Eph5XeMoCZK49286pQ/b4j9jd3UvoSqF7VbKlo=;
- b=V9CR/Cw1S9SBZOsP0cNiLRSqL0zlouFJt4sHNC2qdsZuZ36E3708JwabAVrrte2duQ
- gITFWbgV3+cZd89w69BiA6GRLD6aWNDtPWkww4cNnMAXAsZsnY8rEwwdRDkBy9aYndQA
- Smypi51gp/cb1PHzX3JA27bUafY0RxYbIockSu8XBd3+TdWzmzd2bApqQzvv5zGSv8MA
- y+NA9eUEGQvZWTMyfPeMNhbjGyGObTI3ji+rjk/tOgXjbahrYBbJjmrZx+hXcyqkpKmx
- Xk0L7b+92lKkFpCUg0XA8h0MMCGHwKlkKc+hF1C/UItaetoy8T8shS/a1LCq64Gyh7fi
- eZuA==
+ bh=OcsT+TeLwJHaJWi5Z5XTPHcRNqMSTQZ6xAHA4u5l8OM=;
+ b=TQtplcpdwz+raRzzEEL1gVGY4cocQYOc59by4zoIdGdZLwSEbyIfEmIxUBVku38e3w
+ PqhyCmTz/flsnEDTB1MIbgBBSxeI9wuavnEhGjmPgQbW7e+lc7rLAD7WLATzBfbtguwQ
+ gfhNVb/2TrMlMmWVlA/eoS4Itv0DfBkY6Q5RDg7VjtXd8dzzR1vsR8UC7xhAaUX6N8Cz
+ edMwkq0pEXuQaD3ihn5Lmzl6v51cWJfjdPeDDyuoqGVIWSZNGIKU8kIyJFfqDGbUcWYo
+ 9OTmdbGFYRMGQUFCRRg26CaURzERTaNLM2v5QiV6I2lNkxhzWY/U/i3cI0LZIOplyvBo
+ w4nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=897Q6Eph5XeMoCZK49286pQ/b4j9jd3UvoSqF7VbKlo=;
- b=Muov3Y0zzAZpI9It7eusK+LYGVqjb7XaiBm7w7V6Gu6nt8caXXxdaNvBRNpmrSfB8x
- S3VEjtUHqyTYtFqNXmdyQNexviAh47FoXByuGqxiyKnnWQw32uoj7XgUcQLChLn50hnn
- vChtQld9uCEAiXqydHHkfMFc/ekxmllThDUkAi9MUVgUiOoeE8NF8SlNUDTCihpyMC3R
- o/Z1B5C0OQEp06GphYMA7XT6WNQ2tYPIBc+OOk9Mfz47f2DZGCR8d0HKWy4ZO5YSoaNv
- 4kLSPk3rgZp851IXhrMqApm5iW8GlzYDcc22lfGV+Uues7SwZR7qXocDtizA/un3Em0L
- rUWQ==
-X-Gm-Message-State: APjAAAWdkItJpmYcAaNpY7fWYLn6v8mWl8bkWrCC7+r3/70jXOmur/Xq
- IW9JaX3XcdlyId4941pPhRE=
-X-Google-Smtp-Source: APXvYqxOsCh4OEqXbzmT3pCqs6qOCySFO5A638N98W/HAU0jjwBHr4WKD8styrOfm9UWXuo+VE9H2g==
-X-Received: by 2002:a62:fb18:: with SMTP id x24mr64540869pfm.76.1558885174859; 
- Sun, 26 May 2019 08:39:34 -0700 (PDT)
+ bh=OcsT+TeLwJHaJWi5Z5XTPHcRNqMSTQZ6xAHA4u5l8OM=;
+ b=RrRXpG6HeeahDUvwaUtN0QgDz9o/LDjiNii1FbRr9Z3dO1JVMiWSGrf4eYYfI7A2cm
+ PzhSaWXYnFR301LYSPJbqYegA7SiSpc4+7bL8t/OZLaJTXNL1+2NRBDvoUxsGgTkT5qK
+ fzf6YjcGsby4uEgx7FpBDMIMsqTU/14RpO4/LEPgjW90HiHF0ABgnDTpRVN11f/n3s49
+ xmpRaG9I8Cfvp8t93Z+RCxLi/0lTgdcxhy3PwMNeqWZcRWU0EF4tN8cNZMrnyWfiM/C/
+ avRGn4Xo69d8sxaOgFtCvFqeSSbhdajknO/f5oZl1dTKxAZju4K1GpofqTwVMmmx7tiY
+ EjWQ==
+X-Gm-Message-State: APjAAAWDUiX2nrWKBo3EyVgHryGoc9JMWVual+koPGjVtyglZaw+OQkv
+ qaVJ3mM0QDuvgdlR5YbzFtM=
+X-Google-Smtp-Source: APXvYqylw0ZhMpiqsFJKmZNNjUlU63gHNbfmZi8mdUK6GU1jewCCubiRrvQqJWxGP1nqV2Zv8G+FcQ==
+X-Received: by 2002:a17:902:9348:: with SMTP id
+ g8mr79156435plp.174.1558885176871; 
+ Sun, 26 May 2019 08:39:36 -0700 (PDT)
 Received: from localhost.localdomain (M106072039032.v4.enabler.ne.jp.
  [106.72.39.32])
- by smtp.gmail.com with ESMTPSA id o2sm863129pgm.51.2019.05.26.08.39.33
+ by smtp.gmail.com with ESMTPSA id o2sm863129pgm.51.2019.05.26.08.39.35
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 26 May 2019 08:39:34 -0700 (PDT)
+ Sun, 26 May 2019 08:39:36 -0700 (PDT)
 From: Tokunori Ikegami <ikegami.t@gmail.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>
-Subject: [PATCH v6 07/11] mtd: cfi_cmdset_0002: Remove retry goto statement
- from do_write_oneword()
-Date: Mon, 27 May 2019 00:39:00 +0900
-Message-Id: <20190526153904.28871-8-ikegami.t@gmail.com>
+Subject: [PATCH v6 08/11] mtd: cfi_cmdset_0002: Split write-to-buffer-reset
+ sequence
+Date: Mon, 27 May 2019 00:39:01 +0900
+Message-Id: <20190526153904.28871-9-ikegami.t@gmail.com>
 X-Mailer: git-send-email 2.11.0
 In-Reply-To: <20190526153904.28871-1-ikegami.t@gmail.com>
 References: <20190526153904.28871-1-ikegami.t@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190526_083936_129017_32CDB35A 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20190526_083938_670812_D2456133 
+X-CRM114-Status: GOOD (  16.06  )
 X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:544 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:642 listed in]
  [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
@@ -109,8 +110,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This is just to refactor the function by removing the goto statement.
-Change to use the for loop instead of the goto statement.
+Just refactor to split the sequence from do_write_buffer().
 
 Signed-off-by: Tokunori Ikegami <ikegami.t@gmail.com>
 Cc: Fabio Bettoni <fbettoni@gmail.com>
@@ -128,8 +128,7 @@ Changes since v4:
 - None.
 
 Changes since v3:
-- Rebased.
-- Change the email address of Tokunori Ikegami to ikegami_to@yahoo.co.jp.
+- Just change the email address of Tokunori Ikegami to ikegami_to@yahoo.co.jp.
 
 Changes since v2:
 - None.
@@ -137,37 +136,65 @@ Changes since v2:
 Changes since v1:
 - Add the patch.
 
- drivers/mtd/chips/cfi_cmdset_0002.c | 14 ++++++--------
- 1 file changed, 6 insertions(+), 8 deletions(-)
+ drivers/mtd/chips/cfi_cmdset_0002.c | 38 +++++++++++++++++++++----------------
+ 1 file changed, 22 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/mtd/chips/cfi_cmdset_0002.c b/drivers/mtd/chips/cfi_cmdset_0002.c
-index 597b0f18269f..7784be8246cb 100755
+index 7784be8246cb..a3e57788bc40 100755
 --- a/drivers/mtd/chips/cfi_cmdset_0002.c
 +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-@@ -1684,17 +1684,15 @@ static int __xipram do_write_oneword(struct map_info *map, struct flchip *chip,
- 	ENABLE_VPP(map);
- 	xip_disable(map, chip, adr);
+@@ -1825,6 +1825,27 @@ static int cfi_amdstd_write_words(struct mtd_info *mtd, loff_t to, size_t len,
+ 	return 0;
+ }
  
-- retry:
--	ret = do_write_oneword_once(map, chip, adr, datum, mode, cfi);
--	if (ret) {
-+	for (retry_cnt = 0; retry_cnt < MAX_RETRIES; retry_cnt++) {
-+		ret = do_write_oneword_once(map, chip, adr, datum, mode, cfi);
-+		if (!ret)
-+			break;
++static void __xipram do_write_buffer_reset(struct map_info *map,
++					   struct flchip *chip,
++					   struct cfi_private *cfi)
++{
++	/*
++	 * Recovery from write-buffer programming failures requires
++	 * the write-to-buffer-reset sequence.  Since the last part
++	 * of the sequence also works as a normal reset, we can run
++	 * the same commands regardless of why we are here.
++	 * See e.g.
++	 * http://www.spansion.com/Support/Application%20Notes/MirrorBit_Write_Buffer_Prog_Page_Buffer_Read_AN.pdf
++	 */
++	cfi_send_gen_cmd(0xAA, cfi->addr_unlock1, chip->start, map, cfi,
++			 cfi->device_type, NULL);
++	cfi_send_gen_cmd(0x55, cfi->addr_unlock2, chip->start, map, cfi,
++			 cfi->device_type, NULL);
++	cfi_send_gen_cmd(0xF0, cfi->addr_unlock1, chip->start, map, cfi,
++			 cfi->device_type, NULL);
 +
- 		/* reset on all failures. */
- 		map_write(map, CMD(0xF0), chip->start);
--		/* FIXME - should have reset delay before continuing */
++	/* FIXME - should have reset delay before continuing */
++}
  
--		if (++retry_cnt <= MAX_RETRIES) {
--			ret = 0;
--			goto retry;
--		}
-+		/* FIXME - should have reset delay before continuing */
+ /*
+  * FIXME: interleaved mode not tested, and probably not supported!
+@@ -1931,22 +1952,7 @@ static int __xipram do_write_buffer(struct map_info *map, struct flchip *chip,
  	}
- 	xip_enable(map, chip, adr);
  
+ 	if (ret) {
+-		/*
+-		 * Recovery from write-buffer programming failures requires
+-		 * the write-to-buffer-reset sequence.  Since the last part
+-		 * of the sequence also works as a normal reset, we can run
+-		 * the same commands regardless of why we are here.
+-		 * See e.g.
+-		 * http://www.spansion.com/Support/Application%20Notes/MirrorBit_Write_Buffer_Prog_Page_Buffer_Read_AN.pdf
+-		 */
+-		cfi_send_gen_cmd(0xAA, cfi->addr_unlock1, chip->start, map, cfi,
+-				 cfi->device_type, NULL);
+-		cfi_send_gen_cmd(0x55, cfi->addr_unlock2, chip->start, map, cfi,
+-				 cfi->device_type, NULL);
+-		cfi_send_gen_cmd(0xF0, cfi->addr_unlock1, chip->start, map, cfi,
+-				 cfi->device_type, NULL);
+-		/* FIXME - should have reset delay before continuing */
+-
++		do_write_buffer_reset(map, chip, cfi);
+ 		printk(KERN_WARNING "MTD %s(): software timeout, address:0x%.8lx.\n",
+ 		       __func__, adr);
+ 	}
 -- 
 2.11.0
 
