@@ -2,71 +2,37 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E77FB2E673
-	for <lists+linux-mtd@lfdr.de>; Wed, 29 May 2019 22:48:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E5792E903
+	for <lists+linux-mtd@lfdr.de>; Thu, 30 May 2019 01:24:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cd0zpwqQx8vZuSMYZJS0+P8J6xq4f7ecbR/ZidGp5b4=; b=YAsGnS0um4BkIG
-	ovSnqOLd2CtXS4qA8xqjVDjdwShnu7yJu1jbifo9jSxuQplFyLsxRDPQ/MVJJ+nXc4kvtcyqTWZMT
-	httSFW666CBi+RsgXCnu1U+7/Rs0jDZtqkZTsps7QB9q7tT4A9AyDtHUHPgTiGNigybHCbtaT+2Xx
-	aI1bKnC05MCSgctcW6xOARokKvBefgHKGdtgEtxhvZP1Xh3Y1XY0vOXO1aHvkzS57l6CLnmM6N64A
-	l10FI3FTe5eptf/pHGzEN4AcdjezBJOKcLF5mPQLYqkRI2kqQ8yZ5xkxPpObnvcHRdP42csfGn93K
-	obyqZ9y3DXChYskfOvKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GhbZy/nGbaNrOFVAXOxU9bBd5SKErnj+y2V0QohWj8I=; b=P4qAhz7H7osNyn
+	s+RtluEKobQyzqXMI9qOdFSfZrOGVPaFwdx49X3gFV9o/wJf0tGhRbgzwQD4EZKng+bohTlViSCfx
+	NYvBOLhjbN2E+eJeoV9DoPFeb/kPzWqmFbJwNmVU87ioVrMXVO7bzPH6kFRmVNh/dhmaKggrf2J/v
+	Ou+u40U/Hm3vyhhV9MclR5+x6m6zZpnXru4xt3BxyM0bs/kEwPcTlMPJlypmFaCLOP/i6q6/J0/Ef
+	LciRpHik+8Dsg/ddpwVEKsBVolApXnS56RxiPAeFVcMN+FuNRtUt8xArkh1mW0GRoyTULZgsXr9qk
+	4Yca/jfpcb65bQsv/rYQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hW5UW-00046x-MT; Wed, 29 May 2019 20:48:08 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hW5UM-00046A-GL
- for linux-mtd@lists.infradead.org; Wed, 29 May 2019 20:48:00 +0000
-Received: from gmail.com (unknown [104.132.1.77])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 4B60E2419D;
- Wed, 29 May 2019 20:47:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1559162876;
- bh=/h0YRele2HgHkOZgeVioQRed572yyLTKQ40p6fvDYw8=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Lb1DvaJJHbk0WgcihUPP6WKeOKiLCST6LBMU309vMD6yXyT/o/4JTHPxrFxkTU9EO
- NSM/ONxEZ81Yu4WnG7Vh6YfH08T4wiXKKCHwNySkJGtxqZE5k4Ys/uctQ+Tlzg3Jug
- K6XB6SwDdiK2V2HU79sMV/UvG7D8wgagV6puSOcg=
-Date: Wed, 29 May 2019 13:47:54 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-fscrypt@vger.kernel.org
-Subject: Re: [PATCH v2 00/14] fscrypt, ext4: prepare for blocksize != PAGE_SIZE
-Message-ID: <20190529204753.GB141639@gmail.com>
-References: <20190520162952.156212-1-ebiggers@kernel.org>
+	id 1hW7vh-0005kf-Fh; Wed, 29 May 2019 23:24:21 +0000
+Received: from 177.132.232.81.dynamic.adsl.gvt.net.br ([177.132.232.81]
+ helo=bombadil.infradead.org)
+ by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hW7vL-0005Rx-II; Wed, 29 May 2019 23:23:59 +0000
+Received: from mchehab by bombadil.infradead.org with local (Exim 4.92)
+ (envelope-from <mchehab@bombadil.infradead.org>)
+ id 1hW7vI-0007wg-Fn; Wed, 29 May 2019 20:23:56 -0300
+From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
+Subject: [PATCH 00/22] Some documentation fixes
+Date: Wed, 29 May 2019 20:23:31 -0300
+Message-Id: <cover.1559171394.git.mchehab+samsung@kernel.org>
+X-Mailer: git-send-email 2.21.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20190520162952.156212-1-ebiggers@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190529_134758_572886_BB48E82D 
-X-CRM114-Status: GOOD (  15.85  )
-X-Spam-Score: 1.1 (+)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.1 points)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- 3.8 FSL_HELO_FAKE          No description available.
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 2.5 SUSPICIOUS_RECIPS      Similar addresses in recipient list
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -78,84 +44,152 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ext4@vger.kernel.org, linux-mtd@lists.infradead.org,
- Chandan Rajendra <chandan@linux.ibm.com>,
- linux-f2fs-devel@lists.sourceforge.net
+Cc: alsa-devel@alsa-project.org, kvm@vger.kernel.org, linux-pci@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, virtualization@lists.linux-foundation.org,
+ linux-mm@kvack.org, keyrings@vger.kernel.org, linux-mtd@lists.infradead.org,
+ linux-i2c@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, devel@driverdev.osuosl.org,
+ Jonathan Corbet <corbet@lwn.net>, x86@kernel.org, linux-acpi@vger.kernel.org,
+ xen-devel@lists.xenproject.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org, Mauro Carvalho Chehab <mchehab@infradead.org>,
+ linux-gpio@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ bpf@vger.kernel.org, devel@acpica.org, patches@opensource.cirrus.com,
+ linux-kernel@vger.kernel.org, linux-security-module@vger.kernel.org,
+ netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, May 20, 2019 at 09:29:38AM -0700, Eric Biggers wrote:
-> Hello,
-> 
-> This patchset prepares fs/crypto/, and partially ext4, for the
-> 'blocksize != PAGE_SIZE' case.
-> 
-> This basically contains the encryption changes from Chandan Rajendra's
-> patchset "[V2,00/13] Consolidate FS read I/O callbacks code"
-> (https://patchwork.kernel.org/project/linux-fscrypt/list/?series=111039)
-> that don't require introducing the read_callbacks and don't depend on
-> fsverity stuff.  But they've been reworked to clean things up a lot.
-> 
-> I'd like to apply this patchset for 5.3 in order to make things forward
-> for ext4 encryption with 'blocksize != PAGE_SIZE'.
-> 
-> AFAICT, after this patchset the only thing stopping ext4 encryption from
-> working with blocksize != PAGE_SIZE is the lack of encryption support in
-> block_read_full_page(), which the read_callbacks will address.
-> 
-> This patchset applies to v5.2-rc1, and it can also be retrieved from git
-> at https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git
-> branch "fscrypt-subpage-blocks-prep".
-> 
-> Changed since v1 (minor cleanups only):
-> 
-> - In "fscrypt: simplify bounce page handling", also remove
->   the definition of FS_CTX_HAS_BOUNCE_BUFFER_FL.
-> 
-> - In "ext4: decrypt only the needed blocks in ext4_block_write_begin()",
->   simplify the code slightly by moving the IS_ENCRYPTED() check.
-> 
-> - Change __fscrypt_decrypt_bio() in a separate patch rather than as part
->   of "fscrypt: support decrypting multiple filesystem blocks per page".
->   The resulting code is the same, so I kept Chandan's Reviewed-by.
-> 
-> - Improve the commit message of
->   "fscrypt: introduce fscrypt_decrypt_block_inplace()".
-> 
-> Chandan Rajendra (3):
->   ext4: clear BH_Uptodate flag on decryption error
->   ext4: decrypt only the needed blocks in ext4_block_write_begin()
->   ext4: decrypt only the needed block in __ext4_block_zero_page_range()
-> 
-> Eric Biggers (11):
->   fscrypt: simplify bounce page handling
->   fscrypt: remove the "write" part of struct fscrypt_ctx
->   fscrypt: rename fscrypt_do_page_crypto() to fscrypt_crypt_block()
->   fscrypt: clean up some BUG_ON()s in block encryption/decryption
->   fscrypt: introduce fscrypt_encrypt_block_inplace()
->   fscrypt: support encrypting multiple filesystem blocks per page
->   fscrypt: handle blocksize < PAGE_SIZE in fscrypt_zeroout_range()
->   fscrypt: introduce fscrypt_decrypt_block_inplace()
->   fscrypt: support decrypting multiple filesystem blocks per page
->   fscrypt: decrypt only the needed blocks in __fscrypt_decrypt_bio()
->   ext4: encrypt only up to last block in ext4_bio_write_page()
-> 
->  fs/crypto/bio.c             |  73 +++------
->  fs/crypto/crypto.c          | 299 ++++++++++++++++++++----------------
->  fs/crypto/fscrypt_private.h |  15 +-
->  fs/ext4/inode.c             |  37 +++--
->  fs/ext4/page-io.c           |  44 +++---
->  fs/f2fs/data.c              |  17 +-
->  fs/ubifs/crypto.c           |  19 +--
->  include/linux/fscrypt.h     |  96 ++++++++----
->  8 files changed, 319 insertions(+), 281 deletions(-)
-> 
+Fix several warnings and broken links.
 
-I've applied this series to fscrypt.git for 5.3.
+This series was generated against linux-next, but was rebased to be applied at
+docs-next. It should apply cleanly on either tree.
 
-- Eric
+There's a git tree with all of them applied on the top of docs/docs-next
+at:
+
+https://git.linuxtv.org/mchehab/experimental.git/log/?h=fix_doc_links_v2
+
+
+Mauro Carvalho Chehab (21):
+  ABI: sysfs-devices-system-cpu: point to the right docs
+  isdn: mISDN: remove a bogus reference to a non-existing doc
+  dt: fix broken references to nand.txt
+  docs: zh_CN: get rid of basic_profiling.txt
+  doc: it_IT: fix reference to magic-number.rst
+  docs: mm: numaperf.rst: get rid of a build warning
+  docs: bpf: get rid of two warnings
+  docs: mark orphan documents as such
+  docs: amd-memory-encryption.rst get rid of warnings
+  gpu: amdgpu: fix broken amdgpu_dma_buf.c references
+  gpu: i915.rst: Fix references to renamed files
+  docs: zh_CN: avoid duplicate citation references
+  docs: vm: hmm.rst: fix some warnings
+  docs: it: license-rules.rst: get rid of warnings
+  docs: gpio: driver.rst: fix a bad tag
+  docs: soundwire: locking: fix tags for a code-block
+  docs: security: trusted-encrypted.rst: fix code-block tag
+  docs: security: core.rst: Fix several warnings
+  docs: net: dpio-driver.rst: fix two codeblock warnings
+  docs: net: sja1105.rst: fix table format
+  docs: fix broken documentation links
+
+Otto Sabart (1):
+  mfd: madera: Fix bad reference to pinctrl.txt file
+
+ .../ABI/testing/sysfs-devices-system-cpu      |  3 +-
+ Documentation/accelerators/ocxl.rst           |  2 +
+ Documentation/acpi/dsd/leds.txt               |  2 +-
+ .../admin-guide/kernel-parameters.rst         |  6 +-
+ .../admin-guide/kernel-parameters.txt         | 16 ++---
+ Documentation/admin-guide/mm/numaperf.rst     |  5 +-
+ Documentation/admin-guide/ras.rst             |  2 +-
+ Documentation/arm/stm32/overview.rst          |  2 +
+ .../arm/stm32/stm32f429-overview.rst          |  2 +
+ .../arm/stm32/stm32f746-overview.rst          |  2 +
+ .../arm/stm32/stm32f769-overview.rst          |  2 +
+ .../arm/stm32/stm32h743-overview.rst          |  2 +
+ .../arm/stm32/stm32mp157-overview.rst         |  2 +
+ Documentation/bpf/btf.rst                     |  2 +
+ .../bindings/mtd/amlogic,meson-nand.txt       |  2 +-
+ .../devicetree/bindings/mtd/gpmc-nand.txt     |  2 +-
+ .../devicetree/bindings/mtd/marvell-nand.txt  |  2 +-
+ .../devicetree/bindings/mtd/tango-nand.txt    |  2 +-
+ .../devicetree/bindings/net/fsl-enetc.txt     |  7 +-
+ .../bindings/pci/amlogic,meson-pcie.txt       |  2 +-
+ .../regulator/qcom,rpmh-regulator.txt         |  2 +-
+ .../devicetree/booting-without-of.txt         |  2 +-
+ Documentation/driver-api/gpio/board.rst       |  2 +-
+ Documentation/driver-api/gpio/consumer.rst    |  2 +-
+ Documentation/driver-api/gpio/driver.rst      |  2 +-
+ .../driver-api/soundwire/locking.rst          |  4 +-
+ .../firmware-guide/acpi/enumeration.rst       |  2 +-
+ .../firmware-guide/acpi/method-tracing.rst    |  2 +-
+ Documentation/gpu/amdgpu.rst                  |  4 +-
+ Documentation/gpu/i915.rst                    |  6 +-
+ Documentation/gpu/msm-crash-dump.rst          |  2 +
+ Documentation/i2c/instantiating-devices       |  2 +-
+ Documentation/interconnect/interconnect.rst   |  2 +
+ Documentation/laptops/lg-laptop.rst           |  2 +
+ .../freescale/dpaa2/dpio-driver.rst           |  4 +-
+ Documentation/networking/dsa/sja1105.rst      |  6 +-
+ Documentation/powerpc/isa-versions.rst        |  2 +
+ Documentation/security/keys/core.rst          | 16 +++--
+ .../security/keys/trusted-encrypted.rst       |  4 +-
+ Documentation/sysctl/kernel.txt               |  4 +-
+ .../translations/it_IT/process/howto.rst      |  2 +-
+ .../it_IT/process/license-rules.rst           | 28 ++++----
+ .../it_IT/process/magic-number.rst            |  2 +-
+ .../it_IT/process/stable-kernel-rules.rst     |  4 +-
+ .../translations/zh_CN/basic_profiling.txt    | 71 -------------------
+ .../translations/zh_CN/process/4.Coding.rst   |  2 +-
+ .../zh_CN/process/management-style.rst        |  4 +-
+ .../zh_CN/process/programming-language.rst    | 28 ++++----
+ .../virtual/kvm/amd-memory-encryption.rst     |  5 ++
+ Documentation/virtual/kvm/vcpu-requests.rst   |  2 +
+ Documentation/vm/hmm.rst                      |  9 ++-
+ Documentation/x86/x86_64/5level-paging.rst    |  2 +-
+ Documentation/x86/x86_64/boot-options.rst     |  4 +-
+ .../x86/x86_64/fake-numa-for-cpusets.rst      |  2 +-
+ MAINTAINERS                                   |  6 +-
+ arch/arm/Kconfig                              |  2 +-
+ arch/arm64/kernel/kexec_image.c               |  2 +-
+ arch/powerpc/Kconfig                          |  2 +-
+ arch/x86/Kconfig                              | 16 ++---
+ arch/x86/Kconfig.debug                        |  2 +-
+ arch/x86/boot/header.S                        |  2 +-
+ arch/x86/entry/entry_64.S                     |  2 +-
+ arch/x86/include/asm/bootparam_utils.h        |  2 +-
+ arch/x86/include/asm/page_64_types.h          |  2 +-
+ arch/x86/include/asm/pgtable_64_types.h       |  2 +-
+ arch/x86/kernel/cpu/microcode/amd.c           |  2 +-
+ arch/x86/kernel/kexec-bzimage64.c             |  2 +-
+ arch/x86/kernel/pci-dma.c                     |  2 +-
+ arch/x86/mm/tlb.c                             |  2 +-
+ arch/x86/platform/pvh/enlighten.c             |  2 +-
+ drivers/acpi/Kconfig                          | 10 +--
+ drivers/isdn/mISDN/dsp_core.c                 |  2 -
+ drivers/net/ethernet/faraday/ftgmac100.c      |  2 +-
+ .../fieldbus/Documentation/fieldbus_dev.txt   |  4 +-
+ drivers/vhost/vhost.c                         |  2 +-
+ include/acpi/acpi_drivers.h                   |  2 +-
+ include/linux/fs_context.h                    |  2 +-
+ include/linux/lsm_hooks.h                     |  2 +-
+ include/linux/mfd/madera/pdata.h              |  3 +-
+ mm/Kconfig                                    |  2 +-
+ security/Kconfig                              |  2 +-
+ tools/include/linux/err.h                     |  2 +-
+ .../Documentation/stack-validation.txt        |  4 +-
+ tools/testing/selftests/x86/protection_keys.c |  2 +-
+ 84 files changed, 183 insertions(+), 212 deletions(-)
+ delete mode 100644 Documentation/translations/zh_CN/basic_profiling.txt
+
+-- 
+2.21.0
+
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
