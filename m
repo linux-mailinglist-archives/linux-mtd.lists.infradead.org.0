@@ -2,39 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A2612E900
-	for <lists+linux-mtd@lfdr.de>; Thu, 30 May 2019 01:24:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 488F72FF56
+	for <lists+linux-mtd@lfdr.de>; Thu, 30 May 2019 17:21:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZwqKc/pE4hkVcONe3fQFtXChp0dBEWvKXEfBS1BMgI8=; b=kuuaCNWLsjU1lA
-	XZk1RHNIaEaA71zws2X9l0v54HVkAyVFO4POnY2Y/dnvurLRhBoXK4HWjHzZOGk8XVtKCrIzvCCMR
-	3U+vA/jERhQz5EePuOE1j8Iy1HgSzRHUwhFcKs5ve3dIlqd+6RtDXbQiUaLFBlX+Ei3Z7Pz9CQyuM
-	aHXVOxnze1PhtVtjgXEaR0EU27LzcmzynTVAfaGAPXkNhFslqT6Q75Uxx+3heRsZS9tpaato7ld93
-	RGpgVl7N2TMKdU39nBfBRK8M969qfQMD9VekdYzZblBsxeSimHzKyQTKXnmlBcXd+spk6v4v/5nIa
-	2LdSBNVHreT+IJV+SlAQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7z4p5w8F7Ww4KrhqvRLZgaK6zZLNZ3p8Q+b6EfvpHWM=; b=RCyqxL4zKTpUTM
+	6ooKOsxXkEfzu09u4B8sgAgCCm050PcEGGMyQrsJ+9HmckHSIh5zf90MhrdmQ6pGysvvow5w9sBU/
+	h5vVp9qKAHv8ujhDsflfQlLZ7EkgBbk2x16vRch9OT3RqheRYgd8ylgNXadsfK4zHQCaHfCIpup9B
+	JcdGpC+Jlo/0Y5h1QAlWih0e2a8OLPuGXLSi/2qDXp5cV3SJAlVjsp6cVLOsP8Ml6NYT4b+CPCpY3
+	s9DtkKToAWb6NwJOUZwxPequG0m+rVXlIs608qCcA4KDKFtsg8d+JtGRL+oOq6xSANwiwUJ4uWv50
+	YHbh5LSG0lxt3DPDRvQQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hW7vY-0005XX-7s; Wed, 29 May 2019 23:24:12 +0000
-Received: from 177.132.232.81.dynamic.adsl.gvt.net.br ([177.132.232.81]
- helo=bombadil.infradead.org)
- by bombadil.infradead.org with esmtpsa (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hW7vL-0005Ru-I0; Wed, 29 May 2019 23:23:59 +0000
-Received: from mchehab by bombadil.infradead.org with local (Exim 4.92)
- (envelope-from <mchehab@bombadil.infradead.org>)
- id 1hW7vI-0007wt-IQ; Wed, 29 May 2019 20:23:56 -0300
-From: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
-To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
-Subject: [PATCH 03/22] dt: fix broken references to nand.txt
-Date: Wed, 29 May 2019 20:23:34 -0300
-Message-Id: <21356cd8ffb906c77e83220e842d0443a5666aa0.1559171394.git.mchehab+samsung@kernel.org>
-X-Mailer: git-send-email 2.21.0
-In-Reply-To: <cover.1559171394.git.mchehab+samsung@kernel.org>
-References: <cover.1559171394.git.mchehab+samsung@kernel.org>
+	id 1hWMrs-0007Zs-DZ; Thu, 30 May 2019 15:21:24 +0000
+Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hWMrk-0007ZU-HR
+ for linux-mtd@lists.infradead.org; Thu, 30 May 2019 15:21:18 +0000
+Received: by mail-pf1-x441.google.com with SMTP id c14so1764190pfi.1
+ for <linux-mtd@lists.infradead.org>; Thu, 30 May 2019 08:21:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=xRjvhoqF+poq2aNfNtjW3hCXw5XIgD2Cm81ruqRXoTQ=;
+ b=PMC8FY/MuPFdoNQRgkjDPUDp0cNcXVUYScaGTSinnr+I8YebzKQtj1DrqPe28qgTG9
+ xtdSnv0irLupZSrsfdZchykLFG7M4hlyMyZLA+x8ypC9OiXlDQJzbVVWqkxCoyek9VTT
+ jDfsLc1U2CXGneMLhl/oxC7KRtHnjFT/lBnDI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=xRjvhoqF+poq2aNfNtjW3hCXw5XIgD2Cm81ruqRXoTQ=;
+ b=FHdBPhOk9fyfxv+YeynqDT5Dev3s+IVuZtBmkmkPsVInaY2gGWiENbHqDGGTq7TBRR
+ Xw5HJKqY4hdwv+w6dUFuxS/MmxSlTWnbWL9uyubcokWvuGiyF7ouRZPEX+KipcEZuFrE
+ H/Fgf5FIM24u2ZXEyi5iSvNlAvqduUvyM5deq3JtKCkiKmYmA4AJoNmmxHmLOF+m0EFa
+ V7sYZAmi4IIoNd3Ze1B5OLcar8CKXbq3cgP3yb093q/IiclEc/2GRjYrv3qDiJF3KlX4
+ k6jwE+UTXOs98y8fdLlv6R5BWXm2yC0LLzU8IXvMHPxgdYwt+zP3Ihm9a4rGsDB605NW
+ P1Ng==
+X-Gm-Message-State: APjAAAXB1XebCjs9zbZJ0+Me+MzTu/Tx8//ZZMcRXgtOz0KLqPT3CZfR
+ n7+bRi8NS5imXzN/P+R4/Pz4ty964PI=
+X-Google-Smtp-Source: APXvYqwEs9wuzeGKeY2PhQiyD2jO6JUkmikVqzEdRrR/JqY8kGpfDMSGJseSQ6HZ9LvbyuAJEtdrMg==
+X-Received: by 2002:a62:3145:: with SMTP id x66mr4290394pfx.223.1559229674754; 
+ Thu, 30 May 2019 08:21:14 -0700 (PDT)
+Received: from zhuohao-z440.tpe.corp.google.com
+ ([2401:fa00:1:10:e25c:13cd:9607:cc7f])
+ by smtp.gmail.com with ESMTPSA id j22sm3198663pfh.71.2019.05.30.08.21.12
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 30 May 2019 08:21:14 -0700 (PDT)
+From: Zhuohao Lee <zhuohao@chromium.org>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCH v4 1/2] mtd: mtdcore: add debugfs nodes for querying the flash
+ name and id
+Date: Thu, 30 May 2019 23:21:00 +0800
+Message-Id: <20190530152101.176431-1-zhuohao@chromium.org>
+X-Mailer: git-send-email 2.22.0.rc1.257.g3120a18244-goog
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190530_082116_600075_AD2EDA7D 
+X-CRM114-Status: GOOD (  14.77  )
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
+ Content analysis details:   (-0.2 points)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:441 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -46,91 +93,147 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Mans Rullgard <mans@mansr.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Jonathan Corbet <corbet@lwn.net>, Richard Weinberger <richard@nod.at>,
- Marc Gonzalez <marc.w.gonzalez@free.fr>, linux-kernel@vger.kernel.org,
- Rob Herring <robh+dt@kernel.org>,
- Mauro Carvalho Chehab <mchehab@infradead.org>,
- Marek Vasut <marek.vasut@gmail.com>, Liang Yang <liang.yang@amlogic.com>,
- linux-mtd@lists.infradead.org, Kevin Hilman <khilman@baylibre.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
- linux-amlogic@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, linux-arm-kernel@lists.infradead.org
+Cc: drinkcat@chromium.org, zhuohao@chromium.org, bbrezillon@kernel.org,
+ richard@nod.at, briannorris@chromium.org, marek.vasut@gmail.com,
+ boris.brezillon@collabora.com, computersforpeace@gmail.com,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The Documentation/devicetree/bindings/mtd/nand.txt were both renamed
-and converted to YAML on a single patch, without updating references
-to it. That caused several cross-references to break.
+Currently, we don't have vfs nodes for querying the underlying flash name
+and flash id. This information is important especially when we want to
+know the flash detail of the defective system. In order to support the
+query, we add mtd_debugfs_populate() to create two debugfs nodes
+(ie. partname and partid). The upper driver can assign the pointer to
+partname and partid before calling mtd_device_register().
 
-Fixes: 212e49693592 ("dt-bindings: mtd: Add YAML schemas for the generic NAND options")
-
-Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
+Signed-off-by: Zhuohao Lee <zhuohao@chromium.org>
 ---
- Documentation/devicetree/bindings/mtd/amlogic,meson-nand.txt | 2 +-
- Documentation/devicetree/bindings/mtd/gpmc-nand.txt          | 2 +-
- Documentation/devicetree/bindings/mtd/marvell-nand.txt       | 2 +-
- Documentation/devicetree/bindings/mtd/tango-nand.txt         | 2 +-
- 4 files changed, 4 insertions(+), 4 deletions(-)
+Changes in V4:
+- Separate the change to two patches. The first patch is adding the general
+  handling for the partname and partid in the mtdcore.c. The second patch
+  is enabling the two debugfs nodes for spi-nor.
+- Previous discussion: https://patchwork.ozlabs.org/patch/1097377/
+Changes in v3:
+- Add partname and partid to mtd.h and create debugfs inside mtdcore.c
+- Previous discussion: https://patchwork.ozlabs.org/patch/1095731/
+Changes in v2:
+- Change to use debugfs to output flash name and id
+- Previous discussion: https://patchwork.ozlabs.org/patch/1067763/
+---
+ drivers/mtd/mtdcore.c   | 72 +++++++++++++++++++++++++++++++++++++++++
+ include/linux/mtd/mtd.h |  4 +++
+ 2 files changed, 76 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mtd/amlogic,meson-nand.txt b/Documentation/devicetree/bindings/mtd/amlogic,meson-nand.txt
-index 3983c11e062c..5794ab1147c1 100644
---- a/Documentation/devicetree/bindings/mtd/amlogic,meson-nand.txt
-+++ b/Documentation/devicetree/bindings/mtd/amlogic,meson-nand.txt
-@@ -24,7 +24,7 @@ Optional children nodes:
- Children nodes represent the available nand chips.
+diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
+index 3ef01baef9b6..b53b40cb2f04 100644
+--- a/drivers/mtd/mtdcore.c
++++ b/drivers/mtd/mtdcore.c
+@@ -357,6 +357,75 @@ static const struct device_type mtd_devtype = {
+ 	.release	= mtd_release,
+ };
  
- Other properties:
--see Documentation/devicetree/bindings/mtd/nand.txt for generic bindings.
-+see Documentation/devicetree/bindings/mtd/nand-controller.yaml for generic bindings.
++static int mtd_partid_show(struct seq_file *s, void *p)
++{
++	struct mtd_info *mtd = s->private;
++
++	if (!mtd->dbg.partid)
++		return 0;
++
++	seq_printf(s, "%s\n", mtd->dbg.partid);
++
++	return 0;
++}
++
++static int mtd_partid_debugfs_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, mtd_partid_show, inode->i_private);
++}
++
++static const struct file_operations mtd_partid_debug_fops = {
++	.open           = mtd_partid_debugfs_open,
++	.read           = seq_read,
++	.llseek         = seq_lseek,
++	.release        = single_release,
++};
++
++static int mtd_partname_show(struct seq_file *s, void *p)
++{
++	struct mtd_info *mtd = s->private;
++
++	if (!mtd->dbg.partname)
++		return 0;
++
++	seq_printf(s, "%s\n", mtd->dbg.partname);
++
++	return 0;
++}
++
++static int mtd_partname_debugfs_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, mtd_partname_show, inode->i_private);
++}
++
++static const struct file_operations mtd_partname_debug_fops = {
++	.open           = mtd_partname_debugfs_open,
++	.read           = seq_read,
++	.llseek         = seq_lseek,
++	.release        = single_release,
++};
++
++static int mtd_debugfs_populate(struct mtd_info *mtd)
++{
++	struct dentry *root = mtd->dbg.dfs_dir;
++	struct dentry *dent;
++
++	dent = debugfs_create_file("partid", S_IRUSR, root, mtd,
++				   &mtd_partid_debug_fops);
++	if (IS_ERR_OR_NULL(dent)) {
++		pr_err("cannot create debugfs entry for partid\n");
++		return -ENODEV;
++	}
++	dent = debugfs_create_file("partname", S_IRUSR, root, mtd,
++				   &mtd_partname_debug_fops);
++	if (IS_ERR_OR_NULL(dent)) {
++		pr_err("cannot create debugfs entry for partname\n");
++		return -ENODEV;
++	}
++
++	return 0;
++}
++
+ #ifndef CONFIG_MMU
+ unsigned mtd_mmap_capabilities(struct mtd_info *mtd)
+ {
+@@ -626,6 +695,9 @@ int add_mtd_device(struct mtd_info *mtd)
+ 		if (IS_ERR_OR_NULL(mtd->dbg.dfs_dir)) {
+ 			pr_debug("mtd device %s won't show data in debugfs\n",
+ 				 dev_name(&mtd->dev));
++		} else if (mtd_debugfs_populate(mtd)) {
++			pr_debug("mtd device %s can't create debugfs\n",
++				 dev_name(&mtd->dev));
+ 		}
+ 	}
  
- Example demonstrate on AXG SoC:
+diff --git a/include/linux/mtd/mtd.h b/include/linux/mtd/mtd.h
+index 677768b21a1d..c20f53c77899 100644
+--- a/include/linux/mtd/mtd.h
++++ b/include/linux/mtd/mtd.h
+@@ -203,6 +203,10 @@ struct module;	/* only needed for owner field in mtd_info */
+  */
+ struct mtd_debug_info {
+ 	struct dentry *dfs_dir;
++
++	/* debugfs stuff starts here */
++	const char *partname;
++	const char *partid;
+ };
  
-diff --git a/Documentation/devicetree/bindings/mtd/gpmc-nand.txt b/Documentation/devicetree/bindings/mtd/gpmc-nand.txt
-index c059ab74ed88..44919d48d241 100644
---- a/Documentation/devicetree/bindings/mtd/gpmc-nand.txt
-+++ b/Documentation/devicetree/bindings/mtd/gpmc-nand.txt
-@@ -8,7 +8,7 @@ explained in a separate documents - please refer to
- Documentation/devicetree/bindings/memory-controllers/omap-gpmc.txt
- 
- For NAND specific properties such as ECC modes or bus width, please refer to
--Documentation/devicetree/bindings/mtd/nand.txt
-+Documentation/devicetree/bindings/mtd/nand-controller.yaml
- 
- 
- Required properties:
-diff --git a/Documentation/devicetree/bindings/mtd/marvell-nand.txt b/Documentation/devicetree/bindings/mtd/marvell-nand.txt
-index e0c790706b9b..7eeef1e1ed30 100644
---- a/Documentation/devicetree/bindings/mtd/marvell-nand.txt
-+++ b/Documentation/devicetree/bindings/mtd/marvell-nand.txt
-@@ -58,7 +58,7 @@ Optional properties:
-   Step sizes are not completely random for all and follow certain
-   patterns described in AN-379, "Marvell SoC NFC ECC".
- 
--See Documentation/devicetree/bindings/mtd/nand.txt for more details on
-+See Documentation/devicetree/bindings/mtd/nand-controller.yaml for more details on
- generic bindings.
- 
- 
-diff --git a/Documentation/devicetree/bindings/mtd/tango-nand.txt b/Documentation/devicetree/bindings/mtd/tango-nand.txt
-index cd1bf2ac9055..91c8420241af 100644
---- a/Documentation/devicetree/bindings/mtd/tango-nand.txt
-+++ b/Documentation/devicetree/bindings/mtd/tango-nand.txt
-@@ -11,7 +11,7 @@ Required properties:
- - #size-cells: <0>
- 
- Children nodes represent the available NAND chips.
--See Documentation/devicetree/bindings/mtd/nand.txt for generic bindings.
-+See Documentation/devicetree/bindings/mtd/nand-controller.yaml for generic bindings.
- 
- Example:
- 
+ struct mtd_info {
 -- 
-2.21.0
+2.22.0.rc1.257.g3120a18244-goog
 
 
 ______________________________________________________
