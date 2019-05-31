@@ -2,91 +2,94 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F0853041A
-	for <lists+linux-mtd@lfdr.de>; Thu, 30 May 2019 23:21:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 21C49314C6
+	for <lists+linux-mtd@lfdr.de>; Fri, 31 May 2019 20:32:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=tsWjDliLVVuJKk929MRaJ4E69CQez7gUp5GiPbi++WI=; b=P/9bPcFnR+Vc95SI6lgSDeRH6V
-	dwp3q1laMvNbDeeKSNnRBUkDYEmRMUY4ItW/NrJ3+onrpFtXYkOOiXs6BXTex9SogBQ6qqXBk/ihg
-	3ZvdCDBKgjPm/yI3UxVBL+XGvTE9COPMd/ZQhgo5unOLC7EkhITSUXrarH8tNSS3Ys021D6RhbF+c
-	FykHvXRtF4Z9twc/B2BvZrUQBFVQaikviHGwJ07x+LDOlXIzNO3YBDNKJMLQug0CR+CvXW1OZq+1b
-	e3ElSbu+JmAjKFU8a/3OT3FmyxCBAVCPQFQ8gLm0wVW+XcY+A4ulpnCGmogy2HMkInxRc9P01gI3Z
-	FnNOYSJw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jq02kbDvTneuaybM/Nu/c3aRFziz+86SV7+jr74rdEw=; b=XAeVFi6JLJbXs+
+	q1Tth5rDNG68LISUEXJ64oRm/l51BZlsxlyUUgQg0F2nCz7DB18AcSa/y0RqqnuzkhZzs6wMx7UEO
+	c36e6k5IVkMUVl/vs7TExHbOhmhhcTKq1OOL5Se9g9KoNm11/pfw3oUGb3sogK/MtBhqLSpu3/8jO
+	2412w63l7ygvOM9PDdyRYLmCYLq2lAm0NUBLv2qJsQlvwRxjGIhUNtw7pYgu/OM03x81gsU3qLTmb
+	izswMQjgwMK23iqZJMxkyDe7zj8pktybPOJ1Bw3ZaJTgTVlJGV7HdJQj6tDmJhsDSrr/cGHYEpuoA
+	t9vqDEZs38SQK9rgwb7A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hWSUX-0003hb-3v; Thu, 30 May 2019 21:21:41 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1hWmJr-0004Sf-OS; Fri, 31 May 2019 18:31:59 +0000
+Received: from mail-lf1-x143.google.com ([2a00:1450:4864:20::143])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hWSUI-0003Wz-R4
- for linux-mtd@lists.infradead.org; Thu, 30 May 2019 21:21:32 +0000
-Received: by mail-ed1-x543.google.com with SMTP id y15so5161264edo.8
- for <linux-mtd@lists.infradead.org>; Thu, 30 May 2019 14:21:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=Qzbfu0dliCkkEmJ1UFnYukQdP9RWNNavonlb+Fp2x7g=;
- b=N6vjmWjy73gJGAwNl3ai5Uybv0PFyuyvJaAPxAibzRxqUVjyvhUg2NhHoega74+C8c
- B1nVuyy3hJ9/oHxD9EMRLQ9Rp3o0aMiKODRU3frOrC616DVBH9SAaW6w8NX37vRyhW/O
- L2G7hByWBQr2BCsqkm+KpOmOLAZmcS7FobnGSvlGeKWLpUriE8ZAZZ3zQeMFdS7WUH5b
- vWS+n+5SATB6kCzCtSLQrCdtIdVYsHxiBmWZugnMX0mNrpziiDRxpy4VVfo4mUzNLCN1
- T9DKSmHlkGChdIlLj1LoCb3UqZXMPTjyLxBtlNKx1ue7I6z8bdFeI8LyEZnTrKLt6D5i
- lrAg==
+ id 1hWmJj-0004SA-Ty
+ for linux-mtd@lists.infradead.org; Fri, 31 May 2019 18:31:53 +0000
+Received: by mail-lf1-x143.google.com with SMTP id y13so8671775lfh.9
+ for <linux-mtd@lists.infradead.org>; Fri, 31 May 2019 11:31:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
+ h=from:subject:to:references:cc:organization:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=LKyWUKEvfM1fzUvfhVPjqkU6bFidAIH+7Nxwrly31cY=;
+ b=pTE0qPcrgsFhHlYnCVNYBZGcUADT6SeE5kPaTeHm8m00++8QPf+o8i7QecbDMNgq7z
+ IgZ3ORWP7ngHem8qZmexXRfq2zEbivbJbqqMalXtgdxXpiAJ3Um/glGL82BXC4E9Xr38
+ UilcKnlZK0gEc2A0OZUCfAdU3GF1g8IrpVcLmz5TtEvSPsu6lZcJDQwq4EQVne9RA21G
+ azt8uun7Nvdao868hSM20mYDKKclekrVuQGvf/A8uVk5x3UAUcxZV3YnYw2EJpADee38
+ lk1+00Ok4qR+jSSdo5sCojVTesFUwySz2/sE+o1Z7G8aq8e0hiMHAy23s8OKwwDzWQ2x
+ p6rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=Qzbfu0dliCkkEmJ1UFnYukQdP9RWNNavonlb+Fp2x7g=;
- b=TDI+y/R0R8hpN6XYvYNiP4/kloQVkjqOPo27B9gItXF6YlOEhGZI1+chsTfi0Alwvw
- XlMkheu7yg+R6/xooOkAsx9vAuL9vg6UUZsyAlfyd/cwuwUdodSTldjifxwGIlREic37
- mBYhPRzQtYsBSFXGYacXR5ZrKDu2NB4s/mrb6eoIGAqJYSCULgdvnqb+l+vBUvOBRkt5
- SpTXqAsRDCGmA2EzuftgoZ4XVHCe//M1FAxv/2BIH0nWN7k5TxnKPJnZx01JPvscwW4d
- dkpjc59kf+UCSxHBVZkQSmrBEaSnqPjCTMnV4HKJiHukogw3/hyBqZQqvQx9q57ZLEuB
- 3WkQ==
-X-Gm-Message-State: APjAAAWVV+My/P/puDPDHhy7NpX1qalW0wClxtQPGfssToZYqUcXjO+7
- OoKP5ZsaKkFITyKkrnpwdxYiFPWd
-X-Google-Smtp-Source: APXvYqzRR8gKNI+QpfK/2N0R8st5YfVLx33/T/e2b+X2T7vDp5V2dfBvEgtcUFXa4rQ2gOUlOrnsNw==
-X-Received: by 2002:a17:906:3b8f:: with SMTP id
- u15mr5624827ejf.6.1559251284636; 
- Thu, 30 May 2019 14:21:24 -0700 (PDT)
-Received: from mail.broadcom.com ([192.19.231.250])
- by smtp.gmail.com with ESMTPSA id h25sm597082ejz.10.2019.05.30.14.21.22
+ h=x-gm-message-state:from:subject:to:references:cc:organization
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=LKyWUKEvfM1fzUvfhVPjqkU6bFidAIH+7Nxwrly31cY=;
+ b=eHIYGUBO6TurraOuIYgNz5bN122FAspKuyzOdjZ3gpZr4Fiwg9hn2fJaJYJSZLIM65
+ hjzQnx02FTjMjQsWZ2D80PV1rZGKGSKB2eu7YkcC2oHGFJaadXl/3AZYUBKgpCRuBFRT
+ gZK8CedqdvGcZl87XnGjVgjpAON/j7mHM3L+IatXGcGqXdtZ5FToELTuH+kJAzsRr9vD
+ nPhYlVrv8a1pb9cjzVgcuGIED+EL9KY+3y39/CvOXGbGs/UEL480Icm+de5w9vC6rhFH
+ beEldF7Hg+WfPtVmllYKJcCFulJ01b+Iltx1nkeVF9uzR/UZ7uMdiA8PP2kkPyoHg5tS
+ txnA==
+X-Gm-Message-State: APjAAAVPd4RjLLzZvvHndrXYojCsszuWjOpizYjWqK/BtkSyh1plxM3V
+ 2C0WPcd3QiVLWH0FRkl1npGXNA==
+X-Google-Smtp-Source: APXvYqxBVoMOLjlqCdKyS50irSjf5kd9lEianha8OyN79vWlieMHfo4zeaBKiaOxNf2EXOlFe71qxg==
+X-Received: by 2002:a19:7716:: with SMTP id s22mr6429503lfc.64.1559327509063; 
+ Fri, 31 May 2019 11:31:49 -0700 (PDT)
+Received: from wasted.cogentembedded.com ([31.173.86.142])
+ by smtp.gmail.com with ESMTPSA id n9sm1381782ljj.10.2019.05.31.11.31.47
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Thu, 30 May 2019 14:21:24 -0700 (PDT)
-From: Kamal Dasu <kdasu.kdev@gmail.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH 3/3] dt: bindings: mtd: brcmand: Add brcmnand,
- brcmnand-v7.3 support
-Date: Thu, 30 May 2019 17:20:37 -0400
-Message-Id: <1559251257-12383-3-git-send-email-kdasu.kdev@gmail.com>
-X-Mailer: git-send-email 1.9.0.138.g2de3478
-In-Reply-To: <1559251257-12383-1-git-send-email-kdasu.kdev@gmail.com>
-References: <1559251257-12383-1-git-send-email-kdasu.kdev@gmail.com>
+ Fri, 31 May 2019 11:31:47 -0700 (PDT)
+From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+Subject: [PATCH v4] mtd: devices: m25p80: Use the spi-mem dirmap API
+To: Marek Vasut <marek.vasut@gmail.com>, David Woodhouse
+ <dwmw2@infradead.org>, Brian Norris <computersforpeace@gmail.com>,
+ Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+References: <610761cf-5a19-c182-07d8-8d118ca20035@cogentembedded.com>
+Organization: Cogent Embedded
+Message-ID: <c405efc0-58ef-c67a-d519-95e0eb843229@cogentembedded.com>
+Date: Fri, 31 May 2019 21:31:46 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
+MIME-Version: 1.0
+In-Reply-To: <610761cf-5a19-c182-07d8-8d118ca20035@cogentembedded.com>
+Content-Language: en-MW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190530_142127_495020_1286E806 
-X-CRM114-Status: GOOD (  12.04  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190531_113152_260561_1D7C0D27 
+X-CRM114-Status: GOOD (  20.09  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:543 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:143 listed in]
  [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (kdasu.kdev[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -98,43 +101,189 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Vignesh Raghavendra <vigneshr@ti.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
- Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
- Marek Vasut <marek.vasut@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- bcm-kernel-feedback-list@broadcom.com,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-MIME-Version: 1.0
+Cc: Boris Brezillon <bbrezillon@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Added brcm,brcmnand-v7.3 as possible compatible string to support
-brcmnand controller v7.3.
+From: Boris Brezillon <boris.brezillon@bootlin.com>
 
-Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
+Make use of the spi-mem direct mapping API to let advanced controllers
+optimize read/write operations when they support direct mapping.
+
+Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
+Signed-off-by: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Tested-by: Yogesh Narayan Gaur <yogeshnarayan.gaur@nxp.com>
+
 ---
- Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt | 1 +
- 1 file changed, 1 insertion(+)
+This is a leftover unmerged patch of the "spi: spi-mem: Add a direct mapping
+API" series, atop of the 'mtd/next' branch of the MTD 'linux.git' repo.
 
-diff --git a/Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt b/Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt
-index 0b7c373..ad4cd30 100644
---- a/Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt
-+++ b/Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt
-@@ -28,6 +28,7 @@ Required properties:
-                          brcm,brcmnand-v7.0
-                          brcm,brcmnand-v7.1
-                          brcm,brcmnand-v7.2
-+                         brcm,brcmnand-v7.3
-                          brcm,brcmnand
- - reg              : the register start and length for NAND register region.
-                      (optional) Flash DMA register range (if present)
--- 
-1.9.0.138.g2de3478
+Changes in v4:
+- Add Yogesh's T-b and my S-o-b
 
+Changes in v3:
+- Make nor->read/write() functional before the direct mappings have been
+  created
+- Add Miquel's R-b
+
+Changes in v2:
+- Rename the dirmap fields
+- Return directly after calling dirmap_read/write() and let the spi-nor
+  framework call us again if those functions returned less than the
+  requested length
+
+ drivers/mtd/devices/m25p80.c |  102 +++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 99 insertions(+), 3 deletions(-)
+
+Index: linux/drivers/mtd/devices/m25p80.c
+===================================================================
+--- linux.orig/drivers/mtd/devices/m25p80.c
++++ linux/drivers/mtd/devices/m25p80.c
+@@ -31,8 +31,70 @@
+ struct m25p {
+ 	struct spi_mem		*spimem;
+ 	struct spi_nor		spi_nor;
++	struct {
++		struct spi_mem_dirmap_desc *rdesc;
++		struct spi_mem_dirmap_desc *wdesc;
++	} dirmap;
+ };
+ 
++static int m25p_create_write_dirmap(struct m25p *flash)
++{
++	struct spi_nor *nor = &flash->spi_nor;
++	struct spi_mem_dirmap_info info = {
++		.op_tmpl = SPI_MEM_OP(SPI_MEM_OP_CMD(nor->program_opcode, 1),
++				      SPI_MEM_OP_ADDR(nor->addr_width, 0, 1),
++				      SPI_MEM_OP_NO_DUMMY,
++				      SPI_MEM_OP_DATA_OUT(0, NULL, 1)),
++		.offset = 0,
++		.length = flash->spi_nor.mtd.size,
++	};
++	struct spi_mem_op *op = &info.op_tmpl;
++
++	/* get transfer protocols. */
++	op->cmd.buswidth = spi_nor_get_protocol_inst_nbits(nor->write_proto);
++	op->addr.buswidth = spi_nor_get_protocol_addr_nbits(nor->write_proto);
++	op->dummy.buswidth = op->addr.buswidth;
++	op->data.buswidth = spi_nor_get_protocol_data_nbits(nor->write_proto);
++
++	if (nor->program_opcode == SPINOR_OP_AAI_WP && nor->sst_write_second)
++		op->addr.nbytes = 0;
++
++	flash->dirmap.wdesc = spi_mem_dirmap_create(flash->spimem, &info);
++	if (IS_ERR(flash->dirmap.wdesc))
++		return PTR_ERR(flash->dirmap.wdesc);
++
++	return 0;
++}
++
++static int m25p_create_read_dirmap(struct m25p *flash)
++{
++	struct spi_nor *nor = &flash->spi_nor;
++	struct spi_mem_dirmap_info info = {
++		.op_tmpl = SPI_MEM_OP(SPI_MEM_OP_CMD(nor->read_opcode, 1),
++				      SPI_MEM_OP_ADDR(nor->addr_width, 0, 1),
++				      SPI_MEM_OP_DUMMY(nor->read_dummy, 1),
++				      SPI_MEM_OP_DATA_IN(0, NULL, 1)),
++		.offset = 0,
++		.length = flash->spi_nor.mtd.size,
++	};
++	struct spi_mem_op *op = &info.op_tmpl;
++
++	/* get transfer protocols. */
++	op->cmd.buswidth = spi_nor_get_protocol_inst_nbits(nor->read_proto);
++	op->addr.buswidth = spi_nor_get_protocol_addr_nbits(nor->read_proto);
++	op->dummy.buswidth = op->addr.buswidth;
++	op->data.buswidth = spi_nor_get_protocol_data_nbits(nor->read_proto);
++
++	/* convert the dummy cycles to the number of bytes */
++	op->dummy.nbytes = (nor->read_dummy * op->dummy.buswidth) / 8;
++
++	flash->dirmap.rdesc = spi_mem_dirmap_create(flash->spimem, &info);
++	if (IS_ERR(flash->dirmap.rdesc))
++		return PTR_ERR(flash->dirmap.rdesc);
++
++	return 0;
++}
++
+ static int m25p80_read_reg(struct spi_nor *nor, u8 code, u8 *val, int len)
+ {
+ 	struct m25p *flash = nor->priv;
+@@ -92,6 +154,9 @@ static ssize_t m25p80_write(struct spi_n
+ 				   SPI_MEM_OP_DATA_OUT(len, buf, 1));
+ 	int ret;
+ 
++	if (flash->dirmap.wdesc)
++		return spi_mem_dirmap_write(flash->dirmap.wdesc, to, len, buf);
++
+ 	/* get transfer protocols. */
+ 	op.cmd.buswidth = spi_nor_get_protocol_inst_nbits(nor->write_proto);
+ 	op.addr.buswidth = spi_nor_get_protocol_addr_nbits(nor->write_proto);
+@@ -128,6 +193,9 @@ static ssize_t m25p80_read(struct spi_no
+ 	size_t remaining = len;
+ 	int ret;
+ 
++	if (flash->dirmap.rdesc)
++		return spi_mem_dirmap_read(flash->dirmap.rdesc, from, len, buf);
++
+ 	/* get transfer protocols. */
+ 	op.cmd.buswidth = spi_nor_get_protocol_inst_nbits(nor->read_proto);
+ 	op.addr.buswidth = spi_nor_get_protocol_addr_nbits(nor->read_proto);
+@@ -238,19 +306,47 @@ static int m25p_probe(struct spi_mem *sp
+ 	if (ret)
+ 		return ret;
+ 
+-	return mtd_device_register(&nor->mtd, data ? data->parts : NULL,
+-				   data ? data->nr_parts : 0);
++	ret = m25p_create_write_dirmap(flash);
++	if (ret)
++		return ret;
++
++	ret = m25p_create_read_dirmap(flash);
++	if (ret)
++		goto err_destroy_write_dirmap;
++
++	ret = mtd_device_register(&nor->mtd, data ? data->parts : NULL,
++				  data ? data->nr_parts : 0);
++	if (ret)
++		goto err_destroy_read_dirmap;
++
++	return 0;
++
++err_destroy_read_dirmap:
++	spi_mem_dirmap_destroy(flash->dirmap.rdesc);
++
++err_destroy_write_dirmap:
++	spi_mem_dirmap_destroy(flash->dirmap.wdesc);
++
++	return ret;
+ }
+ 
+ 
+ static int m25p_remove(struct spi_mem *spimem)
+ {
+ 	struct m25p	*flash = spi_mem_get_drvdata(spimem);
++	int ret;
+ 
+ 	spi_nor_restore(&flash->spi_nor);
+ 
+ 	/* Clean up MTD stuff. */
+-	return mtd_device_unregister(&flash->spi_nor.mtd);
++	ret = mtd_device_unregister(&flash->spi_nor.mtd);
++	if (ret)
++		return ret;
++
++	spi_mem_dirmap_destroy(flash->dirmap.rdesc);
++	spi_mem_dirmap_destroy(flash->dirmap.wdesc);
++
++	return 0;
+ }
+ 
+ static void m25p_shutdown(struct spi_mem *spimem)
 
 ______________________________________________________
 Linux MTD discussion mailing list
