@@ -2,130 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9205733174
-	for <lists+linux-mtd@lfdr.de>; Mon,  3 Jun 2019 15:49:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 321FE3305F
+	for <lists+linux-mtd@lfdr.de>; Mon,  3 Jun 2019 14:58:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yKV+nCiov2oqT+P7C3eBQSFI7BKULdt2MpEdi3wM7X0=; b=B3NAtVpo4R9VMm
-	UzYtJlmWmg0zbAagU8K0SKRS3oG0vDqZ6lbRPkl4QziQpN+N9C3WLfyo4W5SMD0bZrCVoqk0atFkA
-	GTAJA1exDBrio7d1bTjG+OkpjtwJOxvUKIIlPHHoQXJ2MHEhypc1GhrQgT7xrTwSjTSR+mhrSkRuZ
-	yeFdy/R1utHw+SYpg0r1izmHfcb4f7erN9Vmpx2Hhb7YEYM4jDsLK59MDd8OGfX6mcJSr9Lp68NUL
-	U7EAYclJjNtSRrK4Pm9H2HaY99rC0rwa3C9vChc7J50oJqaA/QZxDoM7xFMLvtd7LHXthnzXV6Dm0
-	a1ZucXgtdIheM3zXCL+Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=yauTYhkOR1DRiL5wmPG/8X5Wry7Pqd0JAUhbhUDemWs=; b=pptrKRLtsb+UBZ
+	aS7E0sLmfhHBkpxggjp0oo18jY6s9EfcqhxhIXuRT+d9HqxCHoOq18mp9YnyQUhcMUDvFeOBI7vSL
+	isZOWIMoFyZkjX2AzYtaIzfTw3NlKD38CYzhBpEh1WcZwipb7uO8lR3qHYZMrOUM5nVAybWoKwP6Z
+	ydkCUn2wUDDiJioeKQkgF87rM1DYv/6OO5GGmATYVLhWWUy+yMOGhyWBERHm9+pe0pVKnlcDHQJXH
+	WY6/aExEz9akGmEz+cx4j7cPz6z6FCxkYQCxFR8lrt5L/l8q/t76g+CQZ9uTOkxuqwsmrhSHBa1IV
+	xDgs78NDt7OsxWTdSXxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hXnKc-0005GU-UF; Mon, 03 Jun 2019 13:48:58 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hXmXc-00047D-SW; Mon, 03 Jun 2019 12:58:20 +0000
+Received: from lithops.sigma-star.at ([195.201.40.130])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hXnKR-00059d-1C
- for linux-mtd@bombadil.infradead.org; Mon, 03 Jun 2019 13:48:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=MIME-Version:Content-Transfer-Encoding:
- Content-Type:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=jDI9X7fwjzc5oPf8aBzUA2Q5zcmT50zy8AWNrXSJAuc=; b=oanVQ1DV1RUxJmV+lNiDwl/KWU
- zQpzdERfU8HZO6SxvrfX1+WqgbDE80aJnLgb2nmstRNByZjl3R/m12A0PqUlnQa98x+OeB1SNWLBC
- 4HiACvCQbZYnAjqQsgZ0ylvrM8kd3gTg2ikpYJcqddPsNgoCAh75rOnplW8bfNFshY2AO6YFgll6v
- q/EXzjqeJ2zy8Qd92QX/0M/92wwjdfuyrxeGoFI923fyIzb5+GtN7n3ri15ui1bhYgZJv656J6/4l
- X4/+l2jAJHgo/Rtq5TTf/9O/BttHd4waVUVcpQ0EJzghAMD9hI9lFc4Z8Ju2b7AQlMlB9VJ/CSCZi
- UTdLGBBg==;
-Received: from mail-eopbgr810057.outbound.protection.outlook.com
- ([40.107.81.57] helo=NAM01-BY2-obe.outbound.protection.outlook.com)
- by merlin.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hXmKb-0002yi-9P
- for linux-mtd@lists.infradead.org; Mon, 03 Jun 2019 12:44:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=micron.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jDI9X7fwjzc5oPf8aBzUA2Q5zcmT50zy8AWNrXSJAuc=;
- b=bEaNcS4RvRPaIW2MO9IysgAmxb/8WVeo/cUt78YiBybHFlLmIrz1YsyrPAF2/3+tIWdu68/w87pNPER3eCZyOKfdfkd4UR+BzS/hAcyU7rBLFu/ZV5FicIPbU1rmF0QvsWetkQYlZN7P5BFuT8+TPE9lJqcfSyeuWsCLkDSlEKs=
-Received: from MN2PR08MB5951.namprd08.prod.outlook.com (20.179.85.220) by
- MN2PR08MB5872.namprd08.prod.outlook.com (20.179.86.153) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1943.18; Mon, 3 Jun 2019 12:43:44 +0000
-Received: from MN2PR08MB5951.namprd08.prod.outlook.com
- ([fe80::f0f7:f262:a3c6:ce23]) by MN2PR08MB5951.namprd08.prod.outlook.com
- ([fe80::f0f7:f262:a3c6:ce23%7]) with mapi id 15.20.1943.018; Mon, 3 Jun 2019
- 12:43:44 +0000
-From: "Shivamurthy Shastri (sshivamurthy)" <sshivamurthy@micron.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger
- <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>, Brian Norris
- <computersforpeace@gmail.com>, Marek Vasut <marek.vasut@gmail.com>, Vignesh
- Raghavendra <vigneshr@ti.com>, Boris Brezillon <bbrezillon@kernel.org>, Yixun
- Lan <yixun.lan@amlogic.com>, Lucas Stach <dev@lynxeye.de>, Anders Roxell
- <anders.roxell@linaro.org>, Stefan Agner <stefan@agner.ch>, Marcel Ziswiler
- <marcel.ziswiler@toradex.com>, "Bean Huo (beanhuo)" <beanhuo@micron.com>,
- Paul Cercueil <paul@crapouillou.net>, Frieder Schrempf
- <frieder.schrempf@kontron.de>, Chuanhong Guo <gch981213@gmail.com>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 12/12] mtd: spinand: micron: Enable micron flashes with
- multi-die
-Thread-Topic: [PATCH v3 12/12] mtd: spinand: micron: Enable micron flashes
- with multi-die
-Thread-Index: AdUaBuuDD5Zu6ZlIQOytGKfMP/706g==
-Date: Mon, 3 Jun 2019 12:43:44 +0000
-Message-ID: <MN2PR08MB595106104C80B33816648BE6B8140@MN2PR08MB5951.namprd08.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=sshivamurthy@micron.com; 
-x-originating-ip: [165.225.81.42]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 15f9ba9e-b346-4ba5-e571-08d6e8211d86
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);
- SRVR:MN2PR08MB5872; 
-x-ms-traffictypediagnostic: MN2PR08MB5872:|MN2PR08MB5872:
-x-microsoft-antispam-prvs: <MN2PR08MB5872AC54D61E5C63EA1FCA27B8140@MN2PR08MB5872.namprd08.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:1728;
-x-forefront-prvs: 0057EE387C
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(1496009)(396003)(376002)(136003)(346002)(39860400002)(366004)(189003)(199004)(76116006)(14454004)(99286004)(7696005)(71200400001)(71190400001)(66446008)(5660300002)(9686003)(52536014)(73956011)(66946007)(66476007)(66066001)(66556008)(64756008)(2201001)(55236004)(6116002)(478600001)(316002)(102836004)(110136005)(2906002)(3846002)(6506007)(86362001)(7416002)(53936002)(486006)(26005)(2501003)(8936002)(476003)(33656002)(14444005)(256004)(8676002)(74316002)(81166006)(81156014)(6436002)(68736007)(7736002)(305945005)(186003)(25786009)(55016002)(921003)(1121003);
- DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR08MB5872;
- H:MN2PR08MB5951.namprd08.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: micron.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: 3nz4eYj1uWTdedVtxDU1IVvUhyGDbXSVB6nOf0BD5Kb8ZTqq5f09szA1q3qoDzm3aJbOHQ6AQe+JpNIruiNy8egKjJ5tHD0MQaM/VRzZbu8AoeDuidnJ0Thk2Knm+Degi5+4XU7JXQTB/u1IPo8xH53GBIQ3/SK3d/+hEYDz0Bk/Gz9M+Iv6vubjIKO/Lx8YmGQQBiRYkashNbfGDseQy+EGwTrgD+AIeCEjbays5+qainNcTiu2d87oMzj4MPm1pC9XM6fgEfZGP0SOc/Ert1ua1cGOL2Sm27ho++LOkeONDyqP55Xlg5jgrfPTnjFCzYg9aaNZMbtL+/qRae788G5EmCAYN6juculaZ5wbWIDp3JzimxzZQ2c18bSJAVgekkWGb5JYyk+keH28o+Y6jOGnSaRf9Ipn+SjN4MVc6VM=
+ id 1hXmXV-00046r-B6
+ for linux-mtd@lists.infradead.org; Mon, 03 Jun 2019 12:58:14 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 1643B6074CFE;
+ Mon,  3 Jun 2019 14:58:11 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id Z1-LrsNwAI0x; Mon,  3 Jun 2019 14:58:10 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id BFF696074CF0;
+ Mon,  3 Jun 2019 14:58:10 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id OpRPXwgVLnuU; Mon,  3 Jun 2019 14:58:10 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 99B3A608313E;
+ Mon,  3 Jun 2019 14:58:10 +0200 (CEST)
+Date: Mon, 3 Jun 2019 14:58:10 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Steve deRosier <derosier@gmail.com>
+Message-ID: <1496138474.79078.1559566690511.JavaMail.zimbra@nod.at>
+In-Reply-To: <CALLGbRJRLoEPW4dTVCvjp7qBDXEefjBTT4_731m_9XD=KgH8Cw@mail.gmail.com>
+References: <CAM===sSAP-qRv7jxBs9KZDFyuL+Dx3wSkQfSOiSQtp8Z8FQcMw@mail.gmail.com>
+ <CAFLxGvymOZbBM=wtK-fcgYOv7OOucpcZ1eZJ9GQmUH8h9Jcc+Q@mail.gmail.com>
+ <CAM===sSzy4=joOnzLxbSDoC=4HgmXj7QF14vzFCKTWt8z-JLoA@mail.gmail.com>
+ <CALLGbRJRLoEPW4dTVCvjp7qBDXEefjBTT4_731m_9XD=KgH8Cw@mail.gmail.com>
+Subject: Re: UBIFS on write-protected NAND
 MIME-Version: 1.0
-X-OriginatorOrg: micron.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15f9ba9e-b346-4ba5-e571-08d6e8211d86
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jun 2019 12:43:44.4459 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f38a5ecd-2813-4862-b11b-ac1d563c806f
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sshivamurthy@micron.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR08MB5872
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.8_GA_3025 (ZimbraWebClient - FF60 (Linux)/8.8.8_GA_1703)
+Thread-Topic: UBIFS on write-protected NAND
+Thread-Index: /vwMihgli4DaAHF0Nldkpqerfd1jZg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190603_084453_330489_9DA7B018 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
- Content analysis details:   (-0.2 points)
+X-CRM114-CacheID: sfid-20190603_055813_525534_3F2DEB66 
+X-CRM114-Status: GOOD (  10.59  )
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.81.57 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -137,55 +74,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Richard Weinberger <richard.weinberger@gmail.com>,
+ linux-mtd <linux-mtd@lists.infradead.org>, Leon Pollak <leon.pollak@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Some of the Micron flashes has multi-die, and need to select the die
-each time while accessing it.
-
-Signed-off-by: Shivamurthy Shastri <sshivamurthy@micron.com>
----
- drivers/mtd/nand/spi/micron.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/mtd/nand/spi/micron.c b/drivers/mtd/nand/spi/micron.c
-index 1e28ea3d1362..fa2b43caf39d 100644
---- a/drivers/mtd/nand/spi/micron.c
-+++ b/drivers/mtd/nand/spi/micron.c
-@@ -90,6 +90,19 @@ static int micron_ecc_get_status(struct spinand_device *spinand,
- 	return -EINVAL;
- }
- 
-+static int micron_select_target(struct spinand_device *spinand,
-+				unsigned int target)
-+{
-+	struct spi_mem_op op = SPINAND_SET_FEATURE_OP(0xd0,
-+						      spinand->scratchbuf);
-+
-+	if (target == 1)
-+		target = 0x40;
-+
-+	*spinand->scratchbuf = target;
-+	return spi_mem_exec_op(spinand->spimem, &op);
-+}
-+
- static int micron_spinand_detect(struct spinand_device *spinand)
- {
- 	const struct spi_mem_op *op;
-@@ -105,6 +118,7 @@ static int micron_spinand_detect(struct spinand_device *spinand)
- 	spinand->flags = 0;
- 	spinand->eccinfo.get_status = micron_ecc_get_status;
- 	spinand->eccinfo.ooblayout = &micron_ooblayout_ops;
-+	spinand->select_target = micron_select_target;
- 
- 	op = spinand_select_op_variant(spinand,
- 				       &read_cache_variants);
--- 
-2.17.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+LS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+IFlvdXIgSFcgZW5naW5lZXJzIGFyZSB3
+cm9uZyBhbmQgZGlkIG5vdCByZWFkIGFuZCBfdW5kZXJzdGFuZF8gdGhlIE5BTkQKPiBkYXRhc2hl
+ZXRzLiBOb3IgZG8gdGhleSB1bmRlcnN0YW5kIHRoZSBzb2Z0d2FyZSBhbmQgd2hhdCBpdCBkb2Vz
+LiBUaGUKPiBkYXlzIG9mIHRoZSBIVyBndXkgZGVzaWduaW5nIHNvbWV0aGluZyBhbmQgdGhyb3dp
+bmcgaXQgb3ZlciB0aGUgd2FsbAo+IGFuZCBhc2tpbmcgdGhlIFNXIGd1eSB0byBtYWtlIGl0IHdv
+cmsgYXJlIGxvbmcgb3Zlci4KPiAKPiBJZiB5b3Ugd2FudCBOQU5EIHRvIHN0YXkgYm9vdGFibGUg
+ImRlc3BpdGUgZXZlcnl0aGluZyBpbiB0aGUgd29ybGQiLAo+IHlvdSBjYW4ndCBydW4gaXQgd3Jp
+dGUgcHJvdGVjdGVkLiBOQU5EIHdpbGwgYml0LXJvdCBvdmVyIHRpbWUuIEl0IGlzCj4gdGhlIG5h
+dHVyZSBvZiBOQU5ELiBVQklGUyBkZXRlY3RzIHRoaXMgYW5kIHdpbGwgbW92ZSBkYXRhIGFyb3Vu
+ZCBhcwo+IG5lY2Vzc2FyeSB0byBrZWVwIGl0IHJlYWRhYmxlLiBUaGVyZSBhcmUgY2VydGFpbiBh
+cmVhcyB0aGF0IHJlYWxseQo+IG9ubHkgZ2V0IHJlYWQgYXQgYm9vdCB0aW1lLCBzbyBpZiBpdCdz
+IHdyaXRlIHByb3RlY3RlZCBhdCB0aGF0IHBvaW50LAo+IHlvdSdyZSBzdW5rIC0gVUJJRlMgY2Fu
+J3QgZG8gdGhlIHdvcmsgb2YgcHJlc2VydmluZyB0aGUgTkFORCB0aGF0IGl0Cj4gaXMgZGVzaWdu
+ZWQgdG8gZG8uCj4gCj4gSWYgaXQgd2VyZSBtZSwgaW4gdS1ib290IChvciB3aGF0ZXZlciBib290
+bG9hZGVyIHlvdSdyZSB1c2luZyksIEknZAo+IGZsaXAgdGhlIEdQSU8gaG9sZGluZyB0aGUgL1dQ
+IGxpbmUgdG8gbWFrZSB0aGUgTkFORCB3cml0YWJsZSBiZWZvcmUgSQo+IGJvb3RlZCB0aGUga2Vy
+bmVsIGFuZCB0aGVuIEknZCBsZWF2ZSBpdCB0aGVyZS4KPiAKPiBUaGUgb3RoZXIgd2F5IHJlcXVp
+cmVzIG1vcmUgZWZmb3J0IC0geW91IGNvdWxkIGdvIGludG8geW91ciBOQU5ECj4gZHJpdmVyLCBm
+aW5kIHRoZSBsb3ctbGV2ZWwgd3JpdGUgc2VxdWVuY2VzIGFuZCBmbGlwIHRoZSBHUElPIHRvIHdy
+aXRlCj4gYW5kIGNsb3NlIGl0IHRvIHByb3RlY3QgYWZ0ZXIgeW91J3JlIGRvbmUuIEJ1dCwgcGF5
+IHZlcnkgY2xvc2UKPiBhdHRlbnRpb24gdG8geW91ciBkYXRhc2hlZXRzIHRvIGJlIHN1cmUgeW91
+IGhhdmUgeW91ciBzZXR1cCBhbmQgaG9sZAo+IHRpbWVzIGNvcnJlY3QgaWYgeW91J3JlIGdvaW5n
+IHRvIGRvIHRoYXQuCj4gCj4gVGhlIGZpbmFsIHdheSB0byBkbyBpdCBpcyB0byBub3QgdXNlIFVC
+SUZTIGF0IGFsbC4gIFJ1biBhIFIvTyBpbWFnZQo+IGxpa2Ugc3F1YXNoZnMgYW5kIHJ1biB0aGUg
+TkFORCB3aXRoIHdheSBoaWdoZXIgRUNDIHRoYW4gcmVxdWlyZWQgYW5kCj4gaG9wZSB0aGF0IG92
+ZXIgdGhlIGxpZmV0aW1lIG9mIHRoZSBkZXZpY2UgeW91IGRvbid0IGFjY3VtdWxhdGUgbW9yZQo+
+IHRoYW4gdGhhdCBiaXQtZmxpcHMgaW4gYW55IHNlY3RvciB0aGF0IHlvdSBjYXJlIGFib3V0LgoK
+QW1lbi4gOi0pCgpUaGFua3MsCi8vcmljaGFyZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcg
+bGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10
+ZC8K
