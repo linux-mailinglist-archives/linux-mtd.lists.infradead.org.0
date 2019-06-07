@@ -2,82 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DD23C39181
-	for <lists+linux-mtd@lfdr.de>; Fri,  7 Jun 2019 18:01:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9059A39188
+	for <lists+linux-mtd@lfdr.de>; Fri,  7 Jun 2019 18:03:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4CjWq/zC/VEOAy7Y08Tgf5NISfwFvdMCCJrcTR5FCYU=; b=qqjIG2xpxwJ6Q9
-	fmlnsSqUmGa4vtn5LeBKzSMBUvbj5/09px/bLWN1uKXQYXhdYiZFKlb/1hcZc1ZUxsGz9Tl+80PnH
-	c0pBrI8HvLXTg8r+2izqKmXi4pt300Y6KiL/8Ml6v7o2HPqS1a/f15MDbS+Ffu0MnaDazFYkD4Y09
-	/dmuyygaX9UJvLzPZlGyjphax1ivi6oLPzUp0xCY8PlVP2OEzCGMoXqt+7f7OR5vuF4MS6YRCX5pJ
-	fykKi6k4rJ7KWayLUjXzEqIiV45jEjuQLadcn6JMVUqf8RDVDAXaSuwtpVdfv0NdaUG965JDyBzuI
-	akY08hhwvsft9RKUwgpA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7os7/M9FCrnOWXXzhCXt51VUGz/KVPJv/PSWBV695aw=; b=NJAlOeAu7oBsK5
+	FnNwNAYVDgn7xcDKjh7v+X4TSMdylMGiWEGkNZPEjZTLuSRQhf+7NjF+YW5izv3D5VV/LGy6VBCTU
+	C4tcHcIF8l9+nvz/iBYBFJV795nVYBkrMP9G2TmA2ARRh42iaXu16xDrjgloMQb2bJ9GrAjTVu1gg
+	LA2SAEUzhlsNjA5KksHz4k+xwbMEsv4H80aIm9FMnA4RuhxQF/mIMaodqraebXWw2LeaaS8zvTW8n
+	7aHpufCJG8FDQX4V3aWarArVLQkU1Qt5de7R7IpwqBWXyg47rKGcpxW1D1F80wpmhhdOPOv+NAXyR
+	SZYs80P26g46+tI/ci/Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hZHJM-0006t9-2X; Fri, 07 Jun 2019 16:01:48 +0000
-Received: from mail-it1-x12c.google.com ([2607:f8b0:4864:20::12c])
+	id 1hZHKa-0007P0-08; Fri, 07 Jun 2019 16:03:04 +0000
+Received: from outils.crapouillou.net ([89.234.176.41] helo=crapouillou.net)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hZHJD-0006sn-GB
- for linux-mtd@lists.infradead.org; Fri, 07 Jun 2019 16:01:40 +0000
-Received: by mail-it1-x12c.google.com with SMTP id a186so3504250itg.0
- for <linux-mtd@lists.infradead.org>; Fri, 07 Jun 2019 09:01:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Chg9BlRJ0VttwiZUqjLYmh2LjT8ygI14pmJSx0JjTP8=;
- b=eVM/I6i3S2nJLMwmmEXkT2z+UUTOwTQZQyJRKToM8fGCsCnMweowxfok92upyXANoz
- wzXt0T4QtbxiBvxjaY1Zmg8uzgPDowP2xzzd75MEa3fzirlZb/o8CLEwgBealKh96aTL
- RegXgq75/9b9jsosXOWF+PztMIE3Q30rTm6dT6Ya5x5/N0PMHrNRzMkmODyViSoWgbQD
- 31K/1qzSXL1pSeR4Q5tRZGm7vptXLkbHzea0JOQFcGW6kHm7ygWXWKOMzfc7iJOdu5mv
- /aO9SQy8Z98TqBjEqrckDVAQFp7e7Wu9uwxPB6+ZFIAvgHjAkhErtSjHt8bxmxyTeFY3
- QyHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Chg9BlRJ0VttwiZUqjLYmh2LjT8ygI14pmJSx0JjTP8=;
- b=HXsoMyFEAJ5X1b8eB+gl6SSqDfmXsr5Qx9G688yJrlK+B1hfFFHo1PK+oqkYSCauo0
- euxaWftLVGroLMbagi84eWlckCVCQFPHOF67JR2gka48fCf6/+NWZdPZ2MZ1yYyKlyiO
- hpUxa/PqhOHnLrsxS9ZiL5QZzb0awweDUe0BYP6UG26ahjUNAL2AyAyoIwl1U/YtDY9m
- x8o0QHWY/GrAnNkaukvgUHrdX6sNdtYz7yQGdDfqOJA/VWF8bRREQGSzs2kejgbD2ZRp
- Gos56xXYI/QpnFYZx9ReP6onA7EnY8fkjSIKDEo150RnYjsj0J4t3NowAQUxb2+eNtIY
- 6DPg==
-X-Gm-Message-State: APjAAAVfv6E0/gLbczjBzS0CmRirBQUB9oRXmna6Vtz18i+4vNLRymLu
- X/Q0Dn/C1fFVithXdO+6OP4EPHyfWlG1nGEnkXbIB9NP
-X-Google-Smtp-Source: APXvYqyRKOFMKMj+21aBn3RfuGA4E+z21YQ8yyUgCDxLlFtbEBQCQcMjGloLAVuqXrX7bwu7rRkuyLOI/32vscADXsI=
-X-Received: by 2002:a02:c952:: with SMTP id u18mr12584840jao.23.1559923296848; 
- Fri, 07 Jun 2019 09:01:36 -0700 (PDT)
+ id 1hZHKM-0007Ma-20
+ for linux-mtd@lists.infradead.org; Fri, 07 Jun 2019 16:02:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+ s=mail; t=1559923362; h=from:from:sender:reply-to:subject:subject:date:date:
+ message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+ content-type:content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:references; bh=zrjX+l5PeyKLlwgC655C0foBZhkNjJeOz8J5di0UnrI=;
+ b=ijs4Q/Ek+i8vGOKkh0aUWY6sygKgckbDWaGyu7zHlO7vNHemPqLSYE7UvCs6JsJP2RVaH/
+ XUiGLr99rSFwnkxgWzAcqgvS40xifWm7X/rBss1JEPa9styFktxNMbyoO0xwfnvPoYefVc
+ KprUyBUI/K80kbW8NYHrIT74ByUv2UQ=
+From: Paul Cercueil <paul@crapouillou.net>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>,
+ Brian Norris <computersforpeace@gmail.com>,
+ Marek Vasut <marek.vasut@gmail.com>, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [PATCH 1/2] mtd/rawnand: ingenic-ecc: Make probe function
+ __init_or_module
+Date: Fri,  7 Jun 2019 18:01:59 +0200
+Message-Id: <20190607160200.16052-1-paul@crapouillou.net>
 MIME-Version: 1.0
-References: <20190606121037.40a1cc5e@sergmir.emcraft.com>
- <CAFLxGvx4iqpU8pq8CPwah9M+Qa2YkpXEiSmndeVy2mLadNQn_g@mail.gmail.com>
- <20190606210803.481cbc5d@sergmir.emcraft.com>
- <CAFLxGvy1BTuLkcn=7N=FG_q5cBgj5L1YzyhiakVFewYPyr6dzA@mail.gmail.com>
- <20190607172355.6541fa51@sergmir.emcraft.com>
-In-Reply-To: <20190607172355.6541fa51@sergmir.emcraft.com>
-From: Steve deRosier <derosier@gmail.com>
-Date: Fri, 7 Jun 2019 09:01:00 -0700
-Message-ID: <CALLGbRJbb8oJfbgsOOaDsu8eueNiCJ_ubqdohBFXMRMLjKxVNA@mail.gmail.com>
-Subject: Re: UBIFS: file data corruption during the power cut-off test
-To: Sergei Poselenov <sposelenov@emcraft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190607_090139_560516_70595870 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20190607_090250_291256_144E9931 
+X-CRM114-Status: GOOD (  11.52  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:12c listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (derosier[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -96,68 +69,73 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard.weinberger@gmail.com>,
- linux-mtd@lists.infradead.org
+Cc: Paul Cercueil <paul@crapouillou.net>, od@zcrc.me,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Jun 7, 2019 at 7:24 AM Sergei Poselenov <sposelenov@emcraft.com> wrote:
->
-> Hello Richard,
->
-> On Thu, 6 Jun 2019 20:13:07 +0200 Richard Weinberger <richard.weinberger@gmail.com> wrote:
->
-> > On Thu, Jun 6, 2019 at 8:08 PM Sergei Poselenov <sposelenov@emcraft.com> wrote:
-> > > This is understood. However, on the file length that is written to the partition, I'd expect that the file content will be the same as in the original file. This is not so.
-> > > Is it expected, or is it a deficiency of UBI?
-> >
-> > Please show in detail what you are doing, on syscall level, and what
-> > the expected output is.
-> >
->
-> Here is my test:
-...
->
-> However, upon retry of the very same test from the beginning (with the power cut-off in the middle) it's easily to have the content of test2 (exactly the last 512 bytes in my case) which doesn't match test0, so "dd if=test2 of=test0 conv=notrunc" will result in test0 with a different checksum.
->
+This allows the probe function to be dropped after the kernel finished
+its initialization, in the case where the driver was not compiled as a
+module.
 
-IMHO, your test is invalid and it's your expectations that are wrong.
-The file didn't finish writing because you did a power-cut. If I had
-to guess, those exactly "last 512 bytes", are the size of your page or
-subpage on the NAND flash, and I'd bet they're filled with 0xFF.
-Unlike other filesystem media, writing flash media is done in pages,
-where they're erased and then written, and erasing and writing is slow
-and complex process.
+Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+---
+ drivers/mtd/nand/raw/ingenic/ingenic_ecc.c | 2 +-
+ drivers/mtd/nand/raw/ingenic/ingenic_ecc.h | 3 ++-
+ drivers/mtd/nand/raw/ingenic/jz4780_bch.c  | 2 +-
+ 3 files changed, 4 insertions(+), 3 deletions(-)
 
-If I had to continue my guessing - the valid portion of the file test2
-that was successfully written is not a multiple of your NAND's page
-size.  Likely you've got 2Kb pages with 4 512 byte subpages.  The last
-page of that flash that was written for that file wrote three of the
-four subpages.  When you `dd` the file overwrite the existing file,
-you corrupt it yourself by using the no-trim option - for each page
-from the start of test0, it erases, writes the page from test2, until
-it gets to the last page of test2 where it erases the page, writes
-three subpages, and leaves the last subpage as erased, but now you've
-got invalid data in the middle of your file because you don't trim the
-size to the write and so the erased data is now part of your file.
+diff --git a/drivers/mtd/nand/raw/ingenic/ingenic_ecc.c b/drivers/mtd/nand/raw/ingenic/ingenic_ecc.c
+index d3e085c5685a..74eff8fb5d32 100644
+--- a/drivers/mtd/nand/raw/ingenic/ingenic_ecc.c
++++ b/drivers/mtd/nand/raw/ingenic/ingenic_ecc.c
+@@ -124,7 +124,7 @@ void ingenic_ecc_release(struct ingenic_ecc *ecc)
+ }
+ EXPORT_SYMBOL(ingenic_ecc_release);
+ 
+-int ingenic_ecc_probe(struct platform_device *pdev)
++int __init_or_module ingenic_ecc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+ 	struct ingenic_ecc *ecc;
+diff --git a/drivers/mtd/nand/raw/ingenic/ingenic_ecc.h b/drivers/mtd/nand/raw/ingenic/ingenic_ecc.h
+index 2cda439b5e11..535eb8f29df6 100644
+--- a/drivers/mtd/nand/raw/ingenic/ingenic_ecc.h
++++ b/drivers/mtd/nand/raw/ingenic/ingenic_ecc.h
+@@ -4,6 +4,7 @@
+ 
+ #include <linux/compiler_types.h>
+ #include <linux/err.h>
++#include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/types.h>
+ #include <uapi/asm-generic/errno-base.h>
+@@ -78,6 +79,6 @@ struct ingenic_ecc {
+ 	struct mutex lock;
+ };
+ 
+-int ingenic_ecc_probe(struct platform_device *pdev);
++int __init_or_module ingenic_ecc_probe(struct platform_device *pdev);
+ 
+ #endif /* __DRIVERS_MTD_NAND_INGENIC_ECC_INTERNAL_H__ */
+diff --git a/drivers/mtd/nand/raw/ingenic/jz4780_bch.c b/drivers/mtd/nand/raw/ingenic/jz4780_bch.c
+index 079266a0d6cf..cc0656ac505d 100644
+--- a/drivers/mtd/nand/raw/ingenic/jz4780_bch.c
++++ b/drivers/mtd/nand/raw/ingenic/jz4780_bch.c
+@@ -229,7 +229,7 @@ static int jz4780_correct(struct ingenic_ecc *bch,
+ 	return ret;
+ }
+ 
+-static int jz4780_bch_probe(struct platform_device *pdev)
++static int __init_or_module jz4780_bch_probe(struct platform_device *pdev)
+ {
+ 	struct ingenic_ecc *bch;
+ 	int ret;
+-- 
+2.21.0.593.g511ec345e18
 
-You're seeing a hardware effect and expecting a software result.
-
-Simple fact is - a power cut when writing a large file, even with sync
-on, will result in an invalid (short) file.  UBIFS (nor ANY
-filesystem) can not protect against that. UBIFS is doing it's job by
-making sure your filesystem is still usable after the power cut
-despite it being in the middle of a write.  Which, since your system
-is booting and you're not posting any kernel logs showing corrupted
-filesystem, it seems to me that UBIFS is doing what it is supposed to.
-
-If you want to understand more, the mtd website is a good start, and
-you should absolutely read all the datasheets and app notes for the
-flash device and the NAND interface you're using.
-
-- Steve
 
 ______________________________________________________
 Linux MTD discussion mailing list
