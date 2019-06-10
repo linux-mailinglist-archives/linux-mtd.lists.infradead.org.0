@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4630642D0F
-	for <lists+linux-mtd@lfdr.de>; Wed, 12 Jun 2019 19:10:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0CA503AEF4
+	for <lists+linux-mtd@lfdr.de>; Mon, 10 Jun 2019 08:24:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
@@ -18,11 +18,11 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	PKydpYiEvdDiHt6Ieriw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hb6lf-0007H1-ND; Wed, 12 Jun 2019 17:10:35 +0000
+	id 1haDjT-0004Q7-I4; Mon, 10 Jun 2019 06:24:39 +0000
 Received: from esa5.microchip.iphmx.com ([216.71.150.166])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hb6lU-0007GK-JR
- for linux-mtd@lists.infradead.org; Wed, 12 Jun 2019 17:10:26 +0000
+ id 1haDj8-0004P7-HX
+ for linux-mtd@lists.infradead.org; Mon, 10 Jun 2019 06:24:21 +0000
 Received-SPF: Pass (esa5.microchip.iphmx.com: domain of
  Tudor.Ambarus@microchip.com designates 198.175.253.82 as
  permitted sender) identity=mailfrom;
@@ -45,16 +45,13 @@ Authentication-Results: esa5.microchip.iphmx.com;
  spf=None smtp.helo=postmaster@email.microchip.com;
  dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
  dmarc=pass (p=none dis=none) d=microchip.com
-X-IronPort-AV: E=Sophos;i="5.63,366,1557212400"; d="scan'208";a="35574409"
+X-IronPort-AV: E=Sophos;i="5.63,573,1557212400"; d="scan'208";a="35048209"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 12 Jun 2019 10:10:14 -0700
+ 09 Jun 2019 23:24:13 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex04.mchp-main.com (10.10.87.151) with ShadowRedundancy id
- 15.1.1713.5; Wed, 12 Jun 2019 17:09:41 +0000
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex04.mchp-main.com (10.10.87.151) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.87.71) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
  15.1.1713.5; Sun, 9 Jun 2019 23:24:11 -0700
 Received: from NAM05-DM3-obe.outbound.protection.outlook.com (10.10.215.89) by
@@ -125,8 +122,8 @@ X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
 X-MS-Exchange-CrossTenant-userprincipalname: tudor.ambarus@microchip.com
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB1556
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190612_101024_860680_9B48AD7C 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20190609_232418_953792_501F8818 
+X-CRM114-Status: GOOD (  19.47  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
