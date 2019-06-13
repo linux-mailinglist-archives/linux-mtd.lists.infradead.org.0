@@ -2,54 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB15144C27
-	for <lists+linux-mtd@lfdr.de>; Thu, 13 Jun 2019 21:33:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C127445248
+	for <lists+linux-mtd@lfdr.de>; Fri, 14 Jun 2019 05:00:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:From:To:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:
+	MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8DvHb2QjEzgvkDxceUbuxptYI8AS2pHyQlu+3IRA+Bg=; b=Oz8x34yexF9LGZ
-	iOOuzEOHTOlCGFP9o3soSKNRqFlFs+gdq1zrtMXIazE4reJsihgUDPpZQB8jN0n40DEdxXfdejygK
-	hAJbxxhq1rn8Wni4WVopPthrr61Ie1PnVXLUgmjciX8Ki2RwYYxK/MQBOoIhU03QanB10X3sKgvNW
-	4kkJJLopaRrUW62X9QeQp7bXpN4h611dZzZ5WKcuO2KxwNQq3R9hjIzINmZnxB7YAEwGPrNKMBm6L
-	wdldVKJZU3nUkQZMlX/TdhpH8QmtMNa4TKxxB+VVK3KR/5w5jtGiNKdFNe7oxHENgpn/3X05HkWfP
-	cMxjpB3gO4uc6ccGkTlw==;
+	List-Owner; bh=0KcHkTNfOrD0FWItjFecT6M7upm8RY4/iRx7BwbIaOk=; b=utO64hbMEsLHnw
+	gAH6ltwALnSrBISqUMSwRQxuBmB9aV7VoKFY+0tGSz8H1D6aGhOXKaLQ1rpt2flm1riwsFiaBGaSM
+	5uFR2n+w0DrSXizgW7EKPiyChXJfj1wG8UmmHL4Pt+IYYJnVsz1H+o+OVXqOHvafRElOxOHdZ8RGF
+	hSWjM/4aFMPHcRu9ktr/eWsBpAyvVGdGx7xCs7GKGdLWxhWyTGj/l/All+ZIaHbDOZyEeiOrXQA2k
+	nnOswVZLOq6k2goDysg7wZsisPKDdA767yyc8RVwEMI/QBT+ALikohiX0v9kRvaujnKxx81SVihnA
+	UyoJYxCiEvkhFAqpi9eA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbVT7-0002mV-Mv; Thu, 13 Jun 2019 19:33:05 +0000
-Received: from mx.allycomm.com ([138.68.30.55])
+	id 1hbcSR-0004z6-9F; Fri, 14 Jun 2019 03:00:51 +0000
+Received: from qf-corp.com ([43.252.215.172] helo=server1.qf-corp.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hbVSy-0002lm-Ry
- for linux-mtd@lists.infradead.org; Thu, 13 Jun 2019 19:32:58 +0000
-Received: from jkletsky-mbp15.guidewire.com (inet.guidewire.com [199.91.42.30])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mx.allycomm.com (Postfix) with ESMTPSA id 70CB625055;
- Thu, 13 Jun 2019 12:32:53 -0700 (PDT)
-To: "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
-From: Jeff Kletsky <lede@allycomm.com>
-Subject: nand: Proper definition of "extra" OOB regions? (4x interleaved, then
- one bulk user)
-Message-ID: <0145346c-f1c3-bc50-6bb7-492bbe4f2da4@allycomm.com>
-Date: Thu, 13 Jun 2019 12:32:53 -0700
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:60.0)
- Gecko/20100101 Thunderbird/60.7.0
+ id 1hbcSE-0004yT-MP
+ for linux-mtd@lists.infradead.org; Fri, 14 Jun 2019 03:00:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=qf-corp.com
+ ; s=default; h=Message-ID:Reply-To:Subject:To:From:Date:
+ Content-Transfer-Encoding:Content-Type:MIME-Version:Sender:Cc:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=x+wk2oDUMoo/hQHPqS9UCKstzOaLw+EthDvW07j7+BE=; b=dYSqedD4eLyO173U9qM4zUaUIz
+ jSAYoFuaCHF5dR4LrZ0t6G7aMMjy/QDZvoUddqNqq8ijcyhmM6rqJSlN2poUPXl6NBRU42XojUTL4
+ I2XphBATfbgR+YdTreaNVbI6fKIbaoknC7HU/eLjofKyumJdFUNKCOf9iJFTU1JZiGNcqpX8wBVib
+ t8VwfOwXCO1ybApziFnOBQ//CCEv2pi9fVaCnpfsFtwYR5jgfE3TFONQIto413mF2WVT1T8wFQPne
+ G5JmgKLUeQgOLdC+wanCeZ3TySIK6Dj9DyToxiJWea5U//y0FyO+fbQtTFCGX6HLkBI4dn/83vtxQ
+ LLDttM8A==;
+Received: from [::1] (port=36428 helo=server1.qf-corp.com)
+ by server1.qf-corp.com with esmtpa (Exim 4.92)
+ (envelope-from <admin@qf-corp.com>)
+ id 1hbWOO-0005mX-80; Fri, 14 Jun 2019 04:32:16 +0800
 MIME-Version: 1.0
-Content-Language: en-US
+Date: Fri, 14 Jun 2019 04:32:16 +0800
+From: Herr David Williams <admin@qf-corp.com>
+To: undisclosed-recipients:;
+Subject: dringender Kredit
+Mail-Reply-To: david.loanfirm18@gmail.com
+Message-ID: <ea822d6dd9b0f06219e0d8675be96da0@qf-corp.com>
+X-Sender: admin@qf-corp.com
+User-Agent: Roundcube Webmail/1.3.8
+X-AntiAbuse: This header was added to track abuse,
+ please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server1.qf-corp.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - qf-corp.com
+X-Get-Message-Sender-Via: server1.qf-corp.com: authenticated_id:
+ admin@qf-corp.com
+X-Authenticated-Sender: server1.qf-corp.com: admin@qf-corp.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190613_123256_910461_F805FBAB 
-X-CRM114-Status: GOOD (  11.23  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190613_200038_930179_87621EC5 
+X-CRM114-Status: UNSURE (  -3.98  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 3.7 (+++)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (3.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [138.68.30.55 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
+ digit (david.loanfirm18[at]gmail.com)
+ 1.1 DATE_IN_PAST_06_12     Date: is 6 to 12 hours before Received: date
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,58 +90,14 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Reply-To: david.loanfirm18@gmail.com
 Content-Transfer-Encoding: base64
 Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-VEw7RFIKCkkndmUgYmVlbiB0cnlpbmcgdG8gdHJhY2sgZG93biB0aGUgcHJvcGVyIHdheSB0byBl
-eHByZXNzIHRoZSBQYXJhZ29uClNQSSBOQU5EJ3MgT09CICJ1c2VyIiBkYXRhIHNlZ21lbnRzLCBi
-dXQgYW0gbm90IGNsZWFyIGhvdyB1cHBlcgpsYXllcnMgaW50ZXJwcmV0IHRoZSBjb21iaW5hdGlv
-biBvZiBgbXRkX29vYmxheW91dF9vcHMuZnJlZWAgYW5kIHRoZQpvdmVyYWxsIE9PQiBzaXplLCB0
-eXBpY2FsbHkgc2V0IHRocm91Z2ggdGhlIGBOQU5EX01FTU9SR2AgbWFjcm8uCgpSYXRoZXIgdGhh
-biBjaHVybiBQYXRjaHdvcmsgYW5kIHRob3NlIHRoYXQgZG9uYXRlIHRoZWlyIHRpbWUgYW5kCmVu
-ZXJneSBmb2xsb3csIHJldmlldywgYW5kIG1hbmFnZSBwYXRjaGVzLCB3b3VsZCBpdCBiZSBwb3Nz
-aWJsZSB0bwpjb25maXJtIHRoYXQgdGhlIGxhc3QgNjQgYnl0ZXMgb2YgdGhpcyBjaGlwJ3MgdXNl
-ciBPT0IsIHdoaWNoCmlzIG5vdCBjb250aWd1b3VzIHdpdGggYW55IG90aGVyIHVzZXIgYXJlYXMs
-IHNob3VsZCAob3Igc2hvdWxkIG5vdCkKYmUgZGVmaW5lZCBpbiBgLmZyZWVgIGFzIGEgZmlmdGgg
-c2VjdGlvbj8KCi0tLQoKSW4gdGhlIGNhc2Ugb2YgdGhlIFBhcmFnb24gY2hpcHMsIHRoZXJlIGlz
-IGEgdG90YWwgb2YgMTI4IGJ5dGVzIG9mIE9PQiwKc3BsaXQgaW50byBhIDQtYnl0ZSBCQk0gcmVz
-ZXJ2YXRpb24sIGZvdXIgcmVwZWF0cyBvZiAxNS1ieXRlIHNlY3Rpb25zCndpdGggImZhY3Rvcnki
-IGFuZCAidXNlciIgYXJlYXMgaW50ZXJsZWF2ZWQsIHRoZW4gdGhlIHJlbWFpbmluZyA2NCBieXRl
-cwphdmFpbGFibGUgYXMgYSB1c2VyIGFyZWEsIG5vdCBjb250aWd1b3VzIHdpdGggb3RoZXIgdXNl
-ciBhcmVhc1sxXS4KCjB4ODAwIC0tIDQgYnl0ZXMgQkJNCgoweDgwNCAtLSAyIGJ5dGVzIHVzZXIK
-MHg4MDYgLS0gMTMgYnl0ZXMgZmFjdG9yeSBFQ0MKCjB4ODEzIC0tIDIgYnl0ZXMgdXNlcgoweDgx
-NSAtLSAxMyBieXRlcyBmYWN0b3J5IEVDQwoKMHg4MjIgLS0gMiBieXRlcyB1c2VyCjB4ODI0IC0t
-IDEzIGJ5dGVzIGZhY3RvcnkgRUNDCgoweDgzMSAtLSAyIGJ5dGVzIHVzZXIKMHg4MzMgLS0gMTMg
-Ynl0ZXMgZmFjdG9yeSBFQ0MKCjB4ODQwIC0tIDY0IGJ5dGVzIHVzZXIgICAgICA8PT0gdGhpcyBp
-cyB0aGUgc3ViamVjdCBvZiB0aGUgcXVlc3Rpb24KCkNsZWFybHksIHRoZSA0IHJlZ2lvbnMgb2Yg
-aW50ZXJsZWF2ZWQgT09CIGRhdGEgbmVlZHMgdG8gYmUgZGVzY3JpYmVkCmluIGJvdGggYC5lY2Ng
-IGFuZCBgLmZyZWVgLiBXaGF0IGlzbid0IGNvbXBsZXRlbHkgY2xlYXIgdG8gbWUgaXMgdGhlCnJl
-bWFpbmluZyA2NC1ieXRlIGFyZWEuCgpJcyB0aGF0IHRoZSBPT0IgYXJlYSBpcyBkZWZpbmVkIGFz
-IDEyOCBieXRlcyBhbmQgdGhhdCBvbmx5IDY0IGJ5dGVzCmhhdmUgYmVlbiByZXNlcnZlZCBzdWZm
-aWNpZW50LCBvciBzaG91bGQgdGhvc2UgNjQgYnl0ZXMsIHdoaWNoCmFyZSBub3QgY29udGlndW91
-cyB3aXRoIGFueSBvZiB0aGUgb3RoZXIgInVzZXIiIHNlZ21lbnRzIGJlIGEgZmlmdGgKc2VjdGlv
-biBpbiBkZWZpbmluZyBgLmZyZWVgPwoKClRoYXQgdGhlIGRyaXZlciAid29ya3MiIHdpdGhvdXQg
-ZGVmaW5pbmcgYSBmaWZ0aCByZWdpb24gaW4gYSBzcGVjaWZpYywKVUJJLWJhc2VkIGFwcGxpY2F0
-aW9uIGRvZXNuJ3QgYXNzdXJlIG1lIHRoYXQgaXQgd2lsbCB3b3JrIHByb3Blcmx5CmluIGFsbCBh
-cHBsaWNhdGlvbnMgd2l0aCBhbGwgdXBwZXItbGF5ZXIgY29uc3VtZXJzLgoKCkV4YW1pbmluZyBz
-dXBwb3J0ZWQgY2hpcHMgd2l0aCBzaW1pbGFyIE9PQiBsYXlvdXRzIHdpdGggbXVsdGlwbGUKc2Vj
-dGlvbnMgdGhlbiBhbiAiYWRkaXRpb25hbCIgYXJlYSwgc3VjaCBhcyB0aGUgR2lnYURldmljZSBH
-RDVGeEdRNHhBLAp3YXMgbm90IHRlcnJpYmx5IGluc2lnaHRmdWwuIFRoZSBHRDVGMUdRNFVBWSBk
-YXRhc2hlZXRbMl0gbWFya3MgdGhlCnVwcGVyIDY0LWJ5dGUgcmVnaW9uIGFzICJyZXNlcnZlZCIs
-IGluIGNvbnRyYXN0IHRvICJVc2VyIG1ldGEgZGF0YSIKYW5kIGl0IGlzIG5vdCBkZXNjcmliZWQg
-aW4gdGhlIGN1cnJlbnQgYGdpZ2FkZXZpY2UuY2BbM10uIEFzIHN1Y2gsCml0IGlzbid0IGNvbnZp
-bmNpbmcgZXZpZGVuY2UgdGhhdCBpdCB3YXMgb21pdHRlZCBhcyAibm90IHJlcXVpcmVkIiwKYmVj
-YXVzZSBpdCB3YXMgbWFya2VkICJyZXNlcnZlZCIsIG9yIHBlcmhhcHMgZm9yIHNvbWUgb3RoZXIg
-cmVhc29uLgoKCkFzIGEgc2lkZSBub3RlLCB0aGUgZGF0YXNoZWV0IGFsc28gbWFya3MgdGhlIGZp
-cnN0IGJ5dGUgb2YgZWFjaCByZWdpb24KYXMgInJlc2VydmVkIiwgd2hpY2ggaXMgbm90IHJlZmxl
-Y3RlZCBpbiB0aGUgY3VycmVudCBgZ2lnYWRldmljZS5jYCwKd2hpY2ggaW5jbHVkZXMgaXQgaW4g
-dGhlIGZyZWUgcmVnaW9uIGZvciBzZWN0aW9ucyAxLTMuCgoKVGhhbmtzIQoKSmVmZgoKCgoKWzFd
-aHR0cDovL3d3dy54dHh0ZWNoLmNvbS91cGZpbGUvMjAxNjA4MjUxNzI3NDU5MC5wZGYKIMKgwqDC
-oCBwZy4gMzYKClsyXWh0dHBzOi8vZGF0YXNoZWV0NHUuY29tL2RhdGFzaGVldC1wZGYtZmlsZS83
-OTE2ODAvR2lnYURldmljZS9HRDVGMUdRNFVBWS8xCiDCoMKgwqAgcGcuIDMzCgpbM11odHRwczov
-L2VsaXhpci5ib290bGluLmNvbS9saW51eC92NS4yLXJjNC9zb3VyY2UvZHJpdmVycy9tdGQvbmFu
-ZC9zcGkvZ2lnYWRldmljZS5jI0w0NQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+CgotLSAKQmVuw7Z0aWdlbiBTaWUgZHJpbmdlbmQgZWluZW4gS3JlZGl0PyBXZW5uIGphLCBhbnR3
+b3J0ZW4gU2llIGbDvHIgd2VpdGVyZSAKRGV0YWlscwoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxp
+bmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LW10ZC8K
