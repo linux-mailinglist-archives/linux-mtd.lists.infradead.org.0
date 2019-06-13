@@ -2,81 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A1ED4354A
-	for <lists+linux-mtd@lfdr.de>; Thu, 13 Jun 2019 12:42:17 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A3E64358B
+	for <lists+linux-mtd@lfdr.de>; Thu, 13 Jun 2019 13:32:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6JlPENM7wd/NGdYyWvPGlyB31FPFkb5VZHDpD/6USYA=; b=fGGJOLyPTd88M+
-	D6QjgOeHy5BpOdlQ2kyjv3jyAHO8EHxPQ45GAHB3YD0yHifjJNtfsAvYD6rK0AMlTtPvVB/Jq+D/v
-	gofvefEE6r/hf9pqSJ4zfSLAL6u0MFdMtUfK/XJbRYLCfa5QgMfvG9wziTADZQEhlYTBRR3kgWtxa
-	4UemoDZ0AatlDIP+a8Y9VqsEx+h99+It2gr9NJ9hT9DnCuShdIaAX+fsCD8pZ9RhzohjOZagkvyfv
-	CjpexYL+Lgr7KzK75Xh7I5fkyrl6UHU/b1nQ1ErTaJxm+L+Chiu5b8Rr3DyaHdN+gzZsyegoS7P3m
-	998wY7Az7FlluSn9mzZg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D8uSDXGs3+SeetmyDGYTm19hmIvxJgygjt82h4WRiPs=; b=MBcrkB+FhkNIpm
+	MwWbquFXkKdvydNQ9SyDhh6ozjCEpI4oDAZmcNhQacQPAVbJ9k0C3op1nGYTgmeqhryRHpQvseIhf
+	GoAzrcVrlVpn1SOtM/4FtuJ7/3LwEtPQHvTTh/1PF1udEkcKZlaltpZtbEPGVpvAhY/1MgSB4NGjw
+	borzVIoeuq12grBhJ9ZaTBZwBdUJUG2CqgoCMtqhlO0GMT0Kmas8i+bMMZgyv9xY4X7X+cgDrhBzV
+	YiTMa87cqfTEDAInc077yXbac/fAPmtJhpLCsW9Dei++hDNicMLspuS6S/AFHe+QEI2F/sIpTgk88
+	kAoNOHmWNBQor6aPvFYQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbNBM-0004Wn-Hy; Thu, 13 Jun 2019 10:42:12 +0000
-Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
+	id 1hbNxt-0004LK-Nl; Thu, 13 Jun 2019 11:32:21 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hbNBB-0004W6-6x
- for linux-mtd@lists.infradead.org; Thu, 13 Jun 2019 10:42:03 +0000
-Received: by mail-io1-xd41.google.com with SMTP id n5so15740597ioc.7
- for <linux-mtd@lists.infradead.org>; Thu, 13 Jun 2019 03:42:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=zSuItO13sVdQTxFatCV5/c6atUnwHhpHtFgwIcmMGT4=;
- b=u7EroPQk4mcgojtbvui2HNF21mtK5Iv/g+8TzmvjEEspRgtHQlM3y1DsuQpP28NVhD
- hHhuNH72TCXlBpdyJ7gPCvyl1VdBDrVX3ycPFYY+IHaIp36geO2OXVXDtn1jXPTWO/+m
- OPrfs4tkubBmpzP9cBw5jNUNzOrHN96Ukh/y9dFDrTkGg0b24vBM0fuMaUOWdqiOX5DG
- kyUcW0hdLqlXf4UNZcrCwagdlGn6avQC5UhQaWL9tSlCELV9wrqQxQaTLfFn9QXeBpiu
- cKvhCK0TcIXApQs2HCurEQN1HfiJF3mhUhdeSXbsO9v7RCRcMRP/4eY58GRX67begY01
- Mqaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=zSuItO13sVdQTxFatCV5/c6atUnwHhpHtFgwIcmMGT4=;
- b=sgc6cJ3AMUSdbekrf9zHsXad1OdolM7KjvpvkP/oCp4xQMTYBETSWlNVqWCZCc9mRa
- 7i9Sx1DJrpkf4Zf57umabLBBJHGbzrJKdVEGFoPfIqv8CqCEO+jTJaOZPeHARgJNSPVu
- XXC26Ujs1KfvDSrZNmql5MJYVnr67vaWRZD2Vv2w0N1n5HSIX3bsOuFyshybkqijbw4G
- AfIaG2mletKm/Bd4rJI7yWsizJqY+uMf5FlH55SUTxTuIxu4qTF4CorAJKGhgY5Iw/3Q
- Rip971gageuAG2uK1ls1iFsZrSI0ByOAeU0GMKD67NjZwpx0jIfllvZnjfIlItuJf9aL
- Akww==
-X-Gm-Message-State: APjAAAXIQRixjj3LWAqRMFnk9Wyq10l9ePSEuKS+dtnEHpZGf/wX2y8e
- TVoZJcIv8hnTxKMpMcjDrpV/FUEiYbRziy0k16tnagWl
-X-Google-Smtp-Source: APXvYqz9Pvb/gp0nE1RXQn+yP0ZoPDMNflKL1jqFcB13hlPi3jRiFYVHmbXSv01uaKnswnwvF5NyUTvj6Kg4eYRCOIs=
-X-Received: by 2002:a02:69d7:: with SMTP id e206mr60312254jac.21.1560422519992; 
- Thu, 13 Jun 2019 03:41:59 -0700 (PDT)
+ id 1hbNxO-0004KP-QO
+ for linux-mtd@lists.infradead.org; Thu, 13 Jun 2019 11:31:52 +0000
+Received: from localhost.localdomain (cpe-70-114-128-244.austin.res.rr.com
+ [70.114.128.244])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 2FC31208CA;
+ Thu, 13 Jun 2019 11:31:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1560425509;
+ bh=z3Dn3El1yjq4ZvN1Ri3867ZpWWj2G37nsF3RYxODv08=;
+ h=From:To:Cc:Subject:Date:From;
+ b=GFYVhGQ3k33CajiXZk+jbxVz7EZ3Rz+ks8Pa5+6chQG+Btl/GPCbJoELkp/mAXOHi
+ bTV8mobxXxFEM5yKFgRgfVZ9W05srC52Od/N7jzgg5NhmGqAZptmHahcxgCRTAMQyo
+ 0hF15okOvub9atx5RxaZDDDIDD8T8E426aBTEVWg=
+From: Dinh Nguyen <dinguyen@kernel.org>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCHv6 1/2] dt-bindings: cadence-quadspi: add options reset property
+Date: Thu, 13 Jun 2019 06:31:37 -0500
+Message-Id: <20190613113138.8280-1-dinguyen@kernel.org>
+X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-Received: by 2002:ac0:92cf:0:0:0:0:0 with HTTP; Thu, 13 Jun 2019 03:41:59
- -0700 (PDT)
-In-Reply-To: <b931537d9268184b1c98e316a6b95a72847bbe69.camel@emcraft.com>
-References: <CAA=hcWSKQ4+BsQ9XPEhP+f=-oTA7CnbJ6=4upRZughg8mOUSUw@mail.gmail.com>
- <CAFLxGvzAHGVA9Pe0rvJWqjUgaPZKyExvV1gu3pZAezhNGDXryg@mail.gmail.com>
- <CAA=hcWRTPsk=zX=bnV6xAt-EpnyXy+dZdYGuLk8M-0UAjWHM1g@mail.gmail.com>
- <b931537d9268184b1c98e316a6b95a72847bbe69.camel@emcraft.com>
-From: JH <jupiter.hce@gmail.com>
-Date: Thu, 13 Jun 2019 20:41:59 +1000
-Message-ID: <CAA=hcWQ708X-QuyZy_WLP4b0wg0Cpm8YcuBt3o3g2VzfP4jQvA@mail.gmail.com>
-Subject: Re: NAND user space program
-To: Sergei Poselenov <sposelenov@emcraft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190613_034201_532534_013BD60C 
-X-CRM114-Status: GOOD (  17.40  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190613_043150_872348_9D056818 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:d41 listed in]
- [list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (jupiter.hce[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -85,6 +63,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  envelope-from domain
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ 0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,70 +75,55 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org
+Cc: marex@denx.de, bbrezillon@kernel.org, tudor.ambarus@microchip.com,
+ linux-kernel@vger.kernel.org, dinguyen@kernel.org, computersforpeace@gmail.com,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Thanks Sergei for the clarification, good to know that mtd-utils  has
-already handled bad blacks, I don't need to worry about it.
+The QSPI module can have an optional reset signals that will hold the
+module in a reset state.
 
-Kind regards,
+Signed-off-by: Dinh Nguyen <dinguyen@kernel.org>
+---
+v6: no change
+v5: document reset-names
+v4: no change
+v3: created base on review comments
+v2: did not exist
+v1: did not exist
+---
+ Documentation/devicetree/bindings/mtd/cadence-quadspi.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-- JH
+diff --git a/Documentation/devicetree/bindings/mtd/cadence-quadspi.txt b/Documentation/devicetree/bindings/mtd/cadence-quadspi.txt
+index 4345c3a6f530..945be7d5b236 100644
+--- a/Documentation/devicetree/bindings/mtd/cadence-quadspi.txt
++++ b/Documentation/devicetree/bindings/mtd/cadence-quadspi.txt
+@@ -35,6 +35,9 @@ custom properties:
+ 		  (qspi_n_ss_out).
+ - cdns,tslch-ns : Delay in nanoseconds between setting qspi_n_ss_out low
+                   and first bit transfer.
++- resets	: Must contain an entry for each entry in reset-names.
++		  See ../reset/reset.txt for details.
++- reset-names	: Must include either "qspi" and/or "qspi-ocp".
+ 
+ Example:
+ 
+@@ -50,6 +53,8 @@ Example:
+ 		cdns,fifo-depth = <128>;
+ 		cdns,fifo-width = <4>;
+ 		cdns,trigger-address = <0x00000000>;
++		resets = <&rst QSPI_RESET>, <&rst QSPI_OCP_RESET>;
++		reset-names = "qspi", "qspi-ocp";
+ 
+ 		flash0: n25q00@0 {
+ 			...
+-- 
+2.20.0
 
-On 6/12/19, Sergei Poselenov <sposelenov@emcraft.com> wrote:
-> Hello JH,
->
-> Going back to your original question, if your intention is to write a
-> Linux image to a raw (ie without filesystem) NAND partition, so the
-> bootloader (eg U-Boot) could be able to read the kernel image from
-> there, then the suggestion is to use the mtd-utils "nandwrite", which
-> is able to deal with the NAND bad blocks.
->
-> Regards,
-> Sergei
->
-> On Wed, 2019-06-12 at 09:01 +1000, JH wrote:
->> Thanks Richard, can the Linux zImage or rootfs load to NAND directly
->> via JTAG or serial line?
->>
->> Thank you.
->>
->> Kind regards,
->>
->> - JH
->>
->> On 6/11/19, Richard Weinberger <richard.weinberger@gmail.com> wrote:
->> > On Tue, Jun 11, 2019 at 12:20 PM JH <jupiter.hce@gmail.com> wrote:
->> > > Hi,
->> > >
->> > > In NOR flash, access flash in user space is integrated to the
->> > > Linux
->> > > system read / write, is it the same story for NAND flash? I
->> > > installed
->> > > mtd-utils, but not sure if I can still use Linux system read /
->> > > write
->> > > to access NAND flash or not.
->> >
->> > Well, Linux exposes both NOR and NAND flashes as MTD.
->> > So there shouldn't be much difference.
->> > But make sure you can deal with specialties of NAND, such as
->> > bad blocks.
->> >
->> >
->> > --
->> > Thanks,
->> > //richard
->> >
->>
->> ______________________________________________________
->> Linux MTD discussion mailing list
->> http://lists.infradead.org/mailman/listinfo/linux-mtd/
->>
->
->
 
 ______________________________________________________
 Linux MTD discussion mailing list
