@@ -2,83 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C127445248
-	for <lists+linux-mtd@lfdr.de>; Fri, 14 Jun 2019 05:00:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 678DF44F90
+	for <lists+linux-mtd@lfdr.de>; Fri, 14 Jun 2019 00:52:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:
-	MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0KcHkTNfOrD0FWItjFecT6M7upm8RY4/iRx7BwbIaOk=; b=utO64hbMEsLHnw
-	gAH6ltwALnSrBISqUMSwRQxuBmB9aV7VoKFY+0tGSz8H1D6aGhOXKaLQ1rpt2flm1riwsFiaBGaSM
-	5uFR2n+w0DrSXizgW7EKPiyChXJfj1wG8UmmHL4Pt+IYYJnVsz1H+o+OVXqOHvafRElOxOHdZ8RGF
-	hSWjM/4aFMPHcRu9ktr/eWsBpAyvVGdGx7xCs7GKGdLWxhWyTGj/l/All+ZIaHbDOZyEeiOrXQA2k
-	nnOswVZLOq6k2goDysg7wZsisPKDdA767yyc8RVwEMI/QBT+ALikohiX0v9kRvaujnKxx81SVihnA
-	UyoJYxCiEvkhFAqpi9eA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rlBsNKOyCmUywf5/5y/J2RqBUXT14YdxUyp3P2Qrwv8=; b=VHLZy8ddVaDOrh
+	jFAJMGYY/HY1SmNPe9oO1JPE3OQGZgR8eGgHoebefnZ1Mxwxh5k71gw2Tv3q7orPR4YAFLt04KpNf
+	JSLXknd2umQvsm/g1CJujwfFuzIr/HYlpXXqpVO7qDWhZajoAXI2M6HJ1OjYf3B0cSonnPmukEZHK
+	rcSxoY6SZHHQ3o+zhSDbSNk/ihVUZwq1pvuNrmfnHHKnVKMpdFTKm2O8mZozwThjKZ9mcG/2Ugntb
+	hwn+YcXpQpu16nXuEWRMUI8TMmxecWZ11qCHAf1IRfysEFayoTnsiK5xvw9IWA24KQ6SYiNQa+S0b
+	5wEuODVtHNI1Dv2okqMg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbcSR-0004z6-9F; Fri, 14 Jun 2019 03:00:51 +0000
-Received: from qf-corp.com ([43.252.215.172] helo=server1.qf-corp.com)
+	id 1hbYZb-0002dI-H4; Thu, 13 Jun 2019 22:51:59 +0000
+Received: from mail-qt1-f196.google.com ([209.85.160.196])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hbcSE-0004yT-MP
- for linux-mtd@lists.infradead.org; Fri, 14 Jun 2019 03:00:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=qf-corp.com
- ; s=default; h=Message-ID:Reply-To:Subject:To:From:Date:
- Content-Transfer-Encoding:Content-Type:MIME-Version:Sender:Cc:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=x+wk2oDUMoo/hQHPqS9UCKstzOaLw+EthDvW07j7+BE=; b=dYSqedD4eLyO173U9qM4zUaUIz
- jSAYoFuaCHF5dR4LrZ0t6G7aMMjy/QDZvoUddqNqq8ijcyhmM6rqJSlN2poUPXl6NBRU42XojUTL4
- I2XphBATfbgR+YdTreaNVbI6fKIbaoknC7HU/eLjofKyumJdFUNKCOf9iJFTU1JZiGNcqpX8wBVib
- t8VwfOwXCO1ybApziFnOBQ//CCEv2pi9fVaCnpfsFtwYR5jgfE3TFONQIto413mF2WVT1T8wFQPne
- G5JmgKLUeQgOLdC+wanCeZ3TySIK6Dj9DyToxiJWea5U//y0FyO+fbQtTFCGX6HLkBI4dn/83vtxQ
- LLDttM8A==;
-Received: from [::1] (port=36428 helo=server1.qf-corp.com)
- by server1.qf-corp.com with esmtpa (Exim 4.92)
- (envelope-from <admin@qf-corp.com>)
- id 1hbWOO-0005mX-80; Fri, 14 Jun 2019 04:32:16 +0800
+ id 1hbYZQ-0002cy-Cc
+ for linux-mtd@lists.infradead.org; Thu, 13 Jun 2019 22:51:49 +0000
+Received: by mail-qt1-f196.google.com with SMTP id 33so344277qtr.8
+ for <linux-mtd@lists.infradead.org>; Thu, 13 Jun 2019 15:51:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=H1jLdvJZozzrqHX1esdeObu7Bz6wiJlvCPsfxGMitgE=;
+ b=PfuVWWfjfvlIbF62vtYUvqnkn3pHatohJ+yLKY6/M+vdDu4i3E2yqNySmfYZKVFRZU
+ pWA22kgkJHlFzojC2XTxmuJnFyTDn60FRzr+Gig+dLusKzsMqk7q55EtqIRJzFgMWA/4
+ RD5A+yfkqHWvYCAMEX5/eqABlBXM5CqI2XTx5Vk2eaxOWK+R6MmnfP7uQk0X8Mf1pj3S
+ L9Qr0w1sT/p8E7hHdh94j+8TSI3MIaTxSSlqFIqnvl16MpCyQlwlTbpwR9HaUnOvdKm3
+ 6CiDZdPtzAmunRdCT4esSyetGW35ocZzBfejvPFkjD7vbPRVHFQDaydW4VKLKb5LBe22
+ 7P2w==
+X-Gm-Message-State: APjAAAWTtd3cyipBoz6ERyQfbtIy6W57opz+ujF804hEgV6z4CdXbWgR
+ KjJrMxCeg4ZmxhzxokVIIA==
+X-Google-Smtp-Source: APXvYqzem4zi3kuCmkw6IRou/aoStUJUuSg911SowZ5Ya3+lMo/6NDr6HMK6vxTNwt20ngySVoIIkw==
+X-Received: by 2002:ac8:3345:: with SMTP id u5mr79299891qta.219.1560466307557; 
+ Thu, 13 Jun 2019 15:51:47 -0700 (PDT)
+Received: from localhost ([64.188.179.243])
+ by smtp.gmail.com with ESMTPSA id g53sm548681qtk.65.2019.06.13.15.51.46
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Thu, 13 Jun 2019 15:51:47 -0700 (PDT)
+Date: Thu, 13 Jun 2019 16:51:46 -0600
+From: Rob Herring <robh@kernel.org>
+To: Kamal Dasu <kdasu.kdev@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: mtd: brcmnand: Make nand-ecc-strength
+ and nand-ecc-step-size optional
+Message-ID: <20190613225146.GA17725@bogus>
+References: <1558117914-35807-1-git-send-email-kdasu.kdev@gmail.com>
 MIME-Version: 1.0
-Date: Fri, 14 Jun 2019 04:32:16 +0800
-From: Herr David Williams <admin@qf-corp.com>
-To: undisclosed-recipients:;
-Subject: dringender Kredit
-Mail-Reply-To: david.loanfirm18@gmail.com
-Message-ID: <ea822d6dd9b0f06219e0d8675be96da0@qf-corp.com>
-X-Sender: admin@qf-corp.com
-User-Agent: Roundcube Webmail/1.3.8
-X-AntiAbuse: This header was added to track abuse,
- please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server1.qf-corp.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - qf-corp.com
-X-Get-Message-Sender-Via: server1.qf-corp.com: authenticated_id:
- admin@qf-corp.com
-X-Authenticated-Sender: server1.qf-corp.com: admin@qf-corp.com
+Content-Disposition: inline
+In-Reply-To: <1558117914-35807-1-git-send-email-kdasu.kdev@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190613_200038_930179_87621EC5 
-X-CRM114-Status: UNSURE (  -3.98  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 3.7 (+++)
+X-CRM114-CacheID: sfid-20190613_155148_423511_116FDCD7 
+X-CRM114-Status: GOOD (  11.82  )
+X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (3.7 points)
+ Content analysis details:   (0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.196 listed in list.dnswl.org]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (robherring2[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (robherring2[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit (david.loanfirm18[at]gmail.com)
- 1.1 DATE_IN_PAST_06_12     Date: is 6 to 12 hours before Received: date
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.160.196 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,14 +90,31 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: david.loanfirm18@gmail.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
+ Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
+ Marek Vasut <marek.vasut@gmail.com>, bcm-kernel-feedback-list@broadcom.com,
+ Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-CgotLSAKQmVuw7Z0aWdlbiBTaWUgZHJpbmdlbmQgZWluZW4gS3JlZGl0PyBXZW5uIGphLCBhbnR3
-b3J0ZW4gU2llIGbDvHIgd2VpdGVyZSAKRGV0YWlscwoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxp
-bmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LW10ZC8K
+On Fri, 17 May 2019 14:29:54 -0400, Kamal Dasu wrote:
+> nand-ecc-strength and nand-ecc-step-size can be made optional as
+> brcmanand driver can support using the nand_base driver detected
+> values.
+> 
+> Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+
+Reviewed-by: Rob Herring <robh@kernel.org>
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
