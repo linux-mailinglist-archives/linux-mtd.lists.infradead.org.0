@@ -2,66 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B49DC494C4
-	for <lists+linux-mtd@lfdr.de>; Tue, 18 Jun 2019 00:08:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 58238494F2
+	for <lists+linux-mtd@lfdr.de>; Tue, 18 Jun 2019 00:13:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kR6jxdFxIl/cWv8dGXJ8WhKTZ2806BoPUa9j4cEaqvQ=; b=mrzGrESG11msIQ
-	hs2aa3ptJ2O5W2poAM8uAj4XvDDtc07lRzvnGBfFTKywJRE/KuU0I2umiB8OwVitO/koLb43ni+IY
-	tg9Otfc21DN8Yba9jApeLnXYcx1aW/2okAFG3lWGHRJj9WvP2SJyWODOGfVTviY6gyO9eRqI4rEHr
-	Wnk8OOVZ2PbBpuiobCIZ3Zk3RnCPE14n5tvTcPPgfHW7S2cdy4ZwbxuBGLCVHiHGYXHwlgeJCpv88
-	WOvpR2az3yj+JgtOELs7vhmsvPXCmuYfIq3n+iF/Ds5hNFGgLZRuUO7QHOdBdorBscyEh6jxNy3+a
-	OVciS86POgxWVcP4Dfog==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=TpOSY7MQNSAbG9LZmJenmxn9mgLC37n/Qsdit81bn/0=; b=uc3titPQ+s9G8P
+	qq1z7RbslO0cWkYi12pdzLpYK2Joct0ooxisN4C5YZcRBF01BMXO7kG74TZJcOGztHe/lQBPXdONc
+	bgW53zYRMsMoyAat8SBZxjML51inMVQHAli869eh/2gPFNaPtsrWe23rHxmUXe4AStVUKgyw39V4y
+	/3q+nVlcDubT8WTLjrVFlBKpwshxxaElwuoG5VgEBTyKjpZvrDwh2DxIV+Usb+1bCbHB9WSqS4hHY
+	anmZeMlvc93qaPHaJM4UQjStoAeurkIA2I3DlZyBf/zyx7k2Xd2FGrCfxFyqdz9Q1nOjKf21rkuW2
+	9tTr9Mou23BoatmiY42Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hcznO-000071-NC; Mon, 17 Jun 2019 22:08:10 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1hczs8-0002Yz-Oi; Mon, 17 Jun 2019 22:13:04 +0000
+Received: from gate2.alliedtelesis.co.nz ([202.36.163.20])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hcznD-00006M-D8
- for linux-mtd@lists.infradead.org; Mon, 17 Jun 2019 22:08:01 +0000
-Received: by mail-wm1-x343.google.com with SMTP id h19so910137wme.0
- for <linux-mtd@lists.infradead.org>; Mon, 17 Jun 2019 15:07:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Cq3xBrs71UY77jcBkTVh4FMBqjMhDVmcFlATy07xl4g=;
- b=PbZ2WVJR34XQFcPuUzs458hR+8YmZWdEqmgFSzPWSFIlsVDZL06pJ3uu6mRjk90ijM
- Ee8SeuFeQB+HJC7TOCcuol0gC8EHJ/NDkb1Yj3HJH7fQXsBcYEInOndleiRmubwEHElP
- 7jUyZlHaPY1EVbCrsfXv+5ZixqFnRco3DWxyGfSNlyOcWHhFyI0YvfQVXQePgYDQC9St
- Tu4rlUr9z8I52MyfZ5eAvJ7SyiMgOOcjtPv7NktHvOimQwKHX2CjGQPUjJXhRXk2xuEp
- UiA/oBZokE4JtjUJcY9nFy0HxjBPtOAGcvYAZ9pbkKWKQXERHt/Lcq0XxVR2kDyOgMIc
- 2NLg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=Cq3xBrs71UY77jcBkTVh4FMBqjMhDVmcFlATy07xl4g=;
- b=ZYyUhybSwQ3WiKmhZILDLWt5VE8XGZBbPdv41NHHv8bWSoigOaGAH0UWmtyp1B2PaM
- mVvlgxQRFDI9XtME8A6xXTP1Pf9AFGowQUVP9/IEdINhME47BPSwsVqi2/4m2IxF83aD
- 8oj9GtFQqVcreDoxludmUNbiXELjQjO0Ehdo1Pey6/EF1N+jIpbKlFzNKI+9RJxCckkV
- Lh6HE0BRD6bqEmWfp3epO+L8iEClwSRSF5zgBzYZvEas/HXxcPN7HKmoob/jmM97dM3F
- Ar7rViXtGu6G+iK5+KTuExCgD0jZA3xL1+Ay7qqz8IHLneZimrH1gq8TUxSSqNepq/l/
- uMdA==
-X-Gm-Message-State: APjAAAX2MFgd0Xb3cv818nQLcbIIvBi83HQ7JTZghSmP71m9T+t4IlqO
- 5S+X4o7+FritACNFzMnBDH2I/uKSyyE4/Fa8k+8=
-X-Google-Smtp-Source: APXvYqwelkyoSXZXCs+ok0tAtv5XZgf/Y6CcbjhsQi64NXLvqgTSPnIY3I+Cf5Q+rm0J5C/KRhsnJkYs40tFDWHIiFA=
-X-Received: by 2002:a7b:ce8a:: with SMTP id q10mr456126wmj.109.1560809276561; 
- Mon, 17 Jun 2019 15:07:56 -0700 (PDT)
-MIME-Version: 1.0
+ id 1hczqt-0001hG-BU
+ for linux-mtd@lists.infradead.org; Mon, 17 Jun 2019 22:11:49 +0000
+Received: from mmarshal3.atlnz.lc (mmarshal3.atlnz.lc [10.32.18.43])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (Client did not present a certificate)
+ by gate2.alliedtelesis.co.nz (Postfix) with ESMTPS id F0FAF806A8;
+ Tue, 18 Jun 2019 10:11:42 +1200 (NZST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alliedtelesis.co.nz;
+ s=mail181024; t=1560809502;
+ bh=DSLbrc5ukZCi8kilt1qLlyon/yI7IWOwk3BYxT6iAaE=;
+ h=From:To:CC:Subject:Date:References;
+ b=fcB3luCLIBJWQsT9GCHVwIkLWguH3NSFqKHBsKDIS38SNRWwVrzgCtbHiElyKDpQ/
+ HDkMkQRHbX+zZErKxvdiuLuJqTLAiVQFP2Z/QEVhfWVNfiMY3BVqMuO3FGL/afdKTU
+ eaF6/NdlyGR3g44H5vPZBpKuch+Wsb+OTsZ3WKRle7rPq2WjfElXAzuoxZU5/km/th
+ DhxbhlpjJHODF3PgDgJnlQ/L7GyWckPhghceoKUf8Dc9ANIlhfTnT4iubWwqczgusz
+ 9eBq0brMAArF1bieH0dg44qmbo8y4zO61ye2OHdnyuPnj+0u57aaQCVZ8ddBHhkAyh
+ MD3L/k+I09CPw==
+Received: from svr-chch-ex1.atlnz.lc (Not Verified[10.32.16.77]) by
+ mmarshal3.atlnz.lc with Trustwave SEG (v7, 5, 8, 10121)
+ id <B5d08101f0000>; Tue, 18 Jun 2019 10:11:43 +1200
+Received: from svr-chch-ex1.atlnz.lc (2001:df5:b000:bc8:409d:36f5:8899:92e8)
+ by svr-chch-ex1.atlnz.lc (2001:df5:b000:bc8:409d:36f5:8899:92e8) with
+ Microsoft SMTP Server (TLS) id 15.0.1156.6; Tue, 18 Jun 2019 10:11:42 +1200
+Received: from svr-chch-ex1.atlnz.lc ([fe80::409d:36f5:8899:92e8]) by
+ svr-chch-ex1.atlnz.lc ([fe80::409d:36f5:8899:92e8%12]) with mapi id
+ 15.00.1156.000; Tue, 18 Jun 2019 10:11:42 +1200
+From: Chris Packham <Chris.Packham@alliedtelesis.co.nz>
+To: Richard Weinberger <richard.weinberger@gmail.com>
+Subject: Re: [PATCH v2 1/2] mtd: concat: refactor concat_lock/concat_unlock
+Thread-Topic: [PATCH v2 1/2] mtd: concat: refactor concat_lock/concat_unlock
+Thread-Index: AQHVEPTbCX8jgKCQ/EWiWr4BFnYFGQ==
+Date: Mon, 17 Jun 2019 22:11:42 +0000
+Message-ID: <365a80987504424f8685faaceb23b468@svr-chch-ex1.atlnz.lc>
 References: <20190522231948.17559-1-chris.packham@alliedtelesis.co.nz>
  <355dad1321ed46baa98ca6f47b4d00b5@svr-chch-ex1.atlnz.lc>
-In-Reply-To: <355dad1321ed46baa98ca6f47b4d00b5@svr-chch-ex1.atlnz.lc>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Tue, 18 Jun 2019 00:07:45 +0200
-Message-ID: <CAFLxGvwNNWKzbfKvDjAK6rujbr5qtmVAWCDD5aULO4BVKutRKw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] mtd: concat: refactor concat_lock/concat_unlock
-To: Chris Packham <Chris.Packham@alliedtelesis.co.nz>
+ <CAFLxGvwNNWKzbfKvDjAK6rujbr5qtmVAWCDD5aULO4BVKutRKw@mail.gmail.com>
+Accept-Language: en-NZ, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [2001:df5:b000:22:3a2c:4aff:fe70:2b02]
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_150759_472990_4E72F541 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20190617_151147_810679_1A17D4E7 
+X-CRM114-Status: UNSURE (   6.97  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -69,12 +74,9 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:343 listed in]
- [list.dnswl.org]
+ no trust [202.36.163.20 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (richard.weinberger[at]gmail.com)
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -105,19 +107,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Jun 14, 2019 at 5:26 AM Chris Packham
-<Chris.Packham@alliedtelesis.co.nz> wrote:
->
-> Hi All,
->
-> Ping?
+On 18/06/19 10:08 AM, Richard Weinberger wrote:
+> On Fri, Jun 14, 2019 at 5:26 AM Chris Packham
+> <Chris.Packham@alliedtelesis.co.nz> wrote:
+>>
+>> Hi All,
+>>
+>> Ping?
+> 
+> Your patch is not lost. We start soon with collecting all material for
+> the merge window. :-)
+> 
 
-Your patch is not lost. We start soon with collecting all material for
-the merge window. :-)
-
--- 
-Thanks,
-//richard
+OK thanks for the confirmation and sorry for the noise.
 
 ______________________________________________________
 Linux MTD discussion mailing list
