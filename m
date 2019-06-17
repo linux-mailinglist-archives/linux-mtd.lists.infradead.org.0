@@ -2,62 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C52848087
-	for <lists+linux-mtd@lfdr.de>; Mon, 17 Jun 2019 13:24:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48EAE48197
+	for <lists+linux-mtd@lfdr.de>; Mon, 17 Jun 2019 14:13:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:To:
-	Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0DPB24hf1EwkcXpOTnhCpMTtJFmX47KWfpg+KcI6Aqo=; b=OOrgI2QOMK61vzWJpENwdKho8
-	CcVDAg5lVIxpy39v/DvrH1eDI4aHNOj0FkRuK8veYbqkfhsjj114PxDUygG3PiTuRILJps7xPlg93
-	luK/KD3ajLAVzhHkybLm4HbC+Pyk+TWUPWBZmO40UF7Q3FoIEdVpCdb88aT0GIDYGbjkO2mtqqzjq
-	ejNZ4lxIgwGHR77K2H5oU/PaCyoZABGwwJ+iuZ2l6xJlJzGpC5beoZeLG/AWg/Ae0KfeyoK8W6gBU
-	FNPnsLo0Vmvwhf6kGsxeC4pV9awhaaI4U7aj6A2irukiNrk90sHL2ivBAPKf8mY9cSiPg3Ac/j5d+
-	QefYIGDRA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Vbam25OzOFsWWTomz6ca4+9dAOMklZV6xlqPjvnMR/k=; b=LIe9PHy7qOhjrw
+	do2uV4JXnnf734VhhjyYheuFx6RgyuT6fp1qVkipIhdXqT5CQ09JkENVFqd3/+voT391RLYWI4suR
+	C35nuI3HsfFvYfjEMzUF6TOOKckfKzHuhcEleksI0iFd3Mz5cYumbToaIELbaY5iZkoFRdjyVyk8O
+	L+v3ADrICPoCVH/UJuHbMXnZKyvQbe4nmW5+ypGzIf/ny62GGzfLfnygn/aN8t2ObgpqVu2bYb8p0
+	Ev6lQAE4qCyS5BMe2ykp4+K0A9CCGdahPPepDLqE78Q1HaZ39X3BUsVG+N4N0TAZNDW7X3WbWHSRd
+	dCYYfMZvIbiti434rZTQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hcpkS-0000UK-Rv; Mon, 17 Jun 2019 11:24:28 +0000
-Received: from outils.crapouillou.net ([89.234.176.41] helo=crapouillou.net)
+	id 1hcqVl-0008DE-8P; Mon, 17 Jun 2019 12:13:21 +0000
+Received: from mail-qt1-f194.google.com ([209.85.160.194])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hcpkI-0000Sr-5p
- for linux-mtd@lists.infradead.org; Mon, 17 Jun 2019 11:24:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
- s=mail; t=1560770649; h=from:from:sender:reply-to:subject:subject:date:date:
- message-id:message-id:to:to:cc:cc:mime-version:mime-version:
- content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=XXgClKH7M7bb5E8c4HAo2DhEtqDm8AwWK0DAg3w6CSA=;
- b=DLFCe8J7F1iPnSyAWfCXNCPswqEMS67tC5mWBLsUUPwwict7OqgpXo58qFhDKzwVuWmzPl
- TCvyCpszlQ8FaFEm+TC3DOPxtvbwxLOoI1+wWRdFKVEjsCDewxvAz27jOkgCkA0D6HuhTQ
- T0Cn9LgLxGKKsufguSZno81dsI1kJRU=
-Date: Mon, 17 Jun 2019 13:24:04 +0200
-From: Paul Cercueil <paul@crapouillou.net>
-Subject: Re: [PATCH] mtd: rawnand: ingenic: fix ingenic_ecc dependency
-To: Arnd Bergmann <arnd@arndb.de>
-Message-Id: <1560770644.1774.0@crapouillou.net>
-In-Reply-To: <20190617111110.2103786-1-arnd@arndb.de>
-References: <20190617111110.2103786-1-arnd@arndb.de>
+ id 1hcqVZ-00085u-KG
+ for linux-mtd@lists.infradead.org; Mon, 17 Jun 2019 12:13:10 +0000
+Received: by mail-qt1-f194.google.com with SMTP id m29so10369786qtu.1
+ for <linux-mtd@lists.infradead.org>; Mon, 17 Jun 2019 05:13:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=PjXXRz5jYVZd3qCDenzBwlj9PiRYwfU0XHUt+TN6Glw=;
+ b=b/WV40lv6TSXi3ImSpq7yBNFsC57uCZJfX9Zq5Oaiw+54R6dWF/DVu8EPu62JknmZU
+ bTO1E1ysOcXPe3+G1+DJMIideAg8urSw0/OovndauBqXPFd049n1stQ5H/8IWCAYxwVh
+ IVfkQbtRYRvH4ocAxTdNxBIwhhCKGtyoDoDgqqep8fUykf2Pyq2RIsMrFYElonAw4WWJ
+ xf3icWALiO5JnWOxWavHHzZ6sC7TEaMpJLauyRa3Ev1X/aHUdoO/0bSTplGeKRNMf32E
+ JHvcPgIwQ57TJY5YobprFgVRanGbQCvZrHpxTxB4PtAtdBTcKk/texLuHeRvueLG/I0L
+ mFbg==
+X-Gm-Message-State: APjAAAXk26U9SRgTx7B6SiubAP2qd8dFLd5qKTEEUATQWSHq5Bk77vHv
+ KVZGHU5ldDAIv/BRDANykRAvedFhbo4zdl/Nu8D+s16gfwM=
+X-Google-Smtp-Source: APXvYqxndSVnNHlL+RyfC6xL5ZB+R7JYlnaPpJzde64TsayAdYnpDAGSwR/DHJMRVgWmalLzoXslfJHDmsbKAGqFZsQ=
+X-Received: by 2002:ac8:8dd:: with SMTP id y29mr28170568qth.304.1560773586412; 
+ Mon, 17 Jun 2019 05:13:06 -0700 (PDT)
 MIME-Version: 1.0
+References: <20190617111110.2103786-1-arnd@arndb.de>
+ <1560770644.1774.0@crapouillou.net>
+In-Reply-To: <1560770644.1774.0@crapouillou.net>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Mon, 17 Jun 2019 14:12:48 +0200
+Message-ID: <CAK8P3a28NrvLP1nE7TQUCqwYXVwrSnVUJoH0yTSqRpz93f4g2Q@mail.gmail.com>
+Subject: Re: [PATCH] mtd: rawnand: ingenic: fix ingenic_ecc dependency
+To: Paul Cercueil <paul@crapouillou.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190617_042418_594950_2E7E6F7C 
-X-CRM114-Status: GOOD (  16.31  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190617_051309_669590_444C7007 
+X-CRM114-Status: GOOD (  13.32  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.160.194 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.160.194 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (arndbergmann[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,120 +83,38 @@ List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
- linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@gmail.com>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Marek Vasut <marek.vasut@gmail.com>, linux-mtd <linux-mtd@lists.infradead.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
  Brian Norris <computersforpeace@gmail.com>,
  David Woodhouse <dwmw2@infradead.org>
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Arnd,
+On Mon, Jun 17, 2019 at 1:24 PM Paul Cercueil <paul@crapouillou.net> wrote:
 
+> I think there's a better way to fix it, only in Kconfig.
+>
+> * Add a bool symbol MTD_NAND_INGENIC_USE_HW_ECC
+> * Have the three ECC/BCH drivers select this symbol instead of
+>   MTD_NAND_INGENIC_ECC
+> * Add the following to the MTD_NAND_JZ4780 config option:
+>   "select MTD_NAND_INGENIC_ECC if MTD_NAND_INGENIC_USE_HW_ECC"
 
-Le lun. 17 juin 2019 =E0 13:10, Arnd Bergmann <arnd@arndb.de> a =E9crit :
-> The ecc code is called from the main ingenic_nand module, but the
-> Kconfig symbol gets selected by the dependent ones.
-> =
+I don't see much difference to my approach here, but if you want
+to submit that version with 'Reported-by: Arnd Bergmann <arnd@arndb.de>',
+please do so.
 
-> If the child drivers are loadable modules, this leads to a link
-> error:
-> =
+Yet another option would be to use Makefile code to link both
+files into one module, and remove the EXPORT_SYMBOL statements:
 
-> drivers/mtd/nand/raw/ingenic/ingenic_nand.o: In function =
+obj-$(CONFIG_MTD_NAND_JZ4780) += jz4780_nand.o
+jz4780_nand-y += ingenic_nand.o
+jz4780_nand-$(CONFIG_MTD_NAND_INGENIC_ECC) += ingenic_ecc.o
 
-> `ingenic_nand_remove':
-> ingenic_nand.c:(.text+0x1a1): undefined reference to =
-
-> `ingenic_ecc_release'
-> drivers/mtd/nand/raw/ingenic/ingenic_nand.o: In function =
-
-> `ingenic_nand_ecc_correct':
-> ingenic_nand.c:(.text+0x1fa): undefined reference to =
-
-> `ingenic_ecc_correct'
-> drivers/mtd/nand/raw/ingenic/ingenic_nand.o: In function =
-
-> `ingenic_nand_ecc_calculate':
-> ingenic_nand.c:(.text+0x255): undefined reference to =
-
-> `ingenic_ecc_calculate'
-> drivers/mtd/nand/raw/ingenic/ingenic_nand.o: In function =
-
-> `ingenic_nand_probe':
-> ingenic_nand.c:(.text+0x3ca): undefined reference to =
-
-> `of_ingenic_ecc_get'
-> ingenic_nand.c:(.text+0x685): undefined reference to =
-
-> `ingenic_ecc_release'
-> =
-
-> Rearrange this to have the ecc code linked the same way as the main
-> driver.
-
-I think there's a better way to fix it, only in Kconfig.
-
-* Add a bool symbol MTD_NAND_INGENIC_USE_HW_ECC
-* Have the three ECC/BCH drivers select this symbol instead of
-  MTD_NAND_INGENIC_ECC
-* Add the following to the MTD_NAND_JZ4780 config option:
-  "select MTD_NAND_INGENIC_ECC if MTD_NAND_INGENIC_USE_HW_ECC"
-
-
-> Fixes: 15de8c6efd0e ("mtd: rawnand: ingenic: Separate top-level and =
-
-> SoC specific code")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  drivers/mtd/nand/raw/ingenic/Kconfig  | 2 +-
->  drivers/mtd/nand/raw/ingenic/Makefile | 5 ++++-
->  2 files changed, 5 insertions(+), 2 deletions(-)
-> =
-
-> diff --git a/drivers/mtd/nand/raw/ingenic/Kconfig =
-
-> b/drivers/mtd/nand/raw/ingenic/Kconfig
-> index 19a96ce515c1..66b7cffdb0c2 100644
-> --- a/drivers/mtd/nand/raw/ingenic/Kconfig
-> +++ b/drivers/mtd/nand/raw/ingenic/Kconfig
-> @@ -16,7 +16,7 @@ config MTD_NAND_JZ4780
->  if MTD_NAND_JZ4780
-> =
-
->  config MTD_NAND_INGENIC_ECC
-> -	tristate
-> +	bool
-> =
-
->  config MTD_NAND_JZ4740_ECC
->  	tristate "Hardware BCH support for JZ4740 SoC"
-> diff --git a/drivers/mtd/nand/raw/ingenic/Makefile =
-
-> b/drivers/mtd/nand/raw/ingenic/Makefile
-> index 1ac4f455baea..5a55efc5d9bb 100644
-> --- a/drivers/mtd/nand/raw/ingenic/Makefile
-> +++ b/drivers/mtd/nand/raw/ingenic/Makefile
-> @@ -2,7 +2,10 @@
->  obj-$(CONFIG_MTD_NAND_JZ4740) +=3D jz4740_nand.o
->  obj-$(CONFIG_MTD_NAND_JZ4780) +=3D ingenic_nand.o
-> =
-
-> -obj-$(CONFIG_MTD_NAND_INGENIC_ECC) +=3D ingenic_ecc.o
-> +ifdef CONFIG_MTD_NAND_INGENIC_ECC
-> +obj-$(CONFIG_MTD_NAND_JZ4780) +=3D ingenic_ecc.o
-> +endif
-> +
->  obj-$(CONFIG_MTD_NAND_JZ4740_ECC) +=3D jz4740_ecc.o
->  obj-$(CONFIG_MTD_NAND_JZ4725B_BCH) +=3D jz4725b_bch.o
->  obj-$(CONFIG_MTD_NAND_JZ4780_BCH) +=3D jz4780_bch.o
-> --
-> 2.20.0
-> =
-
-
-
+        Arnd
 
 ______________________________________________________
 Linux MTD discussion mailing list
