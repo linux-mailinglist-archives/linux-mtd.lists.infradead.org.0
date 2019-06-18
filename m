@@ -2,90 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C61F74A9D1
-	for <lists+linux-mtd@lfdr.de>; Tue, 18 Jun 2019 20:27:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 43F704ABD1
+	for <lists+linux-mtd@lfdr.de>; Tue, 18 Jun 2019 22:29:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=BvbkMTRjKXJlQZoJvtsHgIBCdmbVoK/LDDuIlxgRWWs=; b=iZFja/MlK+WcQNsVBzxj5QoVvc
-	iLRYs8bq9ejFXk/b1eIbyjmF1QjoPDIYDI7Gts51W9T4HA4O1vSREA2j4dTRf6De1JuKYw2VBXua7
-	WurA6DMeHq5Pd6ogDPqCsZ6BjQTMN048ME+S00B/lgytZcVteem+2SGy1MPzeMydCLtA+t3Px0opb
-	71HXVNLZOMn7kDIp9kxUqzQm5VtJpNAvtOYEm538mwEudoJWm141I/EM1rS+2hpvU4UWczJnmAfsv
-	wxbaauHGyI+r/5aqugxIlNlVf6ILS+o7dxCajeWxZj9430zlpfmvJ+6EQBUN46p8rpK77rXaiXeAb
-	1WqLyvxw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KS9jJbbv/fpxgqpYq3RqmAH+NSJ9i08/Qo2cOM+Q5i0=; b=FpVGBWEazvi00T
+	O+8ER74qkzg7Q+2FandZaHt7YyCzFg9unegavWLIlmYa/6Lsen/O9g6j0AkKMFnUd4Y1MNMbA7pmt
+	UynJzsGZYPonDzkX3sP4BHCXUMWuGTnLLHfvVscjYdpI9pfP6m1C3TIGcWbXKpQI/ZaMSgzIj5NyD
+	xaEbSC57zFxLrt496O+OYMhkbfxe0OF94EGqY+mqjThwVqdkySu+Hylm/Ev2jAfWfvTJUm/S5Gl1b
+	HUvjibbNJhHKKqo8jjjQS2OvNglwnqXP++jEV9zizL/62U9d0UTC28VL0yDR5ujlIm7UzSYI2w60e
+	/WOa8t5fvnvBjTYy5Qcw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hdIpZ-0005i8-FQ; Tue, 18 Jun 2019 18:27:41 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1hdKje-0007qU-Qw; Tue, 18 Jun 2019 20:29:42 +0000
+Received: from zeniv.linux.org.uk ([195.92.253.2])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hdIpO-0005hX-IW
- for linux-mtd@lists.infradead.org; Tue, 18 Jun 2019 18:27:32 +0000
-Received: by mail-pf1-x444.google.com with SMTP id x15so8152315pfq.0
- for <linux-mtd@lists.infradead.org>; Tue, 18 Jun 2019 11:27:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=f1jztib4H2AhReDzbfPoXEq38V+b/2OjoyCgjVjM/vY=;
- b=qQN5AjlvxoOzG6zwGQCL4kP4KMEGWQWZBJwkiUejECOHE1LzLRRze29XzBsI9kIf93
- wefOzzVhaGj5tNJujkqJULJTeDydev5qgyw4XF6HkP+Ibpgb5e6/AStQywOrVor3B6/Q
- NVSTQ9Ja0CMVgNihdqI1lmDS6BApg51HwyNKsdR5c9azUL5XFNq17/aIFbk79uZiyHfF
- Gs4O7vnSFTyBoXDBJ44AMiaJCbQt5Yhz8pFgOL0ik8VWl1sTVT1QciHexbnlCrBMUC8x
- 7j0OXIkL1A/A+GTeaY8OC46Xt8uiz9yxPQWCIbvQhqjdc5v2YlwMMDFfGqgiE2gYZGJ+
- DAEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=f1jztib4H2AhReDzbfPoXEq38V+b/2OjoyCgjVjM/vY=;
- b=nihcdJF1+9mlpsyblFUTrLYlnOb9UBgd20XajhMZ4SqADIKb8j3IiWwxw89S6uJj3Y
- XcgpDlH7DzUBazU2cqDA/vZYeA4Zktw2oYbhiSYXBcP+yDh+BOL/pQq0s2SA0ffMVoZE
- w5emImYCGNoNkH5ivGDxpGF5J8Ku5yWIZyK3ZC+dsIBv2spGYTpxdVg8RNljfnvjEcmj
- 77hHg96jsXWJkVeQhaWvvfNj7r/cWqQdcryDkNWy72Y9Hi0tBXqC5M1zffBFgnOpFH8X
- 9NuGGVvwcauDmOZ6aQbsfzFQWmNqX6bg8akMDZ8jfNo1j0cUhTty1WeIzA4HbccXP0I/
- 2MFA==
-X-Gm-Message-State: APjAAAVnGNlmVFkYI0ffcBCfHv55r9GqHfYFuKyKCrZSTI9PNKNyJRMu
- OJ6peSzU/uTqcCUXxJuy5CIarbfa
-X-Google-Smtp-Source: APXvYqz03SVDLN2muSEnZep8XNk3L8zbZHPF+1yClksQ9xmMNrWxQpH80qjXYUyIlPzm4unlxTnPHQ==
-X-Received: by 2002:a63:6883:: with SMTP id d125mr3963722pgc.281.1560882449634; 
- Tue, 18 Jun 2019 11:27:29 -0700 (PDT)
-Received: from mail.broadcom.com ([192.19.231.250])
- by smtp.gmail.com with ESMTPSA id k4sm6639480pfk.42.2019.06.18.11.27.27
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 18 Jun 2019 11:27:29 -0700 (PDT)
-From: Kamal Dasu <kdasu.kdev@gmail.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH v4 2/2] mtd: nand: raw: brcmnand: When oops in progress use
- pio and interrupt polling
-Date: Tue, 18 Jun 2019 14:26:43 -0400
-Message-Id: <1560882420-727-2-git-send-email-kdasu.kdev@gmail.com>
-X-Mailer: git-send-email 1.9.0.138.g2de3478
-In-Reply-To: <1560882420-727-1-git-send-email-kdasu.kdev@gmail.com>
-References: <1560882420-727-1-git-send-email-kdasu.kdev@gmail.com>
+ id 1hdKjT-0007gy-7H
+ for linux-mtd@lists.infradead.org; Tue, 18 Jun 2019 20:29:32 +0000
+Received: from viro by ZenIV.linux.org.uk with local (Exim 4.92 #3 (Red Hat
+ Linux)) id 1hdKhN-0003PQ-66; Tue, 18 Jun 2019 20:27:21 +0000
+Date: Tue, 18 Jun 2019 21:27:21 +0100
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Christoph Hellwig <hch@lst.de>
+Subject: Re: [PATCH 3/4] jffs2: pass the correct prototype to read_cache_page
+Message-ID: <20190618202721.GD17978@ZenIV.linux.org.uk>
+References: <20190520055731.24538-1-hch@lst.de>
+ <20190520055731.24538-4-hch@lst.de>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190520055731.24538-4-hch@lst.de>
+User-Agent: Mutt/1.11.3 (2019-02-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190618_112730_643598_E134DB82 
-X-CRM114-Status: GOOD (  15.05  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190618_132931_265226_CBD42B41 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (kdasu.kdev[at]gmail.com)
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.92.253.2 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,109 +60,72 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Kamal Dasu <kdasu.kdev@gmail.com>,
- Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
- Marek Vasut <marek.vasut@gmail.com>, bcm-kernel-feedback-list@broadcom.com,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-MIME-Version: 1.0
+Cc: linux-nfs@vger.kernel.org, Kees Cook <keescook@chromium.org>,
+ Nick Desaulniers <ndesaulniers@google.com>, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-mtd@lists.infradead.org,
+ Sami Tolvanen <samitolvanen@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-If mtd_oops is in progress, switch to polling during NAND command
-completion instead of relying on DMA/interrupts so that the mtd_oops
-buffer can be completely written in the assigned NAND partition.
+On Mon, May 20, 2019 at 07:57:30AM +0200, Christoph Hellwig wrote:
+> Fix the callback jffs2 passes to read_cache_page to actually have the
+> proper type expected.  Casting around function pointers can easily
+> hide typing bugs, and defeats control flow protection.
 
-Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
----
- drivers/mtd/nand/raw/brcmnand/brcmnand.c | 48 ++++++++++++++++++++++++++++++--
- 1 file changed, 45 insertions(+), 3 deletions(-)
+FWIW, this
+unsigned char *jffs2_gc_fetch_page(struct jffs2_sb_info *c,
+                                   struct jffs2_inode_info *f,
+                                   unsigned long offset,
+                                   unsigned long *priv)
+{
+        struct inode *inode = OFNI_EDONI_2SFFJ(f);
+        struct page *pg;
 
-diff --git a/drivers/mtd/nand/raw/brcmnand/brcmnand.c b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-index 8735277..27b22d6 100644
---- a/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-+++ b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-@@ -151,6 +151,7 @@ struct brcmnand_controller {
- 	u32			nand_cs_nand_xor;
- 	u32			corr_stat_threshold;
- 	u32			flash_dma_mode;
-+	bool			pio_poll_mode;
- };
- 
- struct brcmnand_cfg {
-@@ -815,6 +816,20 @@ static inline bool has_flash_dma(struct brcmnand_controller *ctrl)
- 	return ctrl->flash_dma_base;
- }
- 
-+static inline void disable_ctrl_irqs(struct brcmnand_controller *ctrl)
-+{
-+	if (ctrl->pio_poll_mode)
-+		return;
-+
-+	if (has_flash_dma(ctrl)) {
-+		ctrl->flash_dma_base = 0;
-+		disable_irq(ctrl->dma_irq);
-+	}
-+
-+	disable_irq(ctrl->irq);
-+	ctrl->pio_poll_mode = true;
-+}
-+
- static inline bool flash_dma_buf_ok(const void *buf)
- {
- 	return buf && !is_vmalloc_addr(buf) &&
-@@ -1229,15 +1244,42 @@ static void brcmnand_cmd_ctrl(struct nand_chip *chip, int dat,
- 	/* intentionally left blank */
- }
- 
-+static bool brcmstb_nand_wait_for_completion(struct nand_chip *chip)
-+{
-+	struct brcmnand_host *host = nand_get_controller_data(chip);
-+	struct brcmnand_controller *ctrl = host->ctrl;
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	bool err = false;
-+	int sts;
-+
-+	if (mtd->panic_write_triggered) {
-+		/* switch to interrupt polling and PIO mode */
-+		disable_ctrl_irqs(ctrl);
-+		sts = bcmnand_ctrl_poll_status(ctrl, NAND_CTRL_RDY,
-+					       NAND_CTRL_RDY, 0);
-+		err = (sts < 0) ? true : false;
-+	} else {
-+		unsigned long timeo = msecs_to_jiffies(
-+						NAND_POLL_STATUS_TIMEOUT_MS);
-+		/* wait for completion interrupt */
-+		sts = wait_for_completion_timeout(&ctrl->done, timeo);
-+		err = (sts <= 0) ? true : false;
-+	}
-+
-+	return err;
-+}
-+
- static int brcmnand_waitfunc(struct nand_chip *chip)
- {
- 	struct brcmnand_host *host = nand_get_controller_data(chip);
- 	struct brcmnand_controller *ctrl = host->ctrl;
--	unsigned long timeo = msecs_to_jiffies(100);
-+	bool err = false;
- 
- 	dev_dbg(ctrl->dev, "wait on native cmd %d\n", ctrl->cmd_pending);
--	if (ctrl->cmd_pending &&
--			wait_for_completion_timeout(&ctrl->done, timeo) <= 0) {
-+	if (ctrl->cmd_pending)
-+		err = brcmstb_nand_wait_for_completion(chip);
-+
-+	if (err) {
- 		u32 cmd = brcmnand_read_reg(ctrl, BRCMNAND_CMD_START)
- 					>> brcmnand_cmd_shift(ctrl);
- 
--- 
-1.9.0.138.g2de3478
+        pg = read_cache_page(inode->i_mapping, offset >> PAGE_SHIFT,
+                             (void *)jffs2_do_readpage_unlock, inode);
+        if (IS_ERR(pg))
+                return (void *)pg;
 
+        *priv = (unsigned long)pg;
+        return kmap(pg);
+}
+looks like crap.  And so does this:
+void jffs2_gc_release_page(struct jffs2_sb_info *c,
+                           unsigned char *ptr,
+                           unsigned long *priv)
+{
+        struct page *pg = (void *)*priv;
+
+        kunmap(pg);
+        put_page(pg);
+}
+
+	First of all, there's only one caller for each of those, and both
+are direct calls.  So passing struct page * around that way is ridiculous.
+What's more, there is no reason not to do kmap() in caller (i.e. in
+jffs2_garbage_collect_dnode()).  That way jffs2_gc_fetch_page() would
+simply be return read_cache_page(....), and in the caller we'd have
+
+        struct page *pg;
+        unsigned char *pg_ptr;
+...
+        mutex_unlock(&f->sem);
+        pg = jffs2_gc_fetch_page(c, f, start);
+        if (IS_ERR(pg)) {
+		mutex_lock(&f->sem);
+                pr_warn("read_cache_page() returned error: %ld\n", PTR_ERR(pg));
+                return PTR_ERR(pg);
+        }
+	pg_ptr = kmap(pg);
+	mutex_lock(&f->sem);
+...
+	kunmap(pg);
+	put_page(pg);
+
+and that's it, preserving the current locking and with saner types...
 
 ______________________________________________________
 Linux MTD discussion mailing list
