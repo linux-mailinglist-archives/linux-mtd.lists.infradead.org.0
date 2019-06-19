@@ -2,142 +2,77 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E21F4BF99
-	for <lists+linux-mtd@lfdr.de>; Wed, 19 Jun 2019 19:26:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A7DC4C110
+	for <lists+linux-mtd@lfdr.de>; Wed, 19 Jun 2019 20:52:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qKksrxlb5tqnu485Owmk0OtdjCsFu3g5ufFKWrG81Hg=; b=UUb90voM3N5ac6
-	1fleVerweRd2fBM3oauXRIhs3RJFScrAWs41hMz3weqhMpc6/xwjQQl9NTs+w4Ih7e2RRn2CKOLb7
-	Okef7L5W1lVpGJkZs3gEaUwvRU8WCDZukz4z1DGgiZN3IGYR+yt8/cAxEmhLxNLjjMl1iswQsb7MG
-	/+eLvQ2JL5xjrRUkLRvPXRxF2D/vHtvtgWRB7RpbXS/SO7iJhD0ZII9TFTGFrBEKeSlz8v4hlhz1C
-	4d6yRWJivVQKl1vyHpknuK9KCHlzb6i8cxRuCwLE4jZiJRsETpN+T+MnrAt2mqfeUKT6D7pHRsbOa
-	WCYK6qni/ZtwQNoh8sog==;
+	List-Owner; bh=TybYgfSx01YQf8pF44cdh0PvnFc6nnLVbOqcBTGLaCU=; b=LOl1icrhDdP6l4
+	DYuoLlRxOSVK4DYGKEQH1EAbzgQv7d+BIDYrAAax+GvTLaJCm5PiW6v4UvH+0oNg3UaSMq866rKK2
+	m5SzsCbL66kOpXyFcgyUZketRoT1GOUTOnIfH94gKBtMJ805ugquU9j9vZ0WvzbMbPJdCYnQeCfnT
+	5IcoRJtdYkJgkyrHkQl0Yozc9+9cqL/RSVq329FKDY+wCoBGKkimypTOgE1RE1X7qh3LsRhySqgRj
+	C/v840ehvrwG+BA1MibZtzjOZg8BHqNTQ7RwlPuiutQalGXcU72xTDd1rsRfAs3kbdTkl8y6kmyG8
+	M8hDT1YdfR2ySojAMOkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hdeLj-0006KD-6e; Wed, 19 Jun 2019 17:26:19 +0000
-Received: from esa2.microchip.iphmx.com ([68.232.149.84])
+	id 1hdfgk-0003FJ-EU; Wed, 19 Jun 2019 18:52:06 +0000
+Received: from mail-lj1-f195.google.com ([209.85.208.195])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hdeLX-0006JJ-J7
- for linux-mtd@lists.infradead.org; Wed, 19 Jun 2019 17:26:10 +0000
-Received-SPF: Pass (esa2.microchip.iphmx.com: domain of
- Tudor.Ambarus@microchip.com designates 198.175.253.82 as
- permitted sender) identity=mailfrom;
- client-ip=198.175.253.82; receiver=esa2.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="Tudor.Ambarus@microchip.com";
- x-conformance=spf_only; x-record-type="v=spf1";
- x-record-text="v=spf1 mx a:ushub1.microchip.com
- a:smtpout.microchip.com a:mx1.microchip.iphmx.com
- a:mx2.microchip.iphmx.com include:servers.mcsv.net
- include:mktomail.com include:spf.protection.outlook.com ~all"
-Received-SPF: None (esa2.microchip.iphmx.com: no sender
- authenticity information available from domain of
- postmaster@email.microchip.com) identity=helo;
- client-ip=198.175.253.82; receiver=esa2.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
-Authentication-Results: esa2.microchip.iphmx.com;
- spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
- spf=None smtp.helo=postmaster@email.microchip.com;
- dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
- dmarc=pass (p=none dis=none) d=microchip.com
-X-IronPort-AV: E=Sophos;i="5.63,393,1557212400"; d="scan'208";a="38069922"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 19 Jun 2019 10:26:05 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex03.mchp-main.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Wed, 19 Jun 2019 10:26:05 -0700
-Received: from NAM05-DM3-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
- via Frontend Transport; Wed, 19 Jun 2019 10:26:05 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector1-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gQYIJolw/Eb7yXG9KVlLziOZ/pU21HoMUS5SXf36krs=;
- b=CEUm/U0ED2sKHg1EURjPabTD9QtcAuVsoQNpSZ1PM4NbJZQX0Jiw1hl9wCdWnne+e1ZJ+jOJ+b897sA/TqRjbiIcT9D8+yeAPkvGjSh6M0nyziK0eZJwObRifwY+m8bGaFZMmyIKC4iJ6Wh1uYuDaW9LdVwt37iUSESmYpzqVV0=
-Received: from BN6PR11MB1842.namprd11.prod.outlook.com (10.175.98.146) by
- BN6PR11MB2049.namprd11.prod.outlook.com (10.173.31.9) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1987.12; Wed, 19 Jun 2019 17:26:03 +0000
-Received: from BN6PR11MB1842.namprd11.prod.outlook.com
- ([fe80::e581:f807:acdc:cb36]) by BN6PR11MB1842.namprd11.prod.outlook.com
- ([fe80::e581:f807:acdc:cb36%9]) with mapi id 15.20.1987.014; Wed, 19 Jun 2019
- 17:26:03 +0000
-From: <Tudor.Ambarus@microchip.com>
-To: <geert@linux-m68k.org>, <marek.vasut+renesas@gmail.com>,
- <marek.vasut@gmail.com>, <vigneshr@ti.com>, <jonas@norrbonn.se>,
- <miquel.raynal@bootlin.com>
-Subject: [PATCH v2 2/2] mtd: spi-nor: fix description for int
- (*flash_is_locked)()
-Thread-Topic: [PATCH v2 2/2] mtd: spi-nor: fix description for int
- (*flash_is_locked)()
-Thread-Index: AQHVJsQS9DgOntkRFki3IzozNsJqYw==
-Date: Wed, 19 Jun 2019 17:26:03 +0000
-Message-ID: <20190619172530.27159-2-tudor.ambarus@microchip.com>
-References: <02babf5a-2a50-848c-27d9-9f810078cbcf@microchip.com>
- <20190619172530.27159-1-tudor.ambarus@microchip.com>
-In-Reply-To: <20190619172530.27159-1-tudor.ambarus@microchip.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: VI1P195CA0049.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:802:5a::38) To BN6PR11MB1842.namprd11.prod.outlook.com
- (2603:10b6:404:101::18)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.9.5
-x-originating-ip: [94.177.32.154]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 856c398f-0a66-450b-9159-08d6f4db345c
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);
- SRVR:BN6PR11MB2049; 
-x-ms-traffictypediagnostic: BN6PR11MB2049:
-x-microsoft-antispam-prvs: <BN6PR11MB2049A4C30C5ECDD76142BBA3F0E50@BN6PR11MB2049.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:2449;
-x-forefront-prvs: 0073BFEF03
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(136003)(366004)(396003)(39860400002)(376002)(346002)(189003)(199004)(72206003)(71190400001)(66066001)(76176011)(486006)(6512007)(66556008)(66476007)(66946007)(36756003)(5660300002)(64756008)(99286004)(446003)(26005)(73956011)(386003)(2616005)(476003)(11346002)(6506007)(102836004)(71200400001)(66446008)(50226002)(81166006)(6116002)(25786009)(7416002)(54906003)(478600001)(305945005)(1076003)(4744005)(52116002)(14454004)(8676002)(7736002)(4326008)(107886003)(256004)(2906002)(81156014)(8936002)(14444005)(53936002)(68736007)(86362001)(6486002)(2201001)(2501003)(316002)(6436002)(186003)(110136005)(3846002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BN6PR11MB2049;
- H:BN6PR11MB1842.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: microchip.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: 8+R+mgW46Xs0FxkPZmei1QJ1Cz8ZmNGm75P4g84uMboEftqjJb91bPHnN36Z84VbkM3AsRU+ujydVlDt4t/2hXcPJVxThfkIxFoBjImDqnpEo5QYxwKM0lFZdbPIEI19CI5E3zMW/yK1nrspV1WxNIwP5KyexUwXrJn3QHIa2o1+n7wz+ICtTOXgwOyJAxLB+IXyshnRvlE8s41J64n/iQHO1KOPVZYIfzJJb+I/flVwPW87P38bjUZL0ueqNFo9Efqxkl9TNJbTyyjPymiW+esDolwL/usbJiNzZ9Vu+2o+elS9WIgcfaxs3ZPDnyJH8NrkCTq7UcTOMUwbtPyl4cLOA2nARnd/iHnKW53lPHbly5KKSJ1tNVj8TV3ZhdzX6omSwlglODT63+0xuSWZgGMOlfZhoWV//6bvoa9todk=
+ id 1hdfgR-0003Er-IW
+ for linux-mtd@lists.infradead.org; Wed, 19 Jun 2019 18:51:49 +0000
+Received: by mail-lj1-f195.google.com with SMTP id s21so220030lji.8
+ for <linux-mtd@lists.infradead.org>; Wed, 19 Jun 2019 11:51:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=7ya7a7DboiXIT6zCKu4epQy9R8h+sqP7HJzHJQtqZNU=;
+ b=VF0UHvPyKNWp8PCjNlp2I6FSVxCmIET4p8lhCu6xlTY6arWFn8WYn0CDmVBmpscNt5
+ 11t98aAIdxroIJkmJbsk7py5zrIhGKmNQKvfkIq7lLTwT4jocRAVUIM7czC9Z3HZW5iP
+ ElnZKu4eQSlvrFhGjVdgST/k204hzKGImZbZI0lexxjiDUP26pvTuylZofUKl+k1ONb0
+ M8QHg0zFAzSptWaeK4mvknSLXvYQIFO7SB8vJFybtZvDuFQlQKgfztwmu2lBkwAmbGVO
+ zSKfoqlssSLgTpH3VqY36n8sJJ75pOGZNc3KKkcK6EPNCNpfcebj+EKNKWkSfsA8nP84
+ l4IA==
+X-Gm-Message-State: APjAAAVaJSKuJOQ8RIIumVolxGGnVZ7njfJ1S+Jha4e1F+eRXLDcyC1R
+ 7m5ZA3SVqKvAAmXuu0yeRtCypTd5zNPSphULQN8=
+X-Google-Smtp-Source: APXvYqwHsmNBGQcwjUpM9diIc7ODooJrd9PMVkfDhLSl7CsKfIuFjHsj8ZcODmGk8/umDC2vZ9olN/utvcqOFuavtkg=
+X-Received: by 2002:a2e:9685:: with SMTP id q5mr18634627lji.227.1560970305391; 
+ Wed, 19 Jun 2019 11:51:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 856c398f-0a66-450b-9159-08d6f4db345c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Jun 2019 17:26:03.9226 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: tudor.ambarus@microchip.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB2049
+References: <c57fe97b-ad4a-874e-663f-7f3a737824c9@microchip.com>
+ <20190610062351.24405-1-tudor.ambarus@microchip.com>
+ <CAMuHMdW3=fzFvt+ZmC2B6qf0zEwfvV--HVEoxa06Tk=a=Q1cWA@mail.gmail.com>
+ <02babf5a-2a50-848c-27d9-9f810078cbcf@microchip.com>
+In-Reply-To: <02babf5a-2a50-848c-27d9-9f810078cbcf@microchip.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 19 Jun 2019 20:51:30 +0200
+Message-ID: <CAMuHMdXi1W1RU8obRUVr=tgsytb=rCV1T+pA=pBxykxHv_WW+A@mail.gmail.com>
+Subject: Re: [PATCH] mtd: spi-nor: use 16-bit WRR command when QE is set on
+ spansion flashes
+To: Tudor Ambarus <Tudor.Ambarus@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190619_102607_662260_957BB25B 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20190619_115147_615045_22D779A8 
+X-CRM114-Status: GOOD (  23.11  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [68.232.149.84 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.208.195 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.208.195 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (geert.uytterhoeven[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -149,44 +84,84 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Tudor.Ambarus@microchip.com, richard@nod.at, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-mtd@lists.infradead.org,
- computersforpeace@gmail.com, dwmw2@infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "R, Vignesh" <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Marek Vasut <marek.vasut@gmail.com>, Jonas Bonn <jonas@norrbonn.se>,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>,
+ Marek Vasut <marek.vasut+renesas@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Tudor Ambarus <tudor.ambarus@microchip.com>
-
-The description was interleaved.
-
-Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
----
-v2: new patch
-
- include/linux/mtd/spi-nor.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-index 9f57cdfcc93d..c4c2c5971284 100644
---- a/include/linux/mtd/spi-nor.h
-+++ b/include/linux/mtd/spi-nor.h
-@@ -372,10 +372,10 @@ struct flash_info;
-  * @flash_lock:		[FLASH-SPECIFIC] lock a region of the SPI NOR
-  * @flash_unlock:	[FLASH-SPECIFIC] unlock a region of the SPI NOR
-  * @flash_is_locked:	[FLASH-SPECIFIC] check if a region of the SPI NOR is
-+ *			completely locked
-  * @quad_enable:	[FLASH-SPECIFIC] enables SPI NOR quad mode
-  * @clear_sr_bp:	[FLASH-SPECIFIC] clears the Block Protection Bits from
-  *			the SPI NOR Status Register.
-- *			completely locked
-  * @priv:		the private data
-  */
- struct spi_nor {
--- 
-2.9.5
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgVHVkb3IsCgpPbiBXZWQsIEp1biAxOSwgMjAxOSBhdCA1OjQ3IFBNIDxUdWRvci5BbWJhcnVz
+QG1pY3JvY2hpcC5jb20+IHdyb3RlOgo+IE9uIDA2LzExLzIwMTkgMTE6MzUgQU0sIEdlZXJ0IFV5
+dHRlcmhvZXZlbiB3cm90ZToKPiA+IE9uIE1vbiwgSnVuIDEwLCAyMDE5IGF0IDg6MjQgQU0gPFR1
+ZG9yLkFtYmFydXNAbWljcm9jaGlwLmNvbT4gd3JvdGU6Cj4gPj4gRnJvbTogVHVkb3IgQW1iYXJ1
+cyA8dHVkb3IuYW1iYXJ1c0BtaWNyb2NoaXAuY29tPgo+ID4+Cj4gPj4gU1BJIG1lbW9yeSBkZXZp
+Y2VzIGZyb20gZGlmZmVyZW50IG1hbnVmYWN0dXJlcnMgaGF2ZSB3aWRlbHkKPiA+PiBkaWZmZXJl
+bnQgY29uZmlndXJhdGlvbnMgZm9yIFN0YXR1cywgQ29udHJvbCBhbmQgQ29uZmlndXJhdGlvbgo+
+ID4+IHJlZ2lzdGVycy4gSkVERUMgMjE2QyBkZWZpbmVzIGEgbmV3IG1hcCBmb3IgdGhlc2UgY29t
+bW9uIHJlZ2lzdGVyCj4gPj4gYml0cyBhbmQgdGhlaXIgZnVuY3Rpb25zLCBhbmQgZGVzY3JpYmVz
+IGhvdyB0aGUgaW5kaXZpZHVhbCBiaXRzIG1heQo+ID4+IGJlIGFjY2Vzc2VkIGZvciBhIHNwZWNp
+ZmljIGRldmljZS4gRm9yIHRoZSBKRURFQyAyMTZCIGNvbXBsaWFudAo+ID4+IGZsYXNoZXMsIHdl
+IGNhbiBwYXJ0aWFsbHkgZGVkdWNlIFN0YXR1cyBhbmQgQ29uZmlndXJhdGlvbiByZWdpc3RlcnMK
+PiA+PiBmdW5jdGlvbnMgYnkgaW5zcGVjdGluZyB0aGUgMTZ0aCBEV09SRCBvZiBCRlBULiBPbGRl
+ciBmbGFzaGVzIHRoYXQKPiA+PiBkb24ndCBkZWNsYXJlIHRoZSBTRkRQIHRhYmxlcyAoU1BBTlNJ
+T04gRkw1MTJTQUlGRzEgMzExUVEwNjMgQSDCqTExCj4gPj4gU1BBTlNJT04pIGxldCB0aGUgc29m
+dHdhcmUgZGVjaWRlIGhvdyB0byBpbnRlcmFjdCB3aXRoIHRoZXNlIHJlZ2lzdGVycy4KPiA+Pgo+
+ID4+IFRoZSBjb21taXQgZGNiNGIyMmVlYWY0ICgic3BpLW5vcjogczI1Zmw1MTJzIHN1cHBvcnRz
+IHJlZ2lvbiBsb2NraW5nIikKPiA+PiB1bmNvdmVyZWQgYSBwcm9iZSBlcnJvciBmb3IgczI1Zmw1
+MTJzLCB3aGVuIHRoZSBRVUFEIGJpdCBDUlsxXSB3YXMgc2V0Cj4gPj4gaW4gdGhlIGJvb3Rsb2Fk
+ZXIuIFdoZW4gdGhpcyBiaXQgaXMgc2V0LCBvbmx5IHRoZSBXcml0ZSBSZWdpc3Rlcgo+ID4+IFdS
+UiBjb21tYW5kIGZvcm1hdCB3aXRoIDE2IGRhdGEgYml0cyBtYXkgYmUgdXNlZCwgV1JSIHdpdGgg
+OCBiaXRzCj4gPj4gaXMgbm90IHJlY29nbml6ZWQgYW5kIGhlbmNlIHRoZSBlcnJvciB3aGVuIHRy
+eWluZyB0byBjbGVhciB0aGUgYmxvY2sKPiA+PiBwcm90ZWN0aW9uIGJpdHMuCj4gPj4KPiA+PiBG
+aXggdGhlIGFib3ZlIGJ5IHVzaW5nIDE2LWJpdHMgV1JSIGNvbW1hbmQgd2hlbiBRdWFkIGJpdCBp
+cyBzZXQuCj4gPj4KPiA+PiBCYWNrd2FyZCBjb21wYXRpYmlsaXR5IHNob3VsZCBiZSBmaW5lLiBU
+aGUgbmV3bHkgaW50cm9kdWNlZAo+ID4+IHNwaV9ub3Jfc3BhbnNpb25fY2xlYXJfc3JfYnAoKSBp
+cyB0aWdodGx5IGNvdXBsZWQgd2l0aCB0aGUKPiA+PiBzcGFuc2lvbl9xdWFkX2VuYWJsZSgpIGZ1
+bmN0aW9uLiBCb3RoIGFzc3VtZSB0aGF0IHRoZSBXcml0ZSBSZWdpc3Rlcgo+ID4+IHdpdGggMTYg
+Yml0cywgdG9nZXRoZXIgd2l0aCB0aGUgUmVhZCBDb25maWd1cmF0aW9uIFJlZ2lzdGVyICgzNWgp
+Cj4gPj4gaW5zdHJ1Y3Rpb25zIGFyZSBzdXBwb3J0ZWQuCj4gPj4KPiA+PiBSZXBvcnRlZC1ieTog
+R2VlcnQgVXl0dGVyaG9ldmVuIDxnZWVydEBsaW51eC1tNjhrLm9yZz4KPiA+PiBTaWduZWQtb2Zm
+LWJ5OiBUdWRvciBBbWJhcnVzIDx0dWRvci5hbWJhcnVzQG1pY3JvY2hpcC5jb20+Cj4gPj4gLS0t
+Cj4gPj4gR2VlcnQsIEpvbmFzLAo+ID4+Cj4gPj4gVGhpcyBwYXRjaCBpcyBjb21waWxlLXRlc3Rl
+ZCBvbmx5LiBJIGRvbid0IGhhdmUgdGhlIGZsYXNoLCBJIG5lZWQgeW91cgo+ID4+IGhlbHAgZm9y
+IHRlc3RpbmcgdGhpcy4KPiA+Cj4gPiBUaGFua3MsIHRoaXMgcmV2aXZlcyBhY2Nlc3MgdG8gdGhl
+IHMyNWZsNTEycyBvbiBLb2Vsc2NoLgo+ID4KPiA+IEZpeGVzOiBkY2I0YjIyZWVhZjQ0ZjkxICgi
+c3BpLW5vcjogczI1Zmw1MTJzIHN1cHBvcnRzIHJlZ2lvbiBsb2NraW5nIikKPgo+IEkgZGlkbid0
+IGFkZCB0aGUgRml4ZXMgdGFnIGJlY2F1c2UgdGhpcyBjb21taXQgaGVscGVkIHVzIGRpc2NvdmVy
+IGEgY2FzZSB0aGF0Cj4gaGFzIG5vdCBiZWVuIHRha2VuIGludG8gY29uc2lkZXJhdGlvbiBiZWZv
+cmUuIEl0IGRpZG4ndCBpbnRyb2R1Y2UgYSBidWcsIGJ1dAo+IHJhdGhlciByZXZlYWxlZCBvbmUu
+IEhvd2V2ZXIsIGl0J3Mgbm90IHRoZSB0aW1lIHRvIHdhbGsgb3ZlciB0aGlzIHRoaW4gbGluZSwg
+c28KPiBJJ2xsIGFkZCBpdCwgdGhhbmtzIQoKR29vZC4gRml4ZXMgYWxzbyBzZXJ2ZXMgYXMgYW4g
+aW5kaWNhdG9yIHRoYXQgaWYgZGNiNGIyMmVlYWY0NGY5MSBpcwpiYWNrcG9ydGVkIHRvIHN0YWJs
+ZSwgdGhlICJmaXgiIG11c3QgYmUgYmFja3BvcnRlZCwgdG9vLgoKPiA+IFRlc3RlZC1ieTogR2Vl
+cnQgVXl0dGVyaG9ldmVuIDxnZWVydCtyZW5lc2FzQGdsaWRlci5iZT5IaSBUdWRvciwKPiA+Cj4g
+PiBUd28gcXVlc3Rpb25zIGJlbG93Li4uCj4gPgo+ID4+IC0tLSBhL2RyaXZlcnMvbXRkL3NwaS1u
+b3Ivc3BpLW5vci5jCj4gPj4gKysrIGIvZHJpdmVycy9tdGQvc3BpLW5vci9zcGktbm9yLmMKPiA+
+Cj4gPj4gK3N0YXRpYyBpbnQgc3BpX25vcl9zcGFuc2lvbl9jbGVhcl9zcl9icChzdHJ1Y3Qgc3Bp
+X25vciAqbm9yKQo+ID4+ICt7Cj4gPgo+ID4gWy4uLl0KPiA+Cj4gPj4gKyAgICAgICAgKiBXaGVu
+IHRoZSBjb25maWd1cmF0aW9uIHJlZ2lzdGVyIFFVQUQgYml0IENSWzFdIGlzIDEsIG9ubHkKPiA+
+PiArICAgICAgICAqIHRoZSBXUlIgY29tbWFuZCBmb3JtYXQgd2l0aCAxNiBkYXRhIGJpdHMgbWF5
+IGJlIHVzZWQuCj4gPgo+ID4gcy9XUlIvV1JTUi8/Cj4KPiBTMjVGTDUxMlMgbmFtZWQgaXQgIldy
+aXRlIFJlZ2lzdGVycyIgY29tbWFuZCBhbmQgY2hvc2UgdGhlICJXUlIiIGFjcm9ueW0uCj4gSkVT
+RDIxNkQgbmFtZXMgaXQgIldyaXRlIFJlZ2lzdGVyIiBjb21tYW5kIGFuZCBkb2Vzbid0IHN1Z2dl
+c3QgYW4gYWNyb255bS4gSSdsbAo+IHMvIldSUiIvIldyaXRlIFJlZ2lzdGVyIGNvbW1hbmQiLCB0
+byB1c2UgdGhlIEpFU0QyMTZEIG5hbWluZyBhbmQgYXZvaWQgY29uZnVzaW9uLgo+Cj4gSSBhbHNv
+IGZvcmdvdCB0byBkZXNjcmliZSBpbnQgKCpjbGVhcl9zcl9icCksIHYyIHdpbGwgZm9sbG93LiBX
+aWxsIGtlZXAgdGhlIFItYgo+IGFuZCBULWIgdGFncyBzaW5jZSBJJ2xsIGp1c3QgdXBkYXRlIGNv
+bW1lbnRzLgoKT0suIFRoYW5rcyEKCkdye29ldGplLGVldGluZ31zLAoKICAgICAgICAgICAgICAg
+ICAgICAgICAgR2VlcnQKCi0tIApHZWVydCBVeXR0ZXJob2V2ZW4gLS0gVGhlcmUncyBsb3RzIG9m
+IExpbnV4IGJleW9uZCBpYTMyIC0tIGdlZXJ0QGxpbnV4LW02OGsub3JnCgpJbiBwZXJzb25hbCBj
+b252ZXJzYXRpb25zIHdpdGggdGVjaG5pY2FsIHBlb3BsZSwgSSBjYWxsIG15c2VsZiBhIGhhY2tl
+ci4gQnV0CndoZW4gSSdtIHRhbGtpbmcgdG8gam91cm5hbGlzdHMgSSBqdXN0IHNheSAicHJvZ3Jh
+bW1lciIgb3Igc29tZXRoaW5nIGxpa2UgdGhhdC4KICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAtLSBMaW51cyBUb3J2YWxkcwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
