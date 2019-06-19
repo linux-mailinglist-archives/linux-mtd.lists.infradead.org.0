@@ -2,68 +2,58 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1401D4B676
-	for <lists+linux-mtd@lfdr.de>; Wed, 19 Jun 2019 12:49:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 615F04B6D2
+	for <lists+linux-mtd@lfdr.de>; Wed, 19 Jun 2019 13:13:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:To:From:
-	Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ZFmKAYg3QhT3eWvNfZHqGbaHU730B71F1m5jWQqAXuQ=; b=PJ39iEfidCCC/a3cULvu9rBuc
-	3BR7dMZP/9+f1EW3couFb7m52SUB86xlQGCgKn0pyAva7SWvZkbzGV5267d6SI94VzAMSkGzLV37J
-	HmFGoi1dAtq1PS0X8VFpp+3fqEodfyRmB9eSIe6XCkK3e+psEdjkAEblw445QgrkGo8/+/DqYrZIc
-	HyGUmLiQmCoon84Bc0pfP5DCX9bu2k4XFOoZ/t3hmzWMiCdSBI+E+nvmlf6JrP0ryO2TKQpmkZUhw
-	TCofAtTQrxwJ6BWFkg99hxdPcOvxi+LJFGNf9U7A9kWvYuSS9pI5Vcwwlsf3UOSBuzdxIi/wewbBM
-	QqgbWyLFA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=4qaetdm4sxFYhwkQozd7YAlRRPgrqqoWmFlXbB6YnYI=; b=in1
+	ir+uBQ9aKvRE7Z7G8HFsVIXEm8BkszFEqVM8PKGYsJsv7PGlgUku5FybxJgEPQBG87mz7LKcK8ymM
+	beILiwc4YsRoImQ4z+y87n43QmYDSOr63gh6Z8D/b0YTd9AKVKFgOT2NQw9c19Ts1tYlCVSOefnI0
+	LAb38FfoYe2rKn4Sn3M2iGYBCRALQdSelpfOuQoyNMPydXJLsuvey0lYX75yYC6YC9GFgHHred6ZT
+	HJPf2hSHhPvdVrwFnW+AMyim9ijruhSOGp8xTkhNtr159cJ+45Zaoz52zEeI3Ys6JKNl+YbKdQxAO
+	uuNFO2+GHAxDZC8eoddOCAs1Tzpo6bQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hdY9y-0008HO-DA; Wed, 19 Jun 2019 10:49:46 +0000
-Received: from 8.mo2.mail-out.ovh.net ([188.165.52.147])
+	id 1hdYWh-0001Di-5y; Wed, 19 Jun 2019 11:13:15 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hdY9j-0008EG-Ui
- for linux-mtd@lists.infradead.org; Wed, 19 Jun 2019 10:49:33 +0000
-Received: from player728.ha.ovh.net (unknown [10.108.42.192])
- by mo2.mail-out.ovh.net (Postfix) with ESMTP id 3A0E319E23C
- for <linux-mtd@lists.infradead.org>; Wed, 19 Jun 2019 12:49:24 +0200 (CEST)
-Received: from RCM-web6.webmail.mail.ovh.net
- (ip-194-187-74-233.konfederacka.maverick.com.pl [194.187.74.233])
- (Authenticated sender: rafal@milecki.pl)
- by player728.ha.ovh.net (Postfix) with ESMTPSA id C225A6EDDEAB;
- Wed, 19 Jun 2019 10:49:00 +0000 (UTC)
-MIME-Version: 1.0
-Date: Wed, 19 Jun 2019 12:49:00 +0200
-From: =?UTF-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>
-To: xiaolei li <xiaolei.li@mediatek.com>
-Subject: Re: [RFC PATCH v4 1/1] mtd: rawnand: mtk: Re-license MTK NAND driver
- as Dual MIT/GPL
-In-Reply-To: <1560936760.19057.1.camel@mhfsdcap03>
-References: <20190507092020.1917-1-xiaolei.li@mediatek.com>
- <20190507092020.1917-2-xiaolei.li@mediatek.com>
- <CAK8P3a3d-2U=hpb0P0+W-eZ0cviwKVwy6dWvHbhBCgF4CJUWKA@mail.gmail.com>
- <5052ea548ce89c1a588236d00319960b@milecki.pl>
- <1558685891.18315.33.camel@mhfsdcap03>
- <75974a2066425e5852d0295b22d2b259@milecki.pl>
- <1560936760.19057.1.camel@mhfsdcap03>
-Message-ID: <ce02eca83c4d28f7ea32a586f25b0d35@milecki.pl>
-X-Sender: rafal@milecki.pl
-User-Agent: Roundcube Webmail/1.3.9
-X-Originating-IP: 194.187.74.233
-X-Webmail-UserID: rafal@milecki.pl
-X-Ovh-Tracer-Id: 1382886563342683679
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgeduvddrtddvgddtiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+ id 1hdYVe-0000VF-0q; Wed, 19 Jun 2019 11:12:11 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+ by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5F4531A0619;
+ Wed, 19 Jun 2019 13:12:05 +0200 (CEST)
+Received: from invc005.ap-rdc01.nxp.com (invc005.ap-rdc01.nxp.com
+ [165.114.16.14])
+ by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id E27651A061C;
+ Wed, 19 Jun 2019 13:12:01 +0200 (CEST)
+Received: from lsv03124.swis.in-blr01.nxp.com (lsv03124.swis.in-blr01.nxp.com
+ [92.120.146.121])
+ by invc005.ap-rdc01.nxp.com (Postfix) with ESMTP id 10F67402E1;
+ Wed, 19 Jun 2019 19:11:57 +0800 (SGT)
+From: Ashish Kumar <Ashish.Kumar@nxp.com>
+To: devicetree@vger.kernel.org
+Subject: [PATCH] drivers: mtd: spi-nor: Add flash property for mt25qu512a and
+ mt35xu02g
+Date: Wed, 19 Jun 2019 16:41:52 +0530
+Message-Id: <1560942714-13330-1-git-send-email-Ashish.Kumar@nxp.com>
+X-Mailer: git-send-email 2.7.4
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190619_034932_132505_371ACF74 
-X-CRM114-Status: GOOD (  14.06  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190619_041210_198615_535BAD46 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [92.121.34.13 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,56 +65,46 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Daniel Thompson <daniel.thompson@linaro.org>,
- Ryder Lee <ryder.lee@mediatek.com>, srv_heupstream@mediatek.com,
- Arnd Bergmann <arnd@arndb.de>, Masahiro Yamada <yamada.masahiro@socionext.com>,
- Richard Weinberger <richard@nod.at>, Miquel Raynal <miquel.raynal@bootlin.com>,
- "Gustavo A. R. Silva" <gustavo@embeddedor.com>, jorge.ramirez-ortiz@linaro.org,
- yingjoe.chen@mediatek.com, boris.brezillon@collabora.com,
- linux-mtd <linux-mtd@lists.infradead.org>,
- Wei Yongjun <weiyongjun1@huawei.com>, yellowriver2010@hotmail.com,
- Matthias Brugger <matthias.bgg@gmail.com>,
- "moderated list:ARM/Mediatek SoC..." <linux-mediatek@lists.infradead.org>,
- rogercc.lin@mediatek.com, Dan Carpenter <dan.carpenter@oracle.com>,
- peterpandong@micron.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Cc: Kuldeep Singh <kuldeep.singh@nxp.com>, broonie@kernel.org,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ bbrezillon@kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gMjAxOS0wNi0xOSAxMTozMiwgeGlhb2xlaSBsaSB3cm90ZToKPiBPbiBUdWUsIDIwMTktMDYt
-MTggYXQgMTE6MzYgKzAyMDAsIFJhZmHFgiBNacWCZWNraSB3cm90ZToKPj4gT24gMjAxOS0wNS0y
-NCAxMDoxOCwgeGlhb2xlaSBsaSB3cm90ZToKPj4gPiBPbiBGcmksIDIwMTktMDUtMjQgYXQgMDk6
-NTUgKzAyMDAsIFJhZmHFgiBNacWCZWNraSB3cm90ZToKPj4gPj4gT24gMjAxOS0wNS0yNCAwOTo1
-MiwgQXJuZCBCZXJnbWFubiB3cm90ZToKPj4gPj4gPiBPbiBUdWUsIE1heSA3LCAyMDE5IGF0IDEx
-OjIwIEFNIFhpYW9sZWkgTGkgPHhpYW9sZWkubGlAbWVkaWF0ZWsuY29tPgo+PiA+PiA+IHdyb3Rl
-Ogo+PiA+PiA+Pgo+PiA+PiA+PiBJdCBpcyB3YW50ZWQgdG8gdXNlIE1USyBOQU5EIGRyaXZlciB3
-aXRoIEdQTC0yLjAgb3IgTUlUIGxpY2Vuc2UuCj4+ID4+ID4+IEJ1dCBub3cgaXQgaXMgb25seSBs
-aWNlbnNlZCBhcyBHUEwtMi4wLgo+PiA+PiA+PiBTbyByZS1saWNlbnNlIGl0IGFzIGR1YWwgTUlU
-L0dQTCBhbmQgcmVwbGFjZSBsaWNlbnNlIHRleHQgd2l0aAo+PiA+PiA+PiBTUERYIHRhZy4KPj4g
-Pj4gPj4KPj4gPj4gPj4gU2lnbmVkLW9mZi1ieTogWGlhb2xlaSBMaSA8eGlhb2xlaS5saUBtZWRp
-YXRlay5jb20+Cj4+ID4+ID4+IEFja2VkLWJ5OiBKb3JnZSBSYW1pcmV6LU9ydGl6IDxqb3JnZS5y
-YW1pcmV6LW9ydGl6QGxpbmFyby5vcmc+Cj4+ID4+ID4+IEFja2VkLWJ5OiBSeWRlciBMZWUgPHJ5
-ZGVyLmxlZUBtZWRpYXRlay5jb20+Cj4+ID4+ID4+IEFja2VkLWJ5OiBSYWZhxYIgTWnFgmVja2kg
-PHJhZmFsQG1pbGVja2kucGw+Cj4+ID4+ID4+IEFja2VkLWJ5OiBNaXF1ZWwgUmF5bmFsIDxtaXF1
-ZWwucmF5bmFsQGJvb3RsaW4uY29tPgo+PiA+PiA+PiBBY2tlZC1ieTogQm9yaXMgQnJlemlsbG9u
-IDxib3Jpcy5icmV6aWxsb25AY29sbGFib3JhLmNvbT4KPj4gPj4gPj4gQWNrZWQtYnk6IFJvZ2Vy
-Q0MgTGluIDxyb2dlcmNjLmxpbkBtZWRpYXRlay5jb20+Cj4+ID4+ID4KPj4gPj4gPiBBY2tlZC1i
-eTogQXJuZCBCZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KPj4gPj4gPgo+PiA+PiA+IFNvcnJ5IGZv
-ciBtaXNzaW5nIHRoaXMgZWFybGllci4KPj4gPj4KPj4gPj4gVGhhbmsgeW91IQo+PiA+Pgo+PiA+
-PiBYaWFvbGVpOiBwbGVhc2UgcmVzZW5kIHRoaXMgcGF0Y2ggd2l0aG91dCBSRkMgaW4gYSBzdWJq
-ZWN0LiBJIGJlbGlldmUKPj4gPj4gaXQKPj4gPj4gY2FuIGJlIGFwcGxpZWQvcHVzaGVkIG5vdy4K
-Pj4gPgo+PiA+IFRoYW5rcyB2ZXJ5IG11Y2ggZm9yIHlvdXIgcmVzcG9uc2UhCj4+ID4gSSB3aWxs
-IHNlbmQgYSBmb3JtYWwgcGF0Y2ggc29vbi4KPj4gCj4+IEhpIFhpYW9sZWksIHdoYXQncyB0aGUg
-c3RhdHVzIG9mIHRoaXM/Cj4+IAo+PiBJdCB0b29rIHNvbWUgZWZmb3J0IHRvIHNvcnQgdGhhdCBs
-aWNlbnNpbmcgb3V0LCBJIGJlbGlldmUgaGFuZGxpbmcgCj4+IHRoaXMKPj4gc29vbmVyIHRoYW4g
-bGF0ZXIgaXMgaGlnaGx5IHJlY29tbWVuZGVkLgo+IAo+IFRoYW5rcyBmb3IgeW91ciBhdHRlbnRp
-b24uCj4gSSBzZW50IHRoZSBmb3JtYWwgcGF0Y2ggYWJvdXQgdHdvIHdlZWtzIGFnby4gU28sIHlv
-dSBkaWRuJ3QgcmVjZWl2ZSBpdCwKPiByaWdodCA/CgpJdCBoYXMgbmV2ZXIgcmVhY2hlZCBtZSBv
-ciBtYWlsaW5nIGxpc3QuCgpTZWU6Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL3BpcGVybWFp
-bC9saW51eC1tdGQvMjAxOS1KdW5lL3RocmVhZC5odG1sCmh0dHBzOi8vcGF0Y2h3b3JrLm96bGFi
-cy5vcmcvcHJvamVjdC9saW51eC1tdGQvbGlzdC8/c2VyaWVzPSZzdWJtaXR0ZXI9NzE1OTkmc3Rh
-dGU9KiZxPSZhcmNoaXZlPSZkZWxlZ2F0ZT0KClRoZSBsYXRlc3Qgb25lIGlzIFJGQyB2NC4KCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51
-eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+From: Kuldeep Singh <kuldeep.singh@nxp.com>
+
+Signed-off-by: Kuldeep Singh <kuldeep.singh@nxp.com>
+---
+ drivers/mtd/spi-nor/spi-nor.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+index 73172d7..34e33a7 100644
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -1880,6 +1880,7 @@ static const struct flash_info spi_nor_ids[] = {
+ 	{ "n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
+ 	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
+ 	{ "n25q00a",     INFO(0x20bb21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
++	{ "mt25qu512a", INFO6(0x20bb20, 0x104400, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_4B_OPCODES) },
+ 	{ "mt25qu02g",   INFO(0x20bb22, 0, 64 * 1024, 4096, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
+ 
+ 	/* Micron */
+@@ -1888,6 +1889,7 @@ static const struct flash_info spi_nor_ids[] = {
+ 			SECT_4K | USE_FSR | SPI_NOR_OCTAL_READ |
+ 			SPI_NOR_4B_OPCODES)
+ 	},
++	{ "mt35xu02g",   INFO(0x2c5b1c, 0, 128 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_OCTAL_READ | SPI_NOR_4B_OPCODES) },
+ 
+ 	/* PMC */
+ 	{ "pm25lv512",   INFO(0,        0, 32 * 1024,    2, SECT_4K_PMC) },
+-- 
+2.7.4
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
