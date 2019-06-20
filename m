@@ -2,81 +2,95 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 40A394DB3C
-	for <lists+linux-mtd@lfdr.de>; Thu, 20 Jun 2019 22:30:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1F9CF4DCCE
+	for <lists+linux-mtd@lfdr.de>; Thu, 20 Jun 2019 23:39:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1rtuIYBpglHNbLm52cNNtczyL7kzV7CF1BEyR2ilwAc=; b=af05S/ho+G0iQR
-	Kq8Gh/f9l+1c1mnNDSUY+jr492DtSQ+gpt8tGB5xpt8TMgWWIBndcwDIynEFhV/grMGLaj3ygNM0m
-	/OE1lLDkjsHgasaxTf11R1qSwx55ZCB+gcuxBnxmYNRGpK+aGxvrDZ5Xgx8iZ+YPLdVQyZlM5OgHI
-	eYObrFnN7Zi+dgnqcyZnFaRqHPhGHMBwnOsOXaSmPAftAHEMImAFmNcXIUICwxpezVwaooV/ZcNDQ
-	HCUWeGLLoZq4BD8rqoXcAn5eIZFZIg/Z/zBfauWKIaADOF3mnpdBwFJHPPB1thK5MDOASXb4gsg3F
-	kVuXQBviYujy2A5/ts8A==;
+	List-Owner; bh=X9ICqeBd/nqG/KSwzzjbnoEecZE3+NAUFyBgjkPAySs=; b=OSuUrZF2LvbhIu
+	0HB0ZCTVLNQa8k6no0nmoKRLhigS52EbHW4MUZX7szmx/wsDODAUYmxly0M2sypd6DvsGiUys6RsN
+	ySOlXNWRx1+4ivQiDG16kO5vZBfi1KCCJJez8q3OfeacV7Iol6bQM+YOoKkC2FbgucT8j+yfORsOr
+	ddh3H5iT6wNEWR5P0jsU14Zv6aRKG80zcFFeMR5knxP6C7za213vR0eiR5yOgYNSBo2iFA0zGB2kU
+	0QQw19xNP5EpBh0kvdfEBo+0NSuzIeDU+fbKNPY86VH10UB7MDFHpRA6FCjj0jO3qQYnD+ZghWfBL
+	kehsiwYUViGtATGAbizw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1he3hH-0002az-Ss; Thu, 20 Jun 2019 20:30:15 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1he4m6-00039g-0D; Thu, 20 Jun 2019 21:39:18 +0000
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1he3h1-0002Zl-1N
- for linux-mtd@lists.infradead.org; Thu, 20 Jun 2019 20:30:00 +0000
-Received: by mail-pf1-x442.google.com with SMTP id j2so2300581pfe.6
- for <linux-mtd@lists.infradead.org>; Thu, 20 Jun 2019 13:29:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=2JEFir2f91v73nekkwcA/r3dp6L112/g4gH1PpqAdrc=;
- b=v5c8EusF9ITFTP4DK08HqE6nXYSl1rHuc1AHqHehPJx12PE3Zc2nHCkX/AWSdZ6FZF
- nQmrtwYX9mvK74iIh/t7AJdwKr/ILOsZftB+QSk4XRjzwt9ZCkxO3d0bvLu0E0NziXOl
- cWxHDGYAYDxM62VFRLzgZGnB+r2Zza1EXnWoVeO0h1o/iPsLdfMTlaWLCnDLurQ5GIqX
- jJDzIC8A9KSE3naGVZmDZRqldU9EZFXFww8hJz+qfnqeppgUePTRjE6yLrBTsf/q0+9s
- +mFkOY/xucJj/h1hsXJzyh6iWZJXpp98u4R6rbaQEcLR+h87PqRwHT3L1l/Ak60kqga6
- XBPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=2JEFir2f91v73nekkwcA/r3dp6L112/g4gH1PpqAdrc=;
- b=KGksFBYJepEmTewsFwjGlwbAfQs7m1U9wkcFO2Di4iAHLEYD+Mcn79k+6aSqdeE8/W
- mTsUipeojQeGtSd2jFRMhYGlDyo7Ou1XPpexUTm9yx6JC+GhV9CmdP4MDkn59aQw44lu
- wt2yDJBWBPJXFXEXJEta2X14f7Oc2t34p2L0ERk36nQU6x9s5YcaI82bW7L+4Maxg20E
- tNMI4oiAtivgprDHh3qb6qaInfjNFkRXV5oSKXvz0YM4H00l9fxGrsxGJ4chySTg7Aeh
- bEKGL6JWBUHUoDVH8nQpZC60/9Q9dZ8irZGUcEc8zUwx/jcRaco8+CZUUDWVLTou1vx3
- p2RA==
-X-Gm-Message-State: APjAAAXHiPVo8vE9MFpS9CV1wowOY7n9FUaw+cbGjOx2tgfofaGUokfr
- Jj0sf865uAtzF1U9nTC0a8lPdP5Cgu6gshpZ2wn5hQ==
-X-Google-Smtp-Source: APXvYqz9YdnYhDW70Z3csaomKtslVjyTnCmLX2S88WyqkoxdnVU1AOktxDryJSI1sQQGT7nNmjuI/WkfAL7KmOM2fR0=
-X-Received: by 2002:a17:90a:bf02:: with SMTP id
- c2mr1529248pjs.73.1561062598008; 
- Thu, 20 Jun 2019 13:29:58 -0700 (PDT)
+ id 1he4li-0002xt-4C
+ for linux-mtd@lists.infradead.org; Thu, 20 Jun 2019 21:38:55 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5KLYHVn088700;
+ Thu, 20 Jun 2019 21:38:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2018-07-02;
+ bh=D3CnJNHOIgWdUG1TcE81fq/bsWj72ILMBiE1tAPqQwo=;
+ b=HKn791tbDcSyV5tTwA4L7n0iz31Dp5T+PYftD80uW1HfTEOKSjNNo8ILTMjO1/Rv8cOI
+ hpROCjBB23fPljyiuqdvwYxNy/xpAecXOJ97+qJXUbuQysBIXp6+kq1M1NohTdSt2o5m
+ bdEHlQfhcUcK9Q2VlmkUVsRBf7mVWZm2yOm4eXP0y5gikqkZmSL3eKCbJdvsPzjLY50k
+ BfxiWb1VEIm42WU1tUp/bKXk3/F6YlHbkAbzrc8pKPgHNgEvkWIV2bY4z7UBJVZQfH8/
+ ZSoTLiWzgKluhc0l9SvuD6uztH108WS7lGdHTqumoJ0SNSOf6qr9qij979gZkZoaMzEB qg== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by userp2130.oracle.com with ESMTP id 2t7809kdj1-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 20 Jun 2019 21:38:38 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5KLacer151050;
+ Thu, 20 Jun 2019 21:36:38 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+ by aserp3020.oracle.com with ESMTP id 2t77ypkrr0-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Thu, 20 Jun 2019 21:36:38 +0000
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [127.0.0.1])
+ by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5KLabeL151041;
+ Thu, 20 Jun 2019 21:36:37 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+ by aserp3020.oracle.com with ESMTP id 2t77ypkrqs-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Thu, 20 Jun 2019 21:36:37 +0000
+Received: from abhmp0003.oracle.com (abhmp0003.oracle.com [141.146.116.9])
+ by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x5KLaWqH007037;
+ Thu, 20 Jun 2019 21:36:32 GMT
+Received: from localhost (/10.145.179.81)
+ by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Thu, 20 Jun 2019 14:36:31 -0700
+Date: Thu, 20 Jun 2019 14:36:29 -0700
+From: "Darrick J. Wong" <darrick.wong@oracle.com>
+To: Jan Kara <jack@suse.cz>
+Subject: Re: [PATCH 4/6] vfs: don't allow most setxattr to immutable files
+Message-ID: <20190620213629.GB5375@magnolia>
+References: <156022836912.3227213.13598042497272336695.stgit@magnolia>
+ <156022840560.3227213.4776913678782966728.stgit@magnolia>
+ <20190620140345.GI30243@quack2.suse.cz>
 MIME-Version: 1.0
-References: <20190620155505.27036-1-natechancellor@gmail.com>
- <CAKwvOdk7ZTcWEXPTBASPzk1SjOdnONawtQJkR-jU=REFSo1hVQ@mail.gmail.com>
- <20190620201549.GA65397@archlinux-epyc>
-In-Reply-To: <20190620201549.GA65397@archlinux-epyc>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 20 Jun 2019 13:29:47 -0700
-Message-ID: <CAKwvOd=okFdfSfGpXTAUqyF=vfnaZFgdwHC-i+CnaFxGSh2Thg@mail.gmail.com>
-Subject: Re: [PATCH] mtd: mtd-abi: Don't use C++ comments
-To: Nathan Chancellor <natechancellor@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20190620140345.GI30243@quack2.suse.cz>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9294
+ signatures=668687
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
+ definitions=main-1906200154
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190620_132959_105645_EBE577E8 
-X-CRM114-Status: GOOD (  15.28  )
-X-Spam-Score: -15.7 (---------------)
+X-CRM114-CacheID: sfid-20190620_143854_326459_2FD5FB9D 
+X-CRM114-Status: GOOD (  23.21  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-15.7 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:442 listed in]
- [list.dnswl.org]
- -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
- white-list
- -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
- white-list
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [156.151.31.86 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -85,8 +99,9 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.5 ENV_AND_HDR_SPF_MATCH  Env and Hdr From used in default SPF WL
- Match -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,45 +113,96 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Richard Weinberger <richard@nod.at>, LKML <linux-kernel@vger.kernel.org>,
- Marek Vasut <marek.vasut@gmail.com>, Greg KH <gregkh@linuxfoundation.org>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
+Cc: linux-efi@vger.kernel.org, linux-btrfs@vger.kernel.org, yuchao0@huawei.com,
+ linux-mm@kvack.org, clm@fb.com, adilger.kernel@dilger.ca,
+ matthew.garrett@nebula.com, linux-nilfs@vger.kernel.org,
+ linux-ext4@vger.kernel.org, devel@lists.orangefs.org, josef@toxicpanda.com,
+ reiserfs-devel@vger.kernel.org, viro@zeniv.linux.org.uk, dsterba@suse.com,
+ jaegeuk@kernel.org, tytso@mit.edu, ard.biesheuvel@linaro.org,
+ linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+ linux-xfs@vger.kernel.org, jk@ozlabs.org, jack@suse.com,
+ linux-fsdevel@vger.kernel.org, linux-mtd@lists.infradead.org,
+ ocfs2-devel@oss.oracle.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, Jun 20, 2019 at 1:15 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> On Thu, Jun 20, 2019 at 12:56:58PM -0700, Nick Desaulniers wrote:
-> > Should there be a fixes by tag?
->
-> Normally, I would have added one but this issue has been present since
-> the beginning of git history. According to Thomas Gleixner's pre-git
-> history tree, it would be:
->
-> Fixes: 7df80b4c8964 ("MTD core include and device code cleanup")
->
-> but since that hash doesn't exist in the normal git history, I don't
-> think it is worth adding. Of course, if the maintainers want to add it,
-> I won't object.
->
-> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/tglx/history.git
+On Thu, Jun 20, 2019 at 04:03:45PM +0200, Jan Kara wrote:
+> On Mon 10-06-19 21:46:45, Darrick J. Wong wrote:
+> > From: Darrick J. Wong <darrick.wong@oracle.com>
+> > 
+> > The chattr manpage has this to say about immutable files:
+> > 
+> > "A file with the 'i' attribute cannot be modified: it cannot be deleted
+> > or renamed, no link can be created to this file, most of the file's
+> > metadata can not be modified, and the file can not be opened in write
+> > mode."
+> > 
+> > However, we don't actually check the immutable flag in the setattr code,
+> > which means that we can update inode flags and project ids and extent
+> > size hints on supposedly immutable files.  Therefore, reject setflags
+> > and fssetxattr calls on an immutable file if the file is immutable and
+> > will remain that way.
+> > 
+> > Signed-off-by: Darrick J. Wong <darrick.wong@oracle.com>
+> > ---
+> >  fs/inode.c |   31 +++++++++++++++++++++++++++++++
+> >  1 file changed, 31 insertions(+)
+> > 
+> > 
+> > diff --git a/fs/inode.c b/fs/inode.c
+> > index a3757051fd55..adfb458bf533 100644
+> > --- a/fs/inode.c
+> > +++ b/fs/inode.c
+> > @@ -2184,6 +2184,17 @@ int vfs_ioc_setflags_check(struct inode *inode, int oldflags, int flags)
+> >  	    !capable(CAP_LINUX_IMMUTABLE))
+> >  		return -EPERM;
+> >  
+> > +	/*
+> > +	 * We aren't allowed to change any other flags if the immutable flag is
+> > +	 * already set and is not being unset.
+> > +	 */
+> > +	if ((oldflags & FS_IMMUTABLE_FL) &&
+> > +	    (flags & FS_IMMUTABLE_FL)) {
+> > +		if ((oldflags & ~FS_IMMUTABLE_FL) !=
+> > +		    (flags & ~FS_IMMUTABLE_FL))
+> 
+> This check looks a bit strange when you've just check FS_IMMUTABLE_FL isn't
+> changing... Why not just oldflags != flags?
+> 
+> > +	if ((old_fa->fsx_xflags & FS_XFLAG_IMMUTABLE) &&
+> > +	    (fa->fsx_xflags & FS_XFLAG_IMMUTABLE)) {
+> > +		if ((old_fa->fsx_xflags & ~FS_XFLAG_IMMUTABLE) !=
+> > +		    (fa->fsx_xflags & ~FS_XFLAG_IMMUTABLE))
+> 
+> Ditto here...
 
-LOL good point; I wonder if the stable maintainers have thoughts on
-that or how they expect us to signal that case if we even need to do
-anything at all.
+Good point!  I'll fix it.
 
-Either way, thanks for the patch and
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
--- 
-Thanks,
-~Nick Desaulniers
+--D
+
+> 
+> > +			return -EPERM;
+> > +		if (old_fa->fsx_projid != fa->fsx_projid)
+> > +			return -EPERM;
+> > +		if ((fa->fsx_xflags & (FS_XFLAG_EXTSIZE |
+> > +				       FS_XFLAG_EXTSZINHERIT)) &&
+> > +		    old_fa->fsx_extsize != fa->fsx_extsize)
+> > +			return -EPERM;
+> > +		if ((old_fa->fsx_xflags & FS_XFLAG_COWEXTSIZE) &&
+> > +		    old_fa->fsx_cowextsize != fa->fsx_cowextsize)
+> > +			return -EPERM;
+> > +	}
+> > +
+> >  	/* Extent size hints of zero turn off the flags. */
+> >  	if (fa->fsx_extsize == 0)
+> >  		fa->fsx_xflags &= ~(FS_XFLAG_EXTSIZE | FS_XFLAG_EXTSZINHERIT);
+> 
+> 								Honza
+> -- 
+> Jan Kara <jack@suse.com>
+> SUSE Labs, CR
 
 ______________________________________________________
 Linux MTD discussion mailing list
