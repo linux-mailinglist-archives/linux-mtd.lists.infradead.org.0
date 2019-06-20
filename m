@@ -2,79 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0D0204DAD5
-	for <lists+linux-mtd@lfdr.de>; Thu, 20 Jun 2019 21:57:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 96AD34DB06
+	for <lists+linux-mtd@lfdr.de>; Thu, 20 Jun 2019 22:16:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zCCIzR6BWCNQ+WICgu3lXa+0Q5hwAXdVzMakJpowOCU=; b=Y7NmrY19tVWLt0
-	sIoYXj9J+SJZ8bRE83uNhwvRdlr1dnkYlXag3TtffcX9pGubyZ5HriTjYCm4fJovPg44uEdjKq3mf
-	/njxPPome1UQQN2+haMyEwMg6qXD2tDDUw8bK06p3f8B1XAEpSDBSNy7BRCdWxKGi5H/45FsznDZS
-	uYUQAVL3l1T1xkwWk9CfxrIhc05tEHKzsS90sNuGLTf5d1XnuS3TGKHxxqu7axys7Z0NCccrXZCxF
-	TOtbGxo7wUuGDUXq+kpHlzo9Eq9yhMOiSEdWoHW5b0GJ4FFBh48mgNWT4vr4M/sVpDkfiIDxyS3/N
-	TKDNgiofyKvo5OQmqJYA==;
+	List-Owner; bh=X3g4seawj3IhXZpwKx0OpRM/xlBVwNSH5WxokF5P12Q=; b=j2AVuO8c2pw0Wn
+	bVKNC2Ii23aUjBN8e5ppmyHNUcE6Wa8xhV3KWOgKdppSepf6nnCW9p47Iqz4FxMctmxE4bnGkfrHa
+	eHKc/o48AYMJoheS7RdJrefjR5MC+OhnvFjtBvIzf6CpLhptKgZI7x/8m/qywNlwgJT2XTrFcqmFL
+	hkSnQDXBuwK4K/4B+TA34AXS+/c6yUmQp1/i8HLfnWJFXJCbeztY8QOaZUyW7vaGgbN7AS4E3keMS
+	ziMYARwIcOFYYCVmdv/XsqkPNXTJcUZUwYyd33eIMGYNndI7QRHYGdPjdiM8pR/FtDLYbTw/cdJ7q
+	EZJ8b9KuBGNPsy0toDZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1he3BX-0008QL-70; Thu, 20 Jun 2019 19:57:27 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1he3Tb-0006nu-2b; Thu, 20 Jun 2019 20:16:07 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1he3BM-0008PM-27
- for linux-mtd@lists.infradead.org; Thu, 20 Jun 2019 19:57:17 +0000
-Received: by mail-pg1-x542.google.com with SMTP id y72so2115347pgd.8
- for <linux-mtd@lists.infradead.org>; Thu, 20 Jun 2019 12:57:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=s0dGUTL6eh2cw6ZjVrg36nefIFWQ8LGFInVMiQ8EtQo=;
- b=kth8MnUpjxyuCl9fAHan9Zr1btXnsrS+SXmfVZD6ide3lk4u8eIs3n/RAAPUA8Z69y
- yru8kEG3F4D99rdy9VTgkLr4G9S5TJn0iG9tXFPoK5cdux9yKfyH/ebl5pZrdZ3pG5U2
- erboCyCjhbRBtMSYG4yCmEM8EUTUmM9F0+b7ZG8qTOTTesY2zD7/4VHq7pn0A2p7SFVu
- f1/+A/RP6+PZUzRJCXhTTIQqJWEtVfeBtRGpH/oTpEEiq8R786PYepVmyBbk8+Szo64J
- jKHRObHwAotf01Dl4oRyjBCwvK8yXJmO40drgi8v866r4mf37GMhu8koCOarJU64u11F
- 6wJQ==
+ id 1he3TP-0006nF-4B
+ for linux-mtd@lists.infradead.org; Thu, 20 Jun 2019 20:15:56 +0000
+Received: by mail-ed1-x541.google.com with SMTP id a14so6409249edv.12
+ for <linux-mtd@lists.infradead.org>; Thu, 20 Jun 2019 13:15:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=JUOkJu07O+IW6MoPhdQt/JKgqUkCkkDq6yx/iX7wBQA=;
+ b=FSYg5gUde8DWZ1DWTpWdFjbN4iYG7u1oXTRfGBNADJVVK7LrxSIXQd+pd5SxyynS9N
+ Cenl7pvCXijdvmXYC7Rh/KJr0TP8bAxtOfZR3hnKagpp39rV52jD4jElwlZyi2pn7eiK
+ AfWbP0Hef/Gk7lEF4TOTa0I2VLZ1ffLa8e16w+BQ5rz1fT6+wgzahe8YI31zNSVleeEk
+ 9DEuuU5zXmDRtI5HHAr8T7C9y10XwbFu2RIq+6A2cVPZfy41lLpyFxV1oLHzoel+Cldi
+ GAGJFBxZouCUeXlj/ROBRDcLqoAcjk0efSkezKM3ogNeuTyiydKQYaVfC01+X8u+0unI
+ xFAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=s0dGUTL6eh2cw6ZjVrg36nefIFWQ8LGFInVMiQ8EtQo=;
- b=Rf9rJdmzSs0O3Knc91imOnT2aIrRFux656AzuFhjHrGwjRsvh2mHoOpFSDg7K03Jxp
- tyf41cwfg8lQF+5wsFDMeNO3PxQqCRZgLXsxgp0Rxl/O2EfZvh1MM8HYWDhI/qnN5ciW
- t53JYVLg5wOke+I6nce+9ZemJaaberRG8aeqlKVFW/FUyf0oMQS1kH1UQFv963GPd+8+
- 7Kc7EgmauGY7syjTAQ5KRF2Wm2J8BDQzU75kJ7BDsdTqObxNUKdfXrDnDwsmQfvz/MZC
- Ei7eLIt6UImb+cQxn60Sq/47hP3KDdQArlZRge0sJOoHnMkrJ9DZn2FI2Is1tVaTlUDt
- oRmg==
-X-Gm-Message-State: APjAAAV8VfmIBaVlpXmffg6alan4unGxoyOf3X7aJ2HRIrrgUchVyztf
- lWgalQHWam9oiUmzNLu9xQl+XcTBCeEzi8Ew3B17+Q==
-X-Google-Smtp-Source: APXvYqzl/20aaRBmRoGXt3kETQ7Qhl+p14lzrG0EYxUeYrU0503TNSYKL4okd2K0mx/+BzbCHSRf44rXbKeGSuwULlo=
-X-Received: by 2002:a62:2c8e:: with SMTP id s136mr88622095pfs.3.1561060629486; 
- Thu, 20 Jun 2019 12:57:09 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190620155505.27036-1-natechancellor@gmail.com>
-In-Reply-To: <20190620155505.27036-1-natechancellor@gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 20 Jun 2019 12:56:58 -0700
-Message-ID: <CAKwvOdk7ZTcWEXPTBASPzk1SjOdnONawtQJkR-jU=REFSo1hVQ@mail.gmail.com>
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=JUOkJu07O+IW6MoPhdQt/JKgqUkCkkDq6yx/iX7wBQA=;
+ b=sr7tV+f5sLPg/UfdZxG2oFTjjkyC15VJfTiDZJJN/cL/6Z9uzvpJXUJmTqkVmODKp0
+ 6R/8bXRIJnbdaA3lpp6yNUxB4V2k0z5JWAuSXK93vbaOm4aCPGkacB460/w6ikQk7qVm
+ WOkn360tO2MRHH3vp9jXJmWu2E3xEqkR+S0bVR9sAeG9eAj3v0bIzOaeEhPd6Cwd8/qa
+ ABZd3v/vP3a36gnrn2B7mWTCjAWclqqKg+Xe8rCHKbyL2wd5xZKQPbtmljRRob0KhTDi
+ u9f22hD/rRksvrxsBUgG08B01xosY1C4FaeqdmtIsjiZp3oSkCTLsJfWG6t3nDll03nt
+ MVhg==
+X-Gm-Message-State: APjAAAUrGLsDq782NMTG76tMJgjzzGrLxIE4dOLd1zWWZb6qY89vG/3T
+ souiayhcovHR5pMEv8QWGw4=
+X-Google-Smtp-Source: APXvYqz2GpvLDQC36pwSn4cJtgNpRxNa/to4az7JZm/Hz5FpyteYwsXMluOlEW70lP/Jc5u2/h2bLw==
+X-Received: by 2002:a17:906:4f8f:: with SMTP id
+ o15mr13238011eju.129.1561061752157; 
+ Thu, 20 Jun 2019 13:15:52 -0700 (PDT)
+Received: from archlinux-epyc ([2a01:4f9:2b:2b15::2])
+ by smtp.gmail.com with ESMTPSA id m32sm148321edc.89.2019.06.20.13.15.50
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Thu, 20 Jun 2019 13:15:51 -0700 (PDT)
+Date: Thu, 20 Jun 2019 13:15:49 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
 Subject: Re: [PATCH] mtd: mtd-abi: Don't use C++ comments
-To: Nathan Chancellor <natechancellor@gmail.com>
+Message-ID: <20190620201549.GA65397@archlinux-epyc>
+References: <20190620155505.27036-1-natechancellor@gmail.com>
+ <CAKwvOdk7ZTcWEXPTBASPzk1SjOdnONawtQJkR-jU=REFSo1hVQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdk7ZTcWEXPTBASPzk1SjOdnONawtQJkR-jU=REFSo1hVQ@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190620_125716_105595_44184FA4 
-X-CRM114-Status: GOOD (  10.17  )
-X-Spam-Score: -15.7 (---------------)
+X-CRM114-CacheID: sfid-20190620_131555_216570_01B58771 
+X-CRM114-Status: GOOD (  14.29  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-15.7 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:542 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:541 listed in]
  [list.dnswl.org]
- -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
- white-list
- -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
- white-list
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (natechancellor[at]gmail.com)
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -82,8 +89,6 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
- -0.5 ENV_AND_HDR_SPF_MATCH  Env and Hdr From used in default SPF WL
- Match -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,27 +112,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, Jun 20, 2019 at 8:55 AM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> When compiled standalone after commit b91976b7c0e3 ("kbuild:
-> compile-test UAPI headers to ensure they are self-contained"),
-> a warning about the C++ comments appears:
->
->   In file included from usr/include/mtd/mtd-user.hdrtest.c:1:
->   In file included from ./usr/include/mtd/mtd-user.h:25:
->   ./usr/include/mtd/mtd-abi.h:116:28: warning: // comments are not
->   allowed in this language [-Wcomment]
->   #define MTD_NANDECC_OFF         0       // Switch off ECC (Not recommended)
->                                           ^
->   1 warning generated.
->
-> Replace them with standard C comments so this warning no longer occurs.
+On Thu, Jun 20, 2019 at 12:56:58PM -0700, Nick Desaulniers wrote:
+> On Thu, Jun 20, 2019 at 8:55 AM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > When compiled standalone after commit b91976b7c0e3 ("kbuild:
+> > compile-test UAPI headers to ensure they are self-contained"),
+> > a warning about the C++ comments appears:
+> >
+> >   In file included from usr/include/mtd/mtd-user.hdrtest.c:1:
+> >   In file included from ./usr/include/mtd/mtd-user.h:25:
+> >   ./usr/include/mtd/mtd-abi.h:116:28: warning: // comments are not
+> >   allowed in this language [-Wcomment]
+> >   #define MTD_NANDECC_OFF         0       // Switch off ECC (Not recommended)
+> >                                           ^
+> >   1 warning generated.
+> >
+> > Replace them with standard C comments so this warning no longer occurs.
+> 
+> Should there be a fixes by tag?
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
-Should there be a fixes by tag?
--- 
-Thanks,
-~Nick Desaulniers
+Normally, I would have added one but this issue has been present since
+the beginning of git history. According to Thomas Gleixner's pre-git
+history tree, it would be:
+
+Fixes: 7df80b4c8964 ("MTD core include and device code cleanup")
+
+but since that hash doesn't exist in the normal git history, I don't
+think it is worth adding. Of course, if the maintainers want to add it,
+I won't object.
+
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/tglx/history.git
+
+Cheers,
+NAthan
 
 ______________________________________________________
 Linux MTD discussion mailing list
