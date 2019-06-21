@@ -2,94 +2,106 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2ADE34EFAA
-	for <lists+linux-mtd@lfdr.de>; Fri, 21 Jun 2019 21:52:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C4254F162
+	for <lists+linux-mtd@lfdr.de>; Sat, 22 Jun 2019 01:57:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eTWGVKTls5V8eiue0y+z+af7b7KJiddEGBup651wuP4=; b=ZWaOzLXt2GMO0r
-	wcvp6JrTlEeemdFRJn0NpC9JIV5GQLUo6avDR7avaVeLhWXX8YjWHAemXGdnUkzMjWBEiNfa7PKrH
-	iVS0qpSNv0NyQkF8J9c2TXyH+kgpnzbfGCdjX5ixXkqjq7ZqjNK2J3FBpALpj9kCbV4haraZVWKKZ
-	JjfDiL1GnLegkWIVbAz9LCqFUP3hMJU+vchi6mpqtwZblzyjFrNh13W0IMzk6rkqj8GZtfbm4uiO+
-	ROeAUE6AW4wmSlY2FYWmAF4FkwdOBClLzX5uFBOKnw/paEm+VnJNGEgq6Qvjpup8GOVN82yEhe5nU
-	m1UDhb9sN+c3ohUnn6AQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:To:From:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2pIp4YMXJEgwl8PHoK4X+Z1obl0f+8OzEzMaUz1gEeY=; b=Im8XBygOhqfs6F
+	tl7NNALndvtDom+XAsEGoso2Nulb9Vt7iHVwfhI/OeVJevfIb3/s2lO89/d/rdpIPW6h6WaoXQQpi
+	Cd4QSBYb4WXiPirF+s4sl6kjWY+irI3kpXcyrxZGeXjEPPU3HE+T7AUd3yqpvtejoJ/rIFhY8jOKQ
+	X9gBD4vO30L4vRn5NpYY0+QP8yqhAb5nIeEoLoRej7SCY6LEEIxf34/S8fZkW4w6Ldx4hIqnjf10k
+	ARs1PV+1VJR+NLfc3WP+2iHKidsuHbRPoxhBrFEYVu0SUmdST4CnCy1qwDdJzTLYQn5KJdXCUTA4b
+	IKgMUUI6weGGbF7hmbeA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hePaV-0002rP-Lw; Fri, 21 Jun 2019 19:52:43 +0000
-Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
+	id 1heTOk-0005Dn-KR; Fri, 21 Jun 2019 23:56:50 +0000
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hePZx-0002hj-H8
- for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 19:52:11 +0000
-Received: by mail-lf1-x144.google.com with SMTP id a25so5896177lfg.2
- for <linux-mtd@lists.infradead.org>; Fri, 21 Jun 2019 12:52:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
- h=from:subject:to:cc:references:organization:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=wso9AT0PLE8YSVz4mFagGPGoqkgjnJ4hhl/knflL07M=;
- b=Ew+e7GQyGGn3VMUMvlmlNk529darBgRUJ/dcJFSuTVhcptTW0Osp8jReJotYp3YmKA
- f6eeGrLRGAbz3L8Of3mQVbcQDLORcn3KXYXhPmuLEmtkhvEZh+lMjKapiefa6/uiNl2W
- sMOLt5EglU5sNbD9GTGtO5A5tcs2ho6YQ53d4IWO8ykmDYB7C1u0OYGN4kKeIMmQbB8t
- sCsUfdPPmodLtBotaF1sfyp3QcvscC+eoN6kkXc3skMo0VaCzrVmg+NLHLSyIaA9tmok
- kdq69iSb8NJ1pNNEYW3c7xUwEyznK+nW7o7MOGRmdKVvN+I8ayYLDei7JYMyJxs3C0XZ
- O92A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:subject:to:cc:references:organization
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=wso9AT0PLE8YSVz4mFagGPGoqkgjnJ4hhl/knflL07M=;
- b=OZKhvkyTf3k5OEzPIeXteihEjbtugbI5zp3GxUrZvl0NoVyQbBeWJTcuhetWGCpPCD
- d9XRQ51QKLN77ZEh+VzAIR7Us2uSsUOFZac5y8kT55c5T7MlpUC2tdxHh6ToxacBNfGe
- 31Hdezd7u0J2pg1mcxCe5cOrSrmXo7qt569Lrl4ngfEjQ3z16eO6+lJc/SWh9LwE6i0O
- FeLPB1CribyUyEi76xXukiXRQ7OMXpyC31YD3e+S+UhynmrRpMwbfwSiNVjvbJTpR/bX
- 7t96PBHq61oIUa3NpUHFusklKawCln02nk09OK87zktZcSjtPsQorYuRV5S3FXR1pito
- s7uA==
-X-Gm-Message-State: APjAAAUv/RuH/DeM7o/GhsxBqlW0uQrV7DtbwlCS/9VneBiLv8gaAfos
- USBm7z+pI5rVwHLbb5Bv8I0mtg==
-X-Google-Smtp-Source: APXvYqx3uKDLsq5HSFMYR5JCV7tpvJVm6zODfloD79xoOac4SxateHkoi4zxVApNcx1Fez+sYLEylg==
-X-Received: by 2002:a19:ca1e:: with SMTP id a30mr3669450lfg.163.1561146725828; 
- Fri, 21 Jun 2019 12:52:05 -0700 (PDT)
-Received: from wasted.cogentembedded.com ([31.173.87.14])
- by smtp.gmail.com with ESMTPSA id n3sm513817lfh.3.2019.06.21.12.52.04
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 21 Jun 2019 12:52:05 -0700 (PDT)
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Subject: Re: [PATCH v7 3/5] mtd: Add support for HyperBus memory devices
-To: Vignesh Raghavendra <vigneshr@ti.com>,
- Boris Brezillon <bbrezillon@kernel.org>, Marek Vasut
- <marek.vasut@gmail.com>, Richard Weinberger <richard@nod.at>,
- Rob Herring <robh+dt@kernel.org>
-References: <20190620172250.9102-1-vigneshr@ti.com>
- <20190620172250.9102-4-vigneshr@ti.com>
-Organization: Cogent Embedded
-Message-ID: <4d17e914-cd1f-c6fe-b70a-6aae02e0cf4e@cogentembedded.com>
-Date: Fri, 21 Jun 2019 22:52:03 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+ id 1heTOZ-0005DG-Jl
+ for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 23:56:41 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5LNsGrX052403;
+ Fri, 21 Jun 2019 23:56:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=subject : from : to :
+ cc : date : message-id : mime-version : content-type :
+ content-transfer-encoding; s=corp-2018-07-02;
+ bh=cAdDQjLmw3paRsCYayAMtBFRH59fRNc4vYLBHuqjsSA=;
+ b=TzR6Wru1xSjTTRJAS5YLkE/BrGnsLOB3oXc++TPNZTilrEotX+w/PXZSlo2GmgalFn6q
+ EFIn2g7OnCMHKiU/KYZQjoVVDHvaifoE42AmpxsuNL7wnDmrtZhKVTyFzOJI7etrK4kK
+ KEBGejr346UOlFcuSkyuDnIO/5wd6UqT/S/KQGVF+NHJ5J7mmhYyVd5c2jc+HbQbg3wB
+ wa4pvaZQ8fS5HuyXYBN1pV+PfgLDpbPcaxs+KsA+sgcG7mAhRxGd5p97mdMZnG6Ft3yd
+ IEh9EmQpStxpaanEvQR/EobOi//ZfTjzIl0oWYndnxgPHklvyg0k1RPOB0QGCH15ATwX mw== 
+Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
+ by userp2130.oracle.com with ESMTP id 2t7809rsvw-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 21 Jun 2019 23:56:27 +0000
+Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
+ by userp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5LNtFqW105530;
+ Fri, 21 Jun 2019 23:56:27 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+ by userp3020.oracle.com with ESMTP id 2t77ypet01-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Fri, 21 Jun 2019 23:56:27 +0000
+Received: from userp3020.oracle.com (userp3020.oracle.com [127.0.0.1])
+ by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5LNuRFa107024;
+ Fri, 21 Jun 2019 23:56:27 GMT
+Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
+ by userp3020.oracle.com with ESMTP id 2t77ypesyw-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Fri, 21 Jun 2019 23:56:27 +0000
+Received: from abhmp0014.oracle.com (abhmp0014.oracle.com [141.146.116.20])
+ by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x5LNuGUs018756;
+ Fri, 21 Jun 2019 23:56:16 GMT
+Received: from localhost (/10.159.131.214)
+ by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Fri, 21 Jun 2019 16:56:16 -0700
+Subject: [PATCH v2 0/4] vfs: clean up SETFLAGS and FSSETXATTR option processing
+From: "Darrick J. Wong" <darrick.wong@oracle.com>
+To: matthew.garrett@nebula.com, yuchao0@huawei.com, tytso@mit.edu,
+ darrick.wong@oracle.com, shaggy@kernel.org, ard.biesheuvel@linaro.org,
+ josef@toxicpanda.com, clm@fb.com, adilger.kernel@dilger.ca,
+ jk@ozlabs.org, jack@suse.com, dsterba@suse.com, jaegeuk@kernel.org,
+ viro@zeniv.linux.org.uk
+Date: Fri, 21 Jun 2019 16:56:07 -0700
+Message-ID: <156116136742.1664814.17093419199766834123.stgit@magnolia>
+User-Agent: StGit/0.17.1-dirty
 MIME-Version: 1.0
-In-Reply-To: <20190620172250.9102-4-vigneshr@ti.com>
-Content-Language: en-MW
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9295
+ signatures=668687
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=851 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
+ definitions=main-1906210182
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190621_125209_860035_7302B8BD 
-X-CRM114-Status: GOOD (  23.55  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190621_165639_691703_C2270700 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:144 listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [156.151.31.86 listed in list.dnswl.org]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,91 +113,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Mason Yang <masonccyang@mxic.com.tw>, linux-arm-kernel@lists.infradead.org
+Cc: linux-xfs@vger.kernel.org, jfs-discussion@lists.sourceforge.net,
+ linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ reiserfs-devel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+ cluster-devel@redhat.com, linux-nilfs@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-btrfs@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ ocfs2-devel@oss.oracle.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hello!
+Hi all,
 
-On 06/20/2019 08:22 PM, Vignesh Raghavendra wrote:
+The FS_IOC_SETFLAGS and FS_IOC_FSSETXATTR ioctls were promoted from ext4
+and XFS, respectively, into the VFS.  However, we didn't promote any of
+the parameter checking code from those filesystems, which lead to a mess
+where each filesystem open-codes whatever parameter checks they want and
+the behavior across filesystems is no longer consistent.
 
-> Cypress' HyperBus is Low Signal Count, High Performance Double Data Rate
-> Bus interface between a host system master and one or more slave
-> interfaces. HyperBus is used to connect microprocessor, microcontroller,
-> or ASIC devices with random access NOR flash memory (called HyperFlash)
-> or self refresh DRAM (called HyperRAM).
-> 
-> Its a 8-bit data bus (DQ[7:0]) with  Read-Write Data Strobe (RWDS)
-> signal and either Single-ended clock(3.0V parts) or Differential clock
-> (1.8V parts). It uses ChipSelect lines to select b/w multiple slaves.
-> At bus level, it follows a separate protocol described in HyperBus
-> specification[1].
-> 
-> HyperFlash follows CFI AMD/Fujitsu Extended Command Set (0x0002) similar
-> to that of existing parallel NORs. Since HyperBus is x8 DDR bus,
-> its equivalent to x16 parallel NOR flash wrt bits per clock cycle. But
-> HyperBus operates at >166MHz frequencies.
+Therefore, create some generic checking functions in the VFS and remove
+all the open-coded pieces in each filesystem.  This preserves the
+current behavior where a filesystem can choose to ignore fields it
+doesn't understand.
 
-   s/wrt/WRT/.
+If you're going to start using this mess, you probably ought to just
+pull from my git trees, which are linked below.
 
-> HyperRAM provides direct random read/write access to flash memory
-> array.
-> 
-> But, HyperBus memory controllers seem to abstract implementation details
-> and expose a simple MMIO interface to access connected flash.
-> 
-> Add support for registering HyperFlash devices with MTD framework. MTD
-> maps framework along with CFI chip support framework are used to support
-> communicating with flash.
-> 
-> Framework is modelled along the lines of spi-nor framework. HyperBus
-> memory controller (HBMC) drivers calls hyperbus_register_device() to
-> register a single HyperFlash device. HyperFlash core parses MMIO access
-> information from DT, sets up the map_info struct, probes CFI flash and
-> registers it with MTD framework.
-> 
-> Some HBMC masters need calibration/training sequence[3] to be carried
-> out, in order for DLL inside the controller to lock, by reading a known
-> string/pattern. This is done by repeatedly reading CFI Query
-> Identification String. Calibration needs to be done before trying to detect
-> flash as part of CFI flash probe.
-> 
-> HyperRAM is not supported at the moment.
-> 
-> HyperBus specification can be found at[1]
-> HyperFlash datasheet can be found at[2]
-> 
-> [1] https://www.cypress.com/file/213356/download
-> [2] https://www.cypress.com/file/213346/download
-> [3] http://www.ti.com/lit/ug/spruid7b/spruid7b.pdf
->     Table 12-5741. HyperFlash Access Sequence
-> 
-> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-[...]
-> diff --git a/include/linux/mtd/hyperbus.h b/include/linux/mtd/hyperbus.h
-> new file mode 100644
-> index 000000000000..ead969aad35b
-> --- /dev/null
-> +++ b/include/linux/mtd/hyperbus.h
-> @@ -0,0 +1,86 @@
-[...]
-> +/**
-> + * struct hyperbus_ops - struct representing custom HyperBus operations
-> + * @read16: read 16 bit of data to flash in a single burst. Used to read
+This has been lightly tested with fstests.  Enjoy!
+Comments and questions are, as always, welcome.
 
-   s/to flash/from flash/.
+--D
 
-[...]
-> +#endif /* __LINUX_MTD_HYPERBUS_H__ */
-
-   I thought you agreed to add the #defines for the HF commands. Well, I can add them
-as well...
-
-MBR, Sergei
+kernel git tree:
+https://git.kernel.org/cgit/linux/kernel/git/djwong/xfs-linux.git/log/?h=file-ioctl-cleanups
 
 ______________________________________________________
 Linux MTD discussion mailing list
