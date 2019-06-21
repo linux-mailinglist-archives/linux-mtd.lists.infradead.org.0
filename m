@@ -2,74 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9DC214ECC8
-	for <lists+linux-mtd@lfdr.de>; Fri, 21 Jun 2019 18:05:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5023F4EDA8
+	for <lists+linux-mtd@lfdr.de>; Fri, 21 Jun 2019 19:14:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:
-	In-Reply-To:Date:To:From:Subject:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hdMORca+c2RgvGSITdW6/i6046uBccm3aYUHxQE+Sm8=; b=EOSAZcJYPdl/4I
-	T2q4lsqWq7Yr1YuMmmHbQVqKUWpRclWuTgG2cQAH601fv+9l8UMmFUoJTgyR6h3LbUsCg5B5ytoR9
-	ENYPFnhUbdxT7BBpIpyQNZ8ccmK0ZnqpfYHEYP1SqNVYM3jTVQZtSDn/TRf7XrRG1wXsVfWqBZixL
-	u4FR4+dPvhZgXBltIGvoXGZgZ6SWROJfXT75ZlpwR7nbxf7UBj+nPJ/kD1EueKf55SyiqClorEF3F
-	zFdgxgHX+xPxC+OCacraDVOUJADIQZaROJGWgQRlGXJ+3jKrQVZzdMoMV7NBWrM/Ocr8FLbQsyuRk
-	aMql9yki+FGRvz3LQz2A==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=VZlGZMIu6rUn03e91gjfROVEZK5d61VlNuEGmC9TmaA=; b=BtI
+	vjFd1P1z/c3K8DvzxQJ0APX9th+KmtPnlrvbITMau9ctZKJGq7JtOsPE7uHXY+li8Mm/pRVpNVAB7
+	IGAIVUnOWOhx+YeuZvWTv+rTNUT8TeVCkS3sYgu1zaxX0Du1Dj2NqXzPjO9AV6aTy12sZTkg5/iih
+	A6BEJHe7kv97GaOivECRg2oAdF/h7HoyKEyYEvSoKrSwJQWdF6YOE0l8qutX9KS9Z68cBdtYeAoWc
+	7v8lGacXgmoN/aIL2GwfZeLOG5gHxNu7mMd1bz5KYcPEzKpjLBkcRlmhRejhdEAi12SlfLV4l4PDg
+	M5oomyUFJfeNN2YRFV3nUhVfFyVr7Lw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1heM2L-0000hE-Mf; Fri, 21 Jun 2019 16:05:13 +0000
-Received: from mga02.intel.com ([134.134.136.20])
+	id 1heN6v-0000jn-Gl; Fri, 21 Jun 2019 17:14:01 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1heM29-0000KF-BR
- for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 16:05:02 +0000
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
- by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 21 Jun 2019 09:04:54 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.63,400,1557212400"; d="scan'208";a="335855509"
-Received: from linux.intel.com ([10.54.29.200])
- by orsmga005.jf.intel.com with ESMTP; 21 Jun 2019 09:04:54 -0700
-Received: from abityuts-desk1.fi.intel.com (abityuts-desk1.fi.intel.com
- [10.237.68.147])
- by linux.intel.com (Postfix) with ESMTP id D986C580372;
- Fri, 21 Jun 2019 09:04:52 -0700 (PDT)
-Message-ID: <083d5cc89907c4a819f02f9f9cbfe1baf553607a.camel@gmail.com>
-Subject: Re: [PATCH] mtd/ubi: fix initialization order of ubi subsystems
-From: Artem Bityutskiy <dedekind1@gmail.com>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@gmail.com>
-Date: Fri, 21 Jun 2019 19:04:51 +0300
-In-Reply-To: <20190620132753.19538-1-mikhail.kshevetskiy@gmail.com>
-References: <20190620132753.19538-1-mikhail.kshevetskiy@gmail.com>
-User-Agent: Evolution 3.32.3 (3.32.3-1.fc30) 
-MIME-Version: 1.0
+ id 1heN6m-0000iK-0H
+ for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 17:13:53 +0000
+Received: by mail-pf1-x444.google.com with SMTP id q10so3924773pff.9
+ for <linux-mtd@lists.infradead.org>; Fri, 21 Jun 2019 10:13:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=cAVJVLYMlpM1X+6nsKRtAyIYN/69csfPCrR5GNpvyWk=;
+ b=HmyRHspEmnFmc6bYH0mcIxtmVoCG4E/7Na+MHf887uUTVRbj1E9lKP6pWZweKUsg1X
+ WplLECJZQLyYro69Uj75TjacZgzrM52CBI3qhH77U0uG51rrLdr7q44xdGHBu3pzlsGk
+ 4b1nY+FsXWQciU7loQQ5Dvozx2E3/mxv0AHWcTgtCzc0NSIxGwC9aMahSRfgKSKZcYGx
+ LVd9WfCKrPZddURlTfj7CTFbkwxJeHPznvbmvKYYolx7DhVjkT0D3IoV29AEORev7LUE
+ QxuU+mVXs/feV22t2F5gVjGZ5Fvt5E5a+EMD0L+N+yiiWoBy36VHYxW4is3TKW7C04HT
+ irXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=cAVJVLYMlpM1X+6nsKRtAyIYN/69csfPCrR5GNpvyWk=;
+ b=KtywKy0MCv1VEkcGw0N3eCshIIpCTHJF1dx5m4W9fIli7Mjq+/EJyvB9whUQ7tTc9/
+ gj0Rqd8Mls0+E5Nvx0W4rBCnAVQCVkS4PAxlwirzbgo02v2FeOu0mZPT9LmzbYBBtzOp
+ s89P1VU4olcUgBEcmF1fCnHzBYYchNgP+h/UFYyGTSYHniCjl+Dv44CciPRU96CUVZkb
+ BMhVplqbBvG9wOv2c21YVoNAScR+wPr2ALHlw7qvA1PkDHZrRuRoHWzMoDFWZQ0lmRr+
+ PfXhauKlETbq7iDIjHYj/iKjhUP8ueovwAMINRjrZtamnwnscV++9Xw+Un9aYscSvkOy
+ cX4w==
+X-Gm-Message-State: APjAAAWWnLSVg/nNpHwMt+2V7kIIpieUDMGZfeNbSSorn9rrL2Cn40ey
+ iNmIFlXdSggOSE3EqAnZMwOzPA==
+X-Google-Smtp-Source: APXvYqzPHD9SouhFBvVoB7Ko52w+lG58OoHxYUuvUiO43hMwqmb/kI3RrEjuhpsiBOQvpaZ5fzJy6Q==
+X-Received: by 2002:a63:5202:: with SMTP id g2mr19423642pgb.386.1561137231320; 
+ Fri, 21 Jun 2019 10:13:51 -0700 (PDT)
+Received: from buildserver-90.open-silicon.com ([114.143.65.226])
+ by smtp.googlemail.com with ESMTPSA id t5sm3496190pgh.46.2019.06.21.10.13.46
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Fri, 21 Jun 2019 10:13:50 -0700 (PDT)
+From: Sagar Shrikant Kadam <sagar.kadam@sifive.com>
+To: marek.vasut@gmail.com, tudor.ambarus@microchip.com, dwmw2@infradead.org,
+ computersforpeace@gmail.com, miquel.raynal@bootlin.com, richard@nod.at,
+ vigneshr@ti.com
+Subject: [PATCH v6 0/3] mtd: spi-nor: add support for is25wp256 spi-nor flash
+Date: Fri, 21 Jun 2019 22:43:28 +0530
+Message-Id: <1561137211-12406-1-git-send-email-sagar.kadam@sifive.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190621_090501_452002_22FF14DB 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.4 (+)
+X-CRM114-CacheID: sfid-20190621_101352_111098_5F456316 
+X-CRM114-Status: GOOD (  12.95  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.4 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [134.134.136.20 listed in list.dnswl.org]
- 0.0 DKIM_ADSP_CUSTOM_MED   No valid author signature, adsp_override is
- CUSTOM_MED
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 1.0 FORGED_GMAIL_RCVD      'From' gmail.com does not match 'Received'
- headers
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit (dedekind1[at]gmail.com)
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit (dedekind1[at]gmail.com)
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (dedekind1[at]gmail.com)
- 1.2 NML_ADSP_CUSTOM_MED    ADSP custom_med hit, and not from a mailing
- list
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,28 +92,90 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: dedekind1@gmail.com
-Cc: Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org
+Cc: aou@eecs.berkeley.edu, palmer@sifive.com, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, Sagar Shrikant Kadam <sagar.kadam@sifive.com>,
+ paul.walmsley@sifive.com, linux-riscv@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, 2019-06-20 at 16:27 +0300, Mikhail Kshevetskiy wrote:
-> -	err = ubi_wl_init(ubi, ai);
-> +	err = ubi_eba_init(ubi, ai);
->  	if (err)
->  		goto out_vtbl;
->  
-> -	err = ubi_eba_init(ubi, ai);
-> +	err = ubi_wl_init(ubi, ai);
->  	if (err)
-> -		goto out_wl;
-> +		goto out_vtbl;
+The patch set is tested on HiFive Unleashed A00 board and is based on
+mainline kernel v5.2-rc1. Its intended to add support for 32 MB spi-nor
+flash mounted on the board. Memory Device supports 4/32/ and 64 KB sectors
+size. The device id table is updated accordingly.
 
-Looks good to me, thanks.
+Flash parameter table for ISSI device is set to use macronix_quad_enable
+procedure to set the QE (quad-enable) bit of Status register.
 
-Reviewed-by: Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
+A unilaterlay block unlocking scheme is added in patch 2.
+
+These patches are based on original work done by Wesley Terpstra and/or
+Palmer Dabbelt:
+https://github.com/riscv/riscv-linux/commit/c94e267766d62bc9a669611c3d0c8ed5ea26569b
+
+Erase/Read/Write operations are verified on HiFive Unleashed board using  mtd and flash utils (v1.5.2):
+1. mtd_debug  	:Options available are : erase/read/write.
+2. flashcp	:Single utility that erases flash, writes a file to flash and verifies the data back.
+3. flash_unlock: Unlock flash memory blocks.Arguments: are offset and number of blocks.
+3. flash_lock: 	 Lock flash memory blocks. Arguments: are offset and number of blocks. 
+
+Unlock scheme clears the protection bits of all blocks in the Status register.
+
+Lock scheme:
+A basic implementation based on stm_lock scheme and is validated for different number of blocks passed
+to flash_lock. ISSI devices have top/bottom area selection in "function register" which is OTP memory.
+
+The changes along with other relevant patches are available under 
+branch dev/sagark/spi-nor_v5.2-rc1 at:
+https://github.com/sagsifive/riscv-linux-hifive 
+ 
+
+Revision history:
+V5<->V6:
+-Incorporated review comments from Vignesh.
+-Set addr width based on device size and if SPI_NOR_4B_OPCODES is set.
+-Added 4th block protect identifier (SPI_NOR_HAS_BP3) to flash_info structure 
+-Changed flash_info: flag from u16 to u32 to accommodate SPI_NOR_HAS_BP3
+-Prefix newly added function with spi_nor_xxx.
+-Dropped write_fr function, as updating OTP bit's present in function register doesn't seem to be a good idea.
+-Set lock/unlock schemes based on whether the ISSI device has locking support and  BP3 bit present.
+
+V4<->V5:
+-Rebased to linux version v5.2-rc1.
+-Updated heading of this cover letter with sub-system, instead of just plain "add support for is25wp256..."
+
+V3<->V4:
+-Extracted comman code and renamed few stm functions so that it can be reused for issi lock implementation.
+-Added function's to read and write FR register, for selecting Top/Bottom area.
+
+V2<->V3:
+-Rebased patch to mainline v5.1 from earlier v5.1-rc5.
+-Updated commit messages, and cover letter with reference to git URL and author information.
+-Deferred flash_lock mechanism and can go as separate patch. 
+
+V1<-> V2:
+-Incorporated changes suggested by reviewers regarding patch/cover letter versioning, references of patch.
+-Updated cover letter with description for flash operations verified with these changes.
+-Add support for unlocking is25xxxxxx device.
+-Add support for locking is25xxxxxx device.
+
+v1:
+-Add support for is25wp256 device.
+
+
+Sagar Shrikant Kadam (3):
+  mtd: spi-nor: add support for is25wp256
+  mtd: spi-nor: add support to unlock flash device
+  mtd: spi-nor: add locking support for is25xxxxx device
+
+ drivers/mtd/spi-nor/spi-nor.c | 342 +++++++++++++++++++++++++++++++++++-------
+ include/linux/mtd/spi-nor.h   |   8 +
+ 2 files changed, 294 insertions(+), 56 deletions(-)
+
+-- 
+1.9.1
 
 
 ______________________________________________________
