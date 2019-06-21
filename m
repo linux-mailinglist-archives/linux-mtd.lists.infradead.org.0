@@ -2,95 +2,94 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 679814EF93
-	for <lists+linux-mtd@lfdr.de>; Fri, 21 Jun 2019 21:42:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2ADE34EFAA
+	for <lists+linux-mtd@lfdr.de>; Fri, 21 Jun 2019 21:52:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YQ8uPoyL2zYBAP+SQX9etUfl3DcvS4ktcAZzLjqHjRE=; b=dcTEA7LPb6HwUk
-	yZ5J2Dz11W5HjOrf9YA223ryuyQgft8Qlu+8v+CiBzgmyFp205y4JOoUlPOg3RgvAZJDycik4MfOR
-	7XNK8ZzThs86XCylV30iTHVNdjjFakpURCoXJluFi1VEOIyJWcRNHHk1hC3TlpzQW/P8Q9/z3RpL4
-	ICPj2who4YQUqPVMIRTRMqelcFnPbAKtMtDqor1WKtV2eOdct5f/ezaeJErUkfKmP6leiVcOnn+8o
-	28ZbcrHOzMnsxDK1/DyeHDOX307MTThRAHBWNKmxgK0Wqhp3irP1Tsn/sceW8Lxk+Zywrjr86a7Ub
-	UTmJcdBH1Tt2mAVsdEDw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eTWGVKTls5V8eiue0y+z+af7b7KJiddEGBup651wuP4=; b=ZWaOzLXt2GMO0r
+	wcvp6JrTlEeemdFRJn0NpC9JIV5GQLUo6avDR7avaVeLhWXX8YjWHAemXGdnUkzMjWBEiNfa7PKrH
+	iVS0qpSNv0NyQkF8J9c2TXyH+kgpnzbfGCdjX5ixXkqjq7ZqjNK2J3FBpALpj9kCbV4haraZVWKKZ
+	JjfDiL1GnLegkWIVbAz9LCqFUP3hMJU+vchi6mpqtwZblzyjFrNh13W0IMzk6rkqj8GZtfbm4uiO+
+	ROeAUE6AW4wmSlY2FYWmAF4FkwdOBClLzX5uFBOKnw/paEm+VnJNGEgq6Qvjpup8GOVN82yEhe5nU
+	m1UDhb9sN+c3ohUnn6AQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hePQ3-00086r-Bn; Fri, 21 Jun 2019 19:41:55 +0000
-Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	id 1hePaV-0002rP-Lw; Fri, 21 Jun 2019 19:52:43 +0000
+Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hePPs-00086H-Mf
- for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 19:41:46 +0000
-Received: by mail-lj1-x243.google.com with SMTP id v24so6926468ljg.13
- for <linux-mtd@lists.infradead.org>; Fri, 21 Jun 2019 12:41:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=date:from:to:cc:subject:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=600RHMAu4vZ4puabk1vr2TN+deEohNitxk3XsErGC5Q=;
- b=ijmNYMoIe0Aly4zcAt0mQeZpSXfSCbu149zr/y+BlPHyfbfhyr2OymG9QxTLd2afb2
- Gpjev2l78lWR5qLU0plgQ/XbEjJJMBFZtTV16L3ii/ZULRIreM+NF2rxutb0Q2L1aZsG
- zX74mybAFQWQ6TWZvZoHl+Y2k0P7cC1EGSjdHqDOyV3pw27Ntei/JNrDLC+WsyBuiEkf
- +vi6eJ6qGmMZsoEWjXjLkVCA9YmkqlIh7Aml+pacBW4fTUDEGsQ77xzGAoRzMZZKeuop
- vNe25nx8KUt4cNUrr+04AJ8N/vsUb60MfB0P68CTzi5WJt5aLnqnprgcEueawsq6dHmw
- XwHQ==
+ id 1hePZx-0002hj-H8
+ for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 19:52:11 +0000
+Received: by mail-lf1-x144.google.com with SMTP id a25so5896177lfg.2
+ for <linux-mtd@lists.infradead.org>; Fri, 21 Jun 2019 12:52:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
+ h=from:subject:to:cc:references:organization:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=wso9AT0PLE8YSVz4mFagGPGoqkgjnJ4hhl/knflL07M=;
+ b=Ew+e7GQyGGn3VMUMvlmlNk529darBgRUJ/dcJFSuTVhcptTW0Osp8jReJotYp3YmKA
+ f6eeGrLRGAbz3L8Of3mQVbcQDLORcn3KXYXhPmuLEmtkhvEZh+lMjKapiefa6/uiNl2W
+ sMOLt5EglU5sNbD9GTGtO5A5tcs2ho6YQ53d4IWO8ykmDYB7C1u0OYGN4kKeIMmQbB8t
+ sCsUfdPPmodLtBotaF1sfyp3QcvscC+eoN6kkXc3skMo0VaCzrVmg+NLHLSyIaA9tmok
+ kdq69iSb8NJ1pNNEYW3c7xUwEyznK+nW7o7MOGRmdKVvN+I8ayYLDei7JYMyJxs3C0XZ
+ O92A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=600RHMAu4vZ4puabk1vr2TN+deEohNitxk3XsErGC5Q=;
- b=V/mWUxD7+/umHnHfQTK11XqApFe1EnHUGwFU/HM9pTUbQn2egfdyRrMhbB5HDB5bXu
- NDaJq8I3V3D+OGgnVzaQpMeQc7MFzj23GWMlctwkYiXuBqgVX2n2NZahB2W1KGuMcS2j
- Qw9f/SEB67cHFtlK8i7MWlmZMVGSWVyhGyfGAf4DQRTljmkegIlpPleW7UHbynZRp90j
- vGkKuvNqaD0mk+aVnZyFIZSkzrJBKVqKOZsnzEhAxoieP2eJHiUITKGvDJfB1SSR+sxm
- +9ObQA/3YVX5VVTbiUktc2Y6kBIeAGh8qs22+FPEDKVlaz2+S5hoxxSDx5LV/ahaQZGI
- xZZw==
-X-Gm-Message-State: APjAAAXRkzZ6PjgdUVLJYOZTZAsLtHsxP2lOknIWYzLG+AwfCE+3goip
- j2jtQFi0hWsRKLXFsTZN42Y=
-X-Google-Smtp-Source: APXvYqwI3Iuh38CU88PN3Vsg8QqF8wDrUPTsvyz1V6DB5eUjDtvSCD5Nlaj4jG8bki8hVDVzxXKnuw==
-X-Received: by 2002:a2e:9c03:: with SMTP id s3mr58595445lji.209.1561146103219; 
- Fri, 21 Jun 2019 12:41:43 -0700 (PDT)
-Received: from laska.lan ([93.185.27.99])
- by smtp.gmail.com with ESMTPSA id d2sm503302lfh.1.2019.06.21.12.41.42
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Fri, 21 Jun 2019 12:41:42 -0700 (PDT)
-Date: Fri, 21 Jun 2019 22:41:39 +0300
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@gmail.com>
-To: Richard Weinberger <richard@nod.at>
-Subject: Re: [PATCH] mtd/ubi: fix initialization order of ubi subsystems
-Message-ID: <20190621224139.48fa0537@laska.lan>
-In-Reply-To: <1524034294.13675.1561145581382.JavaMail.zimbra@nod.at>
-References: <20190620132753.19538-1-mikhail.kshevetskiy@gmail.com>
- <CAFLxGvyvFL6iHOgQzw2wqpTYOTY8eW57ORuVQnkjn+Gmub=cbQ@mail.gmail.com>
- <20190621213914.5b0023fd@laska.lan>
- <561004432.13649.1561142870072.JavaMail.zimbra@nod.at>
- <20190621221623.0db81a14@laska.lan>
- <1524034294.13675.1561145581382.JavaMail.zimbra@nod.at>
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ h=x-gm-message-state:from:subject:to:cc:references:organization
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=wso9AT0PLE8YSVz4mFagGPGoqkgjnJ4hhl/knflL07M=;
+ b=OZKhvkyTf3k5OEzPIeXteihEjbtugbI5zp3GxUrZvl0NoVyQbBeWJTcuhetWGCpPCD
+ d9XRQ51QKLN77ZEh+VzAIR7Us2uSsUOFZac5y8kT55c5T7MlpUC2tdxHh6ToxacBNfGe
+ 31Hdezd7u0J2pg1mcxCe5cOrSrmXo7qt569Lrl4ngfEjQ3z16eO6+lJc/SWh9LwE6i0O
+ FeLPB1CribyUyEi76xXukiXRQ7OMXpyC31YD3e+S+UhynmrRpMwbfwSiNVjvbJTpR/bX
+ 7t96PBHq61oIUa3NpUHFusklKawCln02nk09OK87zktZcSjtPsQorYuRV5S3FXR1pito
+ s7uA==
+X-Gm-Message-State: APjAAAUv/RuH/DeM7o/GhsxBqlW0uQrV7DtbwlCS/9VneBiLv8gaAfos
+ USBm7z+pI5rVwHLbb5Bv8I0mtg==
+X-Google-Smtp-Source: APXvYqx3uKDLsq5HSFMYR5JCV7tpvJVm6zODfloD79xoOac4SxateHkoi4zxVApNcx1Fez+sYLEylg==
+X-Received: by 2002:a19:ca1e:: with SMTP id a30mr3669450lfg.163.1561146725828; 
+ Fri, 21 Jun 2019 12:52:05 -0700 (PDT)
+Received: from wasted.cogentembedded.com ([31.173.87.14])
+ by smtp.gmail.com with ESMTPSA id n3sm513817lfh.3.2019.06.21.12.52.04
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 21 Jun 2019 12:52:05 -0700 (PDT)
+From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+Subject: Re: [PATCH v7 3/5] mtd: Add support for HyperBus memory devices
+To: Vignesh Raghavendra <vigneshr@ti.com>,
+ Boris Brezillon <bbrezillon@kernel.org>, Marek Vasut
+ <marek.vasut@gmail.com>, Richard Weinberger <richard@nod.at>,
+ Rob Herring <robh+dt@kernel.org>
+References: <20190620172250.9102-1-vigneshr@ti.com>
+ <20190620172250.9102-4-vigneshr@ti.com>
+Organization: Cogent Embedded
+Message-ID: <4d17e914-cd1f-c6fe-b70a-6aae02e0cf4e@cogentembedded.com>
+Date: Fri, 21 Jun 2019 22:52:03 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
 MIME-Version: 1.0
+In-Reply-To: <20190620172250.9102-4-vigneshr@ti.com>
+Content-Language: en-MW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190621_124144_744030_87BC9C3B 
-X-CRM114-Status: GOOD (  11.57  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190621_125209_860035_7302B8BD 
+X-CRM114-Status: GOOD (  23.55  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:243 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:144 listed in]
  [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (mikhail.kshevetskiy[at]gmail.com)
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,26 +101,92 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd <linux-mtd@lists.infradead.org>,
- Artem Bityutskiy <dedekind1@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Mason Yang <masonccyang@mxic.com.tw>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gRnJpLCAyMSBKdW4gMjAxOSAyMTozMzowMSArMDIwMCAoQ0VTVCkKUmljaGFyZCBXZWluYmVy
-Z2VyIDxyaWNoYXJkQG5vZC5hdD4gd3JvdGU6Cgo+IC0tLS0tIFVyc3Byw7xuZ2xpY2hlIE1haWwg
-LS0tLS0KPiA+PiA+IFBTIHdlIHNlbmQgdGhlIHNhbWUgcGF0Y2ggdG8gdS1ib290Lgo+ID4+IAo+
-ID4+IEluIHUtYm9vdCB0aGUgc3RvcnkgaXMgYSBsaXR0bGUgZGlmZmVyZW50IGJlY2F1c2UgaXQg
-aGFzIG5vIGNvbmNlcHQgb2YKPiA+PiB0aHJlYWRzIGFuZCBleGVjdXRlcyB3b3JrIGltbWVkaWF0
-ZWx5Lgo+ID4+IAo+ID4+IERvIHlvdSBzZWUgdGhpcyBvbiBhIHJlY2VudCB1LWJvb3Q/Cj4gPj4g
-V2l0aCB0aGlzIGNvbW1pdCBpbiB1LWJvb3QgdGhpcyBwcm9ibGVtIHNob3VsZCBub3QgaGFwcGVu
-Ogo+ID4+IGY4MjI5MGFmYzg0NyAoIm10ZDogdWJpOiBGaXggd29ya2VyIGhhbmRsaW5nIikKPiA+
-IAo+ID4gbm8gd2UgdXNlIDIwMS4wNyBiYXNlZCBib290bG9hZGVyLiBJJ2xsIGxvb2sgb24gaXQu
-IFRoYW5rcy4KPiAKPiBQbGVhc2UgYmFja3BvcnQgdGhlIHNhaWQgZml4IGFuZCBjb21tdW5pY2F0
-ZSB0aGlzIG9uIHRoZQo+IHUtYm9vdCBtYWlsaW5nbGlzdC4KPiAKPiBZb3VyIHBhdGNoIGZpeGVz
-IHRoZSBpc3N1ZSBvbmx5IHBhcnRpYWxseSwgeW91IHdpbGwgc3RpbGwgZmFjZQo+IGlzc3VlcyBp
-ZiB1Ymkgc2VlcyBiaXRmbGlwcyBhdCBhdHRhY2ggdGltZS4KCnRoYW5rcyBhIGxvdC4KCgo+IFRo
-YW5rcywKPiAvL3JpY2hhcmQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+Hello!
+
+On 06/20/2019 08:22 PM, Vignesh Raghavendra wrote:
+
+> Cypress' HyperBus is Low Signal Count, High Performance Double Data Rate
+> Bus interface between a host system master and one or more slave
+> interfaces. HyperBus is used to connect microprocessor, microcontroller,
+> or ASIC devices with random access NOR flash memory (called HyperFlash)
+> or self refresh DRAM (called HyperRAM).
+> 
+> Its a 8-bit data bus (DQ[7:0]) with  Read-Write Data Strobe (RWDS)
+> signal and either Single-ended clock(3.0V parts) or Differential clock
+> (1.8V parts). It uses ChipSelect lines to select b/w multiple slaves.
+> At bus level, it follows a separate protocol described in HyperBus
+> specification[1].
+> 
+> HyperFlash follows CFI AMD/Fujitsu Extended Command Set (0x0002) similar
+> to that of existing parallel NORs. Since HyperBus is x8 DDR bus,
+> its equivalent to x16 parallel NOR flash wrt bits per clock cycle. But
+> HyperBus operates at >166MHz frequencies.
+
+   s/wrt/WRT/.
+
+> HyperRAM provides direct random read/write access to flash memory
+> array.
+> 
+> But, HyperBus memory controllers seem to abstract implementation details
+> and expose a simple MMIO interface to access connected flash.
+> 
+> Add support for registering HyperFlash devices with MTD framework. MTD
+> maps framework along with CFI chip support framework are used to support
+> communicating with flash.
+> 
+> Framework is modelled along the lines of spi-nor framework. HyperBus
+> memory controller (HBMC) drivers calls hyperbus_register_device() to
+> register a single HyperFlash device. HyperFlash core parses MMIO access
+> information from DT, sets up the map_info struct, probes CFI flash and
+> registers it with MTD framework.
+> 
+> Some HBMC masters need calibration/training sequence[3] to be carried
+> out, in order for DLL inside the controller to lock, by reading a known
+> string/pattern. This is done by repeatedly reading CFI Query
+> Identification String. Calibration needs to be done before trying to detect
+> flash as part of CFI flash probe.
+> 
+> HyperRAM is not supported at the moment.
+> 
+> HyperBus specification can be found at[1]
+> HyperFlash datasheet can be found at[2]
+> 
+> [1] https://www.cypress.com/file/213356/download
+> [2] https://www.cypress.com/file/213346/download
+> [3] http://www.ti.com/lit/ug/spruid7b/spruid7b.pdf
+>     Table 12-5741. HyperFlash Access Sequence
+> 
+> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+[...]
+> diff --git a/include/linux/mtd/hyperbus.h b/include/linux/mtd/hyperbus.h
+> new file mode 100644
+> index 000000000000..ead969aad35b
+> --- /dev/null
+> +++ b/include/linux/mtd/hyperbus.h
+> @@ -0,0 +1,86 @@
+[...]
+> +/**
+> + * struct hyperbus_ops - struct representing custom HyperBus operations
+> + * @read16: read 16 bit of data to flash in a single burst. Used to read
+
+   s/to flash/from flash/.
+
+[...]
+> +#endif /* __LINUX_MTD_HYPERBUS_H__ */
+
+   I thought you agreed to add the #defines for the HF commands. Well, I can add them
+as well...
+
+MBR, Sergei
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
