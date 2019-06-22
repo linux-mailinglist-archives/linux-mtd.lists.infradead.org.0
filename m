@@ -2,107 +2,139 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EE1194F20E
-	for <lists+linux-mtd@lfdr.de>; Sat, 22 Jun 2019 02:00:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CEDF4F531
+	for <lists+linux-mtd@lfdr.de>; Sat, 22 Jun 2019 12:19:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:To:From:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uEyrz7LiU9Hj0//OAX7tSBqmVokdldSMeG86FAxqrCw=; b=bURlaWOQyJgcQk
-	cvaqZEMvHCJQh2N3B4h7T0VgGwOhieoURUFtodcMOkh85OMe9FAHeThWC9whN4vLuBXMhGBZfMziw
-	hl3P28BrQAgCAU03WSgImyZCVM/4RfACSt4PO2lGM6KfWLmDQ67r2np+PANeh8DZSfPmEFj3drBB6
-	0MMdULB8KK8NNBOIc89CBmSUSc+rlhn2Ai/RVHQyZpNxkqS9pBdyzS9z8KANBhUtFlM/ypXMXvV9V
-	ErUcRP6oeRg6irlZkjSw365KUkwh6d3CTOrjzcXRX7Uwe+2IkcMs9a8B6s3BjJQH+q+avytguouM5
-	IRT5G2M5kFCbjsjXB1nA==;
+	List-Owner; bh=sn2DrQ7vF+/bD+5eBbxr+PGLRd3ut7ltEujgQb6vrV8=; b=WjC0exR82RFtsR
+	2GU8hcAihOJy00e+9jTJnSJg3QxpkxIVJUDPtMD+RoOZLx51yA2H17QmATZmaTuhO9GrrIc0z6rTz
+	U3SkjdM3Oj2Gm86YRM3pwsl3L2ZnH8D29ni0lhm+1cUEIs0dqIbcVm4LMfuD+NPDl2j5F8t40LoNv
+	FP0nZ4rF+Xf6bXhTGGDiOdBFJ1dUeC6Th847nmnnMsuYilXwM8m6WQg4tsEM7QaOKKbc8vebob6uU
+	qSaGLXSNsiHZyUtuPBRevzaHfxqaMZiERvCmngOV6WzKMxfkb+83AR775d9CUOB9bQGWbKpQPfKe9
+	suKqCj2wpETdo+tOvKfg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1heTSA-0008Vm-Co; Sat, 22 Jun 2019 00:00:22 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1hed79-0002JV-5b; Sat, 22 Jun 2019 10:19:19 +0000
+Received: from esa6.microchip.iphmx.com ([216.71.154.253])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1heTPs-0006VF-Vl
- for linux-mtd@lists.infradead.org; Fri, 21 Jun 2019 23:58:05 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5LNt22Y052769;
- Fri, 21 Jun 2019 23:57:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=subject : from : to :
- cc : date : message-id : in-reply-to : references : mime-version :
- content-type : content-transfer-encoding; s=corp-2018-07-02;
- bh=rwZuzZLu2QSuxM1deZeCZnnfsOeZtWtWWa3iVLz4Y0o=;
- b=j4pMav0SW7e9IFJcTpCLcn4neiQwevtJo2J+lHllOH0GrPdCMsB8iQfSOQ1NgxlBqbVT
- OICMIQi3C2UlR7VmtDc28J0RWQyGpW/svba+WkpNuDwnYYbtGkzIR9onweaaZ42Hjd4v
- 7+6DtESjx18TSxlVMjfOZTOLmVoXhIFnHLJx/ZuAg0EjP7ntcN5y53Ydpo+wlR3McVro
- P/X2vkBxkiaF5hh8rtBC9Y3IHL9TJQU9hmFMqtuN/6D9K20cct8ZF1rNphEDE4665jhl
- j72tS2nlAV7F8v5YLxysiYVfhqU1R1I/qPp3EaMXTsfzZ3rfbLk0QJO1ozCXzn3jkiUu FA== 
-Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
- by userp2130.oracle.com with ESMTP id 2t7809rsyd-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 21 Jun 2019 23:57:53 +0000
-Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
- by userp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5LNvFfg108897;
- Fri, 21 Jun 2019 23:57:52 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
- by userp3020.oracle.com with ESMTP id 2t77ypetb6-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Fri, 21 Jun 2019 23:57:52 +0000
-Received: from userp3020.oracle.com (userp3020.oracle.com [127.0.0.1])
- by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5LNvq84109606;
- Fri, 21 Jun 2019 23:57:52 GMT
-Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
- by userp3020.oracle.com with ESMTP id 2t77ypetb3-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 21 Jun 2019 23:57:52 +0000
-Received: from abhmp0015.oracle.com (abhmp0015.oracle.com [141.146.116.21])
- by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x5LNvocq020839;
- Fri, 21 Jun 2019 23:57:50 GMT
-Received: from localhost (/10.159.131.214)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Fri, 21 Jun 2019 16:57:49 -0700
-Subject: [PATCH 7/7] vfs: don't allow writes to swap files
-From: "Darrick J. Wong" <darrick.wong@oracle.com>
-To: matthew.garrett@nebula.com, yuchao0@huawei.com, tytso@mit.edu,
- darrick.wong@oracle.com, ard.biesheuvel@linaro.org,
- josef@toxicpanda.com, clm@fb.com, adilger.kernel@dilger.ca,
- viro@zeniv.linux.org.uk, jack@suse.com, dsterba@suse.com,
- jaegeuk@kernel.org, jk@ozlabs.org
-Date: Fri, 21 Jun 2019 16:57:46 -0700
-Message-ID: <156116146628.1664939.13724544486987830540.stgit@magnolia>
-In-Reply-To: <156116141046.1664939.11424021489724835645.stgit@magnolia>
-References: <156116141046.1664939.11424021489724835645.stgit@magnolia>
-User-Agent: StGit/0.17.1-dirty
+ id 1hed6u-0002IO-4r; Sat, 22 Jun 2019 10:19:07 +0000
+Received-SPF: Pass (esa6.microchip.iphmx.com: domain of
+ Tudor.Ambarus@microchip.com designates 198.175.253.82 as
+ permitted sender) identity=mailfrom;
+ client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="Tudor.Ambarus@microchip.com";
+ x-conformance=spf_only; x-record-type="v=spf1";
+ x-record-text="v=spf1 mx a:ushub1.microchip.com
+ a:smtpout.microchip.com a:mx1.microchip.iphmx.com
+ a:mx2.microchip.iphmx.com include:servers.mcsv.net
+ include:mktomail.com include:spf.protection.outlook.com ~all"
+Received-SPF: None (esa6.microchip.iphmx.com: no sender
+ authenticity information available from domain of
+ postmaster@email.microchip.com) identity=helo;
+ client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
+Authentication-Results: esa6.microchip.iphmx.com;
+ spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
+ spf=None smtp.helo=postmaster@email.microchip.com;
+ dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
+ dmarc=pass (p=none dis=none) d=microchip.com
+X-IronPort-AV: E=Sophos;i="5.63,404,1557212400"; d="scan'208";a="35446107"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 22 Jun 2019 03:18:58 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex04.mchp-main.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Sat, 22 Jun 2019 03:18:55 -0700
+Received: from NAM01-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5
+ via Frontend Transport; Sat, 22 Jun 2019 03:18:55 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector1-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GLMr2pStPLkl0RtmesXVD9kz3vOk36Y3smddQ88bobM=;
+ b=3RgxQ9Cq3FOTYIPHxAYnVUq3eN2OdVRP5jXkho8WQaGWhSBRKfg3ehjcM2YO+ABzxjYHGX0uRbbXHSg4Eb54WnhRhxgGritKoA4WD2kgEqrJw2igM6kGXgEysdvdCSKvR2ZK7+tgp3sotUjMnhTrYhwQ9cLXcSmvbnRDgwnjKa4=
+Received: from BN6PR11MB1842.namprd11.prod.outlook.com (10.175.98.146) by
+ BN6PR11MB1651.namprd11.prod.outlook.com (10.172.23.16) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.1987.13; Sat, 22 Jun 2019 10:18:50 +0000
+Received: from BN6PR11MB1842.namprd11.prod.outlook.com
+ ([fe80::e581:f807:acdc:cb36]) by BN6PR11MB1842.namprd11.prod.outlook.com
+ ([fe80::e581:f807:acdc:cb36%9]) with mapi id 15.20.1987.017; Sat, 22 Jun 2019
+ 10:18:50 +0000
+From: <Tudor.Ambarus@microchip.com>
+To: <Eugeniy.Paltsev@synopsys.com>, <linux-mtd@lists.infradead.org>,
+ <marex@denx.de>
+Subject: Re: [PATCH] mtd: spi-nor: add support for sst26wf016, sst26wf032
+ memory
+Thread-Topic: [PATCH] mtd: spi-nor: add support for sst26wf016, sst26wf032
+ memory
+Thread-Index: AQHVHUfULV5f3c0l6EGHxaXBBI7PvaanjSsA
+Date: Sat, 22 Jun 2019 10:18:50 +0000
+Message-ID: <aab6510e-9608-584e-1556-613bb0be482e@microchip.com>
+References: <20190607154308.20899-1-Eugeniy.Paltsev@synopsys.com>
+In-Reply-To: <20190607154308.20899-1-Eugeniy.Paltsev@synopsys.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: VI1PR0602CA0010.eurprd06.prod.outlook.com
+ (2603:10a6:800:bc::20) To BN6PR11MB1842.namprd11.prod.outlook.com
+ (2603:10b6:404:101::18)
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [86.127.138.199]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 075cfc71-2ec2-4429-a714-08d6f6fb0502
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);
+ SRVR:BN6PR11MB1651; 
+x-ms-traffictypediagnostic: BN6PR11MB1651:
+x-ms-exchange-purlcount: 1
+x-microsoft-antispam-prvs: <BN6PR11MB1651835948A8A0C592D4A5C7F0E60@BN6PR11MB1651.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:4941;
+x-forefront-prvs: 0076F48C8A
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10009020)(376002)(136003)(39860400002)(346002)(366004)(396003)(199004)(189003)(110136005)(31696002)(99286004)(31686004)(8936002)(54906003)(6436002)(14444005)(2501003)(229853002)(186003)(256004)(36756003)(68736007)(81166006)(86362001)(316002)(102836004)(4326008)(76176011)(6306002)(6512007)(52116002)(81156014)(8676002)(71190400001)(6486002)(71200400001)(386003)(6506007)(53546011)(25786009)(305945005)(486006)(7736002)(446003)(53936002)(6246003)(14454004)(11346002)(5660300002)(2906002)(478600001)(72206003)(73956011)(66446008)(64756008)(66556008)(66946007)(66476007)(966005)(3846002)(6116002)(476003)(2616005)(66066001)(26005)(7416002);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:BN6PR11MB1651;
+ H:BN6PR11MB1842.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; A:1; MX:1; 
+received-spf: None (protection.outlook.com: microchip.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: +mTrpHpU7fU7wek0H96Zgdxj8Vp+7Nl7yQ9sKLatvhxHjFDrCm7RSmrt3FujznkqXtIbPeswdsVJvP6Y7+bZtulno5p3bsMnDwHQNCQdWxXB2FEpNvYLUmr9PO+roYe9zpiTPNtJROdUdIvAjci4qM4dy27gVwx18Nkopw2vKKYAZdO0uqjzMkxe4xPYsBqUqzRs3rP7SuWIzvbKoDPd204UWIDgw4T4V4THFHA7o2X/LMZv/6T+OaX8zQTRUfaEkwHMg4t6uRB1C5ALzOn/iF8tUq5AD46BKD9mqDO+c5au0dH4IiF+vbeGGYlmoBSjVXbqMAaS2J+Zy86otcUuJ18jgO13MYx/WZ2bPPE6Gwkj5n9kxao7lYtpKI5wYS7blUk229aTPQrkXmWCpR++9sn9KT7DcNYNvxhqyr6Quro=
+Content-ID: <E3C10A3D5626A1418BED5D9D21748518@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9295
- signatures=668687
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- priorityscore=1501 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=969 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
- definitions=main-1906210182
+X-MS-Exchange-CrossTenant-Network-Message-Id: 075cfc71-2ec2-4429-a714-08d6f6fb0502
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Jun 2019 10:18:50.4471 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: tudor.ambarus@microchip.com
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB1651
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190621_165801_341154_A93BB06B 
-X-CRM114-Status: GOOD (  14.30  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20190622_031904_233552_8EE1948F 
+X-CRM114-Status: GOOD (  11.46  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [156.151.31.86 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ medium trust [216.71.154.253 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,124 +146,56 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, linux-btrfs@vger.kernel.org,
- linux-kernel@vger.kernel.org, reiserfs-devel@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-xfs@vger.kernel.org,
- linux-mm@kvack.org, linux-nilfs@vger.kernel.org, linux-mtd@lists.infradead.org,
- ocfs2-devel@oss.oracle.com, linux-fsdevel@vger.kernel.org,
- linux-ext4@vger.kernel.org, devel@lists.orangefs.org
+Cc: linux-snps-arc@lists.infradead.org, richard@nod.at,
+ Alexey.Brodkin@synopsys.com, linux-kernel@vger.kernel.org,
+ marek.vasut@gmail.com, miquel.raynal@bootlin.com, computersforpeace@gmail.com,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Darrick J. Wong <darrick.wong@oracle.com>
+Hi, Eugeniy,
 
-Don't let userspace write to an active swap file because the kernel
-effectively has a long term lease on the storage and things could get
-seriously corrupted if we let this happen.
+On 06/07/2019 06:43 PM, Eugeniy Paltsev wrote:
+> External E-Mail
+> 
+> 
+> This commit adds support for the SST sst26wf016 and sst26wf032
+> flash memory IC.
 
-Signed-off-by: Darrick J. Wong <darrick.wong@oracle.com>
----
- fs/attr.c     |    3 +++
- mm/filemap.c  |    3 +++
- mm/memory.c   |    4 +++-
- mm/mmap.c     |    2 ++
- mm/swapfile.c |   15 +++++++++++++--
- 5 files changed, 24 insertions(+), 3 deletions(-)
+Please specify if you tested both flashes, with 1-1-1, 1-1-2 and 1-1-4 reads.
+Let us know which controller you used. I ask for these to be sure that we don't
+add flashes that are broken from day one.
 
+> 
+> Signed-off-by: Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>
+> ---
+>  drivers/mtd/spi-nor/spi-nor.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> index 73172d7f512b..224275461a2c 100644
+> --- a/drivers/mtd/spi-nor/spi-nor.c
+> +++ b/drivers/mtd/spi-nor/spi-nor.c
+> @@ -1945,6 +1945,8 @@ static const struct flash_info spi_nor_ids[] = {
+>  	{ "sst25wf040b", INFO(0x621613, 0, 64 * 1024,  8, SECT_4K) },
+>  	{ "sst25wf040",  INFO(0xbf2504, 0, 64 * 1024,  8, SECT_4K | SST_WRITE) },
+>  	{ "sst25wf080",  INFO(0xbf2505, 0, 64 * 1024, 16, SECT_4K | SST_WRITE) },
+> +	{ "sst26wf016",  INFO(0xbf2651, 0, 64 * 1024, 32, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
 
-diff --git a/fs/attr.c b/fs/attr.c
-index 1fcfdcc5b367..42f4d4fb0631 100644
---- a/fs/attr.c
-+++ b/fs/attr.c
-@@ -236,6 +236,9 @@ int notify_change(struct dentry * dentry, struct iattr * attr, struct inode **de
- 	if (IS_IMMUTABLE(inode))
- 		return -EPERM;
- 
-+	if (IS_SWAPFILE(inode))
-+		return -ETXTBSY;
-+
- 	if ((ia_valid & (ATTR_MODE | ATTR_UID | ATTR_GID | ATTR_TIMES_SET)) &&
- 	    IS_APPEND(inode))
- 		return -EPERM;
-diff --git a/mm/filemap.c b/mm/filemap.c
-index dad85e10f5f8..fd80bc20e30a 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -2938,6 +2938,9 @@ inline ssize_t generic_write_checks(struct kiocb *iocb, struct iov_iter *from)
- 	if (IS_IMMUTABLE(inode))
- 		return -EPERM;
- 
-+	if (IS_SWAPFILE(inode))
-+		return -ETXTBSY;
-+
- 	if (!iov_iter_count(from))
- 		return 0;
- 
-diff --git a/mm/memory.c b/mm/memory.c
-index 4311cfdade90..c04c6a689995 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -2235,7 +2235,9 @@ static vm_fault_t do_page_mkwrite(struct vm_fault *vmf)
- 
- 	vmf->flags = FAULT_FLAG_WRITE|FAULT_FLAG_MKWRITE;
- 
--	if (vmf->vma->vm_file && IS_IMMUTABLE(file_inode(vmf->vma->vm_file)))
-+	if (vmf->vma->vm_file &&
-+	    (IS_IMMUTABLE(file_inode(vmf->vma->vm_file)) ||
-+	     IS_SWAPFILE(file_inode(vmf->vma->vm_file))))
- 		return VM_FAULT_SIGBUS;
- 
- 	ret = vmf->vma->vm_ops->page_mkwrite(vmf);
-diff --git a/mm/mmap.c b/mm/mmap.c
-index ac1e32205237..031807339869 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -1488,6 +1488,8 @@ unsigned long do_mmap(struct file *file, unsigned long addr,
- 					return -EACCES;
- 				if (IS_IMMUTABLE(file_inode(file)))
- 					return -EPERM;
-+				if (IS_SWAPFILE(file_inode(file)))
-+					return -ETXTBSY;
- 			}
- 
- 			/*
-diff --git a/mm/swapfile.c b/mm/swapfile.c
-index 596ac98051c5..390859785558 100644
---- a/mm/swapfile.c
-+++ b/mm/swapfile.c
-@@ -3165,6 +3165,19 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 	if (error)
- 		goto bad_swap;
- 
-+	/*
-+	 * Flush any pending IO and dirty mappings before we start using this
-+	 * swap file.
-+	 */
-+	if (S_ISREG(inode->i_mode)) {
-+		inode->i_flags |= S_SWAPFILE;
-+		error = inode_flush_data(inode);
-+		if (error) {
-+			inode->i_flags &= ~S_SWAPFILE;
-+			goto bad_swap;
-+		}
-+	}
-+
- 	mutex_lock(&swapon_mutex);
- 	prio = -1;
- 	if (swap_flags & SWAP_FLAG_PREFER)
-@@ -3185,8 +3198,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, specialfile, int, swap_flags)
- 	atomic_inc(&proc_poll_event);
- 	wake_up_interruptible(&proc_poll_wait);
- 
--	if (S_ISREG(inode->i_mode))
--		inode->i_flags |= S_SWAPFILE;
- 	error = 0;
- 	goto out;
- bad_swap:
+I confirm that the above is correct.
 
+> +	{ "sst26wf032",  INFO(0xbf2622, 0, 64 * 1024, 64, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
 
+There are sst26wf032 flashes that don't support SPINOR_OP_READ_1_1_2 (0x3b) and
+SPINOR_OP_READ_1_1_4 (0x6b), check
+https://pdf1.alldatasheet.com/datasheet-pdf/view/392063/SST/SST26WF032.html. You
+can't add SPI_NOR_DUAL_READ and SPI_NOR_QUAD_READ if 0x3b and 0x6b commands are
+not supported. Check spi_nor_init_params().
+
+Cheers,
+ta
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
