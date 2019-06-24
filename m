@@ -2,87 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C96335096F
-	for <lists+linux-mtd@lfdr.de>; Mon, 24 Jun 2019 13:08:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E1B8B50965
+	for <lists+linux-mtd@lfdr.de>; Mon, 24 Jun 2019 13:05:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rG8pkI66+5ehwTXb7AsbfsCnWmj6k1GWTz+sogJsqFk=; b=fwoabIkZRktWvI
-	/C3BCBcSzMsESTnHqM4EzTwof3uh9fhBDmeZ/6iRmciYgvcCeAKV8vtMRArGWzkWUbnYVbnXzbHg/
-	kIK5+yVSF7CZWI1uqK9jjEjJJepuxZBFMwRw0DDuDB7AV3Xf0Rg/QXfmiziwpPaxSbItfhhtYvRFb
-	Gkg4lWxYdKhAo9guWWXFM30tZx+O0xP1rMaI0Pogy7ePyW0uT64+WlPEMtom7aUbKriTupvWecjgG
-	UUksO8bz2XrbRt0pbKibrkgvV++G1q/PzGKMB5sI9mD4wdLDKFoaccfU+u702wRqu6Es44XGmkXHw
-	nFCsh5VMEnTEiS9Xngpw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9eeGwlem8C/bRk2GIBzQcPiOvNkX+SMz/kO7oJShTPs=; b=TKg9IkNAdNPD7m
+	YbJhtVVd9d69evEHeTnFwjfNGmr0VAfEo7LEuqroPVKeaA1O6SThaQEhbr2dMfTbxvzBDXL74HCEn
+	duTKveEMo1l84LmkOy9mUOP/iYISuvqH9FLThjG15iocVKqsIloohzOllTUmS7GQ9iYykCr1Wb7sB
+	TF5djVzfxwsTXFKKrHvJYV18LcSD36wXUgtlQNfDIuW7lF6X9PxT3gkH3CrdNHEb7gCLRoUciQBk+
+	KI1XJsxZUjpB/7EpmFVjQFpwjiNIQefaJy1sDyWRtwDo2BLGVZ1PsVkV22Ptl2zgqjy19+oViA/pi
+	tMyW59LHoeSB5JVUndoA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfMpM-0004zT-LM; Mon, 24 Jun 2019 11:08:00 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1hfMnC-0004e0-Hk; Mon, 24 Jun 2019 11:05:46 +0000
+Received: from mga02.intel.com ([134.134.136.20])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hfMpD-0004yt-PB
- for linux-mtd@lists.infradead.org; Mon, 24 Jun 2019 11:07:53 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
- by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x5OAxFgd066809;
- Mon, 24 Jun 2019 05:59:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1561373955;
- bh=xj6qPp/mhLO8O/bD0ogOLiG7+uM+u74/DU37aW5o1M4=;
- h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=y8arNI920qA2FKw6lZyuxo6SNGGd/H26cY8TI4eWFeTba/3B3cQr9GiCAbIzNc87J
- olZsV+bILard07rOsP64e2IbDPEUBPA3qrJyGOl4Wsf5RPXSDQbhpYqomrQJByWfiL
- a2iU0rWNgvYJrLv7Qb9aFVUhYbSFRfgTEm9ZKVYk=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
- by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x5OAxFHW008896
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Mon, 24 Jun 2019 05:59:15 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Mon, 24
- Jun 2019 05:59:14 -0500
-Received: from fllv0039.itg.ti.com (10.64.41.19) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Mon, 24 Jun 2019 05:59:14 -0500
-Received: from [172.24.190.89] (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id x5OAxBkM108281;
- Mon, 24 Jun 2019 05:59:11 -0500
-Subject: Re: [PATCH v3] mtd: spi-nor: fix nor->addr_width when its value
- configured from SFDP does not match the actual width
-To: <Tudor.Ambarus@microchip.com>, <liu.xiang6@zte.com.cn>,
- <linux-mtd@lists.infradead.org>
-References: <1554018157-10860-1-git-send-email-liu.xiang6@zte.com.cn>
- <5ffc9e32-ff69-9819-7bfd-ad9f793bb629@microchip.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Message-ID: <aea913e6-d168-32dd-1913-f1796905f98e@ti.com>
-Date: Mon, 24 Jun 2019 16:29:56 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.1
+ id 1hfMn0-0003Nx-Hc
+ for linux-mtd@lists.infradead.org; Mon, 24 Jun 2019 11:05:37 +0000
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+ by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
+ 24 Jun 2019 04:02:53 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.63,411,1557212400"; d="scan'208";a="182613716"
+Received: from lahna.fi.intel.com (HELO lahna) ([10.237.72.157])
+ by fmsmga001.fm.intel.com with SMTP; 24 Jun 2019 04:02:50 -0700
+Received: by lahna (sSMTP sendmail emulation); Mon, 24 Jun 2019 14:02:49 +0300
+Date: Mon, 24 Jun 2019 14:02:49 +0300
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Tudor.Ambarus@microchip.com
+Subject: Re: [PATCH 1/2] spi-nor: intel-spi: Add support for Intel Elkhart
+ Lake SPI serial flash
+Message-ID: <20190624110249.GH2640@lahna.fi.intel.com>
+References: <20190620122629.20838-1-mika.westerberg@linux.intel.com>
+ <ec7b30dc-87cf-f8de-edc0-fded95c93223@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <5ffc9e32-ff69-9819-7bfd-ad9f793bb629@microchip.com>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
+In-Reply-To: <ec7b30dc-87cf-f8de-edc0-fded95c93223@microchip.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mutt/1.11.4 (2019-03-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190624_040751_922989_1EA6FD73 
-X-CRM114-Status: GOOD (  21.30  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20190624_040535_813301_78FFCFB0 
+X-CRM114-Status: GOOD (  12.49  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.19.142 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ medium trust [134.134.136.20 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,97 +70,34 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: bbrezillon@kernel.org, richard@nod.at, linux-kernel@vger.kernel.org,
- marek.vasut@gmail.com, nagasure@xilinx.com, liuxiang_1999@126.com,
+Cc: vigneshr@ti.com, richard@nod.at, marek.vasut@gmail.com,
+ linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
  computersforpeace@gmail.com, dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+On Sat, Jun 22, 2019 at 12:03:55PM +0000, Tudor.Ambarus@microchip.com wrote:
+> 
+> 
+> On 06/20/2019 03:26 PM, Mika Westerberg wrote:
+> > External E-Mail
+> > 
+> > 
+> > Intel Elkhart Lake has the same SPI serial flash controller as Ice Lake.
+> > Add Elkhart Lake PCI ID to the driver list of supported devices.
+> > 
+> > Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+> > ---
+> >  drivers/mtd/spi-nor/intel-spi-pci.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> 
+> The patch's subject should begin with "mtd: spi-nor:". Did the change and
+> applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git,
+> spi-nor/next branch.
 
-
-On 22/06/19 5:19 PM, Tudor.Ambarus@microchip.com wrote:
-> Hi, Liu,
-> 
-> On 03/31/2019 10:42 AM, Liu Xiang wrote:
-> 
->> Some is25lp256 get BFPT_DWORD1_ADDRESS_BYTES_3_ONLY from BFPT table for
->> address width. But in actual fact the flash can support 4-byte address.
->> So we should fix it.
-> 
-> It's better to be imperative. Substitute "So we should fix it" with something
-> like "Use a post bfpt fixup hook to overwrite the address width advertised by
-> the BFPT".
-> 
->>
-> 
-> We'll need a fixes tag here.> Suggested-by: Boris Brezillon <bbrezillon@kernel.org>
->> Suggested-by: Vignesh Raghavendra <vigneshr@ti.com>
-> 
-> When? If they didn't explicitly suggested this approach, lets drop the S-b tags.
-> 
-
-IIRC, this was actually Boris's patch. No need for my S-b tag me :)
-
-Regards
-Vignesh
-
->> Signed-off-by: Liu Xiang <liu.xiang6@zte.com.cn>
->> ---
->>
->> Changes in v3:
->>  add a fixup for is25lp256 to solve the address width problem.
->>
->>  drivers/mtd/spi-nor/spi-nor.c | 25 ++++++++++++++++++++++++-
->>  1 file changed, 24 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
->> index 6e13bbd..d252a66 100644
->> --- a/drivers/mtd/spi-nor/spi-nor.c
->> +++ b/drivers/mtd/spi-nor/spi-nor.c
->> @@ -1682,6 +1682,28 @@ static int sr2_bit7_quad_enable(struct spi_nor *nor)
->>  		.flags = SPI_NOR_NO_FR | SPI_S3AN,
->>  
->>  static int
->> +is25lp256_post_bfpt_fixups(struct spi_nor *nor,
->> +			   const struct sfdp_parameter_header *bfpt_header,
->> +			   const struct sfdp_bfpt *bfpt,
->> +			   struct spi_nor_flash_parameter *params)
->> +{
->> +	/*
->> +	 * IS25LP256 supports 4B opcodes.
->> +	 * Unfortunately, some devices get BFPT_DWORD1_ADDRESS_BYTES_3_ONLY
->                             ^ which devices, did you get a list from issi?
-> 
->> +	 * from BFPT table for address width. We should fix it.
-> 
-> How about "IS25LP256 supports 4B opcodes, but the BFPT advertises a
-> BFPT_DWORD1_ADDRESS_BYTES_3_ONLY address width. Overwrite the address width
-> advertised by the BFPT."
-> 
->> +	 */
->> +	if ((bfpt->dwords[BFPT_DWORD(1)] & BFPT_DWORD1_ADDRESS_BYTES_MASK) ==
->> +		BFPT_DWORD1_ADDRESS_BYTES_3_ONLY)
->> +		nor->addr_width = 4;
->> +
->> +	return 0;
->> +}
->> +
->> +static struct spi_nor_fixups is25lp256_fixups = {
-> 
-> Naga will use "is25lp256_fixups" for the is25wp256 too, but it's not the case to
-> change the name yet. All good here.
-> 
-> I really want to have this in next, can I have an update in the next few days?
-> 
-> Cheers,
-> ta
-> 
-
--- 
-Regards
-Vignesh
+Thanks!
 
 ______________________________________________________
 Linux MTD discussion mailing list
