@@ -2,73 +2,74 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8152D55EDB
-	for <lists+linux-mtd@lfdr.de>; Wed, 26 Jun 2019 04:35:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A1E0455EE2
+	for <lists+linux-mtd@lfdr.de>; Wed, 26 Jun 2019 04:35:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1U5rLDR/2Kyfu10p+KOn1lbn2w2gTVX2W0BbEFkjEDg=; b=lEoW+Y1CFypNnU
-	Kj8AE7kFNWPfr6PAvCQHx1X5PmiifOJzw70jmojMwRTAf8bPNCGWyb5lFdyxcyhfOI4JUsHUrn1hJ
-	xUptYiFjFy7JRmbuJVvHHhMIrSlRqgsqIHEipkfmto11n/xwhulBscGIGt4AMWx2q+rw+eOZJQkLM
-	AYqkus7ICbGWF3n3YuuHJRjPYAcTx4mA/x+JUvXJmWZWao6976FE25mod3FoTK61AnITvErAmc9+1
-	Ggfs6FzZDUNxpVdotObAYTh+0Z7KZ2PU/eWANBGhSyQXUpxsQTOVTNe8HYSSYcwYJlJurIUfRCVgH
-	dEmbnCYrH/YL2ea+mXpw==;
+	List-Owner; bh=ISsbpKdjA0Qzsfk5aq2IQiGf7k1BmmHZuy0lRrEYTE0=; b=Okt5wCw+EMxX4o
+	hne+B5tUDoABuaQA9ELqMMc76B+ntmBT4cso9l09hdW3rlCpaeecH+r4tJ/t5aX/VgRuXX9UDYYoR
+	UU3+S3r1kKZg6t0Sf6HFcQQl71pSnxfT1LckYx7qbsmiTh2H5SOtbBZJwzWTWhjv1TmC3nVJ6N0gp
+	9WPspsjxxI8oOEBUFph5D2q9Y0/trylVNoaVp6Ghj/R2jAT2agAslenBX+myo9G9RH+XbT9Y7/nb7
+	YZbosjquy9kLWaYP2/aCBi26q1QM1lnWS6cXh5Lsn5GbdP3XRcU6WV9NiPx1SpDGhKrTsLMwCa/3T
+	DPl4Ml5yRXLCO04PZRsA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfxly-0004J0-MU; Wed, 26 Jun 2019 02:34:58 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1hfxmj-00066d-EJ; Wed, 26 Jun 2019 02:35:45 +0000
+Received: from aserp2120.oracle.com ([141.146.126.78])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hfxkN-00033G-Jv
- for linux-mtd@lists.infradead.org; Wed, 26 Jun 2019 02:33:22 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5Q2St3m116601;
- Wed, 26 Jun 2019 02:33:06 GMT
+ id 1hfxkT-00039a-3l
+ for linux-mtd@lists.infradead.org; Wed, 26 Jun 2019 02:33:26 +0000
+Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
+ by aserp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5Q2TGdr026619;
+ Wed, 26 Jun 2019 02:33:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
  h=subject : from : to :
  cc : date : message-id : in-reply-to : references : mime-version :
  content-type : content-transfer-encoding; s=corp-2018-07-02;
- bh=GZ5Da9i8UXdicVq5/ebI4XscP19RKvf9/ymCHA5iuvw=;
- b=OwYWG9COa/utVeg+XFueBCQNbNHCKEORscmBRW6CX5wX1eaV2FXBC7NljSPy3RS4qDUE
- b9M9KeySwRTS+CsKX1Xla151y395HzGSXJJfbVfWx4faXRcg07z0e6bgKSj3w9DHkvII
- gHuoqvYt3YoddlkFH+TkNlF+72zdoGX3Sep9OlkXKvgZw+mtCU/rS3hW1v8feUw3Jiv+
- swWRG78ZiDDHbKViaLEwV+Y4c0KtsiRV7RBTt83NxTKbz7E7deMXzIVYS9lFPFateZVC
- +waBXMHaI1HYAQqb+CTireZ6bU/vo07hOOzWEEuIfzyuXzso74QcEtkOyaT392xtlJLV lg== 
-Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
- by userp2130.oracle.com with ESMTP id 2t9brt7mm4-1
+ bh=6o4YpGypPLzjpZ+ZkqPbxHMhFQ/fAokL7gT/kdrS3rU=;
+ b=P4AM2r4O8nU7c0TP/3hgIM76kuCtB1+zo+JXjO4gCVkCBD/nNSLKwF4llit6BOzR/hos
+ kVaWFauOSx3tSBZ1Kfb6P8sGvXDU1tR4q+dRkLjBcvlxDoQKuW0MY8FQgfsiNWesMYbB
+ 5DJY7OmafEjZr2+80d2LAaWYW0pablNO6XKlpNbkUaUh8WlCsd9N/VfCLktuqrcMlFTW
+ TtZhGmSg7llHlD3X8jtnVZsfOw+KwiDhbGpoAqw8vbFJ+cYyOu68k7d3v5OVSQqBKdRy
+ XGnhdj8YiQjBBP6DTCVfRzJ+Uo7uR4+2Zz+kccWNVWHDl6kE2dSLvbJXB+hR4M3omUGE wQ== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by aserp2120.oracle.com with ESMTP id 2t9c9pqjkg-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 26 Jun 2019 02:33:06 +0000
-Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
- by userp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5Q2WkGE080003;
- Wed, 26 Jun 2019 02:33:05 GMT
+ Wed, 26 Jun 2019 02:33:14 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5Q2WjnS020557;
+ Wed, 26 Jun 2019 02:33:13 GMT
 Received: from pps.reinject (localhost [127.0.0.1])
- by userp3020.oracle.com with ESMTP id 2tat7cjnv7-1
+ by aserp3020.oracle.com with ESMTP id 2t9p6uh2f7-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Wed, 26 Jun 2019 02:33:05 +0000
-Received: from userp3020.oracle.com (userp3020.oracle.com [127.0.0.1])
- by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5Q2X5bt080432;
- Wed, 26 Jun 2019 02:33:05 GMT
+ Wed, 26 Jun 2019 02:33:13 +0000
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [127.0.0.1])
+ by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5Q2XD75021253;
+ Wed, 26 Jun 2019 02:33:13 GMT
 Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by userp3020.oracle.com with ESMTP id 2tat7cjnv1-1
+ by aserp3020.oracle.com with ESMTP id 2t9p6uh2f1-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Wed, 26 Jun 2019 02:33:05 +0000
-Received: from abhmp0013.oracle.com (abhmp0013.oracle.com [141.146.116.19])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x5Q2X32M024230;
- Wed, 26 Jun 2019 02:33:03 GMT
+ Wed, 26 Jun 2019 02:33:13 +0000
+Received: from abhmp0005.oracle.com (abhmp0005.oracle.com [141.146.116.11])
+ by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x5Q2XBEe024251;
+ Wed, 26 Jun 2019 02:33:11 GMT
 Received: from localhost (/10.159.230.235)
  by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Tue, 25 Jun 2019 19:33:03 -0700
-Subject: [PATCH 1/5] mm/fs: don't allow writes to immutable files
+ with ESMTP ; Tue, 25 Jun 2019 19:33:10 -0700
+Subject: [PATCH 2/5] vfs: flush and wait for io when setting the immutable
+ flag via SETFLAGS
 From: "Darrick J. Wong" <darrick.wong@oracle.com>
 To: matthew.garrett@nebula.com, yuchao0@huawei.com, tytso@mit.edu,
  darrick.wong@oracle.com, ard.biesheuvel@linaro.org,
  josef@toxicpanda.com, hch@infradead.org, clm@fb.com,
  adilger.kernel@dilger.ca, viro@zeniv.linux.org.uk, jack@suse.com,
  dsterba@suse.com, jaegeuk@kernel.org, jk@ozlabs.org
-Date: Tue, 25 Jun 2019 19:33:00 -0700
-Message-ID: <156151638036.2283603.8347635093125152699.stgit@magnolia>
+Date: Tue, 25 Jun 2019 19:33:08 -0700
+Message-ID: <156151638826.2283603.17232416684567376466.stgit@magnolia>
 In-Reply-To: <156151637248.2283603.8458727861336380714.stgit@magnolia>
 References: <156151637248.2283603.8458727861336380714.stgit@magnolia>
 User-Agent: StGit/0.17.1-dirty
@@ -78,19 +79,19 @@ X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9299
 X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
  priorityscore=1501 malwarescore=0
  suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=324 adultscore=0
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=777 adultscore=0
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
  definitions=main-1906260027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190625_193319_892438_53869D58 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20190625_193325_342375_AABEC3FA 
+X-CRM114-Status: GOOD (  16.59  )
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [156.151.31.86 listed in list.dnswl.org]
+ medium trust [141.146.126.78 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -114,13 +115,12 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, Jan Kara <jack@suse.cz>,
- linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org,
- reiserfs-devel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
- linux-xfs@vger.kernel.org, linux-mm@kvack.org, linux-nilfs@vger.kernel.org,
- linux-mtd@lists.infradead.org, ocfs2-devel@oss.oracle.com,
- linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
- devel@lists.orangefs.org
+Cc: linux-efi@vger.kernel.org, linux-btrfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org, reiserfs-devel@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-xfs@vger.kernel.org,
+ linux-mm@kvack.org, linux-nilfs@vger.kernel.org, linux-mtd@lists.infradead.org,
+ ocfs2-devel@oss.oracle.com, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, devel@lists.orangefs.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
@@ -128,118 +128,86 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Darrick J. Wong <darrick.wong@oracle.com>
 
-The chattr manpage has this to say about immutable files:
-
-"A file with the 'i' attribute cannot be modified: it cannot be deleted
-or renamed, no link can be created to this file, most of the file's
-metadata can not be modified, and the file can not be opened in write
-mode."
-
-Once the flag is set, it is enforced for quite a few file operations,
-such as fallocate, fpunch, fzero, rm, touch, open, etc.  However, we
-don't check for immutability when doing a write(), a PROT_WRITE mmap(),
-a truncate(), or a write to a previously established mmap.
-
-If a program has an open write fd to a file that the administrator
-subsequently marks immutable, the program still can change the file
-contents.  Weird!
-
-The ability to write to an immutable file does not follow the manpage
-promise that immutable files cannot be modified.  Worse yet it's
-inconsistent with the behavior of other syscalls which don't allow
-modifications of immutable files.
-
-Therefore, add the necessary checks to make the write, mmap, and
-truncate behavior consistent with what the manpage says and consistent
-with other syscalls on filesystems which support IMMUTABLE.
+When we're using FS_IOC_SETFLAGS to set the immutable flag on a file, we
+need to ensure that userspace can't continue to write the file after the
+file becomes immutable.  To make that happen, we have to flush all the
+dirty pagecache pages to disk to ensure that we can fail a page fault on
+a mmap'd region, wait for pending directio to complete, and hope the
+caller locked out any new writes by holding the inode lock.
 
 Signed-off-by: Darrick J. Wong <darrick.wong@oracle.com>
-Reviewed-by: Jan Kara <jack@suse.cz>
 ---
- fs/attr.c    |   13 ++++++-------
- mm/filemap.c |    3 +++
- mm/memory.c  |    3 +++
- mm/mmap.c    |    8 ++++++--
- 4 files changed, 18 insertions(+), 9 deletions(-)
+ fs/inode.c         |   21 +++++++++++++++++++--
+ include/linux/fs.h |   11 +++++++++++
+ 2 files changed, 30 insertions(+), 2 deletions(-)
 
 
-diff --git a/fs/attr.c b/fs/attr.c
-index d22e8187477f..1fcfdcc5b367 100644
---- a/fs/attr.c
-+++ b/fs/attr.c
-@@ -233,19 +233,18 @@ int notify_change(struct dentry * dentry, struct iattr * attr, struct inode **de
+diff --git a/fs/inode.c b/fs/inode.c
+index f08711b34341..65a412af3ffb 100644
+--- a/fs/inode.c
++++ b/fs/inode.c
+@@ -2193,7 +2193,8 @@ EXPORT_SYMBOL(current_time);
  
- 	WARN_ON_ONCE(!inode_is_locked(inode));
- 
--	if (ia_valid & (ATTR_MODE | ATTR_UID | ATTR_GID | ATTR_TIMES_SET)) {
--		if (IS_IMMUTABLE(inode) || IS_APPEND(inode))
--			return -EPERM;
--	}
-+	if (IS_IMMUTABLE(inode))
-+		return -EPERM;
+ /*
+  * Generic function to check FS_IOC_SETFLAGS values and reject any invalid
+- * configurations.
++ * configurations.  Once we're done, prepare the inode for whatever changes
++ * are coming down the pipeline.
+  *
+  * Note: the caller should be holding i_mutex, or else be sure that they have
+  * exclusive access to the inode structure.
+@@ -2201,6 +2202,8 @@ EXPORT_SYMBOL(current_time);
+ int vfs_ioc_setflags_prepare(struct inode *inode, unsigned int oldflags,
+ 			     unsigned int flags)
+ {
++	int ret;
 +
-+	if ((ia_valid & (ATTR_MODE | ATTR_UID | ATTR_GID | ATTR_TIMES_SET)) &&
-+	    IS_APPEND(inode))
-+		return -EPERM;
- 
  	/*
- 	 * If utimes(2) and friends are called with times == NULL (or both
- 	 * times are UTIME_NOW), then we need to check for write permission
- 	 */
- 	if (ia_valid & ATTR_TOUCH) {
--		if (IS_IMMUTABLE(inode))
--			return -EPERM;
--
- 		if (!inode_owner_or_capable(inode)) {
- 			error = inode_permission(inode, MAY_WRITE);
- 			if (error)
-diff --git a/mm/filemap.c b/mm/filemap.c
-index aac71aef4c61..dad85e10f5f8 100644
---- a/mm/filemap.c
-+++ b/mm/filemap.c
-@@ -2935,6 +2935,9 @@ inline ssize_t generic_write_checks(struct kiocb *iocb, struct iov_iter *from)
- 	loff_t count;
- 	int ret;
+ 	 * The IMMUTABLE and APPEND_ONLY flags can only be changed by
+ 	 * the relevant capability.
+@@ -2211,7 +2214,21 @@ int vfs_ioc_setflags_prepare(struct inode *inode, unsigned int oldflags,
+ 	    !capable(CAP_LINUX_IMMUTABLE))
+ 		return -EPERM;
  
-+	if (IS_IMMUTABLE(inode))
-+		return -EPERM;
+-	return 0;
++	/*
++	 * Now that we're done checking the new flags, flush all pending IO and
++	 * dirty mappings before setting S_IMMUTABLE on an inode via
++	 * FS_IOC_SETFLAGS.  If the flush fails we'll clear the flag before
++	 * returning error.
++	 */
++	if (!S_ISREG(inode->i_mode) || IS_IMMUTABLE(inode) ||
++	    !(flags & FS_IMMUTABLE_FL))
++		return 0;
 +
- 	if (!iov_iter_count(from))
- 		return 0;
++	inode_set_flags(inode, S_IMMUTABLE, S_IMMUTABLE);
++	ret = inode_drain_writes(inode);
++	if (ret)
++		inode_set_flags(inode, 0, S_IMMUTABLE);
++	return ret;
+ }
+ EXPORT_SYMBOL(vfs_ioc_setflags_prepare);
  
-diff --git a/mm/memory.c b/mm/memory.c
-index ddf20bd0c317..4311cfdade90 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -2235,6 +2235,9 @@ static vm_fault_t do_page_mkwrite(struct vm_fault *vmf)
+diff --git a/include/linux/fs.h b/include/linux/fs.h
+index 48322bfd7299..51266c9dbadc 100644
+--- a/include/linux/fs.h
++++ b/include/linux/fs.h
+@@ -3561,4 +3561,15 @@ int vfs_ioc_setflags_prepare(struct inode *inode, unsigned int oldflags,
+ int vfs_ioc_fssetxattr_check(struct inode *inode, const struct fsxattr *old_fa,
+ 			     struct fsxattr *fa);
  
- 	vmf->flags = FAULT_FLAG_WRITE|FAULT_FLAG_MKWRITE;
- 
-+	if (vmf->vma->vm_file && IS_IMMUTABLE(file_inode(vmf->vma->vm_file)))
-+		return VM_FAULT_SIGBUS;
++/*
++ * Flush file data before changing attributes.  Caller must hold any locks
++ * required to prevent further writes to this file until we're done setting
++ * flags.
++ */
++static inline int inode_drain_writes(struct inode *inode)
++{
++	inode_dio_wait(inode);
++	return filemap_write_and_wait(inode->i_mapping);
++}
 +
- 	ret = vmf->vma->vm_ops->page_mkwrite(vmf);
- 	/* Restore original flags so that caller is not surprised */
- 	vmf->flags = old_flags;
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 7e8c3e8ae75f..ac1e32205237 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -1483,8 +1483,12 @@ unsigned long do_mmap(struct file *file, unsigned long addr,
- 		case MAP_SHARED_VALIDATE:
- 			if (flags & ~flags_mask)
- 				return -EOPNOTSUPP;
--			if ((prot&PROT_WRITE) && !(file->f_mode&FMODE_WRITE))
--				return -EACCES;
-+			if (prot & PROT_WRITE) {
-+				if (!(file->f_mode & FMODE_WRITE))
-+					return -EACCES;
-+				if (IS_IMMUTABLE(file_inode(file)))
-+					return -EPERM;
-+			}
- 
- 			/*
- 			 * Make sure we don't allow writing to an append-only
+ #endif /* _LINUX_FS_H */
 
 
 ______________________________________________________
