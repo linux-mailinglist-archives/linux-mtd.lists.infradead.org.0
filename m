@@ -2,60 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DA3E959713
-	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 11:14:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3C5B25978D
+	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 11:34:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QvTG+zR7Q3BDY7ZSFJJtYY6KcQev0ahlH8JfGKM/d7k=; b=NQ+rnAzYUgnF+C
-	ktp3BdeOGPigtX/eKdIJVMn0xGyNcRF1GyDnVvbzTc6L/cVvsaZ0T/lcPJ4rgAtwTd5Z4qWnQpTnn
-	FhMPFLpNgbykt9GYC2oluhPjLdwyaUPAe8qj2deeMQ22c80Q2Qnbck47txvb2zvpYy8hz/4bfzXZw
-	i4d7MYVEXh/7mb+5GEAPsQDRdNMn887HfZV3xCsE/uMOe5d5yU6xAfcPPLZwVavkCj2tH5PUklCou
-	oBd8qAUisIIESQ8BlpLfkyh3lJWsa5BuvSFXl6jVlTWcz4vdBE4u0VgNTb/iEFbSui2PXsGJMWZON
-	hQNY0aVMqIenkTYA1usg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dprYlwJ85A7o3oJI+2NGmQHshW2asobGcBN3DJ1wTOk=; b=Wl7KFIvx/SJum7
+	fCnbmwj8LgKu1/JCE7haAmycP5yGeIunCByXcJB5HlfffYbaSbKMgvlxBULhCkO5fAKcMAJUbB2Bp
+	MceBBv7FaIhpV5U03LPeRcCQ64XUEssDUfxkl99Hl/h4TWGgBFwO4wZMerPJQoiNy5dtQHC1pRDnT
+	5cUkljCBVN2YyUZeGtF6NRNM+mhhE1wPsqEAGFIq+BQCiPvQn+1hBd8jI0ZvgA/P1dqVw5g+7zyIK
+	D+ST4Jr8CxM9LBKbCesNVQBacuYtqWTCG4sW689CILwye0/pfp3r1PMOGbTBPGN7OYqARnx44hzhy
+	U4GdpB94I2lVwrfFLPEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgmxA-0002Gv-Ng; Fri, 28 Jun 2019 09:13:56 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1hgnGV-0003iJ-GK; Fri, 28 Jun 2019 09:33:55 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgmwR-0001sq-0h
- for linux-mtd@lists.infradead.org; Fri, 28 Jun 2019 09:13:12 +0000
-X-Originating-IP: 86.250.200.211
-Received: from xps13 (lfbn-1-17395-211.w86-250.abo.wanadoo.fr [86.250.200.211])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id C0D98240005;
- Fri, 28 Jun 2019 09:12:50 +0000 (UTC)
-Date: Fri, 28 Jun 2019 11:12:50 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: masonccyang@mxic.com.tw
-Subject: Re: [PATCH v4 2/2] dt-bindings: mtd: Document Macronix raw NAND
- controller bindings
-Message-ID: <20190628111250.34da11be@xps13>
-In-Reply-To: <OFF895B48A.00F391C1-ON48258427.002F8256-48258427.003249E0@mxic.com.tw>
-References: <1561443056-13766-1-git-send-email-masonccyang@mxic.com.tw>
- <1561443056-13766-3-git-send-email-masonccyang@mxic.com.tw>
- <20190627192609.0965f6d5@xps13>
- <OFFBD1710A.54AC467B-ON48258427.0023FCA3-48258427.00255B71@mxic.com.tw>
- <20190628094250.1fd84505@xps13>
- <OFF895B48A.00F391C1-ON48258427.002F8256-48258427.003249E0@mxic.com.tw>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1hgnGL-0003ht-6s
+ for linux-mtd@lists.infradead.org; Fri, 28 Jun 2019 09:33:46 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+ by mx08-00178001.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id
+ x5S9Qq7e008084; Fri, 28 Jun 2019 11:32:42 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=st.com;
+ h=from : to : cc : subject
+ : date : message-id : mime-version : content-type; s=STMicroelectronics;
+ bh=fEIaj8CCVaPM2O+m07pVRSYCCsjvlnlAZEbLDOf6cbQ=;
+ b=D3W+AoRG6eifo1fo/61wvqt+035OxomI2XiU03QYmUfGisk4iX+FknrZHCkYJzhA8EDI
+ iVEZ2ft07c/ZiCCBuUz/i/mNCIRe9kblNFEziPLaxxli9hqFN/2NODgsSpx3evTmZnZN
+ VR5FsEim27X2V8Up3/AQ4tYRnaUNPV9AFniwgR7zhMzuG2+4TqWbCSidsl88VLkOVk5Q
+ 4TeA54OccfQujqF/sauA9HkkhLxFcMtVRqjVWB+RZMJDOIXIQalRz+H/uhGARHBF/KrK
+ XZscpvyrXmvEq2rT2OdP2vLm+u7m1r6OumuWu6P6mJzxsT3dH9n5NTA1S56t/nTUxekN MA== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx08-00178001.pphosted.com with ESMTP id 2t9d2k5b0d-1
+ (version=TLSv1 cipher=ECDHE-RSA-AES256-SHA bits=256 verify=NOT);
+ Fri, 28 Jun 2019 11:32:40 +0200
+Received: from zeta.dmz-eu.st.com (zeta.dmz-eu.st.com [164.129.230.9])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id 1389864;
+ Fri, 28 Jun 2019 09:31:13 +0000 (GMT)
+Received: from Webmail-eu.st.com (sfhdag6node2.st.com [10.75.127.17])
+ by zeta.dmz-eu.st.com (STMicroelectronics) with ESMTP id C1B8F2527;
+ Fri, 28 Jun 2019 09:31:13 +0000 (GMT)
+Received: from localhost (10.75.127.48) by SFHDAG6NODE2.st.com (10.75.127.17)
+ with Microsoft SMTP Server (TLS) id 15.0.1347.2;
+ Fri, 28 Jun 2019 11:31:12 +0200
+From: Christophe Kerello <christophe.kerello@st.com>
+To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <dwmw2@infradead.org>,
+ <computersforpeace@gmail.com>, <marek.vasut@gmail.com>, <vigneshr@ti.com>
+Subject: [PATCH v2] mtd: rawnand: stm32_fmc2: increase DMA completion timeouts
+Date: Fri, 28 Jun 2019 11:18:06 +0200
+Message-ID: <1561713486-26597-1-git-send-email-christophe.kerello@st.com>
+X-Mailer: git-send-email 1.9.1
 MIME-Version: 1.0
+X-Originating-IP: [10.75.127.48]
+X-ClientProxiedBy: SFHDAG2NODE3.st.com (10.75.127.6) To SFHDAG6NODE2.st.com
+ (10.75.127.17)
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:, ,
+ definitions=2019-06-28_03:, , signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190628_021311_403155_E2B8EB87 
-X-CRM114-Status: GOOD (  17.18  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20190628_023345_634060_13936272 
+X-CRM114-Status: GOOD (  14.34  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.193 listed in list.dnswl.org]
+ low trust [91.207.212.93 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ 0.0 KHOP_DYNAMIC           Relay looks like a dynamic address
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,51 +93,102 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, christophe.kerello@st.com, vigneshr@ti.com,
- jianxin.pan@amlogic.com, bbrezillon@kernel.org, juliensu@mxic.com.tw,
- lee.jones@linaro.org, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- paul@crapouillou.net, marek.vasut@gmail.com, paul.burton@mips.com,
- broonie@kernel.org, linux-mtd@lists.infradead.org, stefan@agner.ch,
- richard@nod.at, anders.roxell@linaro.org, liang.yang@amlogic.com,
- computersforpeace@gmail.com, dwmw2@infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Amelie Delaunay <amelie.delaunay@st.com>,
+ Christophe Kerello <christophe.kerello@st.com>, bbrezillon@kernel.org,
+ linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgTWFzb24sCgptYXNvbmNjeWFuZ0BteGljLmNvbS50dyB3cm90ZSBvbiBGcmksIDI4IEp1biAy
-MDE5IDE3OjA5OjE2ICswODAwOgoKPiBIaSBNaXF1ZWwsCj4gCj4gPiAKPiA+IFBsZWFzZSBhbHdh
-eXMgQ2M6IFJvYiAocm9iaCtkdEBrZXJuZWwub3JnKSB3aGVuIHlvdSBzZW5kIGJpbmRpbmdzCj4g
-PiByZWxhdGVkIHBhdGNoZXMuICAKPiAKPiBVbmRlcnN0b29kLiB0aGFua3MgZm9yIHlvdXIgcmVt
-aW5kLgo+IAo+IAo+ID4gPiAgIAo+ID4gPiA+ICAgCj4gPiA+ID4gPiArLSByZWc6IHNob3VsZCBj
-b250YWluIDEgZW50cmllIGZvciB0aGUgcmVnaXN0ZXJzICAgCj4gPiA+ID4gCj4gPiA+ID4gICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgZW50cnkKPiA+ID4gPiAgIAo+ID4gPiA+ID4gKy0gcmVn
-LW5hbWVzOiBzaG91bGQgY29udGFpbiAicmVncyIgICAKPiA+ID4gPiAKPiA+ID4gPiBOb3Qgc3Vy
-ZSB5b3UgbmVlZCB0aGF0PyAgIAo+ID4gPiAKPiA+ID4gZm9yIGEgYmFzZSBhZGRyZXNzIG9mIGN0
-bHIgcmVnaXN0ZXJzLiAgCj4gPiAKPiA+IFllcyBJIGtub3csIEkgbWVhbjogeW91IGRvbid0IG5l
-Y2Vzc2FyaWx5IG5lZWQgdGhlICdyZWctbmFtZXMnIHByb3BlcnR5Cj4gPiBhcyBpdCBpcyBzdXBw
-b3NlZCB0aGF0IHRoZSBvbmx5IGVudHJ5IHdpbGwgYmUgdGhlIElQIHJlZ2lzdGVycyAodW5sZXNz
-Cj4gPiB0aGVyZSBhcmUgbW9yZSkuIEkgZG9uJ3Qga25vdyB3aGF0J3MgUm9iIHByZWZlcmVuY2Ug
-aGVyZSBidXQgSSB3b3VsZAo+ID4gZWl0aGVyIGRyb3AgdGhlIHJlZy1uYW1lcyBwcm9wZXJ0eSBv
-ciBlbmhhbmNlIHRoZSBuYW1lLCAicmVncyIgaXMKPiA+IHRlcnJpYmx5IG5vdCBkZXNjcmlwdGl2
-ZS4gIAo+IAo+IEdvdCBpdCwgYW55IGNvbW1lbnQgaXMgYXBwcmVjaWF0ZWQgZm9yIGVpdGhlciBk
-cm9wIHRoZSByZWctbmFtZXMgcHJvcGVydHkgCj4gb3IgZW5oYW5jZSB0aGUgbmFtZS4KPiAKPiA+
-ICAgCj4gPiA+ID4gPiArLSBpbnRlcnJ1cHRzOiBpbnRlcnJ1cHQgbGluZSBjb25uZWN0ZWQgdG8g
-dGhpcyBOQU5EIGNvbnRyb2xsZXIKPiA+ID4gPiA+ICstIGNsb2NrLW5hbWVzOiBzaG91bGQgY29u
-dGFpbiAicHNfY2xrIiwgInNlbmRfY2xrIiBhbmQgICAKPiAic2VuZF9kbHlfY2xrIgo+ID4gPiA+
-ID4gKy0gY2xvY2tzOiBzaG91bGQgY29udGFpbiAzIGVudHJpZXMgZm9yIHRoZSAicHNfY2xrIiwg
-InNlbmRfY2xrIiAgIAo+IGFuZAo+ID4gPiA+ID4gKyAgICAic2VuZF9kbHlfY2xrIiBjbG9ja3Mg
-ICAKPiA+ID4gPiAKPiA+ID4gPiBzL2VudHJpZXMvcGhhbmRsZXMvID8gICAKPiA+ID4gCj4gPiA+
-ID8KPiA+ID4gYXMgSSBrbm93IHRoYXQga2VybmVsIHZpZXdzIHRoZSBwaGFuZGxlIHZhbHVlcyBh
-cyBkZXZpY2UgdHJlZSAgIAo+IHN0cnVjdHVyZQo+ID4gPiBpbmZvcm1hdGlvbiBpbnN0ZWFkIG9m
-IGRldmljZSB0cmVlIGRhdGEgYW5kIHRodXMgZG9lcyBub3Qgc3RvcmUgdGhlbSAgIAo+IGFzCj4g
-PiA+IHByb3BlcnRpZXMuICAKPiA+IAo+ID4gVGhlIGJpbmRpbmdzIGhhdmUgbm90aGluZyB0byBk
-byB3aXRoIHRoZSBrZXJuZWwgdmlld3MuIFRoZXkgbWlnaHQKPiA+IGFjdHVhbGx5IGJlIG1lcmdl
-ZCBpbiBhIGRpZmZlcmVudCBwcm9qZWN0LCBvdXQgb2YgdGhlIGtlcm5lbC4KPiA+ICAgCj4gCj4g
-aWYgcGF0Y2ggdG8gcGhhbmRsZSwgc2hvdWxkIHdlIGFsc28gcGF0Y2ggZHJpdmVyIHRvIG9mX3h4
-eF9waGFuZGxlKCk/CgpJIGRvbid0IHVuZGVyc3RhbmQgeW91ciBxdWVzdGlvbi4gPCZjbGsgMT4g
-aXMgYSBwaGFuZGxlLCB5b3UgYWxyZWFkeQp1c2UgcGhhbmRsZXMsIGl0J3MganVzdCBtb3JlIHBy
-ZWNpc2UgdGhhbiB0aGUgd29yZCAiZW50cmllcyIuCgoKVGhhbmtzLApNaXF1w6hsCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVRE
-IGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+From: Amelie Delaunay <amelie.delaunay@st.com>
+
+When the system is overloaded, DMA data transfer completion occurs after
+100ms. Increase the timeouts to let it the time to complete.
+
+Signed-off-by: Amelie Delaunay <amelie.delaunay@st.com>
+Signed-off-by: Christophe Kerello <christophe.kerello@st.com>
+---
+Changes in v2:
+  - Replace the author of the patch.
+  - Define FMC2_TIMEOUT_MS to 1000.
+
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+index 4aabea2..e63acc0 100644
+--- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
++++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+@@ -37,6 +37,8 @@
+ /* Max ECC buffer length */
+ #define FMC2_MAX_ECC_BUF_LEN		(FMC2_BCHDSRS_LEN * FMC2_MAX_SG)
+ 
++#define FMC2_TIMEOUT_MS			1000
++
+ /* Timings */
+ #define FMC2_THIZ			1
+ #define FMC2_TIO			8000
+@@ -530,7 +532,8 @@ static int stm32_fmc2_ham_calculate(struct nand_chip *chip, const u8 *data,
+ 	int ret;
+ 
+ 	ret = readl_relaxed_poll_timeout(fmc2->io_base + FMC2_SR,
+-					 sr, sr & FMC2_SR_NWRF, 10, 1000);
++					 sr, sr & FMC2_SR_NWRF, 10,
++					 FMC2_TIMEOUT_MS);
+ 	if (ret) {
+ 		dev_err(fmc2->dev, "ham timeout\n");
+ 		return ret;
+@@ -611,7 +614,7 @@ static int stm32_fmc2_bch_calculate(struct nand_chip *chip, const u8 *data,
+ 
+ 	/* Wait until the BCH code is ready */
+ 	if (!wait_for_completion_timeout(&fmc2->complete,
+-					 msecs_to_jiffies(1000))) {
++					 msecs_to_jiffies(FMC2_TIMEOUT_MS))) {
+ 		dev_err(fmc2->dev, "bch timeout\n");
+ 		stm32_fmc2_disable_bch_irq(fmc2);
+ 		return -ETIMEDOUT;
+@@ -696,7 +699,7 @@ static int stm32_fmc2_bch_correct(struct nand_chip *chip, u8 *dat,
+ 
+ 	/* Wait until the decoding error is ready */
+ 	if (!wait_for_completion_timeout(&fmc2->complete,
+-					 msecs_to_jiffies(1000))) {
++					 msecs_to_jiffies(FMC2_TIMEOUT_MS))) {
+ 		dev_err(fmc2->dev, "bch timeout\n");
+ 		stm32_fmc2_disable_bch_irq(fmc2);
+ 		return -ETIMEDOUT;
+@@ -969,7 +972,7 @@ static int stm32_fmc2_xfer(struct nand_chip *chip, const u8 *buf,
+ 
+ 	/* Wait end of sequencer transfer */
+ 	if (!wait_for_completion_timeout(&fmc2->complete,
+-					 msecs_to_jiffies(1000))) {
++					 msecs_to_jiffies(FMC2_TIMEOUT_MS))) {
+ 		dev_err(fmc2->dev, "seq timeout\n");
+ 		stm32_fmc2_disable_seq_irq(fmc2);
+ 		dmaengine_terminate_all(dma_ch);
+@@ -981,7 +984,7 @@ static int stm32_fmc2_xfer(struct nand_chip *chip, const u8 *buf,
+ 
+ 	/* Wait DMA data transfer completion */
+ 	if (!wait_for_completion_timeout(&fmc2->dma_data_complete,
+-					 msecs_to_jiffies(100))) {
++					 msecs_to_jiffies(FMC2_TIMEOUT_MS))) {
+ 		dev_err(fmc2->dev, "data DMA timeout\n");
+ 		dmaengine_terminate_all(dma_ch);
+ 		ret = -ETIMEDOUT;
+@@ -990,7 +993,7 @@ static int stm32_fmc2_xfer(struct nand_chip *chip, const u8 *buf,
+ 	/* Wait DMA ECC transfer completion */
+ 	if (!write_data && !raw) {
+ 		if (!wait_for_completion_timeout(&fmc2->dma_ecc_complete,
+-						 msecs_to_jiffies(100))) {
++					msecs_to_jiffies(FMC2_TIMEOUT_MS))) {
+ 			dev_err(fmc2->dev, "ECC DMA timeout\n");
+ 			dmaengine_terminate_all(fmc2->dma_ecc_ch);
+ 			ret = -ETIMEDOUT;
+-- 
+1.9.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
