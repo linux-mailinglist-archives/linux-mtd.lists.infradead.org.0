@@ -2,107 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4C3335A43B
-	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 20:38:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AFAFC5A44A
+	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 20:38:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ag5E+/7TpZPCHsbvNRHdpibXtxEblVvTgAf+yfn+uH0=; b=r4h5kU3UN9IMmZ
-	r0uBH7dT7alrRF+Ssj35n+FfX0dyebhRlUMFvp0yNne36414eW0+Wi2F9L64hmU10GfZKcCShjHJ8
-	G332Mk2fqTQlc8ZNKzZtAkIwpdPUju9s/xfJT1xVsitwLI8BqbBUrf9en9t8vmFG4CROGiQnSGGZK
-	zx1OzzjTaR9nCLfwJ6r3CSDckR8tP9iLwsjHVV0uS00BkBXBOPh7d0f2+AfrtamDnMoGMLLv9LYfc
-	zfgdURxvd9FhjvTXkxXER67F3kmVh12FZ5F/QKZZChnT3gdBsOuH3tOxP9RDYxAY8fZKjutt1wDtS
-	04g7KjI8kG1PdZE20UdQ==;
+	List-Owner; bh=wk9tHpmTyZwBG/CIFSC0nZ5OxbXlJW9K7868r8qmspA=; b=IyDOGhIRm2rJF6
+	flcrwUW+mMKtXXP5uTgFqemZ0WQrAF1ZGrjtjl/R12otMU7sAW7zoBdR3Arcqrx5agzv7xosV7Yb/
+	XGZa7IMv3NtleArGAORm4xjq8EvrO+kpU9hhhi7ONY87IvJ4jYaxzhV93C/KKLwM484gabArTujNv
+	ELElabA/0mhTlaS5Rsz1DEL9Gn6Y69ztWvo71Cc1KLLOvgMRfKGWzJzSpPs8eej7+NSLMbUWs4Om/
+	P1UAdmOPTUJV6EU9Y6KEg4EK7Zbk439tJoMSvQZtZkCWaL6gTLOFpCylXOJZ1EGmrjZ+WkFOx7zjN
+	/3qmdGmv2PmrvzJzmmjg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgvlF-00048w-Sr; Fri, 28 Jun 2019 18:38:13 +0000
-Received: from aserp2120.oracle.com ([141.146.126.78])
+	id 1hgvlq-0004fo-CP; Fri, 28 Jun 2019 18:38:50 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgviY-0001gu-N3
- for linux-mtd@lists.infradead.org; Fri, 28 Jun 2019 18:35:30 +0000
-Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
- by aserp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5SIYg95028012;
- Fri, 28 Jun 2019 18:35:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=subject : from : to :
- cc : date : message-id : in-reply-to : references : mime-version :
- content-type : content-transfer-encoding; s=corp-2018-07-02;
- bh=mV9lFn0ZU5Q9Z/uVcSNUaPT4H36wgugtQJzUEwexaJw=;
- b=InU5VQwU/9kdWgyHNdeqJamZTFjgL8ed4NsqyIJsp1hQoTRw+cuss3QKw28DrcV+MwR5
- NeB4fDw3S211SaxJkEgWs/ZkYiDTII3xYEWMTlWXM6xHHN1Rt8aCBLQgFhwcOBsGPjd+
- L+wFuDCjf8ij8nvQzq781+D4e/bjHz9pWruNxQdDbokTlTpBPvyyLbHVQSgy1RyPAMiE
- JbrP87fbggSJM8vshLS1qI0MLBNpYz/DX7cBYg9uy+2ZB3lAIlhxzDquuSXcLj6p6BWP
- 09uZZfbWmNnvcjsl2cOOUYvGPzOx2719utSM0C6FKO5h1+pepugx0bbxDLfeyC7E5WIe qg== 
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
- by aserp2120.oracle.com with ESMTP id 2t9c9q72t0-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 28 Jun 2019 18:35:13 +0000
-Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
- by aserp3030.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5SIXc0S078839;
- Fri, 28 Jun 2019 18:35:12 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
- by aserp3030.oracle.com with ESMTP id 2t9acdyegn-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
- Fri, 28 Jun 2019 18:35:12 +0000
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [127.0.0.1])
- by pps.reinject (8.16.0.27/8.16.0.27) with SMTP id x5SIZCBn081341;
- Fri, 28 Jun 2019 18:35:12 GMT
-Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
- by aserp3030.oracle.com with ESMTP id 2t9acdyegg-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Fri, 28 Jun 2019 18:35:12 +0000
-Received: from abhmp0014.oracle.com (abhmp0014.oracle.com [141.146.116.20])
- by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x5SIZA31029198;
- Fri, 28 Jun 2019 18:35:10 GMT
-Received: from localhost (/67.169.218.210)
- by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Fri, 28 Jun 2019 11:35:10 -0700
-Subject: [PATCH 4/4] vfs: don't allow most setxattr to immutable files
-From: "Darrick J. Wong" <darrick.wong@oracle.com>
-To: matthew.garrett@nebula.com, yuchao0@huawei.com, tytso@mit.edu,
- darrick.wong@oracle.com, ard.biesheuvel@linaro.org,
- josef@toxicpanda.com, hch@infradead.org, clm@fb.com,
- adilger.kernel@dilger.ca, viro@zeniv.linux.org.uk, jack@suse.com,
- dsterba@suse.com, jaegeuk@kernel.org, jk@ozlabs.org
-Date: Fri, 28 Jun 2019 11:35:07 -0700
-Message-ID: <156174690758.1557469.9258105121276292687.stgit@magnolia>
-In-Reply-To: <156174687561.1557469.7505651950825460767.stgit@magnolia>
-References: <156174687561.1557469.7505651950825460767.stgit@magnolia>
-User-Agent: StGit/0.17.1-dirty
+ id 1hgvjg-0002ql-V5
+ for linux-mtd@lists.infradead.org; Fri, 28 Jun 2019 18:36:45 +0000
+X-Originating-IP: 81.185.164.234
+Received: from localhost.localdomain (234.164.185.81.rev.sfr.net
+ [81.185.164.234]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id E819E40002;
+ Fri, 28 Jun 2019 18:36:13 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Christophe Kerello <christophe.kerello@st.com>, miquel.raynal@bootlin.com,
+ richard@nod.at, dwmw2@infradead.org, computersforpeace@gmail.com,
+ marek.vasut@gmail.com, vigneshr@ti.com
+Subject: Re: [PATCH v2] mtd: rawnand: stm32_fmc2: increase DMA completion
+ timeouts
+Date: Fri, 28 Jun 2019 20:36:10 +0200
+Message-Id: <20190628183610.18729-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.19.1
+In-Reply-To: <1561713486-26597-1-git-send-email-christophe.kerello@st.com>
+References: 
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9302
- signatures=668688
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- priorityscore=1501 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
- lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=902 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
- definitions=main-1906280210
+X-linux-mtd-patch-notification: thanks
+X-linux-mtd-patch-commit: bce9437a0a48dd5e19490f56e1cdc39a9be5563c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190628_113526_863824_ACCB8D88 
-X-CRM114-Status: GOOD (  13.20  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20190628_113637_404608_DDFC69DE 
+X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [141.146.126.78 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.194 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,84 +66,26 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-efi@vger.kernel.org, linux-btrfs@vger.kernel.org,
- linux-kernel@vger.kernel.org, reiserfs-devel@vger.kernel.org,
- linux-f2fs-devel@lists.sourceforge.net, linux-xfs@vger.kernel.org,
- linux-mm@kvack.org, linux-nilfs@vger.kernel.org, linux-mtd@lists.infradead.org,
- ocfs2-devel@oss.oracle.com, linux-fsdevel@vger.kernel.org,
- linux-ext4@vger.kernel.org, devel@lists.orangefs.org
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+ Amelie Delaunay <amelie.delaunay@st.com>, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org, bbrezillon@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Darrick J. Wong <darrick.wong@oracle.com>
+On Fri, 2019-06-28 at 09:18:06 UTC, Christophe Kerello wrote:
+> From: Amelie Delaunay <amelie.delaunay@st.com>
+> 
+> When the system is overloaded, DMA data transfer completion occurs after
+> 100ms. Increase the timeouts to let it the time to complete.
+> 
+> Signed-off-by: Amelie Delaunay <amelie.delaunay@st.com>
+> Signed-off-by: Christophe Kerello <christophe.kerello@st.com>
 
-The chattr manpage has this to say about immutable files:
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
 
-"A file with the 'i' attribute cannot be modified: it cannot be deleted
-or renamed, no link can be created to this file, most of the file's
-metadata can not be modified, and the file can not be opened in write
-mode."
-
-However, we don't actually check the immutable flag in the setattr code,
-which means that we can update inode flags and project ids and extent
-size hints on supposedly immutable files.  Therefore, reject setflags
-and fssetxattr calls on an immutable file if the file is immutable and
-will remain that way.
-
-Signed-off-by: Darrick J. Wong <darrick.wong@oracle.com>
----
- fs/inode.c |   27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
-
-
-diff --git a/fs/inode.c b/fs/inode.c
-index cf07378e5731..4261c709e50e 100644
---- a/fs/inode.c
-+++ b/fs/inode.c
-@@ -2214,6 +2214,14 @@ int vfs_ioc_setflags_prepare(struct inode *inode, unsigned int oldflags,
- 	    !capable(CAP_LINUX_IMMUTABLE))
- 		return -EPERM;
- 
-+	/*
-+	 * We aren't allowed to change any other flags if the immutable flag is
-+	 * already set and is not being unset.
-+	 */
-+	if ((oldflags & FS_IMMUTABLE_FL) && (flags & FS_IMMUTABLE_FL) &&
-+	    oldflags != flags)
-+		return -EPERM;
-+
- 	/*
- 	 * Now that we're done checking the new flags, flush all pending IO and
- 	 * dirty mappings before setting S_IMMUTABLE on an inode via
-@@ -2284,6 +2292,25 @@ int vfs_ioc_fssetxattr_check(struct inode *inode, const struct fsxattr *old_fa,
- 	    !(S_ISREG(inode->i_mode) || S_ISDIR(inode->i_mode)))
- 		return -EINVAL;
- 
-+	/*
-+	 * We aren't allowed to change any fields if the immutable flag is
-+	 * already set and is not being unset.
-+	 */
-+	if ((old_fa->fsx_xflags & FS_XFLAG_IMMUTABLE) &&
-+	    (fa->fsx_xflags & FS_XFLAG_IMMUTABLE)) {
-+		if (old_fa->fsx_xflags != fa->fsx_xflags)
-+			return -EPERM;
-+		if (old_fa->fsx_projid != fa->fsx_projid)
-+			return -EPERM;
-+		if ((fa->fsx_xflags & (FS_XFLAG_EXTSIZE |
-+				       FS_XFLAG_EXTSZINHERIT)) &&
-+		    old_fa->fsx_extsize != fa->fsx_extsize)
-+			return -EPERM;
-+		if ((old_fa->fsx_xflags & FS_XFLAG_COWEXTSIZE) &&
-+		    old_fa->fsx_cowextsize != fa->fsx_cowextsize)
-+			return -EPERM;
-+	}
-+
- 	/* Extent size hints of zero turn off the flags. */
- 	if (fa->fsx_extsize == 0)
- 		fa->fsx_xflags &= ~(FS_XFLAG_EXTSIZE | FS_XFLAG_EXTSZINHERIT);
-
+Miquel
 
 ______________________________________________________
 Linux MTD discussion mailing list
