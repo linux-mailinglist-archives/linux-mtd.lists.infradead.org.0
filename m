@@ -2,76 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE3285A53B
-	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 21:37:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4E31A5A57B
+	for <lists+linux-mtd@lfdr.de>; Fri, 28 Jun 2019 21:53:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ioUj+MmcK+EgIeWqBrAwpFgFr6VSlpkVg+QkfqjSetk=; b=ooyMzrYfLEgPI/
-	R7z6Mie9MxXQJpbhLgWkmb05+qP9CpmixaQf1HlkXhWomZP8vaegVbBCilokPPYB8uRIOllC8xB69
-	KD2SRz/A87tbtK7z025OmcaEgPXP/XVy9enrUZFdHVZE1AZErW/zLYdgGz47z4x72Z2RkGBXPFAXR
-	EevlDL3mAUo1go+eEeB/qCjRI8BjlZZ72AoP2r47LmmlGk+yu8mZDArawZLoSyWTf9TisNYOX9xgl
-	lz758ujwTijRIvLomhTt4JVvcs3WrMKjrEdZKmIrC/tHlJcBoa24jsg2ynC4AIxIg2C/+5AWi6j1Q
-	rqqr0Cd/JQqXFVbuKFiQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:To:
+	Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=QwhtKgK75aOnQ1Lo68fQ8gbtmo8ni/T9x1jLth9iqB8=; b=mWMI/L4lCsXJ4Gt5IMICrAqRJ
+	ahQoiGX2yyGiTsZ3HoYNfGo1U1w6d28wNOOk1ouw0oIYflxNiThMyTMFzyX6ye7IqtHt0XppEpzek
+	5xHlP8IwznM9cpCoC2mN+54FB/6MZ4XKnOxxmKVTYi18qenUZ5DANvURxth7BZQMAl0ixKuvZKL0i
+	njIgEC8y4DA1WF0HBxCK3JrqkEe4QnSNZeOSVmHaL668oEHEN95nmHBlceVofRJJzDur8VVNdj0HA
+	bi5XYsSn1PaViu+c/I6dQoErlh2alvULjWe9D8NoXctPsJ8/whYLrjQ0WTwCLrp+g7+RBjx46ctgh
+	Vz6wq3PBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgwgo-0002Yj-TU; Fri, 28 Jun 2019 19:37:42 +0000
-Received: from mail-io1-f65.google.com ([209.85.166.65])
+	id 1hgwwA-0007eA-DN; Fri, 28 Jun 2019 19:53:34 +0000
+Received: from outils.crapouillou.net ([89.234.176.41] helo=crapouillou.net)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgwgb-0002Xo-Li; Fri, 28 Jun 2019 19:37:32 +0000
-Received: by mail-io1-f65.google.com with SMTP id k20so14867800ios.10;
- Fri, 28 Jun 2019 12:37:28 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=rOnt24OKyg8IYLadN6LWQaA2kEEaOS+arIfbwjhJNR4=;
- b=UXHNBhBTVmfnCvIKOwgsSf4VmJMoaLKjS9AJ5eHTHFcOwSZ91ytD0ciGtxHAITlB46
- RtrgMr52FzM4PviChHo4qw+bj8ccr4RABS1bqo8tVQrrVR5fHsgEXrY7iyENVwCCFcCI
- 7o8aJKgWIQnD7S1o0cFIfKCI+7m59qJh3GnJ7QYgaklgD0N847HFwYWDsjOOUV93zK07
- rxtUB81SUf67vndi6jKp3StLbYvXhStNJrRfb3KKnYjyCY5qmBmAr0rWREeeyNH6bDVG
- HXfNORdx/XF+thjJFUt3wyCmidnJURYoyCsl0priJFcXuU7n4Ksrj84zJkcLUokR/OLv
- sHsg==
-X-Gm-Message-State: APjAAAV6buAalTychQCnNcACwXIe3XqeBJ9zcMZh3fvtxNuBzzbhzSzG
- W3vhYohuIJuRFtDMDGWUjg==
-X-Google-Smtp-Source: APXvYqxtxWXQqs4yhNzHBeBOuvHhYb9tx5z9qryUXj1LZrI9tRYnL6j8xUuN4/7v7qTG4as0xfM0hw==
-X-Received: by 2002:a02:cd83:: with SMTP id l3mr10927291jap.66.1561750647827; 
- Fri, 28 Jun 2019 12:37:27 -0700 (PDT)
-Received: from localhost.localdomain ([64.188.179.243])
- by smtp.googlemail.com with ESMTPSA id q15sm3160061ioi.15.2019.06.28.12.37.26
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Fri, 28 Jun 2019 12:37:27 -0700 (PDT)
-From: Rob Herring <robh@kernel.org>
-To: devicetree@vger.kernel.org
-Subject: [PATCH] dt-bindings: mtd: sunxi-nand: Drop 'maxItems' from child
- 'reg' property
-Date: Fri, 28 Jun 2019 13:35:25 -0600
-Message-Id: <20190628193525.7785-1-robh@kernel.org>
-X-Mailer: git-send-email 2.20.1
+ id 1hgwvx-0007cZ-Bx
+ for linux-mtd@lists.infradead.org; Fri, 28 Jun 2019 19:53:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+ s=mail; t=1561751593; h=from:from:sender:reply-to:subject:subject:date:date:
+ message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+ content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=QXThYP6vEL2CRlY5WzupI6gQ/RhO4QbnhM+KuTasqDo=;
+ b=pyZPyavbwN58kLdm306KC9LokVom5Rwg+HfXnbKM4U+Qp1NK5uBplbXFQrcbrxoIFXpx5B
+ 1QnngrkGcFjVdjkniE1o7QWhhFrbphNSUZD56up0p2qrEi1jQ53w3Ws/4l+HeAbsE0P8IY
+ ZuzzYoBN6I9kg7PGYG+r0EFBwh5hb5I=
+Date: Fri, 28 Jun 2019 21:53:08 +0200
+From: Paul Cercueil <paul@crapouillou.net>
+Subject: Re: [PATCH] mtd: rawnand: ingenic: fix ingenic_ecc dependency
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Message-Id: <1561751588.1914.0@crapouillou.net>
+In-Reply-To: <20190627184047.6faa058a@xps13>
+References: <20190617111110.2103786-1-arnd@arndb.de>
+ <1560770644.1774.0@crapouillou.net>
+ <CAK8P3a28NrvLP1nE7TQUCqwYXVwrSnVUJoH0yTSqRpz93f4g2Q@mail.gmail.com>
+ <20190617141659.376c0271@xps13> <20190627184047.6faa058a@xps13>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190628_123729_709353_3D97D87A 
-X-CRM114-Status: GOOD (  13.12  )
-X-Spam-Score: 0.8 (/)
+X-CRM114-CacheID: sfid-20190628_125321_601467_398DE6C0 
+X-CRM114-Status: GOOD (  16.99  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.8 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.65 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (robherring2[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit (robherring2[at]gmail.com)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,53 +72,83 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Maxime Ripard <maxime.ripard@bootlin.com>, Richard Weinberger <richard@nod.at>,
- Marek Vasut <marek.vasut@gmail.com>, Chen-Yu Tsai <wens@csie.org>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Arnd Bergmann <arnd@arndb.de>,
+ Richard Weinberger <richard@nod.at>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Marek Vasut <marek.vasut@gmail.com>, linux-mtd <linux-mtd@lists.infradead.org>,
  Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ David Woodhouse <dwmw2@infradead.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Mixing 'maxItems' and scalar properties doesn't make much sense, so drop
-'maxItems' as a single item is implied.
 
-Cc: David Woodhouse <dwmw2@infradead.org>
-Cc: Brian Norris <computersforpeace@gmail.com>
-Cc: Marek Vasut <marek.vasut@gmail.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Maxime Ripard <maxime.ripard@bootlin.com>
-Cc: Chen-Yu Tsai <wens@csie.org>
-Cc: linux-mtd@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-Signed-off-by: Rob Herring <robh@kernel.org>
----
-I'll take this in the DT tree if that's okay.
 
-Rob
+Le jeu. 27 juin 2019 =E0 18:40, Miquel Raynal =
 
- .../devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml        | 1 -
- 1 file changed, 1 deletion(-)
+<miquel.raynal@bootlin.com> a =E9crit :
+> Hi Paul,
+> =
 
-diff --git a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-index fbd4da3684fc..e5a411518be1 100644
---- a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-+++ b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-@@ -57,7 +57,6 @@ patternProperties:
-   "^nand@[a-f0-9]+$":
-     properties:
-       reg:
--        maxItems: 1
-         minimum: 0
-         maximum: 7
- 
--- 
-2.20.1
+> Miquel Raynal <miquel.raynal@bootlin.com> wrote on Mon, 17 Jun 2019
+> 14:16:59 +0200:
+> =
+
+>>  Hello,
+>> =
+
+>>  Arnd Bergmann <arnd@arndb.de> wrote on Mon, 17 Jun 2019 14:12:48 =
+
+>> +0200:
+>> =
+
+>>  > On Mon, Jun 17, 2019 at 1:24 PM Paul Cercueil =
+
+>> <paul@crapouillou.net> wrote:
+>>  >
+>>  > > I think there's a better way to fix it, only in Kconfig.
+>>  > >
+>>  > > * Add a bool symbol MTD_NAND_INGENIC_USE_HW_ECC
+>>  > > * Have the three ECC/BCH drivers select this symbol instead of
+>>  > >   MTD_NAND_INGENIC_ECC
+>>  > > * Add the following to the MTD_NAND_JZ4780 config option:
+>>  > >   "select MTD_NAND_INGENIC_ECC if MTD_NAND_INGENIC_USE_HW_ECC"
+>>  >
+>>  > I don't see much difference to my approach here, but if you want
+>>  > to submit that version with 'Reported-by: Arnd Bergmann =
+
+>> <arnd@arndb.de>',
+>>  > please do so.
+>>  >
+>>  > Yet another option would be to use Makefile code to link both
+>>  > files into one module, and remove the EXPORT_SYMBOL statements:
+>>  >
+>>  > obj-$(CONFIG_MTD_NAND_JZ4780) +=3D jz4780_nand.o
+>>  > jz4780_nand-y +=3D ingenic_nand.o
+>>  > jz4780_nand-$(CONFIG_MTD_NAND_INGENIC_ECC) +=3D ingenic_ecc.o
+>>  >
+>> =
+
+>>  I personally have a preference for this one.
+> =
+
+> Would you mind sending the above change? I forgot about it but I would
+> like to queue it for the next release. Preferably the last version =
+
+> Arnd
+> proposed.
+
+It does change the module name from 'ingenic_nand' to 'jz4780_nand', =
+
+though.
+That's not really ideal...
+
+> =
+
+> Thanks,
+> Miqu=E8l
+
 
 
 ______________________________________________________
