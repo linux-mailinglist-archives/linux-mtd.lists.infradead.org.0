@@ -2,83 +2,106 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9226E5FEE7
-	for <lists+linux-mtd@lfdr.de>; Fri,  5 Jul 2019 01:59:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 40AA4609AA
+	for <lists+linux-mtd@lfdr.de>; Fri,  5 Jul 2019 17:49:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2IrfjjlzjlihRFy5bDXL0NUSmFHTh+ixruCtxUOYSRw=; b=AAzYA3Fp/HUtUy
-	Ae2bXAqylYPKZDyat25PUnQknnyqgTU+npaDS6IYZhscf+TPsYofXPZtkRjHy2IEWn9IdIzUHt4bD
-	7qR14YP37GQKCfQKBEaHirmofk3MXUw9Xus/7/sf+kAHDY88U28YKoaf6h2mhdD6jctQmwfLxxxDf
-	5CUjtiPPhTDizUxDAKudVjRuC6BpY28VLEEiM2LJVk21b1bVldy9Hcf6/I0VTRM0IOArsVmAet8Uc
-	H03Cy8Bvmmw3/gT3d1O1gXWgRau2S2lVW0/24bi5mg7n1OzzAVinrJHaKDk1HNgtXyrauOVD8zcCP
-	+PWcbed8o8hlD53zJATA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=1TGahnlXu0EPtXxCft7HHzAfp+KGd9EsZnVd46qR+40=; b=ZpAiPD1R4jLs+uAFMOBxcx/xs
+	7LmYldOFPC/vysz+3r+NAJT0oXWdKFNpTKR66iFfUuY7sHAUQkFc9FeibIZxU1fX9GQD0SPvT0ckU
+	a3Gr16aFqmD+QleXPH31u5avzjlmUvSNf4k+hRfc43itNf3YRcQBicXxkN+tuDvo0TejZ/8TQ35TJ
+	tzDCNRPvJ4Hx4xE0YvcsU+4nUCYiCBamzesofsEkHdecvI/xq5QUhGuy7cqwYns1T8xDigcdFkb9/
+	5WqDKSwFX0aPGHH1AI78XFIiyFVhIfV4JFK+ToLJ0GovbJ9jzquj0bqdg3h+gxszMXCvZibwzB0FN
+	xOBrxlA2w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hjBcq-0003n8-VX; Thu, 04 Jul 2019 23:58:53 +0000
-Received: from mail.mci-mobile.com ([182.253.21.109]
- helo=mail.indonesiantower.com)
+	id 1hjQSm-0003b4-Bu; Fri, 05 Jul 2019 15:49:28 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hjBcc-0003lM-Jx
- for linux-mtd@lists.infradead.org; Thu, 04 Jul 2019 23:58:40 +0000
-Received: from localhost (localhost [127.0.0.1])
- by mail.indonesiantower.com (Postfix) with ESMTP id 656253C8012B
- for <linux-mtd@lists.infradead.org>; Fri,  5 Jul 2019 06:49:01 +0700 (WIB)
-Received: from mail.indonesiantower.com ([127.0.0.1])
- by localhost (mail.indonesiantower.com [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id pDyPT1VQX42a for <linux-mtd@lists.infradead.org>;
- Fri,  5 Jul 2019 06:49:01 +0700 (WIB)
-Received: from localhost (localhost [127.0.0.1])
- by mail.indonesiantower.com (Postfix) with ESMTP id 3C2833C8012A
- for <linux-mtd@lists.infradead.org>; Fri,  5 Jul 2019 06:49:01 +0700 (WIB)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.indonesiantower.com 3C2833C8012A
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tower-bersama.com;
- s=selector; t=1562284141;
- bh=CiEKPmjDm3GMEBnI7r+BThJdvI8sNgbgJtDwZ8XLZH8=;
- h=From:Date:Message-ID:To;
- b=21PE+cJoqo9l0nqslQkUnnB2EgpJSngAtSrTAi2ESQ9CkZtH3okj6cQxdYYA/08Sq
- XjC7E90CrP4cU3tT76nnQRFn7qrWxOIPlLOgPeXpz0WOG8Rrap6xBBIWzLIcbt/gsV
- 7fbv8NI9iggK2aKcM/eVwIDB7LJ3fW+2urNFaYz1QHcQVLkZiVxb2Q8cQeTGLT1wne
- ixsuf9ct/eQtYlswR6eIPO3CCEOUTzZR948Gz/jHmnDXBp/bYplscR/yPadYhGgNmz
- KUicVLzPz5OWLEB3gNarj4fYgzfatsURpWv9qSR6BnyNN5HvhtaxJR8czUfwueVW6K
- QqlnUh7kIWcsw==
-X-Virus-Scanned: amavisd-new at indonesiantower.com
-Received: from mail.indonesiantower.com ([127.0.0.1])
- by localhost (mail.indonesiantower.com [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id lj9R7ODnNL_a for <linux-mtd@lists.infradead.org>;
- Fri,  5 Jul 2019 06:49:01 +0700 (WIB)
-Received: from [127.0.0.1] (unknown [177.8.250.82])
- by mail.indonesiantower.com (Postfix) with ESMTPSA id 14DED3C80128
- for <linux-mtd@lists.infradead.org>; Fri,  5 Jul 2019 06:48:58 +0700 (WIB)
-From: ronald-a.haryanto@tower-bersama.com
-Date: Fri, 5 Jul 2019 02:47:08 +0300
-Message-ID: <838976C3-8275-9DDC-7AD2-22285EBF2410@tower-bersama.com>
-Subject: Caution! Hacker attack on your account!
-To: linux-mtd@lists.infradead.org
-X-OrganizationHeadersPreserved: QIKXZF.tower-bersama.com
-X-Mailgun-Tag: [mailing_type=lwa][sender=ql-xmlback][hhid=26135470]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190704_165838_837913_61A69B77 
-X-CRM114-Status: UNSURE (   1.95  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 2.8 (++)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (2.8 points)
+ id 1hjQNr-00061p-8O
+ for linux-mtd@bombadil.infradead.org; Fri, 05 Jul 2019 15:44:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
+ In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+ :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=9FLSzJ96T/u9vNlRMaRjTA0JNSLf0kIkghtMhBwyp9U=; b=Vu74cRaqgcRFxyrRkwkcl7ja+9
+ HtBzdmZImEfFJApY/+Es0Ivfsc/CKBh3h0hhwtTpZnJMWBLf66j7X6Er9cH7S9SIw+R1snz2uF3H/
+ WBSs9ji0r68KMSKu172sHXXklPgF9YHlotg1gSkWHxXzTaka+MPSzkMsdU05xujlt9zkP6W+bky7u
+ aGmATNJYO1UxsKpE1tamVVvPLBmRvVMgymfxehGNq0p9wv21v7mfGdev40Bu2siLBPSEqjb5Hj/DF
+ dC0lBVJdFe/lxIFdtH/ZLOezrNp0xOfUM38c9VoCBNymqUKWahTQEyVhhJKh+5zHcZUd3sVZ0LBYz
+ Djx4glcw==;
+Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+ by merlin.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hjJYc-0000T8-O3
+ for linux-mtd@lists.infradead.org; Fri, 05 Jul 2019 08:27:04 +0000
+Received: by mail-lf1-x141.google.com with SMTP id r15so5753636lfm.11
+ for <linux-mtd@lists.infradead.org>; Fri, 05 Jul 2019 01:26:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=9FLSzJ96T/u9vNlRMaRjTA0JNSLf0kIkghtMhBwyp9U=;
+ b=lv30PSIq9pW5vgIcjCH4iIU4BZBPHLBgKjqfgeFMmewbZ2luPi2ZZ19NeiI30AvKsF
+ tI0xsp6C49tdZhDUj2L284wYugBfJsBUboRnL48ny5bmEVYxpc4v2I7UoXydXnzWep5Z
+ rctEB73EmbXa+4nsEDuOETE7Tmr/cRNUZ/22BQ1rIQw76EHFBQu/jFS8IdgQHqTXSD6R
+ 9UV1/cxwJ9uRyni/jSVXqsLrs0ntF7hgVj8Q26cDf/I/eIKOX4g2xk8hwNJMFNS9DU5T
+ TcH0IoT/YuXxrZSHn8xXRK8Oj3vUJta32gJsHlN41ylY6hvgF14UrlzQJydlDE3KEZQN
+ 9iwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=9FLSzJ96T/u9vNlRMaRjTA0JNSLf0kIkghtMhBwyp9U=;
+ b=Dv5NzCJjXA5KjoPApedc3r3QSnlY8O9iR0nYE+9LbKAlA5cbh3JguOouJJ/0Tw7WvZ
+ d+6cHNlG3sImLBX+RwbxIbD1FocyrwPNOcGd8uUE+rbJre2WVHYfTBLsl9OAnWu/y5Q8
+ ph4sQeVD6TX5z/86KNqF+qedotjAxlH3L81JCC8yWM1LPjik+kE1McnH4wh8vXgB9IBe
+ R6SxnuXb6RJnCGgngU3SvB5CqQ7VMm66jNmYBCD2Eb5hDm0Q0wwOqITsd94C82chnB0+
+ MOFJpMvOV4TrYcbvZ7B5Qb1r7Bv6Jm3zoOr+QXWt1rE/xMBrlOmRmdVEOfkOLom9um9Q
+ Og/g==
+X-Gm-Message-State: APjAAAXjZAkEtQ95yNGg0KpRWRkFI2IpZ6ROtg1g8sSYBFf6bUSRaYG6
+ Rtr2G0cywB6xYJqTIOSrhOplfQ==
+X-Google-Smtp-Source: APXvYqxQhgzeDSHDGmuSiLnwG+1ig4OZXNqprv4IyRpQeKXZebY0s3QjP/9/qJmA0GStJqJYfa/89A==
+X-Received: by 2002:ac2:4243:: with SMTP id m3mr1382863lfl.9.1562315093495;
+ Fri, 05 Jul 2019 01:24:53 -0700 (PDT)
+Received: from ?IPv6:2a00:1fa0:4432:513d:ecce:ffd3:f4fa:ae62?
+ ([2a00:1fa0:4432:513d:ecce:ffd3:f4fa:ae62])
+ by smtp.gmail.com with ESMTPSA id m28sm1624828ljb.68.2019.07.05.01.24.52
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Fri, 05 Jul 2019 01:24:52 -0700 (PDT)
+Subject: Re: [PATCH][next] ubifs: remove redundant assignment to pointer fname
+To: Colin King <colin.king@canonical.com>, Richard Weinberger
+ <richard@nod.at>, Artem Bityutskiy <dedekind1@gmail.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, linux-mtd@lists.infradead.org
+References: <20190704222803.4328-1-colin.king@canonical.com>
+From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+Message-ID: <b5e7709b-3494-d415-b36c-b19939a15fb5@cogentembedded.com>
+Date: Fri, 5 Jul 2019 11:24:39 +0300
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
+MIME-Version: 1.0
+In-Reply-To: <20190704222803.4328-1-colin.king@canonical.com>
+Content-Language: en-US
+X-Spam-Note: CRM114 invocation failed
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:141 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 3.0 BITCOIN_DEADLINE       BitCoin with a deadline
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 T_PDS_NO_HELO_DNS      High profile HELO but no A record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,48 +113,46 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 Hello!
 
-I am a hacker who has access to your operating system.
-I also have full access to your account.
+On 05.07.2019 1:28, Colin King wrote:
 
-I've been watching you for a few months now.
-The fact is that you were infected with malware through an adult site that you visited.
+> From: Colin Ian King <colin.king@canonical.com>
+> 
+> The pointer fname rc is being assigned with a value that is never
 
-If you are not familiar with this, I will explain.
-Trojan Virus gives me full access and control over a computer or other device.
-This means that I can see everything on your screen, turn on the camera and microphone, but you do not know about it.
+    rc?
 
-I also have access to all your contacts and all your correspondence.
+> read because the function returns after the assignment. The assignment
+> is redundant and can be removed.
+> 
+> Addresses-Coverity: ("Unused value")
+> Signed-off-by: Colin Ian King <colin.king@canonical.com>
+> ---
+>   fs/ubifs/debug.c | 1 -
+>   1 file changed, 1 deletion(-)
+> 
+> diff --git a/fs/ubifs/debug.c b/fs/ubifs/debug.c
+> index 92fe5c5ed78a..95da71e13fc8 100644
+> --- a/fs/ubifs/debug.c
+> +++ b/fs/ubifs/debug.c
+> @@ -2817,7 +2817,6 @@ void dbg_debugfs_init_fs(struct ubifs_info *c)
+>   		     c->vi.ubi_num, c->vi.vol_id);
+>   	if (n == UBIFS_DFS_DIR_LEN) {
+>   		/* The array size is too small */
+> -		fname = UBIFS_DFS_DIR_NAME;
+>   		return;
+>   	}
+>   
 
-Why your antivirus did not detect malware?
-Answer: My malware uses the driver, I update its signatures every 4 hours so that your antivirus is silent.
+MBR, Sergei
 
-I made a video showing how you satisfy yourself in the left half of the screen, and in the right half you see the video that you watched.
-With one click of the mouse, I can send this video to all your emails and contacts on social networks.
-I can also post access to all your e-mail correspondence and messengers that you use.
-
-If you want to prevent this,
-transfer the amount of $500 to my bitcoin address (if you do not know how to do this, write to Google: "Buy Bitcoin").
-
-My bitcoin address (BTC Wallet) is:  3LCfL9mNHA5NCubRcPLkpfTzzqB5Gxzrg3
-
-After receiving the payment, I will delete the video and you will never hear me again.
-I give you 50 hours (more than 2 days) to pay.
-I have a notice reading this letter, and the timer will work when you see this letter.
-
-Filing a complaint somewhere does not make sense because this email cannot be tracked like my bitcoin address.
-I do not make any mistakes.
-
-If I find that you have shared this message with someone else, the video will be immediately distributed.
-
-Best regards!
 
 ______________________________________________________
 Linux MTD discussion mailing list
