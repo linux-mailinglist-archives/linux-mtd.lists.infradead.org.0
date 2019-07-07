@@ -2,87 +2,70 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76964612FA
-	for <lists+linux-mtd@lfdr.de>; Sat,  6 Jul 2019 22:53:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 481E4614AE
+	for <lists+linux-mtd@lfdr.de>; Sun,  7 Jul 2019 12:41:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kwOP/y66AoTsKBThcUbVNUp52iNRbrThkCvXHHBUIv8=; b=V6QED+IUUjqmbz
-	y4suGOcWQQHTNeRMQS93E3zAfnemekZoM63bfy0By8w2EOktWXLsrTc7G6ty9qky6cEq0R+niN0/c
-	lFCUM04PdwyM+/MGmUtxfQ23qz14kD8HdqLOz41BMHVxKdSdZnGtd+lkZhVDFr38UgBBDYmfHb5Sq
-	HcSOpSXb6toj+hby1phee0rmON1+EUk2qML/OesqslHDgG/LIenzA1I6mMVYuZlnZYeUfmWXA2A3C
-	tKZ04eaHiM+mc54Z2Rv0atR0jX+8xjOsD9r7R8iNn9BXsE0wRD5AfRLuxl7F6f6kWoOft38RAy07M
-	dTxqMNBjs5eYgqU9B7Ng==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tSFcK2I370wy2V0Fmty7PfONOqccg4WDkmSBrEOzhV0=; b=Bfa/PP8DZsDFfH
+	pdXxBzJMLQi0pOObkMRPYnHbQarXtcXTBtnrwUWo7SYFheGQUeqQm3tRPAldhDDvG5zIcQCIG7w6n
+	n/cnEnLBz+zwFsH23WMqT4jCbNXdHauBRmwjMe1ovhqgMrpSGLJ455XqyEipr2EzDpT9GK35P1Iq9
+	9wlRqMdnl93RWK+u0x5C4CaiUZSyvBkz/aRgOfDg4dm381pPQds0Uta4+8cOkxXNu/AaROvlZfX+b
+	j+ZtiF7pF0y5f5gG8594CnSN6pjnGr1ZF1pgkq9imwbU5viFsf+D6sGIvVpFyRU006D6M3Kqb8Cjk
+	+VQ+WiINBD/bqkpOa+WQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hjrgr-0006Ds-V9; Sat, 06 Jul 2019 20:53:50 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
- by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hjrga-0006DL-Li
- for linux-mtd@lists.infradead.org; Sat, 06 Jul 2019 20:53:34 +0000
-Received: by mail-wr1-x441.google.com with SMTP id z1so8485982wru.13
- for <linux-mtd@lists.infradead.org>; Sat, 06 Jul 2019 13:53:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=eZxx6Pxsrk0X5EPCBTh5hNaOTsYWBXI1kx0Fs4oLurU=;
- b=jRi7KWnT/yGplKFMITKucJlqi2sTyxn2tTIfmJet6FtunfICdtKFtnujXb16cm7g0c
- MEqXczpN7RKCV94UBnV3LZqhWORYFzsurg4p6LiPMusczjFGLtBXPLf3GUxP44/LFPtk
- L7CNGHKA9u9H2xZh+FNpNXm74Wr5ufgZ5aQcCIUzGS9VpYH+05iBlEdTN3ujDHLYgTRA
- Ee6hM7KH3QH6Q1/ptR45uD83cq/tZOV/1gQr4FxfW1U9qM8jLNm3/PYr8vi4WmKl9EqV
- 7TSDr5BpMN1cpGR4+D7nhkC3cSSb35QUKh5bU/uMds8WpaVLyAv89JDQ3n2BnPEgUAqu
- HKLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=eZxx6Pxsrk0X5EPCBTh5hNaOTsYWBXI1kx0Fs4oLurU=;
- b=YSXWcxNKKpaIaV0XMmOMSRxhPL5O5cS9GAViYX6NnMCqdCmKL2lNBpYLLliDix6YXx
- PuygVK5FtP1FcwTKbetnxJ5QSxPpTJpkvS1g6iTmO67UR0HMEFPb3qHyLyes3RE18DkY
- FtB6HyDMhIxlVfju0XmH4rFK22iAVscP4Eqv67/7W7Li70jIHeiv0rMyKEgYcUtaJjq+
- FosCWEpglgocvf6xOehYDiGHqOqG36NQxjN1QfajsHcEwgpRtp63yp6zqHcY8J/CXjvh
- s4pE299+c6ZlOP2J8RthYd3vI6yNVhIhQyASw2yaEbIxj/YhUEPQkjgjb3kpVviOKuFW
- 8zTA==
-X-Gm-Message-State: APjAAAWOqyfRxZPxQSIXXeRWlpCOnkZAmt5t8DNcF67AQqLy6NV1pRo9
- 6Z72eROe3wbFUgzF7Ae0C6+G9KxLWdNxKcHWXZ0=
-X-Google-Smtp-Source: APXvYqwr9goCyH9H6PbiB2qbwebE+ooDF9skGo2eHZ9KTl2ausMTsqGIdd9R3HG6GE64LIj6UxF0yRVklQdartryqB4=
-X-Received: by 2002:a5d:514f:: with SMTP id u15mr1055932wrt.183.1562446408682; 
- Sat, 06 Jul 2019 13:53:28 -0700 (PDT)
+	id 1hk4bm-00054J-Jk; Sun, 07 Jul 2019 10:41:26 +0000
+Received: from argon.ehesp.fr ([194.199.119.6])
+ by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
+ id 1hk4bP-00053X-K2; Sun, 07 Jul 2019 10:41:06 +0000
+Received: from ACHILLE.ecole.root.priv (ACHILLE.ecole.root.priv
+ [172.16.180.11])
+ by argon.ehesp.fr (Postfix) with ESMTP id 1906020146C;
+ Sun,  7 Jul 2019 12:40:54 +0200 (CEST)
+Received: from ACHILLE.ecole.root.priv (172.16.180.11) by
+ ACHILLE.ecole.root.priv (172.16.180.11) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
+ 15.1.1415.2; Sun, 7 Jul 2019 12:40:53 +0200
+Received: from ACHILLE.ecole.root.priv ([fe80::cc30:b0de:46ab:9db3]) by
+ ACHILLE.ecole.root.priv ([fe80::cc30:b0de:46ab:9db3%12]) with mapi id
+ 15.01.1415.007; Sun, 7 Jul 2019 12:40:53 +0200
+From: "Lainez, Morgane" <Morgane.Lainez@ehesp.fr>
+To: "IN@BUSINESS.NET" <IN@BUSINESS.NET>
+Subject: RE
+Thread-Topic: RE
+Thread-Index: AQHVNK4EQU5Eo0WF30m5AuZeCHojtQ==
+Date: Sun, 7 Jul 2019 10:40:53 +0000
+Message-ID: <5d72793733ff429bb82bfad5c3569d86@ehesp.fr>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [192.168.119.130]
+x-tm-as-product-ver: SMEX-12.0.0.1220-8.200.1013-24744.003
+x-tm-as-result: No-1.867200-8.000000-31
+x-tm-as-matchedid: 159080-111600-111604-188119-704534-702881-704783-111605-7
+ 00570-704318-700926-701751-704114-700256-188057-106230-301404-780035-188092
+ -148004-148050-42000
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
 MIME-Version: 1.0
-References: <20190705235649.72b513b1@xps13>
-In-Reply-To: <20190705235649.72b513b1@xps13>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Sat, 6 Jul 2019 22:53:17 +0200
-Message-ID: <CAFLxGvwbwRqq1jfzJ2ut=cGOaEWHsODJAh_06Pu8AHBt8jnaXA@mail.gmail.com>
-Subject: Re: [GIT PULL] mtd: nand: Changes for 5.3
-To: Miquel Raynal <miquel.raynal@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190706_135332_738303_41533E7B 
-X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-CacheID: sfid-20190707_034103_814380_942E83E0 
+X-CRM114-Status: UNSURE (  -1.92  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:441 listed in]
- [list.dnswl.org]
+ no trust [194.199.119.6 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (richard.weinberger[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.0 PDS_NO_HELO_DNS        High profile HELO but no A record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,23 +77,16 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Frieder Schrempf <frieder.schrempf@exceet.de>, linux-mtd@lists.infradead.org,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gRnJpLCBKdWwgNSwgMjAxOSBhdCAxMTo1NyBQTSBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5
-bmFsQGJvb3RsaW4uY29tPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gVGhpcyBpcyB0aGUgTkFORCBQ
-UiBmb3IgNS4zLgo+Cj4gVGhhbmtzLAo+IE1pcXXDqGwKPgo+Cj4gVGhlIGZvbGxvd2luZyBjaGFu
-Z2VzIHNpbmNlIGNvbW1pdCBmMmM3Yzc2YzVkMGE0NDMwNTNlOTRhZGI5ZjA5MThmYTJmYjg1YzNh
-Ogo+Cj4gICBMaW51eCA1LjItcmMzICgyMDE5LTA2LTAyIDEzOjU1OjMzIC0wNzAwKQo+Cj4gYXJl
-IGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6Cj4KPiAgIGdpdDovL2dpdC5rZXJu
-ZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9tdGQvbGludXguZ2l0IHRhZ3MvbmFuZC9m
-b3ItNS4zCgpQdWxsZWQsIHRoYW5rcyEgOi0pCgotLSAKVGhhbmtzLAovL3JpY2hhcmQKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBN
-VEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+Hi
+i wish to speak to you privately, please contact me with my private email only: mrsangelachuag@gmail.com
+
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
