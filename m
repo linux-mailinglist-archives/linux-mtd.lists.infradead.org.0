@@ -2,67 +2,81 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1DD5F63B71
-	for <lists+linux-mtd@lfdr.de>; Tue,  9 Jul 2019 20:54:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 36B8163C81
+	for <lists+linux-mtd@lfdr.de>; Tue,  9 Jul 2019 22:09:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:
-	Subject:To:From:Date:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=raEOgWAGnNsAQnpb/Da/52VREtghL18Gm23m1yfisSY=; b=pKsvN7qCexsR5A
-	sDO1dRZREriGG0TdYK0UQo5V4ahkJdhYcUh5o7QE99c8feeCa65uhNd4DEiacSzlvi/VesrCK2wyp
-	7erQ8teRDCgLBhEvjXKNbsrhc3JGTK1upS8FWQ0ScONqZFzTmaBowt3F+R6+DlikBsBHjZnLzX6VD
-	470pMemwWibCxS85XCdnhS2CmZvaDLqp2hqkZO/f3VUysE2MEcnNXt9wr9neT10LIjvYTf8/EHv/h
-	l+6CvC5w8s6czH0ulYnb9toBs8/Ni27+HkjUJ6xY9bXAwRSxlFjGe6+JqPwjgL2t6gbycSfvIxHbH
-	w+JO5Y3xkDyg7+9LuOcg==;
+	List-Owner; bh=pLJNv2g7eyz9zt2Q+uhMJd4PXCzz050llykFGgsbvBE=; b=RYEGFIVddKzqfh
+	ZS44/NlWHq1f5uX6Ndbd+HOolq8OfjSsHNlQMpERUJ5b8pV/O44fn+TPPwcE5RoJUvxaCf7LxFgDR
+	b8nHp8V61aINvh6sfAMNPJGHeIzJ96WUc52HwVWD5koV91vNKqo1dt+nC2mZCpuj3OZO9HbohSpZ8
+	GX+C4gbwx12rXYm3zuGw3J8LWdzUx/ZhA8BjWScWzXDDn46hZM8bn0CsBT9vFG+8YdTC/1plZSPWT
+	6IJIrHQ++mYcVbBxUeLppa2ybJtlCRWOpKzsTvZjAUmdrdER3UWg1+KOi+cKsfsAh7K6itAHBmC6t
+	qcDGcZYTtVzvIfLxJDsw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hkvFo-0000Ng-6C; Tue, 09 Jul 2019 18:54:16 +0000
-Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
+	id 1hkwQL-00060u-HZ; Tue, 09 Jul 2019 20:09:14 +0000
+Received: from mail-io1-f65.google.com ([209.85.166.65])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hkvFf-0000NJ-D8
- for linux-mtd@lists.infradead.org; Tue, 09 Jul 2019 18:54:08 +0000
-Received: from webmail.kmu-office.ch (unknown [IPv6:2a02:418:6a02::a3])
- by mail.kmu-office.ch (Postfix) with ESMTPSA id 6B5465C072A;
- Tue,  9 Jul 2019 20:54:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
- t=1562698445;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=LK+Adb725ZjH4DbihgZdbmF2ZTqv6ZhFTilAQoLTCrc=;
- b=JxcVs2SqjAMcJLrzHV4oGC+s74UqUO4yFkFvkPbThzdylyV+bKGi1MSAWjys/oR+tPlo6S
- c9VsSgxTTya8QISWeT+uOEYE8pAXuuY9JHzlqk6Bo8HH6o/chKPZZwQUgFabtTckFO+YX3
- Mi3tQweENDmgWQyAR8Da5ZWbKROveHU=
+ id 1hkwPn-0005pw-BW; Tue, 09 Jul 2019 20:08:40 +0000
+Received: by mail-io1-f65.google.com with SMTP id q22so24085605iog.4;
+ Tue, 09 Jul 2019 13:08:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=tMyCowNzgjxUaK5PWC6oQ1uWddr8utL+ufijtmsasYY=;
+ b=DUeK3wJoEi9PhYO8GwBvkN9kcofQtZU6zEjUPrXImy2BHJs3MP9anCqRD2ebjngyq8
+ eYlc3P/Pohwe/dR1XjlHwd/Wzbo1F9mrLpF8AmdVT5B7SXcOTyN3dAkRcz4iFaXRMAEp
+ ZpkI7dliCiRi7NA8wF4cxCXSiKEMx4JHHxvra+tLGJ3aHRCVO6Lx3e9rVN3A7TeJKb3N
+ 35W5F/R7tF5bw6pvEtfmUjHy5uvdP/sU1cGFuI9TuxmoHAcQzy+6YfjXz9H8Nto8uiqy
+ CzF5MB9ooZOdzipR5lYEg9YPHs5bTTzxFZkCHpGjR7Q/qn4X15kBNHHrZKk9U05Qmd4m
+ GQNg==
+X-Gm-Message-State: APjAAAW7qRPbHgvCDatFjxEsIgPjOYaXeYv8KimV9BY6g4OM6Kc+gQkV
+ o72zNCuYCpkILUGv+G644A==
+X-Google-Smtp-Source: APXvYqyKiyPFi1/Sk/eV1if8HfsDBQ9UxZKt6XHIcHyManJ2gt9dEXwY05nvvTvy0mh0ieg/bZNAQQ==
+X-Received: by 2002:a02:b914:: with SMTP id v20mr29828003jan.83.1562702918640; 
+ Tue, 09 Jul 2019 13:08:38 -0700 (PDT)
+Received: from localhost ([64.188.179.251])
+ by smtp.gmail.com with ESMTPSA id z17sm31248845iol.73.2019.07.09.13.08.37
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Tue, 09 Jul 2019 13:08:37 -0700 (PDT)
+Date: Tue, 9 Jul 2019 14:08:37 -0600
+From: Rob Herring <robh@kernel.org>
+To: Ashish Kumar <Ashish.Kumar@nxp.com>
+Subject: Re: [Patch v3 1/2] dt-bindings: spi: spi-fsl-qspi: Add ls2080a
+ compatibility string to bindings
+Message-ID: <20190709200837.GA7806@bogus>
+References: <1560942714-13330-1-git-send-email-Ashish.Kumar@nxp.com>
+ <1560942714-13330-2-git-send-email-Ashish.Kumar@nxp.com>
 MIME-Version: 1.0
-Date: Tue, 09 Jul 2019 20:54:05 +0200
-From: Stefan Agner <stefan@agner.ch>
-To: Nishka Dasgupta <nishkadg.linux@gmail.com>
-Subject: Re: [PATCH] mtd: rawnand: vf610_nfc: Add of_node_put() before goto
-In-Reply-To: <20190709170837.13315-1-nishkadg.linux@gmail.com>
-References: <20190709170837.13315-1-nishkadg.linux@gmail.com>
-Message-ID: <d28641662420b0a10fbf2a238a3dd056@agner.ch>
-X-Sender: stefan@agner.ch
-User-Agent: Roundcube Webmail/1.3.9
+Content-Disposition: inline
+In-Reply-To: <1560942714-13330-2-git-send-email-Ashish.Kumar@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190709_115407_597123_EA544D31 
-X-CRM114-Status: GOOD (  13.06  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190709_130839_396974_F042EDB4 
+X-CRM114-Status: GOOD (  10.09  )
+X-Spam-Score: 2.0 (++)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (2.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.166.65 listed in list.dnswl.org]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (robherring2[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (robherring2[at]gmail.com)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
+ 1.3 PDS_NO_HELO_DNS        High profile HELO but no A record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,45 +88,36 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, richard@nod.at, marek.vasut@gmail.com,
- linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- computersforpeace@gmail.com, dwmw2@infradead.org
+Cc: devicetree@vger.kernel.org, bbrezillon@kernel.org,
+ Kuldeep Singh <kuldeep.singh@nxp.com>, Ashish Kumar <ashish.kumar@nxp.com>,
+ broonie@kernel.org, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 2019-07-09 19:08, Nishka Dasgupta wrote:
-> Each iteration of for_each_available_child_of_node puts the previous
-> node, but in the case of a goto from the middle of the loop, there is no
-> put, thus causing a memory leak. Hence add an of_node_put before the
-> goto.
-> Issue found with Coccinelle.
+On Wed, 19 Jun 2019 16:41:53 +0530, Ashish Kumar wrote:
+> There are 2 version of QSPI-IP, according to which controller registers sets
+> can be big endian or little endian.There are some other minor changes like
+> RX fifo depth etc.
 > 
-> Signed-off-by: Nishka Dasgupta <nishkadg.linux@gmail.com>
-
-Looks good to me:
-
-Reviewed-by: Stefan Agner <stefan@agner.ch>
-
---
-Stefan
-
+> The big endian version uses driver compatible "fsl,ls1021a-qspi" and
+> little endian version uses driver compatible "fsl,ls2080a-qspi"
+> 
+> Signed-off-by: Kuldeep Singh <kuldeep.singh@nxp.com>
+> Signed-off-by: Ashish Kumar <ashish.kumar@nxp.com>
 > ---
->  drivers/mtd/nand/raw/vf610_nfc.c | 1 +
->  1 file changed, 1 insertion(+)
+> v3:
+> Rebase to top
+> v2: 
+> Convert to patch series and rebasing done on top of tree
 > 
-> diff --git a/drivers/mtd/nand/raw/vf610_nfc.c b/drivers/mtd/nand/raw/vf610_nfc.c
-> index e4fe8c4bc711..6b399a75f9ae 100644
-> --- a/drivers/mtd/nand/raw/vf610_nfc.c
-> +++ b/drivers/mtd/nand/raw/vf610_nfc.c
-> @@ -862,6 +862,7 @@ static int vf610_nfc_probe(struct platform_device *pdev)
->  				dev_err(nfc->dev,
->  					"Only one NAND chip supported!\n");
->  				err = -EINVAL;
-> +				of_node_put(child);
->  				goto err_disable_clk;
->  			}
+>  Documentation/devicetree/bindings/spi/spi-fsl-qspi.txt | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 ______________________________________________________
 Linux MTD discussion mailing list
