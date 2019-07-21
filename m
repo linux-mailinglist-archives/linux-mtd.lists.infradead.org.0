@@ -2,56 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 203FD6EF82
-	for <lists+linux-mtd@lfdr.de>; Sat, 20 Jul 2019 15:46:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CFFCC6F578
+	for <lists+linux-mtd@lfdr.de>; Sun, 21 Jul 2019 22:04:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P6fK5D65UGz6aYwXUrDuWvL9FW7BG8E3BN6nodDSMYQ=; b=hKY/Ab4Xu4WGf1
-	gXA5Xyrsyu4jInJeHnd+VMX1Vsvm2mFktGRjHloGCLN8ouYCubykevsjyFAB82Q39yc7h1X4h7IKd
-	somgy2JDa6HR+rtle4At59uLlwP9+ZQEPSQytXW14HUYI+iSVbvBRA7i655KWEkwp9eokLpgrD3hR
-	Lgw3yHy/bocUsBvAFBDGuutWjVF2s+DCWUpruhYk+aTAu+H4vV9P2ztTIxL8t/7CH/2y0LgVRln+p
-	46SitED5DSb+lS+Hy+CpQOW4HWgC2TPuloYhTh0F8BghqrkkkT9NxC5BdukxCdu4cHlOjXTHqhUyG
-	5y3Pgq3oJ54nhwvQNvPQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XHlU0RWCd1YvsCNeoLikf+j/thau1yW6bjCjI9xMImk=; b=KF1XvGvS1lLTpM
+	nI0mm8EADQNojTwPEozy5NwNLmxPuw/R6C6mgl/ysrNMY37odSS1J8KgT8kY3ltc0vS2j3fP9zRnB
+	Wayzvo5EJWz07BoG4QThVQwiyiPtcxR5jFC5eooz5yrqzwKvhc5iKcWHy5f4j46B2/k0smbHpuZjb
+	wVo1VXw2RFkLFrnthvp52wosZpdVFT5uAnKcfXbXiDyKEzaZ70/rAXSf+bMQeAPdYdpT+8ZEfzy5s
+	82CYdK9hvqyf/K8fBJIV58JUKi7HVGCmOC3LsLjhv+uHcThAe5oKSyEKJYVCAN2oYipICXJPqzBJH
+	FLw9N6DRDk6LRZIu85YQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hopgc-0000w0-Ad; Sat, 20 Jul 2019 13:46:06 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1hpI4E-000876-5b; Sun, 21 Jul 2019 20:04:22 +0000
+Received: from lithops.sigma-star.at ([195.201.40.130])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hopgM-0000vu-Gi
- for linux-mtd@bombadil.infradead.org; Sat, 20 Jul 2019 13:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
- :Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=RIOU5LAIILgInsLZKUJUGf35teEgUvYEPJttEJyAaQY=; b=hc2vn/K3NITr/qd1/BeBsZT89k
- zpOPsH5kbh9nphMRj0YhRabkG2m1KOYcLKyR3VLjEXzz5541Dbqq7VCmAmNGuhaxjQlb7Z4KMTjmB
- TVMtHk3ecngXCQITb+nv8IrZob3Q4piWDyvRQ8hmi/Y2d08pzOq9QgikWJskvrscwbo5VVFSGyv0v
- +mQPo3uZbr3Z+kTRfPEQys46PYqncVZSM7HXqbMdMsaAWJSfulRFirm35y6RWxJ59ovNr3Ojmzgi/
- 0aMqZ+Q4OfkizaD2yOJH7YYBFGGmsOkTd+caVR3EgB0JyvZEewk5PIgcmdnFoNif3cYLEm2cWO3nS
- cXprQMaw==;
-Received: from static-50-53-52-16.bvtn.or.frontiernet.net ([50.53.52.16]
- helo=[192.168.1.17])
- by merlin.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hopgF-00027k-Q9; Sat, 20 Jul 2019 13:45:44 +0000
-Subject: Re: [PATCH] mtd: hyperbus: Kconfig: Fix HBMC_AM654 dependencies
-To: Vignesh Raghavendra <vigneshr@ti.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>
-References: <20190719082912.10316-1-vigneshr@ti.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <83175738-a41e-04e6-7be2-85213dfdc416@infradead.org>
-Date: Sat, 20 Jul 2019 06:45:40 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+ id 1hpI3u-00086Z-3H
+ for linux-mtd@lists.infradead.org; Sun, 21 Jul 2019 20:04:03 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 6E8C46089339;
+ Sun, 21 Jul 2019 22:03:51 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id d7vTj-bnI9DH; Sun, 21 Jul 2019 22:03:51 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 2CBD16089354;
+ Sun, 21 Jul 2019 22:03:51 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id dep62mM5VnVN; Sun, 21 Jul 2019 22:03:51 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+ by lithops.sigma-star.at (Postfix) with ESMTP id F2AB26089339;
+ Sun, 21 Jul 2019 22:03:50 +0200 (CEST)
+Date: Sun, 21 Jul 2019 22:03:50 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Message-ID: <1088672879.45101.1563739430883.JavaMail.zimbra@nod.at>
+In-Reply-To: <20190718141351.ya7bnhhwgnc2qz56@pengutronix.de>
+References: <20190718141351.ya7bnhhwgnc2qz56@pengutronix.de>
+Subject: Re: ubiupdatevol breaks ubi?
 MIME-Version: 1.0
-In-Reply-To: <20190719082912.10316-1-vigneshr@ti.com>
-Content-Language: en-US
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF60 (Linux)/8.8.12_GA_3809)
+Thread-Topic: ubiupdatevol breaks ubi?
+Thread-Index: wh0R8Ihj2wIskR+J3zwSWREyioaQuw==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20190721_130402_290389_DF3CA195 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
+ Content analysis details:   (0.0 points)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,62 +72,40 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
- Mao Wenan <maowenan@huawei.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd <linux-mtd@lists.infradead.org>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Artem Bityutskiy <dedekind1@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 7/19/19 1:29 AM, Vignesh Raghavendra wrote:
-> On x86_64, when CONFIG_OF is not disabled:
-> 
-> WARNING: unmet direct dependencies detected for MUX_MMIO
->   Depends on [n]: MULTIPLEXER [=y] && (OF [=n] || COMPILE_TEST [=n])
->   Selected by [y]:
->   - HBMC_AM654 [=y] && MTD [=y] && MTD_HYPERBUS [=y]
-> 
-> due to
-> config HBMC_AM654
-> 	tristate "HyperBus controller driver for AM65x SoC"
-> 	select MULTIPLEXER
-> 	select MUX_MMIO
-> 
-> Fix this by making HBMC_AM654 imply MUX_MMIO instead of select so
-> that dependencies are taken care of. MUX_MMIO is optional for
-> functioning of driver.
-> 
-> Fixes: b07079f1642c ("mtd: hyperbus: Add driver for TI's HyperBus memory controller")
-> Reported-by: Randy Dunlap <rdunlap@infradead.org>
-> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-
-Acked-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
-
-Thanks.
-
-> ---
->  drivers/mtd/hyperbus/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/mtd/hyperbus/Kconfig b/drivers/mtd/hyperbus/Kconfig
-> index cff6bbd226f5..1c691df8eff7 100644
-> --- a/drivers/mtd/hyperbus/Kconfig
-> +++ b/drivers/mtd/hyperbus/Kconfig
-> @@ -15,7 +15,7 @@ if MTD_HYPERBUS
->  config HBMC_AM654
->  	tristate "HyperBus controller driver for AM65x SoC"
->  	select MULTIPLEXER
-> -	select MUX_MMIO
-> +	imply MUX_MMIO
->  	help
->  	 This is the driver for HyperBus controller on TI's AM65x and
->  	 other SoCs
-> 
-
-
--- 
-~Randy
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+VXdlLAoKLS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+CVsgICA1Ny44MDc5NzhdIFVC
+SUZTIGVycm9yICh1YmkwOjAgcGlkIDI2Mik6IHViaWZzX2Fzc2VydF9mYWlsZWQ6IFVCSUZTIGFz
+c2VydAo+CWZhaWxlZDogYy0+bGhlYWRfbG51bSAhPSBjLT5sdGFpbF9sbnVtLCBpbiBmcy91Ymlm
+cy9sb2cuYzo0MTIKCkl0IHRvb2sgbWUgYSB3aGlsZSB0byB1bmRlcnN0YW5kIHdoYXQgaXMgZ29p
+bmcgb24gYW5kIHdoeSB5b3UgYXJlIGZhY2luZyB0aGlzLgpUaGUgYXNzZXJ0IHNlZW1zIHRvIHRy
+aWdnZXIgb25seSBpZiB5b3UgbW91bnQgYSBmaWxlc3lzdGVtIHdoZXJlIGJvdGggbG9nIGhlYWRz
+CnBvaW50IHRvIFVCSUZTX0xPR19MTlVNLCBoZW5jZSBlbXB0eSBsb2cgYXJlYSBpbiBpbml0aWFs
+IHN0YXRlLCBhbmQgeW91IGNoYW5nZQptb3JlIGZpbGVzeXN0ZW0gY29udGVudHMgdGhhbiB0aGUg
+bG9nIGNhbiBob2xkIGF0IG9uY2UuCgpBZnRlciByZXZpZXdpbmcgVUJJRlMgbG9nIGNvZGUgSSBm
+b3VuZCBzb21ldGhpbmcgb2RkLgpVQklGUyBkb2VzIG5vdCBpbml0aWFsaXplIGMtPm1pbl9sb2df
+Ynl0ZXMsIGl0IGlzIGJ5IGRlZmF1bHQgMC4KCmMtPm1pbl9sb2dfYnl0ZXMgY2FuIGhhdmUgdHdv
+IHZhbHVlczoKLSAwOiBjb21taXQgaW4gcHJvZ3Jlc3MsIHJlbWFpbmluZyBsb2cgYXJlYSBtYXkg
+YmUgdXNlZAotIGxlYl9zaXplOiBubyBjb21taXQgaW4gcHJvZ3Jlc3MsIGtlZXAgbGViX3NpemUg
+Ynl0ZXMgcmVzZXJ2ZWQKICBmb3IgYSBmdXR1cmUgY29tbWl0LgoKU28gaGF2aW5nIGl0IDAgYWZ0
+ZXIgYSBtb3VudCBzZWVtcyB3cm9uZyB0byBtZSBiZWNhdXNlIGFmdGVyIG1vdW50aW5nClVCSUZT
+IHRoZXJlIGlzIG5vIGNvbW1pdCBpbiBwcm9ncmVzcy4KCkNhbiB5b3UgcGxlYXNlIGdpdmUgdGhp
+cyBjaGFuZ2UgYSB0cnk/CldpdGggdGhpcyBhcHBsaWVkIEkgY2FuIG5vIGxvbmdlciB0cmlnZ2Vy
+IHRoZSBhc3NlcnQuCgpJJ20gc3RpbGwgbm90IGVudGlyZWx5IHN1cmUgd2hldGhlciB0aGUgYXNz
+ZXJ0IGlzIGNvcnJlY3QgYXQgYWxsLApyZXZpZXcgaW4gcHJvZ3Jlc3MuLi4gOi0pIAoKZGlmZiAt
+LWdpdCBhL2ZzL3ViaWZzL3N1cGVyLmMgYi9mcy91Ymlmcy9zdXBlci5jCmluZGV4IDZjZmM0OTQw
+NTBiZS4uYjQ5ODRkYTQ0MjUxIDEwMDY0NAotLS0gYS9mcy91Ymlmcy9zdXBlci5jCisrKyBiL2Zz
+L3ViaWZzL3N1cGVyLmMKQEAgLTYwNyw2ICs2MDcsOSBAQCBzdGF0aWMgaW50IGluaXRfY29uc3Rh
+bnRzX2Vhcmx5KHN0cnVjdCB1Ymlmc19pbmZvICpjKQogCWMtPm1heF9idV9idWZfbGVuID0gVUJJ
+RlNfTUFYX0JVTEtfUkVBRCAqIFVCSUZTX01BWF9EQVRBX05PREVfU1o7CiAJaWYgKGMtPm1heF9i
+dV9idWZfbGVuID4gYy0+bGViX3NpemUpCiAJCWMtPm1heF9idV9idWZfbGVuID0gYy0+bGViX3Np
+emU7CisKKwljLT5taW5fbG9nX2J5dGVzID0gYy0+bGViX3NpemU7CisKIAlyZXR1cm4gMDsKIH0K
+ClRoYW5rcywKLy9yaWNoYXJkCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
