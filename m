@@ -2,65 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6EEFF708C5
-	for <lists+linux-mtd@lfdr.de>; Mon, 22 Jul 2019 20:37:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7370C70B51
+	for <lists+linux-mtd@lfdr.de>; Mon, 22 Jul 2019 23:27:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Message-ID:Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:From:To:Subject:
-	Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y0lyaLG/V/24P+ZJiMoypNgoIU2Hbc0Yc+G0891KjBU=; b=P/OGcIDvKc7BJb
-	gulDO7YgSZ7MrkRDhqTAklPuc18d1MsTAliMU0D5b9RigaaMDQv7peMW09Y3c6s+4hzGcKTogg0f1
-	2yr/wV/YBCJqArQyRd0lkfRf6I903/AEEVdq6UXWGJgC00RlNS5ueaZbzUHIQYMCRxakUbdI/ieqA
-	sDZUOGmDznODGEiD+84Uq/RWZYV6GfxOswU9Ck0d7LufjnPpzb08NnIbnbKGrJYv8z74aBfHPu11M
-	xjl1hLQwdwpzzvHxf0UX1OSOb5E+CU23vuNga6aXayzRRgE9nvONWOJhF9CrP4SqlOlaB9kkLEp00
-	7pbIAfNvJiFEHhEojL4w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=gkajWSc/aPyBS8aUmh6D7AnwAdznWquw0wyb+GJlih0=; b=ult
+	Ms+G34bzd7dPKFnHQSr5sQ2ObVJW4uqqGyfLHK+zUv6NAIHuT3u1CCFXjW3nOFhT0O0lCkaDjIrLh
+	T5jyRjqPOvM83cZkT9Gr8CRtBZZ1ccXlrAaoU3LMjwy5ZQvps6innHeoTee5SzURttwkFLBEI6jfK
+	xEEKXrGMPnNPNi8uqgZg4LHfmk3UIsQY6T4tOxARCcICmmlbJabnZWu3ed4yKl3cxmYUHof/7XGmj
+	ed0eG7II0Lx4THx/x4chd0PQMryshxWrmcB4afU5D779GKHXuW8ZveAvP04CRq6R+JmHVC9DzgTmf
+	s+qjAmuFy2s3Udx57AmWKPAfuUJqazQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hpdBv-0006UV-5g; Mon, 22 Jul 2019 18:37:43 +0000
-Received: from mx1.tbilisi.gov.ge ([185.83.36.26])
+	id 1hpfpn-00027H-VX; Mon, 22 Jul 2019 21:27:04 +0000
+Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hpdBa-0006Tx-U2
- for linux-mtd@lists.infradead.org; Mon, 22 Jul 2019 18:37:24 +0000
-X-ASG-Debug-ID: 1563819917-0a6d49136b2751e0011-6YE7NY
-Received: from [145.239.210.106] (ip106.ip-145-239-210.eu [145.239.210.106])
- by MX1.tbilisi.gov.ge with ESMTP id guxcaMzMv7geiCiM (version=TLSv1
- cipher=DHE-RSA-AES256-SHA bits=256 verify=NO) for
- <linux-mtd@lists.infradead.org>; Mon, 22 Jul 2019 22:25:23 +0400 (+04)
-X-Barracuda-Envelope-From: info@tas.ge
-X-ASG-Whitelist: Sender
-X-Barracuda-Effective-Source-IP: ip106.ip-145-239-210.eu[145.239.210.106]
-X-Barracuda-Apparent-Source-IP: 145.239.210.106
+ id 1hpfpI-00025P-H1
+ for linux-mtd@lists.infradead.org; Mon, 22 Jul 2019 21:26:34 +0000
+Received: by mail-ua1-x92a.google.com with SMTP id z13so16062065uaa.4
+ for <linux-mtd@lists.infradead.org>; Mon, 22 Jul 2019 14:26:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=l2Brdo1rNZvuSD22e+nqM8rJ22yxnkGA3xtPR6++HuY=;
+ b=PXXstqpO2akfG1tt9r0mvd1b6o7bc7jrEhWUqvADxoc0RafTGjQkH5+9K0f1oFdmiJ
+ AH00BQGlhqvhipZdN9W+pmzNCVb/A21u5xRA0BvxOk6AB1vrnGJJRGNMXBkFx3XlZ/2h
+ jK6gceEjDK7lwSt8HnaDfEazhlkfy0P7/5FGyvuE7qBRBvk9RaU6EMcy4mo1RH4cRyji
+ qpuPwrPfqujflJL7YXiKQYkxLUL4ihOpVTooXCcK8xS+OnxeVjIFDPspU3kQbOezERB6
+ +ZAosIcPexxzMpgbHaUFurILKDR6PD4WdV52TvNbzX263MHorC9tfDjBYfFtLT5GSuFE
+ /wfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=l2Brdo1rNZvuSD22e+nqM8rJ22yxnkGA3xtPR6++HuY=;
+ b=P5sSN1NE+L97SRuvrpt0Tac8lr2jFV89SsE0kaZTPcXQLzyK/FWo6i2LwcBp2XLjtz
+ oZjXZoXm7Nmg3/mtUA4Hji2192XqzBfRhQaW3Zd+CSCBrrqaLWr/WOrhCdI86h26laRD
+ 5tALM9MqhNpoMgU9VKDswR3eJLiGJOlcwlTcg+usmbT1nyps3mjLswI9e4xUeDjBfB2j
+ mhqOvhOVXgXgp/qtlpWBAp6XkRc+xGuQKZDNKjepJ/xtyFYKBdupCWZ4+N/QsNuHAP3t
+ IQAl2JiAyLd5/9b4Ru8tWBr0CiePZJAv/tG2GmZVTZzTe12I2n9TpoBtSw884AW2WtIy
+ 0zrg==
+X-Gm-Message-State: APjAAAXv1ML4LtJbQTrs+adJ2Pf62lr7HUX//UD/25TnM2yyBEZjOv0z
+ gJlAvNhZZt7xx4nTP1pWm5Fo5/8KK+u1OQRlHl2KTpr1
+X-Google-Smtp-Source: APXvYqwmjHGtDNej+RYK73D9CHf/BB9DGZeiCOv2Vh6qfKqzULl6ANTizNZ0dLBnNFA6mPXn/kYxSuP54j5KoKFK2oA=
+X-Received: by 2002:ab0:2789:: with SMTP id t9mr28440508uap.69.1563830790899; 
+ Mon, 22 Jul 2019 14:26:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Description: Mail message body
-Subject: You have been selected to receive a private donation from us:
-To: linux-mtd@lists.infradead.org
-X-ASG-Orig-Subj: You have been selected to receive a private donation from us:
-From: "Fred and Lesley Higgins" <info@tas.ge>
-Date: Mon, 22 Jul 2019 11:25:16 -0700
-X-Mailer: TurboMailer 2
-X-Barracuda-Connect: ip106.ip-145-239-210.eu[145.239.210.106]
-X-Barracuda-Start-Time: 1563819923
-X-Barracuda-Encrypted: DHE-RSA-AES256-SHA
-X-Barracuda-URL: https://10.10.254.25:443/cgi-mod/mark.cgi
-X-Virus-Scanned: by bsmtpd at tbilisi.gov.ge
-X-Barracuda-Scan-Msg-Size: 35
+From: Martin Townsend <mtownsend1973@gmail.com>
+Date: Mon, 22 Jul 2019 22:26:20 +0100
+Message-ID: <CABatt_zVj_V6ms7NF_zGhtibkfVL7hK4a65NTFhhF6mN=ZAtUg@mail.gmail.com>
+Subject: ubifs assert when creating a SMACK transmuting directory.
+To: linux-mtd@lists.infradead.org, linux-integrity@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190722_113723_210402_295C8EC5 
-X-CRM114-Status: UNSURE (  -1.82  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.3 (/)
+X-CRM114-CacheID: sfid-20190722_142632_716392_16753177 
+X-CRM114-Status: GOOD (  14.11  )
+X-Spam-Score: 0.1 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.3 points)
+ Content analysis details:   (0.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [185.83.36.26 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:92a listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 MISSING_MID            Missing Message-Id: header
- 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (mtownsend1973[at]gmail.com)
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (mtownsend1973[at]gmail.com)
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,14 +90,93 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: flhhumanitarian@yandex.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
-Message-ID: <E1hpdBv-0006UV-5g@bombadil.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Email back for more information. 
+Hi,
+
+The following backtrack was reported by our dev team.
+
+[<8010ea60>] (unwind_backtrace) from [<8010c4d8>] (show_stack+0x10/0x14)
+[<8010c4d8>] (show_stack) from [<803b590c>] (ubifs_xattr_set+0x210/0x3ec)
+[<803b590c>] (ubifs_xattr_set) from [<80272134>] (__vfs_setxattr+0x70/0x80)
+[<80272134>] (__vfs_setxattr) from [<803ecd8c>]
+(smack_d_instantiate+0x41c/0x430)
+[<803ecd8c>] (smack_d_instantiate) from [<803e4ef0>]
+(security_d_instantiate+0x34/0x54)
+[<803e4ef0>] (security_d_instantiate) from [<80263edc>]
+(d_instantiate+0x28/0x4c)
+[<80263edc>] (d_instantiate) from [<80392858>] (ubifs_mkdir+0x1f8/0x200)
+[<80392858>] (ubifs_mkdir) from [<80257124>] (vfs_mkdir+0x148/0x1dc)
+[<80257124>] (vfs_mkdir) from [<8025add8>] (SyS_mkdirat+0x84/0xec)
+[<8025add8>] (SyS_mkdirat) from [<80107dfc>] (__sys_trace_return+0x0/0x10)
+
+Looking at the code for smack_d_instantiate it's going down the following path
+/*
+ * Transmuting directory
+ */
+if (S_ISDIR(inode->i_mode)) {
+        /*
+         * If this is a new directory and the label was
+         * transmuted when the inode was initialized
+         * set the transmute attribute on the directory
+         * and mark the inode.
+         *
+         * If there is a transmute attribute on the
+         * directory mark the inode.
+         */
+        if (isp->smk_flags & SMK_INODE_CHANGED) {
+                isp->smk_flags &= ~SMK_INODE_CHANGED;
+                rc = __vfs_setxattr(dp, inode,
+                        XATTR_NAME_SMACKTRANSMUTE,
+                        TRANS_TRUE, TRANS_TRUE_SIZE,
+                        0);
+        } else {
+which ends up in ubifs_xattr_set which is expecting the inode
+semaphore to be locked and hence the assert message.
+
+I can reproduce this by creating a directory with SMACK64TRANSMUTE and
+then adding a rule with 't' set and then creating a directory
+
+mkdir test
+chmod 777 test
+chsmack -a update test
+chsmack -t test
+
+echo programmingapp > /proc/self/attr/current
+echo programmingapp update rwxat > /sys/fs/smackfs/load2
+
+Creating a directory in test which trigger the ubifs assert.
+
+Looking at the code some more, don't we need to lock the inode when
+calling __vfs_setxattr above as the inode will have already been
+created (ubifs_init_security in ubifs_mkdir) and added to the inode
+hash and another process could potentially set an extended attribute
+on the directory whilst we are trying to add the transmute attribute
+here?
+
+I created a patch which put an inode_trylock around __vfs_setxattr and
+the ubifs assert has now disappeared in the use case described.
+Although this fixes things for a UBIFS I had a quick look at other
+filesystems to see how they handle setting extended attributes and the
+2 I looked at have a i_xattr_sem which is in some wrapper structure
+around an inode so maybe this isn't the best solution but maybe the
+inode_trylock should be moved into the ubifs_xattr_set function
+instead of the
+
+if (check_lock)
+        ubifs_assert(c, inode_is_locked(host));
+
+to be more in line with what the other filesystems do.  This is on a
+4.9 vendor kernel for an i.MX system but looking at 5.2 I think the
+problem would still exist but not entirely sure.  Either way is
+replacing the above check with inode_trylock a valid solution or is
+there a better way of solving this?
+
+Many Thanks,
+Martin.
 
 ______________________________________________________
 Linux MTD discussion mailing list
