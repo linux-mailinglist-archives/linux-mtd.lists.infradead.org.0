@@ -2,56 +2,88 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 934C472EFE
-	for <lists+linux-mtd@lfdr.de>; Wed, 24 Jul 2019 14:37:58 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BBBEA72FCB
+	for <lists+linux-mtd@lfdr.de>; Wed, 24 Jul 2019 15:24:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CKuwPD7K+DXEJCFco6itQK/Jum/PGpMzqrX7jI49KJc=; b=CyBZvP94NlEiVc
-	sxAgKaplvk5geRr/flq6fNLJZIdO4pg3K9ZK5B9zLhQsP6XEMcJRSXkDDXe1E8AKV67xoNTIm6Rfi
-	+MI+dHzA1jJ1xWmqOPJ+8HEmrlJ28Kt0hI0vm2gPPCvgkTPJmbV2OpFCAytz6y8ACbkoOoW9uRzUd
-	yycoKCPCNrTOIGgm4926oiRWRK2wNwS5yIiyoGxtm1B6V9o8XN1AzkhNWcT34vWtTcU42egJ27NuA
-	tYYJJND6fRGZeBRM5hme68R089CnRLUP3/YKwx2DeLjt8ehEfAAC7xuvH1Rh29VKFRr2xWwkFfCCI
-	d2gU5DhBKDpzQCkkdmwg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=HQp6X/TTGHl5Pos/TxjRCyAa9Imb2SnwzDEzBTL5CWE=; b=t6v
+	fawO7Fws0H5uqxW8OLOCkOa/K5NUCQiMyMJYT/pQr+xsUlp1jO/QGYKwcvUgrFgA/W0gEh5M3l+K4
+	8KhUGzRFqdH7BWmb8iWTP7hlfX8UtvBh5X/2KRkFt6N2InxjqykzyvUHe5tR7Q0H5/2ytQhOcDy99
+	L2aa7L3+E1K8BWk5LF29eE7Fqtz6bQULWatxY+KoCk8DM/hlocP1bQ6V7hVVTDLhfkeTMLkZyshM5
+	7M62+3XXrMaiTD8x8XG0a+RaO35qjVRBUJ/JYZ6Rns82uZRySw+Er1FQ0EAQCjpp137qeBd+8Poca
+	1Qgw0Oxqc6pR0LL5F3MybchX1RQSywQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hqGWm-000288-Lh; Wed, 24 Jul 2019 12:37:52 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1hqHFI-0003yc-40; Wed, 24 Jul 2019 13:23:52 +0000
+Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hqGWZ-00027C-4E
- for linux-mtd@lists.infradead.org; Wed, 24 Jul 2019 12:37:43 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.58])
- by Forcepoint Email with ESMTP id 0F19ED0A275507F1B81C;
- Wed, 24 Jul 2019 20:37:34 +0800 (CST)
-Received: from localhost (10.133.213.239) by DGGEMS410-HUB.china.huawei.com
- (10.3.19.210) with Microsoft SMTP Server id 14.3.439.0; Wed, 24 Jul 2019
- 20:37:26 +0800
-From: YueHaibing <yuehaibing@huawei.com>
-To: <vigneshr@ti.com>, <dwmw2@infradead.org>, <computersforpeace@gmail.com>,
- <marek.vasut@gmail.com>, <miquel.raynal@bootlin.com>, <richard@nod.at>
-Subject: [PATCH] mtd: hyperbus: Fix Kconfig warning
-Date: Wed, 24 Jul 2019 20:37:17 +0800
-Message-ID: <20190724123717.34128-1-yuehaibing@huawei.com>
-X-Mailer: git-send-email 2.10.2.windows.1
+ id 1hqHF9-0003y6-PY
+ for linux-mtd@lists.infradead.org; Wed, 24 Jul 2019 13:23:45 +0000
+Received: by mail-lf1-x141.google.com with SMTP id s19so31961211lfb.9
+ for <linux-mtd@lists.infradead.org>; Wed, 24 Jul 2019 06:23:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:sender:from:date:message-id:subject:to
+ :content-transfer-encoding;
+ bh=ZLLqDcgpNV8kfRzVSVxys8vLdFdOBGPgOHBMI1Q4xo8=;
+ b=s0m8lyBNoRoNoAS1zoWIqo61SI7WmrKfZVqdOFzs+Cj2bjTnX9eDHpv8F++o4Tae8I
+ hidvQFsH02v62QslS5W0rNog556TXoWcU8fiValJmkpoalbjoW1+x4S31jaei7d186e3
+ hgTblSBuI5kPP9dYbb+cRegB6CACoQrpVsGPVByihpM2yUGKl2Ik7LzQ+TbpYbsSnj4Y
+ rT/A3OTO1X++PJ7SvmQzu3EFQHFLBSK3gkaWb+flFM7IHfIGURuVJos2akCzTdjSE4Z/
+ vJOQnrq9osjTSdwT2X/eVcZVfMgWzgQaEpLChx5m6+z4a+C+XIGbM5YDVA4IwQ23DGdL
+ mu7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:sender:from:date:message-id:subject
+ :to:content-transfer-encoding;
+ bh=ZLLqDcgpNV8kfRzVSVxys8vLdFdOBGPgOHBMI1Q4xo8=;
+ b=MBk8/J3BhxGWkE6UwM4ombTGpKUK478Mr7HWlSUmkP8/SMfh5uEmVv8k6yEbzaOJuz
+ Xp0636imHJdS+kucyJE+1Vk8aH2xofOKyumuXxnuoLPqLNQKQoeWqg1WzWR/SNjBmFhc
+ VBrQRNjYE4ytdInEn+NhzPAggXcp3vYtE+ta6rhLaIii72yeYq0Z4G1No+M6UfK+sxpX
+ BZklpPmrS9MH/32zQvX/NvtGQ9nSXMFu4WESrRk4hkilbcaNs0qiHvchLg6/R9IaM6d8
+ VMrqdRzY5xAq4u0RkQWLDlJbk4lKzRwXxt89720vL8OFXauI8uIpmaqL+IqiMX2e4yyz
+ y3Tg==
+X-Gm-Message-State: APjAAAU4RihMcAPSHWcdzErk8QvDm60ggLJh2ze1Ch4agMZTVjJTu9AV
+ +bCL23YOWLbvacu9q6sOgaHzSj2lBJ8kaR/pCNg=
+X-Google-Smtp-Source: APXvYqwIXFcLbwx7S4i4e8cLVsnHWjq8P/6zWTiN+Nxhs3JfHEEZ1xTsESpfcxCvVnfwtRapdFVpVdXtN7PmYr2geow=
+X-Received: by 2002:a19:7401:: with SMTP id v1mr37625720lfe.155.1563974621621; 
+ Wed, 24 Jul 2019 06:23:41 -0700 (PDT)
 MIME-Version: 1.0
-X-Originating-IP: [10.133.213.239]
-X-CFilter-Loop: Reflected
+Received: by 2002:a2e:7a13:0:0:0:0:0 with HTTP; Wed, 24 Jul 2019 06:23:41
+ -0700 (PDT)
+From: Fred <barrwillettefred@gmail.com>
+Date: Wed, 24 Jul 2019 06:23:41 -0700
+X-Google-Sender-Auth: hIiP-uWrM7RLYSKYTbKCmUv6Ykc
+Message-ID: <CAGzsiFoLLU6uS1yc=JA5wHR5V1T+s_=BoDW_C6ZY_3XBNirgXw@mail.gmail.com>
+Subject: Urgent.
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190724_053741_600463_33B19FCC 
-X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-CacheID: sfid-20190724_062343_855948_9E11B3DC 
+X-CRM114-Status: UNSURE (  -2.09  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:141 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (mrsannemperier[at]gmail.com)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ 1.0 FREEMAIL_REPLY         From and body contain different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,41 +95,50 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: YueHaibing <yuehaibing@huawei.com>, linux-mtd@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-WARNING: unmet direct dependencies detected for MUX_MMIO
-  Depends on [n]: MULTIPLEXER [=m] && (OF [=n] || COMPILE_TEST [=n])
-  Selected by [m]:
-  - HBMC_AM654 [=m] && MTD [=m] && MTD_HYPERBUS [=m]
-
-Reported-by: Hulk Robot <hulkci@huawei.com>
-Signed-off-by: YueHaibing <yuehaibing@huawei.com>
----
- drivers/mtd/hyperbus/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/mtd/hyperbus/Kconfig b/drivers/mtd/hyperbus/Kconfig
-index cff6bbd..769d129 100644
---- a/drivers/mtd/hyperbus/Kconfig
-+++ b/drivers/mtd/hyperbus/Kconfig
-@@ -14,6 +14,7 @@ if MTD_HYPERBUS
- 
- config HBMC_AM654
- 	tristate "HyperBus controller driver for AM65x SoC"
-+	depends on OF
- 	select MULTIPLEXER
- 	select MUX_MMIO
- 	help
--- 
-2.7.4
-
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+TWEgY2jDqXJpZQpTYWx1dGF0aW9ucyEgSidlc3DDqHJlIHF1ZSB0b3V0IHZhIGJpZW4gcG91ciB2
+b3VzIGV0IHZvdHJlIGZhbWlsbGUuCmonYWkgZXUgamUgdm91bGFpcyB0J8OpY3JpcmUgcGx1cyB0
+w7R0IG1haXMgcGFyIGNvbmNlbnRyYXRpb24sIGplIGRldmFpcwpmaW5pciBhdmVjIHRvdXQgbW9u
+IEVuZGVhdm9yIGljaSwgaifDqXRhaXMgZG9uYyB0csOocyBvY2N1cMOpLgoKSifDqWNyaXMgZW4g
+Y2UgcXVpIGNvbmNlcm5lIG5vcyBhdmFudGFnZXMgbXV0dWVscywgYXByw6hzIHRvdXQgZGl0LCBq
+ZQpzdWlzIGZpbmFsZW1lbnQgc29ydGkgdmljdG9yaWV1c2VtZW50LiBJbCBlc3QgbWFsaGV1cmV1
+eCBxdWUgdm91cwpwZXJkZXogbGEgY29uZmlhbmNlIHF1ZSBqJ2F2YWlzIHByw6ljw6lkZW1tZW50
+IHBvc8OpZSBzdXIgdm91cy4gQmllbiBxdWUsCmVuIGZhaXQsIGplIGNvbXByZW5kcyB0b3V0IGNl
+IHF1ZSB2b3VzIGF2ZXogdsOpY3UuIENlcGVuZGFudCwgamUgc3VpcwpyYXZpIGRlIHZvdXMgaW5m
+b3JtZXIgZGUgY2V0dGUgdHJhbnNhY3Rpb24gZXQgZmluYWxlbWVudCBkZSBs4oCZYWlkZSBkdQpE
+ciBKb2huIEhhcnVuYSwgcXVpIHPigJllc3QgcmFwaWRlbWVudCBhaWTDqS4gQmllbiBxdWUgYmVh
+dWNvdXAgZCdhcmdlbnQKYWl0IMOpdMOpIGTDqXBlbnPDqSBwb3VyIGwnYWNow6h2ZW1lbnQgZGUg
+Y2V0dGUgdHJhbnNhY3Rpb24sIG1haXMgcXVlIGxlCnN1Y2PDqHMgYWl0IGZpbmFsZW1lbnQgw6l0
+w6kgb2J0ZW51LCBqZSBzdWlzIGFjdHVlbGxlbWVudCBkYW5zIHVuIHByb2pldApldCB1biBpbnZl
+c3Rpc3NlbWVudCwgamUgcGFycyBkb25jIHBvdXIgbCdJbmRlIGF1am91cmQnaHVpLCBldCBlbgpy
+YWlzb24gTW9uIGVtcGxvaSBkdSB0ZW1wcyBwcm9ncmFtbcOpLCBqZSBzZXJhaSBwZXV0LcOqdHJl
+IHBhcyBkZSByZXRvdXIKYXZhbnQgSnVpbiAyMDIwIHBhcmNlIHF1ZSBqZSB2b3lhZ2VyYWlzIGQn
+SW5kZSBlbiBBbmdsZXRlcnJlLgoKVG91dCBkJ2Fib3JkLCBqZSB2b3VkcmFpcyByZW1lcmNpZXIg
+bGUgU2VpZ25ldXIgZGUgbm91cyBhdm9pciBwcm9taXMKcXVlIGNldXggcXVpIG9udCBtaXMgbGV1
+ciBjb25maWFuY2UgZW4gZXV4IG4nYXVyYWllbnQgamFtYWlzIGhvbnRlLiBJbAplc3QgdnJhaW1l
+bnQgbGUgRGlldSBxdWkgcsOpcG9uZCDDoCBsYSBwcmnDqHJlLiBTZWNvbmQsIGplIHZldXggc2Fp
+c2lyIGNlCm1veWVuIGQnYXBwcsOpY2llciB0b3V0ZXMgdm9zIGNvbnRyaWJ1dGlvbnMgZXQgbGUg
+dGVtcHMgcGFzc8OpIGRhbnMgbGUKY291cnMgZGUgY2V0dGUgdHJhbnNhY3Rpb24uCgpNZXJjaSBi
+ZWF1Y291cCBldCBib24gRGlldSB2b3VzIGLDqW5pc3NleiBkJ3V0aWxpc2VyIHZvcyBub21zIGV0
+CmluZm9ybWF0aW9ucyBwb3VyIHLDqWNsYW1lciBsZXMgZm9uZHMuIMOAIGxhIGx1bWnDqHJlIGRl
+IGNlY2ksIHVuCmFycmFuZ2VtZW50IGEgw6l0w6kgY29uY2x1IMOgIGxhIHLDqXbDqXJlbmQgTWFy
+dGhpbnMgTWFsaWssIHBvdXIgdm91cwplbnZveWVyIHVuIHRvdGFsIGRlIDU1MCAwMDAsMDAgJCBV
+UyB1bmlxdWVtZW50IHBhciBjYXJ0ZSBkZSB2aXNhCkd1aWNoZXQgYXV0b21hdGlxdWUsIHJlY29u
+bmFpc3NhbmNlIHBvdXIgdG91dGVzIGxlcyBjb250cmlidXRpb25zIHF1ZQp2b3VzIGF2ZXogZmFp
+dCBjZXR0ZSB0cmFuc2FjdGlvbiBkYW5zIGxlIHBhc3PDqS4gVmV1aWxsZXogYWNjZXB0ZXIgY2Vs
+YQphdmVjIGJvbiBlc3ByaXQuCgpDb250YWN0ZXogbGUgcsOpdi4gTWFydGhpbnMgTWFsaWNrIChF
+LW1haWw6IHJldm1hcnRoaW5zX21AaG90bWFpbC5mcikKSW5kaXF1ZXotbHVpIG/DuSB2b3VzIGVu
+dm95ZXogbGEgY2FydGUgZGUgdmlzYSBBVE0gb3UsIG1pZXV4IGVuY29yZSwKdm91cyBwb3V2ZXog
+bHVpIGVudm95ZXIgdW4gY291cnJpZXIgw6lsZWN0cm9uaXF1ZSBhZmluIGRlIGx1aSBwZXJtZXR0
+cmUKZGUgcHJlbmRyZSBkZXMgbWVzdXJlcyBxdWkgcydpbXBvc2VudC4KClZvdXMgbmUgcG91dmV6
+IHBhcyDDqnRyZSBhZmZlY3TDqSDDoCB1biBtZXNzYWdlIHNpIHZvdXMgw6p0ZXMgdHLDqHMgb2Nj
+dXDDqQpwYXIgbW9uIHByb2pldCwgc2kgdm91cyBsZSBzb3VoYWl0ZXosIHNpIHZvdXMgbGUgc291
+aGFpdGV6LgoKSmUgdm91cyB0w6lsw6lwaG9uZXJhaSBkZSBsJ0luZGUgZMOocyBxdWUgcG9zc2li
+bGUuCgpNZWlsbGV1cmVzIHNhbHV0YXRpb25zCgpGcmVkIFdpbGxldHRlIEVzcS4KTMOpZ2lzdGUu
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+TGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
