@@ -2,49 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB5BE781B3
-	for <lists+linux-mtd@lfdr.de>; Sun, 28 Jul 2019 23:18:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FA4A781C6
+	for <lists+linux-mtd@lfdr.de>; Sun, 28 Jul 2019 23:22:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JiwAN8WSH0hNGWgzzfYt/fuoNyVe+yS3+PsJYzWEWV8=; b=XaBryrS2HDNTsA
-	qCI5VdP6WL3kt2hLftezf1jqhbhuRgUFyyO+Ms4z+UaRaIN4fN/tyFFs1mnnhyxFi0+J/cFt3oAQh
-	GHzuuX1h21FqWlQu8NQgfPwCQScGl9bfQre0wTEl+lkP3tFTXqHCDfTDRxwGAZBs5EWDpHUuZxZUz
-	g4KtPtdi0d4fOzpKOZwC72V7UPFGCacUdNwT3RwANKLcdG9JSr09lnJ5Sp4PHRekrcDeCsiYC9hFR
-	I/X6FZcZU7jViCWZ+zQBxe6y5Sl6lHlrAptxEa7Li9rbdZIhu/jkz95ptC3gIvB16dCtt5ojdZVwe
-	a932sCc0zzchSzArqsdw==;
+	List-Owner; bh=N/f/2DFvagWCbJQ8xJ2rmJFRWK/AMbtVwrNHkB+xGSE=; b=eBaIoDF4zTZ6a1
+	MXbXtM4yPyTKiyclrGTmWJqgEIOIZ0xH/le3XyPmlz7KGkQqVWwh1wFlNxsv6E39ZnkucE+Db6Zaq
+	tBpX66UIUySEulW1peL84ckj2aQNvdG+kgZVft5TpsylTaYpUBNDmSsrgfwG+Oi8MRqxB7SO4yWFB
+	sPoEQHa4WG33EfhGphV/NpoagUEoiofp7/MRj4LwJTIgha/A1tiW/ejTjrIV3CjWZ6Z8JtrrWn4/R
+	dAQR27wHkO1LcZPf5oO80on5Q35CYpIUCIn1qEHuc4gJhiziwxYWMztRpFnmkipd00G6ax8xmlhyh
+	D8OdsMgq3rIDLZXpES8Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hrqYI-00056K-VX; Sun, 28 Jul 2019 21:17:59 +0000
+	id 1hrqcv-00071M-El; Sun, 28 Jul 2019 21:22:45 +0000
 Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hrqYA-00055N-NR
- for linux-mtd@lists.infradead.org; Sun, 28 Jul 2019 21:17:52 +0000
+ id 1hrqcl-000713-SO
+ for linux-mtd@lists.infradead.org; Sun, 28 Jul 2019 21:22:37 +0000
 Received: from callcc.thunk.org (96-72-102-169-static.hfc.comcastbusiness.net
  [96.72.102.169] (may be forged)) (authenticated bits=0)
  (User authenticated as tytso@ATHENA.MIT.EDU)
- by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6SLHVFd011138
+ by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6SLMSdP012995
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Sun, 28 Jul 2019 17:17:32 -0400
+ Sun, 28 Jul 2019 17:22:29 -0400
 Received: by callcc.thunk.org (Postfix, from userid 15806)
- id 5DD5D4202F5; Sun, 28 Jul 2019 17:17:30 -0400 (EDT)
-Date: Sun, 28 Jul 2019 17:17:30 -0400
+ id F22684202F5; Sun, 28 Jul 2019 17:22:26 -0400 (EDT)
+Date: Sun, 28 Jul 2019 17:22:26 -0400
 From: "Theodore Y. Ts'o" <tytso@mit.edu>
 To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH v7 10/16] fscrypt: v2 encryption policy support
-Message-ID: <20190728211730.GK6088@mit.edu>
+Subject: Re: [PATCH v7 11/16] fscrypt: allow unprivileged users to add/remove
+ keys for v2 policies
+Message-ID: <20190728212226.GL6088@mit.edu>
 References: <20190726224141.14044-1-ebiggers@kernel.org>
- <20190726224141.14044-11-ebiggers@kernel.org>
+ <20190726224141.14044-12-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190726224141.14044-11-ebiggers@kernel.org>
+In-Reply-To: <20190726224141.14044-12-ebiggers@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190728_141750_933276_FF89AD2E 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20190728_142236_087336_24F90F59 
+X-CRM114-Status: GOOD (  10.10  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -75,45 +76,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Jul 26, 2019 at 03:41:35PM -0700, Eric Biggers wrote:
-> @@ -319,6 +329,31 @@ int fscrypt_ioctl_add_key(struct file *filp, void __user *_uarg)
->  	if (!capable(CAP_SYS_ADMIN))
->  		goto out_wipe_secret;
->  
-> +	if (arg.key_spec.type != FSCRYPT_KEY_SPEC_TYPE_DESCRIPTOR) {
+On Fri, Jul 26, 2019 at 03:41:36PM -0700, Eric Biggers wrote:
+> diff --git a/fs/crypto/keyring.c b/fs/crypto/keyring.c
+> index 56e085c2ed8c6..307533d4d7c51 100644
+> --- a/fs/crypto/keyring.c
+> +++ b/fs/crypto/keyring.c
+> +		if (mk->mk_users->keys.nr_leaves_on_tree != 0) {
+> +			/*
+> +			 * Other users have still added the key too.  We removed
+> +			 * the current user's usage of the key if there was one,
+> +			 * but we still can't remove the key itself.
+> +			 */
+> +			err = -EUSERS;
+> +			up_write(&key->sem);
+> +			goto out_put_key;
 
-This should be "== FSCRYPT_KEY_SPEC_TYPE_INDENTIFIER" instead.  That's
-because you use the identifier part of the union:
+I commented about this on an earlier patch, but I'm not convinced we
+should be returning EUSERS here.  Returning success might be a better
+choice.
 
-> +		/* Calculate the key identifier and return it to userspace. */
-> +		err = fscrypt_hkdf_expand(&secret.hkdf,
-> +					  HKDF_CONTEXT_KEY_IDENTIFIER,
-> +					  NULL, 0, arg.key_spec.u.identifier,
-
-If we ever add a new key specifier type, and alternative in the union,
-this is going to come back to bite us.
-
-> +	if (policy->version == FSCRYPT_POLICY_V1) {
-> +		/*
-> +		 * The original encryption policy version provided no way of
-> +		 * verifying that the correct master key was supplied, which was
-> +		 * insecure in scenarios where multiple users have access to the
-> +		 * same encrypted files (even just read-only access).
-
-Which scenario do you have in mind?  With read-only access, Alice can
-fetch the encryption policy for a directory, and introduce a key with
-the same descriptor, but the "wrong" key, but that's only going to
-affect Alice's use of the key.  It won't affect what key is used by
-Bob, since Alice doesn't have write access to Bob's keyrings.
-
-If what you mean is the risk when there is a single global
-filesystem-specific keyring, where Alice could introduce a "wrong" key
-identified with a specific descriptor, then sure, Alice could trick
-Bob into encrypting his data with the wrong key (one known to Alice).
-But we don't allow keys usable by V1 policies to be used in the
-filesystem-specific keyring, do we?
-
-						- Ted
+					- Ted
 
 ______________________________________________________
 Linux MTD discussion mailing list
