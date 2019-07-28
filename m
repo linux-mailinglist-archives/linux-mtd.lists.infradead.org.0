@@ -2,49 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EFE4F78002
-	for <lists+linux-mtd@lfdr.de>; Sun, 28 Jul 2019 17:09:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DF337804A
+	for <lists+linux-mtd@lfdr.de>; Sun, 28 Jul 2019 17:41:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U+Pjfn4K2XL9o3uuxGtkYrWtmv4oFS8mecDdQC6BvIw=; b=SuXjF5py1ydB/P
-	lLbTTgRMUJLstMJRTfH6i7pGaXMmeomeA6IIzSM9HQNsUrN7rjHOqydK2bpYpaOGsFBTw0hVlX6zO
-	3XL0OOxEhJzNWu6kSyTrLFNWMqn0mGMnalC3QkwLc6l4LDAyVKlJeOzAOIZsnF5PwpamvhgkYsp2d
-	ZzEp7HFYtJJKVSp5++MFqEh6fq/H+8fuTiyi9UgZduxy3beC3gtWFo+oY9FYdn3y5KUdfFA1KyU8T
-	AzVpQeWuKdAVFtuNTVGT12Ssb9o66BT93JLcdKClvDfCsZ8TnxXwdIeWyhibPBxY45iIKztJBmo1M
-	Nq2jrx42BQUNQvYb/1ig==;
+	List-Owner; bh=9900Ys3vQjOqtHHKv8ezRW8DmkW+nHEPGl1LoQwqqJ8=; b=Fb04zGNPkfUK+k
+	6KP/9GaW244FQ8XFpkYi1iPtfuS9rB9HamAEPL56u3WgOEw2zyN7dvkqPEeUObV2HDsrgkNols7qp
+	H8P4gkNR9u4W8TSuBXdduDEX/2zs+fh6eHOI08JgNV9W2drGog8dRKZPRHPATh4Z4uaXfOAL60dMK
+	TMMAd4oE5CFnYvQ/WdIOT/I/sF30U8naNXU8n2ajqx12/Hal1h/3cy/ZlUMbps9kB3wCHu/evVttA
+	9Vm4c3P18J0W23UGm883mXuKeajWYWGQRLeFMNcmlwRr64ZIiQRGsEGQmtQSkw1f5htYb4Ejgq4Bc
+	FrF0RKj4lV1/32ZkMsIQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hrknv-0002Zi-W6; Sun, 28 Jul 2019 15:09:44 +0000
+	id 1hrlI0-0004h5-Tn; Sun, 28 Jul 2019 15:40:48 +0000
 Received: from outgoing-auth-1.mit.edu ([18.9.28.11] helo=outgoing.mit.edu)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hrknl-0002ZL-EB
- for linux-mtd@lists.infradead.org; Sun, 28 Jul 2019 15:09:34 +0000
+ id 1hrlHr-0004gl-Ep
+ for linux-mtd@lists.infradead.org; Sun, 28 Jul 2019 15:40:40 +0000
 Received: from callcc.thunk.org (96-72-102-169-static.hfc.comcastbusiness.net
  [96.72.102.169] (may be forged)) (authenticated bits=0)
  (User authenticated as tytso@ATHENA.MIT.EDU)
- by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6SF9SUd026710
+ by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6SFeXgD004159
  (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Sun, 28 Jul 2019 11:09:29 -0400
+ Sun, 28 Jul 2019 11:40:34 -0400
 Received: by callcc.thunk.org (Postfix, from userid 15806)
- id BDCE54202F5; Sun, 28 Jul 2019 11:09:27 -0400 (EDT)
-Date: Sun, 28 Jul 2019 11:09:27 -0400
+ id 6A6464202F5; Sun, 28 Jul 2019 11:40:32 -0400 (EDT)
+Date: Sun, 28 Jul 2019 11:40:32 -0400
 From: "Theodore Y. Ts'o" <tytso@mit.edu>
 To: Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH v7 04/16] fscrypt: add ->ci_inode to fscrypt_info
-Message-ID: <20190728150927.GD6088@mit.edu>
+Subject: Re: [PATCH v7 05/16] fscrypt: refactor v1 policy key setup into
+ keysetup_legacy.c
+Message-ID: <20190728154032.GE6088@mit.edu>
 References: <20190726224141.14044-1-ebiggers@kernel.org>
- <20190726224141.14044-5-ebiggers@kernel.org>
+ <20190726224141.14044-6-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190726224141.14044-5-ebiggers@kernel.org>
+In-Reply-To: <20190726224141.14044-6-ebiggers@kernel.org>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190728_080933_643185_0BEF3749 
-X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-CacheID: sfid-20190728_084039_667229_53151A98 
+X-CRM114-Status: UNSURE (   7.82  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -76,28 +77,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Jul 26, 2019 at 03:41:29PM -0700, Eric Biggers wrote:
+On Fri, Jul 26, 2019 at 03:41:30PM -0700, Eric Biggers wrote:
 > From: Eric Biggers <ebiggers@google.com>
 > 
-> Add an inode back-pointer to 'struct fscrypt_info', such that
-> inode->i_crypt_info->ci_inode == inode.
-> 
-> This will be useful for:
-> 
-> 1. Evicting the inodes when a fscrypt key is removed, since we'll track
->    the inodes using a given key by linking their fscrypt_infos together,
->    rather than the inodes directly.  This avoids bloating 'struct inode'
->    with a new list_head.
-> 
-> 2. Simplifying the per-file key setup, since the inode pointer won't
->    have to be passed around everywhere just in case something goes wrong
->    and it's needed for fscrypt_warn().
-> 
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
+> In preparation for introducing v2 encryption policies which will find
+> and derive encryption keys differently from the current v1 encryption
+> policies, refactor the v1 policy-specific key setup code from keyinfo.c
+> into keysetup_legacy.c.  Then rename keyinfo.c to keysetup.c.
 
-Looks good, feel free to add:
+I'd use keysetup_v1.c, myself.  We can hope that we've gotten it right
+with v2 and we'll never need to do another version, but *something* is
+going to come up eventually which will require a v3 keysetup , whether
+it's post-quantuum cryptography or something else we can't anticipate
+right now.
+
+For an example of the confusion that can result, one good example is
+in the fs/quota subsystem, where QFMT_VFS_OLD, QFMT_VFS_V0, and
+QFMT_VFS_V1 maps to quota_v1 and quota_v2 in an amusing and
+non-obvious way.  (Go ahead, try to guess before you go look at the
+code.  :-)
+
+Other than that, looks good.  We can always move code around or rename
+files in the future, so I'm not going to insist on doing it now (but
+it would be my preference).
 
 Reviewed-by: Theodore Ts'o <tytso@mit.edu>
+
+						- Ted
+						
 
 ______________________________________________________
 Linux MTD discussion mailing list
