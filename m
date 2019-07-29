@@ -2,85 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E8FFC78DDC
-	for <lists+linux-mtd@lfdr.de>; Mon, 29 Jul 2019 16:28:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 37ED678F39
+	for <lists+linux-mtd@lfdr.de>; Mon, 29 Jul 2019 17:29:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=BbOfPEfWRYcX5Z8t36bojPSlVKcwiiponAqj8vUQIbg=; b=ZB6SyIQ/s0MwblLP3UyU/y8zw7
-	3m4bGENbqfKlllyOOEcmJ4yqOvEAs+z89/bOFLDO/d1oh4llleGWm/OE8ZNK1eqZT88ZvI6mwqjlw
-	qDdV9ZK7F1duMKM54H1rMHhkovYfOiEBZ/RJu6E1gmUbZ+rYg3wrGa6ZFdFDUGD4ewgyXNYFZ/njq
-	i+oGr7U24LytXBgCBrLPdnvvazwFfPwYbkZyryIO8fSdXZ1nKUzNq6jEjvb32tOarekWGCV1KGI2y
-	L/bbOXB9VJfoFTOSAIDHB62uaEDX84/RLYjwWrY6lnWKNROaePm1qiS9BoDMbcJZG4Ga1nEusX7iX
-	lIbLpRVA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LFR7gqA7IG8EIStjSLYns97X4Cl87pWiZn07mtkGN4s=; b=NOe8H3l9yJhyRu
+	jnilCMaiDj8/iI5QckmXC05b0M76sTgC97LLnwUAW8G5ha/pREKwDkkkd+nR4EX666tBmoO4TEmIy
+	qeLvZIyRZS9IFOmqJkw0A2UB1KptLZmPQqlqnz0Dvvrgsmq+jdo2eeX58jMGjZrjGhmV1mmED1M5e
+	t7nM2kHQxwQaRTGXkjFHxQQUrUJbGG9RKH8XPaBgGO4DpTETz7R0wJhefJTnMl/0lOFn7vZlR8gpp
+	NH2ZntxQoEOBXf1s89fzlil3OH0JYEeG6t01x4r6zfP5B7OaLWw74qYRPtdHo9ZsqVMQtPt/Oserk
+	dM8MYJOk/gfmLVadn6ZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hs6dP-0005mO-Pr; Mon, 29 Jul 2019 14:28:19 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1hs7aQ-00055q-3S; Mon, 29 Jul 2019 15:29:18 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hs6dF-0005mI-Gu
- for linux-mtd@bombadil.infradead.org; Mon, 29 Jul 2019 14:28:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=casper.20170209; h=References:In-Reply-To:Message-Id:Date:
- Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=W0uPCNr/DsWKO1afSsH5zinjuVhA/kCF5UlBNJimAdw=; b=eiYYdNuifnwb+43+UuoyUHYar
- ataEc6lESv9R97Pj3Qz3Qi3IWD4cBi9JHPAoURhtytddyOoaUuzYjbGp78TCaDI6a5jCnnBTQLHhX
- /NfZasPdul31S8UztO2FbCJvJ7zwL4fcesTXFHwrO0r2TwDk0Kvj9szOxg1D1DoxTwBFQt43RKRmE
- c/2MLX9y8FcFl6qbm9yAQ+Wi1BgXU0v/oqDG0uGlLmRr7O73ZzNHY8G1ccD7B2nB3AX4bAn6jaMdJ
- DEReoj0/B+kyYsNEdptUjEwDLUitVdK5BOzw4aLbsYVZ5QpfSC1RDVTg2Pl8vqdxrRkYtmhGpeSX9
- ZgAG++9qA==;
-Received: from 212.199.177.27.static.012.net.il ([212.199.177.27]
- helo=herzl.nuvoton.co.il)
- by casper.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hs6dO-0002P0-9A
- for linux-mtd@lists.infradead.org; Mon, 29 Jul 2019 14:28:20 +0000
-Received: from taln60.nuvoton.co.il (ntil-fw [212.199.177.25])
- by herzl.nuvoton.co.il (8.13.8/8.13.8) with ESMTP id x6TEP7Fj025574;
- Mon, 29 Jul 2019 17:25:07 +0300
-Received: by taln60.nuvoton.co.il (Postfix, from userid 10070)
- id 29394622F0; Mon, 29 Jul 2019 17:25:07 +0300 (IDT)
-From: Tomer Maimon <tmaimon77@gmail.com>
-To: broonie@kernel.org, dwmw2@infradead.org, computersforpeace@gmail.com,
- marek.vasut@gmail.com, miquel.raynal@bootlin.com, richard@nod.at,
- vigneshr@ti.com, bbrezillon@kernel.org, yogeshnarayan.gaur@nxp.com,
- tudor.ambarus@microchip.com, gregkh@linuxfoundation.org,
- frieder.schrempf@exceet.de, tglx@linutronix.de
-Subject: [RFC v1 3/3] mtd: m25p80: add get Flash size callback support
-Date: Mon, 29 Jul 2019 17:25:04 +0300
-Message-Id: <20190729142504.188336-4-tmaimon77@gmail.com>
-X-Mailer: git-send-email 2.18.0
+ id 1hs7aD-000554-Ao
+ for linux-mtd@lists.infradead.org; Mon, 29 Jul 2019 15:29:06 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 65B8826D9C2;
+ Mon, 29 Jul 2019 16:29:02 +0100 (BST)
+Date: Mon, 29 Jul 2019 17:28:59 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Tomer Maimon <tmaimon77@gmail.com>
+Subject: Re: [RFC v1 0/3] *spi-mem: adding setup and callback function
+Message-ID: <20190729172859.4374a2ad@collabora.com>
 In-Reply-To: <20190729142504.188336-1-tmaimon77@gmail.com>
 References: <20190729142504.188336-1-tmaimon77@gmail.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_152818_480357_8C65EA3C 
-X-CRM114-Status: GOOD (  13.32  )
-X-Spam-Score: 2.7 (++)
-X-Spam-Report: SpamAssassin version 3.4.2 on casper.infradead.org summary:
- Content analysis details:   (2.7 points, 5.0 required)
+X-CRM114-CacheID: sfid-20190729_082905_499683_A812FEF0 
+X-CRM114-Status: GOOD (  12.90  )
+X-Spam-Score: -0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 TVD_RCVD_IP            Message was received from an IP address
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (tmaimon77[at]gmail.com)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 1.0 FORGED_GMAIL_RCVD      'From' gmail.com does not match 'Received'
- headers
- 0.0 DKIM_ADSP_CUSTOM_MED   No valid author signature, adsp_override is
- CUSTOM_MED
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
- 1.2 NML_ADSP_CUSTOM_MED    ADSP custom_med hit, and not from a mailing
- list
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -92,58 +60,60 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
- Tomer Maimon <tmaimon77@gmail.com>, linux-spi@vger.kernel.org
-MIME-Version: 1.0
+Cc: yogeshnarayan.gaur@nxp.com, vigneshr@ti.com, bbrezillon@kernel.org,
+ richard@nod.at, tudor.ambarus@microchip.com, linux-spi@vger.kernel.org,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ marek.vasut@gmail.com, frieder.schrempf@exceet.de, broonie@kernel.org,
+ linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com, tglx@linutronix.de,
+ computersforpeace@gmail.com, dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Add get Flash size function support for
-passing Flash size through callback use
-to the spi layer.
+Hi Tomer,
 
-Add get Flash size function support
+On Mon, 29 Jul 2019 17:25:01 +0300
+Tomer Maimon <tmaimon77@gmail.com> wrote:
 
-Signed-off-by: Tomer Maimon <tmaimon77@gmail.com>
----
- drivers/mtd/devices/m25p80.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> Lately we have working on Flash interface unit (FIU) SPI driver that 
+> using spi-mem interface, Our FIU HW module support direct Flash Rd//Wr.
+> 
+> In our SOC (32 bit dual core ARM) we have 3 FIU's that using memory mapping as follow:
+> 
+> FIU0 - have 2 chip select and each one have 128MB memory mapping (total 256MB memory mapping)
+> FIU1 - have 4 chip select and each one have 128MB memory mapping (total 512MB memory mapping)
+> FIU2 - have 4 chip select and each one have 16MB memory mapping (total 32MB memory mapping)
+> 
+> Totally 800MB memory mapping.
+> 
+> When the FIU driver probe it don't know the size of each Flash that 
+> connected to the FIU, so the entire memory mapping is allocated for each FIU 
+> according the FIU device tree memory map parameters.
 
-diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
-index c50888670250..fd14c8c6d8d8 100644
---- a/drivers/mtd/devices/m25p80.c
-+++ b/drivers/mtd/devices/m25p80.c
-@@ -151,6 +151,15 @@ static ssize_t m25p80_read(struct spi_nor *nor, loff_t from, size_t len,
- 	return len;
- }
- 
-+/* Sending Flash size thourgh callback function to spi layer */
-+size_t	m25p80_get_flash_size(void *param)
-+{
-+	struct spi_mem *spimem = param;
-+	struct m25p *flash = spi_mem_get_drvdata(spimem);
-+
-+	return (u32)(flash->spi_nor.mtd.size >> 10) * 1024;
-+}
-+
- /*
-  * board specific setup should have ensured the SPI clock used here
-  * matches what the READ command supports, at least until this driver
-@@ -188,6 +197,9 @@ static int m25p_probe(struct spi_mem *spimem)
- 	spi_nor_set_flash_node(nor, spi->dev.of_node);
- 	nor->priv = flash;
- 
-+	spimem->callback = m25p80_get_flash_size;
-+	spimem->callback_param = spimem;
-+
- 	spi_mem_set_drvdata(spimem, flash);
- 	flash->spimem = spimem;
- 
--- 
-2.18.0
+Do you need those mappings to be active to support simple reg accesses?
 
+> It means, if we enable all three FIU's the drivers will try to allocate totally 800MB.
+> 
+> In 32bit system it is problematic because the kernel have only 1GB 
+> of memory allocation so the vmalloc cannot take 800MB.
+> 
+> When implementing the FIU driver in the mtd/spi-nor we allocating memory address only 
+> for detected Flash with exact size (usually we are not using 128MB Flash), and in that case usually we allocating much less memory.
+> 
+> To solve this issue we needed to overcome two things:
+> 
+> 1.	Get argument from the upper layer (spi-mem layer) 
+> 2.	Calling the get argument function after SPI_NOR_SCAN function. (the MTD Flash size filled in  SPI_NOR_SCAN function)
+
+That's clearly breaking the layering we've tried to restore with the
+spi-nor/spi-mem split, and I don't see why this is needed since we now
+have a way to create direct mappings dynamically (with the dirmap API).
+Have you tried implementing the dirmap hooks in your driver?
+
+Regards,
+
+Boris
 
 ______________________________________________________
 Linux MTD discussion mailing list
