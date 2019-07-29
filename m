@@ -2,76 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF9D97917B
-	for <lists+linux-mtd@lfdr.de>; Mon, 29 Jul 2019 18:52:17 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FBB2791C5
+	for <lists+linux-mtd@lfdr.de>; Mon, 29 Jul 2019 19:06:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QatV8gyUUQbaNyGBm5xAzLbPA+JAGOARlkaZ+UFdfak=; b=YE39A/GBygxigY
-	UVlM6vJ4dhimanTanve9gSrMDWINZnNUAfHmlg1zTnAjZJlYbbLaCfms2jhg46LaiAKJW9Wa13+SL
-	l51UbbWBh/1UDsGjVaCJSBQXOV+tPF3zp+E//OTGymmnKWSJWXYDoA3YeoSZIz6D2Ucg4yvd+mkzS
-	lXwkVRRnjYG2DM/oOwkeQbSxfdyCGM0O3bWu+hDwC02Pqt2IaWETmHQaRFPO/68nT1xB7iJcKNrsB
-	qP75UzFvBTw6oOisWxGoFLuoFAkEl/X8bkQFxNHy6DZAHVd8zsQz9VDSAYOhANKtQvnOXOLJXTYUP
-	zek4oQFGJqhOSKh+6N9g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:To:
+	Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=6X0ijKO51VEHigtcYjNhoh0upUhtc5Bezgyvu+lOrzE=; b=snVGIHsIA0Q6lNDQEutMrbxbw
+	qIzAv/4sDUxPfp6fGAPVyAXcH0fEaMmGNV2i7XMlpSzi56KAmtd63xc1jXMLcOkcOtiNE4jsa7SiS
+	aVtaBdL83hJyMx+qmIKswnK2p6AbOHQboK+YJyx6yfao+hlG2BanDwPHWmZvPYZSbW8UU6wujmveb
+	/wW91jCbEB9d4bge7Ree5G2duy0rTPI1QWw76bBoosTxrTdzeunQjVcNbnz8RPSg0x8sqGTaEbJQb
+	4T4EuuaFWtX1613wk5SLm6tUkNTRaoAjJ+IjEYln0w6QHmOQfneKV8R96rVPo4Tsz7dqRL739YZWP
+	KqGBjvXIA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hs8sa-0005YW-T2; Mon, 29 Jul 2019 16:52:08 +0000
-Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
+	id 1hs96A-0002Ba-1d; Mon, 29 Jul 2019 17:06:10 +0000
+Received: from outils.crapouillou.net ([89.234.176.41] helo=crapouillou.net)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hs8sJ-0005Y6-2k
- for linux-mtd@lists.infradead.org; Mon, 29 Jul 2019 16:51:52 +0000
-Received: by mail-wr1-x442.google.com with SMTP id x4so9460012wrt.6
- for <linux-mtd@lists.infradead.org>; Mon, 29 Jul 2019 09:51:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=4ZR7GQdk+TMgHTzIs73vEXDQC9onjR3MWg3uo05c3R8=;
- b=SKpKd8llXJ92IVsqj5Y6HaXfo+LTDCE4Spr9+lYn9V+JYumti4uh8xfhmxUWt2xhPZ
- dnHXh/55gv0Kyz0EGlSKbguy1MjsLjxziUIGeju8WVUp2o4DUtdei/ROOpLkB0NE8TAP
- 2jTxKfCCW5230Qu8KtDoXyQ3YvWWb9GV/CDe5sEK/Vf+8/d4EpsF7uGI2m664L+rgWP6
- /KM5suO8NM8jP++Yk+mnxZpDwPG/Ftr3AdHDfzqZsPQgDlrG38MyeMcEwqNBIKzm/VeP
- R3LBElhbuydbitLLmdX83/CQNzzE95RNWEEDXzkx9/OnR9mGv+SRoPXqUFzZjbh5dDwR
- axRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=4ZR7GQdk+TMgHTzIs73vEXDQC9onjR3MWg3uo05c3R8=;
- b=hzTNrDiu/mtBs1MtNxB1ZGBRVc1OBO+CN9NopS+HCmjMFH2XBSDKbV7OIDM0fcYpeE
- ClelqXErpxs1vhnUg36dLj8IKpyzs/z/G3FRBp7zY0U3l6hQNoV4XPKJ0hfTDAFVaoy5
- ixW56Zkz7MJPXuBVDBMj8vRURsBg/3EGGt4ELHabax9YygTVSLDMf5G3Sv5H8aVXJwud
- g9NzTvTm4z/YHvVPiUBM+kEHP3zoGNXfdazEvRau9GFrfucit1Ahlk3Mi0cI5KndYBB5
- TqNGr6jjjTy2g1yEZJXxuuAcxMpz58lfWuVCpwRHkpB1DJPAyfzAppjE4vXnzAGmdEAi
- biiA==
-X-Gm-Message-State: APjAAAWpKSRLElFtmGenYrDMA8JrlEZXZkHwNpla8y8dmm121ARuc4Eo
- NXdE8gMLnvnfpIDfxu6oedweKccb9ulmdCbvVjA=
-X-Google-Smtp-Source: APXvYqzWBMib1QQ5e4ahEcO9KEyEul2DH+J/ifBNIu3ETVNneAbHJmPr22js3tz+mm69oEF5/ml6eYlj+PPI4gS3mR4=
-X-Received: by 2002:adf:e602:: with SMTP id p2mr84781998wrm.306.1564419109553; 
- Mon, 29 Jul 2019 09:51:49 -0700 (PDT)
+ id 1hs960-0002A4-39
+ for linux-mtd@lists.infradead.org; Mon, 29 Jul 2019 17:06:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+ s=mail; t=1564419948; h=from:from:sender:reply-to:subject:subject:date:date:
+ message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+ content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=6ct5sfA9aKEmr8hMlVPpfoX1PCyM/MxIecN3pTsFsbo=;
+ b=tGIbEOveRSTKHoZcpg/izsWRXZB3sJbHvlT52bDMqqruC35KNldtJ6Z1UumMknOBTmqxkS
+ L0QxFFWQrtfalRctJpTe/AFwPD5hYLu/miXPRxLnpxQZvMuW30gWEtzMHrKJVpyhyW4MrF
+ oruZx2tu/qGuw0Xp6xod1DxlnpMTbLU=
+Date: Mon, 29 Jul 2019 13:05:21 -0400
+From: Paul Cercueil <paul@crapouillou.net>
+Subject: Re: [PATCH 00/11] JZ4740 SoC cleanup
+To: Richard Weinberger <richard.weinberger@gmail.com>
+Message-Id: <1564419921.1759.1@crapouillou.net>
+In-Reply-To: <CAFLxGvyi0+0E3M12A7cRoHfEKd8-7Yr8EMG9J=2XcjCxPWY5pA@mail.gmail.com>
+References: <20190725220215.460-1-paul@crapouillou.net>
+ <CAFLxGvyi0+0E3M12A7cRoHfEKd8-7Yr8EMG9J=2XcjCxPWY5pA@mail.gmail.com>
 MIME-Version: 1.0
-References: <1563602720-113903-1-git-send-email-chengzhihao1@huawei.com>
-In-Reply-To: <1563602720-113903-1-git-send-email-chengzhihao1@huawei.com>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Mon, 29 Jul 2019 18:51:37 +0200
-Message-ID: <CAFLxGvxEAGtQDFm4G3orY+M9yuthDA4j0+u=HbE9DKuo7H8WCg@mail.gmail.com>
-Subject: Re: [PATCH] ubifs: ubifs_tnc_start_commit: Fix OOB in layout_in_gaps
-To: Zhihao Cheng <chengzhihao1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_095151_128573_EEBFC0C7 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20190729_100600_321681_554B151B 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:442 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (richard.weinberger[at]gmail.com)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -91,153 +71,79 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: yi.zhang@huawei.com, Richard Weinberger <richard@nod.at>,
- Sascha Hauer <s.hauer@pengutronix.de>, Artem Bityutskiy <dedekind1@gmail.com>,
- LKML <linux-kernel@vger.kernel.org>, linux-mtd@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, linux-fbdev@vger.kernel.org,
+ James Hogan <jhogan@kernel.org>, alsa-devel <alsa-devel@alsa-project.org>,
+ DRI mailing list <dri-devel@lists.freedesktop.org>, linux-mips@vger.kernel.org,
+ od@zcrc.me, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Lee Jones <lee.jones@linaro.org>,
+ Artur Rojek <contact@artur-rojek.eu>, Richard Weinberger <richard@nod.at>,
+ linux-pm@vger.kernel.org, Paul Burton <paul.burton@mips.com>,
+ Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org,
+ Jean Delvare <jdelvare@suse.com>,
+ Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
+ Mark Brown <broonie@kernel.org>, linux-hwmon@vger.kernel.org,
+ Liam Girdwood <lgirdwood@gmail.com>, Ralf Baechle <ralf@linux-mips.org>,
+ LKML <linux-kernel@vger.kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ dmaengine@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sat, Jul 20, 2019 at 8:00 AM Zhihao Cheng <chengzhihao1@huawei.com> wrote:
->
-> Running stress-test test_2 in mtd-utils on ubi device, sometimes we can
-> get following oops message:
->
->   BUG: unable to handle page fault for address: ffffffff00000140
->   #PF: supervisor read access in kernel mode
->   #PF: error_code(0x0000) - not-present page
->   PGD 280a067 P4D 280a067 PUD 0
->   Oops: 0000 [#1] SMP
->   CPU: 0 PID: 60 Comm: kworker/u16:1 Kdump: loaded Not tainted 5.2.0 #13
->   Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0
->   -0-ga698c8995f-prebuilt.qemu.org 04/01/2014
->   Workqueue: writeback wb_workfn (flush-ubifs_0_0)
->   RIP: 0010:rb_next_postorder+0x2e/0xb0
->   Code: 80 db 03 01 48 85 ff 0f 84 97 00 00 00 48 8b 17 48 83 05 bc 80 db
->   03 01 48 83 e2 fc 0f 84 82 00 00 00 48 83 05 b2 80 db 03 01 <48> 3b 7a
->   10 48 89 d0 74 02 f3 c3 48 8b 52 08 48 83 05 a3 80 db 03
->   RSP: 0018:ffffc90000887758 EFLAGS: 00010202
->   RAX: ffff888129ae4700 RBX: ffff888138b08400 RCX: 0000000080800001
->   RDX: ffffffff00000130 RSI: 0000000080800024 RDI: ffff888138b08400
->   RBP: ffff888138b08400 R08: ffffea0004a6b920 R09: 0000000000000000
->   R10: ffffc90000887740 R11: 0000000000000001 R12: ffff888128d48000
->   R13: 0000000000000800 R14: 000000000000011e R15: 00000000000007c8
->   FS:  0000000000000000(0000) GS:ffff88813ba00000(0000)
->   knlGS:0000000000000000
->   CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->   CR2: ffffffff00000140 CR3: 000000013789d000 CR4: 00000000000006f0
->   DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
->   DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
->   Call Trace:
->     destroy_old_idx+0x5d/0xa0 [ubifs]
->     ubifs_tnc_start_commit+0x4fe/0x1380 [ubifs]
->     do_commit+0x3eb/0x830 [ubifs]
->     ubifs_run_commit+0xdc/0x1c0 [ubifs]
->
-> Above Oops are due to the slab-out-of-bounds happened in do-while of
-> function layout_in_gaps indirectly called by ubifs_tnc_start_commit. In
-> function layout_in_gaps, there is a do-while loop placing index nodes
-> into the gaps created by obsolete index nodes in non-empty index LEBs
-> until rest index nodes can totally be placed into pre-allocated empty
-> LEBs. @c->gap_lebs points to a memory area(integer array) which records
-> LEB numbers used by 'in-the-gaps' method. Whenever a fitable index LEB
-> is found, corresponding lnum will be incrementally written into the
-> memory area pointed by @c->gap_lebs. The size
-> ((@c->lst.idx_lebs + 1) * sizeof(int)) of memory area is allocated before
-> do-while loop and can not be changed in the loop. But @c->lst.idx_lebs
-> could be increased by function ubifs_change_lp (called by
-> layout_leb_in_gaps->ubifs_find_dirty_idx_leb->get_idx_gc_leb) during the
-> loop. So, sometimes oob happens when number of cycles in do-while loop
-> exceeds the original value of @c->lst.idx_lebs. See detail in
-> https://bugzilla.kernel.org/show_bug.cgi?id=204229.
-> This patch fixes oob in layout_in_gaps.
->
-> Signed-off-by: Zhihao Cheng <chengzhihao1@huawei.com>
-> ---
->  fs/ubifs/tnc_commit.c | 34 +++++++++++++++++++++++++++-------
->  1 file changed, 27 insertions(+), 7 deletions(-)
->
-> diff --git a/fs/ubifs/tnc_commit.c b/fs/ubifs/tnc_commit.c
-> index a384a0f..234be1c 100644
-> --- a/fs/ubifs/tnc_commit.c
-> +++ b/fs/ubifs/tnc_commit.c
-> @@ -212,7 +212,7 @@ static int is_idx_node_in_use(struct ubifs_info *c, union ubifs_key *key,
->  /**
->   * layout_leb_in_gaps - layout index nodes using in-the-gaps method.
->   * @c: UBIFS file-system description object
-> - * @p: return LEB number here
-> + * @p: return LEB number in @c->gap_lebs[p]
->   *
->   * This function lays out new index nodes for dirty znodes using in-the-gaps
->   * method of TNC commit.
-> @@ -221,7 +221,7 @@ static int is_idx_node_in_use(struct ubifs_info *c, union ubifs_key *key,
->   * This function returns the number of index nodes written into the gaps, or a
->   * negative error code on failure.
->   */
-> -static int layout_leb_in_gaps(struct ubifs_info *c, int *p)
-> +static int layout_leb_in_gaps(struct ubifs_info *c, int p)
->  {
->         struct ubifs_scan_leb *sleb;
->         struct ubifs_scan_node *snod;
-> @@ -236,7 +236,7 @@ static int layout_leb_in_gaps(struct ubifs_info *c, int *p)
->                  * filled, however we do not check there at present.
->                  */
->                 return lnum; /* Error code */
-> -       *p = lnum;
-> +       c->gap_lebs[p] = lnum;
->         dbg_gc("LEB %d", lnum);
->         /*
->          * Scan the index LEB.  We use the generic scan for this even though
-> @@ -355,7 +355,7 @@ static int get_leb_cnt(struct ubifs_info *c, int cnt)
->   */
->  static int layout_in_gaps(struct ubifs_info *c, int cnt)
->  {
-> -       int err, leb_needed_cnt, written, *p;
-> +       int err, leb_needed_cnt, written, p = 0, old_idx_lebs, *gap_lebs;
->
->         dbg_gc("%d znodes to write", cnt);
->
-> @@ -364,9 +364,9 @@ static int layout_in_gaps(struct ubifs_info *c, int cnt)
->         if (!c->gap_lebs)
->                 return -ENOMEM;
->
-> -       p = c->gap_lebs;
-> +       old_idx_lebs = c->lst.idx_lebs;
->         do {
-> -               ubifs_assert(c, p < c->gap_lebs + c->lst.idx_lebs);
-> +               ubifs_assert(c, p < c->lst.idx_lebs);
->                 written = layout_leb_in_gaps(c, p);
->                 if (written < 0) {
->                         err = written;
-> @@ -392,9 +392,29 @@ static int layout_in_gaps(struct ubifs_info *c, int cnt)
->                 leb_needed_cnt = get_leb_cnt(c, cnt);
->                 dbg_gc("%d znodes remaining, need %d LEBs, have %d", cnt,
->                        leb_needed_cnt, c->ileb_cnt);
-> +               /*
-> +                * Dynamically change the size of @c->gap_lebs to prevent
-> +                * oob, because @c->lst.idx_lebs could be increased by
-> +                * function @get_idx_gc_leb (called by layout_leb_in_gaps->
-> +                * ubifs_find_dirty_idx_leb) during loop. Only enlarge
-> +                * @c->gap_lebs when needed.
-> +                *
-> +                */
-> +               if (leb_needed_cnt > c->ileb_cnt && p >= old_idx_lebs &&
-> +                   old_idx_lebs < c->lst.idx_lebs) {
-> +                       old_idx_lebs = c->lst.idx_lebs;
-> +                       gap_lebs = krealloc(c->gap_lebs, sizeof(int) *
-> +                                              (old_idx_lebs + 1), GFP_NOFS);
+Hi Richard,
 
-I see the problem. :-(
 
-But I'm not sure yet whether krealloc() is the right solution, we need
-to be sure that
-this does not just paper over the root cause.
-Please give me more time to understand the root cause.
+Le lun. 29 juil. 2019 =E0 7:23, Richard Weinberger =
 
--- 
-Thanks,
-//richard
+<richard.weinberger@gmail.com> a =E9crit :
+> On Fri, Jul 26, 2019 at 12:02 AM Paul Cercueil <paul@crapouillou.net> =
+
+> wrote:
+>> =
+
+>>  Hi,
+>> =
+
+>>  This patchset converts the Qi LB60 MIPS board to devicetree and =
+
+>> makes it
+>>  use all the shiny new drivers that have been developed or updated
+>>  recently.
+>> =
+
+>>  All the crappy old drivers and custom code can be dropped since they
+>>  have been replaced by better alternatives.
+>> =
+
+>>  Some of these alternatives are not yet in 5.3-rc1 but have already =
+
+>> been
+>>  accepted by their respective maintainer for inclusion in 5.4-rc1.
+>> =
+
+>>  To upstream this patchset, I think that as soon as MIPS maintainers
+>>  agree to take patches 01-03/11 and 11/11, the other patches can go
+>>  through their respective maintainer's tree.
+> =
+
+> Was this series tested with the Ben Nanonote device?
+> I have one of these and from time to time I upgrade the kernel on it.
+
+Yes! Artur (Cc'd) tested it.
+
+You can test it yourself, after merging this patchset with:
+https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/slave-dma.git =
+
+branch next,
+git://git.freedesktop.org/git/drm-misc branch drm-misc-next.
+
+These will be in 5.4-rc1.
+
+Cheers,
+-Paul
+
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
