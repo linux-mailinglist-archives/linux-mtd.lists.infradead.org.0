@@ -2,118 +2,88 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D6CEB7B0C6
-	for <lists+linux-mtd@lfdr.de>; Tue, 30 Jul 2019 19:46:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B1007B0D3
+	for <lists+linux-mtd@lfdr.de>; Tue, 30 Jul 2019 19:49:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7UU/pxf2mTpjyblM9cOOOrkwyhzBB0Xk/6SfRL5ws3w=; b=KvGnoGGPZFHrh1
-	2bPlWTMfZkT0EGC/DWhkFbFdDqRRCs3+3hKoBJvrhnPSvHt0Xr+KfmPBiXAaV+uCm/dBts48mCSJ/
-	chEQr1nZ2cNwNNrS/hKWxWX9nzHQK7oGCNkj3vXYN+HXnGYEOaAVXb4ONwXrLIF0yYP991dAL0dpo
-	Q5LQkhXRyJb80FnFpqPW1c87ZyuOJ2hJm04fa9WccUF8Re3E0Jcv4gADn5Kqau4Y4VzIyU8lRkhkE
-	HocWz6ZhdvkPoRwNR9wita9JvLxoS2YV+KhTntsqNDZgy8/13qRL4X3+raEyDId549u57Gl3UTaP4
-	tjPYd1t5CA2TqYmhxeIA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VMAOEIAXSd0106XS6St83S0qBlTf1ITLuV3PEG5PNsg=; b=obKasn/R6O30zr
+	C1O/q0jYyFrCX/xIC9qh0YaAtiTPVPoCBclFWB/BWn5UHG4AIgzngh/Po8pOYksAf5p96bU7kTFuk
+	7zRzi+kaYzProrxw7HDgSSgA9/oI9Y5f7l66j4GXuYqk/mdCqI8iKGH0uCSDsm0VRlkEAqQTOip4F
+	joTU0k+SZWu+UAOvQAPgxMkZoOEv6MmnuTrL4zQDUxo1sCSaJtHp0cr9E+nmqhxNokYVFcPKGPc7D
+	X9J8ivocqs6YrZ10p2J1p11UCldr4ge8KuZcfZoaK/hUeMafXfVzKhKzcLNfa1Ei5QX0ev1hBqsFt
+	ROd8hW14kFJO51FGVbNQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsWCI-0006gm-0l; Tue, 30 Jul 2019 17:46:02 +0000
-Received: from mail-eopbgr740103.outbound.protection.outlook.com
- ([40.107.74.103] helo=NAM01-BN3-obe.outbound.protection.outlook.com)
+	id 1hsWF5-00079v-R6; Tue, 30 Jul 2019 17:48:55 +0000
+Received: from fllv0016.ext.ti.com ([198.47.19.142])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsWAd-0003rC-VR
- for linux-mtd@lists.infradead.org; Tue, 30 Jul 2019 17:44:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=F1+kkZjZL3XExNekGJglFZU2SfWUrzVVZCIaFGHHIrpHz/vuzqQQyn90xyU4JaDkW7tct7xbwELvnq1637t0tzuEQH48i6WAGCTsngjaDyKBA9jMDrYET8+ducgn26/bseo6BC//bDmg8ELhrCe7zfpR4AaTY1W8jX5wLuCn6uAeiELMEAryF5NAHpIAxJn8RBTaI5duRVxg9NwljdHGDFJCbWMgbfr5pIf69JixoBRuq8pjfEZeBQ3FJc4WdHVCpZvD1eE3HN1cBg4Dd3HyblZwVyr0tbB+c2TWY68AO/m5mx/irTDkySFvQtEM+DrrhLYlBv7cPDir2NUA2FQ4EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SG+mgJGml+VLKAIGTjphO5Z0KAYO/Qs0X5QNpvriwvI=;
- b=PW+c7GD9/648W5Epk7EfzgmpjTr53M6gSImrXKV7O2YsnLruO2occ0ZI5/LnnnEZjcAFDDtnZae5RTip5aaGUJNgPdew/z5Dwa5endNdeDpJjJGcQtC2ShFjGA58Jp37M8hTWH73/7z4COamUiTbe6U1hvbo4RZtcCuPburUPzuSixmKo51G2O1L7PqZn0RPiwdnEk8CB9lZMSWvu0ZgmPYtkhz88CHiVQN1yajNu7OayUE7FDPv/oLTKORkcVrcpcVh9ntII9Pc0N8nrjpbMwiYwfqL+djYFzLMR/ftKBMvett0pMxwXLQL2GbB8cCdaVftRWlUbzqy2yxY+XeU2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
- smtp.mailfrom=wavecomp.com;dmarc=pass action=none
- header.from=mips.com;dkim=pass header.d=mips.com;arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wavecomp.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SG+mgJGml+VLKAIGTjphO5Z0KAYO/Qs0X5QNpvriwvI=;
- b=qhEQJY1lSlez3T7mcAVDK3p27GBrL4fLfsXRKY4/AcuqUFA4kzctiL99ETC9E1KfwTvpo95CE2qLvRHly+ZKKvViD7uEikkiohmoY5oxfnG4qmEJIP60kxraaUGsBwbax8qxQ0hsyWfnfheljYsOEhzmtEsUzqOYOEGj6pehrZU=
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com (10.172.60.12) by
- MWHPR2201MB1023.namprd22.prod.outlook.com (10.174.167.24) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.14; Tue, 30 Jul 2019 17:44:17 +0000
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::105a:1595:b6ef:cbdf]) by MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::105a:1595:b6ef:cbdf%4]) with mapi id 15.20.2115.005; Tue, 30 Jul 2019
- 17:44:17 +0000
-From: Paul Burton <paul.burton@mips.com>
-To: Paul Cercueil <paul@crapouillou.net>
-Subject: Re: [PATCH 11/11] MIPS: jz4740: Drop dead code
-Thread-Topic: [PATCH 11/11] MIPS: jz4740: Drop dead code
-Thread-Index: AQHVRv5prUMgGonT8UmT7v+ptlQ2uA==
-Date: Tue, 30 Jul 2019 17:44:17 +0000
-Message-ID: <MWHPR2201MB1277B22F5752232A50F9DF8DC1DC0@MWHPR2201MB1277.namprd22.prod.outlook.com>
-References: <20190725220215.460-12-paul@crapouillou.net>
-In-Reply-To: <20190725220215.460-12-paul@crapouillou.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: BY5PR13CA0036.namprd13.prod.outlook.com
- (2603:10b6:a03:180::49) To MWHPR2201MB1277.namprd22.prod.outlook.com
- (2603:10b6:301:18::12)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=pburton@wavecomp.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [12.94.197.246]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: d19d8d58-31f1-49bf-c0b8-08d715158b5a
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);
- SRVR:MWHPR2201MB1023; 
-x-ms-traffictypediagnostic: MWHPR2201MB1023:
-x-microsoft-antispam-prvs: <MWHPR2201MB10237A12B4BC9DD36D749F00C1DC0@MWHPR2201MB1023.namprd22.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:2958;
-x-forefront-prvs: 0114FF88F6
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(346002)(366004)(136003)(376002)(39850400004)(396003)(189003)(199004)(6116002)(53936002)(66556008)(52536014)(8936002)(74316002)(71190400001)(6246003)(76176011)(71200400001)(446003)(81156014)(81166006)(476003)(64756008)(6436002)(14454004)(66946007)(66446008)(26005)(33656002)(256004)(7736002)(305945005)(52116002)(186003)(386003)(7696005)(55016002)(6506007)(486006)(66476007)(99286004)(102836004)(2906002)(229853002)(44832011)(11346002)(66066001)(7416002)(316002)(5660300002)(9686003)(4744005)(6916009)(8676002)(478600001)(42882007)(68736007)(25786009)(54906003)(4326008)(3846002);
- DIR:OUT; SFP:1102; SCL:1; SRVR:MWHPR2201MB1023;
- H:MWHPR2201MB1277.namprd22.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: wavecomp.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: CfE/YTEaiPc2vw5PCYZ7HIZ6xGjGjl8CCpXtF95Q975bD9E1o4gATxtLXzKx3a13ylRszvkGrcKwXqXVJo2cGWgA6hs3oP+CSHCouISXmx4FcqKzWq9MeD2QbiJgWUca+XVhs83dWl+hZYXyXyoUzH2sJQf3AvJpM3rPn04aaBJpTAWxvU2ZFLwX9fQKN19kdpJdnSBi9aKBQLE6+6emPsA2kKfJNm9Jv3gaNx5c7zWOQtW4G6C8PG6mMy43oM2K8o3VfTC6NCekkzJd1kXJmOxoFK1l2MCoXDbFDG9s2t8Q0prGSeiiOep4tYAgE23vcCU4aXbynqO/sIln5RSb6t7743rWNseNVrXkUCRTNk3ZkQ9R0wmsQb0PfrdkUcTL2QGkb1AAtzDwAMSEvXta/TKbm+7i0iya5AtNrbZVMJ0=
+ id 1hsWEx-00079E-Ol
+ for linux-mtd@lists.infradead.org; Tue, 30 Jul 2019 17:48:49 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+ by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x6UHmVZ5102624;
+ Tue, 30 Jul 2019 12:48:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1564508911;
+ bh=JyDOEk7Byy3nIF8i201hocgIjoeRb/5joImFM1xcR9s=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To;
+ b=DhmqW9TIxmVvcF+nDkDJ5mWEqMZW1Nns9T3dm9ZAGVzGKpbJd2iSzaXHrZvqSCc+P
+ hdXaXNjtLPaVF3ESL7I/1rgMxwluITEQP+yx3ULNpu6E0rKjueTjQzIZhaBBbsb6N/
+ luEqBR6C8Wk/YLgUttgUxu1EKD42aa50bXUHtgz4=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+ by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x6UHmVao091553
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 30 Jul 2019 12:48:31 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Tue, 30
+ Jul 2019 12:48:30 -0500
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
+ Frontend Transport; Tue, 30 Jul 2019 12:48:30 -0500
+Received: from [10.250.133.35] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id x6UHmQj1083839;
+ Tue, 30 Jul 2019 12:48:27 -0500
+Subject: Re: [RFC v1 0/3] *spi-mem: adding setup and callback function
+To: Boris Brezillon <boris.brezillon@collabora.com>, Tomer Maimon
+ <tmaimon77@gmail.com>
+References: <20190729142504.188336-1-tmaimon77@gmail.com>
+ <20190729172859.4374a2ad@collabora.com>
+ <CAP6Zq1iPXDX_Gtz6ZWYm3JoHgHjdapotVLGw-Lq4tc2X-6eAug@mail.gmail.com>
+ <20190730085438.6fe0480b@collabora.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Message-ID: <d8adef3f-e901-2e25-6183-35cb1e53bcda@ti.com>
+Date: Tue, 30 Jul 2019 23:18:25 +0530
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-X-OriginatorOrg: mips.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d19d8d58-31f1-49bf-c0b8-08d715158b5a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2019 17:44:17.5553 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pburton@wavecomp.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR2201MB1023
+In-Reply-To: <20190730085438.6fe0480b@collabora.com>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190730_104420_048237_9857491F 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20190730_104847_915701_2556C5D1 
+X-CRM114-Status: GOOD (  16.53  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.1 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.74.103 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.19.142 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -125,48 +95,98 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Paul Burton <pburton@wavecomp.com>,
- "linux-fbdev@vger.kernel.org" <linux-fbdev@vger.kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, James Hogan <jhogan@kernel.org>,
- "alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- Sebastian Reichel <sre@kernel.org>, Paul Cercueil <paul@crapouillou.net>,
- "od@zcrc.me" <od@zcrc.me>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>, Lee Jones <lee.jones@linaro.org>,
- Artur Rojek <contact@artur-rojek.eu>, Richard Weinberger <richard@nod.at>,
- "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- Guenter Roeck <linux@roeck-us.net>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Jean Delvare <jdelvare@suse.com>,
- Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
- Mark Brown <broonie@kernel.org>,
- "linux-hwmon@vger.kernel.org" <linux-hwmon@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Ralf Baechle <ralf@linux-mips.org>, Vinod Koul <vkoul@kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- "dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>
+Cc: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>, bbrezillon@kernel.org,
+ richard@nod.at, tudor.ambarus@microchip.com,
+ Schrempf Frieder <frieder.schrempf@kontron.de>, linux-spi@vger.kernel.org,
+ broonie@kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hello,
 
-Paul Cercueil wrote:
-> Remove all the source files that are not used anywhere anymore.
+
+On 30-Jul-19 12:24 PM, Boris Brezillon wrote:
+> Trimmed the recipient list a bit and used Frieder's new address.
+> +Sergey
 > 
-> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
-> Tested-by: Artur Rojek <contact@artur-rojek.eu>
+> On Mon, 29 Jul 2019 23:55:05 +0300
+> Tomer Maimon <tmaimon77@gmail.com> wrote:
+> 
+>> Hi Boris,
+>>
+>> Thanks for the prompt reply,
+>>
+>>
+>>
+>> On Mon, 29 Jul 2019 at 18:29, Boris Brezillon <boris.brezillon@collabora.com>
+>> wrote:
+>>
+>>> Hi Tomer,
+>>>
+>>> On Mon, 29 Jul 2019 17:25:01 +0300
+>>> Tomer Maimon <tmaimon77@gmail.com> wrote:
+>>>  
+>>>> Lately we have working on Flash interface unit (FIU) SPI driver that
+>>>> using spi-mem interface, Our FIU HW module support direct Flash Rd//Wr.
+>>>>
+>>>> In our SOC (32 bit dual core ARM) we have 3 FIU's that using memory  
+>>> mapping as follow:  
+>>>>
+>>>> FIU0 - have 2 chip select and each one have 128MB memory mapping (total  
+>>> 256MB memory mapping)  
+>>>> FIU1 - have 4 chip select and each one have 128MB memory mapping (total  
+>>> 512MB memory mapping)  
+>>>> FIU2 - have 4 chip select and each one have 16MB memory mapping (total  
+>>> 32MB memory mapping)  
+>>>>
+>>>> Totally 800MB memory mapping.
+>>>>
+>>>> When the FIU driver probe it don't know the size of each Flash that
+>>>> connected to the FIU, so the entire memory mapping is allocated for each  
+>>> FIU  
+>>>> according the FIU device tree memory map parameters.  
+>>>
+>>> Do you need those mappings to be active to support simple reg accesses?
+>>>  
+>>>> It means, if we enable all three FIU's the drivers will try to allocate  
+>>> totally 800MB.  
+>>>>
+>>>> In 32bit system it is problematic because the kernel have only 1GB
+>>>> of memory allocation so the vmalloc cannot take 800MB.
+>>>>
+>>>> When implementing the FIU driver in the mtd/spi-nor we allocating memory  
+>>> address only  
+>>>> for detected Flash with exact size (usually we are not using 128MB  
+>>> Flash), and in that case usually we allocating much less memory.  
+>>>>
+>>>> To solve this issue we needed to overcome two things:
+>>>>
+>>>> 1.    Get argument from the upper layer (spi-mem layer)
+>>>> 2.    Calling the get argument function after SPI_NOR_SCAN function.  
+>>> (the MTD Flash size filled in  SPI_NOR_SCAN function)
+>>>
+>>> That's clearly breaking the layering we've tried to restore with the
+>>> spi-nor/spi-mem split, and I don't see why this is needed since we now
+>>> have a way to create direct mappings dynamically (with the dirmap API).
+>>> Have you tried implementing the dirmap hooks in your driver?  
+>>
+>>
+>>  Sorry but I wasn't familiar with the direct mapping in the spi-mem, it
+>> seems it needed to implemented in the m25p80 driver as well, am I correct?
+> 
+> There's this patch [1] floating around. IIRC, Sergey was waiting for
+> the m25p80 -> spi-nor merge to send a v5. Vignesh, any updates on that
+> one? If you don't have time to work on that, maybe Sergey could send a
+> v5.
+> 
 
-Applied to mips-next.
+I did send an updated series of merging m25p80 to spi-nor last week and
+have received few comments. Will respin one more version this week
+(mostly by tomorrow).
 
-Thanks,
-    Paul
-
-[ This message was auto-generated; if you believe anything is incorrect
-  then please email paul.burton@mips.com to report it. ]
+Regards
+Vignesh
 
 ______________________________________________________
 Linux MTD discussion mailing list
