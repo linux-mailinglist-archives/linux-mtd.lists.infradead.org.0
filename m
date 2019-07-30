@@ -2,63 +2,103 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5569D79DEC
-	for <lists+linux-mtd@lfdr.de>; Tue, 30 Jul 2019 03:21:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 70A5079E72
+	for <lists+linux-mtd@lfdr.de>; Tue, 30 Jul 2019 04:05:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XeUAC5/MEDNkoSOdaJEBh97DzAlS7JV6804rJgWQ/sQ=; b=beDeYX0sA+DO77
-	IZ69g7QwWJ5XYte7yRh/QaFkQu3bYmSMTOFme71pJF9/4C/g85FBuSmpZ2+V+g/xwE+24M/5DRaJR
-	fq3j4A+PlSLF0/EitLskxMxCj+x2wrjo9VXbmgIcEfnjPYq4fEsUK4S5pnaR5+uY6hwZFNCR+Blv2
-	MZ4kdgy02YqG3+29IXx591tT6iS043/od0rz/WQqYOdjRUGu/UBtIUcc+n3b6Penxen1Foxa0Mbau
-	5EKajv1MywEaprxhhZjaEA+1XQ3pudMwbhlz6zot21zMFeE2vqEDc8bZZuOp3+v9gE1xHtyemnGEG
-	uEnfUs7Q1NLaR3LG0ksg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ZTaWYGpczw6rYfGPi8PF/Uvzv8VVYJF1zp3WMz61AH4=; b=LwJ
+	8007B0fMsm73UfyQDGDLixsuD7oFLf5gYzPcPVXsXgy4M3u+8JG5tJBr2mHyCYn1k5u7bzieIVKil
+	Njt5b7sqwtkgLwODlAEQxBYWyW2JoVc6N4zgVQ/mX/O2KnL8mw4tLK7vhNwwrz3Poy0Tle8taqUVN
+	INX52rLXxLmMt8RjH52U5DwfybI80RoQhI4/gIbunMY9lD46ZUxkrumwFeRsNxj5X64h8ni48YfnJ
+	4TdC3WcV6MxfjbonanDTZA57V5XWcTRYAV7fYI12jHhUNgg9jQubou7hpZFnrbWnFpdrWC7sT4/9F
+	vW2f9JbOk9dxpNFB9okNBHYrjxAAQ0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hsGpe-0006ke-3y; Tue, 30 Jul 2019 01:21:38 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188] helo=huawei.com)
+	id 1hsHW8-0004Nj-4x; Tue, 30 Jul 2019 02:05:32 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hsGpT-0006jd-HY
- for linux-mtd@lists.infradead.org; Tue, 30 Jul 2019 01:21:29 +0000
-Received: from dggemi405-hub.china.huawei.com (unknown [172.30.72.54])
- by Forcepoint Email with ESMTP id B95CB5966B34DFBF93FD;
- Tue, 30 Jul 2019 09:21:12 +0800 (CST)
-Received: from DGGEMI524-MBX.china.huawei.com ([169.254.7.227]) by
- dggemi405-hub.china.huawei.com ([10.3.17.143]) with mapi id 14.03.0439.000;
- Tue, 30 Jul 2019 09:20:59 +0800
-From: chengzhihao <chengzhihao1@huawei.com>
-To: Richard Weinberger <richard.weinberger@gmail.com>
-Subject: =?utf-8?B?562U5aSNOiBbUEFUQ0hdIHViaWZzOiB1Ymlmc190bmNfc3RhcnRfY29tbWl0?=
- =?utf-8?B?OiBGaXggT09CIGluIGxheW91dF9pbl9nYXBz?=
-Thread-Topic: [PATCH] ubifs: ubifs_tnc_start_commit: Fix OOB in layout_in_gaps
-Thread-Index: AQHVPsBTBWetoNcJ1UaytZ+21M4VxabhWCiAgAETrKA=
-Date: Tue, 30 Jul 2019 01:20:48 +0000
-Message-ID: <0B80F9D4116B2F4484E7279D5A66984F7A7472@dggemi524-mbx.china.huawei.com>
-References: <1563602720-113903-1-git-send-email-chengzhihao1@huawei.com>
- <CAFLxGvxEAGtQDFm4G3orY+M9yuthDA4j0+u=HbE9DKuo7H8WCg@mail.gmail.com>
-In-Reply-To: <CAFLxGvxEAGtQDFm4G3orY+M9yuthDA4j0+u=HbE9DKuo7H8WCg@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.177.224.82]
-MIME-Version: 1.0
-X-CFilter-Loop: Reflected
+ id 1hsHVx-0002bT-3K
+ for linux-mtd@bombadil.infradead.org; Tue, 30 Jul 2019 02:05:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Message-Id:Date:Subject:Cc:To:From:
+ Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=inYutnH31FgDtfYuWWOFZ2I7YPGQBonCBQAoTuJNcqQ=; b=sbixTBPbrixg7nLS5osRzFNL/
+ zXM4DjLaXZKvtoTbafCsjom6JQNV2SuJon4Hcuq9pZ0Z/30QtBjjD9jfgWO3flpFstDQ1pgrxKklj
+ 2PnqrdgDaBDWTYLEHIZzgzrFrNjazSh/evepXlu2N2IGVN1lMagXlXzP8IJa4Yob00pf0skw8Gfoe
+ gv3Rh4Gu0oJ0iArwNFUUuo48GDuNmYKzzoQPequS/CYFIFK6lzCHm8XePChm2b3X4nD9a6QdIVYeA
+ 6RK7k+helQ3KwuZfKXhtn92rqM1zU9Xo3meWfHESYPorIwAUtV/4BFjDvs+8sC+KTl50rFS1kexuz
+ +wkaBTMTw==;
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+ by casper.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hsHH6-0001gV-5k
+ for linux-mtd@lists.infradead.org; Tue, 30 Jul 2019 01:50:03 +0000
+Received: by mail-pg1-x544.google.com with SMTP id n9so22943964pgc.1
+ for <linux-mtd@lists.infradead.org>; Mon, 29 Jul 2019 18:49:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id;
+ bh=inYutnH31FgDtfYuWWOFZ2I7YPGQBonCBQAoTuJNcqQ=;
+ b=u8Kamqa8djI35d/rQjguXHjF/370ksTiQHvT1LK1dRly1tChoKAieuB5vqE5HXzO1p
+ 7A9E5BvvBfJy7IW30E2jik91mUj7sRCqooPUjEWFXlVOltQFUY3KhoE/v9BZ7D2HsLwr
+ 7G5QVohyAwrrFCK2bESvweN3ZlXNLdqvVaZQFBaHZlrj2N5Mp9jLYxf6OOvn34gG9bi6
+ 0Vl/aIMZWSbbf8lyYp+b37NGiw5+PXD0N2oL2BkG5amyCtEe3JPzh6tz4MZPoVu4T2le
+ lPbySQtYKgSeJxjjnX+M7FYmI0qKAVHfiel42DYNwZVSJ97ijOK2AKRDPJPd+B0yb8OH
+ G4bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=inYutnH31FgDtfYuWWOFZ2I7YPGQBonCBQAoTuJNcqQ=;
+ b=pZbnXdRAYue82CSkRloHFQG0uOqviXqG3hvvQzcGWaPwdN+ySDNnM6YDIBIsmmdkVI
+ pFZvJUJwA0BiQDSOIytda81hZkl/A0B3zBIovgOJSxxv9QP8Yt2hmMUMDDA/5zXLRE/o
+ zDqbIUNrP+l0q3F5QPbqUe+WQEP/2fl2C4EijotAVllzz17ZxcCyhcmor4cExTdhSNB6
+ IOzceKLEQ2NfFU5t02HKtNC6m2LNM1rI9deA7Q8hLf1Ywdxi3JeNk2yPDrFN+Pyz6gXu
+ r0U8lmNoCQ6nASC2pqCM8ffD45sy/BNSWnSqsCP6FP505c0W+AGRn016uoPFcLG0ZhbT
+ 8P2g==
+X-Gm-Message-State: APjAAAWkyzr0rqKDsx4adv0Vzc3gEiKxLIncNs2TmPgq/ReVVcZQtUfq
+ FqbZDG0DZrUu2pZpVM2A5F8=
+X-Google-Smtp-Source: APXvYqwvVXXv7AaDXGLnZYVyM1yVLtOSmgJe3iUIeXs3gryHPyfVxVrXXPhvkNq7utK5BPGGbVNkwQ==
+X-Received: by 2002:a62:7994:: with SMTP id u142mr40048632pfc.39.1564451385329; 
+ Mon, 29 Jul 2019 18:49:45 -0700 (PDT)
+Received: from deepa-ubuntu.lan (c-98-234-52-230.hsd1.ca.comcast.net.
+ [98.234.52.230])
+ by smtp.gmail.com with ESMTPSA id r6sm138807156pjb.22.2019.07.29.18.49.41
+ (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+ Mon, 29 Jul 2019 18:49:44 -0700 (PDT)
+From: Deepa Dinamani <deepa.kernel@gmail.com>
+To: viro@zeniv.linux.org.uk,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 00/20] vfs: Add support for timestamp limits
+Date: Mon, 29 Jul 2019 18:49:04 -0700
+Message-Id: <20190730014924.2193-1-deepa.kernel@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190729_182127_911096_1E5F7D51 
-X-CRM114-Status: GOOD (  25.34  )
-X-Spam-Score: -2.3 (--)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+X-CRM114-CacheID: sfid-20190730_025000_305947_4395DBE6 
+X-CRM114-Status: GOOD (  15.94  )
+X-Spam-Score: -0.2 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on casper.infradead.org summary:
+ Content analysis details:   (-0.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.188 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:544 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (deepa.kernel[at]gmail.com)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -70,145 +110,243 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: "zhangyi \(F\)" <yi.zhang@huawei.com>, Richard Weinberger <richard@nod.at>,
- Sascha Hauer <s.hauer@pengutronix.de>, Artem Bityutskiy <dedekind1@gmail.com>,
- LKML <linux-kernel@vger.kernel.org>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: lucho@ionkov.net, martin@omnibond.com, jfs-discussion@lists.sourceforge.net,
+ shaggy@kernel.org, asmadeus@codewreck.org, yuchao0@huawei.com,
+ me@bobcopeland.com, adilger.kernel@dilger.ca, mikulas@artax.karlin.mff.cuni.cz,
+ hch@lst.de, nico@fluxnic.net, hubcap@omnibond.com, linux-cifs@vger.kernel.org,
+ zyan@redhat.com, sage@redhat.com, darrick.wong@oracle.com,
+ y2038@lists.linaro.org, richard@nod.at, sfrench@samba.org, anton@enomsg.org,
+ codalist@coda.cs.cmu.edu, hch@infradead.org, coda@cs.cmu.edu,
+ hirofumi@mail.parknet.co.jp, v9fs-developer@lists.sourceforge.net,
+ idryomov@gmail.com, linux-ext4@vger.kernel.org, salah.triki@gmail.com,
+ al@alarsen.net, devel@lists.orangefs.org, dushistov@mail.ru,
+ keescook@chromium.org, arnd@arndb.de, ericvh@gmail.com, jack@suse.com,
+ reiserfs-devel@vger.kernel.org, tj@kernel.org, jlbec@evilplan.org,
+ aivazian.tigran@gmail.com, phillip@squashfs.org.uk, dsterba@suse.com,
+ jaegeuk@kernel.org, ceph-devel@vger.kernel.org,
+ trond.myklebust@hammerspace.com, anton@tuxera.com, jaharkes@cs.cmu.edu,
+ linux-nfs@vger.kernel.org, tony.luck@intel.com, tytso@mit.edu,
+ luisbg@kernel.org, dedekind1@gmail.com, linux-ntfs-dev@lists.sourceforge.net,
+ gregkh@linuxfoundation.org, linux-karma-devel@lists.sourceforge.net,
+ adrian.hunter@intel.com, linux-f2fs-devel@lists.sourceforge.net,
+ linux-xfs@vger.kernel.org, ccross@android.com, linux-fsdevel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, dwmw2@infradead.org, anna.schumaker@netapp.com
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T0ssIHRoYXQncyBmaW5lLCBhbmQgSSB3aWxsIGNvbnRpbnVlIHRvIHVuZGVyc3RhbmQgbW9yZSBp
-bXBsZW1lbnRhdGlvbiBjb2RlIHJlbGF0ZWQgdG8gdGhpcyBwYXJ0Lg0KDQotDQpUaGFua3MsDQpD
-aGVuZyB6aGloYW8NCg0KLS0tLS3pgq7ku7bljp/ku7YtLS0tLQ0K5Y+R5Lu25Lq6OiBSaWNoYXJk
-IFdlaW5iZXJnZXIgW21haWx0bzpyaWNoYXJkLndlaW5iZXJnZXJAZ21haWwuY29tXSANCuWPkemA
-geaXtumXtDogMjAxOeW5tDfmnIgzMOaXpSAwOjUyDQrmlLbku7bkuro6IGNoZW5nemhpaGFvIDxj
-aGVuZ3poaWhhbzFAaHVhd2VpLmNvbT4NCuaKhOmAgTogUmljaGFyZCBXZWluYmVyZ2VyIDxyaWNo
-YXJkQG5vZC5hdD47IFNhc2NoYSBIYXVlciA8cy5oYXVlckBwZW5ndXRyb25peC5kZT47IEFydGVt
-IEJpdHl1dHNraXkgPGRlZGVraW5kMUBnbWFpbC5jb20+OyB6aGFuZ3lpIChGKSA8eWkuemhhbmdA
-aHVhd2VpLmNvbT47IGxpbnV4LW10ZEBsaXN0cy5pbmZyYWRlYWQub3JnOyBMS01MIDxsaW51eC1r
-ZXJuZWxAdmdlci5rZXJuZWwub3JnPg0K5Li76aKYOiBSZTogW1BBVENIXSB1YmlmczogdWJpZnNf
-dG5jX3N0YXJ0X2NvbW1pdDogRml4IE9PQiBpbiBsYXlvdXRfaW5fZ2Fwcw0KDQpPbiBTYXQsIEp1
-bCAyMCwgMjAxOSBhdCA4OjAwIEFNIFpoaWhhbyBDaGVuZyA8Y2hlbmd6aGloYW8xQGh1YXdlaS5j
-b20+IHdyb3RlOg0KPg0KPiBSdW5uaW5nIHN0cmVzcy10ZXN0IHRlc3RfMiBpbiBtdGQtdXRpbHMg
-b24gdWJpIGRldmljZSwgc29tZXRpbWVzIHdlIA0KPiBjYW4gZ2V0IGZvbGxvd2luZyBvb3BzIG1l
-c3NhZ2U6DQo+DQo+ICAgQlVHOiB1bmFibGUgdG8gaGFuZGxlIHBhZ2UgZmF1bHQgZm9yIGFkZHJl
-c3M6IGZmZmZmZmZmMDAwMDAxNDANCj4gICAjUEY6IHN1cGVydmlzb3IgcmVhZCBhY2Nlc3MgaW4g
-a2VybmVsIG1vZGUNCj4gICAjUEY6IGVycm9yX2NvZGUoMHgwMDAwKSAtIG5vdC1wcmVzZW50IHBh
-Z2UNCj4gICBQR0QgMjgwYTA2NyBQNEQgMjgwYTA2NyBQVUQgMA0KPiAgIE9vcHM6IDAwMDAgWyMx
-XSBTTVANCj4gICBDUFU6IDAgUElEOiA2MCBDb21tOiBrd29ya2VyL3UxNjoxIEtkdW1wOiBsb2Fk
-ZWQgTm90IHRhaW50ZWQgNS4yLjAgIzEzDQo+ICAgSGFyZHdhcmUgbmFtZTogUUVNVSBTdGFuZGFy
-ZCBQQyAoaTQ0MEZYICsgUElJWCwgMTk5NiksIEJJT1MgcmVsLTEuMTIuMA0KPiAgIC0wLWdhNjk4
-Yzg5OTVmLXByZWJ1aWx0LnFlbXUub3JnIDA0LzAxLzIwMTQNCj4gICBXb3JrcXVldWU6IHdyaXRl
-YmFjayB3Yl93b3JrZm4gKGZsdXNoLXViaWZzXzBfMCkNCj4gICBSSVA6IDAwMTA6cmJfbmV4dF9w
-b3N0b3JkZXIrMHgyZS8weGIwDQo+ICAgQ29kZTogODAgZGIgMDMgMDEgNDggODUgZmYgMGYgODQg
-OTcgMDAgMDAgMDAgNDggOGIgMTcgNDggODMgMDUgYmMgODAgZGINCj4gICAwMyAwMSA0OCA4MyBl
-MiBmYyAwZiA4NCA4MiAwMCAwMCAwMCA0OCA4MyAwNSBiMiA4MCBkYiAwMyAwMSA8NDg+IDNiIDdh
-DQo+ICAgMTAgNDggODkgZDAgNzQgMDIgZjMgYzMgNDggOGIgNTIgMDggNDggODMgMDUgYTMgODAg
-ZGIgMDMNCj4gICBSU1A6IDAwMTg6ZmZmZmM5MDAwMDg4Nzc1OCBFRkxBR1M6IDAwMDEwMjAyDQo+
-ICAgUkFYOiBmZmZmODg4MTI5YWU0NzAwIFJCWDogZmZmZjg4ODEzOGIwODQwMCBSQ1g6IDAwMDAw
-MDAwODA4MDAwMDENCj4gICBSRFg6IGZmZmZmZmZmMDAwMDAxMzAgUlNJOiAwMDAwMDAwMDgwODAw
-MDI0IFJESTogZmZmZjg4ODEzOGIwODQwMA0KPiAgIFJCUDogZmZmZjg4ODEzOGIwODQwMCBSMDg6
-IGZmZmZlYTAwMDRhNmI5MjAgUjA5OiAwMDAwMDAwMDAwMDAwMDAwDQo+ICAgUjEwOiBmZmZmYzkw
-MDAwODg3NzQwIFIxMTogMDAwMDAwMDAwMDAwMDAwMSBSMTI6IGZmZmY4ODgxMjhkNDgwMDANCj4g
-ICBSMTM6IDAwMDAwMDAwMDAwMDA4MDAgUjE0OiAwMDAwMDAwMDAwMDAwMTFlIFIxNTogMDAwMDAw
-MDAwMDAwMDdjOA0KPiAgIEZTOiAgMDAwMDAwMDAwMDAwMDAwMCgwMDAwKSBHUzpmZmZmODg4MTNi
-YTAwMDAwKDAwMDApDQo+ICAga25sR1M6MDAwMDAwMDAwMDAwMDAwMA0KPiAgIENTOiAgMDAxMCBE
-UzogMDAwMCBFUzogMDAwMCBDUjA6IDAwMDAwMDAwODAwNTAwMzMNCj4gICBDUjI6IGZmZmZmZmZm
-MDAwMDAxNDAgQ1IzOiAwMDAwMDAwMTM3ODlkMDAwIENSNDogMDAwMDAwMDAwMDAwMDZmMA0KPiAg
-IERSMDogMDAwMDAwMDAwMDAwMDAwMCBEUjE6IDAwMDAwMDAwMDAwMDAwMDAgRFIyOiAwMDAwMDAw
-MDAwMDAwMDAwDQo+ICAgRFIzOiAwMDAwMDAwMDAwMDAwMDAwIERSNjogMDAwMDAwMDBmZmZlMGZm
-MCBEUjc6IDAwMDAwMDAwMDAwMDA0MDANCj4gICBDYWxsIFRyYWNlOg0KPiAgICAgZGVzdHJveV9v
-bGRfaWR4KzB4NWQvMHhhMCBbdWJpZnNdDQo+ICAgICB1Ymlmc190bmNfc3RhcnRfY29tbWl0KzB4
-NGZlLzB4MTM4MCBbdWJpZnNdDQo+ICAgICBkb19jb21taXQrMHgzZWIvMHg4MzAgW3ViaWZzXQ0K
-PiAgICAgdWJpZnNfcnVuX2NvbW1pdCsweGRjLzB4MWMwIFt1Ymlmc10NCj4NCj4gQWJvdmUgT29w
-cyBhcmUgZHVlIHRvIHRoZSBzbGFiLW91dC1vZi1ib3VuZHMgaGFwcGVuZWQgaW4gZG8td2hpbGUg
-b2YgDQo+IGZ1bmN0aW9uIGxheW91dF9pbl9nYXBzIGluZGlyZWN0bHkgY2FsbGVkIGJ5IHViaWZz
-X3RuY19zdGFydF9jb21taXQuIA0KPiBJbiBmdW5jdGlvbiBsYXlvdXRfaW5fZ2FwcywgdGhlcmUg
-aXMgYSBkby13aGlsZSBsb29wIHBsYWNpbmcgaW5kZXggDQo+IG5vZGVzIGludG8gdGhlIGdhcHMg
-Y3JlYXRlZCBieSBvYnNvbGV0ZSBpbmRleCBub2RlcyBpbiBub24tZW1wdHkgaW5kZXggDQo+IExF
-QnMgdW50aWwgcmVzdCBpbmRleCBub2RlcyBjYW4gdG90YWxseSBiZSBwbGFjZWQgaW50byBwcmUt
-YWxsb2NhdGVkIA0KPiBlbXB0eSBMRUJzLiBAYy0+Z2FwX2xlYnMgcG9pbnRzIHRvIGEgbWVtb3J5
-IGFyZWEoaW50ZWdlciBhcnJheSkgd2hpY2ggDQo+IHJlY29yZHMgTEVCIG51bWJlcnMgdXNlZCBi
-eSAnaW4tdGhlLWdhcHMnIG1ldGhvZC4gV2hlbmV2ZXIgYSBmaXRhYmxlIA0KPiBpbmRleCBMRUIg
-aXMgZm91bmQsIGNvcnJlc3BvbmRpbmcgbG51bSB3aWxsIGJlIGluY3JlbWVudGFsbHkgd3JpdHRl
-biANCj4gaW50byB0aGUgbWVtb3J5IGFyZWEgcG9pbnRlZCBieSBAYy0+Z2FwX2xlYnMuIFRoZSBz
-aXplIA0KPiAoKEBjLT5sc3QuaWR4X2xlYnMgKyAxKSAqIHNpemVvZihpbnQpKSBvZiBtZW1vcnkg
-YXJlYSBpcyBhbGxvY2F0ZWQgDQo+IGJlZm9yZSBkby13aGlsZSBsb29wIGFuZCBjYW4gbm90IGJl
-IGNoYW5nZWQgaW4gdGhlIGxvb3AuIEJ1dCANCj4gQGMtPmxzdC5pZHhfbGVicyBjb3VsZCBiZSBp
-bmNyZWFzZWQgYnkgZnVuY3Rpb24gdWJpZnNfY2hhbmdlX2xwIA0KPiAoY2FsbGVkIGJ5DQo+IGxh
-eW91dF9sZWJfaW5fZ2Fwcy0+dWJpZnNfZmluZF9kaXJ0eV9pZHhfbGViLT5nZXRfaWR4X2djX2xl
-YikgZHVyaW5nIA0KPiB0aGUgbG9vcC4gU28sIHNvbWV0aW1lcyBvb2IgaGFwcGVucyB3aGVuIG51
-bWJlciBvZiBjeWNsZXMgaW4gZG8td2hpbGUgDQo+IGxvb3AgZXhjZWVkcyB0aGUgb3JpZ2luYWwg
-dmFsdWUgb2YgQGMtPmxzdC5pZHhfbGVicy4gU2VlIGRldGFpbCBpbiANCj4gaHR0cHM6Ly9idWd6
-aWxsYS5rZXJuZWwub3JnL3Nob3dfYnVnLmNnaT9pZD0yMDQyMjkuDQo+IFRoaXMgcGF0Y2ggZml4
-ZXMgb29iIGluIGxheW91dF9pbl9nYXBzLg0KPg0KPiBTaWduZWQtb2ZmLWJ5OiBaaGloYW8gQ2hl
-bmcgPGNoZW5nemhpaGFvMUBodWF3ZWkuY29tPg0KPiAtLS0NCj4gIGZzL3ViaWZzL3RuY19jb21t
-aXQuYyB8IDM0ICsrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0NCj4gIDEgZmlsZSBj
-aGFuZ2VkLCAyNyBpbnNlcnRpb25zKCspLCA3IGRlbGV0aW9ucygtKQ0KPg0KPiBkaWZmIC0tZ2l0
-IGEvZnMvdWJpZnMvdG5jX2NvbW1pdC5jIGIvZnMvdWJpZnMvdG5jX2NvbW1pdC5jIGluZGV4IA0K
-PiBhMzg0YTBmLi4yMzRiZTFjIDEwMDY0NA0KPiAtLS0gYS9mcy91Ymlmcy90bmNfY29tbWl0LmMN
-Cj4gKysrIGIvZnMvdWJpZnMvdG5jX2NvbW1pdC5jDQo+IEBAIC0yMTIsNyArMjEyLDcgQEAgc3Rh
-dGljIGludCBpc19pZHhfbm9kZV9pbl91c2Uoc3RydWN0IHViaWZzX2luZm8gDQo+ICpjLCB1bmlv
-biB1Ymlmc19rZXkgKmtleSwNCj4gIC8qKg0KPiAgICogbGF5b3V0X2xlYl9pbl9nYXBzIC0gbGF5
-b3V0IGluZGV4IG5vZGVzIHVzaW5nIGluLXRoZS1nYXBzIG1ldGhvZC4NCj4gICAqIEBjOiBVQklG
-UyBmaWxlLXN5c3RlbSBkZXNjcmlwdGlvbiBvYmplY3QNCj4gLSAqIEBwOiByZXR1cm4gTEVCIG51
-bWJlciBoZXJlDQo+ICsgKiBAcDogcmV0dXJuIExFQiBudW1iZXIgaW4gQGMtPmdhcF9sZWJzW3Bd
-DQo+ICAgKg0KPiAgICogVGhpcyBmdW5jdGlvbiBsYXlzIG91dCBuZXcgaW5kZXggbm9kZXMgZm9y
-IGRpcnR5IHpub2RlcyB1c2luZyBpbi10aGUtZ2Fwcw0KPiAgICogbWV0aG9kIG9mIFROQyBjb21t
-aXQuDQo+IEBAIC0yMjEsNyArMjIxLDcgQEAgc3RhdGljIGludCBpc19pZHhfbm9kZV9pbl91c2Uo
-c3RydWN0IHViaWZzX2luZm8gKmMsIHVuaW9uIHViaWZzX2tleSAqa2V5LA0KPiAgICogVGhpcyBm
-dW5jdGlvbiByZXR1cm5zIHRoZSBudW1iZXIgb2YgaW5kZXggbm9kZXMgd3JpdHRlbiBpbnRvIHRo
-ZSBnYXBzLCBvciBhDQo+ICAgKiBuZWdhdGl2ZSBlcnJvciBjb2RlIG9uIGZhaWx1cmUuDQo+ICAg
-Ki8NCj4gLXN0YXRpYyBpbnQgbGF5b3V0X2xlYl9pbl9nYXBzKHN0cnVjdCB1Ymlmc19pbmZvICpj
-LCBpbnQgKnApDQo+ICtzdGF0aWMgaW50IGxheW91dF9sZWJfaW5fZ2FwcyhzdHJ1Y3QgdWJpZnNf
-aW5mbyAqYywgaW50IHApDQo+ICB7DQo+ICAgICAgICAgc3RydWN0IHViaWZzX3NjYW5fbGViICpz
-bGViOw0KPiAgICAgICAgIHN0cnVjdCB1Ymlmc19zY2FuX25vZGUgKnNub2Q7DQo+IEBAIC0yMzYs
-NyArMjM2LDcgQEAgc3RhdGljIGludCBsYXlvdXRfbGViX2luX2dhcHMoc3RydWN0IHViaWZzX2lu
-Zm8gKmMsIGludCAqcCkNCj4gICAgICAgICAgICAgICAgICAqIGZpbGxlZCwgaG93ZXZlciB3ZSBk
-byBub3QgY2hlY2sgdGhlcmUgYXQgcHJlc2VudC4NCj4gICAgICAgICAgICAgICAgICAqLw0KPiAg
-ICAgICAgICAgICAgICAgcmV0dXJuIGxudW07IC8qIEVycm9yIGNvZGUgKi8NCj4gLSAgICAgICAq
-cCA9IGxudW07DQo+ICsgICAgICAgYy0+Z2FwX2xlYnNbcF0gPSBsbnVtOw0KPiAgICAgICAgIGRi
-Z19nYygiTEVCICVkIiwgbG51bSk7DQo+ICAgICAgICAgLyoNCj4gICAgICAgICAgKiBTY2FuIHRo
-ZSBpbmRleCBMRUIuICBXZSB1c2UgdGhlIGdlbmVyaWMgc2NhbiBmb3IgdGhpcyBldmVuIA0KPiB0
-aG91Z2ggQEAgLTM1NSw3ICszNTUsNyBAQCBzdGF0aWMgaW50IGdldF9sZWJfY250KHN0cnVjdCB1
-Ymlmc19pbmZvICpjLCBpbnQgY250KQ0KPiAgICovDQo+ICBzdGF0aWMgaW50IGxheW91dF9pbl9n
-YXBzKHN0cnVjdCB1Ymlmc19pbmZvICpjLCBpbnQgY250KSAgew0KPiAtICAgICAgIGludCBlcnIs
-IGxlYl9uZWVkZWRfY250LCB3cml0dGVuLCAqcDsNCj4gKyAgICAgICBpbnQgZXJyLCBsZWJfbmVl
-ZGVkX2NudCwgd3JpdHRlbiwgcCA9IDAsIG9sZF9pZHhfbGVicywgDQo+ICsgKmdhcF9sZWJzOw0K
-Pg0KPiAgICAgICAgIGRiZ19nYygiJWQgem5vZGVzIHRvIHdyaXRlIiwgY250KTsNCj4NCj4gQEAg
-LTM2NCw5ICszNjQsOSBAQCBzdGF0aWMgaW50IGxheW91dF9pbl9nYXBzKHN0cnVjdCB1Ymlmc19p
-bmZvICpjLCBpbnQgY250KQ0KPiAgICAgICAgIGlmICghYy0+Z2FwX2xlYnMpDQo+ICAgICAgICAg
-ICAgICAgICByZXR1cm4gLUVOT01FTTsNCj4NCj4gLSAgICAgICBwID0gYy0+Z2FwX2xlYnM7DQo+
-ICsgICAgICAgb2xkX2lkeF9sZWJzID0gYy0+bHN0LmlkeF9sZWJzOw0KPiAgICAgICAgIGRvIHsN
-Cj4gLSAgICAgICAgICAgICAgIHViaWZzX2Fzc2VydChjLCBwIDwgYy0+Z2FwX2xlYnMgKyBjLT5s
-c3QuaWR4X2xlYnMpOw0KPiArICAgICAgICAgICAgICAgdWJpZnNfYXNzZXJ0KGMsIHAgPCBjLT5s
-c3QuaWR4X2xlYnMpOw0KPiAgICAgICAgICAgICAgICAgd3JpdHRlbiA9IGxheW91dF9sZWJfaW5f
-Z2FwcyhjLCBwKTsNCj4gICAgICAgICAgICAgICAgIGlmICh3cml0dGVuIDwgMCkgew0KPiAgICAg
-ICAgICAgICAgICAgICAgICAgICBlcnIgPSB3cml0dGVuOyBAQCAtMzkyLDkgKzM5MiwyOSBAQCBz
-dGF0aWMgaW50IA0KPiBsYXlvdXRfaW5fZ2FwcyhzdHJ1Y3QgdWJpZnNfaW5mbyAqYywgaW50IGNu
-dCkNCj4gICAgICAgICAgICAgICAgIGxlYl9uZWVkZWRfY250ID0gZ2V0X2xlYl9jbnQoYywgY250
-KTsNCj4gICAgICAgICAgICAgICAgIGRiZ19nYygiJWQgem5vZGVzIHJlbWFpbmluZywgbmVlZCAl
-ZCBMRUJzLCBoYXZlICVkIiwgY250LA0KPiAgICAgICAgICAgICAgICAgICAgICAgIGxlYl9uZWVk
-ZWRfY250LCBjLT5pbGViX2NudCk7DQo+ICsgICAgICAgICAgICAgICAvKg0KPiArICAgICAgICAg
-ICAgICAgICogRHluYW1pY2FsbHkgY2hhbmdlIHRoZSBzaXplIG9mIEBjLT5nYXBfbGVicyB0byBw
-cmV2ZW50DQo+ICsgICAgICAgICAgICAgICAgKiBvb2IsIGJlY2F1c2UgQGMtPmxzdC5pZHhfbGVi
-cyBjb3VsZCBiZSBpbmNyZWFzZWQgYnkNCj4gKyAgICAgICAgICAgICAgICAqIGZ1bmN0aW9uIEBn
-ZXRfaWR4X2djX2xlYiAoY2FsbGVkIGJ5IGxheW91dF9sZWJfaW5fZ2Fwcy0+DQo+ICsgICAgICAg
-ICAgICAgICAgKiB1Ymlmc19maW5kX2RpcnR5X2lkeF9sZWIpIGR1cmluZyBsb29wLiBPbmx5IGVu
-bGFyZ2UNCj4gKyAgICAgICAgICAgICAgICAqIEBjLT5nYXBfbGVicyB3aGVuIG5lZWRlZC4NCj4g
-KyAgICAgICAgICAgICAgICAqDQo+ICsgICAgICAgICAgICAgICAgKi8NCj4gKyAgICAgICAgICAg
-ICAgIGlmIChsZWJfbmVlZGVkX2NudCA+IGMtPmlsZWJfY250ICYmIHAgPj0gb2xkX2lkeF9sZWJz
-ICYmDQo+ICsgICAgICAgICAgICAgICAgICAgb2xkX2lkeF9sZWJzIDwgYy0+bHN0LmlkeF9sZWJz
-KSB7DQo+ICsgICAgICAgICAgICAgICAgICAgICAgIG9sZF9pZHhfbGVicyA9IGMtPmxzdC5pZHhf
-bGViczsNCj4gKyAgICAgICAgICAgICAgICAgICAgICAgZ2FwX2xlYnMgPSBrcmVhbGxvYyhjLT5n
-YXBfbGVicywgc2l6ZW9mKGludCkgKg0KPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIChvbGRfaWR4X2xlYnMgKyAxKSwgDQo+ICsgR0ZQX05PRlMpOw0KDQpJ
-IHNlZSB0aGUgcHJvYmxlbS4gOi0oDQoNCkJ1dCBJJ20gbm90IHN1cmUgeWV0IHdoZXRoZXIga3Jl
-YWxsb2MoKSBpcyB0aGUgcmlnaHQgc29sdXRpb24sIHdlIG5lZWQgdG8gYmUgc3VyZSB0aGF0IHRo
-aXMgZG9lcyBub3QganVzdCBwYXBlciBvdmVyIHRoZSByb290IGNhdXNlLg0KUGxlYXNlIGdpdmUg
-bWUgbW9yZSB0aW1lIHRvIHVuZGVyc3RhbmQgdGhlIHJvb3QgY2F1c2UuDQoNCi0tDQpUaGFua3Ms
-DQovL3JpY2hhcmQNCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+The series is an update and a more complete version of the
+previously posted series at
+https://lore.kernel.org/linux-fsdevel/20180122020426.2988-1-deepa.kernel@gmail.com/
+
+Thanks to Arnd Bergmann for doing a few preliminary reviews.
+They helped me fix a few issues I had overlooked.
+
+The limits (sometimes granularity also) for the filesystems updated here are according to the
+following table:
+
+File system   Time type                      Start year Expiration year Granularity
+cramfs        fixed                          0          0
+romfs         fixed                          0          0
+pstore        ascii seconds (27 digit ascii) S64_MIN    S64_MAX         NSEC_PER_USEC
+coda          INT64                          S64_MIN    S64_MAX         1
+omfs          64-bit milliseconds            0          U64_MAX/ 1000   NSEC_PER_MSEC
+befs          unsigned 48-bit seconds        0          0xffffffffffff  alloc_super
+bfs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
+efs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
+ext2          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+ext3          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+ext4 (old)    signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+ext4 (extra)  34-bit seconds, 30-bit ns      S32_MIN    0x37fffffff	1
+freevxfs      u32 secs/usecs                 0          U32_MAX         alloc_super
+jffs2         unsigned 32-bit seconds        0          U32_MAX         alloc_super
+jfs           unsigned 32-bit seconds/ns     0          U32_MAX         1
+minix         unsigned 32-bit seconds        0          U32_MAX         alloc_super
+orangefs      u64 seconds                    0          U64_MAX         alloc_super
+qnx4          unsigned 32-bit seconds        0          U32_MAX         alloc_super
+qnx6          unsigned 32-bit seconds        0          U32_MAX         alloc_super
+reiserfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
+squashfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
+ufs1          signed 32-bit seconds          S32_MIN    S32_MAX         NSEC_PER_SEC
+ufs2          signed 64-bit seconds/u32 ns   S64_MIN    S64_MAX         1
+xfs           signed 32-bit seconds/ns       S32_MIN    S32_MAX         1
+ceph          unsigned 32-bit second/ns      0          U32_MAX         1000
+sysv          unsigned 32-bit seconds        0          U32_MAX         alloc_super
+affs          u32 day, min, ticks            1978       u32_max days    NSEC_PER_SEC
+nfsv2         unsigned 32-bit seconds/ns     0          U32_MAX         1
+nfsv3         unsigned 32-bit seconds/ns     0          U32_MAX         1000
+nfsv4         u64 seconds/u32 ns             S64_MIN    S64_MAX         1000
+isofs         u8 year since 1900 (fixable)   1900       2155            alloc_super
+hpfs          unsigned 32-bit seconds        1970       2106            alloc_super
+fat           7-bit years, 2s resolution     1980       2107
+cifs (smb)    7-bit years                    1980       2107
+cifs (modern) 64-bit 100ns since 1601        1601       30828
+adfs          40-bit cs since 1900           1900       2248
+9p (9P2000)   unsigned 32-bit seconds        1970       2106
+9p (9P2000.L) signed 64-bit seconds, ns      1970       S64_MAX
+
+Granularity column filled in by the alloc_super() in the above table indicates that
+the granularity is NSEC_PER_SEC.
+Note that anything not mentioned above still has the default limits
+S64_MIN..S64_MAX.
+
+The patches in the series are as structured below:
+1. Add vfs support to maintain the limits per filesystem.
+2. Add a new timestamp_truncate() api for clamping timestamps
+   according to the filesystem limits.
+3. Add a warning for mount syscall to indicate the impending
+   expiry of timestamps.
+4. Modify utimes to clamp the timestamps.
+5. Fill in limits for filesystems.
+
+An updated version of the test for checking file system timestamp limits has been posted
+at https://www.spinics.net/lists/fstests/msg12262.html
+
+Changes from previous version:
+* No change in mount behavior because of expiry of timestamps.
+* Included limits for more filesystems.
+
+Deepa Dinamani (20):
+  vfs: Add file timestamp range support
+  vfs: Add timestamp_truncate() api
+  timestamp_truncate: Replace users of timespec64_trunc
+  mount: Add mount warning for impending timestamp expiry
+  utimes: Clamp the timestamps before update
+  fs: Fill in max and min timestamps in superblock
+  9p: Fill min and max timestamps in sb
+  adfs: Fill in max and min timestamps in sb
+  ext4: Initialize timestamps limits
+  fs: nfs: Initialize filesystem timestamp ranges
+  fs: cifs: Initialize filesystem timestamp ranges
+  fs: fat: Initialize filesystem timestamp ranges
+  fs: affs: Initialize filesystem timestamp ranges
+  fs: sysv: Initialize filesystem timestamp ranges
+  fs: ceph: Initialize filesystem timestamp ranges
+  fs: orangefs: Initialize filesystem timestamp ranges
+  fs: hpfs: Initialize filesystem timestamp ranges
+  fs: omfs: Initialize filesystem timestamp ranges
+  pstore: fs superblock limits
+  isofs: Initialize filesystem timestamp ranges
+
+ fs/9p/vfs_super.c        |  6 +++++-
+ fs/adfs/adfs.h           | 13 +++++++++++++
+ fs/adfs/inode.c          |  8 ++------
+ fs/adfs/super.c          |  2 ++
+ fs/affs/amigaffs.c       |  2 +-
+ fs/affs/amigaffs.h       |  3 +++
+ fs/affs/inode.c          |  4 ++--
+ fs/affs/super.c          |  4 ++++
+ fs/attr.c                | 21 ++++++++++++---------
+ fs/befs/linuxvfs.c       |  2 ++
+ fs/bfs/inode.c           |  2 ++
+ fs/ceph/super.c          |  2 ++
+ fs/cifs/cifsfs.c         | 22 ++++++++++++++++++++++
+ fs/cifs/netmisc.c        | 14 +++++++-------
+ fs/coda/inode.c          |  3 +++
+ fs/configfs/inode.c      | 12 ++++++------
+ fs/cramfs/inode.c        |  2 ++
+ fs/efs/super.c           |  2 ++
+ fs/ext2/super.c          |  2 ++
+ fs/ext4/ext4.h           |  4 ++++
+ fs/ext4/super.c          | 17 +++++++++++++++--
+ fs/f2fs/file.c           | 21 ++++++++++++---------
+ fs/fat/inode.c           | 12 ++++++++++++
+ fs/fat/misc.c            |  5 +++--
+ fs/freevxfs/vxfs_super.c |  2 ++
+ fs/hpfs/hpfs_fn.h        |  6 ++----
+ fs/hpfs/super.c          |  2 ++
+ fs/inode.c               | 33 ++++++++++++++++++++++++++++++++-
+ fs/isofs/inode.c         |  7 +++++++
+ fs/jffs2/fs.c            |  3 +++
+ fs/jfs/super.c           |  2 ++
+ fs/kernfs/inode.c        |  6 +++---
+ fs/minix/inode.c         |  2 ++
+ fs/namespace.c           | 11 +++++++++++
+ fs/nfs/super.c           | 20 +++++++++++++++++++-
+ fs/ntfs/inode.c          | 21 ++++++++++++---------
+ fs/omfs/inode.c          |  4 ++++
+ fs/orangefs/super.c      |  2 ++
+ fs/pstore/inode.c        |  4 +++-
+ fs/qnx4/inode.c          |  2 ++
+ fs/qnx6/inode.c          |  2 ++
+ fs/reiserfs/super.c      |  3 +++
+ fs/romfs/super.c         |  2 ++
+ fs/squashfs/super.c      |  2 ++
+ fs/super.c               |  2 ++
+ fs/sysv/super.c          |  5 ++++-
+ fs/ubifs/file.c          | 21 ++++++++++++---------
+ fs/ufs/super.c           |  7 +++++++
+ fs/utimes.c              | 17 +++++++++++++----
+ fs/xfs/xfs_super.c       |  2 ++
+ include/linux/fs.h       |  5 +++++
+ include/linux/time64.h   |  2 ++
+ 52 files changed, 304 insertions(+), 78 deletions(-)
+
+-- 
+2.17.1
+
+Cc: adilger.kernel@dilger.ca
+Cc: adrian.hunter@intel.com
+Cc: aivazian.tigran@gmail.com
+Cc: al@alarsen.net
+Cc: anna.schumaker@netapp.com
+Cc: anton@enomsg.org
+Cc: anton@tuxera.com
+Cc: asmadeus@codewreck.org
+Cc: ccross@android.com
+Cc: ceph-devel@vger.kernel.org
+Cc: coda@cs.cmu.edu
+Cc: codalist@coda.cs.cmu.edu
+Cc: darrick.wong@oracle.com
+Cc: dedekind1@gmail.com
+Cc: devel@lists.orangefs.org
+Cc: dsterba@suse.com
+Cc: dushistov@mail.ru
+Cc: dwmw2@infradead.org
+Cc: ericvh@gmail.com
+Cc: gregkh@linuxfoundation.org
+Cc: hch@infradead.org
+Cc: hch@lst.de
+Cc: hirofumi@mail.parknet.co.jp
+Cc: hubcap@omnibond.com
+Cc: idryomov@gmail.com
+Cc: jack@suse.com
+Cc: jaegeuk@kernel.org
+Cc: jaharkes@cs.cmu.edu
+Cc: jfs-discussion@lists.sourceforge.net
+Cc: jlbec@evilplan.org
+Cc: keescook@chromium.org
+Cc: linux-cifs@vger.kernel.org
+Cc: linux-ext4@vger.kernel.org
+Cc: linux-f2fs-devel@lists.sourceforge.net
+Cc: linux-karma-devel@lists.sourceforge.net
+Cc: linux-mtd@lists.infradead.org
+Cc: linux-nfs@vger.kernel.org
+Cc: linux-ntfs-dev@lists.sourceforge.net
+Cc: linux-xfs@vger.kernel.org
+Cc: lucho@ionkov.net
+Cc: luisbg@kernel.org
+Cc: martin@omnibond.com
+Cc: me@bobcopeland.com
+Cc: mikulas@artax.karlin.mff.cuni.cz
+Cc: nico@fluxnic.net
+Cc: phillip@squashfs.org.uk
+Cc: reiserfs-devel@vger.kernel.org
+Cc: richard@nod.at
+Cc: sage@redhat.com
+Cc: salah.triki@gmail.com
+Cc: sfrench@samba.org
+Cc: shaggy@kernel.org
+Cc: tj@kernel.org
+Cc: tony.luck@intel.com
+Cc: trond.myklebust@hammerspace.com
+Cc: tytso@mit.edu
+Cc: v9fs-developer@lists.sourceforge.net
+Cc: yuchao0@huawei.com
+Cc: zyan@redhat.com
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
