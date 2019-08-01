@@ -2,87 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3DF337D5AD
-	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 08:45:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 734677D5B0
+	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 08:46:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JJuasDBH2+lx5hZHt3xsblshLBQxzeLiM5gcFZEmSVM=; b=s4yVZYQRHfR+dB
-	C7EM54eOuHMl+2W9I6NcgWqo/8hjLZivERG838zqedlGUdfi8fx9rJs4cN5xK4TbNQu31A7pcI38S
-	oTjY1AjaFC9/pjUxajzsjha/udLLTtNP7onW+ew66XRYX8Hr0esS02v+sV2zVDcQST1jbnURxUnId
-	wBFhmgNfgUSknLVtkTkVtzhaw4s4eQVDiVUs4NGrtMgo3InnXyPCFYayBoTHqgkpoMoEcd3s8kTlK
-	idu48bh0P/7bAtvq6izkSA7Y7vCLiec7uxVwXxOr1HV/t12G82YhA6mwPkSXICacGf2qu+sL77Cmp
-	Ey/ssX3PTDs34Xhp4IZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fm2GKJUNSjcYyfc2Hgsf2OJZCkghF4JxKZaMyVoB914=; b=oAM2TFArnopjyf
+	Joqbwcb4+RxtRofP8gVIF1hq88DEMAw0sFgkmBJt72NFQnKbOqxnGBNCcnNsqq2durkqGiVOp31Wn
+	aQQx+kLPobBLxoA0/uYguMjhXb1x7+Uo1FYScYjr17GXKkkSTFerrTNQqbNHr9NRTydwq9jjETWNZ
+	IiyaIxkFy9py7PgokqS0lBrfz7iFlmQ2ScQ7OAXRLx7NrCiqTa2PzApeY57O4mCtb1vEoWxj7L7xo
+	3/OZcH044sLOJnzu1jEJ0vH2yBEE0tSdTcgnpsFWgeUVxWrexvNju9kGr7vQ0BCoRaHH1BwDXK2ij
+	xvH3Ll/UjyDw5aGrbD8g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1ht4pr-0005zF-JW; Thu, 01 Aug 2019 06:45:11 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1ht4r1-0006eu-Nv; Thu, 01 Aug 2019 06:46:23 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1ht4pk-0005PP-Lt
- for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 06:45:06 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
- by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id x716ivrT070548;
- Thu, 1 Aug 2019 01:44:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1564641897;
- bh=7klj/oxvN3FoRHz8lsnRzWDOpkLfDASFSU6JxyhjCzE=;
- h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=IUKC5jCnFKMk9KcJ79PKFMHteVNz7xUBnHAf/imbfaGqTPCcPS4SG5QvIUuDp96A3
- r3WjjpT3+BrxAkOxIPSJvC22zmIr0bts9TTSsmoKamzJQCRGH8aultvp0KzjgtvI22
- P9CZKFzpLdaY5DsE2bnuUl8xwf7L7B3fLpsx9bzc=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
- by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x716iulm106677
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Thu, 1 Aug 2019 01:44:57 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Thu, 1 Aug
- 2019 01:44:56 -0500
-Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Thu, 1 Aug 2019 01:44:56 -0500
-Received: from [172.24.145.136] (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id x716irJi115628;
- Thu, 1 Aug 2019 01:44:54 -0500
-Subject: Re: [PATCH v3 1/3] mtd: spi-nor: always use bounce buffer for
- register read/writes
-To: Boris Brezillon <boris.brezillon@collabora.com>
-References: <20190801043052.30192-1-vigneshr@ti.com>
- <20190801043052.30192-2-vigneshr@ti.com>
- <20190801074647.792479c1@collabora.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Message-ID: <d057db47-64a6-01ca-2ccb-d57c532213d4@ti.com>
-Date: Thu, 1 Aug 2019 12:15:30 +0530
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+ id 1ht4qu-0006eY-3S
+ for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 06:46:17 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id ACDC42604D6;
+ Thu,  1 Aug 2019 07:46:14 +0100 (BST)
+Date: Thu, 1 Aug 2019 08:46:12 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: <Tudor.Ambarus@microchip.com>
+Subject: Re: [PATCH 1/3] mtd: spi-nor: Bring flash params init together
+Message-ID: <20190801084612.26633b65@collabora.com>
+In-Reply-To: <20190731091835.27766-2-tudor.ambarus@microchip.com>
+References: <20190731091835.27766-1-tudor.ambarus@microchip.com>
+ <20190731091835.27766-2-tudor.ambarus@microchip.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20190801074647.792479c1@collabora.com>
-Content-Language: en-US
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190731_234504_806034_CF2B3372 
-X-CRM114-Status: GOOD (  18.24  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20190731_234616_398392_9BD2D1CF 
+X-CRM114-Status: GOOD (  16.94  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.19.141 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,83 +61,97 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
- linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@gmail.com>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: vigneshr@ti.com, richard@nod.at, linux-kernel@vger.kernel.org,
+ marek.vasut@gmail.com, linux-mtd@lists.infradead.org,
+ miquel.raynal@bootlin.com, computersforpeace@gmail.com, dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Boris
+On Wed, 31 Jul 2019 09:18:45 +0000
+<Tudor.Ambarus@microchip.com> wrote:
 
-On 01/08/19 11:16 AM, Boris Brezillon wrote:
-> On Thu, 1 Aug 2019 10:00:50 +0530
-> Vignesh Raghavendra <vigneshr@ti.com> wrote:
+> From: Tudor Ambarus <tudor.ambarus@microchip.com>
 > 
->> spi-mem layer expects all buffers passed to it to be DMA'able. But
->> spi-nor layer mostly allocates buffers on stack for reading/writing to
->> registers and therefore are not DMA'able. Introduce bounce buffer to be
->> used to read/write to registers. This ensures that buffer passed to
->> spi-mem layer during register read/writes is DMA'able. With this change
->> nor->cmd-buf is no longer used, so drop it.
->>
->> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
->> ---
->> v3: new patch
->>
-
-[...]
-
->> @@ -2180,11 +2179,13 @@ static const struct flash_info *spi_nor_read_id(struct spi_nor *nor)
->>  	u8			id[SPI_NOR_MAX_ID_LEN];
->>  	const struct flash_info	*info;
->>  
->> -	tmp = nor->read_reg(nor, SPINOR_OP_RDID, id, SPI_NOR_MAX_ID_LEN);
->> +	tmp = nor->read_reg(nor, SPINOR_OP_RDID, nor->bouncebuf,
->> +			    SPI_NOR_MAX_ID_LEN);
->>  	if (tmp < 0) {
->>  		dev_err(nor->dev, "error %d reading JEDEC ID\n", tmp);
->>  		return ERR_PTR(tmp);
->>  	}
->> +	memcpy(id, nor->bouncebuf, SPI_NOR_MAX_ID_LEN);
+> Bring all flash parameters default initialization in
+> spi_nor_default_params_init().
 > 
-> Why not directly including the change you have in patch 2 (id is a
-> pointer that points directly to ->bouncebuf) so you can get rid of this
-> memcpy() here?
->
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
 
-Ok will do that in next version.
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 
-
->>  
->>  	for (tmp = 0; tmp < ARRAY_SIZE(spi_nor_ids) - 1; tmp++) {
->>  		info = &spi_nor_ids[tmp];
->> @@ -4121,6 +4122,16 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
->>  	nor->read_proto = SNOR_PROTO_1_1_1;
->>  	nor->write_proto = SNOR_PROTO_1_1_1;
->>  
->> +	/*
->> +	 * We need the bounce buffer early to read/write registers when going
->> +	 * through the spi-mem layer (buffers have to be DMA-able).
+> ---
+>  drivers/mtd/spi-nor/spi-nor.c | 29 +++++++++++------------------
+>  1 file changed, 11 insertions(+), 18 deletions(-)
 > 
-> You should probably extend this comment in patch 2 to explain why 4k
-> should be enough for regular read/write operations.
-> 
+> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> index 01be6d49ce3b..fba941a932cc 100644
+> --- a/drivers/mtd/spi-nor/spi-nor.c
+> +++ b/drivers/mtd/spi-nor/spi-nor.c
+> @@ -4319,6 +4319,7 @@ static void spi_nor_default_init_params(struct spi_nor *nor,
+>  {
+>  	struct spi_nor_erase_map *map = &nor->erase_map;
+>  	const struct flash_info *info = nor->info;
+> +	struct device_node *np = spi_nor_get_flash_node(nor);
+>  	u8 i, erase_mask;
+>  
+>  	/* Set legacy flash parameters as default. */
+> @@ -4328,18 +4329,25 @@ static void spi_nor_default_init_params(struct spi_nor *nor,
+>  	params->size = (u64)info->sector_size * info->n_sectors;
+>  	params->page_size = info->page_size;
+>  
+> +	if (!(info->flags & SPI_NOR_NO_FR)) {
+> +		/* Default to Fast Read for DT and non-DT platform devices. */
+> +		params->hwcaps.mask |= SNOR_HWCAPS_READ_FAST;
+> +
+> +		/* Mask out Fast Read if not requested at DT instantiation. */
+> +		if (np && !of_property_read_bool(np, "m25p,fast-read"))
+> +			params->hwcaps.mask &= ~SNOR_HWCAPS_READ_FAST;
+> +	}
+> +
+>  	/* (Fast) Read settings. */
+>  	params->hwcaps.mask |= SNOR_HWCAPS_READ;
+>  	spi_nor_set_read_settings(&params->reads[SNOR_CMD_READ],
+>  				  0, 0, SPINOR_OP_READ,
+>  				  SNOR_PROTO_1_1_1);
+>  
+> -	if (!(info->flags & SPI_NOR_NO_FR)) {
+> -		params->hwcaps.mask |= SNOR_HWCAPS_READ_FAST;
+> +	if (params->hwcaps.mask & SNOR_HWCAPS_READ_FAST)
+>  		spi_nor_set_read_settings(&params->reads[SNOR_CMD_READ_FAST],
+>  					  0, 8, SPINOR_OP_READ_FAST,
+>  					  SNOR_PROTO_1_1_1);
+> -	}
+>  
+>  	if (info->flags & SPI_NOR_DUAL_READ) {
+>  		params->hwcaps.mask |= SNOR_HWCAPS_READ_1_1_2;
+> @@ -4876,24 +4884,9 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+>  	nor->page_size = params.page_size;
+>  	mtd->writebufsize = nor->page_size;
+>  
+> -	if (np) {
+> -		/* If we were instantiated by DT, use it */
+> -		if (of_property_read_bool(np, "m25p,fast-read"))
+> -			params.hwcaps.mask |= SNOR_HWCAPS_READ_FAST;
+> -		else
+> -			params.hwcaps.mask &= ~SNOR_HWCAPS_READ_FAST;
+> -	} else {
+> -		/* If we weren't instantiated by DT, default to fast-read */
+> -		params.hwcaps.mask |= SNOR_HWCAPS_READ_FAST;
+> -	}
+> -
+>  	if (of_property_read_bool(np, "broken-flash-reset"))
+>  		nor->flags |= SNOR_F_BROKEN_RESET;
+>  
+> -	/* Some devices cannot do fast-read, no matter what DT tells us */
+> -	if (info->flags & SPI_NOR_NO_FR)
+> -		params.hwcaps.mask &= ~SNOR_HWCAPS_READ_FAST;
+> -
+>  	if (nor->locking_ops) {
+>  		mtd->_lock = spi_nor_lock;
+>  		mtd->_unlock = spi_nor_unlock;
 
-Will update
-
-> The patch looks good otherwise.
-> 
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-> 
-
-Thanks for the review!
-
--- 
-Regards
-Vignesh
 
 ______________________________________________________
 Linux MTD discussion mailing list
