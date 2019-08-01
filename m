@@ -2,54 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 592047D591
-	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 08:37:17 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C52907D5A1
+	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 08:42:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FIMQpsT7SM+681v75+hiC/epv9gqJIENduxXpp++G7g=; b=aHyMz7eH+OREcG
-	xS2HMqCDc6IHa3KbA/Vp1x/OtKHwx8HExuLfEoiLDMMd1yOEDsbPEQ9KhFJuuvObRCStjmb1ZbEzU
-	jDwZC+r11W2hYCwYRVB3WkzAr4JxFYslp+qDiy+1GlfFxYK4BdL0bnnSjkImPVCWPVoDu0dwRJeAb
-	iEoqewstimi72DP76m63TQsE7kV4IlIvJf0rtQwZn20a0DlBoRgbezE9123aRgPc4jBYq41gl5aOS
-	E2URZ43BQxzsfB0NMS/NrsSee+2NW2WpBJMS0v3LuWU1H7yAHDaWmeTfHi4mgkz+char9dNLtMdOb
-	3ihX7+a9KOcac+//R9PA==;
+	List-Owner; bh=kJfMVJyTeGC0+DJu65+Oavq3OeQfICoAX+EJz8XBM6w=; b=WZD9H+ukHMAEHf
+	pDb0hNaDsy+JCU9EWkgnOKyH+mhOXcrWQb/eCKyf7wBIv0nnZr0iqxRmCKlKWb9vWLr01n7ZBSNg+
+	AAs4MNZW4uHj9FxluFWq3fJkGMpMETZy+Nvj1pH1dfa4YliSipdKoqtdxrjOqLcq9YNW//+9RwUro
+	uY9xG2mCtE20gR/w8+GkGWkN4ruP3F8TNj7Pg1ZAGW2Aryz9raPthNREFRDSEB2udfiQ+2P965jPO
+	ZsfW8KilJ4XY4XDjsSBALWPEAdY8UJW/17WvokwmULaSJg5BmGgWqBGCeUJhdEF3KEoMhVbTGFmpP
+	IjPkc20GdxLHAkS1ytqQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1ht4iA-0001yb-Mv; Thu, 01 Aug 2019 06:37:14 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1ht4nW-0004Zl-Fk; Thu, 01 Aug 2019 06:42:46 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1ht4hu-0001pP-7C
- for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 06:36:59 +0000
+ id 1ht4nH-0004E5-HG
+ for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 06:42:33 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id C699C28A446;
- Thu,  1 Aug 2019 07:36:55 +0100 (BST)
-Date: Thu, 1 Aug 2019 08:36:52 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 9160528BFE1;
+ Thu,  1 Aug 2019 07:42:29 +0100 (BST)
+Date: Thu, 1 Aug 2019 08:42:26 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: <Tudor.Ambarus@microchip.com>
-Subject: Re: [PATCH 4/6] mtd: spi_nor: Add nor->setup() method
-Message-ID: <20190801083652.52bffef5@collabora.com>
-In-Reply-To: <20190731091145.27374-5-tudor.ambarus@microchip.com>
+Subject: Re: [PATCH 5/6] mtd: spi-nor: Add s3an_post_sfdp_fixups()
+Message-ID: <20190801084226.27572bb6@collabora.com>
+In-Reply-To: <20190731091145.27374-6-tudor.ambarus@microchip.com>
 References: <20190731091145.27374-1-tudor.ambarus@microchip.com>
- <20190731091145.27374-5-tudor.ambarus@microchip.com>
+ <20190731091145.27374-6-tudor.ambarus@microchip.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190731_233658_386573_536E1E52 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20190731_234231_869220_2995560A 
+X-CRM114-Status: GOOD (  18.73  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -71,47 +69,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, 31 Jul 2019 09:12:14 +0000
+On Wed, 31 Jul 2019 09:12:16 +0000
 <Tudor.Ambarus@microchip.com> wrote:
 
-
->  static inline bool spi_nor_protocol_is_dtr(enum spi_nor_protocol proto)
->  {
->  	return !!(proto & SNOR_PROTO_IS_DTR);
-> @@ -384,6 +522,7 @@ struct flash_info;
->   *                      useful when pagesize is not a power-of-2
->   * @disable_write_protection: [FLASH-SPECIFIC] disable write protection during
->   *                            power-up
-> + * @setup:		[FLASH-SPECIFIC] configure the spi-nor memory
-
-Might be worth giving a example of the type of configuration that can
-be done here.
-
-The patch looks good otherwise.
-
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-
->   *			completely locked
-
-Looks like this 'completely locked' is a leftover from a previous move
-(lock functions were move to a separate _ops struct IIRC). Can you fix
-that?
-
->   * @priv:		the private data
->   */
-> @@ -427,6 +566,9 @@ struct spi_nor {
->  	int (*set_4byte)(struct spi_nor *nor, bool enable);
->  	u32 (*convert_addr)(struct spi_nor *nor, u32 addr);
->  	int (*disable_write_protection)(struct spi_nor *nor);
-> +	int (*setup)(struct spi_nor *nor,
-> +		     const struct spi_nor_flash_parameter *params,
-> +		     const struct spi_nor_hwcaps *hwcaps);
->  
->  	const struct spi_nor_locking_ops *locking_ops;
->  
-> @@ -486,81 +628,6 @@ static inline struct device_node *spi_nor_get_flash_node(struct spi_nor *nor)
+> From: Tudor Ambarus <tudor.ambarus@microchip.com>
+> 
+> s3an_nor_scan() was overriding the opcode selection done in
+> spi_nor_default_setup(). Set nor->setup() method in order to
+> avoid unnecessary call to spi_nor_default_setup().
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+> ---
+>  drivers/mtd/spi-nor/spi-nor.c | 35 +++++++++++++++++++++++++----------
+>  1 file changed, 25 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> index 0ff474e5e4f5..5fea5d7ce2cb 100644
+> --- a/drivers/mtd/spi-nor/spi-nor.c
+> +++ b/drivers/mtd/spi-nor/spi-nor.c
+> @@ -2795,7 +2795,9 @@ static int spi_nor_check(struct spi_nor *nor)
+>  	return 0;
 >  }
 >  
+> -static int s3an_nor_scan(struct spi_nor *nor)
+> +static int s3an_nor_setup(struct spi_nor *nor,
+> +			  const struct spi_nor_flash_parameter *params,
+> +			  const struct spi_nor_hwcaps *hwcaps)
+>  {
+>  	int ret;
+>  	u8 val;
+> @@ -4393,6 +4395,11 @@ static void spansion_post_sfdp_fixups(struct spi_nor *nor)
+>  	nor->mtd.erasesize = nor->info->sector_size;
+>  }
+>  
+> +static void s3an_post_sfdp_fixups(struct spi_nor *nor)
+> +{
+> +	nor->setup = s3an_nor_setup;
+> +}
+> +
+>  static void
+>  spi_nor_manufacturer_post_sfdp_fixups(struct spi_nor *nor,
+>  				      struct spi_nor_flash_parameter *params)
+> @@ -4405,6 +4412,9 @@ spi_nor_manufacturer_post_sfdp_fixups(struct spi_nor *nor,
+>  	default:
+>  		break;
+>  	}
+> +
+> +	if (nor->info->flags & SPI_S3AN)
+> +		s3an_post_sfdp_fixups(nor);
+>  }
+>  
+>  static void spi_nor_post_sfdp_fixups(struct spi_nor *nor,
+> @@ -4582,9 +4592,9 @@ static int spi_nor_select_erase(struct spi_nor *nor, u32 wanted_size)
+>  	return 0;
+>  }
+>  
+> -static int spi_nor_setup(struct spi_nor *nor,
+> -			 const struct spi_nor_flash_parameter *params,
+> -			 const struct spi_nor_hwcaps *hwcaps)
+> +static int spi_nor_default_setup(struct spi_nor *nor,
+> +				 const struct spi_nor_flash_parameter *params,
+> +				 const struct spi_nor_hwcaps *hwcaps)
+>  {
+>  	u32 ignored_mask, shared_mask;
+>  	int err;
+> @@ -4641,6 +4651,16 @@ static int spi_nor_setup(struct spi_nor *nor,
+>  	return err;
+>  }
+>  
+> +static int spi_nor_setup(struct spi_nor *nor,
+> +			 const struct spi_nor_flash_parameter *params,
+> +			 const struct spi_nor_hwcaps *hwcaps)
+> +{
+> +	if (!nor->setup)
+> +		return 0;
+> +
+> +	return nor->setup(nor, params, hwcaps);
+> +}
+> +
+>  static int spi_nor_disable_write_protection(struct spi_nor *nor)
+>  {
+>  	if (!nor->disable_write_protection)
+> @@ -4804,6 +4824,7 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+>  	/* Kept only for backward compatibility purpose. */
+>  	nor->quad_enable = spansion_quad_enable;
+>  	nor->set_4byte = spansion_set_4byte;
+> +	nor->setup = spi_nor_default_setup;
+>  
+>  	/* Default locking operations. */
+>  	if (info->flags & SPI_NOR_HAS_LOCK) {
+> @@ -4905,12 +4926,6 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (info->flags & SPI_S3AN) {
+> -		ret = s3an_nor_scan(nor);
+> -		if (ret)
+> -			return ret;
+> -	}
+> -
+>  	/* Send all the required SPI flash commands to initialize device */
+>  	ret = spi_nor_init(nor);
+>  	if (ret)
+
+Almost all of this (except the s3an specific bits) should be done in
+the previous patch. So I'll put a condition on the R-b I placed on patch
+4: some of this code should be moved there.
 
 ______________________________________________________
 Linux MTD discussion mailing list
