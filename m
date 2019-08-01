@@ -2,62 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A50677D856
-	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 11:18:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 93A8F7D845
+	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 11:12:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:From:Message-ID:MIME-Version:
-	Subject:To:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6jtpUQ6gkU++P4WvaZ5uMYABVEEsCCAjXeKBr3rhmeU=; b=fzkIeaQ461nT/n
-	FiS90A+jfJXhLJXKI4rq3reUmtIzMtAqCWCA3n6uDxL1oL/iX7oMlC06IxtW7q8Ewh0nPRLTvdRXt
-	ULAGpLxbGz8OwDrA5VrcArqpeIVNznqDdaXMlCsoMdLH39k1601SIP4g0VW5A2FyH2DMy6ROJhHXg
-	0NCWnP33gbqYku3BJuMMMVj4xABy0LNJ0111cNVIdi1xErrPET9Qj032KVFtMlXw+y1ehVkIR3mLE
-	/Ft/904C9gWXcGbVvKuK5zCyhbwW7FMpjdxBQydordrm1eVS498AtyucmVG29y5LrL9MY9S8/2owh
-	YKilTnDn2OOwJYBmUkBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3bsE8Zx0jDB5lWkMiAgVVQj1YR+6pavNhVKLomRuiEg=; b=oJ4/Fkla3aAbWG
+	JdAAHCChNx3Yz+y+Wt8I3FObg//hL79dng5MjiscRuw98QLrwD40nz8jCnBp96ZfM+nYaGd7C/7XZ
+	c6GaTQm0GaggbusVczjw+7xqpf1sciQo8bGXN0dX/rx+xaUYVWo6rJvjVSWFntZ/d9gh6RdWJnvCL
+	m5FwLUHWJzomYq89GamU++/CCPjnPU+/X5GyOds7l7ivryp0ZinJ95IJ4PbF2HhJ5p4eD0cF2xFsx
+	rf/5rXj+8p/rs1vziwzvl4C0sR4KAnEpGSBFJpBGV2HXPc+kI7ZLWAiFHGPvrPkIeMISO9JWKGJar
+	VnP4ZyJPR9l9r/cavnsg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1ht7EN-0005HS-BE; Thu, 01 Aug 2019 09:18:39 +0000
-Received: from twhmllg4.macronix.com ([211.75.127.132])
+	id 1ht789-0002kx-05; Thu, 01 Aug 2019 09:12:13 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1ht7EG-0005H0-2z
- for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 09:18:33 +0000
-Received: from twhfmnt1.mxic.com.tw (twhfm1p2.macronix.com [172.17.20.92])
- by TWHMLLG4.macronix.com with ESMTP id x719HTPb014187;
- Thu, 1 Aug 2019 17:17:29 +0800 (GMT-8)
- (envelope-from masonccyang@mxic.com.tw)
-Received: from MXML06C.mxic.com.tw (mxml06c.mxic.com.tw [172.17.14.55])
- by Forcepoint Email with ESMTP id E762F2D1C15A92C1395E;
- Thu,  1 Aug 2019 17:17:29 +0800 (CST)
-In-Reply-To: <20190801075725.4f23e0f5@collabora.com>
-References: <1564631710-30276-1-git-send-email-masonccyang@mxic.com.tw>	<1564631710-30276-3-git-send-email-masonccyang@mxic.com.tw>
- <20190801075725.4f23e0f5@collabora.com>
-To: "Boris Brezillon" <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v6 2/2] dt-bindings: mtd: Document Macronix raw NAND
- controller bindings
+ id 1ht782-0002kO-6r
+ for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 09:12:07 +0000
+Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.59])
+ by Forcepoint Email with ESMTP id 6772E82FFE7FD0B29AB6;
+ Thu,  1 Aug 2019 17:12:01 +0800 (CST)
+Received: from huawei.com (10.90.53.225) by DGGEMS409-HUB.china.huawei.com
+ (10.3.19.209) with Microsoft SMTP Server id 14.3.439.0; Thu, 1 Aug 2019
+ 17:11:52 +0800
+From: Zhihao Cheng <chengzhihao1@huawei.com>
+To: <richard@nod.at>, <yi.zhang@huawei.com>
+Subject: [PATCH RFC] ubi: ubi_wl_get_peb: Replace a limited number of attempts
+ with polling while getting PEB
+Date: Thu, 1 Aug 2019 17:17:45 +0800
+Message-ID: <1564651065-4585-1-git-send-email-chengzhihao1@huawei.com>
+X-Mailer: git-send-email 2.7.4
 MIME-Version: 1.0
-X-KeepSent: 42C4D3EC:9549E8DC-48258449:003273A5;
- type=4; name=$KeepSent
-X-Mailer: Lotus Notes Release 8.5.3FP4 SHF90 June 10, 2013
-Message-ID: <OF42C4D3EC.9549E8DC-ON48258449.003273A5-48258449.00330A06@mxic.com.tw>
-From: masonccyang@mxic.com.tw
-Date: Thu, 1 Aug 2019 17:17:29 +0800
-X-MIMETrack: Serialize by Router on MXML06C/TAIWAN/MXIC(Release 9.0.1FP10
- HF265|July 25, 2018) at 2019/08/01 PM 05:17:29,
- Serialize complete at 2019/08/01 PM 05:17:29
-X-MAIL: TWHMLLG4.macronix.com x719HTPb014187
+X-Originating-IP: [10.90.53.225]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190801_021832_384545_1E8C898D 
-X-CRM114-Status: GOOD (  15.06  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190801_021206_427819_7AFC171C 
+X-CRM114-Status: GOOD (  15.41  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [211.75.127.132 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [45.249.212.191 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -70,118 +62,102 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, christophe.kerello@st.com,
- richard@nod.at, bbrezillon@kernel.org, juliensu@mxic.com.tw,
- lee.jones@linaro.org, linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- paul@crapouillou.net, marek.vasut@gmail.com, paul.burton@mips.com,
- liang.yang@amlogic.com, linux-mtd@lists.infradead.org, stefan@agner.ch,
- miquel.raynal@bootlin.com, anders.roxell@linaro.org,
- computersforpeace@gmail.com, dwmw2@infradead.org, vigneshr@ti.com
+Cc: chengzhihao1@huawei.com, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+Running pressure test io_paral (A pressure ubi test in mtd-utils) on an
+UBI device with fewer PEBs (fastmap enabled) may cause ENOSPC errors and
+make UBI device read-only, but there are still free PEBs on the UBI
+device. This problem can be easily reproduced by performing the following
+steps on a 2-core machine:
+  $ modprobe nandsim first_id_byte=0x20 second_id_byte=0x33 parts=80
+  $ modprobe ubi mtd="0,0" fm_autoconvert
+  $ ./io_paral /dev/ubi0
 
-Hi Boris,
+We may see the following verbose:
+(output)
+  [io_paral] update_volume():105: function write() failed with error 30
+  (Read-only file system)
+  [io_paral] update_volume():108: failed to write 380 bytes at offset
+  95920 of volume 2
+  [io_paral] update_volume():109: update: 97088 bytes
+  [io_paral] write_thread():227: function pwrite() failed with error 28
+  (No space left on device)
+  [io_paral] write_thread():229: cannot write 15872 bytes to offs 31744,
+  wrote -1
+(dmesg)
+  ubi0 error: ubi_wl_get_peb [ubi]: Unable to get a free PEB from user WL
+  pool
+  ubi0 warning: ubi_eba_write_leb [ubi]: switch to read-only mode
+  ubi0 error: ubi_io_write [ubi]: read-only mode
+  CPU: 0 PID: 2027 Comm: io_paral Not tainted 5.3.0-rc2-00001-g5986cd0 #9
+  ubi0 warning: try_write_vid_and_data [ubi]: failed to write VID header
+  to LEB 2:5, PEB 18
+  Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.12.0
+  -0-ga698c8995f-prebuilt.qemu.org 04/01/2014
+  Call Trace:
+   dump_stack+0x85/0xba
+   ubi_eba_write_leb+0xa1e/0xa40 [ubi]
+   vol_cdev_write+0x307/0x520 [ubi]
+  ubi0 error: vol_cdev_write [ubi]: cannot accept more 380 bytes of data,
+  error -30
+   vfs_write+0xfa/0x280
+   ksys_pwrite64+0xc5/0xe0
+   __x64_sys_pwrite64+0x22/0x30
+   do_syscall_64+0xbf/0x440
 
-> On Thu,  1 Aug 2019 11:55:10 +0800
-> Mason Yang <masonccyang@mxic.com.tw> wrote:
-> 
-> > Document the bindings used by the Macronix raw NAND controller.
-> > 
-> > Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
-> > ---
-> >  Documentation/devicetree/bindings/mtd/mxic-nand.txt | 19 
-+++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> >  create mode 100644 
-Documentation/devicetree/bindings/mtd/mxic-nand.txt
-> > 
-> > diff --git a/Documentation/devicetree/bindings/mtd/mxic-nand.txt b/
-> Documentation/devicetree/bindings/mtd/mxic-nand.txt
-> > new file mode 100644
-> > index 0000000..de37d60
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/mtd/mxic-nand.txt
-> > @@ -0,0 +1,19 @@
-> > +Macronix Raw NAND Controller Device Tree Bindings
-> > +-------------------------------------------------
-> > +
-> > +Required properties:
-> > +- compatible: should be "mxicy,multi-itfc-v009-nand-morph"
-> > +- reg: should contain 1 entry for the registers
-> > +- interrupts: interrupt line connected to this raw NAND controller
-> > +- clock-names: should contain "ps", "send" and "send_dly"
-> > +- clocks: should contain 3 phandles for the "ps", "send" and
-> > +    "send_dly" clocks
-> > +
-> > +Example:
-> > +
-> > +   nand: nand-controller@43c30000 {
-> > +      compatible = "mxicy,multi-itfc-v009-nand-morph";
-> > +      reg = <0x43c30000 0x10000>;
-> > +      clocks = <&clkwizard 0>, <&clkwizard 1>, <&clkc 15>;
-> > +      clock-names = "send", "send_dly", "ps";
-> 
-> You should have subnodes describing the NAND connected to the
-> controller (see [1]).
-> 
-> [1]
-https://elixir.bootlin.com/linux/v5.3-rc2/source/Documentation/devicetree/
-> bindings/mtd/nand-controller.yaml#L131
-> 
-> > +   };
-> 
+In function ubi_wl_get_peb, the operation of filling the pool
+(ubi_update_fastmap) with free PEBs and fetching a free PEB from the pool
+is not atomic. After thread A filling the pool with free PEB, free PEB may
+be taken away by thread B. When thread A checks the expression again, the
+condition is still unsatisfactory. At this time, there may still be free
+PEBs on UBI that can be filled into the pool.
+So, ubi_wl_get_peb (in fastmap-wil.c) should be implemented to obtain a
+free PEB by polling method. The polling exit condition is that there is
+no free PEBs on UBI, no free PEBs in pool, and ubi->works_count is 0.
 
-Do you mean to add patternProperties ?
+Signed-off-by: Zhihao Cheng <chengzhihao1@huawei.com>
+---
+ drivers/mtd/ubi/fastmap-wl.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-                 nand: nand-controller@43c30000 {
-                                 compatible = 
-"mxicy,multi-itfc-v009-nand-morph";
-                                 reg = <0x43c30000 0x10000>;
-                                 clocks = <&clkwizard 0>, <&clkwizard 1>, 
-<&clkc 15>;
-                                 clock-names = "send", "send_dly", "ps";
-
-+                               nand@0 {
-+
-+                               };
-                 };
-
-something like that.
-
-thanks & best regards,
-Mason
-
-
-CONFIDENTIALITY NOTE:
-
-This e-mail and any attachments may contain confidential information 
-and/or personal data, which is protected by applicable laws. Please be 
-reminded that duplication, disclosure, distribution, or use of this e-mail 
-(and/or its attachments) or any part thereof is prohibited. If you receive 
-this e-mail in error, please notify us immediately and delete this mail as 
-well as its attachment(s) from your system. In addition, please be 
-informed that collection, processing, and/or use of personal data is 
-prohibited unless expressly permitted by personal data protection laws. 
-Thank you for your attention and cooperation.
-
-Macronix International Co., Ltd.
-
-=====================================================================
-
-
-
-============================================================================
-
-CONFIDENTIALITY NOTE:
-
-This e-mail and any attachments may contain confidential information and/or personal data, which is protected by applicable laws. Please be reminded that duplication, disclosure, distribution, or use of this e-mail (and/or its attachments) or any part thereof is prohibited. If you receive this e-mail in error, please notify us immediately and delete this mail as well as its attachment(s) from your system. In addition, please be informed that collection, processing, and/or use of personal data is prohibited unless expressly permitted by personal data protection laws. Thank you for your attention and cooperation.
-
-Macronix International Co., Ltd.
-
-=====================================================================
+diff --git a/drivers/mtd/ubi/fastmap-wl.c b/drivers/mtd/ubi/fastmap-wl.c
+index d9e2e3a..c5512cf 100644
+--- a/drivers/mtd/ubi/fastmap-wl.c
++++ b/drivers/mtd/ubi/fastmap-wl.c
+@@ -196,7 +196,7 @@ static int produce_free_peb(struct ubi_device *ubi)
+  */
+ int ubi_wl_get_peb(struct ubi_device *ubi)
+ {
+-	int ret, retried = 0;
++	int ret;
+ 	struct ubi_fm_pool *pool = &ubi->fm_pool;
+ 	struct ubi_fm_pool *wl_pool = &ubi->fm_wl_pool;
+ 
+@@ -220,13 +220,14 @@ int ubi_wl_get_peb(struct ubi_device *ubi)
+ 	}
+ 
+ 	if (pool->used == pool->size) {
+-		spin_unlock(&ubi->wl_lock);
+-		if (retried) {
++		if (!ubi->free.rb_node && ubi->works_count == 0) {
+ 			ubi_err(ubi, "Unable to get a free PEB from user WL pool");
++			ubi_assert(list_empty(&ubi->works));
++			spin_unlock(&ubi->wl_lock);
+ 			ret = -ENOSPC;
+ 			goto out;
+ 		}
+-		retried = 1;
++		spin_unlock(&ubi->wl_lock);
+ 		up_read(&ubi->fm_eba_sem);
+ 		ret = produce_free_peb(ubi);
+ 		if (ret < 0) {
+-- 
+2.7.4
 
 
 ______________________________________________________
