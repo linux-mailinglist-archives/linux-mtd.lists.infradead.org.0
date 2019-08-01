@@ -2,136 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5170A7D30C
-	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 04:05:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B4FF97D3B1
+	for <lists+linux-mtd@lfdr.de>; Thu,  1 Aug 2019 05:32:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2RCrepUHOSbHJzkg7tp4K8Oli5ALXlvzoVnfmjM8a6E=; b=E7MoLOwi2/RNLE
-	gqOoSdYLggqaeLZMY3ctvUWQgWMkVE7QyjUq6iEWhDx4ck8EFbJigDuzHeSGVufMO0iG4pZSayAjt
-	wMVISyl/GINBBA0JhtFCx3/YrHz7NAuQ62g2hCX1zqJJ90Dbg4qoDBSGSLPto2S/XhSJRxzvJWrlV
-	aNc7ckD3pY5Py7Yj6KqFw8wdaheJ03fLVENrB+B+RCPsxdvbra2zq7/Bk9HD+k/J4zyPyuuEA2ZJV
-	JxwlTr+VhE8boD9P5schqBes6OlF7QoYDi+SFCwhStncN0iFHloVH6CPE9fI3lFqVSsaL2UucAvDx
-	IBXGhSED9knsrtU72s4w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=NaaA6kXDkzDFqR8vs630XmJxQW0FgVpjxPY/GPWk0JU=; b=EqU
+	EvxDMWsfoSOzVEGy29kWwWoDGdzPHP01FO5dl+RJficmqztczK3A1y7YPDaZbCqvEVLWipAanYaL2
+	o/hsKgiH4tcsrWdrrmLJDfFTEkE4IH3BlQpX0yiI6dA+/U21VukOGfvDL67IWMX/w7Yi62XB0fimd
+	yfwo8Gw+gPCTqjwdW0aHCPWj4CJFJSRg5AEaSiuV+5J+zqHIg6H/Mmju7KbtvfgemKtWqY/SUnxze
+	elTQM+fdGe581ogTZAbdHS88u/1KSn2YnivAG1KbmxzNkViUOGioIOFI0qJVuX4q3Y3udDkTrQoUu
+	fXENqsvGLufCsyCnWIlOQLVECVTs0iA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1ht0Td-0008Hk-CO; Thu, 01 Aug 2019 02:05:57 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1ht1pK-0002yb-FG; Thu, 01 Aug 2019 03:32:26 +0000
+Received: from twhmllg4.macronix.com ([122.147.135.202])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1ht0TA-0007ow-7G
- for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 02:05:29 +0000
-Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
- by mailout4.samsung.com (KnoxPortal) with ESMTP id
- 20190801020525epoutp047ee9dc9be1990fc7c251a50b3e0b75fd~2qkMfaBWL2736427364epoutp04J
- for <linux-mtd@lists.infradead.org>; Thu,  1 Aug 2019 02:05:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com
- 20190801020525epoutp047ee9dc9be1990fc7c251a50b3e0b75fd~2qkMfaBWL2736427364epoutp04J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1564625125;
- bh=oOGHoQ6EwfEwzS7x/MXD4YP6uUjvLs4l1JLc6WnGnLI=;
- h=From:To:Subject:Date:In-Reply-To:References:From;
- b=ibX65Sww9RcheOMVJOV6ZEgwbgbuUZ/AfvW9BiA9WDpq6rk5W1TSy6hzVh042B4SW
- ko1H++3vkO5rinpHuK6NWDARQKoimJkdjw9GWuhJ3FbGoLCG4dn0dfI7eCiUq7PWQi
- YI5P8BJQv3s7UHsRSpq8HMApP2nDauwp9u7BrcAo=
-Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
- epcas1p3.samsung.com (KnoxPortal) with ESMTP id
- 20190801020525epcas1p33419fdd3daca5f93dc0205566fe2590d~2qkMB9OJg0645306453epcas1p3d;
- Thu,  1 Aug 2019 02:05:25 +0000 (GMT)
-Received: from epsmges1p3.samsung.com (unknown [182.195.40.165]) by
- epsnrtp2.localdomain (Postfix) with ESMTP id 45zYXg63X3zMqYkf; Thu,  1 Aug
- 2019 02:05:23 +0000 (GMT)
-Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
- epsmges1p3.samsung.com (Symantec Messaging Gateway) with SMTP id
- 03.F8.04066.3E8424D5; Thu,  1 Aug 2019 11:05:23 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
- epcas1p2.samsung.com (KnoxPortal) with ESMTPA id
- 20190801020523epcas1p27580bead294a67fccea6fe8615e73da9~2qkKWmwlW1553515535epcas1p2r;
- Thu,  1 Aug 2019 02:05:23 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
- epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
- 20190801020523epsmtrp273527ee7775acf4307a82ffb3591e700~2qkKVwpmM1129811298epsmtrp2I;
- Thu,  1 Aug 2019 02:05:23 +0000 (GMT)
-X-AuditID: b6c32a37-e27ff70000000fe2-20-5d4248e3db44
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
- epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
- 29.98.03706.3E8424D5; Thu,  1 Aug 2019 11:05:23 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.88.100.192]) by
- epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
- 20190801020523epsmtip2e3d5c29db543dd912b4dffd97e40481f~2qkKJnPan0654406544epsmtip2N;
- Thu,  1 Aug 2019 02:05:23 +0000 (GMT)
-From: Jungseung Lee <js07.lee@samsung.com>
-To: Marek Vasut <marek.vasut@gmail.com>, Tudor Ambarus
- <tudor.ambarus@microchip.com>, David Woodhouse <dwmw2@infradead.org>, Brian
- Norris <computersforpeace@gmail.com>, Boris Brezillon
- <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
- u.kleine-koenig@pengutronix.de, linux-mtd@lists.infradead.org,
- js07.lee@gmail.com, js07.lee@samsung.com
-Subject: [PATCH v3 4/4] mtd: spi-nor: support lock/unlock for a few Micron
- chips
-Date: Sat, 13 Jul 2019 16:15:41 +0900
-Message-Id: <20190713071541.22090-4-js07.lee@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20190713071541.22090-1-js07.lee@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA02SbUhTYRTHe3b3ctVmt2V5GFR2oSjB3Jybd6K1ctQl+yBFEcFYN72otN2t
- ezfLSlKTlaXZMDPUosheVCyxELWMMsWgrAyCJHvB6L2NVAxpGW3eSX37n/P8/uccznNwTBWQ
- qfF8zsXyHGMj5ZHSjgerEhPe0+stmrqaJKqlrBZRfc9aMcrbVI1R0w1+CTU6HJBRt0uvKKj+
- O28wqrrrO6LGGk3UK281MkXSXXWvFfTNa/F0e3O5nL7ZeJgembqM6OHze+mqaQ198lYzysJ3
- 2tLyWCaH5eNYLtuRk8/lppOZW60ZVr1Bo03QGqkUMo5j7Gw6ad6clbAh3xYckIwrYGzuYCqL
- EQQycU0a73C72Lg8h+BKJ1lnjs2p1ThXC4xdcHO5q7Md9lStRpOkD5K7bHlPa09jztbo/deO
- lsqK0UjUcRSBA5EMbePt0uMoElcRnQhe+uoVYjCO4HnJJ5kY/ERQU3kZzVruN06ELT0Iyn2D
- EjGYQNDnn1CEKDkRDy8D7TP2GOKzBHx362WhhwXEFhg58QsLaSmxHMreNklCWkkYoaXqcbjF
- UmhpuzfDRBCpMHjWj4UKAdEpB+/oFYUImeFI4EzYsAC+DtwK59Uw4e+Ri1qAriavQjSXIRi9
- 2hiGdOD3tQar4jhGrIIb3Yliehl0Bc7N1MSIaPBPVshCCBBKOOZRiQgJ39+VSUUN8Ox9pUzU
- NPR5JsP7qgyu5c6k4hRaXPevwwWEmtEi1inYc1lB69T9/1HtaObw4lM6UduTzb2IwBE5V/mw
- fJ1FJWMKhEJ7LwIcI2OUl2LXWlTKHKbwAMs7rLzbxgq9SB9cpRdTL8x2BM+Yc1m1+iSdTkcl
- G1IMeh0Zq7w4RVlURC7jYvewrJPlZ30SPEJdjDaa6io8iabMP+b9mzoUFaUWcwP3bszQPbCF
- NK70FBwbcy2GderYrYYVh1Klg1nbY5aoSvZlFv3ufcH1SKO/fOM9H4Zu8GdTdzzcnTQPDfvw
- bRlD94ihR9Yid7LJeL/4xZyjH6VRQ59/9Ju3z09ZYpnK3of/WB65KPn6Qag3vjKTUiGP0cZj
- vMD8BTRqGv+OAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrILMWRmVeSWpSXmKPExsWy7bCSvO5jD6dYg+/zJC1Wt0xntDhyYS2z
- xcSVk5kt/s55x2Tx6OZvVovdTcvYLY7uucdsMXnnG0aLj0scLG5PnMzowOWxc9Zddo/NK7Q8
- Nq3qZPPYvKTe486PpYweN+cVevT/NfDo27KKMYAjissmJTUnsyy1SN8ugSvj/PQpzAVr+SpW
- tDexNjDe4e5i5OSQEDCROLjkM0sXIxeHkMBuRoktHUfZIRISEo92fgFKcADZwhKHDxdD1Hxk
- lOjobmEDqWET0JK48XsTK0hCROADk8TlSafAGoQFAiQ+NkeB1LAIqEq03F/JBGLzClhKrO4/
- wwgxX15i9YYDzCA2p4CVxNkZ78BsIaCae31drBMYeRcwMqxilEwtKM5Nzy02LDDMSy3XK07M
- LS7NS9dLzs/dxAgOSC3NHYyXl8QfYhTgYFTi4VXocYwVYk0sK67MPcQowcGsJMK7WNw+Vog3
- JbGyKrUoP76oNCe1+BCjNAeLkjjv07xjkUIC6YklqdmpqQWpRTBZJg5OqQbGljxDjtSlIfka
- j2sXNYXPucooyyH4qfjsMc+Dx+Qd1Iqyt/J1Xs+Vl5gYr5I/denT06J/br49X3ygc2bn2vaF
- h88J9/RUJX8IjV74Z97RtOuf2G8aMYqsOvxm4/sop8l6r7fk9z5duf2QcMK9jMTHnqdu3pB6
- sOlhjfget7/bDBgXRCccv5xwTomlOCPRUIu5qDgRABOtSspEAgAA
-X-CMS-MailID: 20190801020523epcas1p27580bead294a67fccea6fe8615e73da9
-X-Msg-Generator: CA
-X-Sendblock-Type: SVC_REQ_APPROVE
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20190801020523epcas1p27580bead294a67fccea6fe8615e73da9
-References: <20190713071541.22090-1-js07.lee@samsung.com>
- <CGME20190801020523epcas1p27580bead294a67fccea6fe8615e73da9@epcas1p2.samsung.com>
+ id 1ht1p5-0002r6-46
+ for linux-mtd@lists.infradead.org; Thu, 01 Aug 2019 03:32:12 +0000
+Received: from localhost.localdomain ([172.17.195.96])
+ by TWHMLLG4.macronix.com with ESMTP id x713UuOU087114;
+ Thu, 1 Aug 2019 11:30:56 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+From: Mason Yang <masonccyang@mxic.com.tw>
+To: miquel.raynal@bootlin.com, marek.vasut@gmail.com, bbrezillon@kernel.org,
+ dwmw2@infradead.org, computersforpeace@gmail.com, vigneshr@ti.com,
+ richard@nod.at, robh+dt@kernel.org, stefan@agner.ch, mark.rutland@arm.com
+Subject: [PATCH v6 0/2] Add Macronix raw NAND controller driver
+Date: Thu,  1 Aug 2019 11:55:08 +0800
+Message-Id: <1564631710-30276-1-git-send-email-masonccyang@mxic.com.tw>
+X-Mailer: git-send-email 1.9.1
+X-MAIL: TWHMLLG4.macronix.com x713UuOU087114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190731_190528_453097_EA00D6EB 
-X-CRM114-Status: GOOD (  18.05  )
-X-Spam-Score: -3.1 (---)
+X-CRM114-CacheID: sfid-20190731_203211_432984_DD613D51 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-3.1 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [203.254.224.34 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [122.147.135.202 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 2.1 DATE_IN_PAST_96_XX     Date: is 96 hours or more before Received:
- date -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -143,49 +60,65 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, anders.roxell@linaro.org, juliensu@mxic.com.tw,
+ linux-kernel@vger.kernel.org, paul@crapouillou.net, paul.burton@mips.com,
+ liang.yang@amlogic.com, linux-mtd@lists.infradead.org,
+ christophe.kerello@st.com, masonccyang@mxic.com.tw, lee.jones@linaro.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Some Micron models are known to have lock/unlock support,
-and that also support 4bit block protection bit (bp0-3).
+Hi,
 
-This patch support lock/unlock feature on the flash.
+v6 patch including:
+1. compatible rename to "mxicy,multi-itfc-v009-nand-morph"
+2. remove xxx_clk to xxx in DTS and driver.
+3. patch mxic_nfc_data_xfer()
 
-Tested on w25q512ax3. The Other is modified following the datasheet.
+v5 patch including:
+1. compatible rename to "macronix,nand-controller"
+2. handle three clock in one
+3. other minor patches
 
-Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
----
- drivers/mtd/spi-nor/spi-nor.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+v4 patch back to only raw NAND controller driver instead of MFD,
+raw NAND and SPI driver. This is based on MFD maintainer, Lee Jones
+comments:
+MFD is for registering child devices of chips which offer genuine
+cross-subsystem functionality.
+It is not designed for mode selecting, or as a place to shove shared code 
+just because a better location doesn't appear to exist. 
 
-diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-index 0d0b92de62db..8422f30c73f2 100644
---- a/drivers/mtd/spi-nor/spi-nor.c
-+++ b/drivers/mtd/spi-nor/spi-nor.c
-@@ -1922,8 +1922,16 @@ static const struct flash_info spi_nor_ids[] = {
- 	{ "n25q128a13",  INFO(0x20ba18, 0, 64 * 1024,  256, SECT_4K | SPI_NOR_QUAD_READ) },
- 	{ "n25q256a",    INFO(0x20ba19, 0, 64 * 1024,  512, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
- 	{ "n25q256ax1",  INFO(0x20bb19, 0, 64 * 1024,  512, SECT_4K | SPI_NOR_QUAD_READ) },
--	{ "n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
--	{ "n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
-+	{
-+		"n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024,
-+			SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_BP3)
-+	},
-+	{
-+		"n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024,
-+			SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_BP3)
-+	},
- 	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
- 	{ "n25q00a",     INFO(0x20bb21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
- 	{ "mt25qu02g",   INFO(0x20bb22, 0, 64 * 1024, 4096, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
+v3 patch is to rename the title of SPI controller driver.
+"Patch Macronix SPI controller driver according to MX25F0A MFD driver"
+
+v2s patches is to support Macronix MX25F0A MFD driver 
+for raw nand and spi controller which is separated 
+form previous patchset:
+
+https://patchwork.kernel.org/patch/10874679/
+
+thanks for your review.
+
+best regards,
+Mason
+
+
+Mason Yang (2):
+  mtd: rawnand: Add Macronix raw NAND controller driver
+  dt-bindings: mtd: Document Macronix raw NAND controller bindings
+
+ .../devicetree/bindings/mtd/mxic-nand.txt          |  19 +
+ drivers/mtd/nand/raw/Kconfig                       |   6 +
+ drivers/mtd/nand/raw/Makefile                      |   1 +
+ drivers/mtd/nand/raw/mxic_nand.c                   | 554 +++++++++++++++++++++
+ 4 files changed, 580 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mtd/mxic-nand.txt
+ create mode 100644 drivers/mtd/nand/raw/mxic_nand.c
+
 -- 
-2.17.1
+1.9.1
 
 
 ______________________________________________________
