@@ -2,57 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C78C580369
-	for <lists+linux-mtd@lfdr.de>; Sat,  3 Aug 2019 02:15:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 321F98055B
+	for <lists+linux-mtd@lfdr.de>; Sat,  3 Aug 2019 10:49:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1bFQqR73Y3A8wrV0j2aR6yxXMZekbyDV2w4IaeBt4Es=; b=evVKbLJgs4DK57
-	JZQZx5nVz/WkOb/2Fcmxz7F3UW4Q3gYmZXLW1+2Dj1aTyscPfRriFhwwdxk1vPpYpuFp7ZQ/BtrP7
-	waorusQiY0U9jlAX2v8gIYqQBahSuvaXEJ5+98YjljlEqr3BG2i2wfxRED4K51DYS0uDan7re1zjC
-	nxFKgNjYx/fsoDza44SSGcR6StjpAqcLYmwx7sUv7VdcI2MoPormjLzlPtvQyMG/DZ4D8jaoijA1d
-	PWZ48PZej95xCVJjrh1/ABKndRvNCMkiFc78ratF9mF+B+0gW0izG0wamVyfESZ1DfYxvJXUd/28u
-	lS2k1u0m7s5DnKUj09nw==;
+	List-Owner; bh=uROWNzPfL9LREi4676RvB/hGty7ZIXQJ4qO2pJIrFUk=; b=dz47Rzp8xHm5TA
+	pe1775K88wmZN32dR4MKnqAqVIFcX3XshKCEOlJVCyEKgbBcp2HEatqBOja3UTyETQm2Csf+9DPaR
+	/8bLtk9MhNMzxZS2Kw6ZQAvSqCbYjfwSUYMchKSmb9esJ/zxetnTHySRpqKiJPe/plsraoHD0KiZf
+	hRcmZmzD9aZCy1mfD5pNMW/TmBFtHW4Ajt6tSE2BF3orZ4tykqbT5gTl3SarYrZ3pIahgiwtyZeVS
+	KYmDn0pEscu9HPmvuIATXDx59vCtbctUfb1VnEaHbNDcUjliGiWTSm+KZQ2R29N5rVRl2gaQPRMKe
+	b62OIhOXwjnyXEE/eOHQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hthhO-0007k1-IJ; Sat, 03 Aug 2019 00:15:02 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1htpix-0004zu-Ux; Sat, 03 Aug 2019 08:49:12 +0000
+Received: from lithops.sigma-star.at ([195.201.40.130])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hthh7-0007jh-Qd
- for linux-mtd@lists.infradead.org; Sat, 03 Aug 2019 00:14:47 +0000
-X-Originating-IP: 91.224.148.103
-Received: from localhost.localdomain (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id 1F1021BF204;
- Sat,  3 Aug 2019 00:14:30 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Marco Felsch <m.felsch@pengutronix.de>, richard.weinberger@gmail.com,
- boris.brezillon@collabora.com, miquel.raynal@bootlin.com
-Subject: Re: [PATCH v3] mtd: rawnand: micron: handle on-die "ECC-off" devices
- correctly
-Date: Sat,  3 Aug 2019 02:14:24 +0200
-Message-Id: <20190803001424.5733-1-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190730134407.30212-1-m.felsch@pengutronix.de>
-References: 
+ id 1htpip-0004zU-CC
+ for linux-mtd@lists.infradead.org; Sat, 03 Aug 2019 08:49:05 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id A4ADD6089354;
+ Sat,  3 Aug 2019 10:48:49 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id 4m96ACjIWITF; Sat,  3 Aug 2019 10:48:49 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 5B159608311C;
+ Sat,  3 Aug 2019 10:48:49 +0200 (CEST)
+Received: from lithops.sigma-star.at ([127.0.0.1])
+ by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id Gxz6X_jDXm5a; Sat,  3 Aug 2019 10:48:49 +0200 (CEST)
+Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
+ by lithops.sigma-star.at (Postfix) with ESMTP id 3743B6089354;
+ Sat,  3 Aug 2019 10:48:49 +0200 (CEST)
+Date: Sat, 3 Aug 2019 10:48:49 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: Sergeant Peppercorn <speppercorn109@gmail.com>
+Message-ID: <1019514474.57102.1564822129140.JavaMail.zimbra@nod.at>
+In-Reply-To: <CAMxq0fO=0P8972FKvscmNxCBxq0m8_f2DST-Oa9HtNeUA-FKsA@mail.gmail.com>
+References: <CAMxq0fNSWrUFMmmTs8Ri9gFOvS+KQJvZN3-_KuiqXi9bbmCB0Q@mail.gmail.com>
+ <CAFLxGvz92UR2M7KJ_dMMW-F47_pLLxSTOrGwdQ5Cc0kuSiTA8Q@mail.gmail.com>
+ <CAMxq0fO=0P8972FKvscmNxCBxq0m8_f2DST-Oa9HtNeUA-FKsA@mail.gmail.com>
+Subject: Re: UBIFS ECC errors
 MIME-Version: 1.0
-X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 8493b2a06fc5b77ef5c579dc32b12761f7b7a84c
+X-Originating-IP: [195.201.40.130]
+X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF60 (Linux)/8.8.12_GA_3809)
+Thread-Topic: UBIFS ECC errors
+Thread-Index: 1tgDozC5E1Vu3NghYqfzyqvKa8L1Lw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190802_171446_023753_95E55033 
-X-CRM114-Status: GOOD (  11.12  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20190803_014903_564973_F24CC0AC 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.201 listed in list.dnswl.org]
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,39 +74,32 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, stable@vger.kernel.org,
- kernel@pengutronix.de
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd <linux-mtd@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 2019-07-30 at 13:44:07 UTC, Marco Felsch wrote:
-> Some devices are not supposed to support on-die ECC but experience
-> shows that internal ECC machinery can actually be enabled through the
-> "SET FEATURE (EFh)" command, even if a read of the "READ ID Parameter
-> Tables" returns that it is not.
-> 
-> Currently, the driver checks the "READ ID Parameter" field directly
-> after having enabled the feature. If the check fails it returns
-> immediately but leaves the ECC on. When using buggy chips like
-> MT29F2G08ABAGA and MT29F2G08ABBGA, all future read/program cycles will
-> go through the on-die ECC, confusing the host controller which is
-> supposed to be the one handling correction.
-> 
-> To address this in a common way we need to turn off the on-die ECC
-> directly after reading the "READ ID Parameter" and before checking the
-> "ECC status".
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: dbc44edbf833 ("mtd: rawnand: micron: Fix on-die ECC detection logic")
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mtd/fixes, thanks.
-
-Miquel
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+LS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+IFZvbjogIlNlcmdlYW50IFBlcHBlcmNv
+cm4iIDxzcGVwcGVyY29ybjEwOUBnbWFpbC5jb20+Cj4gQW46ICJSaWNoYXJkIFdlaW5iZXJnZXIi
+IDxyaWNoYXJkLndlaW5iZXJnZXJAZ21haWwuY29tPgo+IENDOiAibGludXgtbXRkIiA8bGludXgt
+bXRkQGxpc3RzLmluZnJhZGVhZC5vcmc+Cj4gR2VzZW5kZXQ6IEZyZWl0YWcsIDIuIEF1Z3VzdCAy
+MDE5IDE4OjE0OjU1Cj4gQmV0cmVmZjogUmU6IFVCSUZTIEVDQyBlcnJvcnMKCj4gSGksIG1hbnkg
+dGhhbmtzIGZvciB0aGUgcmVwbHkuCj4gCj4gSSBoYXZlIHNlZW4gcG9zdHMgb24gYml0ZmxpcHMg
+aW4gZW1wdHkgc3BhY2UgaXNzdWVzIGJlZm9yZSwgYnV0IGRvbid0Cj4gcmVtZW1iZXIgc2VlaW5n
+IGFueSBmaXhlcy4gRG9lcyB0aGlzIG1lYW4gdGhlIGtlcm5lbCBVQkkgZHJpdmVycyBtdXN0Cj4g
+YmUgcGF0Y2hlZD8gQ2FuIHlvdSBlbGFib3JhdGUgb24gd2hhdCBmaXhlcyBvciB3aGVyZSB0byBm
+aW5kIHBhdGNoZXMsCj4gZXRjLCBvciB3aGF0IHRvIGRvIGFib3V0IHRoaXMsIHRoZW4/IEFsbCBJ
+IGNhcmUgYWJvdXQgaXMgZ2V0dGluZyB0aGlzCj4gdG8gd29yaywgYW5kIGhvcGVmdWxseSB3aXRo
+b3V0IG5lZWRpbmcgdG8gcmVmb3JtYXQgdGhlIHJvb3QgZmlsZQo+IHN5c3RlbSBvbiA1MCwwMDAg
+dW5pdHMgaW4gdGhlIGZpZWxkLgoKWW91ciBrZXJuZWwgaXMgcHJldHR5IG9sZCwgc28gSSBndWVz
+cyB5b3UgZG9uJ3QgaGF2ZSB0aGlzIGNvbW1pdDoKNzMwYTQzZmJjMTM1ICgibXRkOiBuYW5kOiBh
+ZGQgbmFuZF9jaGVja19lcmFzZWQgaGVscGVyIGZ1bmN0aW9ucyIpCiAKQml0ZmxpcHMgaW4gZW1w
+dHkgcGFnZXMgc2hvdWxkIGJlIGhhbmRsZWQgaW4gdGhlIE5BTkQgbGF5ZXIuCgpQbGVhc2UgZG9u
+J3QgYmxpbmRseSBhcHBseSB0aGlzIHBhdGNoLCBpdCBtYXkgaGF2ZSBkZXBlbmRlbmNpZXMgb3Ig
+d2lsbAp1bmNvdmVyIG90aGVyIGJ1Z3MuIFN1Y2ggYXMgZml4OgpmZGYyZTgyMTA1MjkgKCJtdGQ6
+IG5hbmQ6IGdwbWk6IEZpeCBmYWlsdXJlIHdoZW4gYSBlcmFzZWQgcGFnZSBoYXMgYSBiaXRmbGlw
+IGF0IEJCTSIpCgpUaGFua3MsCi8vcmljaGFyZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcg
+bGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10
+ZC8K
