@@ -2,69 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6946C811A6
-	for <lists+linux-mtd@lfdr.de>; Mon,  5 Aug 2019 07:34:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A00AD811BA
+	for <lists+linux-mtd@lfdr.de>; Mon,  5 Aug 2019 07:43:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EFXF058NECSwjZjFRgBNk+Cx3MOrpQJ4BvWcOHbgwRU=; b=OYE6EeXvZhZTFg
-	4C03y2jYfz6Urm8ISf3dCxfmKtHxlijYqTP0G69XJASjj4BlATbXhhzSx2cZMXwHbbkb4HFRKI9Wc
-	xoUVGFSWZ8Kv1Am5cnt7qyH1QrfwFMUVQ4oJVu6568zy8wSLvNx1nzg7p4vZ6hPAjUalJSWkjR3EX
-	OSLXs/Ds7UQZTDh0FVXMbxFhUVZV15NdwziJm5depqAa7/GYp3+HjbmSrncK/20wiYPYbbG1TV/no
-	8pnIUeqNc+w8IJVzNMCSPqBghW6AcHNaUXvFmgzT4bfdIWODOztYsfSpkRfOEWEVMcoS9bTI77qK9
-	cdilyGGFihVy5AKZ50aw==;
+	List-Owner; bh=1CldrJIHmfdDWJeMZjRrfsbguEUOUMcb1SmMkNIRV2g=; b=kPcJdws/Fd5KwJ
+	KEG3W32gGO0MlI3VbPuxJXyLpMSCjm3a5dJ6ZAuosBbv8E0g5Ceblm3NkXFkZdThWR3Mw87sJur0V
+	4F/2JLQHGAxXm7C60vxrRydgcRXoVwsGiVmO3MuF7TA0sfoLcFR/9PUc6N2t70YGSt8Na3Qop17GN
+	hFDyrPcZB2u4CGjesBBpmUSf4PbLxHKf9kuqE1qTXjsg+MB+5XS9NSCfcxZOv5baVDx5ZGgREQuVP
+	m15FHeNPxdtID9dk5VuxAjnSXdlW6l+5yG69BS8ZjsILnz4onJFThT2HOuFQ5UK8fqGJmjX60dTLz
+	f58ctyRbqH+pqv5kR/lA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1huVdJ-0005IH-Ne; Mon, 05 Aug 2019 05:34:09 +0000
+	id 1huVmm-0008JK-OY; Mon, 05 Aug 2019 05:43:56 +0000
 Received: from fllv0016.ext.ti.com ([198.47.19.142])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1huVd9-0005C6-Dd
- for linux-mtd@lists.infradead.org; Mon, 05 Aug 2019 05:34:00 +0000
+ id 1huVmb-0008Iz-T4
+ for linux-mtd@lists.infradead.org; Mon, 05 Aug 2019 05:43:47 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
- by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x755XnIT044113;
- Mon, 5 Aug 2019 00:33:49 -0500
+ by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id x755hbTp046310;
+ Mon, 5 Aug 2019 00:43:37 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1564983229;
- bh=qSuibQrWlqcr7NRancFSjgJokdV0vFLbh1Bw/JdXrK0=;
+ s=ti-com-17Q1; t=1564983817;
+ bh=9zG2RkIIDaIvIHIQnRxtENusq/XqLI16q+xvUC/9MUs=;
  h=Subject:To:CC:References:From:Date:In-Reply-To;
- b=pCSpZwQlVsjBaeb8Sp7+qS64EVut3oG84vbfXGbRDcZCbPi5EIkAyjthvlLQgf9H7
- eLepefcSmiDDyOIBuv2apBenIwOWudgnCmyvhJo8wOFewgTl3KrlMkgvDXQ4iRfAPc
- YVF0/EBNnTuh5YIlFpQJFmKEdadUeP0GaIu/Vdos=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
- by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x755Xnjb111768
+ b=dt+vtJn77RdNaYlO4vmK0PM2hvq/dRPOwGHZv5bit+ds4o++cSnOe7On4W+5xEo3P
+ iFz/2Qlfrm/5uZoZK42PgwlqdHYU9smqWxikfA3myhwSP0ZsrpLPVtZNwXvii4aem4
+ 8YqK9qJImCNXcGsgsqHrcxt2dJstD0MgBruPQvbc=
+Received: from DFLE102.ent.ti.com (dfle102.ent.ti.com [10.64.6.23])
+ by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x755hbss126057
  (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Mon, 5 Aug 2019 00:33:49 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ Mon, 5 Aug 2019 00:43:37 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Mon, 5 Aug
- 2019 00:33:49 -0500
-Received: from fllv0040.itg.ti.com (10.64.41.20) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ 2019 00:43:37 -0500
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
- Frontend Transport; Mon, 5 Aug 2019 00:33:49 -0500
+ Frontend Transport; Mon, 5 Aug 2019 00:43:37 -0500
 Received: from [172.24.145.136] (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id x755Xjce124277;
- Mon, 5 Aug 2019 00:33:46 -0500
-Subject: Re: [PATCH 1/5] mtd: spi-nor: fix description for int
- (*flash_is_locked)()
+ by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id x755hYsu009974;
+ Mon, 5 Aug 2019 00:43:34 -0500
+Subject: Re: [PATCH 2/5] mtd: spi-nor: group the code about the write
+ protection at power-up
 To: <Tudor.Ambarus@microchip.com>, <marek.vasut@gmail.com>
 References: <20190717084745.19322-1-tudor.ambarus@microchip.com>
- <20190717084745.19322-2-tudor.ambarus@microchip.com>
+ <20190717084745.19322-3-tudor.ambarus@microchip.com>
 From: Vignesh Raghavendra <vigneshr@ti.com>
-Message-ID: <a4f14ae4-e42c-73f5-2121-5e506dd868cf@ti.com>
-Date: Mon, 5 Aug 2019 11:04:29 +0530
+Message-ID: <9fee8e16-b2f6-2428-f42b-281db01e3706@ti.com>
+Date: Mon, 5 Aug 2019 11:14:17 +0530
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.8.0
 MIME-Version: 1.0
-In-Reply-To: <20190717084745.19322-2-tudor.ambarus@microchip.com>
+In-Reply-To: <20190717084745.19322-3-tudor.ambarus@microchip.com>
 Content-Language: en-US
 X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190804_223359_546289_5FFD0AB8 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20190804_224346_022935_C7587E08 
+X-CRM114-Status: GOOD (  23.86  )
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.5 points)
@@ -106,32 +106,120 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 On 17/07/19 2:18 PM, Tudor.Ambarus@microchip.com wrote:
 > From: Tudor Ambarus <tudor.ambarus@microchip.com>
 > 
-> The description was interleaved.
+> The write protection at power-up logic was split across functions
+> because of a dependency to spansion_quad_enable(). Group the code
+> in spi_nor_init() as the pointer to spansion_quad_enable() can be
+> retrieved from nor->quad_enable.
+> 
+> While touching this code, rename nor->clear_sr_bp() to
+> nor->disable_write_protection() to better indicate its scope: it
+> disables the default write protection after a power-on reset cycle.
+
+I prefer this function to be renamed to nor->disable_block_protection()
+so as to avoid being confused with write protect signal input to the flash.
+
+Regards
+Vignesh
+
+> 
+> No functional change intended.
 > 
 > Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
-
-Reviewed-by: Vignesh Raghavendra <vigneshr@ti.com>
-
 > ---
->  include/linux/mtd/spi-nor.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/mtd/spi-nor/spi-nor.c | 39 ++++++++++++++++++++++++---------------
+>  include/linux/mtd/spi-nor.h   |  6 +++---
+>  2 files changed, 27 insertions(+), 18 deletions(-)
 > 
+> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> index 03cc788511d5..e9e441f91b68 100644
+> --- a/drivers/mtd/spi-nor/spi-nor.c
+> +++ b/drivers/mtd/spi-nor/spi-nor.c
+> @@ -3780,8 +3780,6 @@ static int spi_nor_init_params(struct spi_nor *nor,
+>  		default:
+>  			/* Kept only for backward compatibility purpose. */
+>  			params->quad_enable = spansion_quad_enable;
+> -			if (nor->clear_sr_bp)
+> -				nor->clear_sr_bp = spi_nor_spansion_clear_sr_bp;
+>  			break;
+>  		}
+>  
+> @@ -4034,11 +4032,32 @@ static int spi_nor_init(struct spi_nor *nor)
+>  {
+>  	int err;
+>  
+> -	if (nor->clear_sr_bp) {
+> -		err = nor->clear_sr_bp(nor);
+> +	/*
+> +	 * Atmel, SST, Intel/Numonyx, and others serial NOR tend to power up
+> +	 * with the software protection bits set.
+> +	 */
+> +	if (JEDEC_MFR(nor->info) == SNOR_MFR_ATMEL ||
+> +	    JEDEC_MFR(nor->info) == SNOR_MFR_INTEL ||
+> +	    JEDEC_MFR(nor->info) == SNOR_MFR_SST ||
+> +	    nor->info->flags & SPI_NOR_HAS_LOCK) {
+> +		nor->disable_write_protection = spi_nor_clear_sr_bp;
+> +
+> +		/*
+> +		 * In case of spansion flashes, when the configuration register
+> +		 * Quad Enable bit is one, only the the Write Status (01h)
+> +		 * command with two data bytes may be used to clear the block
+> +		 * protection bits.
+> +		 */
+> +		if (nor->quad_enable == spansion_quad_enable)
+> +			nor->disable_write_protection =
+> +				spi_nor_spansion_clear_sr_bp;
+> +	}
+> +
+> +	if (nor->disable_write_protection) {
+> +		err = nor->disable_write_protection(nor);
+>  		if (err) {
+>  			dev_err(nor->dev,
+> -				"fail to clear block protection bits\n");
+> +				"failed to unlock the flash at init\n");
+>  			return err;
+>  		}
+>  	}
+> @@ -4165,16 +4184,6 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+>  	if (info->flags & SPI_S3AN)
+>  		nor->flags |=  SNOR_F_READY_XSR_RDY;
+>  
+> -	/*
+> -	 * Atmel, SST, Intel/Numonyx, and others serial NOR tend to power up
+> -	 * with the software protection bits set.
+> -	 */
+> -	if (JEDEC_MFR(nor->info) == SNOR_MFR_ATMEL ||
+> -	    JEDEC_MFR(nor->info) == SNOR_MFR_INTEL ||
+> -	    JEDEC_MFR(nor->info) == SNOR_MFR_SST ||
+> -	    nor->info->flags & SPI_NOR_HAS_LOCK)
+> -		nor->clear_sr_bp = spi_nor_clear_sr_bp;
+> -
+>  	/* Parse the Serial Flash Discoverable Parameters table. */
+>  	ret = spi_nor_init_params(nor, &params);
+>  	if (ret)
 > diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-> index 9f57cdfcc93d..c4c2c5971284 100644
+> index c4c2c5971284..6c3273760700 100644
 > --- a/include/linux/mtd/spi-nor.h
 > +++ b/include/linux/mtd/spi-nor.h
-> @@ -372,10 +372,10 @@ struct flash_info;
->   * @flash_lock:		[FLASH-SPECIFIC] lock a region of the SPI NOR
->   * @flash_unlock:	[FLASH-SPECIFIC] unlock a region of the SPI NOR
+> @@ -374,8 +374,8 @@ struct flash_info;
 >   * @flash_is_locked:	[FLASH-SPECIFIC] check if a region of the SPI NOR is
-> + *			completely locked
+>   *			completely locked
 >   * @quad_enable:	[FLASH-SPECIFIC] enables SPI NOR quad mode
->   * @clear_sr_bp:	[FLASH-SPECIFIC] clears the Block Protection Bits from
->   *			the SPI NOR Status Register.
-> - *			completely locked
+> - * @clear_sr_bp:	[FLASH-SPECIFIC] clears the Block Protection Bits from
+> - *			the SPI NOR Status Register.
+> + * @disable_write_protection: [FLASH-SPECIFIC] disable write protection during
+> + *                            power-up
 >   * @priv:		the private data
 >   */
 >  struct spi_nor {
+> @@ -412,7 +412,7 @@ struct spi_nor {
+>  	int (*flash_unlock)(struct spi_nor *nor, loff_t ofs, uint64_t len);
+>  	int (*flash_is_locked)(struct spi_nor *nor, loff_t ofs, uint64_t len);
+>  	int (*quad_enable)(struct spi_nor *nor);
+> -	int (*clear_sr_bp)(struct spi_nor *nor);
+> +	int (*disable_write_protection)(struct spi_nor *nor);
+>  
+>  	void *priv;
+>  };
 > 
 
 -- 
