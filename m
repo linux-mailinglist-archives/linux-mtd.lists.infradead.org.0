@@ -2,61 +2,89 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A586833D7
-	for <lists+linux-mtd@lfdr.de>; Tue,  6 Aug 2019 16:22:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 26C34833F7
+	for <lists+linux-mtd@lfdr.de>; Tue,  6 Aug 2019 16:30:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lSyuOAJmsYkNY1M353YprJ4gaTOF7UNoIMeeQ9wAZqM=; b=tysU59gw6lXBLI
-	iokJKblGDL94z5GAmgNBZbdBe08c69OJNJX0+cLJPTJiQoycJlw8fBICXOFKmQ17d8dnm2qLG6cPZ
-	w/ivYdRxBWKB7rhSRrrlILqN1jcqYwJRMFCEy+qLgtbTCs+91NEkad7UhyseH6/U/K/BvpPnXa6tt
-	S2OWA5ZcR1nhdSFeHxxqN9baqgEU4OKr57B69Vt13eYVLvZDRjNx0FsPSibKQOu2UgJIywYCHJevd
-	HZZKmBL8/0gIjPpbV1fgXq26HkwNkOe4qp3c1f4zVjzcJCWN3IenMdRrch9HxuU4HYknhdL6Dr9Rl
-	gf3ipaGeaor3vpyvLjXg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=Qqj2FoXlxGBl5S7Q3yspo+WmQkxlYU5G1lbWfPkcGf4=; b=YKP1eMlmXxGD2/mjhO/VcJJEc
+	NOyTAWVhXSJQwgLpHiY1aQTwMX/57vMg3LrsL4w79VldBf6pKuVQWfW+ZxpPld/YtnCIULrfKqB4y
+	fjPEILTwyoi/tfAOKA1L6G7Mv88MxfxButbo8x55UoiVpAonc0p76M61034+49r+GrN9jd+T/3SO8
+	sMUyk996qiGdc4g/wiLesyW7/9bgpJOqHyHkLOP6TwzUi3TUoBmGc7ziCTHqm2J6mcxtYYjHhqLs9
+	E1BOd+oOw1CR1rhj+YaBA3Uvffz2Jl9jyRddGxQwoPzaX2Oy5YPa7+kscfWs4Gy5fIzQNecb91QT5
+	Qj7k17P+Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hv0Lw-0001PY-Bk; Tue, 06 Aug 2019 14:22:16 +0000
-Received: from out30-2.freemail.mail.aliyun.com ([115.124.30.2])
+	id 1hv0Tv-0005VA-HR; Tue, 06 Aug 2019 14:30:31 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hv0Li-0001P8-2H
- for linux-mtd@lists.infradead.org; Tue, 06 Aug 2019 14:22:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aliyun.com; s=s1024;
- t=1565101314; h=From:To:Subject:Date:Message-Id:MIME-Version;
- bh=HiDRwbPx7Zl3IjYbymTfZgEeEbtEHvARqA/eDaPH9KU=;
- b=wMlD4JD+6QCyz/F4fT/Tvpfk3v7C20g4c+lKJCPRyDs6FFteDp7Ra1retlLD5o50Nghs8KKc7CiR1Ni3qH+JZCLMPxxBpJryexPAtXiBHeD3BJRu5TYg54g1ZZdLdD+AU3xeQrEKbWswMa6MahsJb/mM79vKL2/aQPP1ZsMBJJ0=
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.1588495|-1; CH=green; DM=||false|;
- FP=0|0|0|0|0|-1|-1|-1; HT=e01e07487; MF=fishland@aliyun.com; NM=1; PH=DS; RN=6;
- RT=6; SR=0; TI=SMTPD_---0TYpf49L_1565101303; 
-Received: from 192.168.42.134(mailfrom:fishland@aliyun.com
- fp:SMTPD_---0TYpf49L_1565101303) by smtp.aliyun-inc.com(127.0.0.1);
- Tue, 06 Aug 2019 22:21:54 +0800
-From: Liu Song <fishland@aliyun.com>
-To: richard@nod.at,
-	dedekind1@gmail.com,
-	adrian.hunter@intel.com
-Subject: [PATCH] ubifs: limit the number of pages in shrink_liability
-Date: Tue,  6 Aug 2019 22:21:40 +0800
-Message-Id: <20190806142140.33013-1-fishland@aliyun.com>
-X-Mailer: git-send-email 2.20.1
+ id 1hv0Tl-0005UJ-UF
+ for linux-mtd@lists.infradead.org; Tue, 06 Aug 2019 14:30:23 +0000
+Received: by mail-pf1-x444.google.com with SMTP id 19so41600272pfa.4
+ for <linux-mtd@lists.infradead.org>; Tue, 06 Aug 2019 07:30:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-transfer-encoding:content-language;
+ bh=8aURNyM9/Ye1wwG53oOlkzXvtkizQeODSJiH9nVgXG0=;
+ b=HQHR+2FOKymXOLPHb71ljdUtw7d6SR8sttCC6WREABI84NsKWaKC2x+OS2MZaSzefW
+ I1PJ7C+eOTj3jeP1eO1XC1a01U/sGTHqNPWINdq76wCxHScWgzlBF3mpbEPEpLUEMtw+
+ 1I5H3oFpljqdfCkF+IOj7hHShmIJ/oT+K2bGlJTrAHiQ4DfRhQTngzgJuc8C6L7SnSdr
+ ePbwYe5bY0tfoX/hrm2B3NP3gZVahK65S9MoRkM9MjPXZSlnfMfy9d0ya1+dkvhIOC6k
+ ieEw72Rk0tOmbwG2yFvG2Ex0s1VJylpgaQdkywZ1ZcDcEgfk9fwSDxJLUWJ/56F3MrA6
+ TDZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-transfer-encoding
+ :content-language;
+ bh=8aURNyM9/Ye1wwG53oOlkzXvtkizQeODSJiH9nVgXG0=;
+ b=ZadJlPi4dnRujb3eQsLh6lktrg04hz7CvXBl6f8AOiRFdbTyB3QaMGCjuOnQK77APn
+ ZSHRpuDTL45dzk0ITv4t2sGR9+leGjFiSiS/dZwbGY/Q0eO+nHou8JgGunDTRzNBMJQm
+ tWjVUD0Ni5RRwa0MzBBfdopacJGx59EuX6kS3oSnUj2EgHipIXMbYA5HyB47KLEuLpfo
+ KBQHYXgZSdRa3kvY7DRJaG9Sy90LyGakLIcEVY2tKfnZHZwpRigDO/e7dSlVsrR8YkLi
+ fhZ9IfggZtDQiP6VJfXnDUfVD241m9e4OcfF8SfMVVNex70UrnRW9X4+nm/9ohg8sElq
+ n0Xg==
+X-Gm-Message-State: APjAAAU6RgdtECnoexRErmTLKdCPJG6ESoYzTsJQxLIC6mU5AHOISVWf
+ ln/lbAqoByN89jOhqL9sGW8=
+X-Google-Smtp-Source: APXvYqyNdiA+wjhQca2uOA0zVHrUw1zh3P5/ttIIjx98GImGfTr6+ex0O0OtkB3fm/cjwPxIhoW1Dg==
+X-Received: by 2002:a63:1f03:: with SMTP id f3mr3237884pgf.249.1565101821165; 
+ Tue, 06 Aug 2019 07:30:21 -0700 (PDT)
+Received: from ?IPv6:240b:10:2720:5510:e0e6:163b:d8bf:4871?
+ ([240b:10:2720:5510:e0e6:163b:d8bf:4871])
+ by smtp.gmail.com with ESMTPSA id i123sm120412452pfe.147.2019.08.06.07.30.18
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 06 Aug 2019 07:30:20 -0700 (PDT)
+Subject: Re: [PATCH v8 1/9] mtd: cfi_cmdset_0002: Use chip_good() to retry in
+ do_write_oneword()
+To: Sasha Levin <sashal@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20190805190326.28772-2-ikegami.t@gmail.com>
+ <20190806004303.EBEF82147A@mail.kernel.org>
+From: Tokunori Ikegami <ikegami.t@gmail.com>
+Message-ID: <9fd8b17b-abb4-114e-d6fb-252430d98432@gmail.com>
+Date: Tue, 6 Aug 2019 23:30:15 +0900
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
+In-Reply-To: <20190806004303.EBEF82147A@mail.kernel.org>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190806_072202_282274_A1F80643 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190806_073022_002866_FB85EA79 
+X-CRM114-Status: GOOD (  14.97  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [115.124.30.2 listed in list.dnswl.org]
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (fishland[at]aliyun.com)
+ provider (ikegami.t[at]gmail.com)
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -64,8 +92,6 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,44 +103,68 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
- liu.song11@zte.com.cn
-Content-Type: text/plain; charset="us-ascii"
+Cc: Joakim Tjernlund <Joakim.Tjernlund@infinera.com>,
+ Chris Packham <chris.packham@alliedtelesis.co.nz>,
+ linux-mtd@lists.infradead.org, stable@vger.kernel.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Liu Song <liu.song11@zte.com.cn> 
+Hi,
 
-If the number of dirty pages to be written back is large,
-then writeback_inodes_sb will block waiting for a long time,
-causing hung task detection alarm. Therefore, we should limit
-the maximum number of pages written back this time, which let
-the budget be completed faster. The remaining dirty pages
-tend to rely on the writeback mechanism to complete the
-synchronization.
+Thanks for the mail.
 
-Signed-off-by: Liu Song <liu.song11@zte.com.cn>
----
- fs/ubifs/budget.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 2019/08/06 9:43, Sasha Levin wrote:
+> Hi,
+>
+> [This is an automated email]
+>
+> This commit has been processed because it contains a -stable tag.
+> The stable tag indicates that it's relevant for the following trees: all
+>
+> The bot has tested the following trees: v5.2.6, v4.19.64, v4.14.136, v4.9.187, v4.4.187.
+>
+> v5.2.6: Failed to apply! Possible dependencies:
+>      4844ef80305d ("mtd: cfi_cmdset_0002: Add support for polling status register")
+>
+> v4.19.64: Failed to apply! Possible dependencies:
+>      4844ef80305d ("mtd: cfi_cmdset_0002: Add support for polling status register")
+>      d9b8a67b3b95 ("mtd: cfi: fix deadloop in cfi_cmdset_0002.c do_write_buffer")
+>
+> v4.14.136: Failed to apply! Possible dependencies:
+>      4844ef80305d ("mtd: cfi_cmdset_0002: Add support for polling status register")
+>      c64d4419a17c ("mtd: cfi_cmdset_0002: Change erase one block to enable XIP once")
+>      d9b8a67b3b95 ("mtd: cfi: fix deadloop in cfi_cmdset_0002.c do_write_buffer")
+>      ea092fb3ce66 ("mtd: cfi_cmdset_0002: Fix coding style issues")
+>
+> v4.9.187: Failed to apply! Possible dependencies:
+>      4844ef80305d ("mtd: cfi_cmdset_0002: Add support for polling status register")
+>      c64d4419a17c ("mtd: cfi_cmdset_0002: Change erase one block to enable XIP once")
+>      d9b8a67b3b95 ("mtd: cfi: fix deadloop in cfi_cmdset_0002.c do_write_buffer")
+>      ea092fb3ce66 ("mtd: cfi_cmdset_0002: Fix coding style issues")
+>
+> v4.4.187: Failed to apply! Possible dependencies:
+>      4844ef80305d ("mtd: cfi_cmdset_0002: Add support for polling status register")
+>      c64d4419a17c ("mtd: cfi_cmdset_0002: Change erase one block to enable XIP once")
+>      d9b8a67b3b95 ("mtd: cfi: fix deadloop in cfi_cmdset_0002.c do_write_buffer")
+>      ea092fb3ce66 ("mtd: cfi_cmdset_0002: Fix coding style issues")
+>
+>
+> NOTE: The patch will not be queued to stable trees until it is upstream.
+>
+> How should we proceed with this patch?
 
-diff --git a/fs/ubifs/budget.c b/fs/ubifs/budget.c
-index 80d7301ab76d..c0b84e960b20 100644
---- a/fs/ubifs/budget.c
-+++ b/fs/ubifs/budget.c
-@@ -51,7 +51,7 @@
- static void shrink_liability(struct ubifs_info *c, int nr_to_write)
- {
- 	down_read(&c->vfs_sb->s_umount);
--	writeback_inodes_sb(c->vfs_sb, WB_REASON_FS_FREE_SPACE);
-+	writeback_inodes_sb_nr(c->vfs_sb, nr_to_write, WB_REASON_FS_FREE_SPACE);
- 	up_read(&c->vfs_sb->s_umount);
- }
- 
--- 
-2.20.1
+Yes I will do fix the patch for the trees failed to apply if it was 
+upstream.
 
+Regards,
+Ikegami
+
+>
+> --
+> Thanks,
+> Sasha
 
 ______________________________________________________
 Linux MTD discussion mailing list
