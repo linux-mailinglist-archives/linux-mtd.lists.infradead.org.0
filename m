@@ -2,92 +2,68 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 642808E4B7
-	for <lists+linux-mtd@lfdr.de>; Thu, 15 Aug 2019 08:04:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C6618E590
+	for <lists+linux-mtd@lfdr.de>; Thu, 15 Aug 2019 09:32:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uI7bEAzNYWzO59C2DoKu6vSyYT9mzjISoGnBI5ky83A=; b=Ep20KUIeL4N0+7
-	hm+BfSX2PrmBpNrV8aKlB/uHfdVN0JNkYwmeKQ7IKDuse2bmGgf1LVJA2eTFeGKqsBwB/MhXP0OyH
-	U2wf2et6DXlSEHCy9QcgsU4HSUEr2lu7AP/UmpmmJKyreUOY3/woVBIyEZkkAfSA1QFomMHNpJYHX
-	qrK9hBKOG1QIWntTDiJ2LjlXVNSFdn/ZEdrEmHSriEbnQXBqRsR7Vo2z5wWHRO0skMHUmoxcpMJ4S
-	PyOXftQiJlIShG14+mW8/+XN7B0wDgr0ZaJV0vN5rI3WWNCLvbALRP+Q3ygByv79DYXh0l8guUOUJ
-	jE8kK1Dl2Vml7WG6jt0A==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=00daclT2VExwq5GGWugp+l6KEDG4yGqxBdUDfrGfxLM=; b=DliQLW6qtPu/tz
+	O6K4HgQE94k8qWQn/ROTxVvou0ei1l7ir/efY5hPPvDIC/PMuCEUIwEXtUIlgfN7Hirr0LCGHgoOJ
+	pLg6RskfkiaeVxVxluBMxl9rIxDI0RbBCh8UpUZXRdqAd216cZEY9L5QtI7ssTqRvsgXK/gcjkyih
+	6/x0dSPPYeWMLI8ird1/W8HPFTMG5Ad1uGyHzCSemR0N6058Ygn2BlhW2VuGNcVvZSqI48hRl189g
+	Q4M3Al8w5q4Yz30Ru9/PwHxpN3DV5iAKAMOrGeRg9+PCLOSw0MIHh8XFomo4lt8lasCX+M4Z0g8qp
+	n2s9OCk2uPtTQ6ZQpQMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hy8rm-0005Pm-0d; Thu, 15 Aug 2019 06:04:06 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1hyAEe-0002Yk-94; Thu, 15 Aug 2019 07:31:48 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hy8rV-0005PR-Af
- for linux-mtd@lists.infradead.org; Thu, 15 Aug 2019 06:03:50 +0000
-Received: by mail-pf1-x441.google.com with SMTP id b24so868171pfp.1
- for <linux-mtd@lists.infradead.org>; Wed, 14 Aug 2019 23:03:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=WMQ21vF3felpWyZJOQr71AP+Z4WYkH6fdGUWXpY/1+U=;
- b=ePRxHxTwQFmSjnXhVgMfSTLKL7+3Cj3uwC0YmF8dXrQfu+vDHIZsnOaNAoxfd6XLRR
- oUGwkY76ZUYDr/1wL/uHBnpirICfb9pxnTpjCyObDHtkp/0AJq64pCbV24UNoiE+ilng
- LZfe+KUc8ORqmu/v75pNopCdeuuiW8xwjskMbD3FGxoKU9c8pJu7oISqx5CxIvL9rpR+
- KkjBC0seh/oCxAl3y3oNfy3YD6v8jg2KkYbpyN7QGGKi9wlJetkQlhOPHLb1eSYgQcf4
- 5Gu0+/8PBemccL10gWxR5tsiv8DIAdZBYIn7C447mqARvJ/9m2e9YScbK0MUFtj1HMx0
- a5Mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=WMQ21vF3felpWyZJOQr71AP+Z4WYkH6fdGUWXpY/1+U=;
- b=m2LvzKq1HBPwCvvaSyyjZIf+p4m2PcVWdvu3LCVcoY9vrbe/CesXItqgWtN1mt7lr2
- utLWKySVXlSPXvTokE83cFqTMAjF/I6gVS+dT0cVVjhOXXVUdNr6APVsxF31bWpXNA2Q
- oUn6meVP8qz/7VGsEOiBh95HxheFHffvfIHlZT04NPxY9+PD49KU6g53FuDWcjV75vSl
- xmgbge6SYCo3DitthUsJUVEhzdpBAdIT79r8yAWXZSWIR+KlZsDu4YHSAcXo6NFenw5L
- j1LIavQto7bvh/ff9dN93vZwaK8GeDEdScNSZxieRg5ijUCau5r2mG1N9P25bnyWcBB3
- q1IA==
-X-Gm-Message-State: APjAAAVD3oB1DWSRdTNDzhanOEmBvPTU41ci+/f1GeqcdpgMNpztpayc
- uH8yc/cAkoC4/rM97CnP4gw=
-X-Google-Smtp-Source: APXvYqy9oMAsxww5/3ODxk/IiNEoLWjAl57y2xLFVhVxKSovBIte0+VcywYvlgwZuWvsEHG1jc0Ygw==
-X-Received: by 2002:a17:90a:2767:: with SMTP id
- o94mr777986pje.25.1565849028405; 
- Wed, 14 Aug 2019 23:03:48 -0700 (PDT)
-Received: from localhost.localdomain ([110.225.3.176])
- by smtp.gmail.com with ESMTPSA id q13sm1748440pfl.124.2019.08.14.23.03.44
- (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Wed, 14 Aug 2019 23:03:47 -0700 (PDT)
-From: Nishka Dasgupta <nishkadg.linux@gmail.com>
-To: marek.vasut@gmail.com, tudor.ambarus@microchip.com, dwmw2@infradead.org,
- computersforpeace@gmail.com, miquel.raynal@bootlin.com, richard@nod.at,
- vigneshr@ti.com, linux-mtd@lists.infradead.org
-Subject: [PATCH] mtd: spi-nor: hisi-sfc: Add of_node_put() before break
-Date: Thu, 15 Aug 2019 11:33:34 +0530
-Message-Id: <20190815060334.2632-1-nishkadg.linux@gmail.com>
-X-Mailer: git-send-email 2.19.1
+ id 1hyAEN-0002Y0-1P
+ for linux-mtd@lists.infradead.org; Thu, 15 Aug 2019 07:31:33 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <sha@pengutronix.de>)
+ id 1hyAEI-0008A0-Km; Thu, 15 Aug 2019 09:31:26 +0200
+Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <sha@pengutronix.de>)
+ id 1hyAEG-0000RX-5L; Thu, 15 Aug 2019 09:31:24 +0200
+Date: Thu, 15 Aug 2019 09:31:24 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: "Mainz, Roland" <R.Mainz@eckelmann.de>
+Subject: Re: [PATCH 07/11] ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
+Message-ID: <20190815073124.p2wqwyggh2nwvxhp@pengutronix.de>
+References: <20190814121834.13983-1-s.hauer@pengutronix.de>
+ <20190814121834.13983-8-s.hauer@pengutronix.de>
+ <48831093afb8467b90ecf3c96601a2db@eckelmann.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <48831093afb8467b90ecf3c96601a2db@eckelmann.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-IRC: #ptxdist @freenode
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-Uptime: 09:29:56 up 38 days, 13:40, 48 users,  load average: 0.01, 0.16, 0.22
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190814_230349_374974_1798EC9A 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190815_003131_084794_FF278245 
+X-CRM114-Status: GOOD (  19.26  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:441 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (nishkadg.linux[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,38 +75,67 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Nishka Dasgupta <nishkadg.linux@gmail.com>
+Cc: "linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
+ Richard Weinberger <richard@nod.at>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>, Jan Kara <jack@suse.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Each iteration of for_each_available_child_of_node puts the previous
-node, but in the case of a break from the middle of the loop, there
-is no put, thus causing a memory leak. Hence add an of_node_put before
-the break.
-Issue found with Coccinelle.
+On Wed, Aug 14, 2019 at 02:11:08PM +0000, Mainz, Roland wrote:
+> 
+> 
+> 
+> > -----Original Message-----
+> > From: linux-mtd [mailto:linux-mtd-bounces@lists.infradead.org] On Behalf Of
+> > Sascha Hauer
+> > Sent: Wednesday, August 14, 2019 2:19 PM
+> > To: linux-fsdevel@vger.kernel.org
+> > Cc: Richard Weinberger <richard@nod.at>; Sascha Hauer
+> > <s.hauer@pengutronix.de>; linux-mtd@lists.infradead.org;
+> > kernel@pengutronix.de; Jan Kara <jack@suse.com>
+> > Subject: [PATCH 07/11] ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
+> > 
+> > The FS_IOC_FS[SG]ETXATTR ioctls are an alternative to FS_IOC_[GS]ETFLAGS
+> > with additional features. This patch adds support for these ioctls.
+> > 
+> > Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+> > ---
+> >  fs/ubifs/ioctl.c | 89
+> > +++++++++++++++++++++++++++++++++++++++++++++---
+> >  1 file changed, 84 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/fs/ubifs/ioctl.c b/fs/ubifs/ioctl.c index
+> > b9c4a51bceea..121aa1003e24 100644
+> > --- a/fs/ubifs/ioctl.c
+> > +++ b/fs/ubifs/ioctl.c
+> > @@ -95,9 +95,39 @@ static int ubifs2ioctl(int ubifs_flags)
+> >  	return ioctl_flags;
+> >  }
+> > 
+> > -static int setflags(struct file *file, int flags)
+> > +/* Transfer xflags flags to internal */ static inline unsigned long
+> > +ubifs_xflags_to_iflags(__u32 xflags)
+> >  {
+> > -	int oldflags, err, release;
+> > +	unsigned long iflags = 0;
+> > +
+> > +	if (xflags & FS_XFLAG_SYNC)
+> > +		iflags |= UBIFS_APPEND_FL;
+> 
+> Erm... what does |FS_XFLAG_SYNC| have to do with |*APPEND| ? Is this a typo ?
 
-Signed-off-by: Nishka Dasgupta <nishkadg.linux@gmail.com>
----
- drivers/mtd/spi-nor/hisi-sfc.c | 1 +
- 1 file changed, 1 insertion(+)
+Hm, some copy-paste accident probably. That's rubbish of course.
 
-diff --git a/drivers/mtd/spi-nor/hisi-sfc.c b/drivers/mtd/spi-nor/hisi-sfc.c
-index dea43ea3eea3..6dac9dd8bf42 100644
---- a/drivers/mtd/spi-nor/hisi-sfc.c
-+++ b/drivers/mtd/spi-nor/hisi-sfc.c
-@@ -401,6 +401,7 @@ static int hisi_spi_nor_register_all(struct hifmc_host *host)
- 
- 		if (host->num_chip == HIFMC_MAX_CHIP_NUM) {
- 			dev_warn(dev, "Flash device number exceeds the maximum chipselect number\n");
-+			of_node_put(np);
- 			break;
- 		}
- 	}
+Sascha
+
 -- 
-2.19.1
-
+Pengutronix e.K.                           |                             |
+Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+Peiner Str. 6-8, 31137 Hildesheim, Germany | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
 ______________________________________________________
 Linux MTD discussion mailing list
