@@ -2,35 +2,35 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E5FB90E12
-	for <lists+linux-mtd@lfdr.de>; Sat, 17 Aug 2019 09:44:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A751890E1B
+	for <lists+linux-mtd@lfdr.de>; Sat, 17 Aug 2019 09:46:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JjzuTD9kHQBJC+kWZFsqup/uzfeBcePlRDFs9DkKAq0=; b=AJ8pUMtR2PLN55
-	vUiOFHtTQ7Xt9zAbc47KptvZ/ypWuQkEs2qFjGayijbN2mqkRwBL3inIVVPAmMAR2y7FvNSrafajy
-	U7ZDWCOFXjMJ3X2EA4Qd6xt6jhsI0FQhbwm+XEFhp0VHNCrpJeYnYJcmodOeESaTx0YrVvGqRUbMZ
-	4x7QmgHXfxZ+HnFnkUF8g9vFEYZ0pPvkmXB+GZI3i78NJgSIO+qp2MLNNqAKG4p7j/eWfma9fbF51
-	qMKGFhFONySBPulwnHmR0Zk04RGmwEpFHnj2h8d4pw4kDm9KwKd66REPUzocSnKzeX02MQspY453R
-	H35LG4HzOI/AE63Z6t4w==;
+	List-Owner; bh=YIjJtTd3ye63xfzDiAmMvfrI80Aio7OzANwKhXZvIP0=; b=onLpc6nTEotKSE
+	0l5wGfSMCiFe4ADx30mJJZGpoiDewU22/hKpcRPMLt1u1AFJP08RGyoyA1NDmtuzLfHyEwMBcYM0T
+	ikH4rlVsxKAse4LXdRbWiLc6wglaBU+NmslPZ/aq/8e7LxjjhQFuifqeXa/qJZDDIQ5HZKfn98vwq
+	dsfdGFORYBzmvsmjC4QQRPeZNwuHBElUWHrhCHDNjD9UYN3TUsTgmN4I7fZYECgqB9JvMpN8hd3d9
+	OnbxYdN3xAwnihsZiabL0dEfm35pdCRZkVG6e4ZeAug2yvs9XSs/7fH3MdYoPa3bfd+FfIU5HfUAA
+	kWWOXByxkfaf6RrxJvoQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hytNz-00026o-Ja; Sat, 17 Aug 2019 07:44:27 +0000
+	id 1hytQC-0003vX-Rm; Sat, 17 Aug 2019 07:46:44 +0000
 Received: from 089144199030.atnat0008.highway.a1.net ([89.144.199.30]
  helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
- id 1hytNX-0001rF-8R; Sat, 17 Aug 2019 07:43:59 +0000
+ id 1hytPg-0003dW-GT; Sat, 17 Aug 2019 07:46:12 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: [PATCH 04/26] mips: remove ioremap_cachable
-Date: Sat, 17 Aug 2019 09:32:31 +0200
-Message-Id: <20190817073253.27819-5-hch@lst.de>
+Subject: [PATCH 05/26] openrisc: map as uncached in ioremap
+Date: Sat, 17 Aug 2019 09:32:32 +0200
+Message-Id: <20190817073253.27819-6-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190817073253.27819-1-hch@lst.de>
 References: <20190817073253.27819-1-hch@lst.de>
@@ -60,42 +60,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Just define ioremap_cache directly.
+Openrisc is the only architecture not mapping ioremap as uncached,
+which has been the default since the Linux 2.6.x days.  Switch it
+over to implement uncached semantics by default.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/mips/include/asm/io.h | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ arch/openrisc/include/asm/io.h      | 20 +++-----------------
+ arch/openrisc/include/asm/pgtable.h |  2 +-
+ arch/openrisc/mm/ioremap.c          |  8 ++++----
+ 3 files changed, 8 insertions(+), 22 deletions(-)
 
-diff --git a/arch/mips/include/asm/io.h b/arch/mips/include/asm/io.h
-index 97a280640daf..c02db986ddf5 100644
---- a/arch/mips/include/asm/io.h
-+++ b/arch/mips/include/asm/io.h
-@@ -262,11 +262,11 @@ static inline void __iomem *ioremap_prot(phys_addr_t offset,
- #define ioremap_uc ioremap_nocache
+diff --git a/arch/openrisc/include/asm/io.h b/arch/openrisc/include/asm/io.h
+index 06a710757789..5b81a96ab85e 100644
+--- a/arch/openrisc/include/asm/io.h
++++ b/arch/openrisc/include/asm/io.h
+@@ -25,25 +25,11 @@
+ #define PIO_OFFSET		0
+ #define PIO_MASK		0
  
- /*
-- * ioremap_cachable -	map bus memory into CPU space
-+ * ioremap_cache -	map bus memory into CPU space
-  * @offset:	    bus address of the memory
-  * @size:	    size of the resource to map
+-#define ioremap_nocache ioremap_nocache
++#define ioremap_nocache ioremap
+ #include <asm-generic/io.h>
+ #include <asm/pgtable.h>
+ 
+-extern void __iomem *__ioremap(phys_addr_t offset, unsigned long size,
+-				pgprot_t prot);
+-
+-static inline void __iomem *ioremap(phys_addr_t offset, size_t size)
+-{
+-	return __ioremap(offset, size, PAGE_KERNEL);
+-}
+-
+-/* #define _PAGE_CI       0x002 */
+-static inline void __iomem *ioremap_nocache(phys_addr_t offset,
+-					     unsigned long size)
+-{
+-	return __ioremap(offset, size,
+-			 __pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_CI));
+-}
+-
++void __iomem *ioremap(phys_addr_t offset, unsigned long size);
+ extern void iounmap(void *addr);
++
+ #endif
+diff --git a/arch/openrisc/include/asm/pgtable.h b/arch/openrisc/include/asm/pgtable.h
+index 497fd908a4c4..2fe9ff5b5d6f 100644
+--- a/arch/openrisc/include/asm/pgtable.h
++++ b/arch/openrisc/include/asm/pgtable.h
+@@ -97,7 +97,7 @@ extern void paging_init(void);
+ /* Define some higher level generic page attributes.
   *
-- * ioremap_nocache performs a platform specific sequence of operations to
-+ * ioremap_cache performs a platform specific sequence of operations to
-  * make bus memory CPU accessible via the readb/readw/readl/writeb/
-  * writew/writel functions and the other mmio helpers. The returned
-  * address is not guaranteed to be usable directly as a virtual
-@@ -276,9 +276,8 @@ static inline void __iomem *ioremap_prot(phys_addr_t offset,
-  * the CPU.  Also enables full write-combining.	 Useful for some
-  * memory-like regions on I/O busses.
+  * If you change _PAGE_CI definition be sure to change it in
+- * io.h for ioremap_nocache() too.
++ * io.h for ioremap() too.
   */
--#define ioremap_cachable(offset, size)					\
-+#define ioremap_cache(offset, size)					\
- 	__ioremap_mode((offset), (size), _page_cachable_default)
--#define ioremap_cache ioremap_cachable
  
  /*
-  * ioremap_wc     -   map bus memory into CPU space
+diff --git a/arch/openrisc/mm/ioremap.c b/arch/openrisc/mm/ioremap.c
+index e0c551ca0891..8f8e97f7eac9 100644
+--- a/arch/openrisc/mm/ioremap.c
++++ b/arch/openrisc/mm/ioremap.c
+@@ -34,8 +34,7 @@ static unsigned int fixmaps_used __initdata;
+  * have to convert them into an offset in a page-aligned mapping, but the
+  * caller shouldn't need to know that small detail.
+  */
+-void __iomem *__ref
+-__ioremap(phys_addr_t addr, unsigned long size, pgprot_t prot)
++void __iomem *__ref ioremap(phys_addr_t addr, unsigned long size)
+ {
+ 	phys_addr_t p;
+ 	unsigned long v;
+@@ -66,7 +65,8 @@ __ioremap(phys_addr_t addr, unsigned long size, pgprot_t prot)
+ 		fixmaps_used += (size >> PAGE_SHIFT);
+ 	}
+ 
+-	if (ioremap_page_range(v, v + size, p, prot)) {
++	if (ioremap_page_range(v, v + size, p,
++			__pgprot(pgprot_val(PAGE_KERNEL) | _PAGE_CI))) {
+ 		if (likely(mem_init_done))
+ 			vfree(area->addr);
+ 		else
+@@ -76,7 +76,7 @@ __ioremap(phys_addr_t addr, unsigned long size, pgprot_t prot)
+ 
+ 	return (void __iomem *)(offset + (char *)v);
+ }
+-EXPORT_SYMBOL(__ioremap);
++EXPORT_SYMBOL(ioremap);
+ 
+ void iounmap(void *addr)
+ {
 -- 
 2.20.1
 
