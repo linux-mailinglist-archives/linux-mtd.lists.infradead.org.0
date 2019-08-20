@@ -2,71 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6FFEB954A4
-	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 04:51:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 59E9A954C0
+	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 05:04:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=z/OZ8MkrIgQhk/DRUnnRnXr/MTnmsV/4Bgu5rlOkpjU=; b=dyO
-	pjhOd6arajpmdUlG5z2UDAkjOH11iRpWqYbgf8q9kYnF5+mOFH4AAeVZsG/5pLylFVSxtYM+R4whu
-	bgqSCUqjOk/AnPtHih9H8l/p5/q4bxKxndoD17E3rmUxsYa2/JMXFp8kf4My7yKo0zloIJ/lnJIJb
-	0rhh2UnL1pkV/e9Lahx9ojgdLokxX43xVs+FSEKNUwRvwj6gsjKT+cW01ca+rx1lLitPhkJZJM7nA
-	s9DIDkjbOov+h185CCPp/blrGyGSlCuM7RVzvpcGPEXJRS8JuRWr+D6L6leXTur9ptwsN/QNY+9N+
-	fDo6prSlWybIQVJSj0ToeBl1mcp83/A==;
+	References:List-Owner; bh=M1GXWkn+CHUJPKio4Ao5lD/A+yNF/ZM3QXazVGBjj0I=; b=ubR
+	hP8RUTbwZmGMTaf0QadYTrOB+J7DeVctMYakedmQajW1cOgf5/3SgqC3iSPdUd2RcYpJ4TqzVeRCp
+	arN5b8jOMTf0vWSUAhSBh8R04ZhEq6B5Key0blUeri5xDE2fiI/BAM6X4m54tiTCARXog+Xgy3BX4
+	BaZ1xDGj+FmUeo4omcmF3lmpbg1orYfBHJ87VAKYz/9SklwY0af2SJEYXrPYjf8dK15+HBL9wh5Gj
+	GF7jqv0of+ewGdXvbdxyPreRaFf4a+D3y5kIXeWaBzVqyj+9xdgYlQdj+NC5MNetQe22rQuEu6LLp
+	2jaMprHWu9H0Lck1ZPkMB5NagcvCJhQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzuFC-00061H-N3; Tue, 20 Aug 2019 02:51:34 +0000
-Received: from conuserg-10.nifty.com ([210.131.2.77])
+	id 1hzuRJ-0001Cl-TF; Tue, 20 Aug 2019 03:04:05 +0000
+Received: from mail-yb1-f194.google.com ([209.85.219.194])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzuEv-00060r-Fy
- for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 02:51:19 +0000
-Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
- [153.142.97.92]) (authenticated)
- by conuserg-10.nifty.com with ESMTP id x7K2p1bO009142;
- Tue, 20 Aug 2019 11:51:01 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com x7K2p1bO009142
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1566269461;
- bh=dXr0OgerpGLpvO15fBQbFtGCHaWopa8Rn3l0Gbo/i5U=;
- h=From:To:Cc:Subject:Date:From;
- b=PZQOyz0KV8kIUbenMN0QGsc5QzpgcSbzrYQJgi3rvJgAI1X5WtebmLdUmFcBW4HTA
- /nVtTWOQwjEnn9BNuqvNRJ0Zs62UeJuyje7jUK1h6G9yWygiKfcHACxepb88ICSKgl
- 7yyDbjjTpsf18Q6wBRt8rCrXmOO5mHTmac8vVvLUNb5vaO8vCKCS3CROVIPa2X6+gq
- oLmrY2iI4t1J17OhC86imoM/pmIw1deaN7WuoFHK7otZn7227+rDuhPoAX3xYffXUa
- Kpo6iQWWdNrqhZOQDMPVj+QpE+oLFQoVNpg8IQAZnMPq6MIwNCwm3u4Wtuqwd0A6vW
- uA9hCosFTCo/w==
-X-Nifty-SrcIP: [153.142.97.92]
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-To: David Woodhouse <dwmw2@infradead.org>,
- Brian Norris <computersforpeace@gmail.com>,
- Marek Vasut <marek.vasut@gmail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>,
- Vignesh Raghavendra <vigneshr@ti.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH] mtd: rawnand: sharpsl: add include guard to
- linux/mtd/sharpsl.h
-Date: Tue, 20 Aug 2019 11:50:57 +0900
-Message-Id: <20190820025057.16164-1-yamada.masahiro@socionext.com>
-X-Mailer: git-send-email 2.17.1
+ id 1hzuRA-0001C3-DA
+ for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 03:03:57 +0000
+Received: by mail-yb1-f194.google.com with SMTP id u32so1422628ybi.12
+ for <linux-mtd@lists.infradead.org>; Mon, 19 Aug 2019 20:03:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=T/JaohmNZpvxoXfMBJgKQy6uqfXida8R0ifjCoHqJy4=;
+ b=HFDv418xf/5KPJDC8xicZsWj1bRxzYwBHTzLO4a5r+jJD5lWNzOfUuTKuYiZby1XZZ
+ QJ3DNMxGxtxDR1qd56+J3Y0W5H8+97c5VN2d8/0RgvCnbvdFkx6iVTdAdkXBiCVu3DRX
+ +ZlUMnJIUdoPkT0eNROl/YLw0NZfSIFhl9lzU17llj6+k3ONbpnjyALSdxjxEhcjExXx
+ zN3bFiptChsEl1kNPoOF8UXSEwx5teBVghurqaNgUQUIYiy0RkSv3PFP2KYL993O1v5b
+ iFqQtoql6YzUPQYbqkEim7kf5FpKZynfyWG2h2TQ6oqhQsg82UjxcLVSZ9vjuxRypJ8h
+ a6kw==
+X-Gm-Message-State: APjAAAUF0JEXzkQq4nIwjz5CIh8Bb/dbSnJEdQ+/BrGFbdL8OHO4WhK6
+ UMhgejtuIlVc8/yi5QlFhnE=
+X-Google-Smtp-Source: APXvYqzj92UdY053NzsDDYyHqtOHbL0COKEx87/jaBUtYNVeYaHjYyT4RQ5O34XN5FvlCzo1AmUDug==
+X-Received: by 2002:a5b:7c8:: with SMTP id t8mr18452781ybq.113.1566270233627; 
+ Mon, 19 Aug 2019 20:03:53 -0700 (PDT)
+Received: from localhost.localdomain (24-158-240-219.dhcp.smyr.ga.charter.com.
+ [24.158.240.219])
+ by smtp.gmail.com with ESMTPSA id z6sm3820879ywg.40.2019.08.19.20.03.51
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Mon, 19 Aug 2019 20:03:52 -0700 (PDT)
+From: Wenwen Wang <wenwen@cs.uga.edu>
+To: Wenwen Wang <wenwen@cs.uga.edu>
+Subject: [PATCH] ubifs: fix a memory leak bug
+Date: Mon, 19 Aug 2019 22:03:46 -0500
+Message-Id: <1566270227-8302-1-git-send-email-wenwen@cs.uga.edu>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190819_195117_878728_43336832 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.0 (+)
+X-CRM114-CacheID: sfid-20190819_200356_446049_F7DCD9B0 
+X-CRM114-Status: GOOD (  11.64  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [210.131.2.77 listed in list.dnswl.org]
+ no trust [209.85.219.194 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wenwenict[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.194 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,44 +82,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
- linux-kernel@vger.kernel.org
+Cc: Richard Weinberger <richard@nod.at>,
+ "open list:UBI FILE SYSTEM UBIFS" <linux-mtd@lists.infradead.org>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ open list <linux-kernel@vger.kernel.org>,
+ Artem Bityutskiy <dedekind1@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Add a header include guard just in case.
+In read_znode(), the indexing node 'idx' is allocated by kmalloc().
+However, it is not deallocated in the following execution if
+ubifs_node_check_hash() fails, leading to a memory leak bug. To fix this
+issue, free 'idx' before returning the error.
 
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+Signed-off-by: Wenwen Wang <wenwen@cs.uga.edu>
 ---
+ fs/ubifs/tnc_misc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
- include/linux/mtd/sharpsl.h | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/include/linux/mtd/sharpsl.h b/include/linux/mtd/sharpsl.h
-index 01306ebe266d..d2c3cf29e0d1 100644
---- a/include/linux/mtd/sharpsl.h
-+++ b/include/linux/mtd/sharpsl.h
-@@ -5,6 +5,9 @@
-  * Copyright (C) 2008 Dmitry Baryshkov
-  */
+diff --git a/fs/ubifs/tnc_misc.c b/fs/ubifs/tnc_misc.c
+index 6f293f6..49cb34c 100644
+--- a/fs/ubifs/tnc_misc.c
++++ b/fs/ubifs/tnc_misc.c
+@@ -284,6 +284,7 @@ static int read_znode(struct ubifs_info *c, struct ubifs_zbranch *zzbr,
+ 	err = ubifs_node_check_hash(c, idx, zzbr->hash);
+ 	if (err) {
+ 		ubifs_bad_hash(c, idx, zzbr->hash, lnum, offs);
++		kfree(idx);
+ 		return err;
+ 	}
  
-+#ifndef _MTD_SHARPSL_H
-+#define _MTD_SHARPSL_H
-+
- #include <linux/mtd/rawnand.h>
- #include <linux/mtd/nand_ecc.h>
- #include <linux/mtd/partitions.h>
-@@ -16,3 +19,5 @@ struct sharpsl_nand_platform_data {
- 	unsigned int		nr_partitions;
- 	const char *const	*part_parsers;
- };
-+
-+#endif /* _MTD_SHARPSL_H */
 -- 
-2.17.1
+2.7.4
 
 
 ______________________________________________________
