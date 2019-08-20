@@ -2,56 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5313959A3
-	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 10:33:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CE1E95CDB
+	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 13:05:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9UP5fgfD4sjh6fwqvbvIiCbWuzE8X/6UlEmJmOkr9EE=; b=lvMJuuCAooBYFI
-	DFJYs4rBC0xEa/IsLXo9fLEZmmVbtLIB1zqN1BSGXcGUj9ApiUaBuKx4RB4QB513CNpC31EejHyQb
-	34ySqy9Va1bTyNDQfcNVOr57l0IJFP0JicShK8HphxXl0L3iOoNbxSHFu6MUoqsb79a9r/0KDWg9B
-	xSeH98Yj6S3jj8HqhVPeCPk4g4dtLmHPC2jjkwsIRMxSdOFzFduaD27G0480+R5P5tkXfoQbiLgSy
-	E5547p35VaeDDT2GYuKkx9pnBloRry6EdragpWPoCQPAM4JBbJQPSI1G0UE7a/Mdwuy0fp634uGqW
-	PCEGe44ZH3ZLAfYzxYFA==;
+	List-Owner; bh=sEufGUPqorDucfQr/BaubMFjFHeURWK+kCh26h7Xo1Q=; b=r8r7VeM5T0mMaV
+	1GNUgli7SlWFIgdDk/Oug7hx1D4nf3H5bDBnEZLiUCWnhEkcI7lFR33VlYtA6TaoHnf7cbCPn6grN
+	ILaECzkp5HspYVbA5xmuD8ggCQ8h7VY7Mvwd2HcjBt2AfvvxQrYU9nyiKtpP6lEf/32RqQqCk6ZxO
+	heJibD5pFgqOIBTcAd3SnbkP25vCxCU3zssY8RrVP3n34mE8f2byX8f5oDkeA9kvt1LIKLiow3HFD
+	4yAtLFbGBTTl1KDuUxX31EQtvV2w4ad8i6aerEBqLplyRJJZ0aiWE2oHelZiUzb9cn1w582768a61
+	yHU/jAH9t7+nLMOvJltw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hzzZp-0008Bx-SW; Tue, 20 Aug 2019 08:33:13 +0000
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	id 1i01xG-0007zt-FC; Tue, 20 Aug 2019 11:05:34 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hzzZf-0008BV-EY
- for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 08:33:04 +0000
-X-Originating-IP: 86.250.200.211
-Received: from xps13 (lfbn-1-17395-211.w86-250.abo.wanadoo.fr [86.250.200.211])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay8-d.mail.gandi.net (Postfix) with ESMTPSA id 5D3541BF20D;
- Tue, 20 Aug 2019 08:32:54 +0000 (UTC)
-Date: Tue, 20 Aug 2019 10:32:53 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@pengutronix.de>
-Subject: Re: [PATCH] mtd: spinand: micron: add support for MT29F1G01AAADD
-Message-ID: <20190820103253.090f88ee@xps13>
-In-Reply-To: <20190820082837.rvk2itycnka4vo6a@pengutronix.de>
-References: <20190814082232.2119-1-m.felsch@pengutronix.de>
- <20190819101718.39b3a5ca@xps13>
- <20190820082837.rvk2itycnka4vo6a@pengutronix.de>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1i01x0-0007ya-2F
+ for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 11:05:19 +0000
+Received: from tleilax.poochiereds.net
+ (68-20-15-154.lightspeed.rlghnc.sbcglobal.net [68.20.15.154])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id EFF55205C9;
+ Tue, 20 Aug 2019 11:05:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1566299116;
+ bh=T0rmHh8w3H3bwdXLru7KFY2A/8hjJcNt2eMc9MdFvoU=;
+ h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+ b=OWYdJNUzSee+UuIh6LQ3YFru0x6seE2TTCifysIDGNOjR8O4ScYkdj2Vrw5S/JeTB
+ qmDzLYeDaoNBfNwX5IDihFikAWZqI1dzLhII85Qm3JJy6zIH2yIFue45EEMtXZPwcN
+ fgzdH+WlULgP+SUhyw7NDBScX/I9XuZMIU+ITkEg=
+Message-ID: <27d1943a0027cb4f658334fad8dc880df133c22d.camel@kernel.org>
+Subject: Re: [PATCH v8 00/20] vfs: Add support for timestamp limits
+From: Jeff Layton <jlayton@kernel.org>
+To: Deepa Dinamani <deepa.kernel@gmail.com>, viro@zeniv.linux.org.uk, 
+ linux-kernel@vger.kernel.org
+Date: Tue, 20 Aug 2019 07:05:10 -0400
+In-Reply-To: <20190818165817.32634-1-deepa.kernel@gmail.com>
+References: <20190818165817.32634-1-deepa.kernel@gmail.com>
+User-Agent: Evolution 3.32.4 (3.32.4-1.fc30) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_013303_639827_36DB2909 
-X-CRM114-Status: GOOD (  14.23  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20190820_040518_152010_56C66D4B 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.201 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,38 +78,81 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: bbrezillon@kernel.org, richard@nod.at,
- Marco Felsch <m.felsch@pengutronix.de>, frieder.schrempf@kontron.de,
- marek.vasut@gmail.com, linux-mtd@lists.infradead.org, kernel@pengutronix.de,
- Peter Pan <peterpandong@micron.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: lucho@ionkov.net, martin@omnibond.com, jfs-discussion@lists.sourceforge.net,
+ shaggy@kernel.org, al@alarsen.net, yuchao0@huawei.com, me@bobcopeland.com,
+ adilger.kernel@dilger.ca, mikulas@artax.karlin.mff.cuni.cz, hch@lst.de,
+ nico@fluxnic.net, hubcap@omnibond.com, linux-cifs@vger.kernel.org,
+ zyan@redhat.com, sage@redhat.com, darrick.wong@oracle.com,
+ y2038@lists.linaro.org, richard@nod.at, sfrench@samba.org, anton@enomsg.org,
+ codalist@coda.cs.cmu.edu, hch@infradead.org, coda@cs.cmu.edu,
+ v9fs-developer@lists.sourceforge.net, idryomov@gmail.com,
+ linux-ext4@vger.kernel.org, salah.triki@gmail.com, asmadeus@codewreck.org,
+ devel@lists.orangefs.org, dushistov@mail.ru, keescook@chromium.org,
+ arnd@arndb.de, ericvh@gmail.com, jack@suse.com, reiserfs-devel@vger.kernel.org,
+ tj@kernel.org, jlbec@evilplan.org, aivazian.tigran@gmail.com,
+ phillip@squashfs.org.uk, dsterba@suse.com, jaegeuk@kernel.org,
+ ceph-devel@vger.kernel.org, trond.myklebust@hammerspace.com,
+ hirofumi@mail.parknet.co.jp, jaharkes@cs.cmu.edu, linux-nfs@vger.kernel.org,
+ tony.luck@intel.com, tytso@mit.edu, luisbg@kernel.org, dedekind1@gmail.com,
+ linux-ntfs-dev@lists.sourceforge.net, gregkh@linuxfoundation.org,
+ linux-karma-devel@lists.sourceforge.net, adrian.hunter@intel.com,
+ linux-f2fs-devel@lists.sourceforge.net, linux-xfs@vger.kernel.org,
+ ccross@android.com, linux-fsdevel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, dwmw2@infradead.org, anna.schumaker@netapp.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgVXdlLAoKVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25peC5k
-ZT4gd3JvdGUgb24gVHVlLCAyMCBBdWcKMjAxOSAxMDoyODozNyArMDIwMDoKCj4gSGVsbG8gTWlx
-dcOobCwKPiAKPiBPbiBNb24sIEF1ZyAxOSwgMjAxOSBhdCAxMDoxNzoxOEFNICswMjAwLCBNaXF1
-ZWwgUmF5bmFsIHdyb3RlOgo+ID4gTWFyY28gRmVsc2NoIDxtLmZlbHNjaEBwZW5ndXRyb25peC5k
-ZT4gd3JvdGUgb24gV2VkLCAxNCBBdWcgMjAxOQo+ID4gMTA6MjI6MzIgKzAyMDA6ICAKPiA+ID4g
-K3N0YXRpYyBpbnQgbXQyOWYxZzAxYWFhZGRfb29ibGF5b3V0X2VjYyhzdHJ1Y3QgbXRkX2luZm8g
-Km10ZCwgaW50IHNlY3Rpb24sCj4gPiA+ICsJCQkJCXN0cnVjdCBtdGRfb29iX3JlZ2lvbiAqcmVn
-aW9uKQo+ID4gPiArewo+ID4gPiArCWlmIChzZWN0aW9uID4gMykKPiA+ID4gKwkJcmV0dXJuIC1F
-UkFOR0U7Cj4gPiA+ICsKPiA+ID4gKwlyZWdpb24tPm9mZnNldCA9IChzZWN0aW9uICogMHgxMCkg
-KyA4OyAgCj4gPiAKPiA+IEFueSByZWFzb24gdG8gdXNlIGhleCBoZXJlPyAgICAgICAgIF4KPiA+
-IAo+ID4gSWYgbm90IEkgd291bGQgcHJlZmVyIGRlY2ltYWwgbnVtYmVycy4gIAo+IAo+IElNSE8g
-aXQgaXMgcXVpdGUgY29tbW9uIHRvIHVzZSBoZXhhZGVjaW1hbCBhbHNvIGZvciByZWdpc3RlciBv
-ZmZzZXRzLAo+IG5vdCBvbmx5IGZvciByZWdpc3RlciB2YWx1ZXMuCj4gCj4gSSBjaGVja2VkIGEg
-ZmV3IGRyaXZlcnMgKGRyaXZlcnMvbXRkL25hbmQvcmF3L214Y19uYW5kLmMsCj4gZHJpdmVycy9j
-bGsvbWVzb24vZzEyYS5jLCBkcml2ZXJzL2dwaW8vZ3Bpby1zY2guYykgYW5kIHRoZXkgYWxsIHVz
-ZSBoZXgKPiBhbHNvIGZvciB0aGUgb2Zmc2V0cywgc28gaXQgc2VlbXMgdG8gYmUgYXQgbGVhc3Qg
-dXN1YWwuIEFsc28gYXMgb2Zmc2V0cwo+IGZvciByZXBlYXRpbmcgcmVnaXN0ZXJzIGFyZSB1c3Vh
-bGx5IHBvd2VycyBvZiB0d28sIGhleGFkZWNpbWFsIGNvbnN0YW50cwo+IGFyZSBtb3JlIHN1aXRh
-YmxlIElNSE8uCgpBYnNvbHV0ZWx5LiBCdXQgaGVyZSByZWdpb24tPm9mZnNldCBpcyBub3QgYSBy
-ZWdpc3RlciBvZmZzZXQgYXQgYWxsLCBpdAppcyBhbiBpbmRpY2F0aW9uIGZvciB0aGUgdXBwZXIg
-bGF5ZXJzIG9mIHRoZSBwb3NpdGlvbiBvZiBhbiBhcmVhIHdpdGhpbgphIGJpZ2dlciBidWZmZXIg
-KGhlcmU6IHdoZXJlIGFyZSB0aGUgRUNDIGJ5dGVzIGluIG15IGJ1ZmZlciBpbiBSQU0pLiBJCmRv
-bid0IHRoaW5rIGhleGFkZWNpbWFsIG51bWJlcnMgaGF2ZSBhbnkgaW50ZXJlc3QgaGVyZS4KClRo
-YW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
+On Sun, 2019-08-18 at 09:57 -0700, Deepa Dinamani wrote:
+> The series is an update and a more complete version of the
+> previously posted series at
+> https://lore.kernel.org/linux-fsdevel/20180122020426.2988-1-deepa.kernel@gmail.com/
+> 
+> Thanks to Arnd Bergmann for doing a few preliminary reviews.
+> They helped me fix a few issues I had overlooked.
+> 
+> The limits (sometimes granularity also) for the filesystems updated here are according to the
+> following table:
+> 
+> File system   Time type                      Start year Expiration year Granularity
+> cramfs        fixed                          0          0
+> romfs         fixed                          0          0
+> pstore        ascii seconds (27 digit ascii) S64_MIN    S64_MAX         1
+> coda          INT64                          S64_MIN    S64_MAX         1
+> omfs          64-bit milliseconds            0          U64_MAX/ 1000   NSEC_PER_MSEC
+> befs          unsigned 48-bit seconds        0          0xffffffffffff  alloc_super
+> bfs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> efs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> ext2          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+> ext3          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+> ext4 (old)    signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
+> ext4 (extra)  34-bit seconds, 30-bit ns      S32_MIN    0x37fffffff	1
+> freevxfs      u32 secs/usecs                 0          U32_MAX         alloc_super
+> jffs2         unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> jfs           unsigned 32-bit seconds/ns     0          U32_MAX         1
+> minix         unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> orangefs      u64 seconds                    0          U64_MAX         alloc_super
+> qnx4          unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> qnx6          unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> reiserfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> squashfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
+> ufs1          signed 32-bit seconds          S32_MIN    S32_MAX         NSEC_PER_SEC
+> ufs2          signed 64-bit seconds/u32 ns   S64_MIN    S64_MAX         1
+> xfs           signed 32-bit seconds/ns       S32_MIN    S32_MAX         1
+> ceph          unsigned 32-bit second/ns      0          U32_MAX         1000
+
+Looks reasonable, overall.
+
+Note that the granularity changed recently for cephfs. See commit
+0f7cf80ae96c2a (ceph: initialize superblock s_time_gran to 1).
+
+In any case, you can add my Acked-by
+
+-- 
+Jeff Layton <jlayton@kernel.org>
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
