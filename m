@@ -2,61 +2,117 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B20F695D84
-	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 13:36:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0715495D58
+	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 13:31:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UwGnWLbfeeHrLoaN6WVaKv9ES8WRJfDnSCwVMQ0IGEk=; b=B/kIbl9U6VWzo+
-	Ud7GFNnj699p1EE41jW3zQltWgFF3f0XvBUZnacKBxOyzEnyS7dfzhpnkj3XDZ96W3XlqE87X5FSZ
-	011g4BGDy6w/jxO+9/Oms8tPcQkDpKAiyXqdAqVwBRIp015ZhxTbiaN2zu2rJ8ICbvNuqJ0E1YxiX
-	IG222iUkrSS1IIGD7PwGNDZPvUNJvPo2r9ZQMZXumexeCoXvx515m0ZTX0qnI7rx5xzuoDcvj45X0
-	HzFJ7cYqWWn6C+0+jrD6qGeAjYAq2sW//hNUer60CkIj+ubD7xHAbBemvHPNzi/vIRkZYKWC7TUkp
-	bmHvi/Iv4ITsclOani3g==;
+	List-Owner; bh=8G1b60myBirQav/qHdKLAJK96Ot4YsR2wUXdIml+EKw=; b=sBhNdQk9nyc4Jj
+	rHrGwHhpWU/e/mIwhMSW+iHgTbEqyzyfW5lJuLPYs8mhyyiBjsazUHTY4v8yBVbUooFVGIPtovBJh
+	1RGwrkG6mQl9CCTVCFI/U+qxx6CEdAgfdG7cT1jY6U46mpWAVhDLCDQDMlePcLiIpiF/hBFZaIUvu
+	uthyOodgRKlga14vSGHA/OoWuOw4Gl2w/UB4+mHQRcWnI35IxUYbz7a30C2JFOcXMpm5imqnB93K0
+	WWWu9TTOrY8yaHFxoDgLUI/QuUEaPSluPM5v5nDUnawRwXmDlXaVYgHoSKh9nXmfJOQ+1QcEgWnfW
+	Ran4hTZY4YbU/XWGoIZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i02Qx-0006ic-Q7; Tue, 20 Aug 2019 11:36:16 +0000
-Received: from joe.alarsen.net ([2a01:4f8:191:10e8:1::fe]
- helo=mail.alarsen.net)
+	id 1i02MU-0001pd-4K; Tue, 20 Aug 2019 11:31:38 +0000
+Received: from mail-bl2nam02on0611.outbound.protection.outlook.com
+ ([2a01:111:f400:fe46::611]
+ helo=NAM02-BL2-obe.outbound.protection.outlook.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i02QA-00062D-Bs
- for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 11:35:28 +0000
-Received: from oscar.alarsen.net (unknown
- [IPv6:2001:470:1f0b:246:3924:9405:bfa9:9e67])
- by joe.alarsen.net (Postfix) with ESMTPS id E9D242B80E32;
- Tue, 20 Aug 2019 13:28:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alarsen.net; s=joe;
- t=1566300504; bh=mDk8OlCGIB6EhD5weVd+fJ6RnWW2vsYjn5UPSJ49uVE=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=SEh2P2AZ2TnUVaY61ToGPfeBiJ9MSzdTp97WuG6X/ffbN9fYq6MysDpCQT3EX4Yf0
- xicb80NRjLi5IbI5SarXz2OYSswAH8TKM+qJCIeP+idML96WA5znjZZVoEOG5kB8O2
- qXeM0uhYorlnqqauep/RqWer5HjmA4IP1WCerrMs=
-Received: from oscar.localnet (localhost [IPv6:::1])
- by oscar.alarsen.net (Postfix) with ESMTP id 4117F27C0945;
- Tue, 20 Aug 2019 13:28:23 +0200 (CEST)
-From: Anders Larsen <al@alarsen.net>
-To: Deepa Dinamani <deepa.kernel@gmail.com>
-Subject: Re: [PATCH v8 06/20] fs: Fill in max and min timestamps in superblock
-Date: Tue, 20 Aug 2019 13:28:23 +0200
-Message-ID: <10056508.664JITJLOY@alarsen.net>
-In-Reply-To: <20190818165817.32634-7-deepa.kernel@gmail.com>
-References: <20190818165817.32634-1-deepa.kernel@gmail.com>
- <20190818165817.32634-7-deepa.kernel@gmail.com>
+ id 1i02MI-0001pF-Ls
+ for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 11:31:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=PUFEjQcxq3GEjkE3NuWSWqHFYpXmaFNVVpQYNRGCNtG1zuBQ6DMa9cbejU45XnNg7mXcyfJHIeD6M+975vqa8ThStI1jJer1g9depS4xcRpyIfe1VHp+4c3kcJ4ltSjgu2LlZTPVQbi9pBjK+kqr7r+YDX4DiOnwGN6ACRC9E9jPTVYDtAR/eFCAoXkqDV1kTv9zbYQplDywpyw0VQPrVG9aCl1tq69xXVW+nf7iIwZAkwjH0CcrgP7bXpFZUl1nAxshXtZ+Rhlj1qOWCwAAk2/w9MP0PSda5JilM6DKn641Y9vpVjcighMdX3PIXwHMKDAMLpplFuorkOPPZm2ERQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RqPmuDl1RibaPoxOwESrnEg+FVipmTyDwIw3jNzBljY=;
+ b=UYyiI4RVu9YkjFS9HVL+S5JL2oR1yosIFfn8BuTjv69IKA5TIq98fOq7uLCkDkXAu9rtjPG5ts3J7bShwJxjrk5VJMPEWKij2hGjmbAZm8UuzCVomqeyUpI140eJe0dIOWmJeNhsH9s8fAHUDxSSpprMy7Cfi2BLhmJFKfrBfKVqtc8GTJ1Bm//2P55+cCTkpUJwLXdK2YvWCqcIz9TLtpckgZ5HqPcyLGl6z+q07Mx3Mut9OvZ/aqcTzc7E+0eiMGxwsQqw3XXTo9HCXl4e9Gx4tZCTMTntt6dK2tRX94n8Ch5MRVpGziOhNNlnI2+ucMDA2D2zaDm/2pYO/v3hlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=micron.com; dmarc=pass action=none header.from=micron.com;
+ dkim=pass header.d=micron.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=micron.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RqPmuDl1RibaPoxOwESrnEg+FVipmTyDwIw3jNzBljY=;
+ b=b650oaS5PHkoWNFlPk8yRR7lokVvKorceFwCZA2JqjO50OJSRdKcj2tWzh1b08ScX19SdeQx1WGEDubOdChCFOVWVaCm907me7zHLS3EsVHchtr59X4asrOWjR+uHYywtR6+r790EUKA4PfZ4fc3FTpH2DGcb/r4yG8dYaCkH4U=
+Received: from MN2PR08MB5951.namprd08.prod.outlook.com (20.179.85.220) by
+ MN2PR08MB5904.namprd08.prod.outlook.com (20.179.98.14) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2178.16; Tue, 20 Aug 2019 11:31:24 +0000
+Received: from MN2PR08MB5951.namprd08.prod.outlook.com
+ ([fe80::7548:c632:9c57:9252]) by MN2PR08MB5951.namprd08.prod.outlook.com
+ ([fe80::7548:c632:9c57:9252%6]) with mapi id 15.20.2178.016; Tue, 20 Aug 2019
+ 11:31:24 +0000
+From: "Shivamurthy Shastri (sshivamurthy)" <sshivamurthy@micron.com>
+To: Marco Felsch <m.felsch@pengutronix.de>, Miquel Raynal
+ <miquel.raynal@bootlin.com>
+Subject: RE: [EXT] Re: [PATCH] mtd: spinand: micron: add support for
+ MT29F1G01AAADD
+Thread-Topic: [EXT] Re: [PATCH] mtd: spinand: micron: add support for
+ MT29F1G01AAADD
+Thread-Index: AQHVVmaV63HICPQYmEm11d6StXk5IacCd8sAgAAR6oCAAQ1oAIAAT07w
+Date: Tue, 20 Aug 2019 11:31:23 +0000
+Message-ID: <MN2PR08MB59515F78DFA89350B9A3E6D6B8AB0@MN2PR08MB5951.namprd08.prod.outlook.com>
+References: <20190814082232.2119-1-m.felsch@pengutronix.de>
+ <20190819101718.39b3a5ca@xps13>
+ <20190819133042.23jpf3eap2u5teuo@pengutronix.de>
+ <20190819163449.6e62e6a5@xps13>
+ <20190820063904.xg32xtdt6uf3vl77@pengutronix.de>
+In-Reply-To: <20190820063904.xg32xtdt6uf3vl77@pengutronix.de>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=sshivamurthy@micron.com; 
+x-originating-ip: [165.225.80.136]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 2233872d-e280-447e-1697-08d72561eea3
+x-microsoft-antispam: BCL:0; PCL:0;
+ RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(7168020)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);
+ SRVR:MN2PR08MB5904; 
+x-ms-traffictypediagnostic: MN2PR08MB5904:|MN2PR08MB5904:|MN2PR08MB5904:|MN2PR08MB5904:
+x-ms-exchange-transport-forked: True
+x-ms-exchange-purlcount: 4
+x-microsoft-antispam-prvs: <MN2PR08MB59049765387B3CC650A1BA62B8AB0@MN2PR08MB5904.namprd08.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 013568035E
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10009020)(4636009)(39860400002)(136003)(376002)(366004)(346002)(396003)(189003)(199004)(99286004)(66946007)(64756008)(66066001)(229853002)(6306002)(6436002)(53546011)(8676002)(6506007)(53936002)(2906002)(256004)(14444005)(76116006)(6116002)(3846002)(316002)(7696005)(66446008)(54906003)(186003)(478600001)(45080400002)(86362001)(110136005)(81166006)(8936002)(71190400001)(66574012)(71200400001)(76176011)(52536014)(81156014)(5660300002)(66476007)(66556008)(33656002)(966005)(107886003)(4326008)(486006)(74316002)(25786009)(55236004)(102836004)(55016002)(446003)(305945005)(9686003)(11346002)(476003)(6246003)(26005)(7736002)(14454004);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR08MB5904;
+ H:MN2PR08MB5951.namprd08.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: micron.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: tgoA5XgKunxaYEs6eWQ8m3Z25QeRE/rgzspvxDKZSF0MjtBUWIZMyrsUBiDbEoROisvGoL308HkE75Fh0EC4mMwAoOWC6kNpYO7Ta9w+8NvOHhV0hIcQgR2nrjA7qpw30xHC9ihxRbESoUoUStxwl9OJm9Afp6D5S4udSCEnBy1Z/YX01ZXC0UUD/6JH5lNYI5bvi3XUASo+U/Dl5bmXzqjUb18TuXnJchFLEAMukK9l4UBsq6ydetHSjxaX2grk0RbG6gnxVFlu67F9fU/qD+7aq90THfFfUF2H/B6liFSXxbgW8u5E++LIVMF9EDNAgccWvq4AhUoieNuriGXuuUmY4OyPXyHOnfqPsT6byRlTC8sXzZ90/fdshQSAcDxGUciq056Y0cTl7upbE7DTyDdPPT4FaeGcKqNUz6g8k8M=
 MIME-Version: 1.0
+X-OriginatorOrg: micron.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2233872d-e280-447e-1697-08d72561eea3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Aug 2019 11:31:23.9686 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f38a5ecd-2813-4862-b11b-ac1d563c806f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: caiSdpFobQlwLzv0Yb5n2r1p1qcT22r/bCPNaR+1SyjMoslRDrlZnykF+akCscGuza9IVed+YCpjNHf7/+Q0Kw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR08MB5904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_043527_022038_994F3509 
-X-CRM114-Status: UNSURE (   5.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190820_043126_767109_2FFBC07D 
+X-CRM114-Status: GOOD (  26.51  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a01:111:f400:fe46:0:0:0:611 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -75,69 +131,190 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: shaggy@kernel.org, jfs-discussion@lists.sourceforge.net,
- linux-mtd@lists.infradead.org, darrick.wong@oracle.com, y2038@lists.linaro.org,
- richard@nod.at, codalist@coda.cs.cmu.edu, hch@infradead.org, coda@cs.cmu.edu,
- linux-ext4@vger.kernel.org, salah.triki@gmail.com, dushistov@mail.ru,
- arnd@arndb.de, reiserfs-devel@vger.kernel.org, viro@zeniv.linux.org.uk,
- aivazian.tigran@gmail.com, jaharkes@cs.cmu.edu, luisbg@kernel.org,
- nico@fluxnic.net, linux-kernel@vger.kernel.org, linux-xfs@vger.kernel.org,
- jack@suse.com, linux-fsdevel@vger.kernel.org, phillip@squashfs.org.uk,
- dwmw2@infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "bbrezillon@kernel.org" <bbrezillon@kernel.org>,
+ "richard@nod.at" <richard@nod.at>,
+ "frieder.schrempf@kontron.de" <frieder.schrempf@kontron.de>,
+ "marek.vasut@gmail.com" <marek.vasut@gmail.com>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ Peter Pan <peterpandong@micron.com>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sunday, 2019-08-18 18:58 Deepa Dinamani wrote:
-> Fill in the appropriate limits to avoid inconsistencies
-> in the vfs cached inode times when timestamps are
-> outside the permitted range.
-> 
-> Even though some filesystems are read-only, fill in the
-> timestamps to reflect the on-disk representation.
-> 
-> Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
-> Reviewed-by: Darrick J. Wong <darrick.wong@oracle.com>
-> Cc: aivazian.tigran@gmail.com
-> Cc: al@alarsen.net
-> Cc: coda@cs.cmu.edu
-> Cc: darrick.wong@oracle.com
-> Cc: dushistov@mail.ru
-> Cc: dwmw2@infradead.org
-> Cc: hch@infradead.org
-> Cc: jack@suse.com
-> Cc: jaharkes@cs.cmu.edu
-> Cc: luisbg@kernel.org
-> Cc: nico@fluxnic.net
-> Cc: phillip@squashfs.org.uk
-> Cc: richard@nod.at
-> Cc: salah.triki@gmail.com
-> Cc: shaggy@kernel.org
-> Cc: linux-xfs@vger.kernel.org
-> Cc: codalist@coda.cs.cmu.edu
-> Cc: linux-ext4@vger.kernel.org
-> Cc: linux-mtd@lists.infradead.org
-> Cc: jfs-discussion@lists.sourceforge.net
-> Cc: reiserfs-devel@vger.kernel.org
-> ---
->  fs/befs/linuxvfs.c       | 2 ++
->  fs/bfs/inode.c           | 2 ++
->  fs/coda/inode.c          | 3 +++
->  fs/cramfs/inode.c        | 2 ++
->  fs/efs/super.c           | 2 ++
->  fs/ext2/super.c          | 2 ++
->  fs/freevxfs/vxfs_super.c | 2 ++
->  fs/jffs2/fs.c            | 3 +++
->  fs/jfs/super.c           | 2 ++
->  fs/minix/inode.c         | 2 ++
->  fs/qnx4/inode.c          | 2 ++
+Hi Marco,
 
-wrt qnx4, feel free to add
-Acked-by: Anders Larsen <al@alarsen.net>
+> =
+
+> Hi Miquel,
+> =
+
+> On 19-08-19 16:34, Miquel Raynal wrote:
+> > Hi Marco,
+> >
+> > Marco Felsch <m.felsch@pengutronix.de> wrote on Mon, 19 Aug 2019
+> > 15:30:42 +0200:
+> >
+> > > Hi Miquel,
+> > >
+> > > On 19-08-19 10:17, Miquel Raynal wrote:
+> > > > Hi Marco,
+> > > >
+> > > > Marco Felsch <m.felsch@pengutronix.de> wrote on Wed, 14 Aug 2019
+> > > > 10:22:32 +0200:
+> > > >
+> > > > > The MT29F1G01AAADD is a single die, SLC based SPI NAND. It has a
+> > > > > capacity of 1Gb and supports 4-bit ECC. The datasheet can be found
+> [1].
+> > > > >
+> > > > > Unfortunatly the linked device is marked as EoL, but I will expec=
+t that
+> > > > > the MT29F1G01AAADDH4-ITX behaves the same way.
+> > > > >
+> > > > > [1]
+> https://nam01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fdata
+> sheet.octopart.com%2F&amp;data=3D02%7C01%7Csshivamurthy%40micron.co
+> m%7C420c4296ddc9420ba7da08d7253924ce%7Cf38a5ecd28134862b11bac1d5
+> 63c806f%7C0%7C1%7C637018799689823280&amp;sdata=3DwZHbyU68pOT%2Bs
+> 3lrcuEk2FqG0DDggzLVpKpMDcYink0%3D&amp;reserved=3D0 \
+> > > > >       MT29F1G01AAADDH4-IT:D-Micron-datasheet-11572380.pdf
+> > > > >
+> > > > > Cc: Peter Pan <peterpandong@micron.com>
+> > > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > > ---
+> > > > >  drivers/mtd/nand/spi/micron.c | 68
+> +++++++++++++++++++++++++++++++++++
+> > > > >  1 file changed, 68 insertions(+)
+> > > > >
+> > > > > diff --git a/drivers/mtd/nand/spi/micron.c
+> b/drivers/mtd/nand/spi/micron.c
+> > > > > index 7d7b1f7fcf71..9d63450afc69 100644
+> > > > > --- a/drivers/mtd/nand/spi/micron.c
+> > > > > +++ b/drivers/mtd/nand/spi/micron.c
+> > > > > @@ -34,6 +34,18 @@ static
+> SPINAND_OP_VARIANTS(update_cache_variants,
+> > > > >  		SPINAND_PROG_LOAD_X4(false, 0, NULL, 0),
+> > > > >  		SPINAND_PROG_LOAD(false, 0, NULL, 0));
+> > > > >
+> > > > > +static
+> SPINAND_OP_VARIANTS(read_cache_variants_mt29f1g01aaadd,
+> > > > > +		SPINAND_PAGE_READ_FROM_CACHE_X4_OP(0, 1,
+> NULL, 0),
+> > > > > +		SPINAND_PAGE_READ_FROM_CACHE_X2_OP(0, 1,
+> NULL, 0),
+> > > > > +		SPINAND_PAGE_READ_FROM_CACHE_OP(true, 0, 1,
+> NULL, 0),
+> > > > > +		SPINAND_PAGE_READ_FROM_CACHE_OP(false, 0,
+> 1, NULL, 0));
+> > > > > +
+> > > > > +static
+> SPINAND_OP_VARIANTS(write_cache_variants_mt29f1g01aaadd,
+> > > > > +		SPINAND_PROG_LOAD(true, 0, NULL, 0));
+> > > > > +
+> > > > > +static
+> SPINAND_OP_VARIANTS(update_cache_variants_mt29f1g01aaadd,
+> > > > > +		SPINAND_PROG_LOAD(false, 0, NULL, 0));
+> > > > > +
+> > > > >  static int mt29f2g01abagd_ooblayout_ecc(struct mtd_info *mtd, int
+> section,
+> > > > >  					struct mtd_oob_region
+> *region)
+> > > > >  {
+> > > > > @@ -90,6 +102,52 @@ static int
+> mt29f2g01abagd_ecc_get_status(struct spinand_device *spinand,
+> > > > >  	return -EINVAL;
+> > > > >  }
+> > > > >
+> > > > > +static int mt29f1g01aaadd_ooblayout_ecc(struct mtd_info *mtd, int
+> section,
+> > > > > +					struct mtd_oob_region
+> *region)
+> > > > > +{
+> > > > > +	if (section > 3)
+> > > > > +		return -ERANGE;
+> > > > > +
+> > > > > +	region->offset =3D (section * 0x10) + 8;
+> > > >
+> > > > Any reason to use hex here?         ^
+> > > >
+> > > > If not I would prefer decimal numbers.
+> > >
+> > > Since the datasheet describe it in hex to.
+> > >
+> > > Can you have a look on [1] table 11? May we do something like:
+> > >
+> > > 	region->offset =3D (section * 0x10) + 0x8;
+> > >
+> > > [1]
+> https://nam01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fdata
+> sheet.octopart.com%2FMT29F1G01AAADDH4-IT%3AD-Micron-datasheet-
+> 11572380.pdf&amp;data=3D02%7C01%7Csshivamurthy%40micron.com%7C420c
+> 4296ddc9420ba7da08d7253924ce%7Cf38a5ecd28134862b11bac1d563c806f%7
+> C0%7C1%7C637018799689823280&amp;sdata=3DXaTab%2BxmXRmz7jxwINT2B
+> BqAV0aRlyR1EGDz%2BktS%2BQs%3D&amp;reserved=3D0
+> > >
+> > > >
+> > > > Otherwise looks fine.
+> > >
+> > > Anyway I can change the above code to use only decimal values if you
+> > > like it more.
+> >
+> > I think it is better to reserve hexadecimal values to register
+> > operations. Please translate into decimal.
+> =
+
+> Okay. Just one last question. What is the common way to go to specify
+> the free area? By this I mean that the NAND has two areas to store the
+> user metadata calling it 'user metadata I' and 'user metadata II'. 'user
+> metadata II' isn't ecc protected so I skip them. But the current
+> supported chip does not skip the user metadata area which isn't
+> protected [1] table 10.
+> =
+
+> [1] https://www.micron.com/~/media/documents/products/data-
+> sheet/nand-flash/70-series/m79a_2gb_3v_nand_spi.pdf
+> =
 
 
+I have written patch to make helpers to be more generic.
+They work for Micron's M78A, M79A and M70A series SPI NANDs.
 
+
+Regards,
+Shiva
+
+> Regards,
+>   Marco
+> =
+
+> >
+> > Thanks,
+> > Miqu=E8l
+> >
+> >
+> =
+
+> --
+> Pengutronix e.K.                           |                             |
+> Industrial Linux Solutions                 |
+> https://nam01.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww
+> .pengutronix.de%2F&amp;data=3D02%7C01%7Csshivamurthy%40micron.com%
+> 7C420c4296ddc9420ba7da08d7253924ce%7Cf38a5ecd28134862b11bac1d563c
+> 806f%7C0%7C1%7C637018799689823280&amp;sdata=3Dk%2BwLO84bN9Dt02%
+> 2FJ%2BLLboEx8t29T8my7oKrchrV6bMw%3D&amp;reserved=3D0  |
+> Peiner Str. 6-8, 31137 Hildesheim, Germany | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+> =
+
+> ______________________________________________________
+> Linux MTD discussion mailing list
+> https://nam01.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Flists.i
+> nfradead.org%2Fmailman%2Flistinfo%2Flinux-
+> mtd%2F&amp;data=3D02%7C01%7Csshivamurthy%40micron.com%7C420c4296
+> ddc9420ba7da08d7253924ce%7Cf38a5ecd28134862b11bac1d563c806f%7C0%
+> 7C1%7C637018799689823280&amp;sdata=3D03Qz9zc098PqOiGOIALy1PkgVNGB
+> NYqDPuctarAddGg%3D&amp;reserved=3D0
 
 ______________________________________________________
 Linux MTD discussion mailing list
