@@ -2,61 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1CE1E95CDB
-	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 13:05:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B20F695D84
+	for <lists+linux-mtd@lfdr.de>; Tue, 20 Aug 2019 13:36:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sEufGUPqorDucfQr/BaubMFjFHeURWK+kCh26h7Xo1Q=; b=r8r7VeM5T0mMaV
-	1GNUgli7SlWFIgdDk/Oug7hx1D4nf3H5bDBnEZLiUCWnhEkcI7lFR33VlYtA6TaoHnf7cbCPn6grN
-	ILaECzkp5HspYVbA5xmuD8ggCQ8h7VY7Mvwd2HcjBt2AfvvxQrYU9nyiKtpP6lEf/32RqQqCk6ZxO
-	heJibD5pFgqOIBTcAd3SnbkP25vCxCU3zssY8RrVP3n34mE8f2byX8f5oDkeA9kvt1LIKLiow3HFD
-	4yAtLFbGBTTl1KDuUxX31EQtvV2w4ad8i6aerEBqLplyRJJZ0aiWE2oHelZiUzb9cn1w582768a61
-	yHU/jAH9t7+nLMOvJltw==;
+	List-Owner; bh=UwGnWLbfeeHrLoaN6WVaKv9ES8WRJfDnSCwVMQ0IGEk=; b=B/kIbl9U6VWzo+
+	Ud7GFNnj699p1EE41jW3zQltWgFF3f0XvBUZnacKBxOyzEnyS7dfzhpnkj3XDZ96W3XlqE87X5FSZ
+	011g4BGDy6w/jxO+9/Oms8tPcQkDpKAiyXqdAqVwBRIp015ZhxTbiaN2zu2rJ8ICbvNuqJ0E1YxiX
+	IG222iUkrSS1IIGD7PwGNDZPvUNJvPo2r9ZQMZXumexeCoXvx515m0ZTX0qnI7rx5xzuoDcvj45X0
+	HzFJ7cYqWWn6C+0+jrD6qGeAjYAq2sW//hNUer60CkIj+ubD7xHAbBemvHPNzi/vIRkZYKWC7TUkp
+	bmHvi/Iv4ITsclOani3g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i01xG-0007zt-FC; Tue, 20 Aug 2019 11:05:34 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1i02Qx-0006ic-Q7; Tue, 20 Aug 2019 11:36:16 +0000
+Received: from joe.alarsen.net ([2a01:4f8:191:10e8:1::fe]
+ helo=mail.alarsen.net)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i01x0-0007ya-2F
- for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 11:05:19 +0000
-Received: from tleilax.poochiereds.net
- (68-20-15-154.lightspeed.rlghnc.sbcglobal.net [68.20.15.154])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id EFF55205C9;
- Tue, 20 Aug 2019 11:05:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1566299116;
- bh=T0rmHh8w3H3bwdXLru7KFY2A/8hjJcNt2eMc9MdFvoU=;
- h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
- b=OWYdJNUzSee+UuIh6LQ3YFru0x6seE2TTCifysIDGNOjR8O4ScYkdj2Vrw5S/JeTB
- qmDzLYeDaoNBfNwX5IDihFikAWZqI1dzLhII85Qm3JJy6zIH2yIFue45EEMtXZPwcN
- fgzdH+WlULgP+SUhyw7NDBScX/I9XuZMIU+ITkEg=
-Message-ID: <27d1943a0027cb4f658334fad8dc880df133c22d.camel@kernel.org>
-Subject: Re: [PATCH v8 00/20] vfs: Add support for timestamp limits
-From: Jeff Layton <jlayton@kernel.org>
-To: Deepa Dinamani <deepa.kernel@gmail.com>, viro@zeniv.linux.org.uk, 
- linux-kernel@vger.kernel.org
-Date: Tue, 20 Aug 2019 07:05:10 -0400
-In-Reply-To: <20190818165817.32634-1-deepa.kernel@gmail.com>
+ id 1i02QA-00062D-Bs
+ for linux-mtd@lists.infradead.org; Tue, 20 Aug 2019 11:35:28 +0000
+Received: from oscar.alarsen.net (unknown
+ [IPv6:2001:470:1f0b:246:3924:9405:bfa9:9e67])
+ by joe.alarsen.net (Postfix) with ESMTPS id E9D242B80E32;
+ Tue, 20 Aug 2019 13:28:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alarsen.net; s=joe;
+ t=1566300504; bh=mDk8OlCGIB6EhD5weVd+fJ6RnWW2vsYjn5UPSJ49uVE=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=SEh2P2AZ2TnUVaY61ToGPfeBiJ9MSzdTp97WuG6X/ffbN9fYq6MysDpCQT3EX4Yf0
+ xicb80NRjLi5IbI5SarXz2OYSswAH8TKM+qJCIeP+idML96WA5znjZZVoEOG5kB8O2
+ qXeM0uhYorlnqqauep/RqWer5HjmA4IP1WCerrMs=
+Received: from oscar.localnet (localhost [IPv6:::1])
+ by oscar.alarsen.net (Postfix) with ESMTP id 4117F27C0945;
+ Tue, 20 Aug 2019 13:28:23 +0200 (CEST)
+From: Anders Larsen <al@alarsen.net>
+To: Deepa Dinamani <deepa.kernel@gmail.com>
+Subject: Re: [PATCH v8 06/20] fs: Fill in max and min timestamps in superblock
+Date: Tue, 20 Aug 2019 13:28:23 +0200
+Message-ID: <10056508.664JITJLOY@alarsen.net>
+In-Reply-To: <20190818165817.32634-7-deepa.kernel@gmail.com>
 References: <20190818165817.32634-1-deepa.kernel@gmail.com>
-User-Agent: Evolution 3.32.4 (3.32.4-1.fc30) 
+ <20190818165817.32634-7-deepa.kernel@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_040518_152010_56C66D4B 
-X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-CacheID: sfid-20190820_043527_022038_994F3509 
+X-CRM114-Status: UNSURE (   5.69  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -66,7 +64,6 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,79 +75,68 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: lucho@ionkov.net, martin@omnibond.com, jfs-discussion@lists.sourceforge.net,
- shaggy@kernel.org, al@alarsen.net, yuchao0@huawei.com, me@bobcopeland.com,
- adilger.kernel@dilger.ca, mikulas@artax.karlin.mff.cuni.cz, hch@lst.de,
- nico@fluxnic.net, hubcap@omnibond.com, linux-cifs@vger.kernel.org,
- zyan@redhat.com, sage@redhat.com, darrick.wong@oracle.com,
- y2038@lists.linaro.org, richard@nod.at, sfrench@samba.org, anton@enomsg.org,
- codalist@coda.cs.cmu.edu, hch@infradead.org, coda@cs.cmu.edu,
- v9fs-developer@lists.sourceforge.net, idryomov@gmail.com,
- linux-ext4@vger.kernel.org, salah.triki@gmail.com, asmadeus@codewreck.org,
- devel@lists.orangefs.org, dushistov@mail.ru, keescook@chromium.org,
- arnd@arndb.de, ericvh@gmail.com, jack@suse.com, reiserfs-devel@vger.kernel.org,
- tj@kernel.org, jlbec@evilplan.org, aivazian.tigran@gmail.com,
- phillip@squashfs.org.uk, dsterba@suse.com, jaegeuk@kernel.org,
- ceph-devel@vger.kernel.org, trond.myklebust@hammerspace.com,
- hirofumi@mail.parknet.co.jp, jaharkes@cs.cmu.edu, linux-nfs@vger.kernel.org,
- tony.luck@intel.com, tytso@mit.edu, luisbg@kernel.org, dedekind1@gmail.com,
- linux-ntfs-dev@lists.sourceforge.net, gregkh@linuxfoundation.org,
- linux-karma-devel@lists.sourceforge.net, adrian.hunter@intel.com,
- linux-f2fs-devel@lists.sourceforge.net, linux-xfs@vger.kernel.org,
- ccross@android.com, linux-fsdevel@vger.kernel.org,
- linux-mtd@lists.infradead.org, dwmw2@infradead.org, anna.schumaker@netapp.com
+Cc: shaggy@kernel.org, jfs-discussion@lists.sourceforge.net,
+ linux-mtd@lists.infradead.org, darrick.wong@oracle.com, y2038@lists.linaro.org,
+ richard@nod.at, codalist@coda.cs.cmu.edu, hch@infradead.org, coda@cs.cmu.edu,
+ linux-ext4@vger.kernel.org, salah.triki@gmail.com, dushistov@mail.ru,
+ arnd@arndb.de, reiserfs-devel@vger.kernel.org, viro@zeniv.linux.org.uk,
+ aivazian.tigran@gmail.com, jaharkes@cs.cmu.edu, luisbg@kernel.org,
+ nico@fluxnic.net, linux-kernel@vger.kernel.org, linux-xfs@vger.kernel.org,
+ jack@suse.com, linux-fsdevel@vger.kernel.org, phillip@squashfs.org.uk,
+ dwmw2@infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sun, 2019-08-18 at 09:57 -0700, Deepa Dinamani wrote:
-> The series is an update and a more complete version of the
-> previously posted series at
-> https://lore.kernel.org/linux-fsdevel/20180122020426.2988-1-deepa.kernel@gmail.com/
+On Sunday, 2019-08-18 18:58 Deepa Dinamani wrote:
+> Fill in the appropriate limits to avoid inconsistencies
+> in the vfs cached inode times when timestamps are
+> outside the permitted range.
 > 
-> Thanks to Arnd Bergmann for doing a few preliminary reviews.
-> They helped me fix a few issues I had overlooked.
+> Even though some filesystems are read-only, fill in the
+> timestamps to reflect the on-disk representation.
 > 
-> The limits (sometimes granularity also) for the filesystems updated here are according to the
-> following table:
-> 
-> File system   Time type                      Start year Expiration year Granularity
-> cramfs        fixed                          0          0
-> romfs         fixed                          0          0
-> pstore        ascii seconds (27 digit ascii) S64_MIN    S64_MAX         1
-> coda          INT64                          S64_MIN    S64_MAX         1
-> omfs          64-bit milliseconds            0          U64_MAX/ 1000   NSEC_PER_MSEC
-> befs          unsigned 48-bit seconds        0          0xffffffffffff  alloc_super
-> bfs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> efs           unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> ext2          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
-> ext3          signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
-> ext4 (old)    signed 32-bit seconds          S32_MIN    S32_MAX         alloc_super
-> ext4 (extra)  34-bit seconds, 30-bit ns      S32_MIN    0x37fffffff	1
-> freevxfs      u32 secs/usecs                 0          U32_MAX         alloc_super
-> jffs2         unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> jfs           unsigned 32-bit seconds/ns     0          U32_MAX         1
-> minix         unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> orangefs      u64 seconds                    0          U64_MAX         alloc_super
-> qnx4          unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> qnx6          unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> reiserfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> squashfs      unsigned 32-bit seconds        0          U32_MAX         alloc_super
-> ufs1          signed 32-bit seconds          S32_MIN    S32_MAX         NSEC_PER_SEC
-> ufs2          signed 64-bit seconds/u32 ns   S64_MIN    S64_MAX         1
-> xfs           signed 32-bit seconds/ns       S32_MIN    S32_MAX         1
-> ceph          unsigned 32-bit second/ns      0          U32_MAX         1000
+> Signed-off-by: Deepa Dinamani <deepa.kernel@gmail.com>
+> Reviewed-by: Darrick J. Wong <darrick.wong@oracle.com>
+> Cc: aivazian.tigran@gmail.com
+> Cc: al@alarsen.net
+> Cc: coda@cs.cmu.edu
+> Cc: darrick.wong@oracle.com
+> Cc: dushistov@mail.ru
+> Cc: dwmw2@infradead.org
+> Cc: hch@infradead.org
+> Cc: jack@suse.com
+> Cc: jaharkes@cs.cmu.edu
+> Cc: luisbg@kernel.org
+> Cc: nico@fluxnic.net
+> Cc: phillip@squashfs.org.uk
+> Cc: richard@nod.at
+> Cc: salah.triki@gmail.com
+> Cc: shaggy@kernel.org
+> Cc: linux-xfs@vger.kernel.org
+> Cc: codalist@coda.cs.cmu.edu
+> Cc: linux-ext4@vger.kernel.org
+> Cc: linux-mtd@lists.infradead.org
+> Cc: jfs-discussion@lists.sourceforge.net
+> Cc: reiserfs-devel@vger.kernel.org
+> ---
+>  fs/befs/linuxvfs.c       | 2 ++
+>  fs/bfs/inode.c           | 2 ++
+>  fs/coda/inode.c          | 3 +++
+>  fs/cramfs/inode.c        | 2 ++
+>  fs/efs/super.c           | 2 ++
+>  fs/ext2/super.c          | 2 ++
+>  fs/freevxfs/vxfs_super.c | 2 ++
+>  fs/jffs2/fs.c            | 3 +++
+>  fs/jfs/super.c           | 2 ++
+>  fs/minix/inode.c         | 2 ++
+>  fs/qnx4/inode.c          | 2 ++
 
-Looks reasonable, overall.
+wrt qnx4, feel free to add
+Acked-by: Anders Larsen <al@alarsen.net>
 
-Note that the granularity changed recently for cephfs. See commit
-0f7cf80ae96c2a (ceph: initialize superblock s_time_gran to 1).
 
-In any case, you can add my Acked-by
-
--- 
-Jeff Layton <jlayton@kernel.org>
 
 
 ______________________________________________________
