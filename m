@@ -2,135 +2,73 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5696797173
-	for <lists+linux-mtd@lfdr.de>; Wed, 21 Aug 2019 07:17:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B284B97334
+	for <lists+linux-mtd@lfdr.de>; Wed, 21 Aug 2019 09:19:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bALsiqZ/fxFtlNkQRxTX/41pszuqgxVqIZxTVbBbn+k=; b=ehcR+4GtZedkcu
-	INouNjkMoFospDem13Ec4j2nIJA+jiiHdfYeboUSx3hdkA6dR6Kw4zuLhUVmWwCFs9nBEP2FktV+l
-	vDLjvDxlSfSeMty+cSMOMmq5lXXNdKvepr87hYXZrZ7CDxDcfn6s/soog9a3j1lRpxIr5fDbZgvmL
-	kAO5Isrg8qTmyhd5vIInznTkEis5cr4wFq1VY1COPiJJOBtNr/n0hR6+mv3JUUS+MVkp0Yc+7QvQv
-	3N1RIL5uq14uu+tuKNg/KzSun9QWGLcv2vJGtZfgAIDozjJ3CgVo3ZgUkSr3537CmL0rMhDC9eGa4
-	spoS0+yZi0uQbWTAyjwA==;
+	List-Owner; bh=KYFPmhIje7PfITX82tenVLB+K2i6V28I2PxCxMS69t0=; b=EhrzytF4R1GcZ9
+	68J7mWUC1jxp87M7TJ6hMQl/5jWYkNhnPLXJsIdpxU0Cf7ZyDG3dAI/9X75zXTNx66zjC7GIOyj/1
+	Wr745rATC6CBR2b1UJ3i7bMU0Dw6XYIDujWA1GUfoDrHWfudVV1fkg+7ZhBaYcPo9+MPNRLRv7ONn
+	YFtS/G4pmTn5FpxTGBPQ7wFucnMITztkIAOOSK9LRm56//Dsiv1Iq0PHB+Kuf07SAb+Ab6qjcItY1
+	TUtl6En0fIXcSxVncgygGnbirsIRvANf3rrzIyjnbmeGpZTjyH3XYkHMQcKUO9nndK/9ZglyMyJNn
+	QGI0lRR1h3LultMVGiBA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i0Izu-0004Cp-Hg; Wed, 21 Aug 2019 05:17:26 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1i0KuE-0008T9-Fi; Wed, 21 Aug 2019 07:19:42 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i0IzD-0003jn-0E
- for linux-mtd@lists.infradead.org; Wed, 21 Aug 2019 05:16:45 +0000
-Received: from epcas1p3.samsung.com (unknown [182.195.41.47])
- by mailout4.samsung.com (KnoxPortal) with ESMTP id
- 20190821051640epoutp040e0d0fac1c222def062e9ea3e50acc76~82E4EqufA2482624826epoutp049
- for <linux-mtd@lists.infradead.org>; Wed, 21 Aug 2019 05:16:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com
- 20190821051640epoutp040e0d0fac1c222def062e9ea3e50acc76~82E4EqufA2482624826epoutp049
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1566364600;
- bh=FKLcGf85U0Nf86li2MDZ3zxsF8yMujzHdVm+IyMrbRk=;
- h=From:To:Subject:Date:In-Reply-To:References:From;
- b=mcp5F8oOvtjWcOrt4Syo4ASwvB9mrQ95JYBvuBXXncWbSdsNn4ifpT1oshcSOG4QU
- GRxlXHnZE92k9Og5sJkABjk86fvyv5FMPLKspsOB9/C/vYKzzN3aYARMoG3Cqf2/P3
- RUTaIHDTkP1KNbtUvFs8V84fAL+yJ9Jq7Vnku/14=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
- epcas1p1.samsung.com (KnoxPortal) with ESMTP id
- 20190821051639epcas1p10b2f071144a5098f82126cdff7413bd2~82E3j_SeO1562015620epcas1p17;
- Wed, 21 Aug 2019 05:16:39 +0000 (GMT)
-Received: from epsmges1p2.samsung.com (unknown [182.195.40.165]) by
- epsnrtp1.localdomain (Postfix) with ESMTP id 46Cwr60llMzMqYlv; Wed, 21 Aug
- 2019 05:16:38 +0000 (GMT)
-Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
- epsmges1p2.samsung.com (Symantec Messaging Gateway) with SMTP id
- C8.9C.04075.6B3DC5D5; Wed, 21 Aug 2019 14:16:38 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
- epcas1p3.samsung.com (KnoxPortal) with ESMTPA id
- 20190821051637epcas1p33cf6cdcfe470bc2bab971ba3695b7b98~82E2AHzxe2420324203epcas1p38;
- Wed, 21 Aug 2019 05:16:37 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
- epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
- 20190821051637epsmtrp187410d3aafce88b04c2565da11072e51~82E1-XGws0203902039epsmtrp1i;
- Wed, 21 Aug 2019 05:16:37 +0000 (GMT)
-X-AuditID: b6c32a36-fb2cc9c000000feb-e4-5d5cd3b604d2
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
- epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
- 40.7B.03706.5B3DC5D5; Wed, 21 Aug 2019 14:16:37 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.88.100.192]) by
- epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
- 20190821051637epsmtip20f6f9a21ecbe9a54e94affa32630e54e~82E11Hm2C0489204892epsmtip2P;
- Wed, 21 Aug 2019 05:16:37 +0000 (GMT)
-From: Jungseung Lee <js07.lee@samsung.com>
-To: Marek Vasut <marek.vasut@gmail.com>, Tudor Ambarus
- <tudor.ambarus@microchip.com>, David Woodhouse <dwmw2@infradead.org>, Brian
- Norris <computersforpeace@gmail.com>, Boris Brezillon
- <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
- u.kleine-koenig@pengutronix.de, linux-mtd@lists.infradead.org,
- js07.lee@gmail.com, js07.lee@samsung.com
-Subject: [PATCH v5 5/5] mtd: spi-nor: support lock/unlock for a few Micron
- chips
-Date: Wed, 21 Aug 2019 14:15:41 +0900
-Message-Id: <20190821051541.6083-5-js07.lee@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20190821051541.6083-1-js07.lee@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Sa0hTYRjHeXd2Oc5NDtPySYj0QB8U1M01PZZGkMip/CAFQZdhBz1N6ezi
- zjRdWFFjml3MrAy7adhFYxVTwpUbZjeCKKELaipeirJ0o2KhidHmUerb733+/+fC8z44ppqV
- xOElJhtrNTEcKZWL7z9OTE2+/2a3Xv37qpi67WhE1JM+F0bVtzVg1Pwlv4gaH5iTUA+P3JBR
- T7tHMKrBM4Wo760bqA/1DWiDnPY0DcvojltJtLv9mJTuaD1ED81cR/TAlVK6bl5Nn+psR/n4
- Ti6rmGWKWGs8ayo0F5WYDNnklm0FGwt06WpNsiaTyiDjTYyRzSZz8vKTc0u40IBkfDnDlYVC
- +QzPk6nrs6zmMhsbX2zmbdkkayniLBq1JYVnjHyZyZBSaDau1ajVabqQcw9XXBcYlVlcURW+
- MT92GL2PrEUROBBrYNx7BIVZRXQhcDxaKfAPBL5qvBbJQ/wLQZuzGi0lzPp6kCB4EdQEXkiF
- x08EZ74NSsMuKZEE/XNuSViIIb6IYNp3URIWoomtMB1wLZQSE6uhtc+7wEqCgmlv82KLVXD7
- Xg8W5ggiE05P/RSFCwHRLYVP70YwwZQDTd3PRAJHw9fnnTKB42CyzrnIPHja6mVCsgPB+M3W
- RUEL/mlXqBCOY0Qi3H2QKoQTwDN3eWEIjIgCf/CEJGwBQgk1TpVgIWFq1CEWGKBv4qREYBou
- XKteXMsJBPPBEew0Wtn0r0MzQu1oOWvhjQaW11jS/v8mN1o4u6T0LnTtVV4vInBEKpRdA7v0
- KglTzlcaexHgGBmjrLi0U69SFjGVdtZqLrCWcSzfi3ShVdZjccsKzaEjNtkKNLo0rVZLrUnP
- SNdpyVhlywylVxEGxsbuY1kLa13KE+ERcYeRyBPhK+3/8b7lzgiuMGm3H2/pkSuuGqrOukl7
- oCqr1qkJTiS77M+chcP5du2uoVz35rEbuz8Onh917FgX9ecmp5iU7A2m9OijDhyVJyYoXx98
- +7J2v7eDC3bqJqPx9qlMOakwB3JFt5pyM0ZjN/W/FUf6G1X2c5+vxMj3rNCSYr6Y0SRhVp75
- C386/jmMAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrELMWRmVeSWpSXmKPExsWy7bCSvO7WyzGxBosv61isbpnOaHHkwlpm
- i4krJzNb/J3zjsni0c3frBa7m5axWxzdc4/ZYvLON4wWH5c4WNyeOJnRgctj56y77B6bV2h5
- bFrVyeaxeUm9x50fSxk9bs4r9Oj/a+DRt2UVYwBHFJdNSmpOZllqkb5dAldG//sH7AVr+Sr2
- PXzH3MB4jbuLkZNDQsBE4ue+A4xdjFwcQgK7GSVO7ZjLDJGQkHi08wtLFyMHkC0scfhwMUTN
- R0aJq0veMYHUsAloSdz4vYkVJCEi8IFJ4vKkUywgCWGBAIlrDTvYQGwWAVWJJRf2MoLYvAIW
- Em/3LmCEWCAvsXrDAbBlnAKWEhPefAYbKgRUs2xxI8sERt4FjAyrGCVTC4pz03OLDQsM81LL
- 9YoTc4tL89L1kvNzNzGCQ1JLcwfj5SXxhxgFOBiVeHh33IyOFWJNLCuuzD3EKMHBrCTCWzEn
- KlaINyWxsiq1KD++qDQntfgQozQHi5I479O8Y5FCAumJJanZqakFqUUwWSYOTqkGxppXj9m/
- fJXy0FQU0byWzyu3ayPPxU8B/85KVfvYKxtMd9F43Wr2zf5Ppapw7c2qr3bdx1sm7k8IK115
- 9JHEHDtj4cB1kznPibks0+7mX8gdm8a4S3U/r7WG976qdx9+cLIsME8UZTORPpNQctdH2K67
- xkZSwH6+8sZg2/7YuXMOKbt9Zk9SYinOSDTUYi4qTgQArkIMlkUCAAA=
-X-CMS-MailID: 20190821051637epcas1p33cf6cdcfe470bc2bab971ba3695b7b98
-X-Msg-Generator: CA
-X-Sendblock-Type: SVC_REQ_APPROVE
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20190821051637epcas1p33cf6cdcfe470bc2bab971ba3695b7b98
-References: <20190821051541.6083-1-js07.lee@samsung.com>
- <CGME20190821051637epcas1p33cf6cdcfe470bc2bab971ba3695b7b98@epcas1p3.samsung.com>
+ id 1i0Ktv-0008Sj-TO
+ for linux-mtd@lists.infradead.org; Wed, 21 Aug 2019 07:19:25 +0000
+Received: from pty.hi.pengutronix.de ([2001:67c:670:100:1d::c5])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <mfe@pengutronix.de>)
+ id 1i0Kto-00030x-Qu; Wed, 21 Aug 2019 09:19:16 +0200
+Received: from mfe by pty.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <mfe@pengutronix.de>)
+ id 1i0Ktm-0007R7-D0; Wed, 21 Aug 2019 09:19:14 +0200
+Date: Wed, 21 Aug 2019 09:19:14 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: "Shivamurthy Shastri (sshivamurthy)" <sshivamurthy@micron.com>
+Subject: Re: [EXT] Re: [PATCH] mtd: spinand: micron: add support for
+ MT29F1G01AAADD
+Message-ID: <20190821071914.ymfpvio3o5ano2y5@pengutronix.de>
+References: <20190814082232.2119-1-m.felsch@pengutronix.de>
+ <20190819101718.39b3a5ca@xps13>
+ <20190819133042.23jpf3eap2u5teuo@pengutronix.de>
+ <20190819163449.6e62e6a5@xps13>
+ <20190820063904.xg32xtdt6uf3vl77@pengutronix.de>
+ <MN2PR08MB59515F78DFA89350B9A3E6D6B8AB0@MN2PR08MB5951.namprd08.prod.outlook.com>
+ <MN2PR08MB5951FA28B34407D8614F3E28B8AB0@MN2PR08MB5951.namprd08.prod.outlook.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <MN2PR08MB5951FA28B34407D8614F3E28B8AB0@MN2PR08MB5951.namprd08.prod.outlook.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-IRC: #ptxdist @freenode
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-Uptime: 09:15:50 up 95 days, 13:33, 59 users,  load average: 0.00, 0.00, 0.00
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c5
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190820_221643_292254_52ED44A6 
-X-CRM114-Status: GOOD (  15.72  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20190821_001923_952328_A04F4A9D 
+X-CRM114-Status: GOOD (  12.58  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [203.254.224.34 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -142,52 +80,53 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
+Cc: "'bbrezillon@kernel.org'" <bbrezillon@kernel.org>,
+ "'richard@nod.at'" <richard@nod.at>,
+ "'frieder.schrempf@kontron.de'" <frieder.schrempf@kontron.de>,
+ "'marek.vasut@gmail.com'" <marek.vasut@gmail.com>,
+ "'linux-mtd@lists.infradead.org'" <linux-mtd@lists.infradead.org>,
+ "'kernel@pengutronix.de'" <kernel@pengutronix.de>,
+ 'Miquel Raynal' <miquel.raynal@bootlin.com>,
+ 'Peter Pan' <peterpandong@micron.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Some Micron models are known to have lock/unlock support,
-and that also support 4bit block protection bit (bp0-3).
+Hi Shivamurthy, Miquel,
 
-This patch support lock/unlock feature on the flash.
+On 19-08-20 11:33, Shivamurthy Shastri (sshivamurthy) wrote:
+> Hi Marco,
 
-Tested on w25q512ax3. The Other is modified following the datasheet.
+[ ... ]
 
-Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
----
-v5:
- - remake patch based on latest spi-nor/next tree
+> > > Okay. Just one last question. What is the common way to go to specify
+> > > the free area? By this I mean that the NAND has two areas to store the
+> > > user metadata calling it 'user metadata I' and 'user metadata II'. 'user
+> > > metadata II' isn't ecc protected so I skip them. But the current
+> > > supported chip does not skip the user metadata area which isn't
+> > > protected [1] table 10.
+> > >
+> > > [1] https://www.micron.com/~/media/documents/products/data-
+> > > sheet/nand-flash/70-series/m79a_2gb_3v_nand_spi.pdf
 
- drivers/mtd/spi-nor/spi-nor.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+@Miquel
+Do you can me help with that?
 
-diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-index 5cb1a6ba2c53..93ca624b2a6a 100644
---- a/drivers/mtd/spi-nor/spi-nor.c
-+++ b/drivers/mtd/spi-nor/spi-nor.c
-@@ -2431,8 +2431,16 @@ static const struct flash_info spi_nor_ids[] = {
- 	{ "n25q128a13",  INFO(0x20ba18, 0, 64 * 1024,  256, SECT_4K | SPI_NOR_QUAD_READ) },
- 	{ "n25q256a",    INFO(0x20ba19, 0, 64 * 1024,  512, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
- 	{ "n25q256ax1",  INFO(0x20bb19, 0, 64 * 1024,  512, SECT_4K | SPI_NOR_QUAD_READ) },
--	{ "n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
--	{ "n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
-+	{
-+		"n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024,
-+			SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_BP3)
-+	},
-+	{
-+		"n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024,
-+			SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_BP3)
-+	},
- 	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
- 	{ "n25q00a",     INFO(0x20bb21, 0, 64 * 1024, 2048, SECT_4K | USE_FSR | SPI_NOR_QUAD_READ | NO_CHIP_ERASE) },
- 	{ "mt25ql02g",   INFO(0x20ba22, 0, 64 * 1024, 4096,
--- 
-2.17.1
+> > 
+> > I have written patch to make helpers to be more generic.
+> > They work for Micron's M78A, M79A and M70A series SPI NANDs.
+> > 
+> 
+> I missed link in last email, here it is.
+> 
+> http://patchwork.ozlabs.org/patch/1134724/
+
+This patch seem not to address my ooblayout.. So my patch is still
+needed.
+
+Regards,
+  Marco
 
 
 ______________________________________________________
