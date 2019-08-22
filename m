@@ -2,89 +2,88 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 63F4F98AF6
-	for <lists+linux-mtd@lfdr.de>; Thu, 22 Aug 2019 07:56:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3D26D98E9F
+	for <lists+linux-mtd@lfdr.de>; Thu, 22 Aug 2019 11:03:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZhWYUfVkOIoF2kfTuX9ayFxTZHwu5dCYeiabKroR9jg=; b=ExrsYqQ8f7cNWs
-	SplIWG5nF6AtH0FDF/vyxJDYKIG5wXsY+6CuLLsT6dIFHRtyfqL5j5VG6ubJa/0c5fECm1VWgVbsS
-	o/8EuVCTv18LWeJovfh2aKyOBSDf9YJ2eNMt9n6hkhHwZeqvjvhW+Qc1ufyJSYXXlxvVP5DLG9yGi
-	CxlR1ARK2JKFfza8+I2ZhElnhjQAgd9cqniLh9DAe3i1vHmCOVC0EmYIcDjaluPBPTxBG6NC+/T9+
-	RfG4tgT1ItmIBp5a3tBmZI/4yU/XJEfISoaXIXXX/UWhKrputaChRKR6PYOaDuCnSQzGGcjC1uuJY
-	5/JMCSBeX9bYkMzdH8Mg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Z8QMiMSsLHpi3gt45J0L84YWH3KiyMg7HGNVYb+5DdA=; b=C5cRs1shlam2bd
+	aDC/01B//b+fnrmR0A/1VSKoIft3swEvGMyofPSVJezJlR1WGXSYBIP8MGXWJufokdtbrsn8QvyML
+	KSMkofbKQediRAth0zr7XS+0p9RJILp4NUaZL8IxjXealJOaH/2njbs1daTNxljn4jaF+JKTkh7Zh
+	X2UsecLvEos7jHjoc6CPnQtV2fRflcQBxXEI2mnrcIoKSa3WgklLZ0TIPtG52114jGizdV4kvC9Sk
+	ZxE/cwR5ceBsHTuqq/JTTn+LN6OHaePXu691zHurazft/dxoN9YjOmB/36K1raqaji9T5JnNXs9Cn
+	9veRV4w8ksNoTyNbr+Jw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i0g4q-0005K3-2w; Thu, 22 Aug 2019 05:56:04 +0000
-Received: from mail-lf1-x141.google.com ([2a00:1450:4864:20::141])
+	id 1i0j0E-0000Y2-0r; Thu, 22 Aug 2019 09:03:30 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i0g4Z-0005Jc-8p
- for linux-mtd@lists.infradead.org; Thu, 22 Aug 2019 05:55:48 +0000
-Received: by mail-lf1-x141.google.com with SMTP id a30so3574254lfk.12
- for <linux-mtd@lists.infradead.org>; Wed, 21 Aug 2019 22:55:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=EcZMxX6qzEdvhPrN3eMhi0OFnEzktkw9ICUQt2FBRcs=;
- b=Z+6JVnaoCnJdcodi7xRqVMLpj6usxLRUvZY9oJAcgKHiOdCLZmYKiW+2WkrCZKuQJF
- j1W6mplvnSF6lV4qfWh4Tocgaw64tUo86JValwvIKqvitAgJiIBANrTYqnbuVK7dI9lr
- 8JqdY19lpLrbopJV/X4Y0/G1FwTNr6HzdpEtcZCovOtfay56r18qrD1bgBbmlyOXgO/M
- a9vkCFTq5kVjxfgXsMnVKWZCp9sk1/ivIsHAYe0sHzxjqNG6D4HwXDPZyWlrbNlp+OWy
- 4sk9tPdWiZsA056OI3UOkBF4Gg8745biZWkGtKrcnfv6L8h/cWXaK8jPBzD46aX7pCn6
- ZxGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to:content-transfer-encoding;
- bh=EcZMxX6qzEdvhPrN3eMhi0OFnEzktkw9ICUQt2FBRcs=;
- b=GKEGwvLqxhPTGaCwU85uEIuimEvaguRg83x6ununfBzNTnCFqHgNoKI687SGGkGMMq
- s78fT71gukIod+vHwRzz+vptL7ICYiPa6PD2doppZYGzYwFGOAHX+Q3t2db/xYfLkg30
- 3ODi9GBcD2CEZ7rdNdMj/TFsw8CQHWe7CVkp1NfLqo7vhH6RDVNGOI4Sv3aW31GHjcyl
- b9o0R9nANpTPH0BdN6zeKsQesAkiCQ/f13n8RuGWPLHj1y8aeFMsfU5eXnv5SERzlwIp
- rcTGoQxRYi6vq6+VY5gGpNA/yDwwfOkJL2oj6O/4cFn32SH0oOkdWtg5lXV4iMP/1cFo
- hN+g==
-X-Gm-Message-State: APjAAAXdUR/p1MjUt8Om/L2QG5GF7+kkqyu8hQAqWq4j76oQjWu9l9Fj
- 5twSmCOyCBZf6DszSfnX5BZU4lG/lwsRND1yeMw=
-X-Google-Smtp-Source: APXvYqyy8gIPvTK983lIH2e1lpWGIcOidvu3/3fGdWfCGM15uZcB7EHvsAL84jJ5vklCMqKJtz4c1c8c+clEPJY2n3U=
-X-Received: by 2002:ac2:550c:: with SMTP id j12mr20517669lfk.171.1566453344840; 
- Wed, 21 Aug 2019 22:55:44 -0700 (PDT)
+ id 1i0izv-0000Xj-Dp
+ for linux-mtd@lists.infradead.org; Thu, 22 Aug 2019 09:03:13 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+ by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id x7M92heA121827;
+ Thu, 22 Aug 2019 04:02:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1566464563;
+ bh=lAHjOj7cs2TgkHpua2uRnqnyHPXhjVtVkEh1+5Mn994=;
+ h=Subject:To:CC:References:From:Date:In-Reply-To;
+ b=KEUTzZC1y/FPGDRqw3khJkpE+6o+tYsFgtGT77tLj8lc85hojPCk0MEX6zvl+z7Vk
+ f0S29MsK/jEjQkAhXKNYLZGtwa7bOBKVyYidU8zdk24NOb6I6UQ/2gXq/vI0KXrBCP
+ ROmTUglweQlhYOGcq/Rr7TkX7fvXxxpOQg8k4H2Y=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+ by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id x7M92hP2030383
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Thu, 22 Aug 2019 04:02:43 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5; Thu, 22
+ Aug 2019 04:02:43 -0500
+Received: from fllv0040.itg.ti.com (10.64.41.20) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1713.5 via
+ Frontend Transport; Thu, 22 Aug 2019 04:02:43 -0500
+Received: from [172.24.145.136] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by fllv0040.itg.ti.com (8.15.2/8.15.2) with ESMTP id x7M92coF039993;
+ Thu, 22 Aug 2019 04:02:39 -0500
+Subject: Re: [PATCH v1 2/2] mtd: spi-nor: cadence-quadspi: disable the DMA,
+ DAC and auto poll
+To: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>,
+ <linux-mtd@lists.infradead.org>
+References: <20190819115424.41479-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20190819115424.41479-2-vadivel.muruganx.ramuthevar@linux.intel.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Message-ID: <53dcc9a9-6adb-a1de-cfb4-11a68e5d3d4c@ti.com>
+Date: Thu, 22 Aug 2019 14:33:18 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-Received: by 2002:a2e:90c4:0:0:0:0:0 with HTTP; Wed, 21 Aug 2019 22:55:44
- -0700 (PDT)
-From: "Charles W. Jackson Jr." <harolddismond@gmail.com>
-Date: Thu, 22 Aug 2019 06:55:44 +0100
-Message-ID: <CAP5MBUzip3osYEcH7Eotb7xckaMt0pdVrRUwLuDG=m5+kVNNuQ@mail.gmail.com>
-Subject: =?UTF-8?Q?Laufende_Wohlt=C3=A4tigkeit_Spenden_Nachrichtenbrief?=
-To: undisclosed-recipients:;
+In-Reply-To: <20190819115424.41479-2-vadivel.muruganx.ramuthevar@linux.intel.com>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190821_225547_317059_28DC1F10 
-X-CRM114-Status: UNSURE (  -1.85  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.8 (/)
+X-CRM114-CacheID: sfid-20190822_020311_693928_789B17AC 
+X-CRM114-Status: GOOD (  24.65  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.8 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:141 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (harolddismond[at]gmail.com)
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.23.249 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 LOTS_OF_MONEY          Huge... sums of money
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,42 +95,261 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: jacksondonation@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, boris.brezillon@free-electrons.com,
+ richard@nod.at, cyrille.pitchen@atmel.com, linux-kernel@vger.kernel.org,
+ jwboyer@gmail.com, computersforpeace@gmail.com, dwmw2@infradead.org,
+ david.oberhollenzer@sigma-star.at
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-LS0gCkd1dGVuIFRhZyBsaWViZXIgTnV0em5pZcOfZXIKU2llIGVyaGFsdGVuIGRpZXNlIEUtTWFp
-bCB2b24gZGVyIENoYXJsZXMgVy4gSmFja3NvbiBKci4gRm91bmRhdGlvbi4KSWNoIGJpbiBlaW4g
-R2V3aW5uZXIgZGVzIFBvd2VyYmFsbCBMb3R0ZXJ5IEphY2twb3QgaW0gV2VydCB2b24gMzQ0LDYK
-TWlsbGlvbmVuIFVTLURvbGxhci4gSWNoIGhhYmUgZGllc2UgTG90dGVyaWUgYW0gMS4gSnVuaSAy
-MDE5IGdld29ubmVuCnVuZCBzY2hyZWliZSwgdW0gU2llIGRhcsO8YmVyIHp1IGluZm9ybWllcmVu
-LCBkYXNzIEdvb2dsZSBtaXQgTWljcm9zb2Z0Cnp1c2FtbWVuYXJiZWl0ZXQgSWNoIGhhYmUgSWhy
-ZSAiRS1NYWlsLUFkcmVzc2UiIGF1ZiBtZWluZSBCaXR0ZSwgZWluZW4KU3BlbmRlbmJldHJhZyB2
-b24g4oKsIDIuMDAwLjAwMCwwMCBNaW8uIEV1cm8genUgZXJoYWx0ZW4sIMO8YmVybWl0dGVsdC4K
-SWNoIHNwZW5kZSBkaWVzZSAyIE1pbGxpb25lbiBFdXJvIGFuIFNpZSwgdW0gZGVuIFdvaGx0w6R0
-aWdrZWl0c2hlaW1lbgp1bmQgYXJtZW4gTWVuc2NoZW4gaW4gSWhyZXIgR2VtZWluZGUgenUgaGVs
-ZmVuLCBkYW1pdCB3aXIgZGllIFdlbHQgZsO8cgphbGxlIHp1IGVpbmVtIGJlc3NlcmVuIE9ydCBt
-YWNoZW4ga8O2bm5lbi4gV2VpdGVyZSBJbmZvcm1hdGlvbmVuIGZpbmRlbgpTaWUgYXVmIGRlciBm
-b2xnZW5kZW4gV2Vic2l0ZSwgZGFtaXQgU2llIGRpZXNlciBTcGVuZGUgaW4gSMO2aGUgdm9uIDIK
-TWlvLiBFVVIgbmljaHQgc2tlcHRpc2NoIGdlZ2Vuw7xiZXJzdGVoZW4uCgpodHRwczovL3d3dy5j
-YnNuZXdzLmNvbS9uZXdzL3Bvd2VyYmFsbC13aW5uZXItbm9ydGgtY2Fyb2xpbmEtcmV0aXJlZS1j
-aGFybGVzLWphY2tzb24tMzQ0LTYtbWlsbGlvbi1qYWNrcG90LWZvcnR1bmUtY29va2llLW51bWJl
-cnMvCgpTaWUga8O2bm5lbiBhdWNoIG1laW4gWW91VHViZSBmw7xyIG1laHIgQmVzdMOkdGlndW5n
-IGF1ZnBhc3NlbjoKaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1Ybk1xYTVOSHZaNAoK
-IEJpdHRlIGFudHdvcnRlbiBTaWUgbWlyIMO8YmVyOiAoamFja3NvbmRvbmF0aW9uQGdtYWlsLmNv
-bSksIGRhbWl0IHdpcgp3ZWl0ZXIgdm9yZ2VoZW4ga8O2bm5lbiwgZGFtaXQgZGllIHp1c3TDpG5k
-aWdlIEJhbmsgSWhuZW4gZWluZSBBVE0tS2FydGUKaW0gV2VydCB2b24gMiBNaW8uIEVVUiBnZW5l
-cmllcnQgdW5kIElobmVuIGRpZXNlIEFUTS1LYXJ0ZSB6dWdlc3RlbGx0CndpcmQgZGVuIFBJTi1D
-b2RlLCB1bSBhdWYgZGllIFNwZW5kZW5nZWxkZXIgenV6dWdyZWlmZW4uIEJpdHRlCmJlYWNodGVu
-IFNpZSwgZGFzcyBhbGxlIEFudHdvcnRlbiBhbiBqYWNrc29uZG9uYXRpb25AZ21haWwuY29tCmdl
-c2VuZGV0IHdlcmRlbiBtw7xzc2VuLCB1bSB3ZWl0ZXJlIEluZm9ybWF0aW9uZW4genVtIEVtcGZh
-bmcgZGllc2VyClNwZW5kZSDDvGJlciBkaWUgdW5pdmVyc2VsbGUgR2VsZGF1dG9tYXRlbmthcnRl
-IHp1IGVyaGFsdGVuLCBkaWUgSWhuZW4Kc28gc2NobmVsbCB3aWUgbcO2Z2xpY2ggenVnZXNhbmR0
-IHdpcmQuIG1lbGRlIGRpY2ggamV0enQgd2llZGVyIGJlaSBtaXIKCkZyZXVuZGxpY2hlIEdyw7zD
-n2UsCkNoYXJsZXMgVy4gSmFja3NvbiBKci4KKiAqICogKiAqICogKiAqICogKiAqICogKiAqICog
-KgpQb3dlcmJhbGwgSmFja3BvdCBHZXdpbm5lcgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcg
-bGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10
-ZC8K
+Hi,
+
+On 19/08/19 5:24 PM, Ramuthevar, Vadivel MuruganX wrote:
+> From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+> 
+> On Intel Lightening Mountain(LGM) SoCs QSPI controller do not use
+
+s/Lightening/Lightning
+
+> Direct Memory Access(DMA), Direct Access Controller(DAC) and
+> auto-poll features. This patch introduces to properly disable DMA,
+> DAC for data transfer instead it uses indirect data transfer.
+> and also auto polling.
+> 
+
+Please split into two patch, one disabling DAC mode and DMA and other
+disabling auto polling feature.
+
+> Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+> ---
+>  drivers/mtd/spi-nor/Kconfig           |  2 +-
+>  drivers/mtd/spi-nor/cadence-quadspi.c | 62 ++++++++++++++++++++++++++++++-----
+>  2 files changed, 55 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/mtd/spi-nor/Kconfig b/drivers/mtd/spi-nor/Kconfig
+> index 6de83277ce8b..ba2e372ae514 100644
+> --- a/drivers/mtd/spi-nor/Kconfig
+> +++ b/drivers/mtd/spi-nor/Kconfig
+> @@ -34,7 +34,7 @@ config SPI_ASPEED_SMC
+>  
+>  config SPI_CADENCE_QUADSPI
+>  	tristate "Cadence Quad SPI controller"
+> -	depends on OF && (ARM || ARM64 || COMPILE_TEST)
+> +	depends on OF && (ARM || ARM64 || COMPILE_TEST || X86)
+>  	help
+>  	  Enable support for the Cadence Quad SPI Flash controller.
+>  
+> diff --git a/drivers/mtd/spi-nor/cadence-quadspi.c b/drivers/mtd/spi-nor/cadence-quadspi.c
+> index 67f15a1f16fd..83ae28e055f4 100644
+> --- a/drivers/mtd/spi-nor/cadence-quadspi.c
+> +++ b/drivers/mtd/spi-nor/cadence-quadspi.c
+> @@ -67,6 +67,7 @@ struct cqspi_st {
+>  
+>  	void __iomem		*iobase;
+>  	void __iomem		*ahb_base;
+> +	resource_size_t		ahb_phy_addr;
+
+What does this represent? trigger address to be programmed in
+CQSPI_REG_INDIRECTTRIGGER reg? If so why not use cdns,trigger-address
+property?
+
+>  	resource_size_t		ahb_size;
+>  	struct completion	transfer_complete;
+>  	struct mutex		bus_mutex;
+> @@ -134,6 +135,8 @@ struct cqspi_driver_platdata {
+>  #define CQSPI_REG_RD_INSTR_TYPE_DATA_MASK	0x3
+>  #define CQSPI_REG_RD_INSTR_DUMMY_MASK		0x1F
+>  
+> +#define CQSPI_REG_WR_COMPLETION_CTRL	0x38
+> +#define CQSPI_REG_WR_COMPLETION_DISABLE_AUTO_POLL	BIT(14)
+>  #define CQSPI_REG_WR_INSTR			0x08
+>  #define CQSPI_REG_WR_INSTR_OPCODE_LSB		0
+>  #define CQSPI_REG_WR_INSTR_TYPE_ADDR_LSB	12
+> @@ -214,6 +217,7 @@ struct cqspi_driver_platdata {
+>  #define CQSPI_REG_INDIRECTWRWATERMARK		0x74
+>  #define CQSPI_REG_INDIRECTWRSTARTADDR		0x78
+>  #define CQSPI_REG_INDIRECTWRBYTES		0x7C
+> +#define CQSPI_REG_INDIRECTTRIGGERADDRRANGE	0x80
+>  
+
+Where is this used? Lets not add defines without a code snippet using it.
+
+>  #define CQSPI_REG_CMDADDRESS			0x94
+>  #define CQSPI_REG_CMDREADDATALOWER		0xA0
+> @@ -470,6 +474,18 @@ static int cqspi_command_write_addr(struct spi_nor *nor,
+>  	return cqspi_exec_flash_cmd(cqspi, reg);
+>  }
+>  
+> +static int cqspi_disable_auto_poll(struct cqspi_st *cqspi)
+> +{
+> +	void __iomem *reg_base = cqspi->iobase;
+> +	unsigned int reg;
+> +
+> +	reg = readl(reg_base + CQSPI_REG_WR_COMPLETION_CTRL);
+> +	reg |= CQSPI_REG_WR_COMPLETION_DISABLE_AUTO_POLL;
+> +	writel(reg, reg_base + CQSPI_REG_WR_COMPLETION_CTRL);
+> +
+> +	return 0;
+> +}
+> +
+>  static int cqspi_read_setup(struct spi_nor *nor)
+>  {
+>  	struct cqspi_flash_pdata *f_pdata = nor->priv;
+> @@ -507,6 +523,11 @@ static int cqspi_read_setup(struct spi_nor *nor)
+>  	reg &= ~CQSPI_REG_SIZE_ADDRESS_MASK;
+>  	reg |= (nor->addr_width - 1);
+>  	writel(reg, reg_base + CQSPI_REG_SIZE);
+> +
+> +	/* Disable auto-polling */
+> +	if (!f_pdata->use_direct_mode)
+> +		cqspi_disable_auto_poll(cqspi);
+> +
+
+This is a one time setup. So move this to cqspi_controller_init(). More
+comments at the end of the patch
+
+>  	return 0;
+>  }
+>  
+> @@ -517,12 +538,16 @@ static int cqspi_indirect_read_execute(struct spi_nor *nor, u8 *rxbuf,
+>  	struct cqspi_st *cqspi = f_pdata->cqspi;
+>  	void __iomem *reg_base = cqspi->iobase;
+>  	void __iomem *ahb_base = cqspi->ahb_base;
+> +	resource_size_t ahb_phy_addr = cqspi->ahb_phy_addr;
+>  	unsigned int remaining = n_rx;
+>  	unsigned int mod_bytes = n_rx % 4;
+>  	unsigned int bytes_to_read = 0;
+>  	u8 *rxbuf_end = rxbuf + n_rx;
+>  	int ret = 0;
+>  
+> +	if (!f_pdata->use_direct_mode)
+> +		writel(ahb_phy_addr, reg_base + CQSPI_REG_INDIRECTTRIGGER);
+> +
+
+Drop this and use cdns,trigger-address DT property which takes care of
+programming CQSPI_REG_INDIRECTTRIGGER in cqspi_controller_init()
+
+>  	writel(from_addr, reg_base + CQSPI_REG_INDIRECTRDSTARTADDR);
+>  	writel(remaining, reg_base + CQSPI_REG_INDIRECTRDBYTES);
+>  
+> @@ -609,6 +634,14 @@ static int cqspi_write_setup(struct spi_nor *nor)
+>  	struct cqspi_st *cqspi = f_pdata->cqspi;
+>  	void __iomem *reg_base = cqspi->iobase;
+>  
+> +	/* Disable the DMA and direct access controller */
+> +	if (!f_pdata->use_direct_mode) {
+> +		reg = readl(reg_base + CQSPI_REG_CONFIG);
+> +		reg &= ~CQSPI_REG_CONFIG_ENB_DIR_ACC_CTRL;
+> +		reg &= ~CQSPI_REG_CONFIG_DMA_MASK;
+
+DMA is disabled by default right? No need to clear it explicitly.
+
+> +		writel(reg, reg_base + CQSPI_REG_CONFIG);
+> +	}
+> +
+
+And Move this hunk to cqspi_controller_init()
+
+>  	/* Set opcode. */
+>  	reg = nor->program_opcode << CQSPI_REG_WR_INSTR_OPCODE_LSB;
+>  	writel(reg, reg_base + CQSPI_REG_WR_INSTR);
+> @@ -619,6 +652,11 @@ static int cqspi_write_setup(struct spi_nor *nor)
+>  	reg &= ~CQSPI_REG_SIZE_ADDRESS_MASK;
+>  	reg |= (nor->addr_width - 1);
+>  	writel(reg, reg_base + CQSPI_REG_SIZE);
+> +
+> +	/* Disable auto-polling */
+> +	if (!f_pdata->use_direct_mode)
+> +		cqspi_disable_auto_poll(cqspi);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -1165,13 +1203,16 @@ static int cqspi_of_get_pdata(struct platform_device *pdev)
+>  		return -ENXIO;
+>  	}
+>  
+> -	if (of_property_read_u32(np, "cdns,trigger-address",
+> -				 &cqspi->trigger_address)) {
+> -		dev_err(&pdev->dev, "couldn't determine trigger-address\n");
+> -		return -ENXIO;
+> -	}
+> +	if (!of_device_is_compatible(np, "intel,lgm-qspi")) {
+> +		if (of_property_read_u32(np, "cdns,trigger-address",
+> +					 &cqspi->trigger_address)) {
+> +			dev_err(&pdev->dev,
+> +				"couldn't determine trigger-address\n");
+> +			return -ENXIO;
+> +		}
+>  
+
+Why? Can you populate cdns,trigger-address with same address as
+res_ahb->start? That should eliminate need for cqspi->ahb_phy_addr
+
+> -	cqspi->rclk_en = of_property_read_bool(np, "cdns,rclk-en");
+> +		cqspi->rclk_en = of_property_read_bool(np, "cdns,rclk-en");
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -1301,7 +1342,8 @@ static int cqspi_setup_flash(struct cqspi_st *cqspi, struct device_node *np)
+>  		f_pdata->registered = true;
+>  
+>  		if (mtd->size <= cqspi->ahb_size) {
+> -			f_pdata->use_direct_mode = true;
+> +			f_pdata->use_direct_mode =
+> +				!(of_device_is_compatible(np, "intel,lgm-qspi"));
+
+Instead, introduce a new quirk (similar to CQSPI_NEEDS_WR_DELAY) and
+then use the flag to determine when to set use_direct_mode flag. Flag
+can also be used to disable DAC mode in cqspi_controller_init().
+
+And also use cqspi_driver_platdata to populate quirks for the  compatible
+
+>  			dev_dbg(nor->dev, "using direct mode for %s\n",
+>  				mtd->name);
+>  
+> @@ -1347,7 +1389,10 @@ static int cqspi_probe(struct platform_device *pdev)
+>  	}
+>  
+>  	/* Obtain QSPI clock. */
+> -	cqspi->clk = devm_clk_get(dev, NULL);
+> +	if (of_device_is_compatible(np, "intel,lgm-qspi"))
+> +		cqspi->clk = devm_clk_get(dev, "qspi");
+> +	else
+> +		cqspi->clk = devm_clk_get(dev, NULL);
+
+Does IP have more than 1 clock input? If yes, please document all input
+clk names in Documentation/devicetree/bindings/mtd/cadence-quadspi.txt.
+
+Also,  can be simplified to:
+
+	cqspi->clk = devm_clk_get(dev, "qspi");
+	if (IS_ERR(cqspi->clk))
+		/* Try w/o clk id */
+		cqspi->clk = devm_clk_get(dev, NULL);
+
+If there is only one clk input in DT, then just drop above code.
+
+>  	if (IS_ERR(cqspi->clk)) {
+>  		dev_err(dev, "Cannot claim QSPI clock.\n");
+>  		return PTR_ERR(cqspi->clk);
+> @@ -1369,6 +1414,7 @@ static int cqspi_probe(struct platform_device *pdev)
+>  		return PTR_ERR(cqspi->ahb_base);
+>  	}
+>  	cqspi->mmap_phys_base = (dma_addr_t)res_ahb->start;
+> +	cqspi->ahb_phy_addr = res_ahb->start;
+>  	cqspi->ahb_size = resource_size(res_ahb);
+>  
+>  	init_completion(&cqspi->transfer_complete);
+> 
+
+-- 
+Regards
+Vignesh
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
