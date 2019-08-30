@@ -2,43 +2,43 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4126EA3B54
-	for <lists+linux-mtd@lfdr.de>; Fri, 30 Aug 2019 18:05:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9BDD5A3B5D
+	for <lists+linux-mtd@lfdr.de>; Fri, 30 Aug 2019 18:06:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p1b/P7zfRkBj5JdjbDHJ6j/+JKwoLaaa/oSMzngVCuU=; b=TnTkYTlBqR7FXR
-	Aguj1YU+UggitazFaQjlnykRrozXwGRz1O8GNcm1zP98qa0OcMVkc8kBAmE44MQWFgMfgrMr8rsbH
-	To1wbf9yAtqEdU7TmD0zS5Ern8xKSElVKVSU7XOChMW0it2Nm9eH9uNwdaa5lUav5CaPgECFZCpD9
-	XCsde9f/N8GkUCLfCFzuaIOEIRPCDqxfSMFXdVhDcpkhCsLEq5sajQ/2rlnWRdX8Z5qELJXLhgY9F
-	WfrC7mYPlcq2MSuZJSNx1NXJ1UmD/FQ5Vo55Ec/WyqhPhsP//Zjysb/vRb4ZToz/jOfdEilQf9+Uu
-	zABKMtsQomXNqytE63KA==;
+	List-Owner; bh=YwC9SaLnzsehPdZDYnJ0BgU7k8ur609tpR5ufBlV4tw=; b=REtruGkY4FVX11
+	Gd33Y4bOL1YWBTCrv2oABpjrZV3xxISf0h0I05N0oWdZdFqmDswnSuokr4hil/ACKVN/9F03npudx
+	tibBpY1fLDMxGvxrYS3//yHkuTMOAZOdu6SKE2RtnU2vD516ZB9N4g0kqN2+tBIQYlzlja5qIpyJQ
+	OON9DYQZcPF5z/klPEaQ3U5C8pUgDYpdK9wmYQBBDtyVM8TclOYbN7VF2rryaIOxGSF7QReiycwZ6
+	86yQmtYH7ZXOOO0fuDbQNs9Jh2gdKKTPlFZzsjVOT3cGF4dpsx+on2s5qLIvW4XRZ65Al1eShw+J6
+	GwI4J5vdi9Eg3iAixh+A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3jP2-0004FG-L2; Fri, 30 Aug 2019 16:05:32 +0000
+	id 1i3jPj-0004pK-KG; Fri, 30 Aug 2019 16:06:15 +0000
 Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3jOT-0002pd-Dv; Fri, 30 Aug 2019 16:04:58 +0000
+ id 1i3jOp-0004FU-Fw; Fri, 30 Aug 2019 16:05:21 +0000
 Received: by verein.lst.de (Postfix, from userid 2407)
- id 95CE5227A8A; Fri, 30 Aug 2019 18:04:54 +0200 (CEST)
-Date: Fri, 30 Aug 2019 18:04:54 +0200
+ id 7296E227A8A; Fri, 30 Aug 2019 18:05:16 +0200 (CEST)
+Date: Fri, 30 Aug 2019 18:05:15 +0200
 From: Christoph Hellwig <hch@lst.de>
-To: Ingo Molnar <mingo@kernel.org>
-Subject: Re: [PATCH 12/26] x86: clean up ioremap
-Message-ID: <20190830160454.GB26887@lst.de>
+To: Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 19/26] arm64: remove __iounmap
+Message-ID: <20190830160515.GC26887@lst.de>
 References: <20190817073253.27819-1-hch@lst.de>
- <20190817073253.27819-13-hch@lst.de> <20190817103402.GA7602@gmail.com>
+ <20190817073253.27819-20-hch@lst.de>
+ <20190819073601.4yxjvmyjtpi7tk56@willie-the-truck>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20190817103402.GA7602@gmail.com>
+In-Reply-To: <20190819073601.4yxjvmyjtpi7tk56@willie-the-truck>
 User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190830_090457_621961_E38E6947 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190830_090520_035369_72710AD2 
+X-CRM114-Status: GOOD (  10.46  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -77,25 +77,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sat, Aug 17, 2019 at 12:34:02PM +0200, Ingo Molnar wrote:
-> 
-> * Christoph Hellwig <hch@lst.de> wrote:
-> 
-> > Use ioremap as the main implemented function, and defined
-> > ioremap_nocache to it as a deprecated alias.
+On Mon, Aug 19, 2019 at 08:36:02AM +0100, Will Deacon wrote:
+> On Sat, Aug 17, 2019 at 09:32:46AM +0200, Christoph Hellwig wrote:
+> > No need to indirect iounmap for arm64.
 > > 
 > > Signed-off-by: Christoph Hellwig <hch@lst.de>
 > > ---
-> >  arch/x86/include/asm/io.h | 8 ++------
-> >  arch/x86/mm/ioremap.c     | 8 ++++----
-> >  arch/x86/mm/pageattr.c    | 4 ++--
-> >  3 files changed, 8 insertions(+), 12 deletions(-)
+> >  arch/arm64/include/asm/io.h | 3 +--
+> >  arch/arm64/mm/ioremap.c     | 4 ++--
+> >  2 files changed, 3 insertions(+), 4 deletions(-)
 > 
-> Acked-by: Ingo Molnar <mingo@kernel.org>
+> Not sure why we did it like this...
+> 
+> Acked-by: Will Deacon <will@kernel.org>
 
-Can you pick it up through tip for 5.4?  That way we can get most
-bits in through their maintainer trees, and then I'll resubmit the
-rest for the next merge window.
+Can you just pick this one up through the arm64 tree for 5.4?
 
 ______________________________________________________
 Linux MTD discussion mailing list
