@@ -2,72 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCE59A3BE2
-	for <lists+linux-mtd@lfdr.de>; Fri, 30 Aug 2019 18:24:23 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EB8ADA3DC5
+	for <lists+linux-mtd@lfdr.de>; Fri, 30 Aug 2019 20:36:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oqYl4HvVMreMJ2uEY6Z5nmP6RmHyINStpbtmK6wd1u4=; b=jl1+Q286sy4SJz
-	WLO1JDMcDqU3qUsOoNxqMUdT++sIbxuQMZpQLYLbUvY4LynOrsTSmyudFSx3Gg5BHA6PMC++944YM
-	EJl6AF+LSKLv4+djUElnPhUf4B8K7TVhgGjIzwGSxIKnJoTNFTFCuxFd9U28LMzXC86qm6Uy01P3z
-	lrDFmrVakWYycAIWisEd+Fzf32wlE2SnT4g/tajp2baTHpY8RmiPhtYu7KrNq6leoXJIKzvEUlNKo
-	A4SJFAsQ3HbpWY65xYls1ANDAdHRsCtMmKlN4sprWbED9FUNi+9EV2iTsSt4SDZy1kl9NjeHTQ+Cj
-	v1yCPi0ClIOeJJX9udyw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:From:To:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XqnNk2HfjTEdcMKuAHWt7LQPbi5x1eayUJzH+evGhi0=; b=Aegg12wuMLUGIi
+	CJr/dpsKLvNGTAsBGQNuNpsf+3Pv0mToritRAxtYew4xDXiM5ODEkQPsjBK7/Qry19/ymNTfB1YTe
+	4IWUsV2nPB2VoiDkNFd2qMP77ktlxQhQt/p4Odxo3Z99CmI/jucMmt9DioI7Z/ejr6clvmSloiVua
+	/UYUaZEagq3AxFEp8L9N41JGi22DErbXCZ5K7knoW5qbgM54jPnWm+S00QTM1WOvnCykxjy/zjd21
+	a2jIptlZN/n9rtq4jFt9TOHPnqqB6fAsSCJZuRIRZTEACRBA6X47AscaLtJVOyTsxAI2xk7ISMYsF
+	I3Rw+gAuOJ8Hgc9EIouw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3jh8-0004Gk-7b; Fri, 30 Aug 2019 16:24:14 +0000
-Received: from mail-qt1-f195.google.com ([209.85.160.195])
+	id 1i3llI-0003XY-Ld; Fri, 30 Aug 2019 18:36:40 +0000
+Received: from rs17.zol.co.zw ([197.211.212.71])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3jgx-0004Fp-3T
- for linux-mtd@lists.infradead.org; Fri, 30 Aug 2019 16:24:04 +0000
-Received: by mail-qt1-f195.google.com with SMTP id z4so8224256qtc.3
- for <linux-mtd@lists.infradead.org>; Fri, 30 Aug 2019 09:24:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=B6+OAXXxl2dEgnQY4Uq2+qZqkvaxmBKnbK7dC2TYwZ0=;
- b=jE8jz9WVrThAsd5erGlEShnGPM6nKQo7zW6UY3VwqPzqVROlLZxgwpfCMfrwohjXgh
- PHVO+PCu46uiZsTjaumetSCdAKal67QwhNwJWwgC6O/KX/b5mg6HLmib/gncjQiNGagg
- pCNpcnQBYraHx2+R1gMB0WO/oaPSsoOIUMQsPpiYF1I8f3XWB4IE5Dq9NW4eEAPFCyd2
- qwYOJoXcGpI8Vc9+GC0Cx0KWQDLx2q8vr7kaGdUeJoygMbLP+9FBwCD1L8k33+B6fCEW
- sm5TnDBtvw1BAmZQfuZN5AZD2bgTjC9O+a6FdlX1C948MNDYFepsp2HJBp/91wuxt2m7
- rKgQ==
-X-Gm-Message-State: APjAAAVChEXnzLb47P26Qp7poMSZwTYH5LqGXLbeNkLvJ4Lv65SZa+QS
- +TDd79aJ148hzfwxfxnLcVZxylbCssaloNdr4xU=
-X-Google-Smtp-Source: APXvYqx1Qvswft0K3BgJsYOtSdZQVwjHx2AQF9skYad3Rr5MY9B9bcWDDXL/X1Cpj9GrJMiBQ1QnvNUru+BTr0FLkYc=
-X-Received: by 2002:ac8:5306:: with SMTP id t6mr2652509qtn.204.1567182239864; 
- Fri, 30 Aug 2019 09:23:59 -0700 (PDT)
+ id 1i3lky-0003MB-CT
+ for linux-mtd@lists.infradead.org; Fri, 30 Aug 2019 18:36:22 +0000
+Received: from outgoing.zol.co.zw (206-214-8-79.candw.ag [206.214.8.79] (may
+ be forged)) (authenticated bits=0)
+ by rs17.zol.co.zw (8.14.4/8.14.9) with ESMTP id x7UIZc7T023184;
+ Fri, 30 Aug 2019 20:35:44 +0200
+To: "linux mtd" <linux-mtd@lists.infradead.org>,
+ "dedekind1" <dedekind1@gmail.com>,
+ "Pankaj DEV" <pankaj.dev@stericsson.com>,
+ "David McCullough" <david_mccullough@mcafee.com>
+From: nik_bin_nek_alwi <certificate@zol.co.zw>
+Subject: =?UTF-8?Q?=F0=9F=91=86?=
+Message-ID: <7aec3e0a-522f-4cb9-b7b2-3f73c307456b@zol.co.zw>
+Date: Fri, 30 Aug 2019 14:30:56 -0400
+User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-References: <CAK8P3a1XjOMpuS12Xao1xqOLFOuz1Jb8dTAfrhLcE643sSkC5g@mail.gmail.com>
- <20190830154744.4868-1-deepa.kernel@gmail.com>
-In-Reply-To: <20190830154744.4868-1-deepa.kernel@gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 30 Aug 2019 18:23:43 +0200
-Message-ID: <CAK8P3a3WUmeewmNscdKpUf3fB3eLV1X=YdLQt8cvS_tqq7OroQ@mail.gmail.com>
-Subject: Re: [GIT PULL RESEND] vfs: Add support for timestamp limits
-To: Deepa Dinamani <deepa.kernel@gmail.com>
+Content-Language: en-US
+X-sslZOL-Comment: Message x7UIZc7T023184 sent by user #51872
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zol.co.zw;
+ h=to:from:subject:message-id:date:mime-version:content-type:content-transfer-encoding;
+ s=dkim; bh=QmQXRLh/nPCxPxs1RKlP93V2u7X8o3C9+da/3utp7Co=;
+ b=EcJgOg/fN3teDcxH6yCdcqw3r7vnGnzHmC+9epe3aCCQqQE2GrDiYYlCO5ou1ul4UHSAO24iKD+fOGYCGEJs1xacVwf+X5Bc8vAmxklXQAdMVFG+yRPxElzZDXQcc3EK5dH8IYWsC9BN327vMywJwKU6oKDby8HwIhlGRQjMY10=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190830_092403_146699_DE0BD9FF 
-X-CRM114-Status: GOOD (  12.22  )
-X-Spam-Score: 0.5 (/)
+X-CRM114-CacheID: sfid-20190830_113621_473663_CC4AFA00 
+X-CRM114-Status: UNSURE (   1.38  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.1 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.5 points)
+ Content analysis details:   (1.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.160.195 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (arndbergmann[at]gmail.com)
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [197.211.212.71 listed in list.dnswl.org]
+ 1.2 RCVD_IN_BL_SPAMCOP_NET RBL: Received via a relay in
+ bl.spamcop.net
+ [Blocked - see <https://www.spamcop.net/bl.shtml?206.214.8.79>]
+ 0.1 URIBL_SBL_A Contains URL's A record listed in the Spamhaus SBL
+ blocklist [URIs: lyndon295.xyz]
+ 0.6 URIBL_SBL Contains an URL's NS IP listed in the Spamhaus SBL
+ blocklist [URIs: lyndon295.xyz]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,74 +82,13 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Latchesar Ionkov <lucho@ionkov.net>,
- Martin Brandenburg <martin@omnibond.com>, jfs-discussion@lists.sourceforge.net,
- Dave Kleikamp <shaggy@kernel.org>, Anders Larsen <al@alarsen.net>,
- Chao Yu <yuchao0@huawei.com>, Bob Copeland <me@bobcopeland.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- linux-mtd <linux-mtd@lists.infradead.org>, mikulas@artax.karlin.mff.cuni.cz,
- Christoph Hellwig <hch@lst.de>, Nicolas Pitre <nico@fluxnic.net>,
- Mike Marshall <hubcap@omnibond.com>, linux-cifs@vger.kernel.org,
- Zheng Yan <zyan@redhat.com>, Sage Weil <sage@redhat.com>,
- "Darrick J. Wong" <darrick.wong@oracle.com>,
- y2038 Mailman List <y2038@lists.linaro.org>,
- Richard Weinberger <richard@nod.at>, Steve French <sfrench@samba.org>,
- Anton Vorontsov <anton@enomsg.org>,
- Russell King - ARM Linux <linux@armlinux.org.uk>, codalist@coda.cs.cmu.edu,
- Christoph Hellwig <hch@infradead.org>, coda@cs.cmu.edu,
- V9FS Developers <v9fs-developer@lists.sourceforge.net>,
- Ilya Dryomov <idryomov@gmail.com>,
- Ext4 Developers List <linux-ext4@vger.kernel.org>, salah.triki@gmail.com,
- asmadeus@codewreck.org, devel@lists.orangefs.org,
- Evgeniy Dushistov <dushistov@mail.ru>, Kees Cook <keescook@chromium.org>,
- Eric Van Hensbergen <ericvh@gmail.com>, Jan Kara <jack@suse.com>,
- reiserfs-devel@vger.kernel.org, Tejun Heo <tj@kernel.org>,
- Al Viro <viro@zeniv.linux.org.uk>, aivazian.tigran@gmail.com,
- David Sterba <dsterba@suse.com>, Jaegeuk Kim <jaegeuk@kernel.org>,
- ceph-devel <ceph-devel@vger.kernel.org>, trond.myklebust@hammerspace.com,
- OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>,
- Andreas Dilger <adilger@dilger.ca>, Jan Harkes <jaharkes@cs.cmu.edu>,
- Linux NFS Mailing List <linux-nfs@vger.kernel.org>,
- Tony Luck <tony.luck@intel.com>, Theodore Ts'o <tytso@mit.edu>,
- Luis de Bethencourt <luisbg@kernel.org>,
- Artem Bityutskiy <dedekind1@gmail.com>, linux-ntfs-dev@lists.sourceforge.net,
- gregkh <gregkh@linuxfoundation.org>, linux-karma-devel@lists.sourceforge.net,
- Jeff Layton <jlayton@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, "Linux F2FS DEV,
- Mailing List" <linux-f2fs-devel@lists.sourceforge.net>,
- linux-xfs <linux-xfs@vger.kernel.org>, Colin Cross <ccross@android.com>,
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
- phillip@squashfs.org.uk, David Woodhouse <dwmw2@infradead.org>,
- "Anna.Schumaker@Netapp.com" <anna.schumaker@netapp.com>,
- Joel Becker <jlbec@evilplan.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Aug 30, 2019 at 5:48 PM Deepa Dinamani <deepa.kernel@gmail.com> wrote:
->
-> [resending, rebased onto linux v5.3-rc6, and dropped orangefs patch from the series]
->
-> Hi Al, Arnd,
->
-> This is a pull request for filling in min and max timestamps for filesystems.
-> I've added all the acks, and dropped the adfs patch. That will be merged through
-> Russell's tree.
->
-> Dropped orangefs until the maintainers decide what its limits should be.
-
-I've merged this into my
-git://git.kernel.org/pub/scm/linux/kernel/git/arnd/playground.git y2038
-branch. Since you did not include a tag description, I took the text from
-the last patch series as the commit text, with a link to the pull request
-on lore.kernel.org.
-
-Al, let me know in case you have any objections to this going through
-the y2038 branch, and you would rather take it through vfs.git.
-
-     Arnd
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+VW5nbGF1YmxpY2ghIGh0dHA6Ly9wcWsuTHluZG9uMjk1Lnh5ei9pbmRleAoKCgoKCgpfX18KTGFz
+cyBiYWxkIHdpZWRlciB2b24gZGlyIGjDtnJlbgpuaWtfYmluX25la19hbHdpQHlhaG9vLmNvbQoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxp
+bnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
