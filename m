@@ -2,87 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id ABA7EA519D
-	for <lists+linux-mtd@lfdr.de>; Mon,  2 Sep 2019 10:32:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 51DD9A5849
+	for <lists+linux-mtd@lfdr.de>; Mon,  2 Sep 2019 15:43:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Subject:To:From:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rhIttLcuKf3fi/kE2m4wUhgYxxB0Vk7kMhRR0rVEe+s=; b=ZTjRw1s0brFcA9
-	J815pS3BzzdarEibL9mSvHnjFxleZ7o2/Cc3eiMAv90ZcTUeEL80hDbRX8nYa+SXxiAeU2F+8fJ0X
-	9DYOww4b3bhKdLMIAQnSFH0Z/vHEABfckrTPKAwekR8TRw+HCQX8dW9FB3VL9jdowTJYLpcMs8tLH
-	V3zADHRhjOpH3k3IWJAoNcuB9xJQPw6YManQMjWppupFwvE7C+GDr3eqQHkJ6fwmZRnYS+cCMgnur
-	yHB+w4Cs/lE69O6xs1pDfappyiGKdY7FMDImAc6hjoAqRcEhac/QO0lGzmjXYal7j/CfY1696LyP4
-	RVhwdgqeHQcgu+cdjxdQ==;
+	List-Owner; bh=whaBnxBXfCHWnhOarsOc6bf3t8ixE2ETytw5TQNORak=; b=owwUiemZFPeu1i
+	3AO6fuYUtqVCanGQy2LYyurkEFRZ9kQndUeaE6IU+vFcH6bBbyxuyNPqvOo76FIyd8zfs9RlqC4KY
+	cgMzckxdlmL1JUo8NxeacLumFh2InM/Untz/2uD8LmM+RnRdz85KvQixTqOMRiGChC5GeHjzZSiO3
+	1gjknTbXB5oJTI2DRbKRu6ILaOKFXisoo/BCmhZKpwoaGEnSsAfc17Kvc0C4ov+WmG4ujga9hCzUH
+	mz93KrwevnHssZc2u6zxBmKu27FkmNHXWg7MKcOJu9EcAAyl6a9Il5I4Mcaxkn5EsM3wsjvb1NIiX
+	X9xFrHWYea67KyYHctag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i4hl3-0001bz-FS; Mon, 02 Sep 2019 08:32:17 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1i4mcJ-0007J3-EW; Mon, 02 Sep 2019 13:43:35 +0000
+Received: from mail-wm1-f65.google.com ([209.85.128.65])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i4hki-0001bT-3r
- for linux-mtd@lists.infradead.org; Mon, 02 Sep 2019 08:31:57 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id g7so13082445wrx.2
- for <linux-mtd@lists.infradead.org>; Mon, 02 Sep 2019 01:31:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=fZMUZRdub4tmgnCfmBfhkmGrBwzTusRkzetXyOLstoM=;
- b=GNtLpp1lgYdweHoIOvWTS7DEYWdR2tjEbWL3zV2dSsjHBQMIFJd6HX+7uZannTv3NX
- 9cAS1Ue7omKrmXDdhCQy1cuhqpIc8XfCDqhkg5MRRrN9AJLokvhIOd9lT7Eub482F+V3
- VSCsEr/XVWGSfLVCsvHbIEkb+iJScLITOgCNE5VIdchfhIw/puo0g81pcqEIMD5zaol9
- umywSQsY9TjlXidn1BwELUUEnbuZNfLVnqLTeW0js5Af9Z4WVCt4q3YxkjpaV9Palib0
- oeNMBXekQRwvdAhwmG0tGAfB78c3A2de4nLHFOiKJlx1k9oYd0y3zXKCkaqQpbF56Vys
- Yv+w==
+ id 1i4mYB-0001j2-HG
+ for linux-mtd@lists.infradead.org; Mon, 02 Sep 2019 13:39:20 +0000
+Received: by mail-wm1-f65.google.com with SMTP id q19so5833891wmc.3
+ for <linux-mtd@lists.infradead.org>; Mon, 02 Sep 2019 06:39:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=fZMUZRdub4tmgnCfmBfhkmGrBwzTusRkzetXyOLstoM=;
- b=ASO3lqHN8o40yqsoZFhkyQVrOG2LRnkFw/1+Wv50UtggfFhB30vvD/W3m3s/iubeFX
- Zow1EXkiD3/dU78G2heF3xIAVAM3sehe13iZ2PCsvuiEW3c11cqcwlBJGauorE8bE4ia
- j7fwuo7G3C4EmMvfXqpjjIEXJzV9gbPEVdVvNI59wR9TyzaSdaO/Z9HW21an8IzTokzU
- VGgRcsgg23WRegC/EPBScmmsTLMb5lInNK3vdkJNbzXVVtXB3OyN1n3trclJg4QZ7ZrY
- 0wlqvuqdlGK9JrFhT+lH2UC4TEYzfmMvqYtsJ/RGUQnQNZ6AjtmkIn0RecBD5tp4IA9p
- QMLA==
-X-Gm-Message-State: APjAAAXcAS/gDRc9DygRskII1LQGOvQECieriekDKp0CIaaIchpGTfFw
- RhaCb+b05QICqNpomkL4CWy4xjekTXrFyc+NmbM=
-X-Google-Smtp-Source: APXvYqzkUBoKss/+ZEp0bBvbYxe2OXJEokpAuXDc9v3OHXdS4L370wYaSQYUxhUT32COq0EE3XwFnLZAg8S1OXdeJ0E=
-X-Received: by 2002:a5d:4402:: with SMTP id z2mr1392271wrq.183.1567413114266; 
- Mon, 02 Sep 2019 01:31:54 -0700 (PDT)
+ h=x-gm-message-state:message-id:date:from:to:cc:subject:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=PkDpB4sth3sTgCnaLAVjJ1mLztUz5Y7mplxR5CYkQGc=;
+ b=ei22fVNtKeZ97GvMgtAs9TXorc6b7+oF677WAus66O9f76K5Yqk2v0/+RaCQ0Hsy/O
+ i6bny240zhZJJty5DCD+ExHrPm9cpYBr5mwJN20EWI/oRoEQHG25NBAXiehet5v7xj6j
+ LrYEhfnV0vePXMPNSSadQ9y2Iro/vRjhUaHGqrBgrbVC1FkU4iCp+92lpIM+vlLl2nkc
+ S28svmzewhlnacXK9SJFZHQz4L8HKzqV0S8e+7O7TFgHQ2mNePCdFocpFBNPBg7VeEZV
+ jQG2ThfwqSEV/gIgkg5MGW5DWIOhzrJ350ZtYCsOYlrno+M0JSDf/SwPQjD4PDYsbEvJ
+ cV3g==
+X-Gm-Message-State: APjAAAV6v9y+fdOrAaHC09gJMq0Lw2tRuVMIqug7Y6zUwfc7ame8rr9k
+ nl49yq3hfXteBLYAXPSwwg==
+X-Google-Smtp-Source: APXvYqwYm2s6Gmmrf6ryiQK0P0Y0VG6vrlmGJlljuLZ0cRK11tDXzUM3GY5iH8aQZK9NTww/KJUsIg==
+X-Received: by 2002:a7b:ca5a:: with SMTP id m26mr5204994wml.177.1567431558279; 
+ Mon, 02 Sep 2019 06:39:18 -0700 (PDT)
+Received: from localhost ([212.187.182.166])
+ by smtp.gmail.com with ESMTPSA id l9sm11671308wmi.29.2019.09.02.06.39.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 02 Sep 2019 06:39:17 -0700 (PDT)
+Message-ID: <5d6d1b85.1c69fb81.96938.0315@mx.google.com>
+Date: Mon, 02 Sep 2019 14:39:17 +0100
+From: Rob Herring <robh@kernel.org>
+To: "Ramuthevar,
+ Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: mtd: cadence-qspi:add support for
+ Intel lgm-qspi
+References: <20190827035827.21024-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20190827035827.21024-2-vadivel.muruganx.ramuthevar@linux.intel.com>
 MIME-Version: 1.0
-References: <20190817073253.27819-1-hch@lst.de>
- <20190817073253.27819-2-hch@lst.de> <20190902080715.GA29458@lst.de>
-In-Reply-To: <20190902080715.GA29458@lst.de>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Mon, 2 Sep 2019 10:31:42 +0200
-Message-ID: <CAFLxGvxLw_VR13Vx+mAtF7Dt+54688pWR__q5YUZOTRytiivtg@mail.gmail.com>
-Subject: Re: [PATCH 01/26] mtd/maps/pxa2xx: use ioremap_cache insted of
- ioremap_cached
-To: Christoph Hellwig <hch@lst.de>
+Content-Disposition: inline
+In-Reply-To: <20190827035827.21024-2-vadivel.muruganx.ramuthevar@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190902_013156_160851_715F3C1B 
-X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-CacheID: sfid-20190902_063919_628399_B5EEFFBD 
+X-CRM114-Status: UNSURE (   7.82  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:42f listed in]
- [list.dnswl.org]
+ no trust [209.85.128.65 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (richard.weinberger[at]gmail.com)
+ provider (robherring2[at]gmail.com)
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (robherring2[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,21 +89,33 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org
+Cc: cheol.yong.kim@intel.com, devicetree@vger.kernel.org,
+ tudor.ambarus@gmail.com, vigneshr@ti.com, boris.brezillon@free-electrons.com,
+ richard@nod.at, qi-ming.wu@intel.com, linux-kernel@vger.kernel.org,
+ david.oberhollenzer@sigma-star.at,
+ Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>,
+ linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com, jwboyer@gmail.com,
+ computersforpeace@gmail.com, dwmw2@infradead.org, cyrille.pitchen@atmel.com,
+ andriy.shevchenko@intel.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, Sep 2, 2019 at 10:07 AM Christoph Hellwig <hch@lst.de> wrote:
->
-> Mtd maintainers, can you pick this one up for 5.4?
+On Tue, 27 Aug 2019 11:58:25 +0800, "Ramuthevar,Vadivel MuruganX"          wrote:
+> From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+> 
+> Add new vendor specific compatible string to check Intel's Lightning
+> Mountain(LGM) QSPI features enablement in cadence-quadspi driver.
+> 
+> Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+> ---
+>  Documentation/devicetree/bindings/mtd/cadence-quadspi.txt | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Sure. Queued for 5.4
+Acked-by: Rob Herring <robh@kernel.org>
 
--- 
-Thanks,
-//richard
 
 ______________________________________________________
 Linux MTD discussion mailing list
