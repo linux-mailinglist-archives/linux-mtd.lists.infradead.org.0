@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0505AA8C4
-	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:20:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05444AA8CB
+	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:21:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,71 +11,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=Ujin/F6mHGxvcL2DfqcHmQ31LCWaWP2YF5rSWSxALBs=; b=icozxuQFit0jl97TVa1ve065SP
-	nhVH5/rvGjvwhj8wAmLsYLepI2sNR2S1IGCow/xPD+JVsAhS+sDttx4iheFMxYCGSaVe1H3HbwSKg
-	Cb6L5rscpiuiTKZq2VM1Fw5yawNimoPFEXmSPmDob7vcPY8QEF5o2RqM6G08c+Yq6hX6XGgdaTQC9
-	8C6mleV4QrxzdVB3W8rJ0x/7N0L0/QK3sJazaRYsm5T79mU+3oil6I7b1GGqUvBe92SQ4S1pXAucE
-	KTUQcgRTVlOlJ19hl1eXloDG8TKcSlt/wqp1apr8DliUlzPDvPRvLc78KN2w+RI5eSJoGfPfI+jnF
-	Hjw5BGDg==;
+	bh=0+GLtfw4uauSV1DyHAJ7Qj90AgKjP+fMW9SVWKm3Gy8=; b=LCHmY6hEbrpsZTHdQ1UMdej7Tz
+	6PaxLEgtAMoyWhl9uiEQXeJKjafJhP2wfpe1V5WtzMIvXkzn03AAhjM4xjsgUesyNxwu1vP5Q3lht
+	LpPEwiS9EoRs4W4ROWDeJaeyp/ipt3B4DzmjIqQ7ByvrQwhE9n89JkDuoIZsuI0fe97CHl3k7bnjM
+	KlnuHdjhs9JTyRfVvjv3nhOnTFgg9fYup/NyIECUPgThbxkutahGflFYp1sA2XIakDKzGygpEpo0W
+	uUk9zbaKWubTG/oMb72yzklrmsXBI1G6lfYbSfPU/Ys0dl+Hu+q+i1y+JJ0daw32tW24F0WnWyP80
+	rJU9CwSQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5uV8-0005HS-5Q; Thu, 05 Sep 2019 16:20:50 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
+	id 1i5uVI-0005Uz-Vy; Thu, 05 Sep 2019 16:21:01 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5uSe-00016P-2b
- for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:17 +0000
-Received: by mail-pl1-x642.google.com with SMTP id 4so1515712pld.10
- for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:15 -0700 (PDT)
+ id 1i5uSf-00018L-VF
+ for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:19 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id x15so1675462pgg.8
+ for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=8QjjqDFW2as8gsE3MNwHPLPN76USmssxyGkKOBC9D3E=;
- b=HL27V+NYul1f+O0bmc6YkYSMF5euNDbYJl3hh04CdtFtjxmvNCYdhhn4rVKZ4mtbnC
- haoz4ZuRykOa1EVcbKBLOnulQom5g/1qMM4K3pUJqI9gyl8+8M7gUP3hdV27jiyNhaLP
- o/VZfks/pnLsAsEemsNEwt2UAy9aH5QMHPRsXyteaLVX8yuXtIU8Q7J3Kt0GHRGIjeu+
- 6uqwAVSO0rrjztAQNUcFDtt/AS9X6aQBAlsAr+yR2VeRxvHvm5f4PTxaab1YLr0ySVHa
- WGR7mnvK9yLWmfNAcVoLZFMGqTS8ZaLoVAcycwWbcXSXF16pUzOt3ohlbzYqLRrORRPt
- DjoQ==
+ bh=Ny7YX6BxIHZBg/a0IXvofczDmYcoW0RMjpIj9iNxGYI=;
+ b=YlFW1oYkgedY1H7kdvtntMbQozGn3kOxCMqp2NIumUNGka9YZY56mm/5JnjNo8a6sg
+ BpG6Faq+3L6/s3liaVWlfJHdXuBMamArc6Tke+yxoc3WFo/JaJ3GGn7dtJ+2eGI/ZSPm
+ WmOtxGPCrHlhUdg0lKZxrCxzFFciRcVyZ4C2H/w5nX6/ePlCd5vC7MVmOunp7NW+n+KY
+ kwRBcBObjxbXwA0p2AO+21wka8/782dXgpI6hfmtYJ3uAgtu6VJVYXFKQIJ0U+B9Jx+a
+ cnY4OkG7/6sBLkpOWgOpybs5Q6WX+6CfltrwCTUB6XO+nb6zY7AjGP6RiFK/d+51XXVM
+ jSow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=8QjjqDFW2as8gsE3MNwHPLPN76USmssxyGkKOBC9D3E=;
- b=Z4Hv3MRtmPkM4VWYG0KvsuWQmOv7H7RldwTB1T5GDdmOmHOz8hoT3NKzAXQki54BLs
- LFeyM58yLOTXLw1cp58L6uQBfJk0V/HC3eBX5N9SsujlIaGIZwykMojhtmfxyAH1m1Lt
- N5vzhBoqclk94moWNSFzbY9SJ/qA6h2juwTxvpK65l3F1+wCgzfpv3pSbqOmtGYbIp7J
- DUp3vWaZBwtVA3uv9LZ5zjMfnYRb3wFcTpTM6Nb+ilt6aXRhT3RxhpRWr/4W+L4ElE18
- WopB3w3Mwd8PzsI3Dm8iWlDXLsM/Z2Zo63ke2shrLCN+BgeE4VZbxOLJ4/xqJ47SBoV9
- JPXw==
-X-Gm-Message-State: APjAAAXqpOyg+f4F2ou0C6Zud/+uXfS8DilAuGISt/XlTcYaC22BwJ0m
- io+qtsrH0YXVIhqK+w9h7nqUUg==
-X-Google-Smtp-Source: APXvYqyin58dfoGmkrcR+0oj6G4rVylfKjqkSHZX5WE/1JHerRC2GQAUjkfl3U9yKFWbfii5zbbXyA==
-X-Received: by 2002:a17:902:8a87:: with SMTP id
- p7mr4384259plo.240.1567700295503; 
- Thu, 05 Sep 2019 09:18:15 -0700 (PDT)
+ bh=Ny7YX6BxIHZBg/a0IXvofczDmYcoW0RMjpIj9iNxGYI=;
+ b=FIsaXv/jEoLq0cfZ6BKq8AEN7AuOVuyhQTGpN63uqeqd9n6RL5hVSXT1VIfKiRIvS4
+ UdzLwtAPjdcBZTNvcphVrJYpsXaN1qAb7MqdXdtkJOxzWzwWd2AUcJQGJt1rUzZ3YaXm
+ UDlaePm+IqJZy3EhA3revKLKIn8gDzVDaenCLfFbhkPi7FmkMWbZOipDLeCkiCbskwiD
+ ohvd++rlfgJwG7bYf/W6P89jgmpIh0ZZfnkf/wfSUSotpONUB4X4vxAFcDIDU0LxVcxw
+ s+/50JNjFmGMlq1FU45y6xyj7zFbsqMt07uvnNyUDzA9j2RpSvi9BkyeUiLmMQUphMni
+ jUrg==
+X-Gm-Message-State: APjAAAWnjE74dhw+KF9JaKk/e/n6udC120+6EVJSWV0ErCw2llLgByvO
+ np9DJqyBwjBRnh80xICA3TZ/ng==
+X-Google-Smtp-Source: APXvYqwKA9IK1vUfcaYpjMN+OcoAuPYIhWjw5YDLjt28SgdQJQGNYVmg1+PKFIED4Sz9PCGNnWl8iw==
+X-Received: by 2002:aa7:920b:: with SMTP id 11mr4734304pfo.231.1567700296683; 
+ Thu, 05 Sep 2019 09:18:16 -0700 (PDT)
 Received: from xps15.cg.shawcable.net (S0106002369de4dac.cg.shawcable.net.
  [68.147.8.254])
- by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.14
+ by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Sep 2019 09:18:14 -0700 (PDT)
+ Thu, 05 Sep 2019 09:18:16 -0700 (PDT)
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
 To: stable@vger.kernel.org
-Subject: [BACKPORT 4.14.y 12/18] mailbox: reset txdone_method TXDONE_BY_POLL
- if client knows_txdone
-Date: Thu,  5 Sep 2019 10:17:53 -0600
-Message-Id: <20190905161759.28036-13-mathieu.poirier@linaro.org>
+Subject: [BACKPORT 4.14.y 13/18] ASoC: tlv320dac31xx: mark expected switch
+ fall-through
+Date: Thu,  5 Sep 2019 10:17:54 -0600
+Message-Id: <20190905161759.28036-14-mathieu.poirier@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190905_091816_174867_B7EA9182 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20190905_091818_109127_D3A45C93 
+X-CRM114-Status: GOOD (  10.74  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:642 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:52a listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -107,89 +106,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Sudeep Holla <sudeep.holla@arm.com>
+From: "Gustavo A. R. Silva" <garsilva@embeddedor.com>
 
-commit 33cd7123ac0ba5360656ae27db453de5b9aa711f upstream
+commit 09fc38c1af4cb888255e9ecf267bf9757c12885d upstream
 
-Currently the mailbox framework sets txdone_method to TXDONE_BY_POLL if
-the controller sets txdone_by_poll. However some clients can have a
-mechanism to do TXDONE_BY_ACK which they can specify by knows_txdone.
-However, we endup setting both TXDONE_BY_POLL and TXDONE_BY_ACK in that
-case. In such scenario, we may end up with below warnings as the tx
-ticker is run both by mailbox framework and the client.
+In preparation to enabling -Wimplicit-fallthrough, mark switch cases
+where we are expecting to fall through.
 
-WARNING: CPU: 1 PID: 0 at kernel/time/hrtimer.c:805 hrtimer_forward+0x88/0xd8
-CPU: 1 PID: 0 Comm: swapper/1 Not tainted 4.12.0-rc5 #242
-Hardware name: ARM LTD ARM Juno Development Platform
-task: ffff8009768ca700 task.stack: ffff8009768f8000
-PC is at hrtimer_forward+0x88/0xd8
-LR is at txdone_hrtimer+0xd4/0xf8
-Call trace:
- hrtimer_forward+0x88/0xd8
- __hrtimer_run_queues+0xe4/0x158
- hrtimer_interrupt+0xa4/0x220
- arch_timer_handler_phys+0x30/0x40
- handle_percpu_devid_irq+0x78/0x130
- generic_handle_irq+0x24/0x38
- __handle_domain_irq+0x5c/0xb8
- gic_handle_irq+0x54/0xa8
-
-This patch fixes the issue by resetting TXDONE_BY_POLL if client has set
-knows_txdone.
-
-Cc: Alexey Klimov <alexey.klimov@arm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-Signed-off-by: Jassi Brar <jaswinder.singh@linaro.org>
+Addresses-Coverity-ID: 1195220
+Signed-off-by: Gustavo A. R. Silva <garsilva@embeddedor.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- drivers/mailbox/mailbox.c | 4 ++--
- drivers/mailbox/pcc.c     | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ sound/soc/codecs/tlv320aic31xx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mailbox/mailbox.c b/drivers/mailbox/mailbox.c
-index 44b49a2676f0..055c90b8253c 100644
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -351,7 +351,7 @@ struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
- 	init_completion(&chan->tx_complete);
- 
- 	if (chan->txdone_method	== TXDONE_BY_POLL && cl->knows_txdone)
--		chan->txdone_method |= TXDONE_BY_ACK;
-+		chan->txdone_method = TXDONE_BY_ACK;
- 
- 	spin_unlock_irqrestore(&chan->lock, flags);
- 
-@@ -420,7 +420,7 @@ void mbox_free_channel(struct mbox_chan *chan)
- 	spin_lock_irqsave(&chan->lock, flags);
- 	chan->cl = NULL;
- 	chan->active_req = NULL;
--	if (chan->txdone_method == (TXDONE_BY_POLL | TXDONE_BY_ACK))
-+	if (chan->txdone_method == TXDONE_BY_ACK)
- 		chan->txdone_method = TXDONE_BY_POLL;
- 
- 	module_put(chan->mbox->dev->driver->owner);
-diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
-index 9b7005e1345e..27c2294be51a 100644
---- a/drivers/mailbox/pcc.c
-+++ b/drivers/mailbox/pcc.c
-@@ -266,7 +266,7 @@ struct mbox_chan *pcc_mbox_request_channel(struct mbox_client *cl,
- 	init_completion(&chan->tx_complete);
- 
- 	if (chan->txdone_method == TXDONE_BY_POLL && cl->knows_txdone)
--		chan->txdone_method |= TXDONE_BY_ACK;
-+		chan->txdone_method = TXDONE_BY_ACK;
- 
- 	spin_unlock_irqrestore(&chan->lock, flags);
- 
-@@ -312,7 +312,7 @@ void pcc_mbox_free_channel(struct mbox_chan *chan)
- 	spin_lock_irqsave(&chan->lock, flags);
- 	chan->cl = NULL;
- 	chan->active_req = NULL;
--	if (chan->txdone_method == (TXDONE_BY_POLL | TXDONE_BY_ACK))
-+	if (chan->txdone_method == TXDONE_BY_ACK)
- 		chan->txdone_method = TXDONE_BY_POLL;
- 
- 	spin_unlock_irqrestore(&chan->lock, flags);
+diff --git a/sound/soc/codecs/tlv320aic31xx.c b/sound/soc/codecs/tlv320aic31xx.c
+index d3bd0bf15ddb..cc95c15ceceb 100644
+--- a/sound/soc/codecs/tlv320aic31xx.c
++++ b/sound/soc/codecs/tlv320aic31xx.c
+@@ -941,7 +941,7 @@ static int aic31xx_set_dai_fmt(struct snd_soc_dai *codec_dai,
+ 	case SND_SOC_DAIFMT_I2S:
+ 		break;
+ 	case SND_SOC_DAIFMT_DSP_A:
+-		dsp_a_val = 0x1;
++		dsp_a_val = 0x1; /* fall through */
+ 	case SND_SOC_DAIFMT_DSP_B:
+ 		/*
+ 		 * NOTE: This CODEC samples on the falling edge of BCLK in
 -- 
 2.17.1
 
