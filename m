@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EF76AA888
-	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:20:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 62D11AA8B7
+	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:20:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,70 +11,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=nUTqp9/cZVEysOC2gSXvl8UOayAl6+NYgmIG7YjR2JQ=; b=jg5wonXKkjj5/JL5MDFgrwQ5Oi
-	yrpY3jDs2O+hn1rOSAdWORWPWGFCNa28f4BlPq2P+yLXlFcm8jMnSP81ETQAQZ6/pId+6FS0XJUM1
-	a/N++imqDywdLGpK1GxVw1x/y5CbSgdOxwDqDBheB+7MbvtKUsdcFli3Pe38rwDkQd4bmbjpI2SUF
-	iTW+2k4j4jTer56jLvIddrklO0ozZoE/G2ky2c8T5r8to3avOUv9IhBrUca6MB290m8IHfuC1vpro
-	Jnvd5Xu7TIeXlPC6GUDeWnzMRHp0hBFHuaJILTfdz8wcXWmmviaAbAozaHtt6tF9iPXqe9jDVvGTc
-	ZdG4tY8A==;
+	bh=XzRyxQN/6hbT8u31uAFpls02fklQQWaE8F+lYwyk46U=; b=eGrK1o0wNnRx8mgHylGYHj+q3Z
+	qP5K8gaF4suYWOQ1LLhtRy9FiUVoPoIKHEY/ZKghEqoQWAIy/8PM7U47FzPgDzpP3ZpmIH8VoLRjy
+	m0btiK69I6G4RQuDP2sk2tZP7E2x05mp2tPv23YNcoc1KKCN8XTHtDNEBREe38dhCsAMmK69FXMtE
+	4TlmCJLDnQSksGFBM/vO49yZERbRHwZ5v5b8/3+k9/5SMHk8pefDAUmDdtogiSOzkSq96YkBH2CqA
+	MRVOt/q91IwndJ6wFBI+nWkoH+DV5ptQoFV45Hn3qaxZGcpTLVEeyBpzA+UaNa/e6AGeZ3LC6j5xc
+	cgWa6LNA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5uUJ-0002x7-Qc; Thu, 05 Sep 2019 16:19:59 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1i5uUa-0003By-L5; Thu, 05 Sep 2019 16:20:16 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5uSZ-0000zM-Qn
+ id 1i5uSa-00011d-RC
  for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:14 +0000
-Received: by mail-pf1-x443.google.com with SMTP id x127so2068118pfb.7
- for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:11 -0700 (PDT)
+Received: by mail-pf1-x444.google.com with SMTP id x127so2068161pfb.7
+ for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=NoTtLr1lztWfrS92BUWnGWn3zk0jvQAYseg1lZWuSGs=;
- b=GFbERyZ9NRV2dkkLT4vQsg2O43TovjaGYNn6dZQb4zlipk1hrBEI93ONy4uCdy17BN
- qs6turZaX0cjL2hsvD0XQcPWWyT5eGXz7QIlN5q8rtchZ5viCWRBDwkHQ7obcrcC3Uar
- 1ortXnAwgQMvUwFZEFdfF67Zd3yS6nt3iV9SSsbRUiIhAZwUvGND/emO1CKYf2KWOr28
- VxlM82pRtImf20eiipHbpwiiWXaq0nZI2+bBsKhiaerAHkOFKlpVyiIpgMWISCo/STX0
- lWqLo+YlveCj4WJwPQ/Qdyw/LyipxCRHxudVAm/baaKD40BYKWBjg0PjlTT0keABvYme
- Sx5g==
+ bh=zGhRU3CF0nckn4q3RpFyAUKnMAipsfpJ2Ggo67IAKJc=;
+ b=Esj7f4QN25ld+Ovd4UPXhi2gSS9+Lzc1VVLMSaLedss00TUu/574n7510/KARXCZI3
+ 7W6vE5cd7uARf9ipf0Ags1oPwG3CFAYVMe29Tybo5a64c/5svbgUNtDOdTUTjtzJgzsk
+ BBVG0AUZqbY2eMEesm9XN02filAWjn0hrxTZtIA6mzGsPfn9CVvXwJMErc9ztNrFDZlQ
+ hSJdg6l4K5XNAYyr1Od0KnturBe85nLy/GTao8rjSvtfT1nPC/0vFWd+7bbID+jHlLNF
+ uVWRzrdTujIrO+oTLdms5SAw0eB7uKDL1CNjQPdxf+8SUROE+hX1TvIpDFBHgWNZSiuB
+ ++TA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=NoTtLr1lztWfrS92BUWnGWn3zk0jvQAYseg1lZWuSGs=;
- b=HMp7w+DO5jaLJEsH8+E62j1mUkudQpTvXCEYVDk3qLIdZ93UzyhYqRhnwMs6lpiDAj
- 3ciN0Efdr26gY3M2psNyMhCaLeGMBdbSmhPmp2GMOH69wvdJdufTQphd9t/dmCbzY1Tw
- 4iASeWY+Bft8va3Kays/mqRZMQe+234a9dFMfHXOsRgUZc/zHhL3qvZKwTeycmZquNZ+
- +RPZyNIbNZ0PVxNI0E6rnIZOsaymTiDIBoiKnxchQCvyPZjIIFPs2+tLvKSn8bXJzLQ/
- mZ6lFJtmqOdV43Ar2DdqbYCEK+Mpx53Hg9fF596eIBHPClQqA8HsUSxzjuU7nnOYBJJO
- uYAg==
-X-Gm-Message-State: APjAAAVdLQigey9LzRmyWINl8rrM4OdfDNefQ/kBdi0C5J5QalY+hd1V
- R54Qp95WPCT5d07lnSO6u1P6XUkZJ+8=
-X-Google-Smtp-Source: APXvYqxTYivq/efmoU5WtwxZv5cSxczPS7YC9boEJTkxinNAbnn0GjS2kdu7p4Li6YOQRyRvVr3Cpw==
-X-Received: by 2002:a63:60a:: with SMTP id 10mr3873993pgg.381.1567700290813;
- Thu, 05 Sep 2019 09:18:10 -0700 (PDT)
+ bh=zGhRU3CF0nckn4q3RpFyAUKnMAipsfpJ2Ggo67IAKJc=;
+ b=uFOAgoZH5kkREPoms8vOFKNK5r5QKEvMEOmZdWmG+aC4MPzTvqV4hxTXUObJ4Xw9FW
+ UXkpsui13wqgVxF0GMQvJLbowmw/gHoPQBfkw5vMQNg781q5lsU9JGa19+1Zu+mkv2LD
+ 4LofS4E9Dpshx8xwAJXLY2lwjS4jnoJVccfX54wqK6D9aiisgDJI6pK0VFW9YrTshr1c
+ YXLjdvRHFr7lCKO1l3rVJKaPY1WaN1h7TxdNwvi/3GdL1dTbTvbcH+Onu2w7+fC9wtWH
+ /LXn8M+AsONPu5ve9apFNQXrqdnDIglaQAeuIe63jd2UUyOe00BjGA24QhRv7UIFd6Td
+ 4czQ==
+X-Gm-Message-State: APjAAAW54eKKzuR2C/dR/4v6/f+bK9V/OfighzPKSNG6TLNipy+IAtqg
+ fy/Oq0H0uB4ZoKjtt4ZCv6AtVA==
+X-Google-Smtp-Source: APXvYqxNw7e1zU8HXSUIIVJJi/ZzjnAKR5k1wwrrYFe2F5hAHe78MAzfLAz3iUKxFfZDzG3VAqGKEA==
+X-Received: by 2002:a63:5f01:: with SMTP id t1mr3605020pgb.200.1567700292199; 
+ Thu, 05 Sep 2019 09:18:12 -0700 (PDT)
 Received: from xps15.cg.shawcable.net (S0106002369de4dac.cg.shawcable.net.
  [68.147.8.254])
- by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.09
+ by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.10
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Sep 2019 09:18:10 -0700 (PDT)
+ Thu, 05 Sep 2019 09:18:11 -0700 (PDT)
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
 To: stable@vger.kernel.org
-Subject: [BACKPORT 4.14.y 08/18] mtd: spi-nor: cadence-quadspi: add a delay in
- write sequence
-Date: Thu,  5 Sep 2019 10:17:49 -0600
-Message-Id: <20190905161759.28036-9-mathieu.poirier@linaro.org>
+Subject: [BACKPORT 4.14.y 09/18] misc: pci_endpoint_test: Prevent some integer
+ overflows
+Date: Thu,  5 Sep 2019 10:17:50 -0600
+Message-Id: <20190905161759.28036-10-mathieu.poirier@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190905_091811_948385_9F3A1F21 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20190905_091812_939033_4160E480 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:443 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -106,99 +107,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Vignesh R <vigneshr@ti.com>
+From: Dan Carpenter <dan.carpenter@oracle.com>
 
-commit 61dc8493bae9ba82a1c72edbc6c6065f6a94456a upstream
+commit 378f79cab12b669928f3a4037f023837ead2ce0c upstream
 
-As per 66AK2G02 TRM[1] SPRUHY8F section 11.15.5.3 Indirect Access
-Controller programming sequence, a delay equal to couple of QSPI master
-clock(~5ns) is required after setting CQSPI_REG_INDIRECTWR_START bit and
-writing data to the flash. Introduce a quirk flag CQSPI_NEEDS_WR_DELAY
-to handle this and set this flag for TI 66AK2G SoC.
+"size + max" can have an arithmetic overflow when we're allocating:
 
-[1]http://www.ti.com/lit/ug/spruhy8f/spruhy8f.pdf
+	orig_src_addr = dma_alloc_coherent(dev, size + alignment, ...
 
-Signed-off-by: Vignesh R <vigneshr@ti.com>
-Acked-by: Marek Vasut <marek.vasut@gmail.com>
-Signed-off-by: Cyrille Pitchen <cyrille.pitchen@wedev4u.fr>
+I've added a few checks to prevent that.
+
+Fixes: 13107c60681f ("misc: pci_endpoint_test: Add support to provide aligned buffer addresses")
+Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- drivers/mtd/spi-nor/cadence-quadspi.c | 27 ++++++++++++++++++++++++++-
- 1 file changed, 26 insertions(+), 1 deletion(-)
+ drivers/misc/pci_endpoint_test.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/mtd/spi-nor/cadence-quadspi.c b/drivers/mtd/spi-nor/cadence-quadspi.c
-index f22dd34f4f83..ff4edf4bb23c 100644
---- a/drivers/mtd/spi-nor/cadence-quadspi.c
-+++ b/drivers/mtd/spi-nor/cadence-quadspi.c
-@@ -38,6 +38,9 @@
- #define CQSPI_NAME			"cadence-qspi"
- #define CQSPI_MAX_CHIPSELECT		16
+diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
+index 9849bf183299..504fa680825d 100644
+--- a/drivers/misc/pci_endpoint_test.c
++++ b/drivers/misc/pci_endpoint_test.c
+@@ -226,6 +226,9 @@ static bool pci_endpoint_test_copy(struct pci_endpoint_test *test, size_t size)
+ 	u32 src_crc32;
+ 	u32 dst_crc32;
  
-+/* Quirks */
-+#define CQSPI_NEEDS_WR_DELAY		BIT(0)
++	if (size > SIZE_MAX - alignment)
++		goto err;
 +
- struct cqspi_st;
+ 	orig_src_addr = dma_alloc_coherent(dev, size + alignment,
+ 					   &orig_src_phys_addr, GFP_KERNEL);
+ 	if (!orig_src_addr) {
+@@ -311,6 +314,9 @@ static bool pci_endpoint_test_write(struct pci_endpoint_test *test, size_t size)
+ 	size_t alignment = test->alignment;
+ 	u32 crc32;
  
- struct cqspi_flash_pdata {
-@@ -76,6 +79,7 @@ struct cqspi_st {
- 	u32			fifo_depth;
- 	u32			fifo_width;
- 	u32			trigger_address;
-+	u32			wr_delay;
- 	struct cqspi_flash_pdata f_pdata[CQSPI_MAX_CHIPSELECT];
- };
++	if (size > SIZE_MAX - alignment)
++		goto err;
++
+ 	orig_addr = dma_alloc_coherent(dev, size + alignment, &orig_phys_addr,
+ 				       GFP_KERNEL);
+ 	if (!orig_addr) {
+@@ -369,6 +375,9 @@ static bool pci_endpoint_test_read(struct pci_endpoint_test *test, size_t size)
+ 	size_t alignment = test->alignment;
+ 	u32 crc32;
  
-@@ -623,6 +627,15 @@ static int cqspi_indirect_write_execute(struct spi_nor *nor,
- 	reinit_completion(&cqspi->transfer_complete);
- 	writel(CQSPI_REG_INDIRECTWR_START_MASK,
- 	       reg_base + CQSPI_REG_INDIRECTWR);
-+	/*
-+	 * As per 66AK2G02 TRM SPRUHY8F section 11.15.5.3 Indirect Access
-+	 * Controller programming sequence, couple of cycles of
-+	 * QSPI_REF_CLK delay is required for the above bit to
-+	 * be internally synchronized by the QSPI module. Provide 5
-+	 * cycles of delay.
-+	 */
-+	if (cqspi->wr_delay)
-+		ndelay(cqspi->wr_delay);
- 
- 	while (remaining > 0) {
- 		size_t write_words, mod_bytes;
-@@ -1184,6 +1197,7 @@ static int cqspi_probe(struct platform_device *pdev)
- 	struct cqspi_st *cqspi;
- 	struct resource *res;
- 	struct resource *res_ahb;
-+	unsigned long data;
- 	int ret;
- 	int irq;
- 
-@@ -1241,6 +1255,10 @@ static int cqspi_probe(struct platform_device *pdev)
- 	}
- 
- 	cqspi->master_ref_clk_hz = clk_get_rate(cqspi->clk);
-+	data  = (unsigned long)of_device_get_match_data(dev);
-+	if (data & CQSPI_NEEDS_WR_DELAY)
-+		cqspi->wr_delay = 5 * DIV_ROUND_UP(NSEC_PER_SEC,
-+						   cqspi->master_ref_clk_hz);
- 
- 	ret = devm_request_irq(dev, irq, cqspi_irq_handler, 0,
- 			       pdev->name, cqspi);
-@@ -1312,7 +1330,14 @@ static const struct dev_pm_ops cqspi__dev_pm_ops = {
- #endif
- 
- static const struct of_device_id cqspi_dt_ids[] = {
--	{.compatible = "cdns,qspi-nor",},
-+	{
-+		.compatible = "cdns,qspi-nor",
-+		.data = (void *)0,
-+	},
-+	{
-+		.compatible = "ti,k2g-qspi",
-+		.data = (void *)CQSPI_NEEDS_WR_DELAY,
-+	},
- 	{ /* end of table */ }
- };
- 
++	if (size > SIZE_MAX - alignment)
++		goto err;
++
+ 	orig_addr = dma_alloc_coherent(dev, size + alignment, &orig_phys_addr,
+ 				       GFP_KERNEL);
+ 	if (!orig_addr) {
 -- 
 2.17.1
 
