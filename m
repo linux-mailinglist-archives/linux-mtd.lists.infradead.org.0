@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF6AEAA847
-	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:19:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F24BAA848
+	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:19:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,69 +11,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=eGYWl3hbplHXOx0IlXVZ3CcbxXLRkeBP4/r1hKsfxWo=; b=cCzMK0YZWnu0YesfcFUfdK3aBg
-	ZyZYuSqYi4fD2AzBKE94SYj2b3buV+Cw9/ipAbrzI4y7iOUE5nvG4ue4l5FfuFP+ZnHig0kZ2QoKb
-	GNerGnkOv4pnhYxH0vrg65JyFpuezsWvSlW0P0HjN6W0b2qKjequywRnU3aHGyVnTAwIrZCKmQkY/
-	UWk+QjptyK7lxxnVnpj7rV1gyrkjKYc4CKmPAMzA3pjzk8mFfeziTd3+20zJYBd75p+duaQDOXgBM
-	jjgDQw7jEfLH1eV/y8clBTA0VhJ7EjtqURcZ/wk/ekHlIDDCdg5l1BAX5qFqgS9bEjFEJB49KvVg9
-	mpCyPA7w==;
+	bh=cjoVQ38UaKo6aeT5JFTs6YtIoig+lak31ZeiJeVA4ow=; b=BMomRVGmnZZ+tXb5i4EvmWfEM4
+	bzqNDRs4HFgb8yfQ9WS8KKoUzcth8g3Brxad525sxfewYKSsHJpzLzdrLe8KoYHTva6UbZ71ggG8m
+	Y08zMghIYAR5K+yCAFuTlYeMPeQ7u3cOxaI4IKHBVPbsGsBbNL4J/PixmPIU7MyAoU8NfXXACeVYe
+	jhTCaq2cLb7aw0g5f7KwKADSA58Ro8p3wbsumpq25RTdkVZ1cZTDSZBgGbytLGdzqEULLfdZN3rHK
+	7pL1D1ShyBkXJ83V/KUuYNkkJxqC9Fslalv+/iRGhqkcaIjlBxWMrfNNHYLtDgEgi1wcn5FFULdXK
+	EFigl6Ww==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5uTF-0001fZ-78; Thu, 05 Sep 2019 16:18:53 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1i5uTR-0001tA-RT; Thu, 05 Sep 2019 16:19:05 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5uST-0000qZ-Ah
- for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:06 +0000
-Received: by mail-pf1-x441.google.com with SMTP id h195so2075625pfe.5
- for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:05 -0700 (PDT)
+ id 1i5uSU-0000rM-Jy
+ for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:08 +0000
+Received: by mail-pf1-x444.google.com with SMTP id q5so2049678pfg.13
+ for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=L8hOfhOr51aqScCCWWbh9I9oRm+jyZZGT7N1Ouypdt4=;
- b=Kf9BCxH5tyFR8Sxb6davF0tw/g0BJcQ2LTgqYDRkCXe99lige8xFTOyajGrEfuPQ/R
- I0jfW+xyceHiuUmlk5yy9H/wHaQBHzqM6/NCd+6TYi2hTFJcP+V9Qy+4KG7IN1UQJXhm
- SHxD8duKsNPol28y9SdpztaPVTFslQB1ZJ4shENKHGBsNtllukJz/Fvv4h2tEY0T/gDA
- A2nAqicaFTIrh+VxqbojFsyy6M/2eC5AmJiZLPVyY+LXna6RGps4ro7SxWrWHOr8M3f3
- r5tzdOU8n4cY0b4Asgrm+yIMVuJn8WX1xgQ9ScuHQJtGCR5wLKwPCsSipBa/U9NOB1IX
- 2SLA==
+ bh=oxweDnammrNyIt2aaQLCe6r9vThCpXKTK19Q9yGm1E4=;
+ b=B+cZWsZuXFEQB01N9qcY/nKk7nFveM0bQSkHouQZ+2v8KRCDItQu12g91o55OqiDIl
+ SQnnn5r6vvZTn3KSmZR9+5rl9wxcTUw4H96aAEmGDnjJxx3uKAFfio+dNp5I+wQr3Vwe
+ gbXWR4hTOwsV+tXvAEB+6kyHio5Z54rthgV5q6RE89zhMs4lr/LJm01282eHycMXzU0z
+ U9a2VMJKcYvCVPouURNHnaM7gNG9pAlCnZKkh1Y0vrCEBkYcoJQ5dlKEJOS6mj8Rfcf/
+ 3BOqGGxylR2E7voPViPNnWEY2QFJ0exUKtekqdkZckIcT8g6oOqpENw3lQbrUEfCQSqK
+ d4Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=L8hOfhOr51aqScCCWWbh9I9oRm+jyZZGT7N1Ouypdt4=;
- b=T2msVtzzlvDseEywe+rhhY7KQh95GQppKxwLVUIatautrqpC/FuHPgpCSuqLpP0SVx
- +NoxRaFzKK6V5rCu502rpXPjXmnUHNfx9+UBRDYgcLYvV/alVsNyWh1zwrpQuLBiJI74
- cwFDGyB7ost2HhYaw2ODBqHCyKvLoeBUqai1ULAa2OALXYz8YMnCeD+tY1gDrXPBo0sc
- FdRB3w9eX8wgXy7ZrOByRAbiAYigv9v9Xhfx54TJ/0YHYFh8yGEYsg0aRBMNOXQsVBUP
- DqqLV9JXTHkkXRloycCn1W8gt8CqSG4mAANsom6uPqUDVvtPk0qM0cpiOy9Ge2bossUa
- Fg8A==
-X-Gm-Message-State: APjAAAV7vhChkDyJGZHOzRbp9HzRpJctYZPtSAoKkEK/mIgCENTX2Xk9
- BIrF9eZyaMMSn0rsbXTarWSH2g==
-X-Google-Smtp-Source: APXvYqzPIZoynm5wH2XSzFsQu6YuhHmdV6ACJ/jbefAUC4vneQ0qioQJzoA1wj/k15d4/pVhs+puhw==
-X-Received: by 2002:a63:df06:: with SMTP id u6mr3817337pgg.96.1567700284680;
- Thu, 05 Sep 2019 09:18:04 -0700 (PDT)
+ bh=oxweDnammrNyIt2aaQLCe6r9vThCpXKTK19Q9yGm1E4=;
+ b=DYi/gWo/kevNjlcfXde3qV4EJg1Me6XtWdx8sKyfeRFhfAcIkFAtYKF6KIVAj6d/ea
+ PWTTmrahF08bGu8dWoMzAMLvMQmTmNGGN001HXybjtGWLJDmaWWTQjvh8C0XpOwU5MAZ
+ zdNuuI+mKNfDuw51aHlqbd9y+ZbJDhvJ6PPi3bjmzppY0wPcxNbM8zuLo6aV8RaJe5iF
+ lV8zvuv3psVdRklC8fmOcE4asktkFzutBOAddrMeUNPkE7Yi7j4oNg5BM9V4rh1iaju/
+ NG+96zqtMHqIChOP/RxZM8K34a6d6x+Czpvtb67Kt6MBfgXY8XLT8Fa+s4+H0sleuoD0
+ WMKw==
+X-Gm-Message-State: APjAAAVFJmuXJMxRc3qwt17FjxYLd8My0KCl0DTthmEB0yOTc35irNJQ
+ gtuxD5SczVESXx0F2HWsM0uf/w==
+X-Google-Smtp-Source: APXvYqztrUm14X1kqPalVQhtzDPhMyl9ZuipQZ2gB9IH4meo0O8XJPRIpaw1CUbOHUi6IeHE59j1dQ==
+X-Received: by 2002:a17:90a:303:: with SMTP id 3mr4750663pje.124.1567700285921; 
+ Thu, 05 Sep 2019 09:18:05 -0700 (PDT)
 Received: from xps15.cg.shawcable.net (S0106002369de4dac.cg.shawcable.net.
  [68.147.8.254])
- by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.03
+ by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.04
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Sep 2019 09:18:04 -0700 (PDT)
+ Thu, 05 Sep 2019 09:18:05 -0700 (PDT)
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
 To: stable@vger.kernel.org
-Subject: [BACKPORT 4.14.y 03/18] drm/omap: panel-dsi-cm: fix driver
-Date: Thu,  5 Sep 2019 10:17:44 -0600
-Message-Id: <20190905161759.28036-4-mathieu.poirier@linaro.org>
+Subject: [BACKPORT 4.14.y 04/18] usb: dwc3: Allow disabling of metastability
+ workaround
+Date: Thu,  5 Sep 2019 10:17:45 -0600
+Message-Id: <20190905161759.28036-5-mathieu.poirier@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190905_091805_382351_4C679DDE 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20190905_091806_688984_EFBFADAF 
+X-CRM114-Status: GOOD (  12.01  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:441 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -105,128 +106,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Tony Lindgren <tony@atomide.com>
+From: Roger Quadros <rogerq@ti.com>
 
-commit e128310ddd379b0fdd21dc41d176c3b3505a0832 upstream
+commit 42bf02ec6e420e541af9a47437d0bdf961ca2972 upstream
 
-This adds support for get_timings() and check_timings()
-to get the driver working and properly initializes the
-timing information from DT.
+Some platforms (e.g. TI's DRA7 USB2 instance) have more trouble
+with the metastability workaround as it supports only
+a High-Speed PHY and the PHY can enter into an Erratic state [1]
+when the controller is set in SuperSpeed mode as part of
+the metastability workaround.
 
-Signed-off-by: Tony Lindgren <tony@atomide.com>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.co.uk>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ti.com>
+This causes upto 2 seconds delay in enumeration on DRA7's USB2
+instance in gadget mode.
+
+If these platforms can be better off without the workaround,
+provide a device tree property to suggest that so the workaround
+is avoided.
+
+[1] Device mode enumeration trace showing PHY Erratic Error.
+     irq/90-dwc3-969   [000] d...    52.323145: dwc3_event: event (00000901): Erratic Error [U0]
+     irq/90-dwc3-969   [000] d...    52.560646: dwc3_event: event (00000901): Erratic Error [U0]
+     irq/90-dwc3-969   [000] d...    52.798144: dwc3_event: event (00000901): Erratic Error [U0]
+
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Felipe Balbi <felipe.balbi@linux.intel.com>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- .../gpu/drm/omapdrm/displays/panel-dsi-cm.c   | 56 +++++++++++++++++--
- 1 file changed, 51 insertions(+), 5 deletions(-)
+ Documentation/devicetree/bindings/usb/dwc3.txt | 2 ++
+ drivers/usb/dwc3/core.c                        | 3 +++
+ drivers/usb/dwc3/core.h                        | 3 +++
+ drivers/usb/dwc3/gadget.c                      | 6 ++++--
+ 4 files changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/omapdrm/displays/panel-dsi-cm.c b/drivers/gpu/drm/omapdrm/displays/panel-dsi-cm.c
-index 92c556ac22c7..905b71719d65 100644
---- a/drivers/gpu/drm/omapdrm/displays/panel-dsi-cm.c
-+++ b/drivers/gpu/drm/omapdrm/displays/panel-dsi-cm.c
-@@ -25,6 +25,7 @@
- #include <linux/of_gpio.h>
+diff --git a/Documentation/devicetree/bindings/usb/dwc3.txt b/Documentation/devicetree/bindings/usb/dwc3.txt
+index 52fb41046b34..44e8bab159ad 100644
+--- a/Documentation/devicetree/bindings/usb/dwc3.txt
++++ b/Documentation/devicetree/bindings/usb/dwc3.txt
+@@ -47,6 +47,8 @@ Optional properties:
+ 			from P0 to P1/P2/P3 without delay.
+  - snps,dis-tx-ipgap-linecheck-quirk: when set, disable u2mac linestate check
+ 			during HS transmit.
++ - snps,dis_metastability_quirk: when set, disable metastability workaround.
++			CAUTION: use only if you are absolutely sure of it.
+  - snps,is-utmi-l1-suspend: true when DWC3 asserts output signal
+ 			utmi_l1_suspend_n, false when asserts utmi_sleep_n
+  - snps,hird-threshold: HIRD threshold
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index 945330ea8d5c..9b093978bd24 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -1115,6 +1115,9 @@ static void dwc3_get_properties(struct dwc3 *dwc)
+ 	device_property_read_u32(dev, "snps,quirk-frame-length-adjustment",
+ 				 &dwc->fladj);
  
- #include <video/mipi_display.h>
-+#include <video/of_display_timing.h>
++	dwc->dis_metastability_quirk = device_property_read_bool(dev,
++				"snps,dis_metastability_quirk");
++
+ 	dwc->lpm_nyet_threshold = lpm_nyet_threshold;
+ 	dwc->tx_de_emphasis = tx_de_emphasis;
  
- #include "../dss/omapdss.h"
+diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
+index abd1142c9e4d..40bf0e0768d9 100644
+--- a/drivers/usb/dwc3/core.h
++++ b/drivers/usb/dwc3/core.h
+@@ -869,6 +869,7 @@ struct dwc3_scratchpad_array {
+  * 	1	- -3.5dB de-emphasis
+  * 	2	- No de-emphasis
+  * 	3	- Reserved
++ * @dis_metastability_quirk: set to disable metastability quirk.
+  * @imod_interval: set the interrupt moderation interval in 250ns
+  *                 increments or 0 to disable.
+  */
+@@ -1025,6 +1026,8 @@ struct dwc3 {
+ 	unsigned		tx_de_emphasis_quirk:1;
+ 	unsigned		tx_de_emphasis:2;
  
-@@ -1099,6 +1100,36 @@ static void dsicm_ulps_work(struct work_struct *work)
- 	mutex_unlock(&ddata->lock);
- }
++	unsigned		dis_metastability_quirk:1;
++
+ 	u16			imod_interval;
+ };
  
-+static void dsicm_get_timings(struct omap_dss_device *dssdev,
-+			      struct videomode *vm)
-+{
-+	struct panel_drv_data *ddata = to_panel_data(dssdev);
-+
-+	*vm = ddata->vm;
-+}
-+
-+static int dsicm_check_timings(struct omap_dss_device *dssdev,
-+			       struct videomode *vm)
-+{
-+	struct panel_drv_data *ddata = to_panel_data(dssdev);
-+	int ret = 0;
-+
-+	if (vm->hactive != ddata->vm.hactive)
-+		ret = -EINVAL;
-+
-+	if (vm->vactive != ddata->vm.vactive)
-+		ret = -EINVAL;
-+
-+	if (ret) {
-+		dev_warn(dssdev->dev, "wrong resolution: %d x %d",
-+			 vm->hactive, vm->vactive);
-+		dev_warn(dssdev->dev, "panel resolution: %d x %d",
-+			 ddata->vm.hactive, ddata->vm.vactive);
-+	}
-+
-+	return ret;
-+}
-+
- static struct omap_dss_driver dsicm_ops = {
- 	.connect	= dsicm_connect,
- 	.disconnect	= dsicm_disconnect,
-@@ -1109,6 +1140,9 @@ static struct omap_dss_driver dsicm_ops = {
- 	.update		= dsicm_update,
- 	.sync		= dsicm_sync,
+diff --git a/drivers/usb/dwc3/gadget.c b/drivers/usb/dwc3/gadget.c
+index 1b99d44e52b9..5916340c4162 100644
+--- a/drivers/usb/dwc3/gadget.c
++++ b/drivers/usb/dwc3/gadget.c
+@@ -2034,7 +2034,8 @@ static void dwc3_gadget_set_speed(struct usb_gadget *g,
+ 	 * STAR#9000525659: Clock Domain Crossing on DCTL in
+ 	 * USB 2.0 Mode
+ 	 */
+-	if (dwc->revision < DWC3_REVISION_220A) {
++	if (dwc->revision < DWC3_REVISION_220A &&
++	    !dwc->dis_metastability_quirk) {
+ 		reg |= DWC3_DCFG_SUPERSPEED;
+ 	} else {
+ 		switch (speed) {
+@@ -3265,7 +3266,8 @@ int dwc3_gadget_init(struct dwc3 *dwc)
+ 	 * is less than super speed because we don't have means, yet, to tell
+ 	 * composite.c that we are USB 2.0 + LPM ECN.
+ 	 */
+-	if (dwc->revision < DWC3_REVISION_220A)
++	if (dwc->revision < DWC3_REVISION_220A &&
++	    !dwc->dis_metastability_quirk)
+ 		dev_info(dwc->dev, "changing max_speed on rev %08x\n",
+ 				dwc->revision);
  
-+	.get_timings	= dsicm_get_timings,
-+	.check_timings	= dsicm_check_timings,
-+
- 	.enable_te	= dsicm_enable_te,
- 	.get_te		= dsicm_get_te,
- 
-@@ -1120,7 +1154,8 @@ static int dsicm_probe_of(struct platform_device *pdev)
- 	struct device_node *node = pdev->dev.of_node;
- 	struct panel_drv_data *ddata = platform_get_drvdata(pdev);
- 	struct omap_dss_device *in;
--	int gpio;
-+	struct display_timing timing;
-+	int gpio, err;
- 
- 	gpio = of_get_named_gpio(node, "reset-gpios", 0);
- 	if (!gpio_is_valid(gpio)) {
-@@ -1137,6 +1172,17 @@ static int dsicm_probe_of(struct platform_device *pdev)
- 		return gpio;
- 	}
- 
-+	err = of_get_display_timing(node, "panel-timing", &timing);
-+	if (!err) {
-+		videomode_from_timing(&timing, &ddata->vm);
-+		if (!ddata->vm.pixelclock)
-+			ddata->vm.pixelclock =
-+				ddata->vm.hactive * ddata->vm.vactive * 60;
-+	} else {
-+		dev_warn(&pdev->dev,
-+			 "failed to get video timing, using defaults\n");
-+	}
-+
- 	in = omapdss_of_find_source_for_first_ep(node);
- 	if (IS_ERR(in)) {
- 		dev_err(&pdev->dev, "failed to find video source\n");
-@@ -1171,14 +1217,14 @@ static int dsicm_probe(struct platform_device *pdev)
- 	if (!pdev->dev.of_node)
- 		return -ENODEV;
- 
--	r = dsicm_probe_of(pdev);
--	if (r)
--		return r;
--
- 	ddata->vm.hactive = 864;
- 	ddata->vm.vactive = 480;
- 	ddata->vm.pixelclock = 864 * 480 * 60;
- 
-+	r = dsicm_probe_of(pdev);
-+	if (r)
-+		return r;
-+
- 	dssdev = &ddata->dssdev;
- 	dssdev->dev = dev;
- 	dssdev->driver = &dsicm_ops;
 -- 
 2.17.1
 
