@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68D50AA87A
-	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:19:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B713BAA87B
+	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 18:19:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,70 +11,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=M87R1B83CdvCffRmdlG/Mhks+Wha362vswolhcqWNWM=; b=D65NNRJiCh/MHqtxQnfb7cnnPz
-	o75RXiyghXQuuQfir2++HEoNIBdLRVETJe98qkdh7pEB3z8SwI/nZNj66mH6dBGeqpyIIyQMkDOQc
-	cTvKmMC9OSrDoSenFiwdu0dwZ7LfqDN/CcGNiT11BMud4wZgPC2GnEt3DX3zosB2xIhxqx4LYXBUC
-	IFxB5AG5Hsu10gsTWjR/bibPTwh1bUWB9Azecd/bcB4KDvPRZiUOwTyXZLEOKfDWV0l85OBdYXJ18
-	E1ksjNeJG//PVjQGuU9WGwuuusTp83PCliYeQD5caF+oS0EolpYPlv3ocySp3p8uQH+fZPzKeve8S
-	9qr3d8AQ==;
+	bh=bL0r9qSqNY2c/wadfLI9ad4/Sxs+JeLfxcV7ayaqmxQ=; b=mN4GOm/D0gB+A7M7A1j/oTtNnj
+	yJXTRpovn08Yh0a5yQI8j7wmrBiVr/mo17ULOUmoRTTQoDI6S76dypTVi0ALoIBxKr+KMQt9eIruH
+	ItM9XN08EqeLW28k9pdPKBPonUGbvUh6tA08/LO0WP+bSlBu5d38iuLbXZu5tuQKccTGDFdBSrGOQ
+	6oT3nRtF5AHfFnsCocYyNn/GuPfl7xkzNlmM3sNeXgNqJk1Jz+2TEkAjywR2vY3g1zNr20zH+i5tr
+	vDO+7mAMWuxM4okH3Pvwq1NXq3JKMNsRVGDm/HTPEm76RXWcf8hakbYvrfZiBUzVTmhyBu+RjgPUZ
+	gqrpFBkw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5uTu-0002OV-0I; Thu, 05 Sep 2019 16:19:34 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1i5uU8-0002iR-7Z; Thu, 05 Sep 2019 16:19:48 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5uSX-0000vA-4c
- for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:10 +0000
-Received: by mail-pf1-x444.google.com with SMTP id h195so2075742pfe.5
- for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:09 -0700 (PDT)
+ id 1i5uSZ-0000x9-0c
+ for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 16:18:12 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id n4so1692081pgv.2
+ for <linux-mtd@lists.infradead.org>; Thu, 05 Sep 2019 09:18:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=rjuaqfgsXjJPwAACoDEoQUxKOEl2ZmoHXoDNdOHfK/8=;
- b=DhtZCS6pEqVXAANTeuPn229D+BZX3X67QaHqNgnEKoio/f3XFGIKudVgM5FDU+7o8L
- nQ6C8zCJpGUG562Tdrhhk+jzdjUxPEUMlyMrosXluqm8s7BPYWWQ2Sfl8GPdcyN3+vz3
- WgC0nx5vQPM/ac0gkVSlnhW9uet9jY41HdO0XoqnQ4dQQgwZRDvRXdAX5pdKiXWoz78p
- gJ/gB20nx7nFBvvCBuWrSZgl46CenVN2LnP6ZluOUqhvk/2lQx7TA+V1EqPfUJ0tOjn4
- d9umZlIflwKbjOrolidHP4+2mwXkt5JzsO/HIsQg2gt2s/+L0G/cpcGqNlGMyilyzdUy
- uaqw==
+ bh=/ld8MsvJyHX4xiXhT/vACY8V+T9SsrvyxVWLxkWmOHw=;
+ b=XT3Az7zzBbgbLvMexBlhl28H1zweak4MTFSDW4Z2X3Ha/QND0Bs7fu1GlJQslffzeB
+ LWlUlyWIAmzVk/+mUyPdD+4nZwAO9nk1ji12txKMyNEST223rFfRlFB6AeFPMZvq7wy/
+ tXFpIGd7WBH3k/q538r3XaFEMh0s3bPPDl3wPolk9LypaKTfGB6UzVKsLLeAS07gj1rn
+ fdweJBOKtEZq8Zmfgu1NcESYEF48FPKrzvVBBc5+gyUyrbJ//dUWwgy6OH85myV+ToOC
+ HgL1kn+e4YWS/JFJ4yB6alQ12JjDhFV87for4spwtn7BdUdPfyqfJYpWsYs/lzpIIiIM
+ 3BKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=rjuaqfgsXjJPwAACoDEoQUxKOEl2ZmoHXoDNdOHfK/8=;
- b=ujnxEjKSRG/xoEwbtwm8HHmDIqeZN5tW+wETkD3cBvXrkKBdWEPmA7IBPYiuFRHbRo
- D+BKydYSpdBBkXnLA2/PkRl7iZoF1Im6Dw4auYIvqk7TU2YRLKUoEim8UpkNlE3L93wl
- OdrnR0kSy2WIK8I1O6b6mm1GtElPq4rmSQWqop/adJFXwmLJNxjQ1htlaDnJudxdbhrg
- LlCiLTzlHeja7HseuD07eEfP+0W064BOAyntybSluGoCRPFo0VzkTNg2JxvEotL9d6Ua
- ui6vUji1FeJH3oEH9erX53uiEXwl525cvCVbrGq4O+FwpNur1d5Fw8qhLoZJQ06iRzHw
- DrHw==
-X-Gm-Message-State: APjAAAUoMKMa7gUOxDXOqOdrHo6VE7IfHbrUyflQG2O5k7UIAb4tiN32
- 7vwdAFSIYaVI+Xzjj5/+0KFzJA==
-X-Google-Smtp-Source: APXvYqwjC/u78z/zaGM+j2+m/kS1EooYMEgWtfeDDH4gvURdMNHJyy5MyPkUpGOGmsnrWffGg8MToQ==
-X-Received: by 2002:a63:394:: with SMTP id 142mr3929328pgd.43.1567700288547;
- Thu, 05 Sep 2019 09:18:08 -0700 (PDT)
+ bh=/ld8MsvJyHX4xiXhT/vACY8V+T9SsrvyxVWLxkWmOHw=;
+ b=qHF0IlrqKcfBlICbAEAhFnUayrHuY+QtSr0uUgBUTz/Yuitt2DM3yMdrP3hMjBVe/T
+ 3D7eYf2rxE2vYz2sgJI3NjQXaR+wNewg9UldbgJAEloCXAB9YqdjmjwK9l4Y8helv1Nj
+ c3Z+rsZbjLs+XuBsxD6NUhUQcgrhDWvYkRRI7dgTwhPVf4UALkz0PHWIelBX2/WYIvVz
+ hyPOBFY5NE/qRVtBjA0dUrUF0tprFIKI+orGZXvqI28NXO8O+wocHUKkWMzRTr4CG8JW
+ 3y2RZQ9fxj4ua0E5szeksp0ZlDRa24RVE6UauhgN6nKH99IgVyokBxXafpMQkyi3JPUB
+ CF3w==
+X-Gm-Message-State: APjAAAUTtUlfJpzQjV7eZVFsLBDk4fN4+50NeTVCEQFIUpghCqdr1kXz
+ 36Y1zzZQZE7DNFHM4Z2Hop3jYg==
+X-Google-Smtp-Source: APXvYqwbHY2l3Y3RI4VI6wb4Zy7sVNDjcmdxm+p9Gx0FC6W1QaFVP9fXezb7/YJ8ZduZPS1+K7YUJg==
+X-Received: by 2002:a63:2364:: with SMTP id u36mr3780682pgm.449.1567700289680; 
+ Thu, 05 Sep 2019 09:18:09 -0700 (PDT)
 Received: from xps15.cg.shawcable.net (S0106002369de4dac.cg.shawcable.net.
  [68.147.8.254])
- by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.07
+ by smtp.gmail.com with ESMTPSA id m129sm6324005pga.39.2019.09.05.09.18.08
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 05 Sep 2019 09:18:08 -0700 (PDT)
+ Thu, 05 Sep 2019 09:18:09 -0700 (PDT)
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
 To: stable@vger.kernel.org
-Subject: [BACKPORT 4.14.y 06/18] ASoC: tlv320aic31xx: Handle inverted BCLK in
- non-DSP modes
-Date: Thu,  5 Sep 2019 10:17:47 -0600
-Message-Id: <20190905161759.28036-7-mathieu.poirier@linaro.org>
+Subject: [BACKPORT 4.14.y 07/18] mtd: spi-nor: enable 4B opcodes for
+ mx66l51235l
+Date: Thu,  5 Sep 2019 10:17:48 -0600
+Message-Id: <20190905161759.28036-8-mathieu.poirier@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190905_091809_306011_CBDDDEA2 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20190905_091811_071603_CD521F00 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:52e listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -106,68 +107,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: "Andrew F. Davis" <afd@ti.com>
+From: Roman Yeryomin <leroi.lists@gmail.com>
 
-commit dcb407b257af06fa58b0544ec01ec9e0d3927e02 upstream
+commit d342b6a973af459f6104cad6effc8efc71a0558d upstream
 
-Currently BCLK inverting is only handled when the DAI format is
-DSP, but the BCLK may be inverted in any supported mode. Without
-this using this CODEC in any other mode than DSP with the BCLK
-inverted leads to bad sampling timing and very poor audio quality.
-
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Roman Yeryomin <roman@advem.lv>
+Signed-off-by: Cyrille Pitchen <cyrille.pitchen@wedev4u.fr>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 ---
- sound/soc/codecs/tlv320aic31xx.c | 28 ++++++++++++++++++----------
- 1 file changed, 18 insertions(+), 10 deletions(-)
+ drivers/mtd/spi-nor/spi-nor.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/sound/soc/codecs/tlv320aic31xx.c b/sound/soc/codecs/tlv320aic31xx.c
-index 54a87a905eb6..d3bd0bf15ddb 100644
---- a/sound/soc/codecs/tlv320aic31xx.c
-+++ b/sound/soc/codecs/tlv320aic31xx.c
-@@ -924,6 +924,18 @@ static int aic31xx_set_dai_fmt(struct snd_soc_dai *codec_dai,
- 		return -EINVAL;
- 	}
- 
-+	/* signal polarity */
-+	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
-+	case SND_SOC_DAIFMT_NB_NF:
-+		break;
-+	case SND_SOC_DAIFMT_IB_NF:
-+		iface_reg2 |= AIC31XX_BCLKINV_MASK;
-+		break;
-+	default:
-+		dev_err(codec->dev, "Invalid DAI clock signal polarity\n");
-+		return -EINVAL;
-+	}
-+
- 	/* interface format */
- 	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
- 	case SND_SOC_DAIFMT_I2S:
-@@ -931,16 +943,12 @@ static int aic31xx_set_dai_fmt(struct snd_soc_dai *codec_dai,
- 	case SND_SOC_DAIFMT_DSP_A:
- 		dsp_a_val = 0x1;
- 	case SND_SOC_DAIFMT_DSP_B:
--		/* NOTE: BCLKINV bit value 1 equas NB and 0 equals IB */
--		switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
--		case SND_SOC_DAIFMT_NB_NF:
--			iface_reg2 |= AIC31XX_BCLKINV_MASK;
--			break;
--		case SND_SOC_DAIFMT_IB_NF:
--			break;
--		default:
--			return -EINVAL;
--		}
-+		/*
-+		 * NOTE: This CODEC samples on the falling edge of BCLK in
-+		 * DSP mode, this is inverted compared to what most DAIs
-+		 * expect, so we invert for this mode
-+		 */
-+		iface_reg2 ^= AIC31XX_BCLKINV_MASK;
- 		iface_reg1 |= (AIC31XX_DSP_MODE <<
- 			       AIC31XX_IFACE1_DATATYPE_SHIFT);
- 		break;
+diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+index 34ecc12ee3d9..6c013341ef09 100644
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -1030,7 +1030,7 @@ static const struct flash_info spi_nor_ids[] = {
+ 	{ "mx25l25635e", INFO(0xc22019, 0, 64 * 1024, 512, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+ 	{ "mx25u25635f", INFO(0xc22539, 0, 64 * 1024, 512, SECT_4K | SPI_NOR_4B_OPCODES) },
+ 	{ "mx25l25655e", INFO(0xc22619, 0, 64 * 1024, 512, 0) },
+-	{ "mx66l51235l", INFO(0xc2201a, 0, 64 * 1024, 1024, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
++	{ "mx66l51235l", INFO(0xc2201a, 0, 64 * 1024, 1024, SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES) },
+ 	{ "mx66u51235f", INFO(0xc2253a, 0, 64 * 1024, 1024, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES) },
+ 	{ "mx66l1g45g",  INFO(0xc2201b, 0, 64 * 1024, 2048, SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ) },
+ 	{ "mx66l1g55g",  INFO(0xc2261b, 0, 64 * 1024, 2048, SPI_NOR_QUAD_READ) },
 -- 
 2.17.1
 
