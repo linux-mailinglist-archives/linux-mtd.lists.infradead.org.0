@@ -2,122 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EEDDA780C
-	for <lists+linux-mtd@lfdr.de>; Wed,  4 Sep 2019 03:15:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1689FA9803
+	for <lists+linux-mtd@lfdr.de>; Thu,  5 Sep 2019 03:28:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Nk3yG7C1fR0dYhLXIEFqU53wKAKWewXhELYVreUlJUU=; b=hnOp+iwu7v6gzP
-	2XUkLHwlZootRocmv65wZspTW1es61TpeKZbd/IGxkh6DMN05SdKWV+9uRh9Gab/pQhliDQOPHcJs
-	H5kel1tB3zpvWDg3C1EfuB3gZzxiTWfZxbIq5BqBsFJFbhKAStff32s0PqQ8Bd//9InHCvu/6vwHF
-	CO1bvBddx4sUwTmh0vxFEsC+tf6PxSnFbx05prdPjDVNNP3omIYBrkW3PRL7JiaupPXZjV4iwnfwi
-	2AQse6iFnsJTBbMv2OUixYc6aaCfl3CSdJOsMATPFWScKunfhF1AVZspRH+wLSHMZ1TRjR0QsTz9D
-	QLJGcRC4fYBkU/KEMAoA==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=IhuZjbf0dMvdPb9nxVjcB4xQj933wZKonWhRCAgWGRA=; b=mzN
+	ZaE6BUNY7tHOfd6jQIhc5UtOUyYFNJhFcQycvvcCxhuJIFUAfwBLyhguCmogda7hpU7aN8YfRpSe+
+	sIkyFFG4msFqvN4BUuwwjB6uKY4Erwu3yQ6WaOXn01JE98eeasfdxHPzE76hyrCReZieyowDttWqn
+	qkULtZIikgmXb9sxYDI7iiVWE1mikES3N2hBgUzqnj21fwUt2VkgGr1xZlMrpSNdvApHJfzVl/Zqv
+	RF6bBzwNJWDMI+11DjBJBCSikci9RjY2d6u+jEHGmOTmdBdRyRZoycIYCt+lPyZIFx7lhI0QQIAYQ
+	Pp0HI4eO5Cc221MU8nXpdZ+stHhsBLw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5Jtk-0006Oo-0v; Wed, 04 Sep 2019 01:15:48 +0000
-Received: from mail-eopbgr730115.outbound.protection.outlook.com
- ([40.107.73.115] helo=NAM05-DM3-obe.outbound.protection.outlook.com)
+	id 1i5gZ9-0006O7-9H; Thu, 05 Sep 2019 01:28:03 +0000
+Received: from mail-io1-xd33.google.com ([2607:f8b0:4864:20::d33])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5JtP-0006Dx-G1
- for linux-mtd@lists.infradead.org; Wed, 04 Sep 2019 01:15:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=R4m3+zKbmIxiGw1eIJoRkhJ2WixwVYqkM8sMOkk/LJ/AN5JMriBBN+bG/oico7RvRUBS8gh7EXK9Z59uxTJ+8ErOQG1X9lRpZaE2HuXfmc409N7vVEt6hsgPglPjqGGCqLl/MojyN2zO/M4tqy6Lqg2qFAwm/CNxdHchkNATz/Vu4dC1VEp7phg3034TVDr4K6orH5F8qO9V1TTPybeF6e9uoVVZ+I1Y6Y4ZUngFB75Anyfz6VFNEqzURuB17oZsoDo4Wq8Et9AK0IWrs6Ict8Og+DmNdauubrBMJpvKw26DummJl/QPIRbMWeYeLA1ruOnmnR0W/vuZSHUbZiVkoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3babSxIq1AkDW/tby+yaJXBIM7rOnActahUZ7Do/CEU=;
- b=l90r9olf9NX32HPJxiU0Tz5EwWcxiAZJARmlTHd3UpdIgmtnYYjy4JoM7i01b766jqhkzggbbdOpWdxFjA9o0pq2RpCGvEb0YcHNNJ4Vzs21eSSgjVXJqKAl9Dks0PR6D4YSCHDvUkidzQB/Y+SFZqSr4xjwbZBNYwfEF9EJb9oTinne/2auQQqlIEq9Ob1N/yRAG8ltYw1k2pqkLfS2Xmw6uaWpkWQeEDqE9Ph04AlTCDL8lDc6hzyvldm6TJGJN3zjGaaGWofEpMRsJr4fkt0WDpxMzs5fJ6VCKRje6zXTbq0TrEjRmer4wlG+z6TdUiCNR71NZELFsNzh8M1E2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fortanix.com; dmarc=pass action=none header.from=fortanix.com;
- dkim=pass header.d=fortanix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=fortanix.onmicrosoft.com; s=selector2-fortanix-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3babSxIq1AkDW/tby+yaJXBIM7rOnActahUZ7Do/CEU=;
- b=HVGCUZYMzwbcr/8uMu09tXM3e+2YdUYKEr+8aCqwRISVVDJY8qqNOoeP1ZlZqmCN3vKTfDFb7dPdmFH+vSzej7pPX/9juo8Ba5ZZ6hRVTwlu0elZAN70blEBm4UR5bdlEd9tPBStD1LlOUaWGCoHhJQBD7VRvXt6S7yFMM7imsc=
-Received: from DM5PR1101MB2348.namprd11.prod.outlook.com (10.173.174.144) by
- DM5PR1101MB2089.namprd11.prod.outlook.com (10.174.106.12) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2220.18; Wed, 4 Sep 2019 01:15:25 +0000
-Received: from DM5PR1101MB2348.namprd11.prod.outlook.com
- ([fe80::798a:dabe:a59f:bb42]) by DM5PR1101MB2348.namprd11.prod.outlook.com
- ([fe80::798a:dabe:a59f:bb42%6]) with mapi id 15.20.2220.022; Wed, 4 Sep 2019
- 01:15:25 +0000
-From: Jethro Beekman <jethro@fortanix.com>
-To: Marek Vasut <marek.vasut@gmail.com>, Tudor Ambarus
- <tudor.ambarus@microchip.com>, David Woodhouse <dwmw2@infradead.org>, Brian
- Norris <computersforpeace@gmail.com>, Miquel Raynal
- <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, Vignesh
- Raghavendra <vigneshr@ti.com>, Allison Randal <allison@lohutok.net>, Thomas
- Gleixner <tglx@linutronix.de>, Jethro Beekman <jethro@fortanix.com>, Enrico
- Weigelt <info@metux.net>, Mika Westerberg <mika.westerberg@linux.intel.com>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/2] mtd: spi-nor: intel-spi: add support for Intel Cannon
- Lake SPI flash
-Thread-Topic: [PATCH v2 2/2] mtd: spi-nor: intel-spi: add support for Intel
- Cannon Lake SPI flash
-Thread-Index: AQHVYr46w+9V00BKOEGkHvwLMfTVVQ==
-Date: Wed, 4 Sep 2019 01:15:24 +0000
-Message-ID: <d62dec18-fed4-7ac5-35c8-25f1be2201a9@fortanix.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: BY5PR13CA0004.namprd13.prod.outlook.com
- (2603:10b6:a03:180::17) To DM5PR1101MB2348.namprd11.prod.outlook.com
- (2603:10b6:3:a8::16)
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=jethro@fortanix.com; 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [67.207.107.146]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 703ba343-f697-440b-4259-08d730d55d55
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600166)(711020)(4605104)(1401327)(2017052603328)(7193020);
- SRVR:DM5PR1101MB2089; 
-x-ms-traffictypediagnostic: DM5PR1101MB2089:
-x-ms-exchange-purlcount: 1
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <DM5PR1101MB2089542C07D553CD6D31BC3EAAB80@DM5PR1101MB2089.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:1360;
-x-forefront-prvs: 0150F3F97D
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10019020)(366004)(376002)(396003)(346002)(39840400004)(136003)(189003)(199004)(7736002)(25786009)(3846002)(14454004)(2906002)(6486002)(52116002)(5660300002)(6116002)(81166006)(81156014)(31696002)(8676002)(2201001)(508600001)(99286004)(966005)(86362001)(6436002)(8936002)(305945005)(316002)(66066001)(36756003)(31686004)(110136005)(6306002)(386003)(71190400001)(1250700005)(6506007)(71200400001)(6512007)(66476007)(66556008)(64756008)(66446008)(102836004)(7416002)(66946007)(53936002)(476003)(2616005)(486006)(256004)(2501003)(186003)(26005)(921003)(1121003);
- DIR:OUT; SFP:1102; SCL:1; SRVR:DM5PR1101MB2089;
- H:DM5PR1101MB2348.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; MX:1; A:1; 
-received-spf: None (protection.outlook.com: fortanix.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: VajoxocxbQvxkhu3iHF1V8J+SZaGkolrd4G9Fpw1NM0ety56xYzhMPD3aIB1Bb247BoJ+dsFRXKnpCjg0BHZitK0KNUl2PNNpthbU6dTnme38BxJoTbG6CwRMpzkHRociSwPZGI8XJHbxtB8xPIqstaTzl7E7dIPsPAIIP/L0bMQHQmAyIackbGoEx+fst0bSX5C94imcdmAxfD+qPn+cQRtfVDJ0he0SqUB1tjkC6OaosRH/3MVLGwzvs9tTk8wwOohoaW9VZvC18LDxqgMFjS5653RWoMNJCNGHWAAAXB/xwjpuWYFA4pWRzhw8ss6V4sR3XxvHWIgca70oa8iZ+Q0JtJjL4PYMFKZOrwUO2nh3thc8gXY9F1LsMASULiyY6+j4Ab7TCWsTA8rUSVtDOXbnUSU7TZFDrt8B+zMMEQ=
-Content-ID: <33C4A7B5C732A749BCA6F17301106DDF@namprd11.prod.outlook.com>
+ id 1i5gYu-0006Nl-08
+ for linux-mtd@lists.infradead.org; Thu, 05 Sep 2019 01:27:49 +0000
+Received: by mail-io1-xd33.google.com with SMTP id j4so887193iog.11
+ for <linux-mtd@lists.infradead.org>; Wed, 04 Sep 2019 18:27:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=LxGiNonMfD8+JXm5WVocaD115u2yc9iIUJuFM4FEwFI=;
+ b=dhXFV/Bg/p03wnqQD35oJm2jKaoYAQYIeUbk+9PZYPv1+kCqB/F6orODPbPT2W5zc3
+ ZiPgojhPcssl0p09Sr18emUdQo7Z6/6ICbffnPbPNW5yZIpB2qX92ig9GPHan57qDCjF
+ kmw+owT3iDBZA8gLWcLP28w+xKgSPfFyML8vmBbKgemMqDCNuY8HQbHyWoCI3P9ndXx1
+ 0VcmYk92GOZ2qZ2ye3+QW8X+WzToQvurLR+ICf83v58xn52EsIh5gpyYhPjSuD32c98X
+ n252ZeXrCYCCY+TG/M43AVX0OnhFqaPv980tC4vFEwwq7vBOcf9Pe/CpumGWrUmIOib1
+ /+YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=LxGiNonMfD8+JXm5WVocaD115u2yc9iIUJuFM4FEwFI=;
+ b=hON/XFkxxa5WfZL/6e7NzXujvQRBancgiNYdAaQsQw9fMCc3HJBqxAFplt9NX0s8xU
+ jU0y3saIV+hE+zpFg9jl80P5l8qJnoA5UgMXovidV7ubdpby+QMDrgMTelBHM9UxVbiS
+ hmhGdgDC6p0ly5F4y/DHX9a55HFP4hzaJXDiH4tDhtaxkV+E4BxiekDR/dt6/iRwaOSS
+ /tTqbTKmVXi+9H9emgUkkstqgLCFx2fBOlzVWb4UD7CG+FNwtDa/rWf9l1bADQcm5wsQ
+ aEiFOs3vFVR7L6dGZ8dSJEI4VC78vW7Vfcg9Ub5EHp9tppArs6zWlpIRsmlLIb97seEZ
+ OSTw==
+X-Gm-Message-State: APjAAAXZJuAsM3naU7ndVtu1SuLa/noOV1C8gfs1t96NN9JnTOyaH2+q
+ eoQMS7T9B7pOWH2SBMFpGr+mx+y26nEvKP5Fv4MLIkmc
+X-Google-Smtp-Source: APXvYqyun1ePomgifaC9+fB/N5vmhy4ytIVEcOjuGwAoyAD656HAP6BLapJnVaAj0hJzOwGk9o12Kfp7o8W6qMaGik4=
+X-Received: by 2002:a02:cc61:: with SMTP id j1mr1376769jaq.138.1567646863920; 
+ Wed, 04 Sep 2019 18:27:43 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: fortanix.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 703ba343-f697-440b-4259-08d730d55d55
-X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Sep 2019 01:15:24.9439 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: de7becae-4883-43e8-82c7-7dbdbb988ae6
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 1Ozv2EapNECiQhAjL4mawEoc3jG5TERRTVNm5GeJyPWEODDOuM98dMJTnZ2O1l1rcmlsbEKah6UlEc5/rERTvA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR1101MB2089
+Received: by 2002:ac0:9c85:0:0:0:0:0 with HTTP;
+ Wed, 4 Sep 2019 18:27:43 -0700 (PDT)
+From: JH <jupiter.hce@gmail.com>
+Date: Thu, 5 Sep 2019 11:27:43 +1000
+Message-ID: <CAA=hcWTrrC1a_WSNb62ftn60fAMnq1jywVsjwess1=vGufXjLw@mail.gmail.com>
+Subject: A big issue of NAND fragmentation
+To: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190903_181527_695116_41D3F3EF 
-X-CRM114-Status: GOOD (  12.71  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190904_182748_047330_C6673B2D 
+X-CRM114-Status: UNSURE (   5.73  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.73.115 listed in list.dnswl.org]
+ no trust [2607:f8b0:4864:20:0:0:0:d33 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (jupiter.hce[at]gmail.com)
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -136,84 +96,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Now that SPI flash controllers without a software sequencer are
-supported, it's trivial to add support for CNL and its PCI ID.
+Hi,
 
-Values from https://www.intel.com/content/dam/www/public/us/en/documents/datasheets/300-series-chipset-pch-datasheet-vol-2.pdf
+I am running kernel 5.1.0 on iMX6 using NAND flash, I write small data
+files about 250 bytes each every 5 minutes to a backup storage, the
+total size of all data files is about 600 KB, but du shown me 9.7M is
+used in that directory. I know NAND using page to flush files, how
+does the MTD handler NAND fragmentation?
 
-Signed-off-by: Jethro Beekman <jethro@fortanix.com>
----
- drivers/mtd/spi-nor/intel-spi-pci.c     |  5 +++++
- drivers/mtd/spi-nor/intel-spi.c         | 11 +++++++++++
- include/linux/platform_data/intel-spi.h |  1 +
- 3 files changed, 17 insertions(+)
+Does the latest version of MTD (hence the latest kernel version)
+resolve this problem?
 
-diff --git a/drivers/mtd/spi-nor/intel-spi-pci.c b/drivers/mtd/spi-nor/intel-spi-pci.c
-index b83c4ab6..195a09d 100644
---- a/drivers/mtd/spi-nor/intel-spi-pci.c
-+++ b/drivers/mtd/spi-nor/intel-spi-pci.c
-@@ -20,6 +20,10 @@ static const struct intel_spi_boardinfo bxt_info = {
- 	.type = INTEL_SPI_BXT,
- };
- 
-+static const struct intel_spi_boardinfo cnl_info = {
-+	.type = INTEL_SPI_CNL,
-+};
-+
- static int intel_spi_pci_probe(struct pci_dev *pdev,
- 			       const struct pci_device_id *id)
- {
-@@ -67,6 +71,7 @@ static const struct pci_device_id intel_spi_pci_ids[] = {
- 	{ PCI_VDEVICE(INTEL, 0x4b24), (unsigned long)&bxt_info },
- 	{ PCI_VDEVICE(INTEL, 0xa1a4), (unsigned long)&bxt_info },
- 	{ PCI_VDEVICE(INTEL, 0xa224), (unsigned long)&bxt_info },
-+	{ PCI_VDEVICE(INTEL, 0xa324), (unsigned long)&cnl_info },
- 	{ },
- };
- MODULE_DEVICE_TABLE(pci, intel_spi_pci_ids);
-diff --git a/drivers/mtd/spi-nor/intel-spi.c b/drivers/mtd/spi-nor/intel-spi.c
-index 195cdca..91b7851 100644
---- a/drivers/mtd/spi-nor/intel-spi.c
-+++ b/drivers/mtd/spi-nor/intel-spi.c
-@@ -108,6 +108,10 @@
- #define BXT_FREG_NUM			12
- #define BXT_PR_NUM			6
- 
-+#define CNL_PR				0x84
-+#define CNL_FREG_NUM			6
-+#define CNL_PR_NUM			5
-+
- #define LVSCC				0xc4
- #define UVSCC				0xc8
- #define ERASE_OPCODE_SHIFT		8
-@@ -344,6 +348,13 @@ static int intel_spi_init(struct intel_spi *ispi)
- 		ispi->erase_64k = true;
- 		break;
- 
-+	case INTEL_SPI_CNL:
-+		ispi->sregs = NULL;
-+		ispi->pregs = ispi->base + CNL_PR;
-+		ispi->nregions = CNL_FREG_NUM;
-+		ispi->pr_num = CNL_PR_NUM;
-+		break;
-+
- 	default:
- 		return -EINVAL;
- 	}
-diff --git a/include/linux/platform_data/intel-spi.h b/include/linux/platform_data/intel-spi.h
-index ebb4f33..7f53a5c 100644
---- a/include/linux/platform_data/intel-spi.h
-+++ b/include/linux/platform_data/intel-spi.h
-@@ -13,6 +13,7 @@ enum intel_spi_type {
- 	INTEL_SPI_BYT = 1,
- 	INTEL_SPI_LPT,
- 	INTEL_SPI_BXT,
-+	INTEL_SPI_CNL,
- };
- 
- /**
--- 
-2.7.4
+Thank you.
+
+Kind regards,
+
+- jupiter
 
 ______________________________________________________
 Linux MTD discussion mailing list
