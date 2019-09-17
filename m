@@ -2,67 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C101B54A5
-	for <lists+linux-mtd@lfdr.de>; Tue, 17 Sep 2019 19:54:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C5C89B54DB
+	for <lists+linux-mtd@lfdr.de>; Tue, 17 Sep 2019 20:03:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=FAjZj5sb2NfLW0sSCYJxfgzY2GnmiVq9cwMaqt/LFF4=; b=I8z
-	vdNyiGhClY9IWBKsxbtBwWrwLHCi9MiwBxNkwRDLo4r1Aw5P11K6ga7FD8aNli0dtwYQbyPqtEXMN
-	2kM5X1w0K1h8Q9Je1bb3vXML0Lpu7fpOAgbx92eipV+0k2Mwcke7uu4SEPNPOmj1lcL8yL1CbCCH1
-	scCxlo63yKqKsUR6/W2j4p0Vrnari9sfGAHbwZBQBZEz4kMQbAkGKXRGw/45lQJwQ8Diw05MqYGbp
-	OpYvUIW8MjBwJVy7inBixVNvkEtfuA+LijZ2BMCsJaspuvgKjcSqpmpJesaciu3elyCuNhT1TdHTX
-	FIaNqT9ohRD9/VMLC2PWGnGrOaNTm9w==;
+	References:List-Owner; bh=ae+fNKc9jHt4XvDab6pdqFSNJFDXpcw7Lvc57ngYzmw=; b=pvU
+	NCZ1fUeLyZVMUjynk89BwQCLTUX/9g0CUjqv3ClAqyFvMbDxeFgpQ6iDGIko0pePtK0Ns0xpb4JZw
+	riKHR+jx3YsTMvYryQGSJu6IpV8Yycmg54nKGHuMUZJBkYas06Tn3BSNXUs+brk9vaZkohF4RPVUA
+	ZVO056HJgEEUPfFMcgNLjufmExwLE5f9l+Dx9v/QzmAauyClLPodYsbBNwoohI6Qcr9ky6UXq4WR5
+	XvAe8/6M4HliHIWX7fz6TJS/iMGrpS0UtDTJ+HLga12Bi85ezCGloRbwpfAlXMgSE+VPdZnf1yQj4
+	OFXU2OeQTOhi0cGueDsDSkeLA8Hnprw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iAHgb-0006w4-K8; Tue, 17 Sep 2019 17:54:45 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1iAHpS-000333-Nk; Tue, 17 Sep 2019 18:03:54 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iAHgQ-0006vF-6w
- for linux-mtd@lists.infradead.org; Tue, 17 Sep 2019 17:54:35 +0000
-Received: by mail-pf1-x443.google.com with SMTP id y22so2604560pfr.3
- for <linux-mtd@lists.infradead.org>; Tue, 17 Sep 2019 10:54:34 -0700 (PDT)
+ id 1iAHp3-0002rQ-CD
+ for linux-mtd@lists.infradead.org; Tue, 17 Sep 2019 18:03:31 +0000
+Received: by mail-pf1-x444.google.com with SMTP id b128so2627487pfa.1
+ for <linux-mtd@lists.infradead.org>; Tue, 17 Sep 2019 11:03:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id;
- bh=onUVZCBtscC5yuxfoy+zsVbxl2PIwO0NVQMjTwxZqeg=;
- b=nfc3aLnN69+bt1y7/dIbf8WtiUmT8BJWb6cOUZfM2bUV+P8QZK+rf4wGlI2YtZ7IhQ
- cK0BLdUdjK/IsJ5hgiQSGju1p6RwgSJOKrHvlv4ycGYnOHAdXigp8fhCauhtEr9tZujS
- hSqIlp1a3iAgN0Ryxrhb4ta6H6UqSUEyZr/9uGHhFnnwHGwQf2GtpIHHJAzxHSLBE2Lw
- lv3oWObg1w8Skp/YyCwikjpPtWWgQFyFAVRuNNnKGefFxNfZ9lNB7JNcCwvSe5wjJViB
- D6b8UtUO1YQ+pTlrxMDkk5qEfzGqTCgNI+mp9TSSVsfohv0huMDTTnB6NmyK0PE1opeZ
- xGAQ==
+ bh=lck7mJNvhKtQlB0h0ewSM2EoFMfluPJ28+Anr3sILgs=;
+ b=AXPOOXRiahRLh0n4wb+BMFwCNIu8a2q6yIEkwRKSlxWTJ/ipdJaGLAC/O9dbqLboLx
+ rLeZrq4pbed/54OcZ2PU1K5Zo5H7RPgdt68jhVA7kjmfrP4A2662Uo7pGmXDsiERjegL
+ a2EMqj0bmM5/Fa6ltItqE6VuijD4RoiXuyU1YNGwfhnCiVIlh82W/r//vZhXkhM5/bAN
+ fKNnRcGimNdt6omp6PS8Pv8lXDHz0wGwwDB3qqhka5mYnFDrApxBZFsIiH+lp0XCOqPH
+ t0bFUuX2SZpgdZfzeTw2fLhO8TmeP/hA/A9YL7a3I9FtDuZjYaEwWuzTui2rustwdaMB
+ WZLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=onUVZCBtscC5yuxfoy+zsVbxl2PIwO0NVQMjTwxZqeg=;
- b=A5YQw4F0amFOjaes72bzvtHc/ZZgoDstIEbZ3UYEcOgeJEx7VEsfkL+kroxodayA0N
- 63NKS/NdHf6b9G4y7Dq30k2Jvw3Z9e8Z8tk0Pte0LvfozyjdsRl30Xe+HIIzKUaKji70
- h2mtZQCSAPUdAK+UOsshAmZNVe2a9myWbJoYV7Avod6IzJCZ5BwkjB37K2Of7eyVFeoN
- yU3KRaDHZmoEaGGK1kE/oDZGFyHQ+Gd+k19lgztRA+4U0+N7HO10hJtKyR8VFkFdVrrO
- vqsPMEB2gMsu0jzM0QQ7R1qV4xKRp3S+qkXpFDmT89POmUpkHl92+XxoFISCSaBRuGnA
- J0mw==
-X-Gm-Message-State: APjAAAXDRoVkrxCL8T66xJW70ciKkPsF7tcWJXp0JVJNb8Ui6orpgpY5
- 6wIf1Q1L4xTGFtGYiX+Tq9o=
-X-Google-Smtp-Source: APXvYqzlYXc6UcokK2JRSKaWgD2ZROhMynTr0wgcSaUXVcWjEVFlHEcPokkxvP9YPg1EscUh8Aj16Q==
-X-Received: by 2002:a63:4e44:: with SMTP id o4mr53303pgl.103.1568742873677;
- Tue, 17 Sep 2019 10:54:33 -0700 (PDT)
+ bh=lck7mJNvhKtQlB0h0ewSM2EoFMfluPJ28+Anr3sILgs=;
+ b=UiBZmKC5JJjxZAdyqiVtS5w8DEjaFlJz71CE/mERPJ95c9vzhIhd4WzJmStu49Wfjr
+ foNn885h7+dIob8Pe7nYBDvVl1zNjH6Zol2jNPwQkMEcXkbJnWYMD/tOOLoNFW3bKqig
+ spZdnYMLKzJtMSjlsMyrDldRU5SAEEuGrGZZAUS4Tu66+hwLrsygv0Y90ySAgn9wgUyc
+ hnZ31Ltbsl2+1TfcsptjFfOANk/cLiex8NF0yv7Nl8QCv79fbmsOT2K/p3tmlySId8US
+ 6tp4G10VKiHLnlUTy6RwV51xzxbL0jPSx0RCrvFE9L/AWfcnVL0ksbpGlQXnQyOyTqdb
+ 2ZmA==
+X-Gm-Message-State: APjAAAXr0d/1ht5KQlA9W5PkLK4SZ0PnJCM1Oqa/Jbvxzf4gSsezkeVl
+ yY4dzdIyWNc65O9zwAqsOog=
+X-Google-Smtp-Source: APXvYqxRpV95thKlVBJdPEV34NQ17fE+SwXG9FMXOQQVSEzi3Cb6JKc8N7ErQlLnLae0y6mriszPWw==
+X-Received: by 2002:a65:5188:: with SMTP id h8mr106707pgq.294.1568743408670;
+ Tue, 17 Sep 2019 11:03:28 -0700 (PDT)
 Received: from localhost.localdomain (M106072039032.v4.enabler.ne.jp.
  [106.72.39.32])
- by smtp.gmail.com with ESMTPSA id l124sm2841929pgl.54.2019.09.17.10.54.31
+ by smtp.gmail.com with ESMTPSA id o9sm2505263pgv.19.2019.09.17.11.03.25
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 17 Sep 2019 10:54:33 -0700 (PDT)
+ Tue, 17 Sep 2019 11:03:28 -0700 (PDT)
 From: Tokunori Ikegami <ikegami.t@gmail.com>
 To: Sasha Levin <sashal@kernel.org>
-Subject: [PATCH for 4.9.y] mtd: cfi_cmdset_0002: Use chip_good() to retry in
+Subject: [PATCH for 4.4.y] mtd: cfi_cmdset_0002: Use chip_good() to retry in
  do_write_oneword()
-Date: Wed, 18 Sep 2019 02:54:25 +0900
-Message-Id: <20190917175425.20141-1-ikegami.t@gmail.com>
+Date: Wed, 18 Sep 2019 02:54:52 +0900
+Message-Id: <20190917175452.20891-1-ikegami.t@gmail.com>
 X-Mailer: git-send-email 2.11.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190917_105434_248033_E6346D11 
+X-CRM114-CacheID: sfid-20190917_110329_645992_0F4E9D32 
 X-CRM114-Status: GOOD (  16.68  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -70,7 +70,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:443 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -139,10 +139,10 @@ Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
 diff --git a/drivers/mtd/chips/cfi_cmdset_0002.c b/drivers/mtd/chips/cfi_cmdset_0002.c
 old mode 100644
 new mode 100755
-index de35a2a362f9..8725e406a9eb
+index fb5a3052f144..7589d891b311
 --- a/drivers/mtd/chips/cfi_cmdset_0002.c
 +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-@@ -1624,29 +1624,35 @@ static int __xipram do_write_oneword(struct map_info *map, struct flchip *chip,
+@@ -1626,29 +1626,35 @@ static int __xipram do_write_oneword(struct map_info *map, struct flchip *chip,
  			continue;
  		}
  
