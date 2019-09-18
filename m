@@ -2,100 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AAB72B5B58
-	for <lists+linux-mtd@lfdr.de>; Wed, 18 Sep 2019 07:53:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 26449B5E25
+	for <lists+linux-mtd@lfdr.de>; Wed, 18 Sep 2019 09:33:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7LBcvD/BjZAKQKbd16XyTgZOFLIHPu+VqlslSHhnrJc=; b=OFXRe0Z1hs4DUb
-	8s1lgGj0icGSSM955LTJeJeOIFYFnoYhcVgGFsAfJOjJF/v1s7bszeHlqir1PyZyiH3fZaoPt4ZzN
-	YPMIstEVArdaMAu4F6/U7oze8t/R4Qp4VhwFi/xRUgxj6asMrKiYipzKnKRpJ9HM0SeJsSZN+tbVy
-	hdevUprOFYacNtraEN87tpI7VWX2rmpm2qvk/0AHI/nd06PGsT5wLEpVLwujl0NEkscqvCpQUAqfm
-	LLyuDTvb9cJ975GALyV9qr5X+IhO0uKb+OatFxGrKLdKA4pJfTryQzycNjQ2I22DFmmjGrWLiJFzZ
-	e8yieK+4jTqdDhK2DZWg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=53ldT00awGdS2W10koTICNCB/wZpy9RzOyTevbKOyBU=; b=BQO
+	LW9jyhZGeZ5Pwl/1AWyD2K5QXkQL8OrN0edKepJxgSPmlIqSdWOD5Q9oco3fFYf3nogNMwiAnySMj
+	bZk+Tq1oorGNuysXoc2kU7y3PuM/gSRmzys8W3kBwEGRJG2USnD/bUHRg7ZdwX4jrkNO++5yl0g6x
+	iUHnfU7zbPTMm0Jr795kCanqFL5l8WIeIaguTfVVUJuC2pJ0nD5lyB5cLsSCTts17vnAUxkEQ0VEQ
+	7GeFnsD/LQe4ASoGLzI65ixeP7eHWR0tM5o8JpT1Pqgd1HPr1vaapPEztFvDrrpc5b70nbuUgdzEe
+	MvjBc3zMd0uSDEy4RNtSlA5Pmk/PEdw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iAStm-0002K0-1X; Wed, 18 Sep 2019 05:53:06 +0000
-Received: from out3-smtp.messagingengine.com ([66.111.4.27])
+	id 1iAUT0-0001Za-9s; Wed, 18 Sep 2019 07:33:34 +0000
+Received: from twhmllg3.macronix.com ([122.147.135.201])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iAStb-0002JZ-CG
- for linux-mtd@lists.infradead.org; Wed, 18 Sep 2019 05:52:57 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
- by mailout.nyi.internal (Postfix) with ESMTP id C8493222BA;
- Wed, 18 Sep 2019 01:52:50 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute6.internal (MEProxy); Wed, 18 Sep 2019 01:52:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm1; bh=yApEeM+cx/E4QTe1WjDT5jZr1YH
- cZM80TBsuKqJwhoU=; b=YCFY/y/eLPs0MW5E8Gblp4ZMmbBw7GlX5JgQgnfo6o5
- CFjN8lsSv7c8xpwNoVft/+Iz4a1OdGFW8VLeh+02/JViuvo7gzlDH1tVNpVwtrGa
- DRDdzQ35e1SpnB4FlbAw+DIjOB49TOZCjIABftiUhzOJmvztzTxfghK+iE6cphY1
- mzBbapgIjg/0eakfgYrcAmlgmIdux1/EvQRXLAHA7wEUXfeZtnf9+R6rbWtgNlA1
- 6OwMtB9k9gZerpGvocHhd8EE+YhR57dtYnRu1VDqxt2Fo/oxJRjmBJDpVzAiBxLF
- z7aXlc1sYNQB3bgZCUOXY3vBTwTr4Tvch14P2xX2uxg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; bh=yApEeM
- +cx/E4QTe1WjDT5jZr1YHcZM80TBsuKqJwhoU=; b=1mjtKNTkHWi7g22WLFIbOD
- Mc9vdk7g/h7aDxfqyuFsLIfOnU7aqPRyOVNIlZeSuZIZfKc2UjjPfswoiibIOAVY
- Fb+OYWhO0rJcswhtAMdVEXxxYDYPFDQm9Tc8W7suuhECLfhm/rYAMZvlUXlecKli
- tKICy5v2NbxuFPKWFDzk0r1ix00Ii/H3BkVjfgHGrggdxtOnvoCFoi8s2+RmDn9L
- Vx1WhkZGinXJPE8X/LhiSN+y3qfz9UbW9u21UyP5GZWxeRhlGbRgXZiEaggtXIFz
- iv7gc6pIs79mtssIZD3qy2LszqVSg/eo4witDz+EJDfQ3BIvWjKpoMlWaUoI3w8g
- ==
-X-ME-Sender: <xms:MMaBXUgofsVIGyapbzM9S8gfWHi0AC2ZFr2bKl8dm2_usXLeRZaC8A>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedufedrudejgddutddvucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjfgesthdtredttdervdenucfhrhhomhepifhrvghg
- ucfmjfcuoehgrhgvgheskhhrohgrhhdrtghomheqnecuffhomhgrihhnpehkvghrnhgvlh
- drohhrghenucfkphepkeefrdekiedrkeelrddutdejnecurfgrrhgrmhepmhgrihhlfhhr
- ohhmpehgrhgvgheskhhrohgrhhdrtghomhenucevlhhushhtvghrufhiiigvpedt
-X-ME-Proxy: <xmx:MMaBXaauZV0g62-XlXG-2OKdFkR3TYIQ0ybywrf6YzDgvmtKm0G2qQ>
- <xmx:MMaBXTb4Pu3W00bvJuaVXnCLkeTfr5uWqWEjm4nSCZ_TwYvp3uqecA>
- <xmx:MMaBXfybWNApS0-krnX1wj71OqYaxzsS3zZ2WcqXXTL2E80fUCi_Vw>
- <xmx:MsaBXZJx264xcrTbgq3IBJfKvD8LA9mmgykxr53TBfKAcFbJOqH4_Q>
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- by mail.messagingengine.com (Postfix) with ESMTPA id 92778D6005A;
- Wed, 18 Sep 2019 01:52:48 -0400 (EDT)
-Date: Wed, 18 Sep 2019 07:52:46 +0200
-From: Greg KH <greg@kroah.com>
-To: Tokunori Ikegami <ikegami.t@gmail.com>
-Subject: Re: [PATCH for 5.2.y] mtd: cfi_cmdset_0002: Use chip_good() to retry
- in do_write_oneword()
-Message-ID: <20190918055246.GC1830105@kroah.com>
-References: <20190917175048.12895-1-ikegami.t@gmail.com>
- <20190917181127.GD1570310@kroah.com>
- <7c0113e0-d455-e3e6-86fc-45429be196fb@gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <7c0113e0-d455-e3e6-86fc-45429be196fb@gmail.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
+ id 1iAUSg-0001Xh-0s
+ for linux-mtd@lists.infradead.org; Wed, 18 Sep 2019 07:33:15 +0000
+Received: from localhost.localdomain ([172.17.195.96])
+ by TWHMLLG3.macronix.com with ESMTP id x8I7VoOd060926;
+ Wed, 18 Sep 2019 15:31:50 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+From: Mason Yang <masonccyang@mxic.com.tw>
+To: miquel.raynal@bootlin.com, richard@nod.at, marek.vasut@gmail.com,
+ dwmw2@infradead.org, bbrezillon@kernel.org,
+ computersforpeace@gmail.com, vigneshr@ti.com
+Subject: [PATCH RFC 1/3] mtd: rawnand: Add support manufacturer postponed
+ initialization
+Date: Wed, 18 Sep 2019 15:56:24 +0800
+Message-Id: <1568793387-25199-1-git-send-email-masonccyang@mxic.com.tw>
+X-Mailer: git-send-email 1.9.1
+X-MAIL: TWHMLLG3.macronix.com x8I7VoOd060926
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190917_225255_751123_6A624949 
-X-CRM114-Status: GOOD (  23.75  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20190918_003314_337661_CD6C5116 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [66.111.4.27 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [122.147.135.201 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,76 +61,88 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
- Hauke Mehrtens <hauke@hauke-m.de>, stable@vger.kernel.org,
- Joakim Tjernlund <Joakim.Tjernlund@infinera.com>,
- Chris Packham <chris.packham@alliedtelesis.co.nz>,
- linux-mtd@lists.infradead.org, Felix Fietkau <nbd@nbd.name>
+Cc: marcel.ziswiler@toradex.com, gregkh@linuxfoundation.org,
+ linux-kernel@vger.kernel.org, frieder.schrempf@kontron.de,
+ juliensu@mxic.com.tw, linux-mtd@lists.infradead.org, tglx@linutronix.de,
+ masonccyang@mxic.com.tw
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, Sep 18, 2019 at 07:32:39AM +0900, Tokunori Ikegami wrote:
-> 
-> On 2019/09/18 3:11, Greg KH wrote:
-> > On Wed, Sep 18, 2019 at 02:50:48AM +0900, Tokunori Ikegami wrote:
-> > > As reported by the OpenWRT team, write requests sometimes fail on some
-> > > platforms.
-> > > Currently to check the state chip_ready() is used correctly as described by
-> > > the flash memory S29GL256P11TFI01 datasheet.
-> > > Also chip_good() is used to check if the write is succeeded and it was
-> > > implemented by the commit fb4a90bfcd6d8 ("[MTD] CFI-0002 - Improve error
-> > > checking").
-> > > But actually the write failure is caused on some platforms and also it can
-> > > be fixed by using chip_good() to check the state and retry instead.
-> > > Also it seems that it is caused after repeated about 1,000 times to retry
-> > > the write one word with the reset command.
-> > > By using chip_good() to check the state to be done it can be reduced the
-> > > retry with reset.
-> > > It is depended on the actual flash chip behavior so the root cause is
-> > > unknown.
-> > > 
-> > > Cc: Chris Packham <chris.packham@alliedtelesis.co.nz>
-> > > Cc: Joakim Tjernlund <Joakim.Tjernlund@infinera.com>
-> > > Cc: linux-mtd@lists.infradead.org
-> > > Cc: stable@vger.kernel.org
-> > > Reported-by: Fabio Bettoni <fbettoni@gmail.com>
-> > > Signed-off-by: Felix Fietkau <nbd@nbd.name>
-> > > Signed-off-by: Hauke Mehrtens <hauke@hauke-m.de>
-> > > Signed-off-by: Tokunori Ikegami <ikegami.t@gmail.com>
-> > > [vigneshr@ti.com: Fix a checkpatch warning]
-> > > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> > > ---
-> > >   drivers/mtd/chips/cfi_cmdset_0002.c | 18 ++++++++++++------
-> > >   1 file changed, 12 insertions(+), 6 deletions(-)
-> > >   mode change 100644 => 100755 drivers/mtd/chips/cfi_cmdset_0002.c
-> > You changed the file to be executable???  That's not ok :(
-> 
-> Very sorry for this.
-> I missed it to fix to not be executable since it was changed to be
-> executable on my local environment.
-> Anyway I will do fix it.
+Manufacturer postponed initialization is for MTD default call-back
+function replacement for vendor soecific operation, i.e.,
+_lock/_unlock, _suspend/_resume and so on.
 
-Please do, we can not take these patches as-is at all.
+Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
+---
+ drivers/mtd/nand/raw/internals.h |  4 ++++
+ drivers/mtd/nand/raw/nand_base.c | 19 +++++++++++++++++++
+ 2 files changed, 23 insertions(+)
 
-> > Also, what is the git commit id of this patch in Linus's tree?  I can't
-> > seem to find it there.
-> 
-> Actually it has not been pulled in Linus's tree.
-> But it has been merged into
-> git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mtd/next for
-> v5.4-rc1 as the git commit id 37c673ade35c.
-> So I thought as that it is okay to send the patches for the stable trees.
-> But should I wait to be pulled the patch in Linus's tree at first?
+diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
+index cba6fe7..505dd46 100644
+--- a/drivers/mtd/nand/raw/internals.h
++++ b/drivers/mtd/nand/raw/internals.h
+@@ -42,6 +42,9 @@
+  *	     is here to let vendor specific code release those resources.
+  * @fixup_onfi_param_page: apply vendor specific fixups to the ONFI parameter
+  *			   page. This is called after the checksum is verified.
++ * @post_init: postponed initialization is for MTD default call-back function
++ *	       replacement for vendor specific operation i.e., _lock/_unlock,
++ *	       _suspend/_resume and so on.
+  */
+ struct nand_manufacturer_ops {
+ 	void (*detect)(struct nand_chip *chip);
+@@ -49,6 +52,7 @@ struct nand_manufacturer_ops {
+ 	void (*cleanup)(struct nand_chip *chip);
+ 	void (*fixup_onfi_param_page)(struct nand_chip *chip,
+ 				      struct nand_onfi_params *p);
++	void (*post_init)(struct nand_chip *chip);
+ };
+ 
+ /**
+diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+index 91f046d..7835b81 100644
+--- a/drivers/mtd/nand/raw/nand_base.c
++++ b/drivers/mtd/nand/raw/nand_base.c
+@@ -4619,6 +4619,21 @@ static int nand_manufacturer_init(struct nand_chip *chip)
+ }
+ 
+ /*
++ * Manufacturer postponed initialization. This function is called for all NANDs
++ * whose MTD default call-back function replacement is needed.
++ * Manufacturer drivers should put all their specific postponed initialization
++ * code in their ->post_init() hook.
++ */
++static void nand_manufacturer_post_init(struct nand_chip *chip)
++{
++	if (!chip->manufacturer.desc || !chip->manufacturer.desc->ops ||
++	    !chip->manufacturer.desc->ops->post_init)
++		return;
++
++	return chip->manufacturer.desc->ops->post_init(chip);
++}
++
++/*
+  * Manufacturer cleanup. This function is called for all NANDs including
+  * ONFI and JEDEC compliant ones.
+  * Manufacturer drivers should put all their specific cleanup code in their
+@@ -5812,6 +5827,10 @@ static int nand_scan_tail(struct nand_chip *chip)
+ 			goto err_nanddev_cleanup;
+ 	}
+ 
++	nand_select_target(chip, 0);
++	nand_manufacturer_post_init(chip);
++	nand_deselect_target(chip);
++
+ 	/* Check, if we should skip the bad block table scan */
+ 	if (chip->options & NAND_SKIP_BBTSCAN)
+ 		return 0;
+-- 
+1.9.1
 
-Yes, you have to wait, please read:
-    https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
-for how to do this properly.
-
-thanks,
-
-greg k-h
 
 ______________________________________________________
 Linux MTD discussion mailing list
