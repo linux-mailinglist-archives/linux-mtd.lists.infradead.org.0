@@ -2,48 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 15573B8192
-	for <lists+linux-mtd@lfdr.de>; Thu, 19 Sep 2019 21:41:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 31515B8194
+	for <lists+linux-mtd@lfdr.de>; Thu, 19 Sep 2019 21:42:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oUp8jOeffwnvpy3o4Xty/AaXApg2ClqFwbcJ3Ij9GVQ=; b=aO/oUhskLSVRm8
-	Y/uwdjx9IPVaf1OL7lviPG4voyMKIyRZ1NoHXafyFU79TE10E0pBpRYN7nEN5hAkEcRuNTEUsB3Ui
-	DEnV8JzRo0jR+yItdXoCqMF6iCgFTjLm4Sxy82NpypLEsQIjgdxxoYNzNHbOP8iXWha5eqmejlOBX
-	hEJ5sE8YVRGaIggEcgf7mFfI3UUyaJMnCYWHt/BLo4OzOq9X4nmTPmtoocG/MW3foaDWseEMHnFQD
-	OI5rIBAg1b6Caubro58qbztgnwQf2AHBurp1JKOIK4NnbveJjDEJiGLalrJtVzgtXwEECWoTKu6rm
-	AV31vfwOyLvcLPoJnbHw==;
+	List-Owner; bh=rP9f0pVDTov+lQpSRYXAOgikrlr48vYjFfiUlnhBqeg=; b=YB5h7U18tzXsPC
+	Wp3qMFyuZskjp/c/z1XwFuGTAOYqqbs8wEuzcmo7afqvaQnMKIL5R4EiKBtaukSGX+Yxg7MIv9XDC
+	YNrOEuEqSONIKxeOYU5ArsbKLZDv/4MVU7A7WrOu8pHhRjBZ4BXhA1hTvHuB2SxLd+EnJ+8Uhn/of
+	mXVotCXBusfMmyWkF8GoxLh34ElXFWhZlWExCvsImkkkf7X8wzmnRJDh68JUMQHuD9cDTqRHl7xPp
+	3yB6ANLGuBU3X3xrlGZlG6QNfAMFYh+7jCYxQGq6VojiRL88igkotkp6GKlm3xvN1HCXTnUaNBEbx
+	phdE8Os3+1mtQPf4dW5g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iB2JA-0000S7-LY; Thu, 19 Sep 2019 19:41:40 +0000
+	id 1iB2Jc-0000wB-Dv; Thu, 19 Sep 2019 19:42:08 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iB29r-0001xU-NZ; Thu, 19 Sep 2019 19:32:07 +0000
+ id 1iB29u-0001zf-3f; Thu, 19 Sep 2019 19:32:08 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 4D79B240003;
- Thu, 19 Sep 2019 19:32:00 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 3D416240006;
+ Thu, 19 Sep 2019 19:32:02 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>,
  Brian Norris <computersforpeace@gmail.com>,
  Marek Vasut <marek.vasut@gmail.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  Vignesh Raghavendra <vigneshr@ti.com>
-Subject: [PATCH v3 07/40] mtd: rawnand: Drop the legacy ECC type enumeration
-Date: Thu, 19 Sep 2019 21:31:07 +0200
-Message-Id: <20190919193141.7865-8-miquel.raynal@bootlin.com>
+Subject: [PATCH v3 08/40] mtd: nand: Move nand_device forward declaration to
+ the top
+Date: Thu, 19 Sep 2019 21:31:08 +0200
+Message-Id: <20190919193141.7865-9-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190919193141.7865-1-miquel.raynal@bootlin.com>
 References: <20190919193141.7865-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190919_123204_023388_5C0A3E9A 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190919_123206_616919_4D071489 
+X-CRM114-Status: GOOD (  10.58  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -77,59 +77,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Now that all files have been migrated to use the new enumeration, drop
-the old one which is unused.
+This structure might be used earlier in this file, let's move the
+forward declaration at the top.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/nand_base.c |  9 ---------
- include/linux/mtd/rawnand.h      | 13 -------------
- 2 files changed, 22 deletions(-)
+ include/linux/mtd/nand.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index ad0b892c2523..c313fe4fc16c 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -4833,15 +4833,6 @@ static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
- 	return ret;
- }
+diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
+index cebc38b6d6f5..30f0fb02abe2 100644
+--- a/include/linux/mtd/nand.h
++++ b/include/linux/mtd/nand.h
+@@ -12,6 +12,8 @@
  
--static const char * const nand_ecc_modes[] = {
--	[NAND_ECC_NONE]		= "none",
--	[NAND_SOFT_ECC_ENGINE]		= "soft",
--	[NAND_ECC_HW]		= "hw",
--	[NAND_ECC_HW_SYNDROME]	= "hw_syndrome",
--	[NAND_ECC_HW_OOB_FIRST]	= "hw_oob_first",
--	[NAND_ECC_ON_DIE]	= "on-die",
--};
--
- static const char * const nand_ecc_engine_providers[] = {
- 	[NAND_NO_ECC_ENGINE] = "none",
- 	[NAND_SOFT_ECC_ENGINE] = "soft",
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 08964ce8b65f..6c9be596a2d1 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -80,19 +80,6 @@ struct nand_chip;
+ #include <linux/mtd/mtd.h>
  
- #define NAND_DATA_IFACE_CHECK_ONLY	-1
++struct nand_device;
++
+ /**
+  * struct nand_memory_organization - Memory organization structure
+  * @bits_per_cell: number of bits per NAND cell
+@@ -133,8 +135,6 @@ struct nand_bbt {
+ 	unsigned long *cache;
+ };
  
--/*
-- * Constants for ECC_MODES
-- */
--enum nand_ecc_mode {
--	NAND_ECC_INVALID,
--	NAND_ECC_NONE,
--	NAND_ECC_SOFT,
--	NAND_ECC_HW,
--	NAND_ECC_HW_SYNDROME,
--	NAND_ECC_HW_OOB_FIRST,
--	NAND_ECC_ON_DIE,
--};
+-struct nand_device;
 -
  /**
-  * enum nand_ecc_engine_type - NAND ECC engine type/provider
-  * @NAND_INVALID_ECC_ENGINE: Invalid value
+  * struct nand_ops - NAND operations
+  * @erase: erase a specific block. No need to check if the block is bad before
 -- 
 2.20.1
 
