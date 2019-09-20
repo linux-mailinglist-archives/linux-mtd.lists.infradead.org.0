@@ -2,56 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F02EB8B46
-	for <lists+linux-mtd@lfdr.de>; Fri, 20 Sep 2019 08:55:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B8F67B8B53
+	for <lists+linux-mtd@lfdr.de>; Fri, 20 Sep 2019 09:02:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qjmwUyzrGeQQ91LHAZWVVllGk0kQZjgE2IcXCAoSw3E=; b=kvnxjwbUgGdcKP
-	nJDWIiFSu8e5Oql0eTobCD8dlVRn1SrINEDldFV7mD6sjQ+oMH4Hhj8Qmw4+A0PJTSLuIbxd5Yn5k
-	Uf8XLNXPgnqpdfsYE/sg/AN5FQfMFBzfOH9+Hp8qj9JTNsb7jkvY5dpM+xXUG4GHuO7AGjly4lT8s
-	KWPpuPhrRaFxiuUOiGeX3WB8bB1WtJ67vWjAcICWnVK/4h21HR9UliQC1AnY35OUA+BwyXUD2aRiq
-	fpKeGS4tSjmMniwUKNsIVNPtZn+I6txbt35IPmXhrIM5J8/rAhny25344Z/2BTmo4PvyOty7Lxys0
-	cMPktfk14GK9KYTgD58A==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=yosfBdUhL51LMJ3ov8ZeuKR3fEclHsez5KWclRsZBDw=; b=OLa
+	FPkp7/WDFmQxRqJiOoELNlG3poLiDUewcu8/xGnatYb+VUf7UzByvLzhJRXFDwvOxU+lB2IUPTXnl
+	eujcjI88L97LxdH/SZps5o58wqkY/AXngNuhojFdZ41h4P6l7ge1BcaOdQhtDi2VBNFcNdt5klRUd
+	JV/bGV4LhZiekR7psZCR2jslqB4WwQwWxl9otfvCOqdvLEzIFJ1zXRnSJZJtYpQN8abVPNvt1IAVk
+	yFGMCnFHSmRWF6e5nTsm6GiP/W5k6Md6DQRw2Vw27MFfgUKBKCGcbdR7heIjtRbvktFlxdv4M+mNn
+	mZ+gJIFNX1mrZwSlOt1d/MYbb/7STEA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iBCp0-00029U-OA; Fri, 20 Sep 2019 06:55:14 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
+	id 1iBCwA-0005MG-1v; Fri, 20 Sep 2019 07:02:38 +0000
+Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iBCom-0001jT-CW
- for linux-mtd@lists.infradead.org; Fri, 20 Sep 2019 06:55:01 +0000
-Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id E8F15104D6EE93A55342;
- Fri, 20 Sep 2019 14:54:50 +0800 (CST)
-Received: from use12-sp2.huawei.com (10.67.189.174) by
- DGGEMS405-HUB.china.huawei.com (10.3.19.205) with Microsoft SMTP Server id
- 14.3.439.0; Fri, 20 Sep 2019 14:54:42 +0800
-From: Xiaoming Ni <nixiaoming@huawei.com>
-To: <dwmw2@infradead.org>, <dilinger@queued.net>, <richard@nod.at>,
- <houtao1@huawei.com>, <viro@zeniv.linux.org.uk>, <bbrezillon@kernel.org>,
- <daniel.santos@pobox.com>
-Subject: [PATCH] jffs2:freely allocate memory when parameters are invalid
-Date: Fri, 20 Sep 2019 14:54:38 +0800
-Message-ID: <1568962478-126260-1-git-send-email-nixiaoming@huawei.com>
-X-Mailer: git-send-email 1.8.5.6
-MIME-Version: 1.0
-X-Originating-IP: [10.67.189.174]
-X-CFilter-Loop: Reflected
+ id 1iBCvz-0005Lo-Vf
+ for linux-mtd@lists.infradead.org; Fri, 20 Sep 2019 07:02:29 +0000
+Received: from localhost (localhost [127.0.0.1])
+ by lilium.sigma-star.at (Postfix) with ESMTP id 174ED18013A68;
+ Fri, 20 Sep 2019 08:54:47 +0200 (CEST)
+Received: from lilium.sigma-star.at ([127.0.0.1])
+ by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
+ with ESMTP id 0DMwfpTKi4jM; Fri, 20 Sep 2019 08:54:46 +0200 (CEST)
+Received: from lilium.sigma-star.at ([127.0.0.1])
+ by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
+ with ESMTP id 49ghSciSR6TN; Fri, 20 Sep 2019 08:54:46 +0200 (CEST)
+From: Richard Weinberger <richard@nod.at>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCH] ubifs: Remove obsolete TODO from dfs_file_write()
+Date: Fri, 20 Sep 2019 08:54:29 +0200
+Message-Id: <20190920065429.19709-1-richard@nod.at>
+X-Mailer: git-send-email 2.16.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190919_235500_592360_DAD6E641 
-X-CRM114-Status: GOOD (  10.23  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20190920_000228_168937_B926583F 
+X-CRM114-Status: GOOD (  10.63  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.32 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,59 +59,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: nixiaoming@huawei.com, linux-mtd@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Cc: linux-fsdevel@vger.kernel.org, Richard Weinberger <richard@nod.at>,
+ Nicolai Stange <nicstange@gmail.com>, linux-kernel@vger.kernel.org,
+ Christoph Hellwig <hch@lst.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Use kzalloc() to allocate memory in jffs2_fill_super().
-Freeing memory when jffs2_parse_options() fails will cause
-use-after-free and double-free in jffs2_kill_sb()
+AFAICT this kind of problems are no longer possible since
+debugfs gained file removal protection via
+e9117a5a4bf6 ("debugfs: implement per-file removal protection").
 
-Reference: commit 92e2921f7eee6345 ("jffs2: free jffs2_sb_info through
- jffs2_kill_sb()")
-
-This makes the code difficult to understand
-the code path between memory allocation and free is too long
-
-The reason for this problem is:
-Before the jffs2_parse_options() check,
-"sb->s_fs_info = c;" has been executed,
-so jffs2_sb_info has been assigned to super_block.
-
-we can move "sb->s_fs_info = c;" to the success branch of the
-function jffs2_parse_options() and free jffs2_sb_info in the failure branch
-make the code easier to understand.
-
-Signed-off-by: Xiaoming Ni <nixiaoming@huawei.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Nicolai Stange <nicstange@gmail.com>
+Signed-off-by: Richard Weinberger <richard@nod.at>
 ---
- fs/jffs2/super.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ fs/ubifs/debug.c | 12 ------------
+ 1 file changed, 12 deletions(-)
 
-diff --git a/fs/jffs2/super.c b/fs/jffs2/super.c
-index af4aa65..bbdae72 100644
---- a/fs/jffs2/super.c
-+++ b/fs/jffs2/super.c
-@@ -280,11 +280,13 @@ static int jffs2_fill_super(struct super_block *sb, void *data, int silent)
+diff --git a/fs/ubifs/debug.c b/fs/ubifs/debug.c
+index a5f10d79e0dd..d67f91752f83 100644
+--- a/fs/ubifs/debug.c
++++ b/fs/ubifs/debug.c
+@@ -2737,18 +2737,6 @@ static ssize_t dfs_file_write(struct file *file, const char __user *u,
+ 	struct dentry *dent = file->f_path.dentry;
+ 	int val;
  
- 	c->mtd = sb->s_mtd;
- 	c->os_priv = sb;
--	sb->s_fs_info = c;
- 
- 	ret = jffs2_parse_options(c, data);
--	if (ret)
-+	if (ret) {
-+		kfree(c);
- 		return -EINVAL;
-+	}
-+	sb->s_fs_info = c;
- 
- 	/* Initialize JFFS2 superblock locks, the further initialization will
- 	 * be done later */
+-	/*
+-	 * TODO: this is racy - the file-system might have already been
+-	 * unmounted and we'd oops in this case. The plan is to fix it with
+-	 * help of 'iterate_supers_type()' which we should have in v3.0: when
+-	 * a debugfs opened, we rember FS's UUID in file->private_data. Then
+-	 * whenever we access the FS via a debugfs file, we iterate all UBIFS
+-	 * superblocks and fine the one with the same UUID, and take the
+-	 * locking right.
+-	 *
+-	 * The other way to go suggested by Al Viro is to create a separate
+-	 * 'ubifs-debug' file-system instead.
+-	 */
+ 	if (file->f_path.dentry == d->dfs_dump_lprops) {
+ 		ubifs_dump_lprops(c);
+ 		return count;
 -- 
-1.8.5.6
+2.16.4
 
 
 ______________________________________________________
