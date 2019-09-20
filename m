@@ -2,82 +2,60 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB58CB9340
-	for <lists+linux-mtd@lfdr.de>; Fri, 20 Sep 2019 16:39:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id ED13CB9369
+	for <lists+linux-mtd@lfdr.de>; Fri, 20 Sep 2019 16:52:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=76hRWJFqlxc49VcccjUrlQmLuPKNULDurZhn5tPOOxY=; b=e1/0YZ63oZ3I6n
-	osQ2tSRKWDxb1EvIMsQNywK+RHu8dzVBzF4UxU7bWA4ved9rp4fFTjSh+lllvCr3tvapg8vjY8oog
-	TgG0V3huEkBwXrvdl1o5FcJtDN4G6pAgmEQNCEHi/NkhrxwtusW5EQskRjeS3cZ5sP4NGGJiHJ1Gl
-	eeKM1sTtFYNoG1Wvv7Cxz4wf+tg/mTNLnaxCndvfudEL7yy8QarPC33NRzH4tTIpzANPhZpJ6tpOu
-	QNUJN/dXW/Ngmls8FyZVFMhWOxal51KP7lDd/4Iw/7A41+TqjKnKhwT1KYql7WiMDI1Cc6XSvq5gg
-	EuAHDcMgJLv/eWubc3JA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=bVBoTt2I9kMrLxLj/Ny7gxC12dg+QOt9sEhaz6xgZ4w=; b=kD5kVfkWH0n7Ylnuz2dhDliYx
+	5BZkMyGiebvVRFc/vy1S6e4jvOKQ7UzHUDzu1nOm9kH13TyJUVk0U/r4cwkwRzbi1FBeQ74F9TqE0
+	giLyNA1lCCK2oheJ2gwnZziKE9X3SnHy4h4Fc9QKJKKPjpTCMMV3rQu1yDq4mbfemwNrQiU9LbhWT
+	ntVA05aKSLW6F2HlhMrFV167ZBZd0Z2XoBgIyw7/LTJKbhmpHP4XKFhaWowAcJkSZLiQ5x8fLNT/F
+	UuyRZ+k3M5NEsa9obGPwkAXcURngXPVyEDLKAYEc6m6Y/UkZPMo6tUOkwPro+GvVIBFuNgG5RSnUY
+	jL5NkZGCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iBK3o-0001r5-Q2; Fri, 20 Sep 2019 14:39:00 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1iBKGg-0007Rk-4Z; Fri, 20 Sep 2019 14:52:18 +0000
+Received: from 7of9.schinagl.nl ([62.251.20.244])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iBK3i-0001qj-D4
- for linux-mtd@lists.infradead.org; Fri, 20 Sep 2019 14:38:55 +0000
-Received: by mail-wm1-x344.google.com with SMTP id b24so2506153wmj.5
- for <linux-mtd@lists.infradead.org>; Fri, 20 Sep 2019 07:38:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=QpV7/+yAaByU9Gkvq1/TvnZG5n90383ADAkpodmCXBA=;
- b=lj8TXUiuIegfzRLSf+IsVql/zQQi6GFZkqQDxgz95XHsiUsXg5DoeBHTX2r5lfEuVL
- 99o/mHwpCF20bDx+1HOUdBYqPPcXQOkQQ9h1Syh2E2RcuD8hNK6Gd42Y9tIBKP1Y+PM3
- cFHd7RMsJTSbEAEja3SWep4tucmR+Jo3cdNLQhml7wo+yG5jTcXTWxRuM7h2Hz/vwCqt
- MGGHxUXcvar9xbktUx/GrnEC33yWbAM6/sZFmuwZWoVf/D4RZB+8cOS31kjekKOlHC3K
- VPOPcf6qjzRwp210fcvX0LdHM01TRUo8i3RIJJnORMEzFGTtcr5EJhXu5CC78nLaKvLt
- SoZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=QpV7/+yAaByU9Gkvq1/TvnZG5n90383ADAkpodmCXBA=;
- b=mjOmviqY5nsMu/BvoJf4MD6XFc3GZH0Aqh2HOvIsmXbrbrZpZ9Emt9I11w0rk2KKXu
- D5v6qG1Ki6SBXzFg6XT81cf+WhxGDtd7fyfUGmlbmttiCn4YWBSlcyCme6UZg2wLMHK2
- SaGXV1qHwyp06zVj9ST5BjfvseooDob/cQkwmwQmTjeYSSO9vX+uFoUVpUqtGVKNqzZK
- HTvkXTyqg2JaJIXvMPp6IahcpKtplunMYALXnzsHO03k0wCDClp3mv5goZO2HmyF9DwS
- ceMsNP/njCQRBABM1n2QvDFnR4bQFWsGDxh/wRHE5L+79M/EGFCYPJ9kQAGK6V5a9233
- 8ptA==
-X-Gm-Message-State: APjAAAVlfhxafG71LKTZ5j8WaXexuSqJTMTiW3Z4EnQmcKam3qPdfIKO
- pQTo2rL/bADXGYi+76/UqeQd4CyYLVIMsL80suI=
-X-Google-Smtp-Source: APXvYqw0EraUFYMhhNXRZxVr3iyCe1OeR0Iuge+9+HdkT5FN0Vn52o2HVYZsNRrV6bRmbu8jYWhELT7ZMhNGnb7ayFg=
-X-Received: by 2002:a05:600c:24d1:: with SMTP id
- 17mr3773509wmu.104.1568990332904; 
- Fri, 20 Sep 2019 07:38:52 -0700 (PDT)
+ id 1iBKGZ-0007QY-96
+ for linux-mtd@lists.infradead.org; Fri, 20 Sep 2019 14:52:12 +0000
+Received: from [10.87.3.229] (unknown [145.15.244.31])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by 7of9.schinagl.nl (Postfix) with ESMTPSA id 4DB3E12508B6
+ for <linux-mtd@lists.infradead.org>; Fri, 20 Sep 2019 16:52:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=are-b.org; s=7of9;
+ t=1568991123; bh=RxO/XFI9f0TpihejqrqXW4f8LEGMXi0kDiqL7M0CUrE=;
+ h=Subject:To:References:From:Date:In-Reply-To;
+ b=S+RcDyciVX8yhpCGLkrrURGCggAOxdQRs6ym3gavzyqszk79sAzSlL+2HDLYBAFy/
+ dY1SKHmmdj3YQoXhN+wYcXNhk80naMvfL3ZqYQceNG9WsXnK7d5/8IHYUMltCJQlO5
+ ID35gsh1JlTrrV8OXlxaVcpxkuNrmB20yGma4IEk=
+Subject: Re: Missing all ubi commands in mtd-utils
+To: linux-mtd@lists.infradead.org
+References: <CAA=hcWRK-ChXxovKqSLpDF+JO7DtjginYXY33O-xtEAq25MiuQ@mail.gmail.com>
+ <20190920111010.AF800240014@gemini.denx.de>
+ <CAFLxGvwN1_BJ+3iB8fdKH9cJ_XEr_JvkToFAhxTzmK=FsixCbA@mail.gmail.com>
+From: Oliver <oliver@are-b.org>
+Message-ID: <4c95dadc-164d-ca0a-a1a8-1b4cac76ece9@are-b.org>
+Date: Fri, 20 Sep 2019 16:51:57 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-References: <1568962478-126260-1-git-send-email-nixiaoming@huawei.com>
- <20190920114336.GM1131@ZenIV.linux.org.uk>
- <206f8d57-dad9-26c3-6bf6-1d000f5698d4@huawei.com>
- <20190920124532.GN1131@ZenIV.linux.org.uk>
- <20190920125442.GA20754@ZenIV.linux.org.uk>
- <eb679ad2-4020-951c-e4d1-60cb059a5ca8@huawei.com>
-In-Reply-To: <eb679ad2-4020-951c-e4d1-60cb059a5ca8@huawei.com>
-From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Fri, 20 Sep 2019 16:38:39 +0200
-Message-ID: <CAFLxGvzeLTVfA17DMEi5tSkzkUgJncjX5oHWe207x7bfUtugtw@mail.gmail.com>
-Subject: Re: [PATCH] jffs2:freely allocate memory when parameters are invalid
-To: Xiaoming Ni <nixiaoming@huawei.com>
+In-Reply-To: <CAFLxGvwN1_BJ+3iB8fdKH9cJ_XEr_JvkToFAhxTzmK=FsixCbA@mail.gmail.com>
+Content-Language: nl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190920_073854_471122_5E7765FC 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20190920_075211_556162_555D1F7D 
+X-CRM114-Status: UNSURE (   9.06  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:344 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (richard.weinberger[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -98,34 +76,17 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <bbrezillon@kernel.org>,
- Richard Weinberger <richard@nod.at>, houtao1@huawei.com,
- LKML <linux-kernel@vger.kernel.org>, daniel.santos@pobox.com,
- linux-mtd@lists.infradead.org, Al Viro <viro@zeniv.linux.org.uk>,
- dilinger@queued.net, David Woodhouse <dwmw2@infradead.org>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Sep 20, 2019 at 4:14 PM Xiaoming Ni <nixiaoming@huawei.com> wrote:
-> I still think this is easier to understand:
->  Free the memory allocated by the current function in the failed branch
-
-Please note that jffs2 is in "odd fixes only" maintenance mode.
-Therefore patches like this cannot be processed.
-
-On my never ending review queue are some other jffs2 patches which
-seem to address
-real problems. These go first.
-
-I see that many patches come form Huawai, maybe one of you can help
-maintaining jffs2?
-Reviews, tests, etc.. are very welcome!
-
--- 
-Thanks,
-//richard
+On 20-09-2019 16:33, Richard Weinberger wrote:
+> On Fri, Sep 20, 2019 at 1:10 PM Wolfgang Denk <wd@denx.de> wrote:
+>> Probably "ubifs" is not set in your DISTRO_FEATURES ?
+> Yocto splits mtd-utils into many sub-packages, ubi stuff is in mtd-utils-ubifs.
+>
+alpine also splits them since a few months into smaller packages.
 
 ______________________________________________________
 Linux MTD discussion mailing list
