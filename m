@@ -2,51 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A00F3B9F54
-	for <lists+linux-mtd@lfdr.de>; Sat, 21 Sep 2019 20:15:51 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A8540B9F55
+	for <lists+linux-mtd@lfdr.de>; Sat, 21 Sep 2019 20:16:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
 	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yv0iuDn++wtQ6sC1tWV/05K4wYwz0VwXp6TIIXKglM0=; b=dTybtr49N+EY5U
-	rpqjUaGNHUgea2IMiyVWDzT5K9Qj9FayVzEyIdyApNWhvdWN0N2XHTHF13NEFQSVWtnsG0EQ+GEbK
-	IRerF9UN59GlVv2VJQwZwNl/b3ZVnux1f14YaVaC3eddfvtffe4yDoMdtaHuewW9uDgEocLh84mNU
-	A9uHSnKgb8jI8z36f2UNgA9yH4qaaAyqtiKRQQJ/WQvIBKLcfoYV5NN184tReY6yv4S5wEJkAKaF3
-	FMbKH8Sdd/VlX7zQB6LeYEHUXWfNQcgt4H43t1r0daJEz8ahIk01yZcHaVRqAUcIlPhnOydObslQY
-	plXacRK6ZnkobPKhAmsw==;
+	List-Owner; bh=KvSvzzsdrM5mcVY9U7zQLdDeZ442qeXNOBj0NIVZc4I=; b=fSH4W6ndNw0i42
+	29GYigZTq6gw99omkJ6cBXwALKMIfYoN6nGNHLxbF5BSKKp87ko1Q26BH3jTpSzA1vpQQoj3GDkDI
+	WUV3SncnZZgosCN7vWkzDwbFqVJwSk00nJnCXqUIcoBjRSX26WlzgmcmQdSh45g/NHxfXZOTcghxD
+	suv+BxZuR3ZSGhZf1WIMg4U7IdIpG5eLtRzU5CSYAl2FrPlgJ4rA/QPJeIDbgY1dbScb3SjUrn6iQ
+	0k3a1Iqcsojf9dNIsIAMOH2jdl1XpMx9x7HQavGpK80RSQOuPvjI6g2tmvQcQhcljVJla79wIWi69
+	HXy4+ryGoOnsJR0pYXYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iBjv6-000241-RL; Sat, 21 Sep 2019 18:15:44 +0000
+	id 1iBjvN-0002Kl-7F; Sat, 21 Sep 2019 18:16:01 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iBjum-00022K-Se
+ id 1iBjun-00022s-M3
  for linux-mtd@lists.infradead.org; Sat, 21 Sep 2019 18:15:26 +0000
-Subject: Re: [GIT PULL] MTD updates for 5.4-rc1
+Subject: Re: [GIT PULL] UBI/UBIFS/JFFS2 updates for 5.4-rc1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1569089724;
- bh=bBHYtE7nzeS8vbO+KYHOuR4V++/A2K2IKrb0HKTD+SQ=;
+ s=default; t=1569089725;
+ bh=/SsYhComEN4S1FrwRkyBrwL7UDfxZ1mFJAKMOXx7ocM=;
  h=From:In-Reply-To:References:Date:To:Cc:From;
- b=fR7TgMaJoZFtmX5b3+WjpVtYjRLLiII17jM1AmB6zc0SGbPavifvifdQHo8zg17Jx
- io4ggEExuuabRD1UQroqbar72ZbWNb0CgWET9GWdEPntwtvGOsKeZOEnGDkEjM1idk
- zUj/z9ca7JU2zAi/+zGz1qAiBM515iIrsSo6gJ5k=
+ b=j5jgx1ciiClxji32isQYJC5F6rqS0Xeeu0D4nOySPirwF+McIXF/+3AOxbx+VYrvZ
+ xQQMdOPyT8+UvUErCLuenzzr1VgLX4+iEt6gxVIof/ESqAv3cDhX220BHYqJI8WKVt
+ oQdKKnQMjiiB4hIs6PawC7xkkTjsXnrGhn+8cCeg=
 From: pr-tracker-bot@kernel.org
-In-Reply-To: <1742349117.3527.1569051395780.JavaMail.zimbra@nod.at>
-References: <1742349117.3527.1569051395780.JavaMail.zimbra@nod.at>
+In-Reply-To: <1224182178.3529.1569051402039.JavaMail.zimbra@nod.at>
+References: <1224182178.3529.1569051402039.JavaMail.zimbra@nod.at>
 X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <1742349117.3527.1569051395780.JavaMail.zimbra@nod.at>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/for-5.4
-X-PR-Tracked-Commit-Id: 2cfcfadb8e1380938d6631cffa4fa567b13f52b2
+X-PR-Tracked-Message-Id: <1224182178.3529.1569051402039.JavaMail.zimbra@nod.at>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git
+ tags/upstream-5.4-rc1
+X-PR-Tracked-Commit-Id: 6a379f67454a3c740671ed6c7793b76ffecef50b
 X-PR-Merge-Tree: torvalds/linux.git
 X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 4553d469d6f88028f185de57e771dd29aba10d90
-Message-Id: <156908972436.32474.2390391454365007694.pr-tracker-bot@kernel.org>
-Date: Sat, 21 Sep 2019 18:15:24 +0000
+X-PR-Merge-Commit-Id: 104c0d6bc43e10ba84931c45b67e2c76c9c67f68
+Message-Id: <156908972540.32474.6167862187176290736.pr-tracker-bot@kernel.org>
+Date: Sat, 21 Sep 2019 18:15:25 +0000
 To: Richard Weinberger <richard@nod.at>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190921_111524_947469_94032618 
-X-CRM114-Status: UNSURE (   1.21  )
+X-CRM114-CacheID: sfid-20190921_111525_737903_36B1BDD6 
+X-CRM114-Status: UNSURE (   1.41  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -76,21 +77,21 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, linux-mtd <linux-mtd@lists.infradead.org>,
+Cc: linux-mtd <linux-mtd@lists.infradead.org>,
  torvalds <torvalds@linux-foundation.org>,
- linux-kernel <linux-kernel@vger.kernel.org>, miquel.raynal@bootlin.com
+ linux-kernel <linux-kernel@vger.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The pull request you sent on Sat, 21 Sep 2019 09:36:35 +0200 (CEST):
+The pull request you sent on Sat, 21 Sep 2019 09:36:42 +0200 (CEST):
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/for-5.4
+> git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git tags/upstream-5.4-rc1
 
 has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/4553d469d6f88028f185de57e771dd29aba10d90
+https://git.kernel.org/torvalds/c/104c0d6bc43e10ba84931c45b67e2c76c9c67f68
 
 Thank you!
 
