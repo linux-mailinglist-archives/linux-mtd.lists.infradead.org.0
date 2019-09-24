@@ -2,55 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AFD5BC206
-	for <lists+linux-mtd@lfdr.de>; Tue, 24 Sep 2019 08:48:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9BFE5BC20F
+	for <lists+linux-mtd@lfdr.de>; Tue, 24 Sep 2019 08:51:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:From:To:
 	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=po8zeu4RDGf4HZEsndro7QR3jTZEe3vlBN0c5J0TMEk=; b=d1wj736WYPP8Q/
-	1iHrC59hu3vS8pD5BoEp2qmYXcELKS8bn8KsOpcU0hnJq/HQvHGilR4wLrwynofP7tBQeSq/zrsp8
-	l9OfECt3eQoMmGft5GDuzPgN9mnIDDEPxkQCY5R3jcqj/YJigO9/GFN4ddhxM98q4wwzb0mWVnhwg
-	SBpyCFYsgLV+v6UzF749GpyInxWShVlW6iceHLlT8SCf/S769vbwBqq6uAqupQ2GZpSuffDx0ibS7
-	x/ymkyGyDk35Xb+hplGhnVvRTvhlwoEh5BfWSEgBHSVLn2rw2h2utLm8LySXWvDQypHMpTQiW6St8
-	kiTOTp8fi2QM6AJWRFQQ==;
+	List-Owner; bh=+cI4j0RPPwSyr9kKPwWeAAXmP1kzEI8FVQdVEf30HLE=; b=QTDrzrTTU7b0FO
+	Eu/B/0XTCBbuNj/NMW7AqFp8gvNRLurnYKXOnKvghKbQSk5bxkHKMth3TJEV8lPG4ciFlvWWhru4j
+	H+hvGjOYCN31Sgss2nFll7FmAnaabDAy2YK7QSVpLGdN9jxuapfC2kerLVEwPCAnnfAwGjOaJvng/
+	nA8phOrjkelv5KaJ1X5YryeBM7KoWGsb3wGmS5qMitK9D6GUvpDne6NgUhxAOfmOtVVJ4A1DBBqzc
+	eTT8uCb/ZCUNQp9n4meBiwcia4+mzwF/lqQnBWtOpnm8EZALn3BScHv31+ZVhV00hcQ8XP+A9TTMu
+	n992DWl8I0Futq4VQLkQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iCed2-0003wn-TI; Tue, 24 Sep 2019 06:48:52 +0000
+	id 1iCefC-0005Qx-JU; Tue, 24 Sep 2019 06:51:06 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iCecv-0003wF-0n
- for linux-mtd@lists.infradead.org; Tue, 24 Sep 2019 06:48:47 +0000
+ id 1iCef4-0005Q3-Fn
+ for linux-mtd@lists.infradead.org; Tue, 24 Sep 2019 06:51:00 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 6299B2146E;
- Tue, 24 Sep 2019 06:48:43 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7FD2A214DA;
+ Tue, 24 Sep 2019 06:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1569307723;
- bh=2DjnDmpMwbnsg6BNHmEbYQhyGbKPIDucd9FLYyr21ZY=;
+ s=default; t=1569307858;
+ bh=fbu5eJRLzW5mqkNJ+KMkgwXI84cbo/CVPFXOsWWu2pE=;
  h=Subject:To:Cc:From:Date:From;
- b=KdtBPpA/2VIFHr4c5qQM56xrnbo/Mg4gcHKSfpTpHO86usW0bpUmy3NpTUgM587mj
- G5GEWNuIkzqox5tG7xsZEBrZ7JsAyYc0gQ9SJTNT27cYk+zwR6oAbkhhyO85dPYTZv
- hqygN2JCfgLlwcHjoMUOPrndg+K//c/tQo2VVVTM=
+ b=Zf6XuSv3ynhjU902mtbgPoprnP79WNTKxyqhv4EuDxvCc6VlFVDseDsFWyjIJ0zp6
+ 6opG1gqGuuDfcuYDOcSSW0ppSHL2CF2vEG8h1ZdrqjW4UxUJs77v64PAwVksSnC+B3
+ MkO7nxB54UJToSOvVp4V1YXvGu5kUhZJFk3alNks=
 Subject: Patch "mtd: cfi_cmdset_0002: Use chip_good() to retry in
- do_write_oneword()" has been added to the 5.3-stable tree
+ do_write_oneword()" has been added to the 5.2-stable tree
 To: Joakim.Tjernlund@infinera.com, chris.packham@alliedtelesis.co.nz,
  fbettoni@gmail.com, gregkh@linuxfoundation.org, hauke@hauke-m.de,
  ikegami.t@gmail.com, linux-mtd@lists.infradead.org, nbd@nbd.name,
  vigneshr@ti.com
 From: <gregkh@linuxfoundation.org>
-Date: Tue, 24 Sep 2019 08:48:24 +0200
-Message-ID: <156930770424770@kroah.com>
+Date: Tue, 24 Sep 2019 08:50:33 +0200
+Message-ID: <1569307833130235@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190923_234845_100948_ACF835AA 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20190923_235058_571019_E9228374 
+X-CRM114-Status: GOOD (  16.26  )
 X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.0 points)
@@ -86,12 +86,12 @@ This is a note to let you know that I've just added the patch titled
 
     mtd: cfi_cmdset_0002: Use chip_good() to retry in do_write_oneword()
 
-to the 5.3-stable tree which can be found at:
+to the 5.2-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
      mtd-cfi_cmdset_0002-use-chip_good-to-retry-in-do_write_oneword.patch
-and it can be found in the queue-5.3 subdirectory.
+and it can be found in the queue-5.2 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
 please let <stable@vger.kernel.org> know about it.
@@ -140,17 +140,16 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/drivers/mtd/chips/cfi_cmdset_0002.c
 +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-@@ -1717,31 +1717,37 @@ static int __xipram do_write_oneword(str
+@@ -1628,29 +1628,35 @@ static int __xipram do_write_oneword(str
  			continue;
  		}
  
+-		if (time_after(jiffies, timeo) && !chip_ready(map, adr)){
 +		/*
 +		 * We check "time_after" and "!chip_good" before checking
 +		 * "chip_good" to avoid the failure due to scheduling.
 +		 */
- 		if (time_after(jiffies, timeo) &&
--		    !chip_ready(map, chip, adr)) {
-+		    !chip_good(map, chip, adr, datum)) {
++		if (time_after(jiffies, timeo) && !chip_good(map, adr, datum)) {
  			xip_enable(map, chip, adr);
  			printk(KERN_WARNING "MTD %s(): software timeout\n", __func__);
  			xip_disable(map, chip, adr);
@@ -158,8 +157,8 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  			break;
  		}
  
--		if (chip_ready(map, chip, adr))
-+		if (chip_good(map, chip, adr, datum))
+-		if (chip_ready(map, adr))
++		if (chip_good(map, adr, datum))
  			break;
  
  		/* Latency issues. Drop the lock, wait a while and retry */
@@ -167,10 +166,9 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
  	}
 +
  	/* Did we succeed? */
--	if (!chip_good(map, chip, adr, datum)) {
+-	if (!chip_good(map, adr, datum)) {
 +	if (ret) {
  		/* reset on all failures. */
- 		cfi_check_err_status(map, chip, adr);
  		map_write(map, CMD(0xF0), chip->start);
  		/* FIXME - should have reset delay before continuing */
  
@@ -188,7 +186,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 Patches currently in stable-queue which might be from ikegami.t@gmail.com are
 
-queue-5.3/mtd-cfi_cmdset_0002-use-chip_good-to-retry-in-do_write_oneword.patch
+queue-5.2/mtd-cfi_cmdset_0002-use-chip_good-to-retry-in-do_write_oneword.patch
 
 ______________________________________________________
 Linux MTD discussion mailing list
