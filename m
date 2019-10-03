@@ -2,53 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7CFF6CA194
-	for <lists+linux-mtd@lfdr.de>; Thu,  3 Oct 2019 17:57:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C7B3CA25A
+	for <lists+linux-mtd@lfdr.de>; Thu,  3 Oct 2019 18:08:24 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IwWJQdLBYURqYx4tKDFP/lbXjetLRMYAlmgVFxR5b+E=; b=K1o0QN7s86ITaO
-	4kP4DVXbxbM+jW8TrDlL7BVsqMzO/c4wCjnMm6M/ppp4JRxoJss/sjNx4jJ+BOMDddd+G5d5MM3wq
-	R6Y9IRjLrBAqlgRCa7EZhHVnoTQb66rIA6c5aaXVoHhVqzL08C9iLqJecvfm6H4sC/k6eHQFFerOW
-	EjOjMfVkEzn2SuUXvCaNeNUjen+/u0tkpOOoztsfi11pUHnFS4/oc39SloxdW9Q4UksixQ6phNcac
-	pMn4jm12yIZVqzOPnLAezk0E7UCv/Nu3hp9iX3y8+2gIvMcIIe+kY37wnWke526nU6CV2irtVA+r+
-	Vf7uiNLi2zU1xvyqP08Q==;
+	List-Owner; bh=gSnWSDMwL2XSLhAvelV5MPx4nymc6+HTI1v77hccf0o=; b=Z2YuNogMb/puk/
+	nZF22K0Yle7Do/Ar2siyeu3PJUKrjmfpDEti+5liSKX64uPQ0HTR42Lc1cjwGC8/6fFIOmXGRMRC2
+	Vw80yx89rhMFOSvbsxZgEYQaRzu1XC8HzWoOWjKFLy60aqBZuCfEHIZ4c2Q5NkHEd+0XT7xSq7YaC
+	S6mqc1NeGAXN+1xk3hPxDTjqqB/Er0cLre3WIqGx3Xo8dyin7/Y5/Ppr7XRi2/q6EKl5sclFZYAgY
+	8IxCh65sxkbSM/8GvpGv1EdkE9CABQs411/o88zp2EOZuQajz6ZLe2SamRdYZvEl05R4ofr3O20Rm
+	bgvPsK6gz1IOUBPeLuJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iG3U6-00068M-C5; Thu, 03 Oct 2019 15:57:42 +0000
+	id 1iG3eK-00043G-CY; Thu, 03 Oct 2019 16:08:16 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iG3Tw-00067Z-Ue
- for linux-mtd@lists.infradead.org; Thu, 03 Oct 2019 15:57:34 +0000
+ id 1iG3e9-00042B-Bo
+ for linux-mtd@lists.infradead.org; Thu, 03 Oct 2019 16:08:06 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 851B3207FF;
- Thu,  3 Oct 2019 15:57:31 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 470C8215EA;
+ Thu,  3 Oct 2019 16:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1570118252;
- bh=+yVYbzi6NorjDufJSabcULv4qzLtVu0G7LVMv+Bk8DQ=;
+ s=default; t=1570118884;
+ bh=2/8TZMaaS0SiegRnkbaOmawjh7OsL6mgZRAmTfGalrk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=ID7ZgIkJqZEk6pVsnHKPf6XqkGHCzVpZR1sC3YkNLRfHCyLKGEhOAy2icUjAE7W2p
- y1UAKhVUAZ45cMIccyEJ08eqajlYpPnWa/pzy9LPxg4gE5+QzAgx6t73VEvTUp9UPv
- l1MX5VT/0klXgUhcE+Rwc6MqANabw1n0BEwCgXWE=
+ b=drhowalQ5MuWUFsv+OEVeGgEEgI8+zCU1wVfzsgDQowvEWhUKiIKIQGjH59YXdQtJ
+ P/P4UYp8wM3wF+fD5TrIjjDbK1bD05ERQMd/aJePou2hcEKRekMYxBYLjhrkO/7bo4
+ Ekek3nt3Bsxr0PF6VQGAMXVQA4XQk0ak5GV0UNlk=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 4.4 06/99] mtd: cfi_cmdset_0002: Use chip_good() to retry in
- do_write_oneword()
-Date: Thu,  3 Oct 2019 17:52:29 +0200
-Message-Id: <20191003154255.205877418@linuxfoundation.org>
+Subject: [PATCH 4.14 009/185] mtd: cfi_cmdset_0002: Use chip_good() to retry
+ in do_write_oneword()
+Date: Thu,  3 Oct 2019 17:51:27 +0200
+Message-Id: <20191003154439.274970489@linuxfoundation.org>
 X-Mailer: git-send-email 2.23.0
-In-Reply-To: <20191003154252.297991283@linuxfoundation.org>
-References: <20191003154252.297991283@linuxfoundation.org>
+In-Reply-To: <20191003154437.541662648@linuxfoundation.org>
+References: <20191003154437.541662648@linuxfoundation.org>
 User-Agent: quilt/0.66
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191003_085733_036599_57B13DFB 
+X-CRM114-CacheID: sfid-20191003_090805_458506_8B3990E5 
 X-CRM114-Status: GOOD (  15.59  )
 X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -125,7 +125,7 @@ Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 --- a/drivers/mtd/chips/cfi_cmdset_0002.c
 +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
-@@ -1626,29 +1626,35 @@ static int __xipram do_write_oneword(str
+@@ -1628,29 +1628,35 @@ static int __xipram do_write_oneword(str
  			continue;
  		}
  
