@@ -2,53 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1D6F0D2155
-	for <lists+linux-mtd@lfdr.de>; Thu, 10 Oct 2019 09:06:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B409D2177
+	for <lists+linux-mtd@lfdr.de>; Thu, 10 Oct 2019 09:14:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HcOr0zQ6B2yF4M/NghZUP/pFw+vpnQvgKcsyyiYNRNo=; b=fYeoPX5XSM3WBH
-	x09+9BVRJ1dWuqJP2cyuvaYmw+nIuweb3Ibz3fuk0peCkXuzP+Fy/drZaMfWa7eWacdQJPx8pluLE
-	DUPzAirwqH9TTaVUNbEd5w7fZ5K2Q6KxAR4OqYXM53NVI3cj/EjAY9LRFEK4q97H371v5LQiMNpqO
-	dWlJXUmcgt+pQs0H8rLoryRiNKZIxe01FTHUb7EqXQN3qdX84i8x7EJNYq++sfSKJUd1zyaC45cn8
-	bcOuPef/I9yJ7RVtzeacVia7lyLV0ZCKLTEdxTUzlTRKWLmAXqRObNBtB1lI9ajpfoMS63F2Hje1z
-	WhtLUE5YycFyzOAD9zEA==;
+	List-Owner; bh=JSOVLhno1ktN1Mz80IXtkcjUn2GY9nsBViOtvuQ4wVM=; b=ep8mtqsIhLEh3q
+	gjhAXtmW4yJK/sTxnT2X3Hfxd/hTuuxPUNFAcw6LuDAmihDpC5R6lfyZ5A/Gq0PPgWN5GeilGDZLx
+	eYbMffg+q7GtCSakfQaOSpKV5elLyIL4mBg2kEBZwM4DCsHuXrORKHPYFHn0YDjaRb1P2VNg5qNZj
+	VRNvjUB7p+2xoU3f1awB2tMZPAi9LBcX+PJre01VLgrHhkkygLd9WVxQig709KCvpa0vYpTzhTn3T
+	pYUsAX/Soya2g+SZoR4Tmmpfg2BisTJdWUUQRW6WdV5O7jva8BvYd5c4lZPo9bQljpgvjaJoelgez
+	cya6o81tNp0Mdk3/lF9g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iISWK-0007NQ-Fs; Thu, 10 Oct 2019 07:05:56 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1iISev-0002Ul-Mc; Thu, 10 Oct 2019 07:14:49 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iISVt-0007DU-19; Thu, 10 Oct 2019 07:05:32 +0000
+ id 1iISe9-00023U-DG; Thu, 10 Oct 2019 07:14:03 +0000
 Received: from dhcp-172-31-174-146.wireless.concordia.ca (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 2988E28E582;
- Thu, 10 Oct 2019 08:05:27 +0100 (BST)
-Date: Thu, 10 Oct 2019 09:05:24 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 979B1290767;
+ Thu, 10 Oct 2019 08:13:59 +0100 (BST)
+Date: Thu, 10 Oct 2019 09:13:56 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: <Tudor.Ambarus@microchip.com>
-Subject: Re: [PATCH v2 04/22] mtd: spi-nor: Rename nor->params to nor->flash
-Message-ID: <20191010090524.6de7e746@dhcp-172-31-174-146.wireless.concordia.ca>
-In-Reply-To: <20190924074533.6618-5-tudor.ambarus@microchip.com>
+Subject: Re: [PATCH v2 05/22] mtd: spi-nor: Rework read_sr()
+Message-ID: <20191010091356.5d9a4e44@dhcp-172-31-174-146.wireless.concordia.ca>
+In-Reply-To: <20190924074533.6618-6-tudor.ambarus@microchip.com>
 References: <20190924074533.6618-1-tudor.ambarus@microchip.com>
- <20190924074533.6618-5-tudor.ambarus@microchip.com>
+ <20190924074533.6618-6-tudor.ambarus@microchip.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191010_000530_884935_6AABC741 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20191010_001401_706349_131E57EF 
+X-CRM114-Status: GOOD (  20.46  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -74,22 +72,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 24 Sep 2019 07:46:03 +0000
+On Tue, 24 Sep 2019 07:46:08 +0000
 <Tudor.Ambarus@microchip.com> wrote:
 
 > From: Tudor Ambarus <tudor.ambarus@microchip.com>
 > 
-> Rename nor->params to nor->flash for a clearer separation
-> between the controller and flash operations.
+> static int read_sr(struct spi_nor *nor)
+> becomes
+> static int spi_nor_read_sr(struct spi_nor *nor, u8 *sr)
+> 
+> The new function returns 0 on success and -errno otherwise.
+> We let the callers pass the pointer to the buffer where the
+> value of the Status Register will be written. This way we avoid
+> the casts between int and u8, which can be confusing.
+> 
+> Prepend spi_nor_ to the function name, all functions should begin
+> with that.
+> 
+> S/pr_err/dev_err and drop duplicated dev_err in callers, in case the
+> function returns error.
 
-Hm, I'm not sure 'flash' is clearer than 'params', and the spi_nor
-object is supposed to represent the NOR chip anyway, so it was pretty
-clear to me that nor->params were the NOR flash parameters not the
-NOR controller ones.
-If I had anything to change it would be s/params/properties/ (and
-s/spi_nor_flash_parameter/spi_nor_properties/) since those parameters
-look like immutable information discovered during the NOR detection,
-but I'm nitpicking here.
+Too many things done in a single patch, can you split that please?
+
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+> ---
+>  drivers/mtd/spi-nor/spi-nor.c | 131 +++++++++++++++++++++---------------------
+>  1 file changed, 65 insertions(+), 66 deletions(-)
+> 
+> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+> index 7d0c1b598250..a23783641146 100644
+> --- a/drivers/mtd/spi-nor/spi-nor.c
+> +++ b/drivers/mtd/spi-nor/spi-nor.c
+> @@ -388,12 +388,14 @@ static ssize_t spi_nor_write_data(struct spi_nor *nor, loff_t to, size_t len,
+>  	return nor->controller_ops->write(nor, to, len, buf);
+>  }
+>  
+> -/*
+> - * Read the status register, returning its value in the location
+> - * Return the status register value.
+> - * Returns negative if error occurred.
+> +/**
+> + * spi_nor_read_sr() - Read the Status Register.
+> + * @nor:        pointer to 'struct spi_nor'
+> + * @sr:		buffer where the value of the Status Register will be written.
+
+You should definitely mention that this sr pointer has to be DMA-safe.
+
+> + *
+> + * Return: 0 on success, -errno otherwise.
+>   */
+> -static int read_sr(struct spi_nor *nor)
+> +static int spi_nor_read_sr(struct spi_nor *nor, u8 *sr)
+>  {
+>  	int ret;
+>  
+> @@ -402,20 +404,17 @@ static int read_sr(struct spi_nor *nor)
+>  			SPI_MEM_OP(SPI_MEM_OP_CMD(SPINOR_OP_RDSR, 1),
+>  				   SPI_MEM_OP_NO_ADDR,
+>  				   SPI_MEM_OP_NO_DUMMY,
+> -				   SPI_MEM_OP_DATA_IN(1, nor->bouncebuf, 1));
+> +				   SPI_MEM_OP_DATA_IN(1, sr, 1));
+>  
+>  		ret = spi_mem_exec_op(nor->spimem, &op);
+>  	} else {
+> -		ret = nor->controller_ops->read_reg(nor, SPINOR_OP_RDSR,
+> -						    nor->bouncebuf, 1);
+> +		ret = nor->controller_ops->read_reg(nor, SPINOR_OP_RDSR, sr, 1);
+>  	}
+>  
+> -	if (ret < 0) {
+> -		pr_err("error %d reading SR\n", (int) ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		dev_err(nor->dev, "error %d reading SR\n", ret);
+>  
+> -	return nor->bouncebuf[0];
+> +	return ret;
+>  }
 
 
 ______________________________________________________
