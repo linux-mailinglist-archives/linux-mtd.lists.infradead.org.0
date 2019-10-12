@@ -2,47 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9732D4E7E
-	for <lists+linux-mtd@lfdr.de>; Sat, 12 Oct 2019 11:14:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B004D4E80
+	for <lists+linux-mtd@lfdr.de>; Sat, 12 Oct 2019 11:16:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W7VcE8RY5ac0kUxKWuwm/whmIK5qFnoB3vS4bk95YJU=; b=lzWIc03rET4wc0
-	G6H1XECrMym3eOQ1OlsQTEg8OFrN4n4DIa+wzOfo1jDUdXs78VqbrkoPxR2Zx251/Do+h0oAqdKue
-	j921UsUCwxZM6KaqVupYLlwRZ/g96cFjrgOFNFKMLyB3+mR6p92PYfmTacMuwNQE5b7msdgTX5a4h
-	rJRCGFwsskAPXMqRDn0dqPxFYW3Ib1CvUBMFnkQAfChAn5JzCQLnvKlC4sqDvw0dv0wNzkdTxNA1J
-	IKVFlo+mAX4XGdNj/Sr2RQ3CLAVY1JuCMD6+OhVrYSyUGRqDMktSVmHdr6SVhjd0ZUuX/5g1nR1H5
-	emHxA0JsQ183l+/PjKMQ==;
+	List-Owner; bh=g/uvS00G0Ut3n9dbkq9FyTtFIAMISdfGxjkf6rxBbJA=; b=b0fTemWnMv+HU8
+	ITK8swmjtSqwCLz20nCcvUhQ1ejDh24mhaFyi7vx7yk8jBv4Fo/ySLpV8DOqn2pQqrFTQ+nAPyfkA
+	qjGgD50WdktODaP0rXcDQ6zQ5XQsKC+3WLhgUuo73j+V8YwQQKSPXXJcc/ko4hLcqN5EVH0slc48n
+	2UMiI8Ppl0/uGlZ8NurOSUoYcdM1PVjHZUKePHkJySC6w6ydwJftpVUN1aaBEH0D00XLSXp1Xm4h2
+	Cra354srDmVuwkIgyHrzl69p92FRZNB3qjrfp6A7d33mCWlRsw8Rt8a2mjSczie2HiIHvJs5GwEzt
+	QuNep9+J43tYPy92FYuw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iJDTp-0004ND-Jg; Sat, 12 Oct 2019 09:14:29 +0000
+	id 1iJDVf-0006Sv-Nz; Sat, 12 Oct 2019 09:16:23 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iJDTR-0003tV-Hn; Sat, 12 Oct 2019 09:14:07 +0000
+ id 1iJDVH-0006G5-Br; Sat, 12 Oct 2019 09:16:00 +0000
 Received: from dhcp-172-31-174-146.wireless.concordia.ca (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 569162912EB;
- Sat, 12 Oct 2019 10:14:03 +0100 (BST)
-Date: Sat, 12 Oct 2019 11:14:00 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id AF4D72912E9;
+ Sat, 12 Oct 2019 10:15:57 +0100 (BST)
+Date: Sat, 12 Oct 2019 11:15:54 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v3 05/40] mtd: rawnand: Create a new enumeration to
- describe properly ECC types
-Message-ID: <20191012111400.10654982@dhcp-172-31-174-146.wireless.concordia.ca>
-In-Reply-To: <20190919193141.7865-6-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v3 06/40] mtd: rawnand: Use the new ECC engine type
+ enumeration
+Message-ID: <20191012111554.53d5796d@dhcp-172-31-174-146.wireless.concordia.ca>
+In-Reply-To: <20190919193141.7865-7-miquel.raynal@bootlin.com>
 References: <20190919193141.7865-1-miquel.raynal@bootlin.com>
- <20190919193141.7865-6-miquel.raynal@bootlin.com>
+ <20190919193141.7865-7-miquel.raynal@bootlin.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191012_021405_853203_AD021167 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20191012_021559_548095_7D599193 
+X-CRM114-Status: GOOD (  12.00  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -74,89 +74,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, 19 Sep 2019 21:31:05 +0200
+On Thu, 19 Sep 2019 21:31:06 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> Now that the misleading mix between ECC engine type and OOB placement
-> has been addressed, add a new enumeration to properly define ECC types
-> (also called provider or mode).
-> 
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> ---
->  drivers/mtd/nand/raw/nand_base.c |  7 +++++++
->  include/linux/mtd/rawnand.h      | 16 ++++++++++++++++
->  2 files changed, 23 insertions(+)
-> 
-> diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-> index 9a05ebfc44d1..00a261284aad 100644
-> --- a/drivers/mtd/nand/raw/nand_base.c
-> +++ b/drivers/mtd/nand/raw/nand_base.c
-> @@ -4842,6 +4842,13 @@ static const char * const nand_ecc_modes[] = {
->  	[NAND_ECC_ON_DIE]	= "on-die",
->  };
+
+> diff --git a/include/linux/platform_data/mtd-nand-s3c2410.h b/include/linux/platform_data/mtd-nand-s3c2410.h
+> index 08675b16f9e1..e30cb228c0d7 100644
+> --- a/include/linux/platform_data/mtd-nand-s3c2410.h
+> +++ b/include/linux/platform_data/mtd-nand-s3c2410.h
+> @@ -49,7 +49,7 @@ struct s3c2410_platform_nand {
 >  
-> +static const char * const nand_ecc_engine_providers[] = {
-> +	[NAND_NO_ECC_ENGINE] = "none",
-> +	[NAND_SOFT_ECC_ENGINE] = "soft",
-> +	[NAND_HW_ECC_ENGINE] = "hw",
-> +	[NAND_ON_DIE_ECC_ENGINE] = "on-die",
-> +};
-> +
->  static const char * const nand_ecc_engine_oob_placement[] = {
->  	[NAND_ECC_SYNDROME_OOB_PLACEMENT] = "hw_syndrome",
->  	[NAND_ECC_OOB_FIRST_PLACEMENT] = "hw_oob_first",
-> diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-> index 1b462fb2ab77..23feab162bc2 100644
-> --- a/include/linux/mtd/rawnand.h
-> +++ b/include/linux/mtd/rawnand.h
-> @@ -93,6 +93,22 @@ enum nand_ecc_mode {
->  	NAND_ECC_ON_DIE,
->  };
+>  	unsigned int	ignore_unset_ecc:1;
 >  
-> +/**
-> + * enum nand_ecc_engine_type - NAND ECC engine type/provider
-> + * @NAND_INVALID_ECC_ENGINE: Invalid value
-> + * @NAND_NO_ECC_ENGINE: No ECC correction
-> + * @NAND_SOFT_ECC_ENGINE: Software ECC correction
-> + * @NAND_HW_ECC_ENGINE: Hardware (controller side) ECC correction
-> + * @NAND_ON_DIE_ECC_ENGINE: Hardware (chip side) ECC correction
-> + */
-> +enum nand_ecc_engine_type {
-> +	NAND_INVALID_ECC_ENGINE,
+> -	enum nand_ecc_mode	ecc_mode;
+> +	enum nand_ecc_engine_type ecc_mode;
 
-Same comment as for the NAND_ECC_INVALID addition: if you don't have an
-entry in nand_ecc_engine_providers for this INVALID case, it's probably
-better to define it to -1.
+I know it's a pain, but can we also change the field names?
+s/mode/engine_type/ ?
 
-> +	NAND_NO_ECC_ENGINE,
-> +	NAND_SOFT_ECC_ENGINE,
-> +	NAND_HW_ECC_ENGINE,
-
-I'd rename that one into
-
-	NAND_CONTROLLER_ECC_ENGINE,
-
-HW is a bit too vague.
-
-> +	NAND_ON_DIE_ECC_ENGINE,
-
-I also find it clearer when the same prefix is used:
-
-	NAND_ECC_ENGINE_INVALID = -1,
-	NAND_ECC_ENGINE_NONE = 0,
-	NAND_ECC_ENGINE_SOFT,
-	NAND_ECC_ENGINE_CONTROLLER,
-	NAND_ECC_ENGINE_ON_DIE,
-
-Looks good otherwise. Feel free to ignore my comments if you disagree.
-
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-
-> +};
-> +
->  /**
->   * enum nand_ecc_engine_oob_placement - NAND ECC engine OOB placement
->   * @NAND_ECC_DEFAULT_OOB_PLACEMENT: Standard layout, or not specified
+>  
+>  	int			nr_sets;
+>  	struct s3c2410_nand_set *sets;
 
 
 ______________________________________________________
