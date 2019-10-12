@@ -2,38 +2,38 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E926CD4E86
-	for <lists+linux-mtd@lfdr.de>; Sat, 12 Oct 2019 11:18:17 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 34522D4E9A
+	for <lists+linux-mtd@lfdr.de>; Sat, 12 Oct 2019 11:28:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i0SVisUqrb+4p6HmP2lLbsrj5bYOSe/G11WmSgDzBGc=; b=C9idnM+abAjEZX
-	GG98/FfmnIJbc7wfAf8INrBXR/sh5wynIu8D6ioSidrDXc/MpDoibGxoDICiUiiNNIJY6pei4th2/
-	Cy3DP3RNo/jKleigIQehUbiPRkqg+MHpw3b2k8ZkTaae51HPNJhTdCiCW5QdXngEbkFqMXHayYW5r
-	ccv6O/C/0kbeiJyG8alyQfzLzFbID48xijbfrxySsUwpdScgbWSwASujHYLV+arinFFUOIeWHEyWQ
-	27rodxuGyeZ8h+0bO1dblzqqJFTSOtDnfSibG/veLmNk+tXAoPNBRQEcIjXMtDDC+xUbINqvIoV4l
-	jVwTsPMycgeAHVzYShxg==;
+	List-Owner; bh=f0EcF2h2CfCPHcs2dAPmHFJVITfufSCW8UaHSQYSjOM=; b=Mln3bHg4PWwfPy
+	t/1IvZQ3yIC3BoCR9wEwbl0WoFDi9sgHjRz28RODISQ7QHMiQLkkxpdjaLVYh85+qmn6M4qe21k1C
+	AIeCdpL5mcvliRG9s1lk5Pudz7fPrw0zr4QMO8aWH6V6+pQUfUCbBGlZRhnT5mKAwNhJcnn4EPPQg
+	qAVfwH9Nx2pybYXG4FdUBEHLzLIAR1GjrCacuLbjpsnsWcOSZmEZsJtNZsjXYEndYt861kVOk+T0u
+	ZixJFTzX8gZEIFgKDVg1AnLUkvscIyhd7w9UWKc6kLvGuDoSCF5DlVKNhgbRhEnhfghesYPdy76JY
+	u1otza8leThmJBAM2pyQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iJDXU-00071k-6H; Sat, 12 Oct 2019 09:18:16 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1iJDhh-0002Pz-QX; Sat, 12 Oct 2019 09:28:49 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iJDWw-0006r6-L7; Sat, 12 Oct 2019 09:17:43 +0000
+ id 1iJDhN-0002IW-5u; Sat, 12 Oct 2019 09:28:30 +0000
 Received: from dhcp-172-31-174-146.wireless.concordia.ca (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id EEAEE2912E9;
- Sat, 12 Oct 2019 10:17:40 +0100 (BST)
-Date: Sat, 12 Oct 2019 11:17:38 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 765542912D7;
+ Sat, 12 Oct 2019 10:28:27 +0100 (BST)
+Date: Sat, 12 Oct 2019 11:28:24 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
 Subject: Re: [PATCH v3 06/40] mtd: rawnand: Use the new ECC engine type
  enumeration
-Message-ID: <20191012111738.33be4fd5@dhcp-172-31-174-146.wireless.concordia.ca>
+Message-ID: <20191012112824.1ebb914c@dhcp-172-31-174-146.wireless.concordia.ca>
 In-Reply-To: <20190919193141.7865-7-miquel.raynal@bootlin.com>
 References: <20190919193141.7865-1-miquel.raynal@bootlin.com>
  <20190919193141.7865-7-miquel.raynal@bootlin.com>
@@ -41,15 +41,13 @@ Organization: Collabora
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191012_021742_832713_444D5CA2 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20191012_022829_352205_6EA4D522 
+X-CRM114-Status: GOOD (  16.82  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -79,24 +77,63 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 On Thu, 19 Sep 2019 21:31:06 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-> index 23feab162bc2..08964ce8b65f 100644
-> --- a/include/linux/mtd/rawnand.h
-> +++ b/include/linux/mtd/rawnand.h
-> @@ -381,7 +381,7 @@ static const struct nand_ecc_caps __name = {			\
->   * @write_oob:	function to write chip OOB data
->   */
->  struct nand_ecc_ctrl {
-> -	enum nand_ecc_mode mode;
-> +	enum nand_ecc_engine_type mode;
+> diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+> index 00a261284aad..ad0b892c2523 100644
+> --- a/drivers/mtd/nand/raw/nand_base.c
+> +++ b/drivers/mtd/nand/raw/nand_base.c
+> @@ -4835,7 +4835,7 @@ static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
+>  
+>  static const char * const nand_ecc_modes[] = {
+>  	[NAND_ECC_NONE]		= "none",
+> -	[NAND_ECC_SOFT]		= "soft",
+> +	[NAND_SOFT_ECC_ENGINE]		= "soft",
 
-This one in particular (the driver ones are not so important I guess).
+Not sure why this one is changed. This string array still describes ECC
+modes, not ECC engine types.
 
-s/mode/engine_type/ ?
+>  	[NAND_ECC_HW]		= "hw",
+>  	[NAND_ECC_HW_SYNDROME]	= "hw_syndrome",
+>  	[NAND_ECC_HW_OOB_FIRST]	= "hw_oob_first",
+> @@ -4863,21 +4863,44 @@ static int of_get_nand_ecc_mode(struct device_node *np)
+>  	if (err < 0)
+>  		return err;
+>  
+> -	for (i = NAND_ECC_NONE; i < ARRAY_SIZE(nand_ecc_modes); i++)
+> -		if (!strcasecmp(pm, nand_ecc_modes[i]))
+> +	for (i = NAND_NO_ECC_ENGINE;
+> +	     i < ARRAY_SIZE(nand_ecc_engine_providers); i++)
+> +		if (!strcasecmp(pm, nand_ecc_engine_providers[i]))
+>  			return i;
 
->  	enum nand_ecc_engine_oob_placement placement;
->  	enum nand_ecc_algo algo;
->  	int steps;
+Hm, you still need to support the old bindings (I wonder how that can
+work). What should be done instead is have a conversion table that turns
+an ecc_mode string into a engine_type+placement pair, so you don't have
+to update the DT bindings (though we might want to expose new props for
+the new model, like ecc-placement and ecc-engine).
+
+>  
+> +	for (i = NAND_ECC_SYNDROME_OOB_PLACEMENT;
+> +	     i < ARRAY_SIZE(nand_ecc_engine_oob_placement); i++)
+> +		if (!strcasecmp(pm, nand_ecc_engine_oob_placement[i]))
+> +			return NAND_HW_ECC_ENGINE;
+> +
+
+I also don't understand how this one works, placement does not give any
+clue on the type of ECC engine (at least it shouldn't).
+
+>  	/*
+>  	 * For backward compatibility we support few obsoleted values that don't
+> -	 * have their mappings into the nand_ecc_mode enum anymore (they were
+> -	 * merged with other enums).
+> +	 * have their mappings into the nand_ecc_engine_providers enum anymore
+> +	 * (they were merged with other enums).
+>  	 */
+>  	if (!strcasecmp(pm, "soft_bch"))
+> -		return NAND_ECC_SOFT;
+> +		return NAND_SOFT_ECC_ENGINE;
+>  
+>  	return -ENODEV;
+>  }
 
 ______________________________________________________
 Linux MTD discussion mailing list
