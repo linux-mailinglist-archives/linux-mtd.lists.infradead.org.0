@@ -2,60 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3216CD88BB
-	for <lists+linux-mtd@lfdr.de>; Wed, 16 Oct 2019 08:43:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B3D4D88D1
+	for <lists+linux-mtd@lfdr.de>; Wed, 16 Oct 2019 08:57:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B8usbx11eCNrNj7MrB57NA5IKwLcYX+8LkRQagzMxYs=; b=Yro59GtNrCmEsC
-	oCicgRJlbr52uC90MUOymms4lLBe2szOKRXT4cLH/OrjtOOuww01UByftOhoF4LfJ4+7VGF7ttD62
-	wT5k2GzRShHjnBwliRf9Jxg1N78KYPKM0ffeuI+E77Hc6YJS5JplUQXLgeksO0Qb4bGZ9o8Y0PE6A
-	wJc6KX/aI3QU8rQPWtEAYlwAByBfZ2GS2xKmrQngvbMqoIAyxKRH7wKFh4mhVKowLmFR/uABcdfXc
-	nrU898GUfWmXeg3CjSv0t5/5XbIJ+8m/8sGfB4CEG7FIclGCTwUNh4Dgy5t1ZQyZqyUo1JzW4GRSH
-	tSkV0xSLyvbK+UTYWbSw==;
+	List-Archive:List-Unsubscribe:List-Id:Date:From:Message-ID:MIME-Version:
+	Subject:To:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5Us1m1Oxfi4ZBUXPR6uaVKbTlZpbJiFWB3hdF4Ui0/o=; b=pFSKIOcdKyxnrC
+	zNv1VvyKTGAWvXrCrfLnQzC0uyO3+qhBh2nXt3TFWrRKTUAcGmELVWgyQlAeI+2BzC90CDLgsZTPO
+	3Do1TtFVaQvGtgo439rX8LkVlDA+28xOhMh5wbpeLu7AuS3DqgAQw01Med9YEjJ18h8hRxqeRb7Of
+	oADz3hXXh7jnOE9eiQr9gLoy+OsXd7YQZIFiBdJbeIRJHOdxs/hS5fDQ93Vc/mesiQBPu5xebTEc9
+	+/xO0qmoQVc4vxZqhErcHNRH0byt1iO5CdlwDfklrzv6iNmfuopCGyaVTeO6KQS/73DS3zysSeaVR
+	KFM/RBT0Lcl8vB3sJZKw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iKd27-0006qy-Am; Wed, 16 Oct 2019 06:43:43 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1iKdFH-0003sM-QC; Wed, 16 Oct 2019 06:57:19 +0000
+Received: from twhmllg3.macronix.com ([211.75.127.131])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iKd1w-0006qD-Qp
- for linux-mtd@lists.infradead.org; Wed, 16 Oct 2019 06:43:34 +0000
-Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.58])
- by Forcepoint Email with ESMTP id 6DAC0FFD524B483FA4BD;
- Wed, 16 Oct 2019 14:43:19 +0800 (CST)
-Received: from [127.0.0.1] (10.177.31.14) by DGGEMS412-HUB.china.huawei.com
- (10.3.19.212) with Microsoft SMTP Server id 14.3.439.0; Wed, 16 Oct 2019
- 14:43:18 +0800
-Subject: Re: [PATCH] mtd: cfi_cmdset_0002: don't free cfi->cfiq in error path
- of cfi_amdstd_setup()
-To: Vignesh Raghavendra <vigneshr@ti.com>
-References: <20191008023637.133416-1-houtao1@huawei.com>
- <CAFLxGvyea-knZOz5K7uPNZLfCVkJRrO0+Cb7Xb4EaRa+gzTNDQ@mail.gmail.com>
- <c5fd14ba-c905-58e6-c253-9dedb1b53ad0@ti.com>
-From: Hou Tao <houtao1@huawei.com>
-Message-ID: <ea390a6d-12a0-7391-13a2-0caeae7656b5@huawei.com>
-Date: Wed, 16 Oct 2019 14:43:16 +0800
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101
- Thunderbird/52.8.0
+ id 1iKdF7-0003hx-Pd
+ for linux-mtd@lists.infradead.org; Wed, 16 Oct 2019 06:57:11 +0000
+Received: from twhfmlp1.macronix.com (twhfm1p1.macronix.com [172.17.20.91])
+ by TWHMLLG3.macronix.com with ESMTP id x9G6trgN044342;
+ Wed, 16 Oct 2019 14:55:53 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+Received: from MXML06C.mxic.com.tw (mxml06c.macronix.com [172.17.14.55])
+ by Forcepoint Email with ESMTP id 0FAB2E5F2E903446FFBA;
+ Wed, 16 Oct 2019 14:55:53 +0800 (CST)
+In-Reply-To: <20191015095637.142e6db7@xps13>
+References: <1568793387-25199-1-git-send-email-masonccyang@mxic.com.tw>	<1568793387-25199-3-git-send-email-masonccyang@mxic.com.tw>
+ <20191007104501.1b4ed8ed@xps13>	<OF147D635A.8968CD6B-ON4825848D.00088AD5-4825848D.000B9D06@mxic.com.tw>
+ <20191008092832.54492696@dhcp-172-31-174-146.wireless.concordia.ca>	<OF6D5429CF.876DE422-ON48258494.000D641F-48258494.000E0D4C@mxic.com.tw>
+ <20191015095637.142e6db7@xps13>
+To: "Miquel Raynal" <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH RFC 3/3] mtd: rawnand: Add support Macronix power down mode
 MIME-Version: 1.0
-In-Reply-To: <c5fd14ba-c905-58e6-c253-9dedb1b53ad0@ti.com>
-Content-Language: en-US
-X-Originating-IP: [10.177.31.14]
-X-CFilter-Loop: Reflected
+X-KeepSent: 7A229151:50591C54-48258495:00249AAF;
+ type=4; name=$KeepSent
+X-Mailer: Lotus Notes Release 8.5.3FP4 SHF90 June 10, 2013
+Message-ID: <OF7A229151.50591C54-ON48258495.00249AAF-48258495.002612F1@mxic.com.tw>
+From: masonccyang@mxic.com.tw
+Date: Wed, 16 Oct 2019 14:55:52 +0800
+X-MIMETrack: Serialize by Router on MXML06C/TAIWAN/MXIC(Release 9.0.1FP10
+ HF265|July 25, 2018) at 2019/10/16 PM 02:55:53,
+ Serialize complete at 2019/10/16 PM 02:55:53
+X-MAIL: TWHMLLG3.macronix.com x9G6trgN044342
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191015_234333_039209_106238F2 
-X-CRM114-Status: GOOD (  17.45  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20191015_235710_088388_9A8F5A21 
+X-CRM114-Status: GOOD (  17.37  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.191 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [211.75.127.131 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -68,76 +71,104 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard.weinberger@gmail.com>,
- Richard Weinberger <richard@nod.at>, Marek
- Vasut <marek.vasut@gmail.com>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
+Cc: vigneshr@ti.com, bbrezillon@kernel.org, juliensu@mxic.com.tw,
+ gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org,
+ frieder.schrempf@kontron.de, marcel.ziswiler@toradex.com,
+ Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
+ richard@nod.at, tglx@linutronix.de, computersforpeace@gmail.com,
+ dwmw2@infradead.org, marek.vasut@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
 
-On 2019/10/16 13:38, Vignesh Raghavendra wrote:
-> Hi Hou,
-> 
-> On 16/10/19 1:17 AM, Richard Weinberger wrote:
->> On Tue, Oct 8, 2019 at 4:29 AM Hou Tao <houtao1@huawei.com> wrote:
->>>
->>> Else there may be a double-free problem, because cfi->cfiq will
->>> be freed by mtd_do_chip_probe() if both the two invocations of
->>> check_cmd_set() return failure.
->>>
->>> Also check cfi_intelext_setup() & cfi_staa_setup() to find out
->>> that cfi->cfiq is not freed as well in these functions.
->>
-> 
-> I guess you are trying to imply cfi_amdstd_setup() equivalents in
-> cfi_cmdset_0001.c (cfi_intelext_setup()) and cfi_cmdset_0020.c
-> (cfi_staa_setup()) dont't call kfree(cfi->cfiq). So cfi_amdstd_setup()
-> should not be freeing that pointer either?
-> 
-No. The lines are used to illustrate the same mistake doesn't happen
-in cfi_cmdset_0001 & 0020 instead of cfi_cmdstd_setup() needs to do
-the same thing as others cmdset.
+Hi Miquel,
 
-> This reference to other drivers in commit msg is quite confusing. My
-> suggestion would be to drop above line.
->
-It's OK for me if you drop these line.
+> > 
+> > > > > > +   nand_select_target(chip, 0); 
+> > > > > 
+> > > > > On several NAND controllers there is no way to act on the CS 
+line
+> > > > > without actually writing bytes to the NAND chip. So basically 
+this
+> > > > > is very likely to not work. 
+> > > > 
+> > > > any other way to make it work ? GPIO ?
+> > > > or just have some comments description here.
+> > > > i.e,.
+> > > > 
+> > > > /* The NAND chip will exit the deep power down mode with #CS 
+toggling, 
+> > 
+> > > >  * please refer to datasheet for the timing requirement of tCRDP 
+and 
+> > tRDP.
+> > > >  */
+> > > > 
+> > > 
+> > > Good luck with that. As Miquel said, on most NAND controllers
+> > > select_target() is a dummy operation that just assigns 
+nand_chip->target
+> > > to the specified value but doesn't assert the CS line. You could 
+send a
+> > > dummy command here, like a READ_ID, but I guess you need CS to be
+> > > asserted for at least 20ns before asserting any other signals 
+(CLE/ALE)
+> > > which might be an issue. 
+> > 
+> > okay, got it.
+> > But if possible, I think adding CS line control in 
+nand_select_target()
+> > is a simple and generic way for MTD and all raw NAND controllers.
+> 
+> The problem is not that we do not want to; the problem is that
+> controllers are not capable of doing it reliably if no byte is sent
+> over the NAND bus.
 
-> Let me know if that sound good. I will drop the it while applying.
-> 
-> 
-Regards,
-Tao
+okay,  it's kind of pity even though our raw NAND controller is capable of 
 
->> This sentence does not make sense to me.
->>
->>> Signed-off-by: Hou Tao <houtao1@huawei.com>
->>> ---
->>>  drivers/mtd/chips/cfi_cmdset_0002.c | 1 -
->>>  1 file changed, 1 deletion(-)
->>>
->>> diff --git a/drivers/mtd/chips/cfi_cmdset_0002.c b/drivers/mtd/chips/cfi_cmdset_0002.c
->>> index cf8c8be40a9c..7eaa4b523197 100644
->>> --- a/drivers/mtd/chips/cfi_cmdset_0002.c
->>> +++ b/drivers/mtd/chips/cfi_cmdset_0002.c
->>> @@ -785,7 +785,6 @@ static struct mtd_info *cfi_amdstd_setup(struct mtd_info *mtd)
->>>         kfree(mtd->eraseregions);
->>>         kfree(mtd);
->>>         kfree(cfi->cmdset_priv);
->>> -       kfree(cfi->cfiq);
->>>         return NULL;
->>>  }
->>
->> Other than that,
->> Reviewed-by: Richard Weinberger <richard@nod.at>
->>
-> 
+doing it with no byte is sent over the NAND bus.
+
+As you mentioned that other controllers are not capable of doing it 
+reliably 
+if no byte is sent over the NAND bus.
+if so, does it work by adding a NAND_OP_DUMMY_INSTR ? (as Boris's 
+comments)
+
+thanks for your time & comments.
+
+Mason
+
+
+
+CONFIDENTIALITY NOTE:
+
+This e-mail and any attachments may contain confidential information 
+and/or personal data, which is protected by applicable laws. Please be 
+reminded that duplication, disclosure, distribution, or use of this e-mail 
+(and/or its attachments) or any part thereof is prohibited. If you receive 
+this e-mail in error, please notify us immediately and delete this mail as 
+well as its attachment(s) from your system. In addition, please be 
+informed that collection, processing, and/or use of personal data is 
+prohibited unless expressly permitted by personal data protection laws. 
+Thank you for your attention and cooperation.
+
+Macronix International Co., Ltd.
+
+=====================================================================
+
+
+
+============================================================================
+
+CONFIDENTIALITY NOTE:
+
+This e-mail and any attachments may contain confidential information and/or personal data, which is protected by applicable laws. Please be reminded that duplication, disclosure, distribution, or use of this e-mail (and/or its attachments) or any part thereof is prohibited. If you receive this e-mail in error, please notify us immediately and delete this mail as well as its attachment(s) from your system. In addition, please be informed that collection, processing, and/or use of personal data is prohibited unless expressly permitted by personal data protection laws. Thank you for your attention and cooperation.
+
+Macronix International Co., Ltd.
+
+=====================================================================
 
 
 ______________________________________________________
