@@ -2,43 +2,43 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 813E7D8D38
-	for <lists+linux-mtd@lfdr.de>; Wed, 16 Oct 2019 12:04:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4A78ED8D4E
+	for <lists+linux-mtd@lfdr.de>; Wed, 16 Oct 2019 12:08:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=e47PWjFParsnzLV9D2nHmi5wuss+IispYYXnRoeL0gM=; b=AekXQ3mRyquBmo
-	fdl+kjMJbZCJgHqo2GcXCt/8lxf2rwwQm95MgmxlDPfDHD510Il6wCZdNvbcmK+hQYC5LG3eZDoU9
-	3CFoqL0QwbQdnEtR56AQxZw9IxKD5B2EPujMIQx0xMPlr8fVKuD0KraS1HJuvlX4JgcvA+Zy30Ury
-	IRJiNFJlwNV/sHw9/O5toqKuOaEw7GaSGmvP8bbqsZcDgXG6NM6pRIe/x1ayHbs0BmR+0btved+xi
-	8+1TYbHcjxa9CxsJfPgixFwjLZAEqT+Y8zjwdn7bqW+2LLsZmos3udNIETbKdHViojPYGMWpAZdEf
-	c13JAeO/DIhRQdJuUcRQ==;
+	List-Owner; bh=tkF3pkL85b8PUM1/WCVstji+wKz6iWjabgCUyuTUUAM=; b=nNbGQlBtWW2HP4
+	YWGVGh3eZ91HLZCPBtXag97S3TFGZd8s98GjWPeWW1ldycBPNP4rzvflBRdcUDuv9uh3btBwN5y9I
+	Y4C0lyEkIK19kCxgQWEUu2iJ1GVzpRx5PfeVouTpgvfw2R7zHcRASV+OHUaw23fqttmhANB3qZnFq
+	PjM51wjoiD6lJaUmqJztswFoR45IgCE6ohBowA5JHuN+GB6c5DqrbcHrYTO0LMOHdWLEqSsURq8jA
+	obj2GiKm3zVI6K27RjUTd7C4ZZhqulJKPxAq0xIRX3wOR6YwKZnS5aidHF3a6JlBnN9u3ecZxetBi
+	vCWJcX7wxeH4V28u0EmA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iKgAO-0005d6-RU; Wed, 16 Oct 2019 10:04:28 +0000
+	id 1iKgE8-0007pt-Ql; Wed, 16 Oct 2019 10:08:20 +0000
 Received: from imap1.codethink.co.uk ([176.9.8.82])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iKgAH-0005ca-1I
- for linux-mtd@lists.infradead.org; Wed, 16 Oct 2019 10:04:22 +0000
+ id 1iKgDx-0007pL-PJ
+ for linux-mtd@lists.infradead.org; Wed, 16 Oct 2019 10:08:11 +0000
 Received: from [167.98.27.226] (helo=rainbowdash.codethink.co.uk)
  by imap1.codethink.co.uk with esmtpsa (Exim 4.84_2 #1 (Debian))
- id 1iKgA8-0002jl-As; Wed, 16 Oct 2019 11:04:12 +0100
+ id 1iKgDs-0002s6-TA; Wed, 16 Oct 2019 11:08:05 +0100
 Received: from ben by rainbowdash.codethink.co.uk with local (Exim 4.92.2)
  (envelope-from <ben@rainbowdash.codethink.co.uk>)
- id 1iKgA7-0004VB-RR; Wed, 16 Oct 2019 11:04:11 +0100
+ id 1iKgDs-00084o-6a; Wed, 16 Oct 2019 11:08:04 +0100
 From: "Ben Dooks (Codethink)" <ben.dooks@codethink.co.uk>
 To: linux-kernel@lists.codethink.co.uk
-Subject: [PATCH] ubifs: force prandom result to __le32
-Date: Wed, 16 Oct 2019 11:04:09 +0100
-Message-Id: <20191016100409.17262-1-ben.dooks@codethink.co.uk>
+Subject: [PATCH] ubifs: possible missed le64_to_cpu() in journal
+Date: Wed, 16 Oct 2019 11:08:03 +0100
+Message-Id: <20191016100803.31003-1-ben.dooks@codethink.co.uk>
 X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191016_030421_224721_19C7B4A4 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20191016_030809_970387_CE6D7290 
+X-CRM114-Status: GOOD (  13.14  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -68,13 +68,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-In set_dent_cookie() the result of prandom_u32() is
-assinged to an __le32 type. Make this a forced conversion
-to remove the following sparse warning:
+In the ubifs_jnl_write_inode() functon, it calls ubifs_iget()
+with xent->inum. The xent->inum is __le64, but the ubifs_iget()
+takes native cpu endian.
 
-fs/ubifs/journal.c:506:30: warning: incorrect type in assignment (different base types)
-fs/ubifs/journal.c:506:30:    expected restricted __le32 [usertype] cookie
-fs/ubifs/journal.c:506:30:    got unsigned int
+I think that this should be changed to passing le64_to_cpu(xent->inum)
+to fix the following sparse warning:
+
+fs/ubifs/journal.c:902:58: warning: incorrect type in argument 2 (different base types)
+fs/ubifs/journal.c:902:58:    expected unsigned long inum
+fs/ubifs/journal.c:902:58:    got restricted __le64 [usertype] inum
 
 Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 ---
@@ -88,18 +91,18 @@ Cc: linux-kernel@vger.kernel.org
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/fs/ubifs/journal.c b/fs/ubifs/journal.c
-index 4fd9683b8245..d6136f7c1cfc 100644
+index d6136f7c1cfc..388fe8f5dc51 100644
 --- a/fs/ubifs/journal.c
 +++ b/fs/ubifs/journal.c
-@@ -503,7 +503,7 @@ static void mark_inode_clean(struct ubifs_info *c, struct ubifs_inode *ui)
- static void set_dent_cookie(struct ubifs_info *c, struct ubifs_dent_node *dent)
- {
- 	if (c->double_hash)
--		dent->cookie = prandom_u32();
-+		dent->cookie = (__force __le32) prandom_u32();
- 	else
- 		dent->cookie = 0;
- }
+@@ -899,7 +899,7 @@ int ubifs_jnl_write_inode(struct ubifs_info *c, const struct inode *inode)
+ 			fname_name(&nm) = xent->name;
+ 			fname_len(&nm) = le16_to_cpu(xent->nlen);
+ 
+-			xino = ubifs_iget(c->vfs_sb, xent->inum);
++			xino = ubifs_iget(c->vfs_sb, le64_to_cpu(xent->inum));
+ 			if (IS_ERR(xino)) {
+ 				err = PTR_ERR(xino);
+ 				ubifs_err(c, "dead directory entry '%s', error %d",
 -- 
 2.23.0
 
