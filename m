@@ -2,35 +2,37 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 60C1EDB445
-	for <lists+linux-mtd@lfdr.de>; Thu, 17 Oct 2019 19:47:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 23AF2DB425
+	for <lists+linux-mtd@lfdr.de>; Thu, 17 Oct 2019 19:47:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=671EQ2leehLkpOGwOO470a9Y00Tv5uS65dL/wtJWfq4=; b=aRm0tb7O7u72Tb
-	L/oUFPXnVhYPgU/Hn2Gruyt1cr/Lb7SFhy5P5HUgWo09IuUMD1Gg14XHMcYvoWjtQ3VmqiPvuNu/I
-	FIZi/XxSn2xbix3eoRIhBTdeUngqHQaN2LxN6GtPaza/s34YhCQB/D3D9Fmpf6BsCNxwkcs9C1Cez
-	enXvAnUxlup5pkQGMP3PW50TX1g7fAL7Go2UCEqU6RhipysZJmq3oit8CcLxP/DCXH2xkgsfK6eTP
-	gLiRIA67sZRZSXEqjKS5AKYimAVXFMx7KI1NjHLarwY83OLpcN6RuSfohp8HiucCidUcU37rNojaP
-	HmddG93yzB3EyYKDPEWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BLl8/wYuOtAUdZRg7n0U1CJereIgMjTxVpPgmZHY0Vk=; b=EwQ66B26ngKS/R
+	5tbC3hrjqun6lTcjps6RrTZ6kceCstKAoE6mCb2d0qLXKc2EaqwTwmvzd7pUxwfyBhyjdMBeY20R9
+	cCOO8PqNNNQX8gNQJC4gRrT63ybay0brZo4gMV3OzI6OXOqlA/MKLv6yq3a45AlkT2okaFY5rxCKK
+	ycHPkAf9wv2qD+Ugrexju32bbSl3Vx9vNq492TNJLunEhVmS/CMUsNJo7eJkD22sDBsEDgcqty5qk
+	ak62xvDKh7S4tsweN5lTfD5yx2WhBi60HTdTEpo9Rq0Cf1JiK3S/Pj5rnKG/klCxkbp/HSJBWAcaA
+	HmWkkPxSQdg0qCPaQyRw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iL9sA-0006oB-8V; Thu, 17 Oct 2019 17:47:38 +0000
+	id 1iL9rq-0006XU-6u; Thu, 17 Oct 2019 17:47:18 +0000
 Received: from [2001:4bb8:18c:d7b:c70:4a89:bc61:3] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iL9qW-0005RL-Hy; Thu, 17 Oct 2019 17:45:56 +0000
+ id 1iL9qY-0005RV-W6; Thu, 17 Oct 2019 17:45:59 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: generic ioremap (and lots of cleanups) v2
-Date: Thu, 17 Oct 2019 19:45:33 +0200
-Message-Id: <20191017174554.29840-1-hch@lst.de>
+Subject: [PATCH 01/21] arm: remove ioremap_cached
+Date: Thu, 17 Oct 2019 19:45:34 +0200
+Message-Id: <20191017174554.29840-2-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20191017174554.29840-1-hch@lst.de>
+References: <20191017174554.29840-1-hch@lst.de>
 MIME-Version: 1.0
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -57,28 +59,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi all,
+No users of ioremap_cached are left, remove it.
 
-the last patches in this series add a generic ioremap implementation,
-and switch our 3 most recent and thus most tidy architeture ports over
-to use it.  With a little work and an additional arch hook or two the
-implementation should be able to eventually cover more than half of
-our ports.
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ arch/arm/include/asm/io.h | 6 ------
+ arch/arm/mm/ioremap.c     | 4 ----
+ arch/arm/mm/mmu.c         | 2 +-
+ arch/arm/mm/nommu.c       | 4 ----
+ 4 files changed, 1 insertion(+), 15 deletions(-)
 
-The patches before that clean up various lose ends in the ioremap
-and iounmap implementations.
+diff --git a/arch/arm/include/asm/io.h b/arch/arm/include/asm/io.h
+index 7a0596fcb2e7..924f9dd502ed 100644
+--- a/arch/arm/include/asm/io.h
++++ b/arch/arm/include/asm/io.h
+@@ -400,12 +400,6 @@ void __iomem *ioremap(resource_size_t res_cookie, size_t size);
+ void __iomem *ioremap_cache(resource_size_t res_cookie, size_t size);
+ #define ioremap_cache ioremap_cache
+ 
+-/*
+- * Do not use ioremap_cached in new code. Provided for the benefit of
+- * the pxa2xx-flash MTD driver only.
+- */
+-void __iomem *ioremap_cached(resource_size_t res_cookie, size_t size);
+-
+ void __iomem *ioremap_wc(resource_size_t res_cookie, size_t size);
+ #define ioremap_wc ioremap_wc
+ #define ioremap_wt ioremap_wc
+diff --git a/arch/arm/mm/ioremap.c b/arch/arm/mm/ioremap.c
+index d42b93316183..72286f9a4d30 100644
+--- a/arch/arm/mm/ioremap.c
++++ b/arch/arm/mm/ioremap.c
+@@ -382,15 +382,11 @@ void __iomem *ioremap(resource_size_t res_cookie, size_t size)
+ EXPORT_SYMBOL(ioremap);
+ 
+ void __iomem *ioremap_cache(resource_size_t res_cookie, size_t size)
+-	__alias(ioremap_cached);
+-
+-void __iomem *ioremap_cached(resource_size_t res_cookie, size_t size)
+ {
+ 	return arch_ioremap_caller(res_cookie, size, MT_DEVICE_CACHED,
+ 				   __builtin_return_address(0));
+ }
+ EXPORT_SYMBOL(ioremap_cache);
+-EXPORT_SYMBOL(ioremap_cached);
+ 
+ void __iomem *ioremap_wc(resource_size_t res_cookie, size_t size)
+ {
+diff --git a/arch/arm/mm/mmu.c b/arch/arm/mm/mmu.c
+index 48c2888297dd..5d0d0f86e790 100644
+--- a/arch/arm/mm/mmu.c
++++ b/arch/arm/mm/mmu.c
+@@ -259,7 +259,7 @@ static struct mem_type mem_types[] __ro_after_init = {
+ 		.prot_sect	= PROT_SECT_DEVICE,
+ 		.domain		= DOMAIN_IO,
+ 	},
+-	[MT_DEVICE_CACHED] = {	  /* ioremap_cached */
++	[MT_DEVICE_CACHED] = {	  /* ioremap_cache */
+ 		.prot_pte	= PROT_PTE_DEVICE | L_PTE_MT_DEV_CACHED,
+ 		.prot_l1	= PMD_TYPE_TABLE,
+ 		.prot_sect	= PROT_SECT_DEVICE | PMD_SECT_WB,
+diff --git a/arch/arm/mm/nommu.c b/arch/arm/mm/nommu.c
+index 24ecf8d30a1e..8b3d7191e2b8 100644
+--- a/arch/arm/mm/nommu.c
++++ b/arch/arm/mm/nommu.c
+@@ -206,15 +206,11 @@ void __iomem *ioremap(resource_size_t res_cookie, size_t size)
+ EXPORT_SYMBOL(ioremap);
+ 
+ void __iomem *ioremap_cache(resource_size_t res_cookie, size_t size)
+-	__alias(ioremap_cached);
+-
+-void __iomem *ioremap_cached(resource_size_t res_cookie, size_t size)
+ {
+ 	return __arm_ioremap_caller(res_cookie, size, MT_DEVICE_CACHED,
+ 				    __builtin_return_address(0));
+ }
+ EXPORT_SYMBOL(ioremap_cache);
+-EXPORT_SYMBOL(ioremap_cached);
+ 
+ void __iomem *ioremap_wc(resource_size_t res_cookie, size_t size)
+ {
+-- 
+2.20.1
 
-A git tree is also available here:
-
-    git://git.infradead.org/users/hch/misc.git generic-ioremap
-
-Gitweb:
-
-    http://git.infradead.org/users/hch/misc.git/shortlog/refs/heads/generic-ioremap
-
-Changes since v1:
- - dropped various patches already merged
- - keep the parts of the parisc EISA hack that are still needed
 
 ______________________________________________________
 Linux MTD discussion mailing list
