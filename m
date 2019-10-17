@@ -2,34 +2,34 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 88E1BDB4C2
-	for <lists+linux-mtd@lfdr.de>; Thu, 17 Oct 2019 19:50:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9DA98DB4D1
+	for <lists+linux-mtd@lfdr.de>; Thu, 17 Oct 2019 19:51:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2u6lpAJVMnTv6mo7RMgoTyYe/NCPiuHGbc5h0We0hrE=; b=Fn/GBkSO+xjc1O
-	nMh/iNear9Y3tuK6AumxJ3eAf5ATJ6vk9NeIdnbONcqQgsTxSpf9HDtMAlKdS/LIKVozxJ9KnmA2x
-	IgN5F6sTPTvW+p7MMAejn+dRzKhxlg3lN0oZSeLQUaHdsgQO+y2ivxt5Tx1iwTw9Fc7PsiXkpscUK
-	UdeWFPD3QCVe1m+XE6MJCR2Y9X/fo4jELbg6ysdGDylM3Jx1pkXHWCGvOjNdRWKtkenF0FL63rZEI
-	KySspmyt4fzsWxd1Gr8knf1fHFSCMSH6PI+FbcBprQ9KYm8XeDvMPKn3wlAUDFNOX6SBCWirVetVC
-	0ro95izG84Py367vG/1w==;
+	List-Owner; bh=WFXSml8Q6swx3t0+tzxD1bG25YHTx++xRhfDRtsmJ6g=; b=X9QH5NtznbXbv2
+	3457Y+KeCQUgGtIn4Nvg7BQlDyq1NUfNZ8dWpEnkE9usn22VvnCx5qGf9kSLQCdbUTWkzkjyqlx7f
+	Tg9OwO5Z0DDYAM33bD9ffqrna76d+v93q4lT/UGKxJ0FGW2X2eVkb+1W7lQpEsEE3Xm4PuFgmp44D
+	8zmEkXA3tchuI5XDjJDSTHRyW9hIEOch7JpjrFOfiAopkPzzmWZZ8efsBOGvKJE+CMVKy01K3bRJv
+	5M1IBy6gXOGLfQ58jqlzSrnRlTPV72vwNbn722t2YlbjqG6Y7YJcpONLAXfKgzOXE/h4jOfO61K6t
+	j6KBrgWDLif7ikGkLKuw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iL9um-000158-S9; Thu, 17 Oct 2019 17:50:20 +0000
+	id 1iL9vo-00034s-92; Thu, 17 Oct 2019 17:51:24 +0000
 Received: from [2001:4bb8:18c:d7b:c70:4a89:bc61:3] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iL9qg-0005ZM-EJ; Thu, 17 Oct 2019 17:46:06 +0000
+ id 1iL9qj-0005cI-7q; Thu, 17 Oct 2019 17:46:09 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: [PATCH 04/21] hexagon: clean up ioremap
-Date: Thu, 17 Oct 2019 19:45:37 +0200
-Message-Id: <20191017174554.29840-5-hch@lst.de>
+Subject: [PATCH 05/21] alpha: remove the unused __ioremap wrapper
+Date: Thu, 17 Oct 2019 19:45:38 +0200
+Message-Id: <20191017174554.29840-6-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191017174554.29840-1-hch@lst.de>
 References: <20191017174554.29840-1-hch@lst.de>
@@ -59,65 +59,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Use ioremap as the main implemented function, and defined
-ioremap_nocache to it as a deprecated alias.
+No need for the additional namespace pollution.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/hexagon/include/asm/io.h       | 11 ++---------
- arch/hexagon/kernel/hexagon_ksyms.c |  2 +-
- arch/hexagon/mm/ioremap.c           |  2 +-
- 3 files changed, 4 insertions(+), 11 deletions(-)
+ arch/alpha/include/asm/io.h | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/hexagon/include/asm/io.h b/arch/hexagon/include/asm/io.h
-index ba1a444d55b3..89537dc1cf97 100644
---- a/arch/hexagon/include/asm/io.h
-+++ b/arch/hexagon/include/asm/io.h
-@@ -171,16 +171,9 @@ static inline void writel(u32 data, volatile void __iomem *addr)
- #define writew_relaxed __raw_writew
- #define writel_relaxed __raw_writel
+diff --git a/arch/alpha/include/asm/io.h b/arch/alpha/include/asm/io.h
+index af2c0063dc75..1989b946a28d 100644
+--- a/arch/alpha/include/asm/io.h
++++ b/arch/alpha/include/asm/io.h
+@@ -283,12 +283,6 @@ static inline void __iomem *ioremap(unsigned long port, unsigned long size)
+ 	return IO_CONCAT(__IO_PREFIX,ioremap) (port, size);
+ }
  
--/*
-- * Need an mtype somewhere in here, for cache type deals?
-- * This is probably too long for an inline.
-- */
--void __iomem *ioremap_nocache(unsigned long phys_addr, unsigned long size);
-+void __iomem *ioremap(unsigned long phys_addr, unsigned long size);
-+#define ioremap_nocache ioremap
- 
--static inline void __iomem *ioremap(unsigned long phys_addr, unsigned long size)
+-static inline void __iomem *__ioremap(unsigned long port, unsigned long size,
+-				      unsigned long flags)
 -{
--	return ioremap_nocache(phys_addr, size);
+-	return ioremap(port, size);
 -}
- 
- static inline void iounmap(volatile void __iomem *addr)
+-
+ static inline void __iomem * ioremap_nocache(unsigned long offset,
+ 					     unsigned long size)
  {
-diff --git a/arch/hexagon/kernel/hexagon_ksyms.c b/arch/hexagon/kernel/hexagon_ksyms.c
-index cf8974beb500..b3dbb472572e 100644
---- a/arch/hexagon/kernel/hexagon_ksyms.c
-+++ b/arch/hexagon/kernel/hexagon_ksyms.c
-@@ -20,7 +20,7 @@ EXPORT_SYMBOL(__vmgetie);
- EXPORT_SYMBOL(__vmsetie);
- EXPORT_SYMBOL(__vmyield);
- EXPORT_SYMBOL(empty_zero_page);
--EXPORT_SYMBOL(ioremap_nocache);
-+EXPORT_SYMBOL(ioremap);
- EXPORT_SYMBOL(memcpy);
- EXPORT_SYMBOL(memset);
- 
-diff --git a/arch/hexagon/mm/ioremap.c b/arch/hexagon/mm/ioremap.c
-index 77d8e1e69e9b..b103d83b5fbb 100644
---- a/arch/hexagon/mm/ioremap.c
-+++ b/arch/hexagon/mm/ioremap.c
-@@ -9,7 +9,7 @@
- #include <linux/vmalloc.h>
- #include <linux/mm.h>
- 
--void __iomem *ioremap_nocache(unsigned long phys_addr, unsigned long size)
-+void __iomem *ioremap(unsigned long phys_addr, unsigned long size)
- {
- 	unsigned long last_addr, addr;
- 	unsigned long offset = phys_addr & ~PAGE_MASK;
 -- 
 2.20.1
 
