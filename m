@@ -2,74 +2,68 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 941E9DBE5B
-	for <lists+linux-mtd@lfdr.de>; Fri, 18 Oct 2019 09:31:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 180E5DC1C3
+	for <lists+linux-mtd@lfdr.de>; Fri, 18 Oct 2019 11:50:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JtE5l18zEoBzHuC6MAftirWaqAs/5jGAODzvx1RMNRc=; b=DuXtKI/w3gkeHR
-	RonQqoxLtX4aS+2f2WgTrWeM6pI1FKg7xGt+gEV6EgS0LsvTl49aYmYnrvvdYXQwlflp926BgQB4m
-	NDl4KXjEVzFGB1jSoqBLjPfI9KUuWYI3Zu5Uv1G7EsC4J/Geki7mnbocHrRsnFa+brW3SuGdHkMz3
-	b3hlnuq3pHtxC8tORsuO8SQvQ4FikzQ4MNRqjBgyCb+66NmS8MKvdz5mmQdIe5X7ZfA7MlKL99M6r
-	SBT/Lzvc0VBEJUM7eYiB8suDakWdQ4F65UI7esnodee/9vRiBFZVlP7QvvA2/N2JhgOXRm+SoPMKV
-	Y59DrnNQhSgLzKaePuBg==;
+	List-Owner; bh=R7zLxTXZnyNoqf0dIjJOM4jtCTpGkPZxbcJ1vse3H9Y=; b=uvE8X09yiKW0y9
+	hFfys+xdsAJW/UxVRnzeArWzrVwq5yYSK9Bl66xLB+ZzUYrMRNU1VjgLiEDExHpry+qvQwppmdHkt
+	u4eRaMSbIXMjNEnfB+Cta3DXhvRLITzDaDponS21WcaiQqVKY/ufGvj+u6MOQmpqutuessQkpM4es
+	/whk0fM5deGiNFwQhhhlv5b5d5F16MCMIVZ0Pe01t8Z/rNv0SCAylouoj8TEvjqNqGPdodTYPqxYd
+	XdhB8/2ujUBtDRjzyLDiQvSMxsTU7dtbhOtBRyxlBulEI7uMq65k2xgLYD/4M44xF9dVRYGs23MjB
+	DwCV0MpYlCMfFiPvad8Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iLMjH-0002l1-JX; Fri, 18 Oct 2019 07:31:19 +0000
-Received: from mail-ot1-f65.google.com ([209.85.210.65])
+	id 1iLOuD-0008Ok-4a; Fri, 18 Oct 2019 09:50:45 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iLMj5-0002kG-BR; Fri, 18 Oct 2019 07:31:08 +0000
-Received: by mail-ot1-f65.google.com with SMTP id e11so4167187otl.5;
- Fri, 18 Oct 2019 00:31:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=1vcvhB5CLF/+MeUyHDDl7fZL+tAXhkabxwY8RzqlUc4=;
- b=ayEUbJ2MoEqAlFXxalbn7dZzJl2TLzODSsOWvI+Wo2ADnk0q8rM3wtqLvASqMi1KaI
- nFQVXuuPD9eSRYKrB9OoOiUaaWYQhHG5XkVp2KOveruOgWw4N2PuLpIxIva9zuU2DdEr
- yiPT9/GNscV45iHrIsoQrucHJHQtnwz7eWsCsCkT0bBkI/4Ph67DyOyhxWULzdEu9C0I
- 4K9Iaq9XUofh0T6ZMPD7ad+6oRiBRCjKssrNnX04arv54pBz91T3iI67bmU5NWLzO89n
- ZAop13ajo5dmgWga7x5oG+Z40ct4ACY7QdqhrLOh3iDRHYyM6y/NX3QANhhZ7We8hLik
- FJiw==
-X-Gm-Message-State: APjAAAXpFeMpL78piSe3KY5piVBbWKJkwOYiifArLT8CdOatyGSXWUuF
- SU+JXW5GKgxOu1tyqha4WXk4sG+unA6qWRu3eLo=
-X-Google-Smtp-Source: APXvYqz5ZTzm2szPG0oqRjP0bYm68wI5cC2zWPx8OuV5blCVSPhZgU0siPaT+bnCFclqt0wG9CC25EAYDHrDP1i11C0=
-X-Received: by 2002:a9d:70d0:: with SMTP id w16mr6117171otj.107.1571383865678; 
- Fri, 18 Oct 2019 00:31:05 -0700 (PDT)
+ id 1iLOu4-0008OH-Gk
+ for linux-mtd@lists.infradead.org; Fri, 18 Oct 2019 09:50:38 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iLOu0-00089m-UX; Fri, 18 Oct 2019 11:50:32 +0200
+Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iLOu0-0005Tx-5Y; Fri, 18 Oct 2019 11:50:32 +0200
+Date: Fri, 18 Oct 2019 11:50:32 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: Bruno Thomsen <bruno.thomsen@gmail.com>
+Subject: Re: Regression: dmaengine: imx28 with emmc
+Message-ID: <20191018095032.akdis5anygjl4pio@pengutronix.de>
+References: <CAH+2xPB7rbeJnOPU10Ss9BhV_2DJV-ToQ3XNOy97+vrGx+ubcg@mail.gmail.com>
+ <20191014141344.uwnzy3j3kxngzv7a@pengutronix.de>
 MIME-Version: 1.0
-References: <20191017174554.29840-1-hch@lst.de>
- <20191017174554.29840-14-hch@lst.de>
-In-Reply-To: <20191017174554.29840-14-hch@lst.de>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 18 Oct 2019 09:30:54 +0200
-Message-ID: <CAMuHMdWaQ15j7fQ9-8XKgrSwgf96nT=yY+FCPWPxoPC9LGqvbQ@mail.gmail.com>
-Subject: Re: [PATCH 13/21] m68k: rename __iounmap and mark it static
-To: Christoph Hellwig <hch@lst.de>
+Content-Disposition: inline
+In-Reply-To: <20191014141344.uwnzy3j3kxngzv7a@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-IRC: #ptxdist @freenode
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-Uptime: 11:49:27 up 102 days, 15:59, 102 users,  load average: 0.31, 0.13,
+ 0.12
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191018_003107_396181_C9539A0F 
-X-CRM114-Status: GOOD (  14.32  )
-X-Spam-Score: 0.3 (/)
+X-CRM114-CacheID: sfid-20191018_025036_556886_D809587A 
+X-CRM114-Status: GOOD (  16.65  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.65 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.65 listed in wl.mailspike.net]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (geert.uytterhoeven[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,96 +75,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- Linux-sh list <linux-sh@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Guo Ren <guoren@kernel.org>, sparclinux <sparclinux@vger.kernel.org>,
- linux-riscv@lists.infradead.org, Vincent Chen <deanbo422@gmail.com>,
- Linux-Arch <linux-arch@vger.kernel.org>,
- linux-s390 <linux-s390@vger.kernel.org>,
- "open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>,
- the arch/x86 maintainers <x86@kernel.org>,
- arcml <linux-snps-arc@lists.infradead.org>, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, linux-m68k <linux-m68k@lists.linux-m68k.org>,
- Openrisc <openrisc@lists.librecores.org>, Greentime Hu <green.hu@gmail.com>,
- MTD Maling List <linux-mtd@lists.infradead.org>, Guan Xuetao <gxt@pku.edu.cn>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Michal Simek <monstr@monstr.eu>, Parisc List <linux-parisc@vger.kernel.org>,
- linux-mips@vger.kernel.org, alpha <linux-alpha@vger.kernel.org>,
- nios2-dev@lists.rocketboards.org
+Cc: bth@kamstrup.com, vkoul@kernel.org, linux-mtd@lists.infradead.org,
+ NXP Linux Team <linux-imx@nxp.com>, miquel.raynal@bootlin.com,
+ dmaengine@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Christoph,
+On Mon, Oct 14, 2019 at 04:13:44PM +0200, Sascha Hauer wrote:
+> Hi Bruno,
+> 
+> On Tue, Oct 08, 2019 at 10:03:16AM +0200, Bruno Thomsen wrote:
+> > Hi
+> > 
+> > I am getting a kernel oops[1] during boot on imx28 with emmc flash right
+> > around rootfs mounting. Using git bisect I found the cause to be the
+> > following commit.
+> > 
+> > Regression: ceeeb99cd821 ("dmaengine: mxs: rename custom flag")
+> > 
+> > Reverting the 2 changes in drivers/dma/mxs-dma.c fixes the oops,
+> > but I am not sure that is the right solution as I don't have the full
+> > mxs-dma + mtd/mmc overview.
+> > 
+> > I did see that the patch isn't a simple rename but also a bit define
+> > change.
+> > From: DMA_CTRL_ACK = (1 << 1) = BIT(1)
+> > To: MXS_DMA_CTRL_WAIT4END = BIT(31)
+> > 
+> 
+> Damn, I wasn't aware the DMA driver has other users than the GPMI Nand.
+> Please try the attached patch, it should fix it for MMC/SD. It seems
+> however, that I2C and AUART and SPI are also affected. Are you able to
+> test any of these?
 
-On Thu, Oct 17, 2019 at 7:53 PM Christoph Hellwig <hch@lst.de> wrote:
-> m68k uses __iounmap as the name for an internal helper that is only
-> used for some CPU types.  Mark it static and give it a better name.
->
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
+I just sent out the patch again for inclusion with the collected
+tested-by tags.
 
-Thanks for your patch!
-
-> --- a/arch/m68k/mm/kmap.c
-> +++ b/arch/m68k/mm/kmap.c
-> @@ -52,6 +52,7 @@ static inline void free_io_area(void *addr)
->
->  #define IO_SIZE                (256*1024)
->
-> +static void __free_io_area(void *addr, unsigned long size);
->  static struct vm_struct *iolist;
->
->  static struct vm_struct *get_io_area(unsigned long size)
-> @@ -90,7 +91,7 @@ static inline void free_io_area(void *addr)
->                 if (tmp->addr == addr) {
->                         *p = tmp->next;
->                         /* remove gap added in get_io_area() */
-> -                       __iounmap(tmp->addr, tmp->size - IO_SIZE);
-> +                       __free_io_area(tmp->addr, tmp->size - IO_SIZE);
->                         kfree(tmp);
->                         return;
->                 }
-> @@ -249,12 +250,13 @@ void iounmap(void __iomem *addr)
->  }
->  EXPORT_SYMBOL(iounmap);
->
-> +#ifndef CPU_M68040_OR_M68060_ONLY
-
-Can you please move this block up, instead of adding more #ifdef cluttery?
-That would also remove the need for a forward declaration.
-
->  /*
-> - * __iounmap unmaps nearly everything, so be careful
-> + * __free_io_area unmaps nearly everything, so be careful
->   * Currently it doesn't free pointer/page tables anymore but this
->   * wasn't used anyway and might be added later.
->   */
-> -void __iounmap(void *addr, unsigned long size)
-> +static void __free_io_area(void *addr, unsigned long size)
->  {
->         unsigned long virtaddr = (unsigned long)addr;
->         pgd_t *pgd_dir;
-> @@ -297,6 +299,7 @@ void __iounmap(void *addr, unsigned long size)
->
->         flush_tlb_all();
->  }
-> +#endif /* CPU_M68040_OR_M68060_ONLY */
->
->  /*
->   * Set new cache mode for some kernel address space.
-
-Gr{oetje,eeting}s,
-
-                        Geert
+Sascha
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Pengutronix e.K.                           |                             |
+Industrial Linux Solutions                 | http://www.pengutronix.de/  |
+Peiner Str. 6-8, 31137 Hildesheim, Germany | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
 ______________________________________________________
 Linux MTD discussion mailing list
