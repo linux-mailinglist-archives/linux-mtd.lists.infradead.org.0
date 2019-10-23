@@ -2,57 +2,90 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4CB02E1703
-	for <lists+linux-mtd@lfdr.de>; Wed, 23 Oct 2019 11:58:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0407AE1CD0
+	for <lists+linux-mtd@lfdr.de>; Wed, 23 Oct 2019 15:36:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YNZSj3D3xZIrmFObEPm/nb0NKcsa7AUquKk8xkcLmUo=; b=ui00ldAnPQukuI
-	P4uMhpOiPX+mLMnTNcPmiZm6HBtRriShEkivSwiKorKlm3MqqJJPrRl9KG7oplbFhZpxGWaEAsHvJ
-	RUIaz7RGsGgLHCE8OpCylVxAiW6XOVJKOj7CI1NZOv3yueRYZQUzm3d4jGH/xa3ov5aGQqmNH+jvh
-	rqHh6wh7PNCOwWfABEXBGUZ3MGpECFv9c0nQ0lPfykZi4ujD1J2WVBHASagMbQiu1BA/ARmkk5/gD
-	YxBESCWVX+FVlIoZDP4mzS5tK7RbKT6ZYt7dAip5wMe4f2JGF9QPtUw0NLU0nnaVFUvD/9rHKzx0T
-	L5ktuZSCS+aao7dI4Uig==;
+	List-Owner; bh=jES0kU9xIQn3n/2YmzTzsf48KgMdu7DW42HFQUnDBTE=; b=afJy/wPJ67sFC8
+	ajvOoevRGrfIU3UPRXftlWuCH4yTe0/uUpgecNvnwx6dJyfSp1M6LQVU3GrwMyTLMgR51PyIDSWr0
+	KKwDYw+TUnOQYM+op5LwIxVl1IcYcky1JtXn1/cKHHSuZg6m7on86CR5MlmtSHYbiOp2CPdUBWCp2
+	3t5O8A2AnbxOIKq5Hr4LVYe7qpLuivImebkpZ8gHsflI7f6cyG6nF8a0GlOeqiv1ihURuzlbexeOk
+	9zNLUX0Uzzb0/SMWCHrE9AvnY41AklclQvWoB/eJMLKnNfASeUSbs2aRvHF7aJq4A3zJ1aSxz3At9
+	w9qBvnDqMOq2js576QeQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iNDPT-000469-7H; Wed, 23 Oct 2019 09:58:31 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1iNGoI-0006Jn-To; Wed, 23 Oct 2019 13:36:22 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iNDPL-00045X-Bb
- for linux-mtd@lists.infradead.org; Wed, 23 Oct 2019 09:58:25 +0000
-Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <sha@pengutronix.de>)
- id 1iNDPJ-00007a-Jh; Wed, 23 Oct 2019 11:58:21 +0200
-Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
- (envelope-from <sha@pengutronix.de>)
- id 1iNDPI-0008Aj-Pm; Wed, 23 Oct 2019 11:58:20 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH] ubi: fastmap: fix inverted logic in seen selfcheck
-Date: Wed, 23 Oct 2019 11:58:12 +0200
-Message-Id: <20191023095812.27470-1-s.hauer@pengutronix.de>
-X-Mailer: git-send-email 2.23.0
+ id 1iNGo5-0006HI-WA
+ for linux-mtd@lists.infradead.org; Wed, 23 Oct 2019 13:36:12 +0000
+Received: by mail-wm1-x341.google.com with SMTP id q13so11226446wmj.0
+ for <linux-mtd@lists.infradead.org>; Wed, 23 Oct 2019 06:36:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:reply-to:from:date:message-id:subject:to;
+ bh=dVgB2gHwyu9BrwAHrTVrhxxTLMnU+GjkCtVmW3QXNgU=;
+ b=Zp1rNYOb7wPsdMPdMbYe//+9NYjGitazC3K4MBrZR7qVyf3SurlVK/iVTX8rXrD1MV
+ duJiT6vf8/dVRyCoGAADOWO6mdvdO7LXMGSTBsL1aPHRptzHVSr6EVhNUNTbTuXzEcJM
+ CBCb+Jmcnci8Xj7Z+C2D9+RBLni3QkUE+aLyNfm640DulCjNSyCQlNWPphsu43/xiaCJ
+ jGtO0Rf565kxFLQCtlztfZCV3214dAbiLSZKIvSf0BlByQ/4iOlt67agx4AGUfiCjZMI
+ RoTZ6xCVKLtvHbzydaTmcuGrVnWq27zH7gygGQ2YGfnHqhgxkVmC2lGKxGSiWzVcr6KU
+ QN9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+ :subject:to;
+ bh=dVgB2gHwyu9BrwAHrTVrhxxTLMnU+GjkCtVmW3QXNgU=;
+ b=Rl3cwp0WvVk+IxXcIMOYcehPP1o6hCvLUdRaPmucSzIuRrqoKWqPjcm7eeWW03hL52
+ dsvQoeMwNzihNSExgGqMNYRFslVCWxK+oTDiJftLnPM9Dx4gZyXt8Ud3wufceOkDir5y
+ ZUzeLuC2VzAN829yXLlryBwNJjhYb8Yv+3i2RX0/LZj+nedd9UYUfS5HrKzLoSCcreVt
+ dfj8pSPFi4wA153zbuUfJr6p7/nHpmbvQku3SYYQwt5C2KRpApRIlu+AMzRghFP9wkwJ
+ zw/cHi74RBnCWoie3cx6EYPA5YTYawFayeM78t50gkBia2mXD/9L8VtC0ew5B8wrQoR7
+ uMug==
+X-Gm-Message-State: APjAAAWWpcmRhHC+sXjLHU/MZ6A2tDvUG6mSRoqdol2swsYpkj5aSMdC
+ zS14rLrwchLx68VsiflX0Alc+2vx+EkfaVlBLM0=
+X-Google-Smtp-Source: APXvYqzu60dP5ZzLHoNcR4C1Z90wK3ujHk4eIk60CblS8nkYpWGmu8JElmh7udCx+t1YVbQaCRFZhRaASS5NgAdsuk0=
+X-Received: by 2002:a7b:ce84:: with SMTP id q4mr4860246wmj.36.1571837768313;
+ Wed, 23 Oct 2019 06:36:08 -0700 (PDT)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::7
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
+Received: by 2002:a5d:400a:0:0:0:0:0 with HTTP; Wed, 23 Oct 2019 06:36:07
+ -0700 (PDT)
+From: "Mrs. Lisa" <helpdesk.eit.ac.nz@gmail.com>
+Date: Wed, 23 Oct 2019 06:36:07 -0700
+Message-ID: <CAK7Er8aKyL3H-yzE3WwHqgdy-pvjcQoKmcraD43WMg3fDh48xQ@mail.gmail.com>
+Subject: Mrs. Lisa Charity Donation
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191023_025823_394221_523879DF 
-X-CRM114-Status: GOOD (  14.00  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20191023_063610_030542_9C3F241B 
+X-CRM114-Status: UNSURE (  -1.46  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.1 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (1.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:341 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (helpdesk.eit.ac.nz[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
+ digit (mrs.lisarobinson746[at]gmail.com)
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 0.0 T_HK_NAME_FM_MR_MRS    No description available.
+ 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
+ different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,40 +97,15 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>, Sascha Hauer <s.hauer@pengutronix.de>,
- kernel@pengutronix.de, Artem Bityutskiy <dedekind1@gmail.com>
+Reply-To: mrs.lisarobinson746@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-set_seen() sets the bit corresponding to the PEB number in the bitmap,
-so when self_check_seen() wants to find PEBs that haven't been seen we
-have to print the PEBs that have their bit cleared, not the ones which
-have it set.
-
-Fixes: 5d71afb00840 ("ubi: Use bitmaps in Fastmap self-check code")
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
- drivers/mtd/ubi/fastmap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mtd/ubi/fastmap.c b/drivers/mtd/ubi/fastmap.c
-index 30621c67721a..b74888b5c2d6 100644
---- a/drivers/mtd/ubi/fastmap.c
-+++ b/drivers/mtd/ubi/fastmap.c
-@@ -64,7 +64,7 @@ static int self_check_seen(struct ubi_device *ubi, unsigned long *seen)
- 		return 0;
- 
- 	for (pnum = 0; pnum < ubi->peb_count; pnum++) {
--		if (test_bit(pnum, seen) && ubi->lookuptbl[pnum]) {
-+		if (!test_bit(pnum, seen) && ubi->lookuptbl[pnum]) {
- 			ubi_err(ubi, "self-check failed for PEB %d, fastmap didn't see it", pnum);
- 			ret = -EINVAL;
- 		}
 -- 
-2.23.0
-
+I am Lisa Robinson, you have a donation of $1,200,000.00 USD. Contact
+me now for more information.
 
 ______________________________________________________
 Linux MTD discussion mailing list
