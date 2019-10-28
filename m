@@ -2,53 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 405F0E7523
-	for <lists+linux-mtd@lfdr.de>; Mon, 28 Oct 2019 16:30:39 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FD67E75BF
+	for <lists+linux-mtd@lfdr.de>; Mon, 28 Oct 2019 17:03:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sU81scM8R2aiQL5Uu2Bgi3WnCJspg9ZxhW6q0J6mWXY=; b=BzSD5TjrEc1q7u
-	DqaSDwR7q1g2apa9luvjqY39DMPxrTzu10llRcimNSwisHu0j0Wf0+HYPC0BmuOZ4wLnhuu4wN6HW
-	ydTWnVIOHHRCG9MKRoE/8SKOCHF7Pc9ILFr+672Wb0ic10ojQMibehhlQTEGstorn65kVWRrUpWe5
-	pr3eUGZvZv3Jy1nnlf3HX/gLvAmVOx4TNaUO38Ou4sGj50oylZajpsuLDwFXyFarhxaM2ayo6NzRR
-	Q6agbYmke64rzmq0y4vB3AKyzuLyHK3ERYyen8NvyobnqZL9cBj64zRwH4GCtlkG57LNjn/hmahLn
-	AYPXLSsbanEPOhlRHDCg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mRRIsYsoj852fGbPJTSrxQV6eoIoYNCQR86+JpAvIjI=; b=ZLJDTnjn4pZ7da
+	DcT70esSfsmxaOw7todUsYXiIU6kKXpbpbZtAZjZL1TUybM2tjaMbGKOOY8S5cfaFWK7H7Iq05WZk
+	WvDDZ1r2PUcWv8QOsSLjqGfcTgAHTGhmFVZYNWBi8l3gZF/t8RFLbeC/R7UiCn5LgTwZZscT5WcM6
+	OGh5a2AciNAhd7Sg37/I8kWr8CUljwbxbuYxGbJFshkFWpS1nNZazLGmr5+VoITpPGLpL/7wNwUPd
+	OLMfmzZtX67ycOeCl5SfeWmX0oWc8nqiU3PfT1iVknDokhY6dLtklWkenc7tPtyMpSUlnsWX+iFBO
+	09Q47c2C5e+RiE+/c6TQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iP6yU-0008D1-Fy; Mon, 28 Oct 2019 15:30:30 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1iP7Tq-0003Cg-5g; Mon, 28 Oct 2019 16:02:54 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iP6y3-0006jq-Su; Mon, 28 Oct 2019 15:30:05 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
- id C147268B05; Mon, 28 Oct 2019 16:29:56 +0100 (CET)
-Date: Mon, 28 Oct 2019 16:29:56 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH 08/21] x86: clean up ioremap
-Message-ID: <20191028152956.GA28048@lst.de>
-References: <20191017174554.29840-1-hch@lst.de>
- <20191017174554.29840-9-hch@lst.de>
- <alpine.DEB.2.21.1910211019540.1904@nanos.tec.linutronix.de>
+ id 1iP7Tf-0003Br-Bc
+ for linux-mtd@lists.infradead.org; Mon, 28 Oct 2019 16:02:45 +0000
+X-Originating-IP: 81.185.174.70
+Received: from localhost.localdomain (70.174.185.81.rev.sfr.net
+ [81.185.174.70]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay2-d.mail.gandi.net (Postfix) with ESMTPSA id C5BE540017;
+ Mon, 28 Oct 2019 16:02:28 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, David Woodhouse <dwmw2@infradead.org>,
+ Brian Norris <computersforpeace@gmail.com>,
+ Marek Vasut <marek.vasut@gmail.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [PATCH] MAINTAINERS: ubi/ubifs: Update the Git repository
+Date: Mon, 28 Oct 2019 17:02:08 +0100
+Message-Id: <20191028160208.1110-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.1910211019540.1904@nanos.tec.linutronix.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191028_083004_091761_48CAFFC9 
-X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-CacheID: sfid-20191028_090243_533464_E565BE9C 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [213.95.11.211 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.194 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -60,29 +63,47 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
- sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Vincent Chen <deanbo422@gmail.com>, Christoph Hellwig <hch@lst.de>,
- linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-hexagon@vger.kernel.org, x86@kernel.org,
- linux-snps-arc@lists.infradead.org, linux-xtensa@linux-xtensa.org,
- Arnd Bergmann <arnd@arndb.de>, linux-m68k@lists.linux-m68k.org,
- openrisc@lists.librecores.org, Greentime Hu <green.hu@gmail.com>,
- linux-mtd@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
- linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
- linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org
+Cc: linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, Oct 21, 2019 at 10:23:03AM +0200, Thomas Gleixner wrote:
-> Should this go with your larger series or can this be picked up
-> independently?
+UBI/UBIFS development now happens on Richard Weinberger's kernel.org
+'ubifs' repository.
 
-This should all go together.
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ MAINTAINERS | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0e5e0736ee55..b5ca53312c2a 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16578,7 +16578,8 @@ F:	drivers/media/pci/tw686x/
+ UBI FILE SYSTEM (UBIFS)
+ M:	Richard Weinberger <richard@nod.at>
+ L:	linux-mtd@lists.infradead.org
+-T:	git git://git.infradead.org/ubifs-2.6.git
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git next
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git fixes
+ W:	http://www.linux-mtd.infradead.org/doc/ubifs.html
+ S:	Supported
+ F:	Documentation/filesystems/ubifs.txt
+@@ -16696,7 +16697,8 @@ UNSORTED BLOCK IMAGES (UBI)
+ M:	Richard Weinberger <richard@nod.at>
+ W:	http://www.linux-mtd.infradead.org/
+ L:	linux-mtd@lists.infradead.org
+-T:	git git://git.infradead.org/ubifs-2.6.git
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git next
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git fixes
+ S:	Supported
+ F:	drivers/mtd/ubi/
+ F:	include/linux/mtd/ubi.h
+-- 
+2.20.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
