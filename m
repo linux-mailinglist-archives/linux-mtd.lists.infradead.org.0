@@ -2,34 +2,34 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1BEBE817C
-	for <lists+linux-mtd@lfdr.de>; Tue, 29 Oct 2019 07:53:18 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CF4CAE818C
+	for <lists+linux-mtd@lfdr.de>; Tue, 29 Oct 2019 07:54:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WFXSml8Q6swx3t0+tzxD1bG25YHTx++xRhfDRtsmJ6g=; b=O1ROr1IiNbwfzr
-	jgxnCFcKNeHSe4ubtzJ659cmiyJ5l3DaugiELqdCV0BwB5LUm5EK6DD3tYZBduCvpvICS/UnxMd5D
-	Or0eVfesjBf3JvMVBEAD9ZOEbh8zRtJHNKPEo73vT6VGHcBfsGyLS9YWojGXr0k7HBMPkmLuCPfBI
-	qYnGtmdGg8tlVBOeUGIPJatpqXXIikHl0mG+/dF3TWNAnr03nKYukN2JZVlAYzF+gaIIks9lUfe3H
-	mFXMpybrumoLRd23WOrEnhKE7jvN1NbAOYqJMAr/qYcP1ohfQwB2P1kC0Ao7SE9nA9rZaB8GkiPxP
-	WoEqUeFeSPzbUfx7GI1w==;
+	List-Owner; bh=qtXhFtZgrlgz3vgAqss40FYXqf2CUraIsMxsEb9xDtw=; b=bENo7gVSdrz378
+	sh8M5IEaPcyFDSZcQmkH0Wgke8hNHE/jLTG/9RGEtgOBeYVBpEw9m758lIqm5cpRFYFbJoKjRcWfT
+	SFiC/vtzFObeTKTugiWHdhY0BUebQ2Z1+r99LvbdJw/Y37KiA9fAabmlwOPqpzUorJq/EfsBH5NWW
+	psePkwghaKc/WTh8jbbhW45KtLdezaZIg25ZshF97T8C+/2lyPnDCy3EYiUmesstfZLwbPtiC2NzT
+	G1kD0yKU5wBj7yi9miy69AZ5ZvmZTvhRNZ+zdg1bX2gIVa6vROsmdf1SG1gE3LEF5hhorKcl9h9vS
+	t4quVBZudpVa9ouHuNnQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iPLNV-0008WQ-0a; Tue, 29 Oct 2019 06:53:17 +0000
+	id 1iPLOy-0001ft-Bp; Tue, 29 Oct 2019 06:54:48 +0000
 Received: from [2001:4bb8:18c:c7d:c70:4a89:bc61:2] (helo=localhost)
  by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iPLJD-0003Po-Or; Tue, 29 Oct 2019 06:48:52 +0000
+ id 1iPLJG-0003Sm-Nu; Tue, 29 Oct 2019 06:48:55 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>,
  Michal Simek <monstr@monstr.eu>, Greentime Hu <green.hu@gmail.com>,
  Vincent Chen <deanbo422@gmail.com>, Guan Xuetao <gxt@pku.edu.cn>,
  x86@kernel.org
-Subject: [PATCH 05/21] alpha: remove the unused __ioremap wrapper
-Date: Tue, 29 Oct 2019 07:48:18 +0100
-Message-Id: <20191029064834.23438-6-hch@lst.de>
+Subject: [PATCH 06/21] nios2: remove __ioremap
+Date: Tue, 29 Oct 2019 07:48:19 +0100
+Message-Id: <20191029064834.23438-7-hch@lst.de>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191029064834.23438-1-hch@lst.de>
 References: <20191029064834.23438-1-hch@lst.de>
@@ -59,30 +59,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-No need for the additional namespace pollution.
+The cacheflag argument to __ioremap is always 0, so just implement
+ioremap directly.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- arch/alpha/include/asm/io.h | 6 ------
- 1 file changed, 6 deletions(-)
+ arch/nios2/include/asm/io.h | 20 ++++----------------
+ arch/nios2/mm/ioremap.c     | 17 +++--------------
+ 2 files changed, 7 insertions(+), 30 deletions(-)
 
-diff --git a/arch/alpha/include/asm/io.h b/arch/alpha/include/asm/io.h
-index af2c0063dc75..1989b946a28d 100644
---- a/arch/alpha/include/asm/io.h
-+++ b/arch/alpha/include/asm/io.h
-@@ -283,12 +283,6 @@ static inline void __iomem *ioremap(unsigned long port, unsigned long size)
- 	return IO_CONCAT(__IO_PREFIX,ioremap) (port, size);
- }
+diff --git a/arch/nios2/include/asm/io.h b/arch/nios2/include/asm/io.h
+index 9010243077ab..74ab34aa6731 100644
+--- a/arch/nios2/include/asm/io.h
++++ b/arch/nios2/include/asm/io.h
+@@ -25,29 +25,17 @@
+ #define writew_relaxed(x, addr)	writew(x, addr)
+ #define writel_relaxed(x, addr)	writel(x, addr)
  
--static inline void __iomem *__ioremap(unsigned long port, unsigned long size,
--				      unsigned long flags)
+-extern void __iomem *__ioremap(unsigned long physaddr, unsigned long size,
+-			unsigned long cacheflag);
++void __iomem *ioremap(unsigned long physaddr, unsigned long size);
+ extern void __iounmap(void __iomem *addr);
+ 
+-static inline void __iomem *ioremap(unsigned long physaddr, unsigned long size)
 -{
--	return ioremap(port, size);
+-	return __ioremap(physaddr, size, 0);
 -}
 -
- static inline void __iomem * ioremap_nocache(unsigned long offset,
- 					     unsigned long size)
+-static inline void __iomem *ioremap_nocache(unsigned long physaddr,
+-						unsigned long size)
+-{
+-	return __ioremap(physaddr, size, 0);
+-}
+-
+ static inline void iounmap(void __iomem *addr)
  {
+ 	__iounmap(addr);
+ }
+ 
+-#define ioremap_nocache ioremap_nocache
+-#define ioremap_wc ioremap_nocache
+-#define ioremap_wt ioremap_nocache
++#define ioremap_nocache ioremap
++#define ioremap_wc ioremap
++#define ioremap_wt ioremap
+ 
+ /* Pages to physical address... */
+ #define page_to_phys(page)	virt_to_phys(page_to_virt(page))
+diff --git a/arch/nios2/mm/ioremap.c b/arch/nios2/mm/ioremap.c
+index 3a28177a01eb..7a1a27f3daa3 100644
+--- a/arch/nios2/mm/ioremap.c
++++ b/arch/nios2/mm/ioremap.c
+@@ -112,8 +112,7 @@ static int remap_area_pages(unsigned long address, unsigned long phys_addr,
+ /*
+  * Map some physical address range into the kernel address space.
+  */
+-void __iomem *__ioremap(unsigned long phys_addr, unsigned long size,
+-			unsigned long cacheflag)
++void __iomem *ioremap(unsigned long phys_addr, unsigned long size)
+ {
+ 	struct vm_struct *area;
+ 	unsigned long offset;
+@@ -139,15 +138,6 @@ void __iomem *__ioremap(unsigned long phys_addr, unsigned long size,
+ 				return NULL;
+ 	}
+ 
+-	/*
+-	 * Map uncached objects in the low part of address space to
+-	 * CONFIG_NIOS2_IO_REGION_BASE
+-	 */
+-	if (IS_MAPPABLE_UNCACHEABLE(phys_addr) &&
+-	    IS_MAPPABLE_UNCACHEABLE(last_addr) &&
+-	    !(cacheflag & _PAGE_CACHED))
+-		return (void __iomem *)(CONFIG_NIOS2_IO_REGION_BASE + phys_addr);
+-
+ 	/* Mappings have to be page-aligned */
+ 	offset = phys_addr & ~PAGE_MASK;
+ 	phys_addr &= PAGE_MASK;
+@@ -158,14 +148,13 @@ void __iomem *__ioremap(unsigned long phys_addr, unsigned long size,
+ 	if (!area)
+ 		return NULL;
+ 	addr = area->addr;
+-	if (remap_area_pages((unsigned long) addr, phys_addr, size,
+-		cacheflag)) {
++	if (remap_area_pages((unsigned long) addr, phys_addr, size, 0)) {
+ 		vunmap(addr);
+ 		return NULL;
+ 	}
+ 	return (void __iomem *) (offset + (char *)addr);
+ }
+-EXPORT_SYMBOL(__ioremap);
++EXPORT_SYMBOL(ioremap);
+ 
+ /*
+  * __iounmap unmaps nearly everything, so be careful
 -- 
 2.20.1
 
