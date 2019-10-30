@@ -2,54 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 13A02E9801
-	for <lists+linux-mtd@lfdr.de>; Wed, 30 Oct 2019 09:21:10 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EE7B5E9809
+	for <lists+linux-mtd@lfdr.de>; Wed, 30 Oct 2019 09:24:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3z5RCmAVRGQuX5gULuuu4lbq3i+0ycyDaG91PcIwU8=; b=QSCaU10liEOjch
-	fTX8kkdjNKfrHDqv6ai83dPFsAFmrdQTahAFh7p7Nr3KKSywz8JrFKrzrNHxzFFwpYfKlJtAkJwq1
-	sZkCGdMvnbab5EZV9HbLcnJhbpuU915bJO5WVmWTxdm5oPhu1o7iAYCW1KfZZ5OnqO3+5og9DAxjR
-	3MyYbmN8z0CZ9WJo3ahHfQhUa1mnrOQO34OLFkGmfIJ4TR1ulEbx5ll9cEQ8hMH+sJ6sYKNkDye0n
-	T1kchMJG4DXWl9v8hs0Xp2i/uuQ4frPTnzFiLkSPfmLbyxOzLgfPgXm6daccb0vO4jUmrE5IpxZn1
-	KH0H7Q13J2+7dXIf+QSw==;
+	List-Owner; bh=y614HGq3Xr/FT7qTK7QBNQs08T6uBUQNwfDmvmenzzY=; b=R/6couevkFBppc
+	ws+c+bG0Ir7vUyH5ha5vXGpeSR0/AI4e+Gam5S4nQLJNzyzvOnAArjE/qOtMl0pBw0RQnJPj0J8iE
+	APtnOg9WV0YtlVOF17FMkFFKNJV8Ynjmt1b6hMc9iZU+hTiRk+faSMhTOLBxFcHOKX7l73uBFEe09
+	Hj0KNMC/INMTe8YPjGfzTdGRT0UrZGSWUp8jVV8envJGNnCRD8Ov1q7yUHFCPDTOOYEnId1Wn/Q/r
+	fo9GAyzTVbQGqDgxTmiQCbolhkLWoUcgzHR6SBexJfnkDW5AZvLwbHnLGrc6hflrnxqhIwyn0KJLH
+	AkOySldd4pOTVvc5TBew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iPjDz-0001oB-M8; Wed, 30 Oct 2019 08:21:03 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1iPjH4-0002NA-JY; Wed, 30 Oct 2019 08:24:14 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iPjDr-0001nX-Ir
- for linux-mtd@lists.infradead.org; Wed, 30 Oct 2019 08:20:57 +0000
-Received: from xps13 (67.173.185.81.rev.sfr.net [81.185.173.67])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id 0599F200011;
- Wed, 30 Oct 2019 08:20:35 +0000 (UTC)
-Date: Wed, 30 Oct 2019 09:20:36 +0100
+ id 1iPjGv-0002DR-2e
+ for linux-mtd@lists.infradead.org; Wed, 30 Oct 2019 08:24:06 +0000
+X-Originating-IP: 81.185.173.67
+Received: from localhost.localdomain (67.173.185.81.rev.sfr.net
+ [81.185.173.67]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 0F82320007;
+ Wed, 30 Oct 2019 08:23:52 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Saurav Girepunje <saurav.girepunje@gmail.com>
-Subject: Re: [PATCH v1] mtd: devices: phram.c: Fix multiple kfree statement
- from phram_setup
-Message-ID: <20191030092036.38cf4f11@xps13>
-In-Reply-To: <20191029170849.GA6279@saurav>
-References: <20191029170849.GA6279@saurav>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+To: Piotr Sroka <piotrs@cadence.com>, Dan Carpenter <dan.carpenter@oracle.com>
+Subject: Re: [PATCH] mtd: rawnand: remove unecessary checking if dmac is NULL
+Date: Wed, 30 Oct 2019 09:23:41 +0100
+Message-Id: <20191030082341.11751-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20191030074509.15664-1-piotrs@cadence.com>
+References: 
 MIME-Version: 1.0
+X-linux-mtd-patch-notification: thanks
+X-linux-mtd-patch-commit: 777260a5c99226cfa58325b6a7c2f39bb46f5aaf
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191030_012055_759625_D17A0470 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20191030_012405_259655_3B1AD145 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.232 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.178.232 listed in wl.mailspike.net]
+ low trust [217.70.183.200 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -63,40 +63,29 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, richard@nod.at, joern@lazybastard.org,
- linux-kernel@vger.kernel.org, marek.vasut@gmail.com,
- linux-mtd@lists.infradead.org, saurav.girepunje@hotmail.com,
- computersforpeace@gmail.com, dwmw2@infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-U2F1cmF2LAoKU2F1cmF2IEdpcmVwdW5qZSA8c2F1cmF2LmdpcmVwdW5qZUBnbWFpbC5jb20+IHdy
-b3RlIG9uIFR1ZSwgMjkgT2N0IDIwMTkKMjI6Mzg6NDkgKzA1MzA6CgpBcmUgeW91IGEgcm9ib3Q/
-Cgo+IFJlbW92ZSBtdWx0aXBsZSBrZnJlZSBzdGF0ZW1lbnQgZnJvbSBwaHJhbV9zZXR1cCgpIGlu
-IHBocmFtLmMKClRoaXMgZG9lcyBub3QgZGVzY3JpYmUgd2hhdCB5b3UgYXJlIGRvaW5nLCB5b3Ug
-ZG9uJ3QgcmVtb3ZlIHRoZW0geW91CmZhY3Rvcml6ZSB0aGVtLiBBbmQgaG9uZXN0bHkgSSBhbSBu
-b3QgY29udmluY2VkIHRoaXMgY2hhbmdlIGlzIHVzZWZ1bAppbiBvbGQgY29kZS4KCj4gCj4gU2ln
-bmVkLW9mZi1ieTogU2F1cmF2IEdpcmVwdW5qZSA8c2F1cmF2LmdpcmVwdW5qZUBnbWFpbC5jb20+
-Cj4gLS0tCj4gCj4gQ2hhbmdlIGluIHYxOgoKWW91ciBmaXJzdCB2ZXJzaW9uIGlzIHYxLCBob3cg
-Y2FuIHlvdSBiZSBhdCB2MT8gSXQgaXMgYWxtb3N0IHYzIGFscmVhZHkhCgo+IAo+IC0gQWRkIGNo
-YW5nZSBzdWdnZXN0ZWQgYnkgTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNv
-bT4KPiAgICJUaGUgZ290byBzdGF0ZW1lbnQgc2hvdWxkIG5vdCBkZXNjcmliZSBmcm9tIHdoZXJl
-IGl0IGlzIGNhbGxlZCBidXQgdGhlCj4gICAgYWN0aW9uIGl0IGlzIHN1cHBvc2VkIHRvIHRha2Uu
-ICdnb3RvIGZyZWVfbmFtOycgd291bGQgYmUgYmV0dGVyLiIKClRoaXMgaXMgYSBjb3B5L3Bhc3Rl
-IG9mIHdoYXQgSSBoYXZlIHNhaWQuIFdoYXQgSSB3YW50IHlvdSB0byB3cml0ZSBpczoKCiIKLSBS
-ZW5hbWUgdGhlIGdvdG8gc3RhdGVtZW50IHRvIGRlc2NyaWJlIGJsYSBibGEgYmxhLgotIEZpeCB0
-aGUgdHlwbyBpbiB0aGUgZ290byBsYWJlbC4KIgoKPiAKPiAgZHJpdmVycy9tdGQvZGV2aWNlcy9w
-aHJhbS5jIHwgOCArKysrLS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCA0
-IGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL210ZC9kZXZpY2VzL3BocmFt
-LmMgYi9kcml2ZXJzL210ZC9kZXZpY2VzL3BocmFtLmMKPiBpbmRleCBjNDY3Mjg2Y2EwMDcuLjM4
-Zjk1YTE1MTdhYyAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL210ZC9kZXZpY2VzL3BocmFtLmMKPiAr
-KysgYi9kcml2ZXJzL210ZC9kZXZpY2VzL3BocmFtLmMKPiBAQCAtMjQzLDIyICsyNDMsMjIgQEAg
-c3RhdGljIGludCBwaHJhbV9zZXR1cChjb25zdCBjaGFyICp2YWwpCj4gIAo+ICAJcmV0ID0gcGFy
-c2VfbnVtNjQoJnN0YXJ0LCB0b2tlblsxXSk7Cj4gIAlpZiAocmV0KSB7Cj4gLQkJa2ZyZWUobmFt
-ZSk7Cj4gIAkJcGFyc2VfZXJyKCJpbGxlZ2FsIHN0YXJ0IGFkZHJlc3NcbiIpOwo+ICsJCWdvdG8g
-ZnJlZV9uYW07CgpDb21lIG9uZS4uLgoKClRoYW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNz
-aW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LW10ZC8K
+On Wed, 2019-10-30 at 07:45:09 UTC, Piotr Sroka wrote:
+> Remove unecessary checking if dmac is NULL.
+> 
+> If Cadence nand controller driver uses DMA engine then cdns_ctrl->dmac
+> cannot be NULL. It is verified during driver initialization. 
+> If Cadence nand controller driver does not use DMA engine then 
+> CPU IO read/write are executed instead of slave DMA transfer. 
+> In that case cdns_ctrl->dmac is not used at all.
+> 
+> Reported-by: kbuild test robot <lkp@intel.com>
+> Reported-by: Dan Carpenter <dan.carpenter@oracle.com> 
+> Signed-off-by: Piotr Sroka <piotrs@cadence.com>
+
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
+
+Miquel
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
