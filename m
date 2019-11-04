@@ -2,59 +2,73 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43987EE54C
-	for <lists+linux-mtd@lfdr.de>; Mon,  4 Nov 2019 17:55:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 840B7EE845
+	for <lists+linux-mtd@lfdr.de>; Mon,  4 Nov 2019 20:24:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P5tVqjTCOQXwFYyGSEsIUEst3nRmiQneaIBMtZyZcMs=; b=OQ2vKF82h3mlT1
-	jq8cXc8F0SYtP70c2DBpK2NEIQRUedSauMo9OBNEa6HHnBqS7QtoWGf6tp9SbBCmDyV+xd3rnQ9RJ
-	9Oy5/kO5jfw9kQ602oGYRZZ/qeA2xYDSf4RS6W2/X/7mANDS6+KtzHMAvwsj4lNMGDbegPWWHmDs/
-	SYWRUh0gQPbkSjWiS8PyZS/NAmSVLw8SJiej7wcoGPz9xr4dTmFD6J++lsQct8lYNX2e2JE2s2UUr
-	jQVqEAE8reStx729kFaJQkh2T2jgs+2PoWStgFW7dGHHCOqnJX9b8+WXtf+D4KIatiahF1YKI9y7y
-	KfBDBwmq8l2dN8z033gg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=axnlreFp+Mi2cwduztIqGprFhqzrTp4NRmDaPQfoYnQ=; b=u2M7ls9Uj+NkQfKYFRqdOLy5w
+	ysguePkkUI5a0+dmt/0SvHuVbMm11Mli3WyPBeoP4KpYdqJ/IOTi+S4ki5wPDlQs9MM4klxEZoA7R
+	mpc0oLhSbQy8nDT+LzMmeO/L+qn4z/i4C/x+s2LIKUUrFMNEcpk0KCd4TPDLFx+UwRsoKIwNqExVU
+	SnSX/DxZWMpEVSfwcCFaUirsCi96Dl4RGZBaNNdARGAwjQrxZ0BnWzrxNO+SGioBSeqRW4DXEFLik
+	N4IaFk3Q3fP1oRxVtjRN9EdNflH61MxsP0J8V36hA5oW6/k1LcrgbnLFO+oi7UFPVNu+2FK0HtSJm
+	naikgCOkg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iRfdt-0008NW-CH; Mon, 04 Nov 2019 16:55:49 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1iRhxh-00079j-GW; Mon, 04 Nov 2019 19:24:25 +0000
+Received: from heliosphere.sirena.org.uk ([172.104.155.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iRfd5-0006h5-Cn
- for linux-mtd@lists.infradead.org; Mon, 04 Nov 2019 16:55:02 +0000
-Received: from DGGEMS404-HUB.china.huawei.com (unknown [172.30.72.59])
- by Forcepoint Email with ESMTP id 37A604F42DF3807065D4;
- Tue,  5 Nov 2019 00:54:52 +0800 (CST)
-Received: from localhost.localdomain (10.69.192.58) by
- DGGEMS404-HUB.china.huawei.com (10.3.19.204) with Microsoft SMTP Server id
- 14.3.439.0; Tue, 5 Nov 2019 00:54:42 +0800
-From: John Garry <john.garry@huawei.com>
-To: <broonie@kernel.org>, <marek.vasut@gmail.com>,
- <tudor.ambarus@microchip.com>
-Subject: [PATCH 3/3] MAINTAINERS: Add a maintainer for the HiSilicon v3xx SFC
+ id 1iRhxX-00079O-PW
+ for linux-mtd@lists.infradead.org; Mon, 04 Nov 2019 19:24:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=14g9oyYQ5ejwP+HUIBS3ppdCvtef/yyJ/Ou2n23wvc8=; b=DaH6+BIfshQ0a09JXhFX+7+Ve
+ ocWCl5jQjr0NcdEy7TAyfTb4PkflhPzkycnSRVOxppcwKPJgCThtZXdwIC+3UW5otE5O93Wbp9uo+
+ RFJ4CMQU7IT9Tqv/kQCjkrtpLI2UgDhQhr51Zq28U63aFosnxyo8xS13oNy1rZLN2mdes=;
+Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net
+ ([82.37.168.47] helo=ypsilon.sirena.org.uk)
+ by heliosphere.sirena.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <broonie@sirena.co.uk>)
+ id 1iRhxR-00030B-2u; Mon, 04 Nov 2019 19:24:09 +0000
+Received: by ypsilon.sirena.org.uk (Postfix, from userid 1000)
+ id 6231A274301E; Mon,  4 Nov 2019 19:24:06 +0000 (GMT)
+Date: Mon, 4 Nov 2019 19:24:06 +0000
+From: Mark Brown <broonie@kernel.org>
+To: John Garry <john.garry@huawei.com>
+Subject: Re: [PATCH 2/3] spi: Add HiSilicon v3xx SPI NOR flash controller
  driver
-Date: Tue, 5 Nov 2019 00:51:37 +0800
-Message-ID: <1572886297-45400-4-git-send-email-john.garry@huawei.com>
-X-Mailer: git-send-email 2.8.1
-In-Reply-To: <1572886297-45400-1-git-send-email-john.garry@huawei.com>
+Message-ID: <20191104192406.GH5238@sirena.co.uk>
 References: <1572886297-45400-1-git-send-email-john.garry@huawei.com>
+ <1572886297-45400-3-git-send-email-john.garry@huawei.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.69.192.58]
-X-CFilter-Loop: Reflected
+In-Reply-To: <1572886297-45400-3-git-send-email-john.garry@huawei.com>
+X-Cookie: This page intentionally left blank.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191104_085459_626388_B79E6F35 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20191104_112415_828055_A69A9B69 
+X-CRM114-Status: GOOD (  14.50  )
+X-Spam-Score: 0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [172.104.155.198 listed in list.dnswl.org]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,42 +80,116 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, John Garry <john.garry@huawei.com>,
- linuxarm@huawei.com, fengsheng5@huawei.com, linux-spi@vger.kernel.org,
- linux-mtd@lists.infradead.org, xuejiancheng@hisilicon.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: tudor.ambarus@microchip.com, linux-kernel@vger.kernel.org,
+ linuxarm@huawei.com, linux-spi@vger.kernel.org, marek.vasut@gmail.com,
+ linux-mtd@lists.infradead.org, xuejiancheng@hisilicon.com,
+ fengsheng5@huawei.com
+Content-Type: multipart/mixed; boundary="===============4610967821680542756=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Set John Garry @ Huawei as the maintainer.
 
-Signed-off-by: John Garry <john.garry@huawei.com>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+--===============4610967821680542756==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Rn7IEEq3VEzCw+ji"
+Content-Disposition: inline
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e51a68bf8ca8..6c871152934e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7410,6 +7410,12 @@ S:	Supported
- F:	drivers/scsi/hisi_sas/
- F:	Documentation/devicetree/bindings/scsi/hisilicon-sas.txt
- 
-+HISILICON v3xx SPI NOR FLASH Controller Driver
-+M:	John Garry <john.garry@huawei.com>
-+W:	http://www.hisilicon.com
-+S:	Maintained
-+F:	drivers/spi/spi-hisi-sfc-v3xx.c
-+
- HISILICON QM AND ZIP Controller DRIVER
- M:	Zhou Wang <wangzhou1@hisilicon.com>
- L:	linux-crypto@vger.kernel.org
--- 
-2.17.1
 
+--Rn7IEEq3VEzCw+ji
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Nov 05, 2019 at 12:51:36AM +0800, John Garry wrote:
+
+> Only ACPI firmware is supported.
+
+There's no ACPI dependency though?  If the driver only works with ACPI
+I'd expect to see one with an || COMPILE_TEST like the architecture
+dependency.
+
+> @@ -0,0 +1,287 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * HiSilicon SPI NOR V3XX Flash Controller Driver for hi16xx chipsets
+> + *
+
+Please make the entire comment a C++ one for neatness.
+
+> + * Copyright (c) 2019 HiSilicon Technologies Co., Ltd.
+> + * Author: John Garry <john.garry@huawei.com>
+> + */
+> +//#define DEBUG 1
+
+Please remove this.
+
+> +#define GLOBAL_CFG (0x100)
+> +
+> +#define BUS_CFG1 (0x200)
+> +#define BUS_CFG2 (0x204)
+> +#define BUS_FLASH_SIZE (0x210)
+> +
+> +#define VERSION (0x1f8)
+
+These could use some namespacing, especially the last one - it seems
+quite likely there'll be some collisions at some point.
+
+> +#define HISI_SFC_V3XX_WAIT_TIMEOUT_US		1000000
+> +#define HISI_SFC_V3XX_WAIT_POLL_INTERVAL_US	10
+
+Plus if we've got these long prefixes here it'd be good to be
+consistent.
+
+> +	if (IS_ALIGNED((uintptr_t)to, 4)) {
+> +		int words = len / 4;
+> +
+> +		__ioread32_copy(to, host->regbase + CMD_DATABUF(0), words);
+> +
+> +		len -= words * 4;
+> +		if (len) {
+> +			u32 val;
+> +
+> +			val = __raw_readl(host->regbase + CMD_DATABUF(words));
+> +
+> +			to += words * 4;
+> +			for (i = 0; i < len; i++, val >>= 8, to++)
+> +				*to = (u8)val;
+> +		}
+> +	} else {
+> +		for (i = 0; i < DIV_ROUND_UP(len, 4); i++) {
+> +			u32 val = __raw_readl(host->regbase + CMD_DATABUF(i));
+> +			int j;
+
+The more usual pattern for these would be to do some unaligned accesses
+for the start/end of the buffer to get to alignment and then transfer
+the rest as aligned data.
+
+--Rn7IEEq3VEzCw+ji
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl3AetUACgkQJNaLcl1U
+h9AUDggAhbUOC9Q2ExVskNhuRVMVMw5Xq0UlE6+60CYcvZfy1w/TQvgxMcP5764e
++EhXHAQ8BZ+JleaTtcuIoAg7OyBF1OOTQLEsSJ5AE5UOidvK1ft1Pud5D5rIXgYK
+kUxszOb2BCfW/rZMaLiKB2ydw1o1TsUEH76COG9+J8rVnLoLC/BwcMat7DVFtnPW
+orgevaNjPRUzmWOb7HuSziDLA+okmX+nLF+buquH1LR585JXMbTJd+1cgDk0aJFx
+bojmWsK0E1Ra52pwKO7qFdJS9mIzFN6GOVUqT47XhZm3BVmUkTHiugVun+AKT7el
+YpZbCCyYdb2H27r96NdBA3Ns3o/fJg==
+=PHLm
+-----END PGP SIGNATURE-----
+
+--Rn7IEEq3VEzCw+ji--
+
+
+--===============4610967821680542756==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============4610967821680542756==--
+
