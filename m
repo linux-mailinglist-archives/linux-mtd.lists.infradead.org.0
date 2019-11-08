@@ -2,68 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B146F3F0E
-	for <lists+linux-mtd@lfdr.de>; Fri,  8 Nov 2019 05:53:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 96D48F3F8B
+	for <lists+linux-mtd@lfdr.de>; Fri,  8 Nov 2019 06:15:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0czFhtcPn0mbTXxe09Qg/PwutvFEUIrezG73St3x54k=; b=iYGJVjH8vqqgM0rX2OdONdURD
-	BFXPjc62koqzHp+0naAFPBZKs27r/fESg6ZqL9j82BpwJX43Lo+JQdzNou9m7FIPq0LzKu4ndjwwG
-	0dx1ic1fKgWM2Bvrd1JAuf1+MwDLbGvuVCSbPWZvYhswNTa9JDBTV1e5VYPQ9oWw+N0hExoUJvIyF
-	+4gZBa4acZ+7cOnds0qR7QbWxCBnYlEg5DF/Zj4xsEBpyfpVWERVLQwVnBR5j7C4mhSRlI4j12S3L
-	S29UUMKQwAdOx/0c3nim2WKKYz6JmWec4K6EjO203+2z1fH04QdphQyBbiXOuuZas/H43z6ETr67b
-	zsO1EIN8Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Qprj0p5r1FPjbk2ippxq/uAHrIJEu3m2jSeCYxuBnX8=; b=P+AdDRP+4fqKN0
+	Ic8zE7b+EQYBqoUpG4XFn4leh/8dFtjn7yL5QovPzhKp6/n/CmfHTsxJg4/GM7j27+uuXGvcUKW+Q
+	eCwEt9EWryF3UdjtD1WNRbh3Qx2Zv+uvWAXlGxHIlu01wlYNiUQy7iPggMk+eeqwWCbF7vkBoyxR4
+	m5l/SbgJgOrKoil5PTe5lnrS8Va+YV+nJPR5ZdXgLkrm3H+gqi2T699/93M8zl9Xpd2j5wDVJb2so
+	fRNOPiicO/o38DNWsE6TDtm31gfXH+44rzzhLnDqWNIOCFFiLJpvrNS9hG8qlKniGSA1zttU+2zts
+	jhmbKS4zC03m4UHVbIjA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iSwGy-00006d-9Y; Fri, 08 Nov 2019 04:53:24 +0000
-Received: from ozlabs.org ([2401:3900:2:1::2])
+	id 1iSwc5-0007ba-87; Fri, 08 Nov 2019 05:15:13 +0000
+Received: from verein.lst.de ([213.95.11.211])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iSwGc-0008PN-JB; Fri, 08 Nov 2019 04:53:04 +0000
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest
- SHA256) (No client certificate requested)
- by mail.ozlabs.org (Postfix) with ESMTPSA id 478SZB0Shjz9s7T;
- Fri,  8 Nov 2019 15:52:50 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=canb.auug.org.au;
- s=201702; t=1573188777;
- bh=lsTl8lWOKmxCnD0se991UB82l6huuBGMFOozceyJHpc=;
- h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
- b=Aga5bP62YWYX6iNtz585PAG4ScKlPSlTrEjqwE3ki+YzY7ybieoqKfiAYYHN3ZWFB
- dgeiWeIzKbrAc1LjDEbqb+7n6BKo8ZoNAEGb/GpuSMY/qWGblDc3ftTHDFdi/3SYk7
- f1uv5aZrwD6T5U/U9em7j4VZ9CxAvSzmWzmiTf/WhUxI4t1uwco2iMnRw+QceM6uTZ
- tLRh0cdl4StpJ6QyKwe/vbR2oz7U5o4mUFwxyUqRMMEe92kUlQJVrFAdfZZd5xU9JS
- ZYhkfWeXPzcZdut4sV7iiXkFFIh/Y1JyCFSYtdaVfsbRy5iI42riGD6QP401UVoRGe
- p7+WJZ1Mo/MGA==
-Date: Fri, 8 Nov 2019 15:52:48 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Christoph Hellwig <hch@lst.de>
+ id 1iSwbW-0007Qw-Vw; Fri, 08 Nov 2019 05:14:40 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+ id 6282368BE1; Fri,  8 Nov 2019 06:14:34 +0100 (CET)
+Date: Fri, 8 Nov 2019 06:14:33 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Stephen Rothwell <sfr@canb.auug.org.au>
 Subject: Re: generic-iomap tree for linux-next
-Message-ID: <20191108155248.0a32a03a@canb.auug.org.au>
-In-Reply-To: <20191108132000.3e7bd5b8@canb.auug.org.au>
-References: <20191029064834.23438-1-hch@lst.de> <20191107204743.GA22863@lst.de>
- <20191108132000.3e7bd5b8@canb.auug.org.au>
+Message-ID: <20191108051433.GA29611@lst.de>
+References: <20191029064834.23438-1-hch@lst.de>
+ <20191107204743.GA22863@lst.de> <20191108132000.3e7bd5b8@canb.auug.org.au>
+ <20191108155248.0a32a03a@canb.auug.org.au>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20191108155248.0a32a03a@canb.auug.org.au>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191107_205302_832564_D2C24B18 
-X-CRM114-Status: GOOD (  11.07  )
-X-Spam-Score: -2.4 (--)
+X-CRM114-CacheID: sfid-20191107_211439_178988_CADE5C58 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.4 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [2401:3900:2:1:0:0:0:2 listed in] [list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [213.95.11.211 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,94 +63,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
 Cc: linux-ia64@vger.kernel.org, linux-sh@vger.kernel.org,
  linux-kernel@vger.kernel.org, Guo Ren <guoren@kernel.org>,
  sparclinux@vger.kernel.org, linux-riscv@lists.infradead.org,
- Vincent Chen <deanbo422@gmail.com>, linux-arch@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-hexagon@vger.kernel.org, x86@kernel.org,
+ Vincent Chen <deanbo422@gmail.com>, Christoph Hellwig <hch@lst.de>,
+ linux-arch@vger.kernel.org, linux-s390@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, x86@kernel.org,
  linux-snps-arc@lists.infradead.org, linux-xtensa@linux-xtensa.org,
  Arnd Bergmann <arnd@arndb.de>, linux-m68k@lists.linux-m68k.org,
  openrisc@lists.librecores.org, Greentime Hu <green.hu@gmail.com>,
- linux-mtd@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
+ nios2-dev@lists.rocketboards.org, Guan Xuetao <gxt@pku.edu.cn>,
  linux-arm-kernel@lists.infradead.org, Michal Simek <monstr@monstr.eu>,
  linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-alpha@vger.kernel.org, nios2-dev@lists.rocketboards.org
-Content-Type: multipart/mixed; boundary="===============0761204261002623616=="
+ linux-alpha@vger.kernel.org, linux-mtd@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
---===============0761204261002623616==
-Content-Type: multipart/signed; boundary="Sig_/tVtmaodFaJa/ooywirx=fo/";
- protocol="application/pgp-signature"; micalg=pgp-sha256
-
---Sig_/tVtmaodFaJa/ooywirx=fo/
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-Hi Christoph,
-
-On Fri, 8 Nov 2019 13:20:00 +1100 Stephen Rothwell <sfr@canb.auug.org.au> w=
-rote:
->
-> On Thu, 7 Nov 2019 21:47:43 +0100 Christoph Hellwig <hch@lst.de> wrote:
+On Fri, Nov 08, 2019 at 03:52:48PM +1100, Stephen Rothwell wrote:
+> Hi Christoph,
+> 
+> On Fri, 8 Nov 2019 13:20:00 +1100 Stephen Rothwell <sfr@canb.auug.org.au> wrote:
 > >
-> > can you add the generic-ioremap tree:
-> >=20
-> >    git://git.infradead.org/users/hch/ioremap.git
-> >=20
-> > to linux-next?  =20
->=20
-> I assume you mean the for-next branch?
+> > On Thu, 7 Nov 2019 21:47:43 +0100 Christoph Hellwig <hch@lst.de> wrote:
+> > >
+> > > can you add the generic-ioremap tree:
+> > > 
+> > >    git://git.infradead.org/users/hch/ioremap.git
+> > > 
+> > > to linux-next?   
+> > 
+> > I assume you mean the for-next branch?
+> 
+> With that assumption, added from today.
 
-With that assumption, added from today.
-
-Thanks for adding your subsystem tree as a participant of linux-next.  As
-you may know, this is not a judgement of your code.  The purpose of
-linux-next is for integration testing and to lower the impact of
-conflicts between subsystems in the next merge window.=20
-
-You will need to ensure that the patches/commits in your tree/series have
-been:
-     * submitted under GPL v2 (or later) and include the Contributor's
-        Signed-off-by,
-     * posted to the relevant mailing list,
-     * reviewed by you (or another maintainer of your subsystem tree),
-     * successfully unit tested, and=20
-     * destined for the current or next Linux merge window.
-
-Basically, this should be just what you would send to Linus (or ask him
-to fetch).  It is allowed to be rebased if you deem it necessary.
-
---=20
-Cheers,
-Stephen Rothwell=20
-sfr@canb.auug.org.au
-
---Sig_/tVtmaodFaJa/ooywirx=fo/
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl3E9KAACgkQAVBC80lX
-0GzmWwf+Klgi0tTyTa+t0RWIsOgTgCRRshcd2R+zC2TAQiqpOvNWxiNkHSOO6rPt
-AIwk9/iB+0v8JHEaYe+JqqmAtlRJjfMKtLkGBCB8WLQ/Sw+V+BW+2kZfZbMDL47C
-Q2NA/MqqCVxs38kWlJA+gd3xF1FJLjYYuHlhaksjzlHUVGVcCxeXRrd521DYPcwm
-9ZzSoL0488rxdiISFluZ44y3nKSgX3Ye5J4DnymJod7hsctYKZvWL+GxoizD+i6m
-HgzcYw5CxoMeQcS9WgBNCafeABW7i7w3jfCsmBjTNWCuUkE+Pruoct6C6G6Q5LqS
-jgJAqa5QBfJCS5OsMXSaf1cZapFTkQ==
-=R1aO
------END PGP SIGNATURE-----
-
---Sig_/tVtmaodFaJa/ooywirx=fo/--
-
-
---===============0761204261002623616==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Yes, and thanks!
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
-
---===============0761204261002623616==--
-
