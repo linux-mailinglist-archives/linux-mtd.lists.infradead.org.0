@@ -2,87 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45F67F3E8E
-	for <lists+linux-mtd@lfdr.de>; Fri,  8 Nov 2019 04:52:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 84D0EF3EF2
+	for <lists+linux-mtd@lfdr.de>; Fri,  8 Nov 2019 05:34:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q5fLJzmGteH55N2WtaLAQN/VCdbN/rxtzFzxI9yG4zU=; b=mKIYShwZCHcGzN
-	1gukwaOvu9bJVSSj+LncTyvHDwpzES6Q4qa9/Rhr6rhtikap7CxrRIXmUhk3IMJKMlBg5xXEGPh9I
-	Pp3JWXLaxReNp6J5AFgOv9uav9bf1ZjhhXkaymJTL06BLR+NhV7o5a+p5PkeYM0LrPRsorOj7rPtp
-	raCrXqKGe5+c14Fu9+7rgGo2eu6moObA9grJ8AhC3Pc56nZRafIKiR3IzEmjChMUAb/g7TPPgIERc
-	4Wh1OGsxwcV1AHqiGGl64RcF0ZxpCP2j7c9YpwNi+K0GYWu4uIjjORxgaknj1M9IrFXh1GhCn7yGB
-	hpTt4PN0ixOsxl3vFicA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=E+Z+YPSvXcp+DWHZHrSbQlip0psKNWsLKhvTC5sY1pg=; b=HqFXP7iAUc70MKoacu6mQBse+
+	hMjmcxIGdD6wNB9uoLfvr4NGPX2DsixXusS9bub0NxEQ12ACJSoCQCTrDWYw21rq/np9WG//6ITxH
+	1B+Dd1UiIZgd0e2+8isjaRI6+k723Oy2/l1lvqc5ljyA00af8Dz3ILSXn6hl/GCMLntR9kJIB5vjr
+	iavq2z5RES0o3QhmUXKLEuLASK+wBTjNwHzCsY5HLCINSTTKwcV9K3ofOz8dyU5MWw6ei33AXk3yB
+	D3W+GP+y/EtNI8ndDE8uhq87lKTLMfhXOUE1+z9GSZ7YhWPLa/lxIiDauDrrfu3N+oX6Dgyk4pwJu
+	T3D5bmggw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iSvK3-0002n3-Gj; Fri, 08 Nov 2019 03:52:31 +0000
-Received: from mail-ot1-x343.google.com ([2607:f8b0:4864:20::343])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iSvJr-0002mB-1m; Fri, 08 Nov 2019 03:52:20 +0000
-Received: by mail-ot1-x343.google.com with SMTP id r24so4021438otk.12;
- Thu, 07 Nov 2019 19:52:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=aivP/GpZ1KGYpMt8cndt6JZJWRBCraXZuvgFzKajp8o=;
- b=UhuzaXhwh4V4OtCNmi00QRY7QIuJNsZY7XkdW++ynVvUV5ipDE+Txo4OVE1lAYeXVp
- HFYurymY/b4axShJS4pi96a4cDFg4XsaEAZuzSDazYZ+xkUuSVfOz7gDMMS5FuNx1I52
- 4pYCYZIKgFb3PDPoZZoQCegxROP3vtLnD5FWU6EWJ4Ay3Fb9bzqhklkrt9EDA4BgpJSL
- c3X+TIxl0VX21P7JcSN9qfbQ/2nYxRjh79ikAkYQdFlM/5vRUJdU+SDSV4Ga1sN6DW1w
- InJb+twr0pq9RiCBWOzBp65fPHyJ4wySAymr2YrkSBU1ZtY0cqzuqo6sAfLmA3aY/keC
- 89EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=aivP/GpZ1KGYpMt8cndt6JZJWRBCraXZuvgFzKajp8o=;
- b=OcuxUoqyAt4p2grrOBsDRkYyBi4y4BIB9ZKYdr7sFtQeQRvQYx0CLLJasERyH86jGV
- uI7OiFmtXybJ5Qei6p640P7PTnNtGXNERyhGYq0k6DxJ5plaVRj/hk+Hm85U7l/COF8C
- L0gBmeFgO76b/TfK5RWMRZXgZy4GiYq5bKYtdE53NPX0GUfVcuP7DoHvDRp0YWlEG8CS
- ZW67TJJM5y5apGOcjEcmBAVpOpg5o0/pXe5E/F1KezZsz3tLq3k4GYIALhTQUPJ8U5iq
- SzOnVIqBPWQoej97N8aDmJcE24H7yn4qbsV8Kk1TUR0jmoQSLsfEOjnKa+U6RlLAAsvv
- khaA==
-X-Gm-Message-State: APjAAAWmhKwkn9hQtv5rDNNLakoN6hJ2RE6IGNoaYJ1T2dIvREbIpIXm
- xK+5slP2VIeXfccFuDAfbZutwMFKm36Wrdqx6CPCfCZuKFM=
-X-Google-Smtp-Source: APXvYqy5Nze/GU5XzkqvIJ38bkcAHVp1VfCQNvotnh9iz5Pbk2Lxb4Ftks1yabXMhPm4deuUl636X1OlG99R3qAShFU=
-X-Received: by 2002:a9d:39c8:: with SMTP id y66mr6154192otb.181.1573185138031; 
- Thu, 07 Nov 2019 19:52:18 -0800 (PST)
+	id 1iSvyq-0001kF-2K; Fri, 08 Nov 2019 04:34:40 +0000
+Received: from icp-osb-irony-out3.external.iinet.net.au ([203.59.1.153])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1iSvyf-0001jL-KQ; Fri, 08 Nov 2019 04:34:32 +0000
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: =?us-ascii?q?A2AWAADi78Rd/zXSMGcNWBkBAQEBAQE?=
+ =?us-ascii?q?BAQEBAQEBAQEBAREBAQEBAQEBAQEBAYF+gwyBMYQpj2oBAQeBNn+Ca4V6kUM?=
+ =?us-ascii?q?JAQEBAQEBAQEBLwgBAYRAAoQyOBMCDgEBAQQBAQEBAQUDAYVYTIVdAQEBAQI?=
+ =?us-ascii?q?BIxVBEAsNCAMCAiYCAlcGDQYCAQGDHgGCUgUvsVp1gTIahB8BgRSDNYFCBoE?=
+ =?us-ascii?q?OKIFlikd4gQeBESeCNjU+gQSBOSUChHGCXgSWSpc9gi6HF44kBhuOPwOLMpZ?=
+ =?us-ascii?q?6k0qBejMaCCgIgydQkHODW4plYgGQdQEB?=
+X-IPAS-Result: =?us-ascii?q?A2AWAADi78Rd/zXSMGcNWBkBAQEBAQEBAQEBAQEBAQEBA?=
+ =?us-ascii?q?REBAQEBAQEBAQEBAYF+gwyBMYQpj2oBAQeBNn+Ca4V6kUMJAQEBAQEBAQEBL?=
+ =?us-ascii?q?wgBAYRAAoQyOBMCDgEBAQQBAQEBAQUDAYVYTIVdAQEBAQIBIxVBEAsNCAMCA?=
+ =?us-ascii?q?iYCAlcGDQYCAQGDHgGCUgUvsVp1gTIahB8BgRSDNYFCBoEOKIFlikd4gQeBE?=
+ =?us-ascii?q?SeCNjU+gQSBOSUChHGCXgSWSpc9gi6HF44kBhuOPwOLMpZ6k0qBejMaCCgIg?=
+ =?us-ascii?q?ydQkHODW4plYgGQdQEB?=
+X-IronPort-AV: E=Sophos;i="5.68,280,1569254400"; d="scan'208";a="224499746"
+Received: from unknown (HELO [10.44.0.22]) ([103.48.210.53])
+ by icp-osb-irony-out3.iinet.net.au with ESMTP; 08 Nov 2019 12:34:16 +0800
+Subject: Re: [PATCH] mtd: rawnand: driver for Mediatek MT7621 SoC NAND flash
+ controller
+To: Greg KH <gregkh@linuxfoundation.org>
+References: <20191107073521.11413-1-gerg@kernel.org>
+ <20191107084007.GA1203521@kroah.com>
+From: Greg Ungerer <gerg@kernel.org>
+Message-ID: <eb68fc5f-0a50-3faf-be61-23af5550ef39@kernel.org>
+Date: Fri, 8 Nov 2019 14:34:15 +1000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-References: <20191106140748.13100-1-gch981213@gmail.com>
- <20191106140748.13100-2-gch981213@gmail.com>
-In-Reply-To: <20191106140748.13100-2-gch981213@gmail.com>
-From: Chuanhong Guo <gch981213@gmail.com>
-Date: Fri, 8 Nov 2019 11:52:06 +0800
-Message-ID: <CAJsYDVK7E-LMyA2eH5VhFu9EQWur_BLRNRg0-YTsOiJ+GyEF4g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] mtd: mtk-quadspi: add support for memory-mapped flash
- reading
-To: linux-mtd@lists.infradead.org, Yingjoe Chen <yingjoe.chen@mediatek.com>
+In-Reply-To: <20191107084007.GA1203521@kroah.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191107_195219_091332_8BB797F8 
-X-CRM114-Status: GOOD (  11.73  )
-X-Spam-Score: 0.1 (/)
+X-CRM114-CacheID: sfid-20191107_203429_884942_6ECA8FC3 
+X-CRM114-Status: GOOD (  15.03  )
+X-Spam-Score: 0.3 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.1 points)
+ Content analysis details:   (0.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:343 listed in]
- [list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [203.59.1.153 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit (gch981213[at]gmail.com)
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (gch981213[at]gmail.com)
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,40 +74,54 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, open list <linux-kernel@vger.kernel.org>,
- Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: devel@driverdev.osuosl.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, neil@brown.name,
+ linux-mediatek@lists.infradead.org, blogic@openwrt.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi all!
 
-On Wed, Nov 6, 2019 at 10:08 PM Chuanhong Guo <gch981213@gmail.com> wrote:
->
-> PIO reading mode on this controller is ridiculously inefficient
-> (one cmd+addr+dummy sequence reads only one byte)
-> This patch adds support for reading from memory-mapped flash area
-> which increases reading speed from 1MB/s to 5.6MB/s
->
-> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-> ---
->  drivers/mtd/spi-nor/mtk-quadspi.c | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->
+On 7/11/19 6:40 pm, Greg KH wrote:
+> On Thu, Nov 07, 2019 at 05:35:21PM +1000, gerg@kernel.org wrote:
+>> From: Greg Ungerer <gerg@kernel.org>
+>>
+>> Add a driver to support the NAND flash controller of the MediaTek MT7621
+>> System-on-Chip device. (This one is the MIPS based parts from Mediatek).
+>>
+>> This code is a re-working of the earlier patches for this hardware that
+>> have been floating around the internet for years:
+>>
+>> https://github.com/ReclaimYourPrivacy/cloak/blob/master/target/linux/ramips/patches-3.18/0045-mtd-add-mt7621-nand-support.patch
+>>
+>> This is a much cleaned up version, put in staging to start with.
+>> It does still have some problems, mainly that it still uses a lot of the
+>> mtd raw nand legacy support.
+> 
+> Is that an issue?  Why not just put it in the "real" part of the kernel
+> then, if those apis are still in use?
 
-I'll abandon this patchset and implement DMA reading instead.
+Agreed. If the MTD folks have no problem with it.
 
-Regards,
-Chuanhong Guo
+
+>> The driver not only compiles, but it works well on the small range of
+>> hardware platforms that it has been used on so far. I have been using
+>> for quite a while now, cleaning up as I get time.
+>>
+>> So... I am looking for comments on the best approach forward with this.
+>> At least in staging it can get some more eyeballs going over it.
+> 
+> staging will just nit-pick it to death for coding style issues, it's not
+> going to be get any major api changes/cleanups there usually.  I'd
+> recommend just merging this to the "real" part of the kernel now if it's
+> working for you.
+
+I'll spin a v2 based on Dan's feedback, and move it into drivers/mtd.
+
+Thanks
+Greg
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
