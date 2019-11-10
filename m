@@ -2,48 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 61A67F6982
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 15:46:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B3A2DF69B5
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:32:48 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YO81K7+J635k4hKeeT/ZGOlA2qpU4v85aMmGTaCP0ek=; b=cVPECk9vNYq/oY
-	GB1jHgAN8f1m92IeaCDDRS9JAfHlECNRMld+phDjwT4w/NNo/8l4F4vDjxSiERdj7cTPmNO68TGKI
-	cZNQsV7PzNZodRJjwJlG7GjC2Uvkul9ckgRnQze9MhyotrbsnjSYHsmU+CE8rQccxwMK9NZScYIip
-	I8lw/xgRJWMqlfYqpYnVFawH+K59AScN9dtjiEbhb8vv0+QU1QtzRYnAr57Ci0nAWOMlJAtxs/ZeD
-	EvVmaB8VaPCdz3bqXuHY8uKUQ1jtSB0xMYb9m4QxBBawAKViobbzgpHLJcU27UdnrVVcm4xxNe8cA
-	vEGlzlb/P2Hwyep/g9zA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LdELXa9s0n7KRWLTuVTl3RO+v3W6gAwVhC3oXY8CeDc=; b=hTHCS+TUR1oLO3
+	/mte51B5XsuMNUy+Z08WJz3wc9kJANMQGer9uiIEsQjwhuJbKOpnU0XfZMVSooKkyCXVnhLjTF6QR
+	vzRqKm5ZNt+nVyYsTQJUI78K24byXp/CFeZPeBzC8QysSCNg7zZ6XWCj2/FaAk9qTx3vXKOANHUb+
+	2l9O3x4PhzOBRcv6AGfrJzu2SaBT2tNPECG3hVRgauZEzSPPW5UFh9wd7m+FwzJvspZhxT2e34vkr
+	spWw043pC7xdW5y3lMqSws9bmkIKbThGRNsMOzgPw+ACIN5uK+8qFrlopJVvgU6/5yA3O5pru2IDL
+	qZr5us7KLKdb6DJrZPTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iToTa-0006zj-Jv; Sun, 10 Nov 2019 14:46:02 +0000
+	id 1iTpCo-0005tk-8y; Sun, 10 Nov 2019 15:32:46 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iToT3-0006cT-7G
- for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 14:45:31 +0000
+ id 1iTpCB-0005U6-NM
+ for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:09 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 83E61181099F1;
- Sun, 10 Nov 2019 15:45:24 +0100 (CET)
+ by lilium.sigma-star.at (Postfix) with ESMTP id CB33E18109A02;
+ Sun, 10 Nov 2019 16:32:05 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id qc-I65X8voTb; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
+ with ESMTP id knTT_CVdYQ3v; Sun, 10 Nov 2019 16:32:05 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id yoJJfGItDbgN; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
+ with ESMTP id 3rD02D975MxH; Sun, 10 Nov 2019 16:32:04 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 2/2] mkfs.ubifs: abort add_directory if readdir fails
-Date: Sun, 10 Nov 2019 15:44:42 +0100
-Message-Id: <20191110144442.26680-3-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 00/15] mtd-utils: cleanup resource leaks
+Date: Sun, 10 Nov 2019 16:30:44 +0100
+Message-Id: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20191110144442.26680-1-david.oberhollenzer@sigma-star.at>
-References: <20191110144442.26680-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_064529_410819_20717431 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20191110_073207_933168_788A0426 
+X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -62,37 +61,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, David Oberhollenzer <david.oberhollenzer@sigma-star.at>
+Cc: richard@nod.at
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The existing code sets 'err' to -1 and breaks the readdir loop, but
-the error state is never read. This patch modifies the readdir loop
-to actualy jump to the error handling branch if readdir fails.
+Hi,
 
-Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
----
- ubifs-utils/mkfs.ubifs/mkfs.ubifs.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+back in 2016 or so I already fixed almost all of the warnings
+reported by gcc for mtd-utils. Since then, gcc has gotten better
+[citation needed] and with its colorfull diagnostics, compiling
+mtd-utils finally makes your terminal look like a slot machine
+again.
 
-diff --git a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-index 5748aaa..72ae1b4 100644
---- a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-+++ b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-@@ -2043,8 +2043,7 @@ static int add_directory(const char *dir_name, ino_t dir_inum, struct stat *st,
- 			if (errno == 0)
- 				break;
- 			sys_err_msg("error reading directory '%s'", dir_name);
--			err = -1;
--			break;
-+			goto out_free;
- 		}
- 
- 		if (strcmp(".", entry->d_name) == 0)
--- 
-2.21.0
+Furthermore, mtd-utils is also on coverity scan since at least 2017:
+
+https://scan.coverity.com/projects/mtd-utils
+
+I've been procrastinating lately and finally got around to looking
+into this again.
+
+This patch set tries to eliminate the largest single group of issues
+that generate a lot of noise in the diagnostics: resource leaks.
+
+It's not *that* critical for mtd-utils, it should be easy to fix and
+it's also the largest chunk of issues since mtd-utils historically
+didn't care at all and leak resources left and right.
+
+Please tell me if my fixes break something elsewhere or my assumptions
+about the intended behaviour are flawed. Otherwise I will merge this
+at the end of next week and move on to the next batch.
+
+Thanks,
+
+David
 
 
 ______________________________________________________
