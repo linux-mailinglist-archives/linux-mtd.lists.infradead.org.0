@@ -2,46 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3A2DF69B5
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:32:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 40418F69B4
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:32:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LdELXa9s0n7KRWLTuVTl3RO+v3W6gAwVhC3oXY8CeDc=; b=hTHCS+TUR1oLO3
-	/mte51B5XsuMNUy+Z08WJz3wc9kJANMQGer9uiIEsQjwhuJbKOpnU0XfZMVSooKkyCXVnhLjTF6QR
-	vzRqKm5ZNt+nVyYsTQJUI78K24byXp/CFeZPeBzC8QysSCNg7zZ6XWCj2/FaAk9qTx3vXKOANHUb+
-	2l9O3x4PhzOBRcv6AGfrJzu2SaBT2tNPECG3hVRgauZEzSPPW5UFh9wd7m+FwzJvspZhxT2e34vkr
-	spWw043pC7xdW5y3lMqSws9bmkIKbThGRNsMOzgPw+ACIN5uK+8qFrlopJVvgU6/5yA3O5pru2IDL
-	qZr5us7KLKdb6DJrZPTg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vQeNRDdyBFoCzVFw1CCPrsVjtGFtpgPIjAGUr3CEds8=; b=bjJ+aulss3K6uL
+	MXbnMzyh7REKreW81qcsecoM+9KgtfYLLfXhb/g0s1GgrmyLGnZrysVJ7LZrTbZsC+vT83D2z7gZJ
+	fHE/vKReSQmeu6E/atGPZ1Ctc882JWNOigKAiXLPf6I8EWV8rKQU1gSzIMVDrCJ1Ykfx3Np52uHGj
+	eJyXLAjOUcikSQgmFzpyLaF58KOXM4Hr8u+P8redNQ/gxV0jWGotH/2gU6m/4w21lsmOA3BYqguHo
+	Z0RrnHEfGRblXF/l91AX5atxsAAMwIq6cBE3YLT0vZU6LBm37l2xp5u8dW8a722kOONpLXVy7Duwc
+	fJowS005Obo1UsLR874g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iTpCo-0005tk-8y; Sun, 10 Nov 2019 15:32:46 +0000
+	id 1iTpCc-0005ag-8b; Sun, 10 Nov 2019 15:32:34 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iTpCB-0005U6-NM
+ id 1iTpCB-0005U8-NL
  for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:09 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id CB33E18109A02;
+ by lilium.sigma-star.at (Postfix) with ESMTP id 002A318109A04;
  Sun, 10 Nov 2019 16:32:05 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id knTT_CVdYQ3v; Sun, 10 Nov 2019 16:32:05 +0100 (CET)
+ with ESMTP id 2Ru61wYheJBX; Sun, 10 Nov 2019 16:32:05 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id 3rD02D975MxH; Sun, 10 Nov 2019 16:32:04 +0100 (CET)
+ with ESMTP id QChRCREvVjYt; Sun, 10 Nov 2019 16:32:05 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 00/15] mtd-utils: cleanup resource leaks
-Date: Sun, 10 Nov 2019 16:30:44 +0100
-Message-Id: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 01/15] mkfs.ubifs: close file descriptor in add_file error path
+Date: Sun, 10 Nov 2019 16:30:45 +0100
+Message-Id: <20191110153059.28878-2-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
+References: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_073207_933168_788A0426 
-X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-CacheID: sfid-20191110_073207_953965_A801C54B 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -61,41 +63,35 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at
+Cc: richard@nod.at, David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
+Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
+---
+ ubifs-utils/mkfs.ubifs/mkfs.ubifs.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-back in 2016 or so I already fixed almost all of the warnings
-reported by gcc for mtd-utils. Since then, gcc has gotten better
-[citation needed] and with its colorfull diagnostics, compiling
-mtd-utils finally makes your terminal look like a slot machine
-again.
-
-Furthermore, mtd-utils is also on coverity scan since at least 2017:
-
-https://scan.coverity.com/projects/mtd-utils
-
-I've been procrastinating lately and finally got around to looking
-into this again.
-
-This patch set tries to eliminate the largest single group of issues
-that generate a lot of noise in the diagnostics: resource leaks.
-
-It's not *that* critical for mtd-utils, it should be easy to fix and
-it's also the largest chunk of issues since mtd-utils historically
-didn't care at all and leak resources left and right.
-
-Please tell me if my fixes break something elsewhere or my assumptions
-about the intended behaviour are flawed. Otherwise I will merge this
-at the end of next week and move on to the next batch.
-
-Thanks,
-
-David
+diff --git a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
+index 72ae1b4..bf1290f 100644
+--- a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
++++ b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
+@@ -1873,8 +1873,10 @@ static int add_file(const char *path_name, struct stat *st, ino_t inum,
+ 			dn->compr_size = 0;
+ 		} else {
+ 			ret = encrypt_data_node(fctx, block_no, dn, out_len);
+-			if (ret < 0)
++			if (ret < 0) {
++				close(fd);
+ 				return ret;
++			}
+ 			out_len = ret;
+ 		}
+ 
+-- 
+2.21.0
 
 
 ______________________________________________________
