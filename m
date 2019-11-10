@@ -2,48 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 16747F69BF
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:34:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C0682F69C3
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:34:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bt7TYC3jv0U8frVMnpU3zQWxD+aIbuPHobej/8LPVnc=; b=C126Wqg9z0nkTa
-	gmh8Jvkc1dcSj9nKZH9Ul5n77tD3IypO1b4tElrGji3K5VMOHo1gP8ixuGrUMl8IXHseXCsc8qwg0
-	jF5t3zeKW4LTGCOfZISgiUNCnwrBv2yybulBeB+RKc6xwq3OwvM/3zzDfVAobqxB8er5d/DOkNkuS
-	6aqV8+XRLbH3OwCbLAfpiu4ivnTdhI/nBnM/T+EKQWJ02kiFMS8BrAYw9pfyCH4T3fU46JfYasRiz
-	UbM8Uc/4PhHIoGUMGIpUudG+TqBOWV5NxLDr6gFbT4/McWJU4m2Ljv/raE2EUId8+tqYcRxjogiE3
-	evNP4xoBJGTCP1zW1KbA==;
+	List-Owner; bh=gxOHZ1cc+lmcUXxtYq0wowxWrGYsvNkj9fP9woA3iU8=; b=vCzJ5wUNUevfaq
+	j6eTWRSzkvYkBNI3FhgkQDCklv3nR8nxTDpJOX5dsP6ELARRDWKtMnUFEJQL3xqvTjeCiaSqUAy3j
+	MwhXAWMoGP3VafkFQHnu38cuevXJ+sib9g+AAPDlF4giDSlFbsnoPK+WlQUNT6UzilG8hAbw1Vu4b
+	jP26M9zWpr5nZY7i4++T1QyHxKbLPJ/3EgzRSWYjKKx6R/VCrkdjuGL0ojh/mKMiFRnNA2tCN8olv
+	SgX83xhB9EKrm9Hq2kAkr48qA586YlIB0vRPv8pG3idFZsgK9DiCqkzgRGn1KB8Y20LOWjXpGPB3v
+	GK/PCgFKGe3cPqZXlFYQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iTpE5-0007I2-7O; Sun, 10 Nov 2019 15:34:05 +0000
+	id 1iTpEc-0007lS-7I; Sun, 10 Nov 2019 15:34:38 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iTpCG-0005aR-QW
+ id 1iTpCH-0005as-Sx
  for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:15 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 30EF218109A03;
+ by lilium.sigma-star.at (Postfix) with ESMTP id 9C4E1181099F2;
  Sun, 10 Nov 2019 16:32:11 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id 4ZKHn3GCk2pD; Sun, 10 Nov 2019 16:32:08 +0100 (CET)
+ with ESMTP id u9r0wOvY7VkU; Sun, 10 Nov 2019 16:32:08 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id FhsYWWt0W8a4; Sun, 10 Nov 2019 16:32:07 +0100 (CET)
+ with ESMTP id 2Srm7ANuNBCw; Sun, 10 Nov 2019 16:32:08 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 08/15] libmtd: don't leak temporary buffers
-Date: Sun, 10 Nov 2019 16:30:52 +0100
-Message-Id: <20191110153059.28878-9-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 09/15] ftl_check: don't leak temporary buffers
+Date: Sun, 10 Nov 2019 16:30:53 +0100
+Message-Id: <20191110153059.28878-10-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 References: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_073213_028575_68B83E24 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20191110_073214_119737_F8AC03AE 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -71,21 +71,48 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 ---
- lib/libmtd.c | 1 +
- 1 file changed, 1 insertion(+)
+ misc-utils/ftl_check.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/lib/libmtd.c b/lib/libmtd.c
-index 5e3ac50..564e5c0 100644
---- a/lib/libmtd.c
-+++ b/lib/libmtd.c
-@@ -1140,6 +1140,7 @@ static int legacy_auto_oob_layout(const struct mtd_dev_info *mtd, int fd,
- 		memcpy(oob + start, tmp_buf + start, len);
+diff --git a/misc-utils/ftl_check.c b/misc-utils/ftl_check.c
+index e854922..5a04155 100644
+--- a/misc-utils/ftl_check.c
++++ b/misc-utils/ftl_check.c
+@@ -75,7 +75,7 @@ static void check_partition(int fd)
+ 	erase_unit_header_t hdr, hdr2;
+ 	off_t i;
+ 	u_int j, nbam, *bam;
+-	int control, data, free, deleted;
++	int control, data, blk_free, deleted;
+ 
+ 	/* Get partition size, block size */
+ 	if (ioctl(fd, MEMGETINFO, &mtd) != 0) {
+@@ -150,10 +150,10 @@ static void check_partition(int fd)
+ 				perror("read failed");
+ 				break;
+ 			}
+-			free = deleted = control = data = 0;
++			blk_free = deleted = control = data = 0;
+ 			for (j = 0; j < nbam; j++) {
+ 				if (BLOCK_FREE(le32_to_cpu(bam[j])))
+-					free++;
++					blk_free++;
+ 				else if (BLOCK_DELETED(le32_to_cpu(bam[j])))
+ 					deleted++;
+ 				else switch (BLOCK_TYPE(le32_to_cpu(bam[j]))) {
+@@ -163,9 +163,11 @@ static void check_partition(int fd)
+ 				}
+ 			}
+ 			printf("  Block allocation: %d control, %d data, %d free,"
+-					" %d deleted\n", control, data, free, deleted);
++					" %d deleted\n", control, data, blk_free, deleted);
+ 		}
  	}
++
++	free(bam);
+ } /* format_partition */
  
-+	free(tmp_buf);
- 	return 0;
- }
- 
+ /* Show usage information */
 -- 
 2.21.0
 
