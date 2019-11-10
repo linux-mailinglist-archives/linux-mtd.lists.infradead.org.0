@@ -2,48 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4742F69B8
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:33:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 92CBDF69C0
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:34:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nt3YUr3hnPrSERC3N5AoJ1MrUiKnTAOEwNX8+bDtJec=; b=AWm4qYfu6w0PHM
-	pUk+UongMqY4gB78MzllkRw9OKHh+J0y2uLt93ag81ABhlbfOUA7cp9qgyIR1yeBZD0j2qBEEP3kz
-	/JgoIwxxp8Zx+it2hbuRJecYr7yjt7Orml3AhfRoLXRHm+rEDxkf6j57XIDsgjcr8fBv4zucV37tt
-	gKhI0RSK61O+03NEB0vdDvNpi4sqDl6ZdN9bzrkyAxikgqMSBdASZcXval3Byd1QyqbLuN959suz+
-	EQiOHmynycd+kLtXBWX8AegFI5OLdPeAhsw+qPQ+nZUC1f9gK72YvgKOSBLXCxz6o8ZswcwlgpHw2
-	dWswMrH31plg14AmSTxw==;
+	List-Owner; bh=Zxlonvh57hr4lvOOk09BpddidAeDM1kaFzD0BdzE7FQ=; b=Etey+16g+MJUut
+	t0EVJZGPgZ7BGOC0FbyYVZVrUiG7CW3NAM6oKQMkK84jS3u2I/OELgotkt2SdTa4F24xbg+J8maeJ
+	RxFbs1MSKs+cWiTIrf4ILrFjfehMjoKtvEkpMV7cQliaChWQ6E1avE5QpRrGW5fibAPuyr1oYgKPC
+	uPxS6zGThxtn/DlLJz7wU+1KM2uoH6/uGIZ0AcFaSIZWV8kcBldy6dA4zGkG2RSFljVO4isYrdHSx
+	TJsnh+j2Xobkz+zPRdQuzgmT+A/dq3qq7PQ0m7ia3aFWPbjEZ8Avwt5mTg0N7ZHlg/k10kXPVRMYk
+	B6tr5sa07iNdw8kN6YrA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iTpDJ-0006OT-Ib; Sun, 10 Nov 2019 15:33:17 +0000
+	id 1iTpEO-0007VG-51; Sun, 10 Nov 2019 15:34:24 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iTpCD-0005W4-4M
- for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:11 +0000
+ id 1iTpCG-0005a5-GS
+ for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:15 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 92088181099FB;
- Sun, 10 Nov 2019 16:32:07 +0100 (CET)
+ by lilium.sigma-star.at (Postfix) with ESMTP id 0472E18109A02;
+ Sun, 10 Nov 2019 16:32:11 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id q7W6NSW7kDds; Sun, 10 Nov 2019 16:32:06 +0100 (CET)
+ with ESMTP id 8M9ldtQF4Rcv; Sun, 10 Nov 2019 16:32:07 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id NKayHsXCiz_n; Sun, 10 Nov 2019 16:32:06 +0100 (CET)
+ with ESMTP id H8tj9POS8P4O; Sun, 10 Nov 2019 16:32:06 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 04/15] mkfs.ubifs: don't leak hastable iterators
-Date: Sun, 10 Nov 2019 16:30:48 +0100
-Message-Id: <20191110153059.28878-5-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 05/15] mkfs.ubifs: don't leak temporary buffers
+Date: Sun, 10 Nov 2019 16:30:49 +0100
+Message-Id: <20191110153059.28878-6-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 References: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_073209_328352_FACD8503 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20191110_073212_711051_429664D7 
+X-CRM114-Status: GOOD (  10.44  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -70,43 +70,91 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 ---
- ubifs-utils/mkfs.ubifs/devtable.c   | 1 +
- ubifs-utils/mkfs.ubifs/mkfs.ubifs.c | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ ubifs-utils/mkfs.ubifs/crypto.c  |  9 ++++++---
+ ubifs-utils/mkfs.ubifs/fscrypt.c | 18 +++++++++++++++---
+ 2 files changed, 21 insertions(+), 6 deletions(-)
 
-diff --git a/ubifs-utils/mkfs.ubifs/devtable.c b/ubifs-utils/mkfs.ubifs/devtable.c
-index 10faaca..0afea90 100644
---- a/ubifs-utils/mkfs.ubifs/devtable.c
-+++ b/ubifs-utils/mkfs.ubifs/devtable.c
-@@ -525,6 +525,7 @@ void free_devtable_info(void)
- 			 */
- 			hashtable_destroy(ph_elt->name_htbl, 1);
- 		} while (hashtable_iterator_advance(ph_itr));
-+		free(ph_itr);
+diff --git a/ubifs-utils/mkfs.ubifs/crypto.c b/ubifs-utils/mkfs.ubifs/crypto.c
+index d31bd2a..19c445e 100644
+--- a/ubifs-utils/mkfs.ubifs/crypto.c
++++ b/ubifs-utils/mkfs.ubifs/crypto.c
+@@ -118,23 +118,26 @@ static ssize_t gen_essiv_salt(const void *iv, size_t iv_len, const void *key, si
+ 	cipher = EVP_aes_256_ecb();
+ 	if (!cipher) {
+ 		errmsg("OpenSSL: Cipher AES-256-ECB is not supported");
+-		return -1;
++		goto fail;
  	}
- 	hashtable_destroy(path_htbl, 1);
- }
-diff --git a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-index 87f7b4f..4247270 100644
---- a/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-+++ b/ubifs-utils/mkfs.ubifs/mkfs.ubifs.c
-@@ -2013,7 +2013,7 @@ static int add_directory(const char *dir_name, ino_t dir_inum, struct stat *st,
- 	unsigned int nlink = 2;
- 	struct path_htbl_element *ph_elt;
- 	struct name_htbl_element *nh_elt = NULL;
--	struct hashtable_itr *itr;
-+	struct hashtable_itr *itr = NULL;
- 	ino_t inum;
- 	unsigned char type;
- 	unsigned long long dir_creat_sqnum = ++c->max_sqnum;
-@@ -2218,6 +2218,7 @@ static int add_directory(const char *dir_name, ino_t dir_inum, struct stat *st,
- 	return 0;
  
- out_free:
-+	free(itr);
- 	free(name);
- 	if (existing)
- 		closedir(dir);
+ 	if (do_hash(EVP_sha256(), key, key_len, sha256) != 0) {
+ 		errmsg("sha256 failed");
+-		return -1;
++		goto fail;
+ 	}
+ 
+ 	ret = do_encrypt(cipher, iv, iv_len, sha256, EVP_MD_size(EVP_sha256()), NULL, 0, salt);
+ 	if (ret != iv_len) {
+ 		errmsg("Unable to compute ESSIV salt, return value %zi instead of %zi", ret, iv_len);
+-		return -1;
++		goto fail;
+ 	}
+ 
+ 	free(sha256);
+ 
+ 	return ret;
++fail:
++	free(sha256);
++	return -1;
+ }
+ 
+ static ssize_t encrypt_block(const void *plaintext, size_t size,
+diff --git a/ubifs-utils/mkfs.ubifs/fscrypt.c b/ubifs-utils/mkfs.ubifs/fscrypt.c
+index 118c11c..b75bdf7 100644
+--- a/ubifs-utils/mkfs.ubifs/fscrypt.c
++++ b/ubifs-utils/mkfs.ubifs/fscrypt.c
+@@ -106,13 +106,19 @@ int encrypt_path(void **outbuf, void *data, unsigned int data_len,
+ 	memcpy(inbuf, data, data_len);
+ 
+ 	crypt_key = calc_fscrypt_subkey(fctx);
+-	if (!crypt_key)
++	if (!crypt_key) {
++		free(inbuf);
++		free(*outbuf);
+ 		return err_msg("could not compute subkey");
++	}
+ 
+ 	ret = fscrypt_cipher->encrypt_fname(inbuf, cryptlen,
+ 					    crypt_key, *outbuf);
+-	if (ret < 0)
++	if (ret < 0) {
++		free(inbuf);
++		free(*outbuf);
+ 		return err_msg("could not encrypt filename");
++	}
+ 
+ 	free(crypt_key);
+ 	free(inbuf);
+@@ -133,13 +139,19 @@ int encrypt_data_node(struct fscrypt_context *fctx, unsigned int block_no,
+ 	memcpy(inbuf, &dn->data, length);
+ 
+ 	crypt_key = calc_fscrypt_subkey(fctx);
+-	if (!crypt_key)
++	if (!crypt_key) {
++		free(inbuf);
++		free(outbuf);
+ 		return err_msg("could not compute subkey");
++	}
+ 
+ 	ret = fscrypt_cipher->encrypt_block(inbuf, pad_len,
+ 					    crypt_key, block_no,
+ 					    outbuf);
+ 	if (ret != pad_len) {
++		free(inbuf);
++		free(outbuf);
++		free(crypt_key);
+ 		return err_msg("encrypt_block returned %zi "
+ 				"instead of %zi", ret, pad_len);
+ 	}
 -- 
 2.21.0
 
