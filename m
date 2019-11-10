@@ -2,47 +2,49 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B393F6980
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 15:45:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EBFF1F6981
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 15:45:55 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hkzGYCsyHAnm/PN8hgHyk2vCknFscQupK+WNeR5RfYo=; b=Z9tg3EfFPIMjAU
-	K6tV6pBFruvl4jkk1m9E5Q3HJO4sFbVY9fFn8LmvlL/QbxCSwpOcX5NdsJ/pDT0F+EJ6zzepY6jO7
-	i1rJG6dUZDOLIlCkMlAw7tcmxPHqSZR8FKvTuAy+Hdsl5IlH+EWGihErFvKvdjRf2xix6cPSYLdMk
-	/ptDTEWIQqSrN2CJmxvqHEtOzanAD3ThLYvl5rL+3EbSbEc+KbfgTN2n7Q4bIr0PogGi/0M/N7PN2
-	2ph6XWduBkMx7D8oHuaiHxf1d475RYi8KwMycxqrsBLYa4UCowr6l8z9zAFg2KVM8ULWoDebtU1s3
-	lOa1XQOo/9M8xaqgM0aQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TOvk3bhexvzBoNVwazojpUIR5PaG4iSujdZ+g6umDFg=; b=QLkIPmiguKszIQ
+	03jUeyiyXQlJI3XUgq6ZRGDVL3QWM6wDtsOUTwLxN92GaiKVYKmlmKVQlTsBnsIatrZrdcCdrnOQM
+	X9hGzGEptIOq9vHmaVh7PwddBFsACxKZnTNow/irLocJeMEZB7Q27ioC91kxM6RJ5gho4UIrFhaKO
+	rHycPrhmcc9q928zod0xHYQjGyXyfljopKFXyaGoqPQ66UffMYKE1NvwCaSz436zN+1XKc/SSToLZ
+	oXJYUfm+soXE6Vr7vEmDjYJw8hHRpN39A5lBVmip0TffCXvWb2ESLxINuVxhwIGEaVrNXZMEW7H0X
+	8j1xxcDuZInJ4nPYrRkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iToTB-0006db-Qx; Sun, 10 Nov 2019 14:45:37 +0000
+	id 1iToTM-0006lW-2E; Sun, 10 Nov 2019 14:45:48 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iToT3-0006cL-7G
+ id 1iToT3-0006cM-7F
  for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 14:45:30 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 0DAEC181099F9;
+ by lilium.sigma-star.at (Postfix) with ESMTP id 50A52181099F2;
  Sun, 10 Nov 2019 15:45:24 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id O83eBrRzcwK4; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
+ with ESMTP id oZ-OHfw5vEHR; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id BvPE1z0nlmgn; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
+ with ESMTP id kuIh8-GgSRyh; Sun, 10 Nov 2019 15:45:23 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 0/2] mkfs.ubifs: some error handling fixes
-Date: Sun, 10 Nov 2019 15:44:40 +0100
-Message-Id: <20191110144442.26680-1-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 1/2] mkfs.ubifs: fscrypt: bail from encrypt_block if
+ gen_essiv_salt fails
+Date: Sun, 10 Nov 2019 15:44:41 +0100
+Message-Id: <20191110144442.26680-2-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
+In-Reply-To: <20191110144442.26680-1-david.oberhollenzer@sigma-star.at>
+References: <20191110144442.26680-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_064529_410687_8BB5E7D1 
-X-CRM114-Status: UNSURE (   7.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191110_064529_410694_D9BDBD96 
+X-CRM114-Status: GOOD (  12.58  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -61,31 +63,67 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at
+Cc: richard@nod.at, David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
+What originally cought my attention was that gen_essiv_salt has a
+size_t return type and error paths that return -1 on failure.
+Further investigation revealed that the error value is never checked
+for. The encrypt_block function doesn't use the return value in any
+way and simply continues onward.
 
-poking around the mkfs.ubifs source, I discovered two cases of what I
-suspect to be error cases that got ignored instead of propperly handled.
+Furthermore, the gen_essiv_salt function has an error case that emits
+an error message but returns success state.
 
-The first is probably the more delicate one where the return value of
-gen_essiv_salt is never checked in the fscrypt code.
+This patch modifes gen_essiv_salt to return an error status in all
+error branches, changes the return type to ssize_t and adds a check
+to encrypt_block if gen_essiv_salt fails.
 
-The second one concerns pre-populating the ubifs image, where a readdir
-loop is aborted if readdir fails, but the error status is never reported
-back and the code simply marches on.
+Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
+---
+ ubifs-utils/mkfs.ubifs/crypto.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-Please tell me if my fixes break something elsewhere or my assumptions
-about the intended behaviour are flawed. Otherwise I will merge this some
-time next week.
-
-Thanks,
-
-David
+diff --git a/ubifs-utils/mkfs.ubifs/crypto.c b/ubifs-utils/mkfs.ubifs/crypto.c
+index cd68e37..d31bd2a 100644
+--- a/ubifs-utils/mkfs.ubifs/crypto.c
++++ b/ubifs-utils/mkfs.ubifs/crypto.c
+@@ -109,7 +109,7 @@ fail:
+ 	return -1;
+ }
+ 
+-static size_t gen_essiv_salt(const void *iv, size_t iv_len, const void *key, size_t key_len, void *salt)
++static ssize_t gen_essiv_salt(const void *iv, size_t iv_len, const void *key, size_t key_len, void *salt)
+ {
+ 	size_t ret;
+ 	const EVP_CIPHER *cipher;
+@@ -127,8 +127,10 @@ static size_t gen_essiv_salt(const void *iv, size_t iv_len, const void *key, siz
+ 	}
+ 
+ 	ret = do_encrypt(cipher, iv, iv_len, sha256, EVP_MD_size(EVP_sha256()), NULL, 0, salt);
+-	if (ret != iv_len)
++	if (ret != iv_len) {
+ 		errmsg("Unable to compute ESSIV salt, return value %zi instead of %zi", ret, iv_len);
++		return -1;
++	}
+ 
+ 	free(sha256);
+ 
+@@ -154,7 +156,8 @@ static ssize_t encrypt_block(const void *plaintext, size_t size,
+ 
+ 	if (cipher == EVP_aes_128_cbc()) {
+ 		tweak = alloca(ivsize);
+-		gen_essiv_salt(&iv, FS_IV_SIZE, key, key_len, tweak);
++		if (gen_essiv_salt(&iv, FS_IV_SIZE, key, key_len, tweak) < 0)
++			return -1;
+ 	} else {
+ 		tweak = &iv;
+ 	}
+-- 
+2.21.0
 
 
 ______________________________________________________
