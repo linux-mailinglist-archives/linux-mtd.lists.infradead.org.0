@@ -2,48 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4AE16F69C9
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:35:59 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6BFE4F69C7
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 Nov 2019 16:35:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=W7+9ZxyZpXtste/cSYQAC6koQkJCLTGiW61nmJsB3rM=; b=MN1IjP3Fh0rHiv
-	9h+wUQhzk3YdZBqNugkqQryTy7eQNDTFv50myy5h/7J9NU6NukEnb4F5Hoq7sSlpoQJ7opQvpDnxe
-	ZL6T7Vcc6yTFV9Me+vroo2P5WFaX07KsIy1UHyUInoD9i+EYgoe0U45HsRdpbhQG2DF5ChPTDOZtn
-	8bofuzLRInG28uCnQQfYBZ39kau6972oXuMRziWIC+R14RRAJZrxahRUUbNCNyyZbSfp+zHn1+y7A
-	qrf16ya2DH9A41tgjCHBGfX51N6mphTd8hq+LVzRB2Np7UQyWPYTOhVZ9rXR+wvuURXNVF6PcjSoh
-	yzB5m8qAptQgeas5d5NQ==;
+	List-Owner; bh=PX53a0pCDGcQ4CA4ezb0WK9iY2wnbh7yy6OVPIEFjWk=; b=XiEmT9N4U9XY/x
+	5f2qP4XRlOfpsJsRVZuZR1NT9bVVymbrU25azjakRhiA2asmEP3EhJLndNrZtn3aWDUTdBXWqVebo
+	+ViJ4nogM6ebUBdfZUGH3JJ0q/1OmZV/I6RGnuk75w9wfyUTvmAJa/YIoPIARI/Hy96QCPTADwW4l
+	288fLJLG+cFDB/K9BGH6CD6ZiG+oPL6p2ccZbOmU9oLeUm9cClLyN+ZraMvUj5Z0SD4Eox4TPO1UC
+	CgAarYREOW/IhKc9DXJZtrcxZQqDHN9Rv1rhJK4AxLnqO7rtMGlxxw1rGo0oI/Ljy7qMj/0DLvNn2
+	lmWtOPQ+KoWbVFFYJa6g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iTpFs-0001hh-D0; Sun, 10 Nov 2019 15:35:56 +0000
+	id 1iTpFS-0001Gk-Pi; Sun, 10 Nov 2019 15:35:30 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iTpCJ-0005cy-Co
- for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:17 +0000
+ id 1iTpCK-0005dh-8x
+ for linux-mtd@lists.infradead.org; Sun, 10 Nov 2019 15:32:18 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 6D41C18109A07;
+ by lilium.sigma-star.at (Postfix) with ESMTP id E6303181099E2;
  Sun, 10 Nov 2019 16:32:13 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id SDHmexJn5vrE; Sun, 10 Nov 2019 16:32:12 +0100 (CET)
+ with ESMTP id 1JsohI8_tJWa; Sun, 10 Nov 2019 16:32:13 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id I_ZJrCC4-4Ql; Sun, 10 Nov 2019 16:32:11 +0100 (CET)
+ with ESMTP id 61gVcWmPQQEx; Sun, 10 Nov 2019 16:32:12 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 13/15] mtd_debug: cleanup error handling in flash_to_file
-Date: Sun, 10 Nov 2019 16:30:57 +0100
-Message-Id: <20191110153059.28878-14-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 14/15] jittertest: fix error check for open system call
+Date: Sun, 10 Nov 2019 16:30:58 +0100
+Message-Id: <20191110153059.28878-15-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.21.0
 In-Reply-To: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 References: <20191110153059.28878-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191110_073215_588000_89287DE9 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20191110_073216_477542_C7CFC1FD 
+X-CRM114-Status: GOOD (  10.48  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -68,88 +68,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The existing code had multiple error handling labels and did things
-like checking if a buffer is not NULL before freeing it.
-
-This patch collapses all of this into a single label. We can do this,
-because the standard guarantees us that it is safe to call free() with
-a NULL pointer.
-
-This also has the side effect of removing the possibility of using the
-wrong error label and accidentally leaking something.
+The value 0 is a valid file descriptor. The existing error handling
+would not only treat that as an error, but subsequently leak the
+file descriptor in the error handling path.
 
 Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 ---
- misc-utils/mtd_debug.c | 20 ++++++++------------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+ tests/jittertest/JitterTest.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/misc-utils/mtd_debug.c b/misc-utils/mtd_debug.c
-index d65ad36..c0b7109 100644
---- a/misc-utils/mtd_debug.c
-+++ b/misc-utils/mtd_debug.c
-@@ -112,12 +112,12 @@ static int flash_to_file(int fd, off_t offset, size_t len, const char *filename)
+diff --git a/tests/jittertest/JitterTest.c b/tests/jittertest/JitterTest.c
+index e109995..797035b 100644
+--- a/tests/jittertest/JitterTest.c
++++ b/tests/jittertest/JitterTest.c
+@@ -462,14 +462,14 @@ static void doGrabKProfile(int jitterusec, char *fileName)
  
- 	if (offset != lseek(fd, offset, SEEK_SET)) {
- 		perror("lseek()");
--		goto err0;
-+		return 1;
- 	}
- 	outfd = creat(filename, 0666);
- 	if (outfd < 0) {
- 		perror("creat()");
--		goto err1;
-+		return 1;
- 	}
+     (void)jitterusec;
  
- retry:
-@@ -130,7 +130,7 @@ retry:
- 			goto retry;
- 		}
- 		perror("malloc()");
--		goto err0;
-+		goto fail;
- 	}
- 	do {
- 		if (n <= size)
-@@ -139,7 +139,7 @@ retry:
- 		if (err < 0) {
- 			fprintf(stderr, "%s: read, size %#x, n %#x\n", __func__, size, n);
- 			perror("read()");
--			goto err2;
-+			goto fail;
- 		}
- 		if (err < size) {
- 			fprintf(stderr, "%s: short read, requested %#x, read %#x\n", __func__, size, err);
-@@ -148,11 +148,11 @@ retry:
- 		if (err < 0) {
- 			fprintf(stderr, "%s: write, size %#x, n %#x\n", __func__, size, n);
- 			perror("write()");
--			goto err2;
-+			goto fail;
- 		}
- 		if (err != size) {
- 			fprintf(stderr, "Couldn't copy entire buffer to %s. (%d/%d bytes copied)\n", filename, err, size);
--			goto err2;
-+			goto fail;
- 		}
- 		n -= size;
- 	} while (n > 0);
-@@ -162,13 +162,9 @@ retry:
- 	close(outfd);
- 	printf("Copied %zu bytes from address 0x%.8llx in flash to %s\n", len, (unsigned long long)offset, filename);
- 	return 0;
--
--err2:
-+fail:
- 	close(outfd);
--err1:
--	if (buf != NULL)
--		free(buf);
--err0:
-+	free(buf);
- 	return 1;
- }
+-    if((fdSnapshot = open(fileName, O_WRONLY | O_CREAT, S_IRWXU)) <= 0)
++    if((fdSnapshot = open(fileName, O_WRONLY | O_CREAT, S_IRWXU)) < 0)
+     {
+         fprintf(stderr, "Could not open file %s.\n", fileName);
+         perror("Error:");
+         return;
+     }
  
+-    if((fdProfile = open("/proc/profile", O_RDWR)) <= 0)
++    if((fdProfile = open("/proc/profile", O_RDWR)) < 0)
+     {
+         fprintf(stderr, "Could not open file /proc/profile. Make sure you booted with profile=2\n");
+         close(fdSnapshot);
+@@ -509,7 +509,7 @@ static void clearProfileBuf(void){
+   char readBuf[10];
+ 
+ 
+-  if((fdProfile = open("/proc/profile", O_RDWR)) <= 0)
++  if((fdProfile = open("/proc/profile", O_RDWR)) < 0)
+     {
+       fprintf(stderr, "Could not open file /proc/profile. Make sure you booted with profile=2\n");
+       return;
 -- 
 2.21.0
 
