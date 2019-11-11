@@ -2,153 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1142DF711E
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:46:47 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 62F45F715F
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 11:08:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C5yLYD4vZ+gjvRmfiOEozkh9foIU6+T01RvW4YVBvYE=; b=MGJbj+5bMtYZDO
-	iEuPSbivgNJ5LYehl42tHSCbZ5irTK+GnneFaYpmj0IAQBLiPw4iz9WQuttv3WRyIja3O3BfzOJRc
-	wJUXBaNG0tl6EqUBRtsUrbQnO3rAaP7HgyClZxbJBeVnlQ7XM9WdFtl88AAJKL56xfR2k2MnZUKXq
-	IUcpqSsuMDScPtbgMoXswV4mT/73GPok41yVxkmjo64coVVtIIhrnNC3DXttFv70CDzT3oc4JGe8C
-	LXrINlmgqbAC2BmDFTob4HRt02DJiLOXq2OvXnJJcum3r8IXJzbvQ5uRAtcBZepyHLw1hvdXNgMAH
-	09QF1tGuA6/HLIsFsU3Q==;
+	List-Owner; bh=xwpRTsfNwfGPL1J0BxWvBPdVhNl069sBnrNHt9taAlQ=; b=KJpeeR5wAfg6qg
+	5fSqZbmyz5l3ENkUBTNw4OTMUUArVmN2fVR4nRV4wPV20cxsNgi+rQ7EXvL4XfdLv8CssnEeDdy/u
+	65CTyQ7uMUom83W053PgDDM85HDNXSXrAdaBKsX9WP39XdRikcIN3xLudUzxm5AJ8bvzV6wJ2tnVC
+	r1P7tleQJ1YUwIX4teTfiWCctUBQuFgJM9meh3p9mSn6ipOrUYr/WzSI3Tw8zGftD7Ljs0sPkwRQ8
+	KRclTJ/b5fi0crm/WMYuYfP/YztVzJXgmwHd6c0terPApjGJDA7YEazV1TDZhoLWtjrmTwRwV7KOK
+	fMR11FPJ75EuCA95VtAw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6HS-0002mf-2q; Mon, 11 Nov 2019 09:46:42 +0000
-Received: from esa4.microchip.iphmx.com ([68.232.154.123])
+	id 1iU6cW-0002eL-Lf; Mon, 11 Nov 2019 10:08:28 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6F5-00083N-UH
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:20 +0000
-Received-SPF: Pass (esa4.microchip.iphmx.com: domain of
- Tudor.Ambarus@microchip.com designates 198.175.253.82 as
- permitted sender) identity=mailfrom;
- client-ip=198.175.253.82; receiver=esa4.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="Tudor.Ambarus@microchip.com";
- x-conformance=spf_only; x-record-type="v=spf1";
- x-record-text="v=spf1 mx a:ushub1.microchip.com
- a:smtpout.microchip.com a:mx1.microchip.iphmx.com
- a:mx2.microchip.iphmx.com include:servers.mcsv.net
- include:mktomail.com include:spf.protection.outlook.com ~all"
-Received-SPF: None (esa4.microchip.iphmx.com: no sender
- authenticity information available from domain of
- postmaster@email.microchip.com) identity=helo;
- client-ip=198.175.253.82; receiver=esa4.microchip.iphmx.com;
- envelope-from="Tudor.Ambarus@microchip.com";
- x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
-Authentication-Results: esa4.microchip.iphmx.com;
- spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
- spf=None smtp.helo=postmaster@email.microchip.com;
- dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
- dmarc=pass (p=none dis=none) d=microchip.com
-IronPort-SDR: 5nyjJEP5UOy1YDqHXQ7B9aV1CAavZ6W8wSAjX0izGOV7PwDcOlMmJlC+viBq7lGNaO3TjuF05T
- 2YfsNDCDLLvZGsB04W6Z/g3oZFm+ql5ObkbXiCcyH0iDB6ZMES25/65XVULSrkq3uyHZoLINcT
- MuaZZYHsP7iN9KyX6BtYsdpbP84NSzHwWN94UlLDq40DHJSbqr6+x7hxS6JzpLyP7EFWWAxCOs
- Bgx0Bj3A+daqJ/qlfhLotdvljSC9055LTJhacT2loegfG5G5MsfRtpXLt7ZO9JQfkIYcAdxjdw
- XKc=
-X-IronPort-AV: E=Sophos;i="5.68,292,1569308400"; d="scan'208";a="54853992"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 11 Nov 2019 02:44:13 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 11 Nov 2019 02:44:10 -0700
-Received: from NAM03-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5
- via Frontend Transport; Mon, 11 Nov 2019 02:44:10 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=LAKQhc9rnN092lexA8RGscyCv35cZUL0QURC3L0WagJl4wexVY7/ta0EB0EVFuxg/OP0e0p3aLoNOAeU7ArDcMAPSNzGbRBxcmGji2F+1ne6XI0Nsmfe3KfUqz3XuSGtYhCluuYz4eA8sRGB4xYuH+XbmruH5Isd5w0BwD3iD5s8jy3+6o+rh7ysWtPXDYJlnU5G4wZdr9cP6FbECXRj+WWXoR2Iux/KlPYIDASAyd+HBoonhKKlIsEF2yKn5ZjQODgTsQULCHQDi3IK1kmYifsdJKqTbgWBQsK+RPYnJqbAsZphTPkgeHaU2ph3m77Pz1ul4lQnQgS/xTATGoYJag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KsBDjKU3P/fwUarWajpSNTbdg0qlGUNAAeTiJp9vIkA=;
- b=hPJFisXFNMlUTHvw6LawqxLh2Nf140rCzL5ktlzlfgPu/yxELqGD62+aISLRKtUv01nsNaFRjQhQ8AXPqsm5t+o8TqOtw5ewavBGVYnyNKfODBuB8QaeqWKhXw3dUS5vvsjGE3evesmDgoVhibxL2UmmfnXGEA2V9Q/oHxvF2p+M83U1a8LbFXKKQPy/ZD0VUjyHLuJygbg/KqrJS0Vp0W1J1nyZ66PDV6r1Qbwfnl3FgSmJfLL/kNf4kNQNviLtJ8bmSyxDEiV2eqtu+7ZYHGxfmEU5PZIHAFrzZtBcLhajGrWkn77tRXfHwvXGVBq8M2hwekEZ8Ss21rTARLZwvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KsBDjKU3P/fwUarWajpSNTbdg0qlGUNAAeTiJp9vIkA=;
- b=CtQMnPMIH2fBb3WSsPi08fuYIxc1sFtA3XZoPmRwMi3XDsZLRNUN+qNkeG6XlU1JQ7iT8+nf93Czj3FZlnarY+1RmI5B+G2bwEyIM21NNEDNOHNmekps2kA6JpRMa7CszBeE/4B7ILji0egqr1OJYB3p6Tie/zJIJIdlQfIGw+o=
-Received: from MN2PR11MB4448.namprd11.prod.outlook.com (52.135.39.157) by
- MN2PR11MB3952.namprd11.prod.outlook.com (10.255.181.21) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2430.20; Mon, 11 Nov 2019 09:44:08 +0000
-Received: from MN2PR11MB4448.namprd11.prod.outlook.com
- ([fe80::c09c:36c8:3301:4457]) by MN2PR11MB4448.namprd11.prod.outlook.com
- ([fe80::c09c:36c8:3301:4457%5]) with mapi id 15.20.2430.027; Mon, 11 Nov 2019
- 09:44:08 +0000
-From: <Tudor.Ambarus@microchip.com>
-To: <boris.brezillon@collabora.com>
-Subject: [PATCH] mtd: spi-nor: Make sure nor->spimem and nor->controller_ops
- are mutually exclusive
-Thread-Topic: [PATCH] mtd: spi-nor: Make sure nor->spimem and
- nor->controller_ops are mutually exclusive
-Thread-Index: AQHVmHSQpwLCmWp+9EG8iC+d50bhxQ==
-Date: Mon, 11 Nov 2019 09:44:08 +0000
-Message-ID: <20191111094358.8271-1-tudor.ambarus@microchip.com>
-References: <20191111100241.717a8fb9@collabora.com>
-In-Reply-To: <20191111100241.717a8fb9@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: AM0PR10CA0002.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:17c::12) To MN2PR11MB4448.namprd11.prod.outlook.com
- (2603:10b6:208:193::29)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-mailer: git-send-email 2.9.5
-x-originating-ip: [94.177.32.156]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: e1d33535-8eca-4d7b-8d4e-08d7668bb2ab
-x-ms-traffictypediagnostic: MN2PR11MB3952:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <MN2PR11MB3952B8C29C6118581B051D61F0740@MN2PR11MB3952.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:4714;
-x-forefront-prvs: 0218A015FA
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(396003)(376002)(366004)(39860400002)(136003)(346002)(199004)(189003)(25786009)(476003)(11346002)(81156014)(81166006)(66446008)(446003)(66476007)(66946007)(64756008)(2906002)(66556008)(8676002)(2501003)(50226002)(386003)(6506007)(478600001)(52116002)(6916009)(14444005)(14454004)(8936002)(256004)(36756003)(76176011)(2616005)(486006)(102836004)(5660300002)(186003)(7736002)(99286004)(316002)(6512007)(54906003)(2351001)(5640700003)(6436002)(305945005)(26005)(1076003)(6486002)(71200400001)(71190400001)(4326008)(107886003)(86362001)(66066001)(3846002)(6116002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR11MB3952;
- H:MN2PR11MB4448.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: microchip.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: pEZRKK1R4brA16iZ5zV7Aj3VOt9ZMSaon419ghrMtpC1jy7xGeMwWOmDyYmTa9PFbPk3/VO7i6DpqvRkcaEItCscAlNgARg59R5v0e8cMR+bvvQwggoKBCFGfUe7z4C7MUi/w5HZNHncqdD5IDTxOscJnZLo9Y4OoNfqBQbiAaP/BrBnMYJnoGUAb0EeJR4DUSsdtxpx8Zo+Nr2MqsjiU+RaBAofRPLuql4GCMW9gn0R7mfBWJ3gcvUu10qKXbTQLZEXgGou7XYzcbrLEMi124RB1dyIGdAle2zfCsAaPiGUYlVF5m3zj4vjRDAVyAuvj8p7qBaw3dWdlod1cBelemEKfTbK0g3LPKHpNiInr7SdIB6gYEIZT8pg3QEQmHOYoXmvacIqVLipUyhx6LP0+SyhXDwpVEauPmnlQj9z4OpIl2X/Ysoki++H7pXUae+7
+ id 1iU6cE-0002bv-H0
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 10:08:12 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iU6cC-0006uV-5z; Mon, 11 Nov 2019 11:08:08 +0100
+Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iU6cB-0000CY-8J; Mon, 11 Nov 2019 11:08:07 +0100
+Date: Mon, 11 Nov 2019 11:08:07 +0100
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: Jan Kara <jack@suse.cz>
+Subject: Re: [PATCH 04/10] quota: Allow to pass mount path to quotactl
+Message-ID: <20191111100807.dzomp2o7n3mch6xx@pengutronix.de>
+References: <20191030152702.14269-1-s.hauer@pengutronix.de>
+ <20191030152702.14269-5-s.hauer@pengutronix.de>
+ <20191101160706.GA23441@quack2.suse.cz>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: e1d33535-8eca-4d7b-8d4e-08d7668bb2ab
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Nov 2019 09:44:08.3737 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ubojthSEhVnITJGPKqvhe70Cii+YznQ+elqxjL19eg9tvOJ5a4JkpYAavbLJHRsFmT8KmpfuU8Bq8DkUzDTnGdilxhGyz3PBjRaZtWIsSm4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB3952
+Content-Disposition: inline
+In-Reply-To: <20191101160706.GA23441@quack2.suse.cz>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-IRC: #ptxdist @freenode
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-Uptime: 11:03:12 up 126 days, 16:13, 138 users,  load average: 0.25, 0.27,
+ 0.19
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014416_119688_3CA1D503 
-X-CRM114-Status: UNSURE (   6.32  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20191111_020810_561656_64DD4647 
+X-CRM114-Status: GOOD (  25.68  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [68.232.154.123 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -160,56 +76,122 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, dan.carpenter@oracle.com,
- Tudor.Ambarus@microchip.com
+Cc: linux-fsdevel@vger.kernel.org, Richard Weinberger <richard@nod.at>,
+ linux-mtd@lists.infradead.org, kernel@pengutronix.de, Jan Kara <jack@suse.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Tudor Ambarus <tudor.ambarus@microchip.com>
+On Fri, Nov 01, 2019 at 05:07:06PM +0100, Jan Kara wrote:
+> On Wed 30-10-19 16:26:56, Sascha Hauer wrote:
+> > This patch introduces the Q_PATH flag to the quotactl cmd argument.
+> > When given, the path given in the special argument to quotactl will
+> > be the mount path where the filesystem is mounted, instead of a path
+> > to the block device.
+> > This is necessary for filesystems which do not have a block device as
+> > backing store. Particularly this is done for upcoming UBIFS support.
+> > 
+> > Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+> 
+> Thanks for the patch! Some smaller comments below...
+> 
+> > ---
+> >  fs/quota/quota.c           | 37 ++++++++++++++++++++++++++++---------
+> >  include/uapi/linux/quota.h |  1 +
+> >  2 files changed, 29 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/fs/quota/quota.c b/fs/quota/quota.c
+> > index cb13fb76dbee..035cdd1b022b 100644
+> > --- a/fs/quota/quota.c
+> > +++ b/fs/quota/quota.c
+> > @@ -19,6 +19,7 @@
+> >  #include <linux/types.h>
+> >  #include <linux/writeback.h>
+> >  #include <linux/nospec.h>
+> > +#include <linux/mount.h>
+> >  
+> >  static int check_quotactl_permission(struct super_block *sb, int type, int cmd,
+> >  				     qid_t id)
+> > @@ -825,12 +826,16 @@ int kernel_quotactl(unsigned int cmd, const char __user *special,
+> >  {
+> >  	uint cmds, type;
+> >  	struct super_block *sb = NULL;
+> > -	struct path path, *pathp = NULL;
+> > +	struct path path, *pathp = NULL, qpath;
+> 
+> Maybe call these two 'file_path', 'file_pathp', and 'sb_path' to make it
+> clearer which path is which?
+> 
+> >  	int ret;
+> > +	bool q_path;
+> >  
+> >  	cmds = cmd >> SUBCMDSHIFT;
+> >  	type = cmd & SUBCMDMASK;
+> >  
+> > +	q_path = cmds & Q_PATH;
+> > +	cmds &= ~Q_PATH;
+> > +
+> >  	/*
+> >  	 * As a special case Q_SYNC can be called without a specific device.
+> >  	 * It will iterate all superblocks that have quota enabled and call
+> > @@ -855,19 +860,33 @@ int kernel_quotactl(unsigned int cmd, const char __user *special,
+> >  			pathp = &path;
+> >  	}
+> >  
+> > -	sb = quotactl_block(special, cmds);
+> > -	if (IS_ERR(sb)) {
+> > -		ret = PTR_ERR(sb);
+> > -		goto out;
+> > +	if (q_path) {
+> > +		ret = user_path_at(AT_FDCWD, special, LOOKUP_FOLLOW|LOOKUP_AUTOMOUNT,
+> > +				   &qpath);
+> > +		if (ret)
+> > +			goto out1;
+> > +
+> > +		sb = qpath.mnt->mnt_sb;
+> > +	} else {
+> > +		sb = quotactl_block(special, cmds);
+> > +		if (IS_ERR(sb)) {
+> > +			ret = PTR_ERR(sb);
+> > +			goto out;
+> > +		}
+> >  	}
+> >  
+> >  	ret = do_quotactl(sb, type, cmds, id, addr, pathp);
+> >  
+> > -	if (!quotactl_cmd_onoff(cmds))
+> > -		drop_super(sb);
+> > -	else
+> > -		drop_super_exclusive(sb);
+> > +	if (!q_path) {
+> > +		if (!quotactl_cmd_onoff(cmds))
+> > +			drop_super(sb);
+> > +		else
+> > +			drop_super_exclusive(sb);
+> > +	}
+> >  out:
+> > +	if (q_path)
+> > +		path_put(&qpath);
+> > +out1:
+> 
+> Why do you need out1? If you leave 'out' as is, things should just work.
+> And you can also combine the above if like:
 
-Expand the spi_nor_check() to make sure that nor->spimem and
-nor->controller_ops are mutually exclusive.
+See above where out1 is used. In this case qpath is not valid and I
+cannot call path_put() on it.
 
-Fixes: b35b9a10362d ("mtd: spi-nor: Move m25p80 code in spi-nor.c")
-Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
-Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
----
-v3:
-- split checks for better error accuracy
-- s/mutual/mutually
+I see that having q_path and qpath as different variables is confusing,
+but as you say I will rename qpath to sb_path, so hopefully this
+already makes it clearer.
 
- drivers/mtd/spi-nor/spi-nor.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Sascha
 
-diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-index 824649eecd59..f5d24ccf5108 100644
---- a/drivers/mtd/spi-nor/spi-nor.c
-+++ b/drivers/mtd/spi-nor/spi-nor.c
-@@ -2878,6 +2878,7 @@ static int spi_nor_write(struct mtd_info *mtd, loff_t to, size_t len,
- static int spi_nor_check(struct spi_nor *nor)
- {
- 	if (!nor->dev ||
-+	    (!nor->spimem && !nor->controller_ops) ||
- 	    (!nor->spimem && nor->controller_ops &&
- 	    (!nor->controller_ops->read ||
- 	     !nor->controller_ops->write ||
-@@ -2887,6 +2888,11 @@ static int spi_nor_check(struct spi_nor *nor)
- 		return -EINVAL;
- 	}
- 
-+	if (nor->spimem && nor->controller_ops) {
-+		dev_err(nor->dev, "nor->spimem and nor->controller_ops are mutually exclusive, please set just one of them.\n");
-+		return -EINVAL;
-+	}
-+
- 	return 0;
- }
- 
 -- 
-2.9.5
-
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
 ______________________________________________________
 Linux MTD discussion mailing list
