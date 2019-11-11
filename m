@@ -2,64 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D864CF7117
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:45:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 60EA5F711A
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:46:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=lFUJyezzq1sN48ytZh/WLGON3tUydwpYox1MK2z3YPM=; b=APbV19mdVuDJCK
-	BrtEOoxGm+2RrcBIpVIFGbPexu3y7xFBvme2tniv1fPTXEZIDMMOpzgs67K4nDGLHDJu0FQE0GzHb
-	texC5xrMPBu1WBROyZ5uGse6RRYz+zR8jns9nyRtP2gRW+oX4Xc0TWaOkgaBNQqfufKFlkbHDYTOq
-	oAS7SgjNYv2qOT2mJEFqyWML29yut3mlWFqiQTZZX7lLoftJmrf4Mlq5P8M29i138kCEi93oieHHZ
-	8dwUASKRyul/UgfFIyboRrypgzxWLYHTqDW7nwkmgoSQyLFFVmKmhFs7K7Q+ftIkoh7fDWjIflnS1
-	j6rYVT0bGFkH3vLzlJTg==;
+	List-Owner; bh=Qo9vRDaFmE5wrcx3Sm9VGOs4psu/y+EpLOvbTmbaT7A=; b=IqvaKmw3f/lqZe
+	gwnClwbgAJgAvKGfeiQoYCBSbe9DaXtUZKFVUE3K1Z+RB5DBt/pdcgM9wQ895gWro4RYgd+sBUIcj
+	YPMolQiIp+dNg3XNxAx0Vykx5InmMQSJ5rDUFg2Ghu8b6yH8CkfXi6mJQ8JOW4aX6wyamHNPS8VK7
+	HS/1oRrfginvJJ8uIgDoiiNvVD/0ALVcIEMoaJDyzHqs1WA4VhZ1E0QP23g7b+ke6qqPO0A5WfKe2
+	ax74sLMf1hMgN47pHvfCShQ2Pf5cus6AXbjUOe4nK78RcyQF3/58WgiDHy+zoXhmUOKe3LCU5WNj9
+	FxP195BFYktqZfGeAOYQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6GC-0000xs-JO; Mon, 11 Nov 2019 09:45:24 +0000
+	id 1iU6Gl-00025y-BE; Mon, 11 Nov 2019 09:45:59 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6Et-0007rd-BY
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:05 +0000
+ id 1iU6Ey-0007yy-S7
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:11 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 382722084F;
- Mon, 11 Nov 2019 09:44:02 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 0C28C2084F;
+ Mon, 11 Nov 2019 09:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573465442;
- bh=00QUe+5b+Pp86oYHx9hoOQd0NTq04xsmMBBQpewtmik=;
+ s=default; t=1573465448;
+ bh=zEEyuVXyCC5vPq81XTexkQbk2xI9K1gGybGoAmmyUoE=;
  h=Subject:To:Cc:From:Date:In-Reply-To:From;
- b=A66NLQWgDXxR1pn4ciiEW7CeFAbY204qA4LtK6mbn4lJnK33AriMaXGET3UvpXKHy
- TWrW8b3L+Yq94vykTg8BkFXpmmOTkrmynUs/V00VAj18rqqPe9E10UcPWT9Liqrwkt
- mNUP8dqyKCFjAhhcq7cwyPOm2YbLkEOIwXhnS0Kk=
-Subject: Patch "i2c: omap: Trigger bus recovery in lockup case" has been added
- to the 4.14-stable tree
-To: claudio.foellmi@ergon.ch, dri-devel@lists.freedesktop.org,
- gregkh@linuxfoundation.org, grygorii.strashko@ti.com,
- linux-mtd@lists.infradead.org, mathieu.poirier@linaro.org, vigneshr@ti.com,
- wsa@the-dreams.de
+ b=PFrjY7iz2Ghre0fcqyr7R/lFWkIKqPDmAZ7gXBs4rpLu1e6cJtzT73OIdyWqUXYgv
+ udKAJMD4RqeI6jAT1SoOpcMuPpEKd4wTm7qY9O7vMVCg4V4xG+iHn+AdAHglTiI0JM
+ /2ewGs+DaUp3FOSoQQ7eKcw+Gi+rgMU6keOTbGjg=
+Subject: Patch "mfd: palmas: Assign the right powerhold mask for tps65917" has
+ been added to the 4.14-stable tree
+To: dri-devel@lists.freedesktop.org, gregkh@linuxfoundation.org,
+ j-keerthy@ti.com, lee.jones@linaro.org, linux-mtd@lists.infradead.org,
+ mathieu.poirier@linaro.org
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 11 Nov 2019 10:43:33 +0100
-In-Reply-To: <20190905161759.28036-18-mathieu.poirier@linaro.org>
-Message-ID: <1573465413229221@kroah.com>
+In-Reply-To: <20190905161759.28036-6-mathieu.poirier@linaro.org>
+Message-ID: <157346541310622@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014403_443503_4C62E3F0 
-X-CRM114-Status: GOOD (  12.76  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20191111_014409_000224_50D61425 
+X-CRM114-Status: GOOD (  10.64  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
  high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 2.5 SORTED_RECIPS          Recipient list is sorted by address
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -85,13 +85,13 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 This is a note to let you know that I've just added the patch titled
 
-    i2c: omap: Trigger bus recovery in lockup case
+    mfd: palmas: Assign the right powerhold mask for tps65917
 
 to the 4.14-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     i2c-omap-trigger-bus-recovery-in-lockup-case.patch
+     mfd-palmas-assign-the-right-powerhold-mask-for-tps65917.patch
 and it can be found in the queue-4.14 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -100,93 +100,68 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu,  5 Sep 2019 10:17:58 -0600
-Subject: i2c: omap: Trigger bus recovery in lockup case
+Date: Thu,  5 Sep 2019 10:17:46 -0600
+Subject: mfd: palmas: Assign the right powerhold mask for tps65917
 To: stable@vger.kernel.org
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
-Message-ID: <20190905161759.28036-18-mathieu.poirier@linaro.org>
+Message-ID: <20190905161759.28036-6-mathieu.poirier@linaro.org>
 
-From: Claudio Foellmi <claudio.foellmi@ergon.ch>
+From: Keerthy <j-keerthy@ti.com>
 
-commit 93367bfca98f36cece57c01dbce6ea1b4ac58245 upstream
+commit 572ff4d560be3784205b224cd67d6715620092d7 upstream
 
-A very conservative check for bus activity (to prevent interference
-in multimaster setups) prevented the bus recovery methods from being
-triggered in the case that SDA or SCL was stuck low.
-This defeats the purpose of the recovery mechanism, which was introduced
-for exactly this situation (a slave device keeping SDA pulled down).
+The powerhold mask for TPS65917 is different when comapred to
+the other palmas versions. Hence assign the right mask that enables
+power off of tps65917 pmic correctly.
 
-Also added a check to make sure SDA is low before attempting recovery.
-If SDA is not stuck low, recovery will not help, so we can skip it.
-
-Note that bus lockups can persist across reboots. The only other options
-are to reset or power cycle the offending slave device, and many i2c
-slaves do not even have a reset pin.
-
-If we see that one of the lines is low for the entire timeout duration,
-we can actually be sure that there is no other master driving the bus.
-It is therefore save for us to attempt a bus recovery.
-
-Signed-off-by: Claudio Foellmi <claudio.foellmi@ergon.ch>
-Tested-by: Vignesh R <vigneshr@ti.com>
-Reviewed-by: Grygorii Strashko <grygorii.strashko@ti.com>
-[wsa: fixed one return code to -EBUSY]
-Signed-off-by: Wolfram Sang <wsa@the-dreams.de>
+Signed-off-by: Keerthy <j-keerthy@ti.com>
+Signed-off-by: Lee Jones <lee.jones@linaro.org>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- drivers/i2c/busses/i2c-omap.c |   25 +++++++++++++++++++++++--
- 1 file changed, 23 insertions(+), 2 deletions(-)
+ drivers/mfd/palmas.c       |   10 +++++++++-
+ include/linux/mfd/palmas.h |    3 +++
+ 2 files changed, 12 insertions(+), 1 deletion(-)
 
---- a/drivers/i2c/busses/i2c-omap.c
-+++ b/drivers/i2c/busses/i2c-omap.c
-@@ -487,6 +487,22 @@ static int omap_i2c_init(struct omap_i2c
- }
+--- a/drivers/mfd/palmas.c
++++ b/drivers/mfd/palmas.c
+@@ -430,6 +430,7 @@ static void palmas_power_off(void)
+ {
+ 	unsigned int addr;
+ 	int ret, slave;
++	u8 powerhold_mask;
+ 	struct device_node *np = palmas_dev->dev->of_node;
  
- /*
-+ * Try bus recovery, but only if SDA is actually low.
-+ */
-+static int omap_i2c_recover_bus(struct omap_i2c_dev *omap)
-+{
-+	u16 systest;
+ 	if (of_property_read_bool(np, "ti,palmas-override-powerhold")) {
+@@ -437,8 +438,15 @@ static void palmas_power_off(void)
+ 					  PALMAS_PRIMARY_SECONDARY_PAD2);
+ 		slave = PALMAS_BASE_TO_SLAVE(PALMAS_PU_PD_OD_BASE);
+ 
++		if (of_device_is_compatible(np, "ti,tps65917"))
++			powerhold_mask =
++				TPS65917_PRIMARY_SECONDARY_PAD2_GPIO_5_MASK;
++		else
++			powerhold_mask =
++				PALMAS_PRIMARY_SECONDARY_PAD2_GPIO_7_MASK;
 +
-+	systest = omap_i2c_read_reg(omap, OMAP_I2C_SYSTEST_REG);
-+	if ((systest & OMAP_I2C_SYSTEST_SCL_I_FUNC) &&
-+	    (systest & OMAP_I2C_SYSTEST_SDA_I_FUNC))
-+		return 0; /* bus seems to already be fine */
-+	if (!(systest & OMAP_I2C_SYSTEST_SCL_I_FUNC))
-+		return -EBUSY; /* recovery would not fix SCL */
-+	return i2c_recover_bus(&omap->adapter);
-+}
+ 		ret = regmap_update_bits(palmas_dev->regmap[slave], addr,
+-				PALMAS_PRIMARY_SECONDARY_PAD2_GPIO_7_MASK, 0);
++					 powerhold_mask, 0);
+ 		if (ret)
+ 			dev_err(palmas_dev->dev,
+ 				"Unable to write PRIMARY_SECONDARY_PAD2 %d\n",
+--- a/include/linux/mfd/palmas.h
++++ b/include/linux/mfd/palmas.h
+@@ -3733,6 +3733,9 @@ enum usb_irq_events {
+ #define TPS65917_REGEN3_CTRL_MODE_ACTIVE			0x01
+ #define TPS65917_REGEN3_CTRL_MODE_ACTIVE_SHIFT			0x00
+ 
++/* POWERHOLD Mask field for PRIMARY_SECONDARY_PAD2 register */
++#define TPS65917_PRIMARY_SECONDARY_PAD2_GPIO_5_MASK		0xC
 +
-+/*
-  * Waiting on Bus Busy
-  */
- static int omap_i2c_wait_for_bb(struct omap_i2c_dev *omap)
-@@ -496,7 +512,7 @@ static int omap_i2c_wait_for_bb(struct o
- 	timeout = jiffies + OMAP_I2C_TIMEOUT;
- 	while (omap_i2c_read_reg(omap, OMAP_I2C_STAT_REG) & OMAP_I2C_STAT_BB) {
- 		if (time_after(jiffies, timeout))
--			return i2c_recover_bus(&omap->adapter);
-+			return omap_i2c_recover_bus(omap);
- 		msleep(1);
- 	}
- 
-@@ -577,8 +593,13 @@ static int omap_i2c_wait_for_bb_valid(st
- 		}
- 
- 		if (time_after(jiffies, timeout)) {
-+			/*
-+			 * SDA or SCL were low for the entire timeout without
-+			 * any activity detected. Most likely, a slave is
-+			 * locking up the bus with no master driving the clock.
-+			 */
- 			dev_warn(omap->dev, "timeout waiting for bus ready\n");
--			return -ETIMEDOUT;
-+			return omap_i2c_recover_bus(omap);
- 		}
- 
- 		msleep(1);
+ /* Registers for function RESOURCE */
+ #define TPS65917_REGEN1_CTRL					0x2
+ #define TPS65917_PLLEN_CTRL					0x3
 
 
 Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
