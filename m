@@ -2,56 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB751F7118
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:45:51 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C21BF7114
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:44:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=d0y3Fd5k9t/dyGrx5tTNCm44f9vDH85PO9RhA71Mghs=; b=WEoARzzs7skpWp
-	msxG/OjDxfkTFk8UAvXUJMBU3vCna0gG1aFuiKM0rj1uTQGOau0ZjAzO1MvGd1zPIacMEwAMhbrXT
-	ttT878zCfEzjjpDXrs68KdJyS4BmXinm19IZjflI08Ri8CM/5cnRnB70NHLcz1XxGI9wBtA+SDHLe
-	2HojRHuXxbj+TQZmCc98hoLdiGWuc+RORmb2v574xnxZ4FxMeZXGvCPkBZQl/lVxlxfsUE6AYH764
-	Y/UDTyAaTgC2J2QzsLR4eEz3y2GJKJqbqnHBV7dyFGwFVNF9zKuacChhPCuUqGfgr9ZhL/h0lvyph
-	WDGKdH09eVXrTt10JuFg==;
+	List-Owner; bh=tXWYuMDk27bx3yKn39HbYjzG2iaDHpHd9TNLoIS67ak=; b=CbfkXPuUArmCkH
+	SxdVrY07rFZ/BaF8QtQqNpGCGrazMN+Igiokbzo6mztF2GULJ15qWXYtVe3BKQDCNEuK44bMRo5gK
+	W/uNuMHer02Ms6ro6ywNv0P/o0P198JE61QVRXMLbwi7WnDz+UvjLRsNQhJyJdGe/pDNdp1LcNzfN
+	k1vz5DT9pjNw0J5RJcO+9yQIylxrkK/gNIun6xDH8QFbOhD1cnIjBexehjh0gCDqVP92yighVXprb
+	bwGzVuv6hkmNfn3mQmY/8BBT+Zsy9nkRJ2PfgL9juoirtoN/rjaPCpfe/khGxs7Y2cqobMAZq43Ft
+	wyuwjA8agjnDZfkD8kyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6GX-0001rn-EK; Mon, 11 Nov 2019 09:45:45 +0000
+	id 1iU6Fc-0008Kp-VE; Mon, 11 Nov 2019 09:44:48 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6Ev-0007vG-R6
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:09 +0000
+ id 1iU6Ek-0007gC-MH
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:43:56 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id DABF5215EA;
- Mon, 11 Nov 2019 09:44:04 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 543F8215EA;
+ Mon, 11 Nov 2019 09:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573465445;
- bh=lFELN/GRbs5XMGM93ekhiE/Zf8Bxp9bKZw2azAoMnJY=;
+ s=default; t=1573465433;
+ bh=OZ00ERlg+Jzy4M5ctvbznQzgKhO/B9Pa/arXxMqEvcA=;
  h=Subject:To:Cc:From:Date:In-Reply-To:From;
- b=C4r+LnXPXwh67dXpesbz6oCk33+kWxf2tvjx9usguYuvVqwe59rU8tiuj93pnQ3NV
- 7DnXErX8AHJXBJIexj/YCoySkoPLR/1B03Zimwc47/Wao2avdGA18PGuiZq0yfz5lX
- e5utT7l9RRRxgEefWbbTXB35y1FRbzpdsTfsNlrw=
-Subject: Patch "mailbox: reset txdone_method TXDONE_BY_POLL if client
- knows_txdone" has been added to the 4.14-stable tree
-To: alexey.klimov@arm.com, dri-devel@lists.freedesktop.org,
- gregkh@linuxfoundation.org, jaswinder.singh@linaro.org,
+ b=eCkSalhRnjGUrUXkgfaiUOs3sM9fhFpDshyaNoK7ORYG+qmBQ0jO9gV5t6VU24tDm
+ yefBMrfng+2PT0V4gfaH4HaGUUcSGzg+NSc7O9XeUwbyoxKPn04OV9PtZr64FfGSF4
+ eDQMDZWM5dSDQsU7rfUaSySlNh2Dw4//6F6ws8kw=
+Subject: Patch "cpufreq: ti-cpufreq: add missing of_node_put()" has been added
+ to the 4.14-stable tree
+To: dri-devel@lists.freedesktop.org, gregkh@linuxfoundation.org,
  linux-mtd@lists.infradead.org, mathieu.poirier@linaro.org,
- sudeep.holla@arm.com
+ rafael.j.wysocki@intel.com, viresh.kumar@linaro.org, zumeng.chen@gmail.com
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 11 Nov 2019 10:43:33 +0100
-In-Reply-To: <20190905161759.28036-13-mathieu.poirier@linaro.org>
-Message-ID: <1573465413247177@kroah.com>
+In-Reply-To: <20190905161759.28036-19-mathieu.poirier@linaro.org>
+Message-ID: <1573465413168159@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014405_944198_9E472C89 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20191111_014354_826620_523307F5 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.0 points)
@@ -85,13 +85,13 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 This is a note to let you know that I've just added the patch titled
 
-    mailbox: reset txdone_method TXDONE_BY_POLL if client knows_txdone
+    cpufreq: ti-cpufreq: add missing of_node_put()
 
 to the 4.14-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     mailbox-reset-txdone_method-txdone_by_poll-if-client-knows_txdone.patch
+     cpufreq-ti-cpufreq-add-missing-of_node_put.patch
 and it can be found in the queue-4.14 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -100,92 +100,37 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu,  5 Sep 2019 10:17:53 -0600
-Subject: mailbox: reset txdone_method TXDONE_BY_POLL if client knows_txdone
+Date: Thu,  5 Sep 2019 10:17:59 -0600
+Subject: cpufreq: ti-cpufreq: add missing of_node_put()
 To: stable@vger.kernel.org
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
-Message-ID: <20190905161759.28036-13-mathieu.poirier@linaro.org>
+Message-ID: <20190905161759.28036-19-mathieu.poirier@linaro.org>
 
-From: Sudeep Holla <sudeep.holla@arm.com>
+From: Zumeng Chen <zumeng.chen@gmail.com>
 
-commit 33cd7123ac0ba5360656ae27db453de5b9aa711f upstream
+commit 248aefdcc3a7e0cfbd014946b4dead63e750e71b upstream
 
-Currently the mailbox framework sets txdone_method to TXDONE_BY_POLL if
-the controller sets txdone_by_poll. However some clients can have a
-mechanism to do TXDONE_BY_ACK which they can specify by knows_txdone.
-However, we endup setting both TXDONE_BY_POLL and TXDONE_BY_ACK in that
-case. In such scenario, we may end up with below warnings as the tx
-ticker is run both by mailbox framework and the client.
+call of_node_put to release the refcount of np.
 
-WARNING: CPU: 1 PID: 0 at kernel/time/hrtimer.c:805 hrtimer_forward+0x88/0xd8
-CPU: 1 PID: 0 Comm: swapper/1 Not tainted 4.12.0-rc5 #242
-Hardware name: ARM LTD ARM Juno Development Platform
-task: ffff8009768ca700 task.stack: ffff8009768f8000
-PC is at hrtimer_forward+0x88/0xd8
-LR is at txdone_hrtimer+0xd4/0xf8
-Call trace:
- hrtimer_forward+0x88/0xd8
- __hrtimer_run_queues+0xe4/0x158
- hrtimer_interrupt+0xa4/0x220
- arch_timer_handler_phys+0x30/0x40
- handle_percpu_devid_irq+0x78/0x130
- generic_handle_irq+0x24/0x38
- __handle_domain_irq+0x5c/0xb8
- gic_handle_irq+0x54/0xa8
-
-This patch fixes the issue by resetting TXDONE_BY_POLL if client has set
-knows_txdone.
-
-Cc: Alexey Klimov <alexey.klimov@arm.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-Signed-off-by: Jassi Brar <jaswinder.singh@linaro.org>
+Signed-off-by: Zumeng Chen <zumeng.chen@gmail.com>
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- drivers/mailbox/mailbox.c |    4 ++--
- drivers/mailbox/pcc.c     |    4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ drivers/cpufreq/ti-cpufreq.c |    1 +
+ 1 file changed, 1 insertion(+)
 
---- a/drivers/mailbox/mailbox.c
-+++ b/drivers/mailbox/mailbox.c
-@@ -351,7 +351,7 @@ struct mbox_chan *mbox_request_channel(s
- 	init_completion(&chan->tx_complete);
+--- a/drivers/cpufreq/ti-cpufreq.c
++++ b/drivers/cpufreq/ti-cpufreq.c
+@@ -205,6 +205,7 @@ static int ti_cpufreq_init(void)
  
- 	if (chan->txdone_method	== TXDONE_BY_POLL && cl->knows_txdone)
--		chan->txdone_method |= TXDONE_BY_ACK;
-+		chan->txdone_method = TXDONE_BY_ACK;
+ 	np = of_find_node_by_path("/");
+ 	match = of_match_node(ti_cpufreq_of_match, np);
++	of_node_put(np);
+ 	if (!match)
+ 		return -ENODEV;
  
- 	spin_unlock_irqrestore(&chan->lock, flags);
- 
-@@ -420,7 +420,7 @@ void mbox_free_channel(struct mbox_chan
- 	spin_lock_irqsave(&chan->lock, flags);
- 	chan->cl = NULL;
- 	chan->active_req = NULL;
--	if (chan->txdone_method == (TXDONE_BY_POLL | TXDONE_BY_ACK))
-+	if (chan->txdone_method == TXDONE_BY_ACK)
- 		chan->txdone_method = TXDONE_BY_POLL;
- 
- 	module_put(chan->mbox->dev->driver->owner);
---- a/drivers/mailbox/pcc.c
-+++ b/drivers/mailbox/pcc.c
-@@ -266,7 +266,7 @@ struct mbox_chan *pcc_mbox_request_chann
- 	init_completion(&chan->tx_complete);
- 
- 	if (chan->txdone_method == TXDONE_BY_POLL && cl->knows_txdone)
--		chan->txdone_method |= TXDONE_BY_ACK;
-+		chan->txdone_method = TXDONE_BY_ACK;
- 
- 	spin_unlock_irqrestore(&chan->lock, flags);
- 
-@@ -312,7 +312,7 @@ void pcc_mbox_free_channel(struct mbox_c
- 	spin_lock_irqsave(&chan->lock, flags);
- 	chan->cl = NULL;
- 	chan->active_req = NULL;
--	if (chan->txdone_method == (TXDONE_BY_POLL | TXDONE_BY_ACK))
-+	if (chan->txdone_method == TXDONE_BY_ACK)
- 		chan->txdone_method = TXDONE_BY_POLL;
- 
- 	spin_unlock_irqrestore(&chan->lock, flags);
 
 
 Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
