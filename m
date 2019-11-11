@@ -2,63 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B8A2F7105
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:44:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2F226F710B
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:44:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=iqEidUDEg1LZccKWu/xL0/aBHILry+Q+D2db0YEPVOk=; b=ofbyVZ++JU3RKs
-	LyOl19VzHvrVQqo2e8HOBbHKOPaIhZ0uxl60tNimKeJ4AMueryJzOmp8YP4QNds/9GYhQuQlSDtk0
-	hoMgLHynGq9LoSXT7mEgn43l+GDHc0V7Ohs9HTqBX+r+FUkzvAvyYpqtNk03BSAOhHQoD246ta9Cm
-	70AzPAJArdmdtwtCBNB/6ZwZMcbZfcdXx8p9qcofXRvfPXjyEQRUORCvCr5Pc/k7xYHVonLp5raO0
-	OKpIq3PBMBomCVgxf7cPG21mj0HW2f/xZGPoJM5+p8Yf37aEPIlvzjY151wzvBjKjEyuLRjD508J1
-	/jbl8ww/t9qIazKGAlfA==;
+	List-Owner; bh=EfEsX95148DDxxKqIsmxwt/UHhjYKOj4FHO2L0ozWfc=; b=XjdNS82SFD0Gii
+	5zBcuCUf63MdRHLq/4oqwPMJO5agp0Xrdb66ZcVTiZmomfRMHE3i36p+NxiHQ4wPnTA1E6ByUqQhI
+	8s+y5d/U2xK+YEm0I3mU2HP1aHgIgWyH5aWASNU1mFbCxozi+A0+KEQQdJJRURXaFUYL8YPtIq1FK
+	DIQyE4i4c+yqwyUAnWQj7eA3HKpmH8pepNJzAVZtTUQk77PmszNzegaPsHOLqpq57Dt6L+rxPhHvW
+	kENP0cLnvgiOtss026ycY2Oxzd6t+OanC41QxIQ1ONI6UQr4ysk46lj3jNfLb5mcfT1hG1IYVUtse
+	r/hPjZELiGHLC52Bn/4g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6Eo-0007aN-94; Mon, 11 Nov 2019 09:43:58 +0000
+	id 1iU6F5-0007mC-2d; Mon, 11 Nov 2019 09:44:15 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6EZ-0007Zj-M4
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:43:45 +0000
+ id 1iU6Ec-0007a8-0k
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:43:47 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 848F22084F;
- Mon, 11 Nov 2019 09:43:42 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3AC35214DB;
+ Mon, 11 Nov 2019 09:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573465423;
- bh=mvI8onio8pWhi4gIdZko2eouVzWqOUu/cOZeQDF4ans=;
+ s=default; t=1573465425;
+ bh=LN2GfPngDCc5/+o3t8iI7MVS7jkJd4YEDFa37UBDVn8=;
  h=Subject:To:Cc:From:Date:In-Reply-To:From;
- b=CXKraTgH87xwro6d0vV0I8LK9MKhNFZaMsGFBwE+VkdeVB6OvdXpQiLQ+ZQZC5+Oh
- A0dzl/6MMbXXmUcxxO3u4EuxbygLaPyTAu6eauTjEGNWR+TTLl8Rlc8/GrqyRJ+Qgx
- IwCkBrjN96behI/BDl1NSs7gUfwk3HlWE27iTw84=
-Subject: Patch "ASoC: davinci: Kill BUG_ON() usage" has been added to the
- 4.14-stable tree
-To: broonie@kernel.org, dri-devel@lists.freedesktop.org,
- gregkh@linuxfoundation.org, linux-mtd@lists.infradead.org,
- mathieu.poirier@linaro.org, tiwai@suse.de
+ b=yCyVHZZE2I5LI21ie4XZazxtNBUC7/tE9Q7A3oxaeibiJv+gIjM6+82ey+CpjC4z7
+ CzOWzAq2dk+C5IHftEpfxLnvICXOM/nroxXQW9Qg1FL5e3tVs3VrvuPTxZmmhCO8V2
+ xPTYacW2WWvqdsyCekdjGF6KRt7f4AtdQFtELdYA=
+Subject: Patch "ASoC: davinci-mcasp: Fix an error handling path in
+ 'davinci_mcasp_probe()'" has been added to the 4.14-stable tree
+To: broonie@kernel.org, christophe.jaillet@wanadoo.fr,
+ dri-devel@lists.freedesktop.org, gregkh@linuxfoundation.org,
+ linux-mtd@lists.infradead.org, mathieu.poirier@linaro.org,
+ peter.ujfalusi@ti.com
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 11 Nov 2019 10:43:32 +0100
-In-Reply-To: <20190905161759.28036-16-mathieu.poirier@linaro.org>
-Message-ID: <1573465412164225@kroah.com>
+In-Reply-To: <20190905161759.28036-17-mathieu.poirier@linaro.org>
+Message-ID: <1573465412169190@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014343_766742_D357B3B3 
-X-CRM114-Status: GOOD (  10.18  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20191111_014346_096876_D2A45E28 
+X-CRM114-Status: GOOD (  13.36  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
  high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 2.5 SORTED_RECIPS          Recipient list is sorted by address
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -84,13 +86,13 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 This is a note to let you know that I've just added the patch titled
 
-    ASoC: davinci: Kill BUG_ON() usage
+    ASoC: davinci-mcasp: Fix an error handling path in 'davinci_mcasp_probe()'
 
 to the 4.14-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     asoc-davinci-kill-bug_on-usage.patch
+     asoc-davinci-mcasp-fix-an-error-handling-path-in-davinci_mcasp_probe.patch
 and it can be found in the queue-4.14 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -99,40 +101,47 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu,  5 Sep 2019 10:17:56 -0600
-Subject: ASoC: davinci: Kill BUG_ON() usage
+Date: Thu,  5 Sep 2019 10:17:57 -0600
+Subject: ASoC: davinci-mcasp: Fix an error handling path in 'davinci_mcasp_probe()'
 To: stable@vger.kernel.org
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
-Message-ID: <20190905161759.28036-16-mathieu.poirier@linaro.org>
+Message-ID: <20190905161759.28036-17-mathieu.poirier@linaro.org>
 
-From: Takashi Iwai <tiwai@suse.de>
+From: Christophe Jaillet <christophe.jaillet@wanadoo.fr>
 
-commit befff4fbc27e19b14b343eb4a65d8f75d38b6230 upstream
+commit 1b8b68b05d1868404316d32e20782b00442aba90 upstream
 
-Don't use BUG_ON() for a non-critical sanity check on production
-systems.  This patch replaces with a softer WARN_ON() and an error
-path.
+All error handling paths in this function 'goto err' except this one.
 
-Signed-off-by: Takashi Iwai <tiwai@suse.de>
+If one of the 2 previous memory allocations fails, we should go through
+the existing error handling path. Otherwise there is an unbalanced
+pm_runtime_enable()/pm_runtime_disable().
+
+Fixes: dd55ff8346a9 ("ASoC: davinci-mcasp: Add set_tdm_slots() support")
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Acked-by: Peter Ujfalusi <peter.ujfalusi@ti.com>
 Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- sound/soc/davinci/davinci-mcasp.c |    3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ sound/soc/davinci/davinci-mcasp.c |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 --- a/sound/soc/davinci/davinci-mcasp.c
 +++ b/sound/soc/davinci/davinci-mcasp.c
-@@ -1748,7 +1748,8 @@ static int davinci_mcasp_get_dma_type(st
- 				PTR_ERR(chan));
- 		return PTR_ERR(chan);
- 	}
--	BUG_ON(!chan->device || !chan->device->dev);
-+	if (WARN_ON(!chan->device || !chan->device->dev))
-+		return -EINVAL;
+@@ -2022,8 +2022,10 @@ static int davinci_mcasp_probe(struct pl
+ 			     GFP_KERNEL);
  
- 	if (chan->device->dev->of_node)
- 		ret = of_property_read_string(chan->device->dev->of_node,
+ 	if (!mcasp->chconstr[SNDRV_PCM_STREAM_PLAYBACK].list ||
+-	    !mcasp->chconstr[SNDRV_PCM_STREAM_CAPTURE].list)
+-		return -ENOMEM;
++	    !mcasp->chconstr[SNDRV_PCM_STREAM_CAPTURE].list) {
++		ret = -ENOMEM;
++		goto err;
++	}
+ 
+ 	ret = davinci_mcasp_set_ch_constraints(mcasp);
+ 	if (ret)
 
 
 Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
