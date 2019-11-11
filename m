@@ -2,55 +2,101 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4EA5BF702B
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:08:56 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 27AE2F704A
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:16:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2nkTer/qfJePULpnsLksNabgF5aU+ko7Xb8HJoenz1g=; b=oO1xoXbPfODsW0
-	rZ8YdB9q3J56vbQu8qGQyy0Q1PskFYEZxS5xcdbCtrj5ic+ZYk2sjyDWe5f7GN1qUyxvtTHkaqSnd
-	E4s6tNogexir+zrDgIpP2ls0gHJWUrxb1ysN4hAKb6OtLo1cjWhPHtqnEaUO2cG7WJybli6NsKBT5
-	QRY8JiWVWfaFq3EF6e+eLuInEQJBe77F9ck5mmO+nyIWdC7vJ+HTCkrZoZmevlfX/XVL//maMeZL1
-	01FAR8sdDNRL+RCtP0QZEmn1m7XT8AmVfdVSVRj41MM6oS9GvuunJCGg0psWf2F1ko6Bw9c00FX1g
-	9SNpt+SR63Yk9qBuh3NA==;
+	List-Owner; bh=E4RcRqx49gg7VZrLF1gqJEgKwx1+oK48ReVlnaPMUyI=; b=uBZmjy/Bd7cE58
+	zKMefksSxKBlggq45ymYAOkhy6sBl1mNtrovJdcmlweW2wMdEME7yUBBsqbiOtHhpBisVwXykTqTG
+	shM/9YDF6/Dkzu6XLkdwQUiF+eJAWvkoPIcY3ECURB6/mOWisRBKqU/sOObEmAZuZ7xZPM5Jw0NRU
+	vjzMOUBM7IRHkIIbKYSURCSHESGYftdHgQx4yrdmo4cj+XFWIk47UaWlXs1Dy0KnIwGN0wX4IdQ6f
+	B1LwuLIpHiYQ8hVQei/zVuHVL6L8OMNy4YCQ1sHFWOtg4wmscWK6ZgvL2gIE50/N8ljq5h2vomA9x
+	lPjKif8n7F9Kxflw5A7w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU5gp-0002Qo-V8; Mon, 11 Nov 2019 09:08:51 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1iU5oU-00064c-L3; Mon, 11 Nov 2019 09:16:46 +0000
+Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU5gf-0002QO-21
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:08:42 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id D9D7728EA77;
- Mon, 11 Nov 2019 09:08:39 +0000 (GMT)
-Date: Mon, 11 Nov 2019 10:08:36 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: <Tudor.Ambarus@microchip.com>
-Subject: Re: [PATCH v2 2/2] mtd: spi-nor: Move condition to avoid a NULL check
-Message-ID: <20191111100836.0a3af484@collabora.com>
-In-Reply-To: <20191025142811.541-2-tudor.ambarus@microchip.com>
-References: <20191025123217.12790-1-tudor.ambarus@microchip.com>
- <20191025142811.541-1-tudor.ambarus@microchip.com>
- <20191025142811.541-2-tudor.ambarus@microchip.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1iU5oK-00062v-QE
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:16:38 +0000
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+ by mailout.west.internal (Postfix) with ESMTP id D10C34BB;
+ Mon, 11 Nov 2019 04:16:28 -0500 (EST)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute6.internal (MEProxy); Mon, 11 Nov 2019 04:16:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
+ date:from:to:cc:subject:message-id:references:mime-version
+ :content-type:in-reply-to; s=fm2; bh=767pSBRJ5shuYMbgPGJ/NNfiJLw
+ uGxahyROFUAPFCyc=; b=QL7E7y/EkKZiIaXtSdO5xlErh7sWmESOBvYArr7CVfp
+ eQzc3UERDa9ID9hdy2lFIlSKG6qxAErTf3njeANYlVShDy6UuKgA7ijVOvSazPcr
+ g3wjoXv9ZEYeqkbXvf0xTRSWRhXoa1JYrOQt2QjNXGY0UjKrpaPoCwunhc7kKjpb
+ /frGGcTi8OBPNTf8rvHE3WO9zkj3pDCRuchNBLsC22DpVKVMK6qSAL+QAJF0ZvId
+ utlEu3dYSA+MdZeJj/OfIlrYwLTu+kHwKlBxe0T/sjFJirwbVVtvZg9tz2skBtgb
+ uIRhrA1vAjindtTZDdMuPzbNunRo9atznS0r8/pQOhQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=767pSB
+ RJ5shuYMbgPGJ/NNfiJLwuGxahyROFUAPFCyc=; b=bDztKrrAvA8V+7wLK3MLVe
+ m8W/bcOJD8KxIyKB8OkXlQb0Y3RFA6OsgJx61wa5oIIG5+hDfQVPgsl7LWhb0p/+
+ CT+mslvrBRj7y02GVeqDbQxbQquw6kAu7SXKQrHIr36J5XLqTphRRnaHX2zJKrLw
+ 3Du7MBVCEO7FZh58iviSUnQ9aA2j/QYYn9KDTo4a3JdK/+Z3yrKKPdciuyhU5crQ
+ 3LWP5KfWvJZ4dxW4zBxAXjNSxkKfjlqolNIGNH/8oH88a1nWMsEoD8yWATMpcd8X
+ A+gaQo3VAbFQXhxOkPn9ubd42Yyj/3VBXnDOW/SoYSsYkQGIgiRVKAFeL6ey8jVw
+ ==
+X-ME-Sender: <xms:6ybJXeu0x1QJJObgsILvHQe3sOcXCVOvVrYyrT1UytIqV59h2uVRsQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedufedruddvjedgtdduucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjfgesthdtredttdervdenucfhrhhomhepifhrvghg
+ ucfmjfcuoehgrhgvgheskhhrohgrhhdrtghomheqnecukfhppeekfedrkeeirdekledrud
+ dtjeenucfrrghrrghmpehmrghilhhfrhhomhepghhrvghgsehkrhhorghhrdgtohhmnecu
+ vehluhhsthgvrhfuihiivgeptd
+X-ME-Proxy: <xmx:6ybJXZfJyvDt3neyds_yxO2il2OqimVf6hPU5EQM6QAV3J2PtmykCA>
+ <xmx:6ybJXXZ18rQyPBzQhbADNALFi019tBRuNUERxXgmFmzdQVC9g2o3Ww>
+ <xmx:6ybJXUVQZqXp4-UBlASkwi0BVT8d-IaH2XgMqMnhdOezzcBG0xRdbg>
+ <xmx:7CbJXe0xMG9EQdfRsehkw-9hE_MmqmKB8aUY2nxGKil6KH1KfHK83w>
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ by mail.messagingengine.com (Postfix) with ESMTPA id 0FF8F3060060;
+ Mon, 11 Nov 2019 04:16:26 -0500 (EST)
+Date: Mon, 11 Nov 2019 10:16:24 +0100
+From: Greg KH <greg@kroah.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Subject: Re: [BACKPORT 4.14.y 04/18] usb: dwc3: Allow disabling of
+ metastability workaround
+Message-ID: <20191111091624.GA4139389@kroah.com>
+References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
+ <20190905161759.28036-5-mathieu.poirier@linaro.org>
+ <20190910143601.GD3362@kroah.com>
+ <CANLsYkwkq2fLWsGXHxr2tSBLHdfe4JXgu8ehuD1FOEQeDAPNnA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CANLsYkwkq2fLWsGXHxr2tSBLHdfe4JXgu8ehuD1FOEQeDAPNnA@mail.gmail.com>
+User-Agent: Mutt/1.12.2 (2019-09-21)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_010841_231855_E3D22E18 
-X-CRM114-Status: GOOD (  16.16  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20191111_011636_889120_D713D4B7 
+X-CRM114-Status: GOOD (  13.38  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [64.147.123.25 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,65 +108,55 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, dan.carpenter@oracle.com
+Cc: linux-pm@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-usb@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ dri-devel@lists.freedesktop.org, linux-mtd@lists.infradead.org,
+ "# 4 . 7" <stable@vger.kernel.org>, linux-omap@vger.kernel.org,
+ linux-i2c@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 25 Oct 2019 14:28:36 +0000
-<Tudor.Ambarus@microchip.com> wrote:
-
-> From: Tudor Ambarus <tudor.ambarus@microchip.com>
+On Wed, Sep 11, 2019 at 08:01:40AM -0600, Mathieu Poirier wrote:
+> On Tue, 10 Sep 2019 at 08:36, Greg KH <greg@kroah.com> wrote:
+> >
+> > On Thu, Sep 05, 2019 at 10:17:45AM -0600, Mathieu Poirier wrote:
+> > > From: Roger Quadros <rogerq@ti.com>
+> > >
+> > > commit 42bf02ec6e420e541af9a47437d0bdf961ca2972 upstream
+> > >
+> > > Some platforms (e.g. TI's DRA7 USB2 instance) have more trouble
+> > > with the metastability workaround as it supports only
+> > > a High-Speed PHY and the PHY can enter into an Erratic state [1]
+> > > when the controller is set in SuperSpeed mode as part of
+> > > the metastability workaround.
+> > >
+> > > This causes upto 2 seconds delay in enumeration on DRA7's USB2
+> > > instance in gadget mode.
+> > >
+> > > If these platforms can be better off without the workaround,
+> > > provide a device tree property to suggest that so the workaround
+> > > is avoided.
+> > >
+> > > [1] Device mode enumeration trace showing PHY Erratic Error.
+> > >      irq/90-dwc3-969   [000] d...    52.323145: dwc3_event: event (00000901): Erratic Error [U0]
+> > >      irq/90-dwc3-969   [000] d...    52.560646: dwc3_event: event (00000901): Erratic Error [U0]
+> > >      irq/90-dwc3-969   [000] d...    52.798144: dwc3_event: event (00000901): Erratic Error [U0]
+> >
+> > Does the DT also need to get updated with this new id for this?  Is that
+> > a separate patch somewhere?
 > 
-> When the controller is not under the SPI-MEM interface it may implement
-> the optional controller_ops->erase() method.
+> The upstream commit is:
 > 
-> nor->spimem and nor->controller_ops are mutual exclusive. Move the
-
-					  ^mutually
-
-> nor->controller_ops->erase != NULL check as an 'else if' case to
-> nor->spimem, in order to avoid the nor->controller_ops != NULL
-> check.
+> b8c9c6fa2002 ARM: dts: dra7: Disable USB metastability workaround for USB2
 > 
-> Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+> Should I just send the latter or you prefer a resend with both patches?
 
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+I've queued this up now, along with the rest of this series, thanks.
 
-> ---
-> v2: add Reported-by tag, amend commit description.
-> 
->  drivers/mtd/spi-nor/spi-nor.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-> index b452d3d0de28..8eaf097098d9 100644
-> --- a/drivers/mtd/spi-nor/spi-nor.c
-> +++ b/drivers/mtd/spi-nor/spi-nor.c
-> @@ -942,9 +942,6 @@ static int spi_nor_erase_sector(struct spi_nor *nor, u32 addr)
->  
->  	addr = spi_nor_convert_addr(nor, addr);
->  
-> -	if (nor->controller_ops && nor->controller_ops->erase)
-> -		return nor->controller_ops->erase(nor, addr);
-> -
->  	if (nor->spimem) {
->  		struct spi_mem_op op =
->  			SPI_MEM_OP(SPI_MEM_OP_CMD(nor->erase_opcode, 1),
-> @@ -953,6 +950,8 @@ static int spi_nor_erase_sector(struct spi_nor *nor, u32 addr)
->  				   SPI_MEM_OP_NO_DATA);
->  
->  		return spi_mem_exec_op(nor->spimem, &op);
-> +	} else if (nor->controller_ops->erase) {
-> +		return nor->controller_ops->erase(nor, addr);
->  	}
->  
->  	/*
-
-
-
+greg k-h
 
 ______________________________________________________
 Linux MTD discussion mailing list
