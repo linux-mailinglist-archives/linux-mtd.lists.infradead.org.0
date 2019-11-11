@@ -2,101 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27AE2F704A
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:16:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 54439F7115
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:45:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E4RcRqx49gg7VZrLF1gqJEgKwx1+oK48ReVlnaPMUyI=; b=uBZmjy/Bd7cE58
-	zKMefksSxKBlggq45ymYAOkhy6sBl1mNtrovJdcmlweW2wMdEME7yUBBsqbiOtHhpBisVwXykTqTG
-	shM/9YDF6/Dkzu6XLkdwQUiF+eJAWvkoPIcY3ECURB6/mOWisRBKqU/sOObEmAZuZ7xZPM5Jw0NRU
-	vjzMOUBM7IRHkIIbKYSURCSHESGYftdHgQx4yrdmo4cj+XFWIk47UaWlXs1Dy0KnIwGN0wX4IdQ6f
-	B1LwuLIpHiYQ8hVQei/zVuHVL6L8OMNy4YCQ1sHFWOtg4wmscWK6ZgvL2gIE50/N8ljq5h2vomA9x
-	lPjKif8n7F9Kxflw5A7w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=yUuI1tQ3mN26lafd4NzY6khzOphHcctxpvmzpgw6Fw4=; b=AoH8omlMGIYDb5
+	cii81CakuAzufJWe1YZIYeVsVoMURaWG0uP4O/tRDmAmEmq6rmmfJ4kNEUN5WdrCq6D+ETDsHyevH
+	8OUu44/DCtw0q8QWiZ5cwVh0E+RECgQTrYDYhK7Ak1l7E4CHTb61Ql0ZB6o3m3hw8DCbIi4rvYsHj
+	4mu7O90ShyNyHMy/Iq8nI5gzyhdsY4lXVHNpCLWB93lZfK2QowqD+CaXGxPabot74Kx0Q9uE8K/q6
+	XIp8MjDnOq11ZjsYdYF+qzW9JDqcbo1cFgGt/0565ogcUMSMmuMwmNQgl2az54ZSMkTAQouxB2j/a
+	qfEEopYt0Vyw64aTGUvQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU5oU-00064c-L3; Mon, 11 Nov 2019 09:16:46 +0000
-Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
+	id 1iU6Fv-00008c-OP; Mon, 11 Nov 2019 09:45:07 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU5oK-00062v-QE
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:16:38 +0000
-Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
- by mailout.west.internal (Postfix) with ESMTP id D10C34BB;
- Mon, 11 Nov 2019 04:16:28 -0500 (EST)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute6.internal (MEProxy); Mon, 11 Nov 2019 04:16:29 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm2; bh=767pSBRJ5shuYMbgPGJ/NNfiJLw
- uGxahyROFUAPFCyc=; b=QL7E7y/EkKZiIaXtSdO5xlErh7sWmESOBvYArr7CVfp
- eQzc3UERDa9ID9hdy2lFIlSKG6qxAErTf3njeANYlVShDy6UuKgA7ijVOvSazPcr
- g3wjoXv9ZEYeqkbXvf0xTRSWRhXoa1JYrOQt2QjNXGY0UjKrpaPoCwunhc7kKjpb
- /frGGcTi8OBPNTf8rvHE3WO9zkj3pDCRuchNBLsC22DpVKVMK6qSAL+QAJF0ZvId
- utlEu3dYSA+MdZeJj/OfIlrYwLTu+kHwKlBxe0T/sjFJirwbVVtvZg9tz2skBtgb
- uIRhrA1vAjindtTZDdMuPzbNunRo9atznS0r8/pQOhQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; bh=767pSB
- RJ5shuYMbgPGJ/NNfiJLwuGxahyROFUAPFCyc=; b=bDztKrrAvA8V+7wLK3MLVe
- m8W/bcOJD8KxIyKB8OkXlQb0Y3RFA6OsgJx61wa5oIIG5+hDfQVPgsl7LWhb0p/+
- CT+mslvrBRj7y02GVeqDbQxbQquw6kAu7SXKQrHIr36J5XLqTphRRnaHX2zJKrLw
- 3Du7MBVCEO7FZh58iviSUnQ9aA2j/QYYn9KDTo4a3JdK/+Z3yrKKPdciuyhU5crQ
- 3LWP5KfWvJZ4dxW4zBxAXjNSxkKfjlqolNIGNH/8oH88a1nWMsEoD8yWATMpcd8X
- A+gaQo3VAbFQXhxOkPn9ubd42Yyj/3VBXnDOW/SoYSsYkQGIgiRVKAFeL6ey8jVw
- ==
-X-ME-Sender: <xms:6ybJXeu0x1QJJObgsILvHQe3sOcXCVOvVrYyrT1UytIqV59h2uVRsQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedufedruddvjedgtdduucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjfgesthdtredttdervdenucfhrhhomhepifhrvghg
- ucfmjfcuoehgrhgvgheskhhrohgrhhdrtghomheqnecukfhppeekfedrkeeirdekledrud
- dtjeenucfrrghrrghmpehmrghilhhfrhhomhepghhrvghgsehkrhhorghhrdgtohhmnecu
- vehluhhsthgvrhfuihiivgeptd
-X-ME-Proxy: <xmx:6ybJXZfJyvDt3neyds_yxO2il2OqimVf6hPU5EQM6QAV3J2PtmykCA>
- <xmx:6ybJXXZ18rQyPBzQhbADNALFi019tBRuNUERxXgmFmzdQVC9g2o3Ww>
- <xmx:6ybJXUVQZqXp4-UBlASkwi0BVT8d-IaH2XgMqMnhdOezzcBG0xRdbg>
- <xmx:7CbJXe0xMG9EQdfRsehkw-9hE_MmqmKB8aUY2nxGKil6KH1KfHK83w>
+ id 1iU6Ei-0007dj-GY
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:43:54 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
- by mail.messagingengine.com (Postfix) with ESMTPA id 0FF8F3060060;
- Mon, 11 Nov 2019 04:16:26 -0500 (EST)
-Date: Mon, 11 Nov 2019 10:16:24 +0100
-From: Greg KH <greg@kroah.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Subject: Re: [BACKPORT 4.14.y 04/18] usb: dwc3: Allow disabling of
- metastability workaround
-Message-ID: <20191111091624.GA4139389@kroah.com>
-References: <20190905161759.28036-1-mathieu.poirier@linaro.org>
- <20190905161759.28036-5-mathieu.poirier@linaro.org>
- <20190910143601.GD3362@kroah.com>
- <CANLsYkwkq2fLWsGXHxr2tSBLHdfe4JXgu8ehuD1FOEQeDAPNnA@mail.gmail.com>
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id ABDC82084F;
+ Mon, 11 Nov 2019 09:43:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1573465431;
+ bh=/E4qy5K7gKpvKB8SEvMpUraHvE9oz0IooRTT9MzY90o=;
+ h=Subject:To:Cc:From:Date:In-Reply-To:From;
+ b=z55OVBBX7/ewpWW71m/Np9Ux26jH+A8nRhdUD3hZyAWrw/Hgn1naLUnTy3LYJhGbw
+ xKvpIWS6jsLS3q21IBhwQO29W7eay9ov8aViXoAOXtcMBRxV/qz4n34gVyCwWr+540
+ 1rMH9fAiFik5z/utfEoGwpCVfLdiFALTWfJEMyo8=
+Subject: Patch "ASoC: tlv320aic31xx: Handle inverted BCLK in non-DSP modes"
+ has been added to the 4.14-stable tree
+To: afd@ti.com, broonie@kernel.org, dri-devel@lists.freedesktop.org,
+ gregkh@linuxfoundation.org, linux-mtd@lists.infradead.org,
+ mathieu.poirier@linaro.org
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 11 Nov 2019 10:43:32 +0100
+In-Reply-To: <20190905161759.28036-7-mathieu.poirier@linaro.org>
+Message-ID: <1573465412232161@kroah.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CANLsYkwkq2fLWsGXHxr2tSBLHdfe4JXgu8ehuD1FOEQeDAPNnA@mail.gmail.com>
-User-Agent: Mutt/1.12.2 (2019-09-21)
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_011636_889120_D713D4B7 
-X-CRM114-Status: GOOD (  13.38  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20191111_014352_615464_515AFCE3 
+X-CRM114-Status: GOOD (  11.30  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [64.147.123.25 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 2.5 SORTED_RECIPS          Recipient list is sorted by address
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -108,55 +76,116 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-pm@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-usb@vger.kernel.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- dri-devel@lists.freedesktop.org, linux-mtd@lists.infradead.org,
- "# 4 . 7" <stable@vger.kernel.org>, linux-omap@vger.kernel.org,
- linux-i2c@vger.kernel.org
+Cc: stable-commits@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, Sep 11, 2019 at 08:01:40AM -0600, Mathieu Poirier wrote:
-> On Tue, 10 Sep 2019 at 08:36, Greg KH <greg@kroah.com> wrote:
-> >
-> > On Thu, Sep 05, 2019 at 10:17:45AM -0600, Mathieu Poirier wrote:
-> > > From: Roger Quadros <rogerq@ti.com>
-> > >
-> > > commit 42bf02ec6e420e541af9a47437d0bdf961ca2972 upstream
-> > >
-> > > Some platforms (e.g. TI's DRA7 USB2 instance) have more trouble
-> > > with the metastability workaround as it supports only
-> > > a High-Speed PHY and the PHY can enter into an Erratic state [1]
-> > > when the controller is set in SuperSpeed mode as part of
-> > > the metastability workaround.
-> > >
-> > > This causes upto 2 seconds delay in enumeration on DRA7's USB2
-> > > instance in gadget mode.
-> > >
-> > > If these platforms can be better off without the workaround,
-> > > provide a device tree property to suggest that so the workaround
-> > > is avoided.
-> > >
-> > > [1] Device mode enumeration trace showing PHY Erratic Error.
-> > >      irq/90-dwc3-969   [000] d...    52.323145: dwc3_event: event (00000901): Erratic Error [U0]
-> > >      irq/90-dwc3-969   [000] d...    52.560646: dwc3_event: event (00000901): Erratic Error [U0]
-> > >      irq/90-dwc3-969   [000] d...    52.798144: dwc3_event: event (00000901): Erratic Error [U0]
-> >
-> > Does the DT also need to get updated with this new id for this?  Is that
-> > a separate patch somewhere?
-> 
-> The upstream commit is:
-> 
-> b8c9c6fa2002 ARM: dts: dra7: Disable USB metastability workaround for USB2
-> 
-> Should I just send the latter or you prefer a resend with both patches?
 
-I've queued this up now, along with the rest of this series, thanks.
+This is a note to let you know that I've just added the patch titled
 
-greg k-h
+    ASoC: tlv320aic31xx: Handle inverted BCLK in non-DSP modes
+
+to the 4.14-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     asoc-tlv320aic31xx-handle-inverted-bclk-in-non-dsp-modes.patch
+and it can be found in the queue-4.14 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Thu,  5 Sep 2019 10:17:47 -0600
+Subject: ASoC: tlv320aic31xx: Handle inverted BCLK in non-DSP modes
+To: stable@vger.kernel.org
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
+Message-ID: <20190905161759.28036-7-mathieu.poirier@linaro.org>
+
+From: "Andrew F. Davis" <afd@ti.com>
+
+commit dcb407b257af06fa58b0544ec01ec9e0d3927e02 upstream
+
+Currently BCLK inverting is only handled when the DAI format is
+DSP, but the BCLK may be inverted in any supported mode. Without
+this using this CODEC in any other mode than DSP with the BCLK
+inverted leads to bad sampling timing and very poor audio quality.
+
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ sound/soc/codecs/tlv320aic31xx.c |   28 ++++++++++++++++++----------
+ 1 file changed, 18 insertions(+), 10 deletions(-)
+
+--- a/sound/soc/codecs/tlv320aic31xx.c
++++ b/sound/soc/codecs/tlv320aic31xx.c
+@@ -924,6 +924,18 @@ static int aic31xx_set_dai_fmt(struct sn
+ 		return -EINVAL;
+ 	}
+ 
++	/* signal polarity */
++	switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
++	case SND_SOC_DAIFMT_NB_NF:
++		break;
++	case SND_SOC_DAIFMT_IB_NF:
++		iface_reg2 |= AIC31XX_BCLKINV_MASK;
++		break;
++	default:
++		dev_err(codec->dev, "Invalid DAI clock signal polarity\n");
++		return -EINVAL;
++	}
++
+ 	/* interface format */
+ 	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
+ 	case SND_SOC_DAIFMT_I2S:
+@@ -931,16 +943,12 @@ static int aic31xx_set_dai_fmt(struct sn
+ 	case SND_SOC_DAIFMT_DSP_A:
+ 		dsp_a_val = 0x1;
+ 	case SND_SOC_DAIFMT_DSP_B:
+-		/* NOTE: BCLKINV bit value 1 equas NB and 0 equals IB */
+-		switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+-		case SND_SOC_DAIFMT_NB_NF:
+-			iface_reg2 |= AIC31XX_BCLKINV_MASK;
+-			break;
+-		case SND_SOC_DAIFMT_IB_NF:
+-			break;
+-		default:
+-			return -EINVAL;
+-		}
++		/*
++		 * NOTE: This CODEC samples on the falling edge of BCLK in
++		 * DSP mode, this is inverted compared to what most DAIs
++		 * expect, so we invert for this mode
++		 */
++		iface_reg2 ^= AIC31XX_BCLKINV_MASK;
+ 		iface_reg1 |= (AIC31XX_DSP_MODE <<
+ 			       AIC31XX_IFACE1_DATATYPE_SHIFT);
+ 		break;
+
+
+Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
+
+queue-4.14/mailbox-reset-txdone_method-txdone_by_poll-if-client-knows_txdone.patch
+queue-4.14/mtd-spi-nor-cadence-quadspi-add-a-delay-in-write-sequence.patch
+queue-4.14/misc-pci_endpoint_test-fix-bug_on-error-during-pci_disable_msi.patch
+queue-4.14/asoc-tlv320dac31xx-mark-expected-switch-fall-through.patch
+queue-4.14/pci-dra7xx-add-shutdown-handler-to-cleanly-turn-off-clocks.patch
+queue-4.14/asoc-tlv320aic31xx-handle-inverted-bclk-in-non-dsp-modes.patch
+queue-4.14/mtd-spi-nor-enable-4b-opcodes-for-mx66l51235l.patch
+queue-4.14/cpufreq-ti-cpufreq-add-missing-of_node_put.patch
+queue-4.14/asoc-davinci-kill-bug_on-usage.patch
+queue-4.14/mfd-palmas-assign-the-right-powerhold-mask-for-tps65917.patch
+queue-4.14/asoc-davinci-mcasp-fix-an-error-handling-path-in-davinci_mcasp_probe.patch
+queue-4.14/misc-pci_endpoint_test-prevent-some-integer-overflows.patch
+queue-4.14/asoc-davinci-mcasp-handle-return-value-of-devm_kasprintf.patch
+queue-4.14/i2c-omap-trigger-bus-recovery-in-lockup-case.patch
+queue-4.14/usb-dwc3-allow-disabling-of-metastability-workaround.patch
 
 ______________________________________________________
 Linux MTD discussion mailing list
