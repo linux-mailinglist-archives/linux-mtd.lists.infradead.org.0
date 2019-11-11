@@ -2,56 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5FA8BF711D
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:46:37 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D864CF7117
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:45:29 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=W7mgE+UdnppM+2O6z4XVSq81eC+VPI0x9f13JqsgXrA=; b=D3nqbmJXxeILTj
-	Ipw9/u5q4KJH/xSAnhUTUbhxRU805g0JhwvYOMNZII4CIZTB6Y6GtDlex52oLZuT6lIoYlfT1IeZB
-	wqRoz3tLpGQ1P6S0cwW0scfYINiJcrxQ1utKDhVimvhDp36yiogrIN9oguN+K/BAigZUPmgIreIYP
-	L30iDeY5amVGMpgyJiN2HyL4VrMuPCS5fge6ut8T2i0mBZehw7rmYek/GErHcKoqJpSCe2GXIYbZ2
-	wo5mVinloxXZ1VJYwoR4WrUvJxy4T6o0fRp2XB4BlO2AF0qdYbqNC+vAlKkxBBxlMxlgBJmDMs+Pt
-	7biiVxGgswMo687FoGiA==;
+	List-Owner; bh=lFUJyezzq1sN48ytZh/WLGON3tUydwpYox1MK2z3YPM=; b=APbV19mdVuDJCK
+	BrtEOoxGm+2RrcBIpVIFGbPexu3y7xFBvme2tniv1fPTXEZIDMMOpzgs67K4nDGLHDJu0FQE0GzHb
+	texC5xrMPBu1WBROyZ5uGse6RRYz+zR8jns9nyRtP2gRW+oX4Xc0TWaOkgaBNQqfufKFlkbHDYTOq
+	oAS7SgjNYv2qOT2mJEFqyWML29yut3mlWFqiQTZZX7lLoftJmrf4Mlq5P8M29i138kCEi93oieHHZ
+	8dwUASKRyul/UgfFIyboRrypgzxWLYHTqDW7nwkmgoSQyLFFVmKmhFs7K7Q+ftIkoh7fDWjIflnS1
+	j6rYVT0bGFkH3vLzlJTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6HF-0002Y2-QW; Mon, 11 Nov 2019 09:46:29 +0000
+	id 1iU6GC-0000xs-JO; Mon, 11 Nov 2019 09:45:24 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6F5-00083D-64
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:18 +0000
+ id 1iU6Et-0007rd-BY
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:05 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id DE6B22084F;
- Mon, 11 Nov 2019 09:44:13 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 382722084F;
+ Mon, 11 Nov 2019 09:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573465454;
- bh=TsET5Ad30Z5LGue4BLdCUG4w7ocxMPwtdcZ3SgYKKAw=;
+ s=default; t=1573465442;
+ bh=00QUe+5b+Pp86oYHx9hoOQd0NTq04xsmMBBQpewtmik=;
  h=Subject:To:Cc:From:Date:In-Reply-To:From;
- b=l/KO6rtXfCILC7AJw9LbvMHJIkjC6q5QK9YqdtvYhoffHwaNMpzpYXPthd8lagr1O
- K+7Jq9+PnJt3pDckSggAEmmdQnqlYVu7j62B7K1kyvO41Rbi6P2nuLgHiuaN8plbWn
- lfsu1sRblPsoQ2k8y+Hcmc68jYZ4iEfHfRFOLWP4=
-Subject: Patch "misc: pci_endpoint_test: Prevent some integer overflows" has
- been added to the 4.14-stable tree
-To: dan.carpenter@oracle.com, dri-devel@lists.freedesktop.org,
- gregkh@linuxfoundation.org, linux-mtd@lists.infradead.org,
- mathieu.poirier@linaro.org
+ b=A66NLQWgDXxR1pn4ciiEW7CeFAbY204qA4LtK6mbn4lJnK33AriMaXGET3UvpXKHy
+ TWrW8b3L+Yq94vykTg8BkFXpmmOTkrmynUs/V00VAj18rqqPe9E10UcPWT9Liqrwkt
+ mNUP8dqyKCFjAhhcq7cwyPOm2YbLkEOIwXhnS0Kk=
+Subject: Patch "i2c: omap: Trigger bus recovery in lockup case" has been added
+ to the 4.14-stable tree
+To: claudio.foellmi@ergon.ch, dri-devel@lists.freedesktop.org,
+ gregkh@linuxfoundation.org, grygorii.strashko@ti.com,
+ linux-mtd@lists.infradead.org, mathieu.poirier@linaro.org, vigneshr@ti.com,
+ wsa@the-dreams.de
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 11 Nov 2019 10:43:33 +0100
-In-Reply-To: <20190905161759.28036-10-mathieu.poirier@linaro.org>
-Message-ID: <157346541354220@kroah.com>
+In-Reply-To: <20190905161759.28036-18-mathieu.poirier@linaro.org>
+Message-ID: <1573465413229221@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014415_268446_5D348F70 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191111_014403_443503_4C62E3F0 
+X-CRM114-Status: GOOD (  12.76  )
 X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.0 points)
@@ -85,13 +85,13 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 This is a note to let you know that I've just added the patch titled
 
-    misc: pci_endpoint_test: Prevent some integer overflows
+    i2c: omap: Trigger bus recovery in lockup case
 
 to the 4.14-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     misc-pci_endpoint_test-prevent-some-integer-overflows.patch
+     i2c-omap-trigger-bus-recovery-in-lockup-case.patch
 and it can be found in the queue-4.14 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -100,63 +100,93 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu,  5 Sep 2019 10:17:50 -0600
-Subject: misc: pci_endpoint_test: Prevent some integer overflows
+Date: Thu,  5 Sep 2019 10:17:58 -0600
+Subject: i2c: omap: Trigger bus recovery in lockup case
 To: stable@vger.kernel.org
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
-Message-ID: <20190905161759.28036-10-mathieu.poirier@linaro.org>
+Message-ID: <20190905161759.28036-18-mathieu.poirier@linaro.org>
 
-From: Dan Carpenter <dan.carpenter@oracle.com>
+From: Claudio Foellmi <claudio.foellmi@ergon.ch>
 
-commit 378f79cab12b669928f3a4037f023837ead2ce0c upstream
+commit 93367bfca98f36cece57c01dbce6ea1b4ac58245 upstream
 
-"size + max" can have an arithmetic overflow when we're allocating:
+A very conservative check for bus activity (to prevent interference
+in multimaster setups) prevented the bus recovery methods from being
+triggered in the case that SDA or SCL was stuck low.
+This defeats the purpose of the recovery mechanism, which was introduced
+for exactly this situation (a slave device keeping SDA pulled down).
 
-	orig_src_addr = dma_alloc_coherent(dev, size + alignment, ...
+Also added a check to make sure SDA is low before attempting recovery.
+If SDA is not stuck low, recovery will not help, so we can skip it.
 
-I've added a few checks to prevent that.
+Note that bus lockups can persist across reboots. The only other options
+are to reset or power cycle the offending slave device, and many i2c
+slaves do not even have a reset pin.
 
-Fixes: 13107c60681f ("misc: pci_endpoint_test: Add support to provide aligned buffer addresses")
-Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+If we see that one of the lines is low for the entire timeout duration,
+we can actually be sure that there is no other master driving the bus.
+It is therefore save for us to attempt a bus recovery.
+
+Signed-off-by: Claudio Foellmi <claudio.foellmi@ergon.ch>
+Tested-by: Vignesh R <vigneshr@ti.com>
+Reviewed-by: Grygorii Strashko <grygorii.strashko@ti.com>
+[wsa: fixed one return code to -EBUSY]
+Signed-off-by: Wolfram Sang <wsa@the-dreams.de>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- drivers/misc/pci_endpoint_test.c |    9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/i2c/busses/i2c-omap.c |   25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
 
---- a/drivers/misc/pci_endpoint_test.c
-+++ b/drivers/misc/pci_endpoint_test.c
-@@ -226,6 +226,9 @@ static bool pci_endpoint_test_copy(struc
- 	u32 src_crc32;
- 	u32 dst_crc32;
+--- a/drivers/i2c/busses/i2c-omap.c
++++ b/drivers/i2c/busses/i2c-omap.c
+@@ -487,6 +487,22 @@ static int omap_i2c_init(struct omap_i2c
+ }
  
-+	if (size > SIZE_MAX - alignment)
-+		goto err;
+ /*
++ * Try bus recovery, but only if SDA is actually low.
++ */
++static int omap_i2c_recover_bus(struct omap_i2c_dev *omap)
++{
++	u16 systest;
 +
- 	orig_src_addr = dma_alloc_coherent(dev, size + alignment,
- 					   &orig_src_phys_addr, GFP_KERNEL);
- 	if (!orig_src_addr) {
-@@ -311,6 +314,9 @@ static bool pci_endpoint_test_write(stru
- 	size_t alignment = test->alignment;
- 	u32 crc32;
++	systest = omap_i2c_read_reg(omap, OMAP_I2C_SYSTEST_REG);
++	if ((systest & OMAP_I2C_SYSTEST_SCL_I_FUNC) &&
++	    (systest & OMAP_I2C_SYSTEST_SDA_I_FUNC))
++		return 0; /* bus seems to already be fine */
++	if (!(systest & OMAP_I2C_SYSTEST_SCL_I_FUNC))
++		return -EBUSY; /* recovery would not fix SCL */
++	return i2c_recover_bus(&omap->adapter);
++}
++
++/*
+  * Waiting on Bus Busy
+  */
+ static int omap_i2c_wait_for_bb(struct omap_i2c_dev *omap)
+@@ -496,7 +512,7 @@ static int omap_i2c_wait_for_bb(struct o
+ 	timeout = jiffies + OMAP_I2C_TIMEOUT;
+ 	while (omap_i2c_read_reg(omap, OMAP_I2C_STAT_REG) & OMAP_I2C_STAT_BB) {
+ 		if (time_after(jiffies, timeout))
+-			return i2c_recover_bus(&omap->adapter);
++			return omap_i2c_recover_bus(omap);
+ 		msleep(1);
+ 	}
  
-+	if (size > SIZE_MAX - alignment)
-+		goto err;
-+
- 	orig_addr = dma_alloc_coherent(dev, size + alignment, &orig_phys_addr,
- 				       GFP_KERNEL);
- 	if (!orig_addr) {
-@@ -369,6 +375,9 @@ static bool pci_endpoint_test_read(struc
- 	size_t alignment = test->alignment;
- 	u32 crc32;
+@@ -577,8 +593,13 @@ static int omap_i2c_wait_for_bb_valid(st
+ 		}
  
-+	if (size > SIZE_MAX - alignment)
-+		goto err;
-+
- 	orig_addr = dma_alloc_coherent(dev, size + alignment, &orig_phys_addr,
- 				       GFP_KERNEL);
- 	if (!orig_addr) {
+ 		if (time_after(jiffies, timeout)) {
++			/*
++			 * SDA or SCL were low for the entire timeout without
++			 * any activity detected. Most likely, a slave is
++			 * locking up the bus with no master driving the clock.
++			 */
+ 			dev_warn(omap->dev, "timeout waiting for bus ready\n");
+-			return -ETIMEDOUT;
++			return omap_i2c_recover_bus(omap);
+ 		}
+ 
+ 		msleep(1);
 
 
 Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
