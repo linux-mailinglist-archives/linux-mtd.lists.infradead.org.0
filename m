@@ -2,55 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9C3E0F7124
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:47:54 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A2777F711B
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 Nov 2019 10:46:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
 	Date:From:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=c0r5xXmUMxO+0CxKVXjojKEkzA8HHuk2soSeND3OUrs=; b=ATjlXrzrryFsHt
-	IrKubTLFLExpFPaEH+JR2i3Gbf01MIaWqfid62WDR4GrPWkPCMkYG3dMG0+RvOGWRzxMDi9UcHCta
-	tcxYIt5YDGiHVkw/tFYCiU+kbL2WXT/2b8GWs6qp+1FTUUhFVgavIW3Mezfo17qCwMWcbsoChko+Y
-	M9DzcWxtPzXFs7u3WvpaHTj2WtQjadS3+WeDvI5yEB4wYxD/wQvSTh3dk/plgpkRAN2haIAAbQmdS
-	x5uhy6rPP4R/wdA+yOaJkevYHp1JVx2ydKP+7cExzjeMzme/k0npQizR5Fpa2GUInMhevDX+nRsLH
-	mJuGZ0LZwNKlUoS+PnNw==;
+	List-Owner; bh=cbjHVr6mJftuQ2KRU4c7NNdBvXw2hIoNQTKcVPvS0hk=; b=ttrVn+uLKeyC5C
+	lml3tH83vp1aOWbxhfM5GYLevqSLimvkgdPruzEb8B8Izzk+wPyV9pIrvEkJSIrBQjaIBn4+X1ZMG
+	MOY+6rayXQsBom6aszMjJyTsVqzZDHFOAKIPUJEIO8oXPePtkFC+20C75K9g42jwZzaXRw+tk4zHk
+	aC5/soimuY14ZHb5gjkuYmNvAnZF3C/8lhDGm+84R99tcW8Xoet9kwYLyu61EmuK2cCdvEvH5pj39
+	DS3gkFVCakXZih+mICI3NB0Y2iP6df8kqLEfj4smnIBY2MLzosRDy7aSsPv8Wtz9GbGh42ncak35H
+	PVS1wnNSkC0nWD1BBmBg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iU6IW-0003pR-2V; Mon, 11 Nov 2019 09:47:48 +0000
+	id 1iU6Gz-0002K6-KP; Mon, 11 Nov 2019 09:46:13 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iU6FG-0008Cr-KZ
- for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:28 +0000
+ id 1iU6F2-00081G-ER
+ for linux-mtd@lists.infradead.org; Mon, 11 Nov 2019 09:44:16 +0000
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
  [83.86.89.107])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 99C3A214DB;
- Mon, 11 Nov 2019 09:44:25 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id AFDFB214DB;
+ Mon, 11 Nov 2019 09:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573465466;
- bh=s6LT16Xbca1O3c2lpU91cE7buofJ4A2p+J8Q5wGh1wc=;
+ s=default; t=1573465451;
+ bh=q3uNsNd05YMFqMwLtLufxUgf9NPSXBYt2+vGZcmAz7M=;
  h=Subject:To:Cc:From:Date:In-Reply-To:From;
- b=OvZGb6Bgc/fdUBCi5ZC4hKROrlHzS0Rdccvflp1QZqICMZWd3GkSt8tt0HNRx9nYG
- cuHkzlWA0Or5mBCS5p2SAUI4p5WlY3AMn1Mk9mbdbXYzZzWSqZzUUFJcLjfhrWqx5x
- q0dZ9UjLWbo7KcDw8s/wD9yEjMX4noxrccrFH4fM=
-Subject: Patch "ASoC: tlv320dac31xx: mark expected switch fall-through" has
- been added to the 4.14-stable tree
-To: broonie@kernel.org, dri-devel@lists.freedesktop.org,
- garsilva@embeddedor.com, gregkh@linuxfoundation.org,
- linux-mtd@lists.infradead.org, mathieu.poirier@linaro.org
+ b=jjikrwI4B9IQxvyxlXy/g64khqPjgsz8HbFdOFHfR0TxWXF7XGB64ZTjZKm7RMdjs
+ bza59h8IMGub4XZYdpEwtlRTmVEz6AEDTUtF+4rLngDHe1i3lSgwY7GU/wAPkkQwjN
+ sV8qUO8pB75nqmhQDQfNmT76dm7tv5CzXLtlWung=
+Subject: Patch "misc: pci_endpoint_test: Fix BUG_ON error during
+ pci_disable_msi()" has been added to the 4.14-stable tree
+To: bhelgaas@google.com, dri-devel@lists.freedesktop.org,
+ gregkh@linuxfoundation.org, kishon@ti.com, linux-mtd@lists.infradead.org,
+ mathieu.poirier@linaro.org
 From: <gregkh@linuxfoundation.org>
 Date: Mon, 11 Nov 2019 10:43:33 +0100
-In-Reply-To: <20190905161759.28036-14-mathieu.poirier@linaro.org>
-Message-ID: <1573465413156236@kroah.com>
+In-Reply-To: <20190905161759.28036-12-mathieu.poirier@linaro.org>
+Message-ID: <1573465413184130@kroah.com>
 MIME-Version: 1.0
 X-stable: commit
 X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191111_014426_725662_4A8CD9DE 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20191111_014412_612781_E6A43735 
+X-CRM114-Status: GOOD (  12.36  )
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.5 points)
@@ -85,13 +85,13 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 This is a note to let you know that I've just added the patch titled
 
-    ASoC: tlv320dac31xx: mark expected switch fall-through
+    misc: pci_endpoint_test: Fix BUG_ON error during pci_disable_msi()
 
 to the 4.14-stable tree which can be found at:
     http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
 The filename of the patch is:
-     asoc-tlv320dac31xx-mark-expected-switch-fall-through.patch
+     misc-pci_endpoint_test-fix-bug_on-error-during-pci_disable_msi.patch
 and it can be found in the queue-4.14 subdirectory.
 
 If you, or anyone else, feels it should not be added to the stable tree,
@@ -100,39 +100,73 @@ please let <stable@vger.kernel.org> know about it.
 
 From foo@baz Mon 11 Nov 2019 10:07:22 AM CET
 From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu,  5 Sep 2019 10:17:54 -0600
-Subject: ASoC: tlv320dac31xx: mark expected switch fall-through
+Date: Thu,  5 Sep 2019 10:17:52 -0600
+Subject: misc: pci_endpoint_test: Fix BUG_ON error during pci_disable_msi()
 To: stable@vger.kernel.org
 Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-omap@vger.kernel.org, linux-i2c@vger.kernel.org, linux-pci@vger.kernel.org, linux-mtd@lists.infradead.org
-Message-ID: <20190905161759.28036-14-mathieu.poirier@linaro.org>
+Message-ID: <20190905161759.28036-12-mathieu.poirier@linaro.org>
 
-From: "Gustavo A. R. Silva" <garsilva@embeddedor.com>
+From: Kishon Vijay Abraham I <kishon@ti.com>
 
-commit 09fc38c1af4cb888255e9ecf267bf9757c12885d upstream
+commit b7636e816adcb52bc96b6fb7bc9d141cbfd17ddb upstream
 
-In preparation to enabling -Wimplicit-fallthrough, mark switch cases
-where we are expecting to fall through.
+pci_disable_msi() throws a Kernel BUG if the driver has successfully
+requested an IRQ and not released it. Fix it here by freeing IRQs before
+invoking pci_disable_msi().
 
-Addresses-Coverity-ID: 1195220
-Signed-off-by: Gustavo A. R. Silva <garsilva@embeddedor.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Kishon Vijay Abraham I <kishon@ti.com>
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
 Signed-off-by: Mathieu Poirier <mathieu.poirier@linaro.org>
 Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- sound/soc/codecs/tlv320aic31xx.c |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/misc/pci_endpoint_test.c |    8 ++++++++
+ 1 file changed, 8 insertions(+)
 
---- a/sound/soc/codecs/tlv320aic31xx.c
-+++ b/sound/soc/codecs/tlv320aic31xx.c
-@@ -941,7 +941,7 @@ static int aic31xx_set_dai_fmt(struct sn
- 	case SND_SOC_DAIFMT_I2S:
- 		break;
- 	case SND_SOC_DAIFMT_DSP_A:
--		dsp_a_val = 0x1;
-+		dsp_a_val = 0x1; /* fall through */
- 	case SND_SOC_DAIFMT_DSP_B:
- 		/*
- 		 * NOTE: This CODEC samples on the falling edge of BCLK in
+--- a/drivers/misc/pci_endpoint_test.c
++++ b/drivers/misc/pci_endpoint_test.c
+@@ -92,6 +92,7 @@ struct pci_endpoint_test {
+ 	void __iomem	*bar[6];
+ 	struct completion irq_raised;
+ 	int		last_irq;
++	int		num_irqs;
+ 	/* mutex to protect the ioctls */
+ 	struct mutex	mutex;
+ 	struct miscdevice miscdev;
+@@ -514,6 +515,7 @@ static int pci_endpoint_test_probe(struc
+ 		irq = pci_alloc_irq_vectors(pdev, 1, 32, PCI_IRQ_MSI);
+ 		if (irq < 0)
+ 			dev_err(dev, "failed to get MSI interrupts\n");
++		test->num_irqs = irq;
+ 	}
+ 
+ 	err = devm_request_irq(dev, pdev->irq, pci_endpoint_test_irqhandler,
+@@ -581,6 +583,9 @@ err_iounmap:
+ 			pci_iounmap(pdev, test->bar[bar]);
+ 	}
+ 
++	for (i = 0; i < irq; i++)
++		devm_free_irq(dev, pdev->irq + i, test);
++
+ err_disable_msi:
+ 	pci_disable_msi(pdev);
+ 	pci_release_regions(pdev);
+@@ -594,6 +599,7 @@ err_disable_pdev:
+ static void pci_endpoint_test_remove(struct pci_dev *pdev)
+ {
+ 	int id;
++	int i;
+ 	enum pci_barno bar;
+ 	struct pci_endpoint_test *test = pci_get_drvdata(pdev);
+ 	struct miscdevice *misc_device = &test->miscdev;
+@@ -609,6 +615,8 @@ static void pci_endpoint_test_remove(str
+ 		if (test->bar[bar])
+ 			pci_iounmap(pdev, test->bar[bar]);
+ 	}
++	for (i = 0; i < test->num_irqs; i++)
++		devm_free_irq(&pdev->dev, pdev->irq + i, test);
+ 	pci_disable_msi(pdev);
+ 	pci_release_regions(pdev);
+ 	pci_disable_device(pdev);
 
 
 Patches currently in stable-queue which might be from mathieu.poirier@linaro.org are
