@@ -2,47 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8BF53FA10F
-	for <lists+linux-mtd@lfdr.de>; Wed, 13 Nov 2019 02:54:50 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7068CFA113
+	for <lists+linux-mtd@lfdr.de>; Wed, 13 Nov 2019 02:55:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8ohpb/6PweUg4g3kpiS08BEeu8+AORvHqB9LoaLR4Z8=; b=AXRpG6hlBP+tDf
-	y21vhJAAD3HpNZiG7OehsNNnzK4a6zqjgFioftefqwgZ/h1AmKuOhE91je/ZAjA63ggQWxHYU1DrV
-	OJrAf4E+wWqCAcgc3maQLt0iVH3S6NqU0c/MPwZ88JNkRViy2SSLUvHZesu4SGJkgAhj196fftMof
-	G5ufxHpVn7G+TbNakTeZMLmCCQuL9qm5I6hoC1JoJn1PDkYretVwR5LwOEZhyylMhP4BR8ZPI+eZM
-	Px0Z/9xsOVkQBlYnJeyV3NfUr+hzaZVwj+0tfqTTqmvHb/Oxe0bb9Vkjlv/XCXGQlROoV6upidjuP
-	KpyMCZyknW6HVH+rtO8g==;
+	List-Owner; bh=DfpbtxwVB3EOlZVUffhFFX5/s/aYJp/CiRyuJbCDDX0=; b=t69vRsTKZGbfr2
+	+mcz5WAskmiEHJUEOToDoKIo/uuJWOuUmwwWADsVxYPlNwEzvVtDCYz4/952/8BXs726n6UXeNTPj
+	B66IgEewvJL0v8CayJFPCTqIrJxeMuUkOQ5m6KQhTjMNRc+z3p7wFSqGG4lfRmGkS4BspgzVQtqRg
+	6yPWwuLGinRn2bJJSjQR8XNyxucb4lyL4/zDNcXsETRVQJ+xxWjJbrSEfDbdvP7tuHkoDMCZ5qKqt
+	xfum5LZYg/QfLlDI6QgbG/S0eogTmxhkygbvFAMS8NOPWBjR0wAIAsTRBsyq8GDewK4rRvTebZ9Cl
+	zkGD3Hpc/ku5CiZty1VA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iUhrr-0004n7-S3; Wed, 13 Nov 2019 01:54:47 +0000
+	id 1iUhs4-0004zN-Lj; Wed, 13 Nov 2019 01:55:00 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iUhrd-0004lu-A2
- for linux-mtd@lists.infradead.org; Wed, 13 Nov 2019 01:54:34 +0000
+ id 1iUhrf-0004mn-Py
+ for linux-mtd@lists.infradead.org; Wed, 13 Nov 2019 01:54:37 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 42FE9222D4;
- Wed, 13 Nov 2019 01:54:32 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id CD5D42245D;
+ Wed, 13 Nov 2019 01:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1573610073;
- bh=KTkvUQEH+MTZwMLJGI6O1q79iMJJn6gCBtjwVFifjm4=;
+ s=default; t=1573610075;
+ bh=RCjXUI6866u57JwmTNcRqya4SFDlPhHwx59HYYacEfk=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=RY93mNUVDjKuF5UyHDNJtndzLkDZHwJirf+dOM+t7DbXmmy586O5a5KBotbirqVOT
- v481YYUyEAtNpuHz0MI0PX7FguczU9LyWTTgjJyll1VHjvsT+xtproq6AT2+CEbNst
- p3sNOi5UkuVepSuNWuAIz5UeP14Q+55wxnt0kilU=
+ b=XTsqZs1jpKScPlveYOPeTltzaPtw6SWg0U/mF0c6CcpjEbEYkevF0lEAgmdmzXVmN
+ MyXSPmU3nTqlrNIs4L8xe566g3bn2WICrpn5UopN78+e3j/THsYn/n4e0HmoSdmLmz
+ 3dQg/4NxXCDBls95925nr4Z43ZDkNYunGZpb/pyg=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.19 151/209] mtd: spi-nor: cadence-quadspi: Use
- proper enum for dma_[un]map_single
-Date: Tue, 12 Nov 2019 20:49:27 -0500
-Message-Id: <20191113015025.9685-151-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 152/209] mtd: devices: m25p80: Make sure WRITE_EN
+ is issued before each write
+Date: Tue, 12 Nov 2019 20:49:28 -0500
+Message-Id: <20191113015025.9685-152-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191113015025.9685-1-sashal@kernel.org>
 References: <20191113015025.9685-1-sashal@kernel.org>
@@ -50,9 +50,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191112_175433_364399_520B9F80 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191112_175435_861428_8342191C 
+X-CRM114-Status: GOOD (  11.74  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -83,71 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: Sasha Levin <sashal@kernel.org>,
  Boris Brezillon <boris.brezillon@bootlin.com>,
- Nathan Chancellor <natechancellor@gmail.com>, linux-mtd@lists.infradead.org,
- clang-built-linux@googlegroups.com
+ Yogesh Gaur <yogeshnarayan.gaur@nxp.com>, linux-mtd@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Yogesh Gaur <yogeshnarayan.gaur@nxp.com>
 
-[ Upstream commit 900f5e0d8c9edc5dacc57873d22aee2ae699a8e1 ]
+[ Upstream commit 3baa8ec88c2feb902328e59a4dcf0f0aaab7d2ff ]
 
-Clang warns when one enumerated type is converted implicitly to another.
+Some SPI controllers can't write nor->page_size bytes in a single step
+because their TX FIFO is too small, but when that happens we should
+make sure a WRITE_EN command before each write access and READ_SR command
+after each write access is issued.
 
-drivers/mtd/spi-nor/cadence-quadspi.c:962:47: warning: implicit
-conversion from enumeration type 'enum dma_transfer_direction' to
-different enumeration type 'enum dma_data_direction' [-Wenum-conversion]
-        dma_dst = dma_map_single(nor->dev, buf, len, DMA_DEV_TO_MEM);
-                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
-./include/linux/dma-mapping.h:428:66: note: expanded from macro
-'dma_map_single'
-                                   ~~~~~~~~~~~~~~~~~~~~          ^
-drivers/mtd/spi-nor/cadence-quadspi.c:997:43: warning: implicit
-conversion from enumeration type 'enum dma_transfer_direction' to
-different enumeration type 'enum dma_data_direction' [-Wenum-conversion]
-        dma_unmap_single(nor->dev, dma_dst, len, DMA_DEV_TO_MEM);
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~
-./include/linux/dma-mapping.h:429:70: note: expanded from macro
-'dma_unmap_single'
-                                     ~~~~~~~~~~~~~~~~~~~~~~          ^
-2 warnings generated.
+The core is already taking care of that, so all we have to do here is
+return the actual number of bytes that were written during the
+spi_mem_exec_op() operation.
 
-Use the proper enums from dma_data_direction to satisfy Clang.
-
-DMA_FROM_DEVICE = DMA_DEV_TO_MEM = 2
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/108
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Yogesh Gaur <yogeshnarayan.gaur@nxp.com>
 Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/mtd/spi-nor/cadence-quadspi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/mtd/devices/m25p80.c | 23 ++++++++---------------
+ 1 file changed, 8 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/mtd/spi-nor/cadence-quadspi.c b/drivers/mtd/spi-nor/cadence-quadspi.c
-index 0806c7a81c0f7..04cedd3a2bf66 100644
---- a/drivers/mtd/spi-nor/cadence-quadspi.c
-+++ b/drivers/mtd/spi-nor/cadence-quadspi.c
-@@ -972,7 +972,7 @@ static int cqspi_direct_read_execute(struct spi_nor *nor, u_char *buf,
- 		return 0;
- 	}
+diff --git a/drivers/mtd/devices/m25p80.c b/drivers/mtd/devices/m25p80.c
+index 270d3c9580c51..c4a1d04b8c800 100644
+--- a/drivers/mtd/devices/m25p80.c
++++ b/drivers/mtd/devices/m25p80.c
+@@ -90,7 +90,6 @@ static ssize_t m25p80_write(struct spi_nor *nor, loff_t to, size_t len,
+ 				   SPI_MEM_OP_ADDR(nor->addr_width, to, 1),
+ 				   SPI_MEM_OP_NO_DUMMY,
+ 				   SPI_MEM_OP_DATA_OUT(len, buf, 1));
+-	size_t remaining = len;
+ 	int ret;
  
--	dma_dst = dma_map_single(nor->dev, buf, len, DMA_DEV_TO_MEM);
-+	dma_dst = dma_map_single(nor->dev, buf, len, DMA_FROM_DEVICE);
- 	if (dma_mapping_error(nor->dev, dma_dst)) {
- 		dev_err(nor->dev, "dma mapping failed\n");
- 		return -ENOMEM;
-@@ -1007,7 +1007,7 @@ static int cqspi_direct_read_execute(struct spi_nor *nor, u_char *buf,
- 	}
+ 	/* get transfer protocols. */
+@@ -101,22 +100,16 @@ static ssize_t m25p80_write(struct spi_nor *nor, loff_t to, size_t len,
+ 	if (nor->program_opcode == SPINOR_OP_AAI_WP && nor->sst_write_second)
+ 		op.addr.nbytes = 0;
  
- err_unmap:
--	dma_unmap_single(nor->dev, dma_dst, len, DMA_DEV_TO_MEM);
-+	dma_unmap_single(nor->dev, dma_dst, len, DMA_FROM_DEVICE);
+-	while (remaining) {
+-		op.data.nbytes = remaining < UINT_MAX ? remaining : UINT_MAX;
+-		ret = spi_mem_adjust_op_size(flash->spimem, &op);
+-		if (ret)
+-			return ret;
+-
+-		ret = spi_mem_exec_op(flash->spimem, &op);
+-		if (ret)
+-			return ret;
++	ret = spi_mem_adjust_op_size(flash->spimem, &op);
++	if (ret)
++		return ret;
++	op.data.nbytes = len < op.data.nbytes ? len : op.data.nbytes;
  
- 	return ret;
+-		op.addr.val += op.data.nbytes;
+-		remaining -= op.data.nbytes;
+-		op.data.buf.out += op.data.nbytes;
+-	}
++	ret = spi_mem_exec_op(flash->spimem, &op);
++	if (ret)
++		return ret;
+ 
+-	return len;
++	return op.data.nbytes;
  }
+ 
+ /*
 -- 
 2.20.1
 
