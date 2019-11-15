@@ -2,58 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2C7E8FC712
-	for <lists+linux-mtd@lfdr.de>; Thu, 14 Nov 2019 14:13:38 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 75C26FD844
+	for <lists+linux-mtd@lfdr.de>; Fri, 15 Nov 2019 10:00:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7Flk7CrL5T3UY8EFuJyZEiWvGZf18ns//fqsmfwcd4=; b=Z3UeMyXtt3sxGA
-	505Wf1E7v9ZliPCfSa/W/qRqIA+7yb4LrCRpGdzlqSOXVZOqOIVHWJUXnj1l8xXCx5ooYMDE7g6cM
-	eR6clBA7yMTEeJawoDqawFUDdgwhQRAHMTiMtbPXl87r7oPEtEoG9g9K5WqafImZ6cE9lOUZ2g/I6
-	lFTKuWjEiaRAS+E1nO7t//9jvIhw+h2MiEKVn/L26tKvW/YP7z8UylI7EqCAAWOI/AIkGgbYOMhxm
-	1kC9KwHhxuuWTYJSzwheM7wbtKhKNrtU+FYKBWevuB+WJv5Uxxr+TIdWQoK28WiBk+zCJybVo90Le
-	GT1qO6pLZ5LIkUV+oGoQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=d9DqNB3ckfGD/SOta1Tg4mDe14EaYzwC9wBU3smZ7SY=; b=bB0
+	T0QrW2Xryk4fSVNgmbpcubTNYheT1iOiNyoESXiIrrOA9UdbzTo3KTZv96DhDAnj1e6JTvBLtcVUb
+	fbgkzNHiVfXtJVupef9QM6+CiwgLh3yS1aEguKvZn5f2HD3J+z1Oef4py4FAvpWUvPJbQUqn55AKk
+	EKfY/LmqKYHqlrrVjL96LpzdgWtO7qvbq/b1wGbJARZ3pupfjk5AjUf3tMDwRFrqMK8ewxnNy+RTR
+	JTSkNFrvPUetNyPJTvwgamrnjotIYMA3nyHmqer0SEExncVhZz0yDWlMmAIZs6VIzFurDUhdcYLZb
+	IAcqHBQNLqvr58tOwgv3njEaS3WuzHA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iVEwH-0002yX-Nq; Thu, 14 Nov 2019 13:13:33 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
+	id 1iVXSP-0005tg-Is; Fri, 15 Nov 2019 08:59:57 +0000
+Received: from twhmllg3.macronix.com ([122.147.135.201])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iVEw8-0002xd-F4
- for linux-mtd@lists.infradead.org; Thu, 14 Nov 2019 13:13:27 +0000
-Received: from DGGEMS409-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 18CACFB1E458C6647982;
- Thu, 14 Nov 2019 21:13:16 +0800 (CST)
-Received: from [127.0.0.1] (10.133.213.239) by DGGEMS409-HUB.china.huawei.com
- (10.3.19.209) with Microsoft SMTP Server id 14.3.439.0;
- Thu, 14 Nov 2019 21:13:13 +0800
-Subject: Re: [PATCH -next] ubi: remove unused variable 'err'
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20191114072236.15104-1-yuehaibing@huawei.com>
- <20191114110053.4fbeb918@xps13>
-From: Yuehaibing <yuehaibing@huawei.com>
-Message-ID: <f9a8e5f3-cea9-a251-9627-63dfb34149c7@huawei.com>
-Date: Thu, 14 Nov 2019 21:13:13 +0800
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.2.0
-MIME-Version: 1.0
-In-Reply-To: <20191114110053.4fbeb918@xps13>
-X-Originating-IP: [10.133.213.239]
-X-CFilter-Loop: Reflected
+ id 1iVXRy-0005l1-CQ
+ for linux-mtd@lists.infradead.org; Fri, 15 Nov 2019 08:59:32 +0000
+Received: from localhost.localdomain ([172.17.195.96])
+ by TWHMLLG3.macronix.com with ESMTP id xAF8wWGt046218;
+ Fri, 15 Nov 2019 16:58:32 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+From: Mason Yang <masonccyang@mxic.com.tw>
+To: broonie@kernel.org, miquel.raynal@bootlin.com, richard@nod.at,
+ marek.vasut@gmail.com, dwmw2@infradead.org,
+ computersforpeace@gmail.com, vigneshr@ti.com, bbrezillon@kernel.org,
+ tudor.ambarus@microchip.com
+Subject: [PATCH 0/4] mtd: spi-nor: Add support for Octal 8D-8D-8D mode
+Date: Fri, 15 Nov 2019 16:58:04 +0800
+Message-Id: <1573808288-19365-1-git-send-email-masonccyang@mxic.com.tw>
+X-Mailer: git-send-email 1.9.1
+X-MAIL: TWHMLLG3.macronix.com xAF8wWGt046218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191114_051326_311851_A5A1343A 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20191115_005930_700343_C590A247 
+X-CRM114-Status: UNSURE (   7.07  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.32 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [122.147.135.201 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -66,24 +61,72 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, linux-mtd@lists.infradead.org, vigneshr@ti.com,
- linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: juliensu@mxic.com.tw, Mason Yang <masonccyang@mxic.com.tw>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gMjAxOS8xMS8xNCAxODowMCwgTWlxdWVsIFJheW5hbCB3cm90ZToKPiBIaSBZdWUsCj4gCj4g
-WXVlSGFpYmluZyA8eXVlaGFpYmluZ0BodWF3ZWkuY29tPiB3cm90ZSBvbiBUaHUsIDE0IE5vdiAy
-MDE5IDE1OjIyOjM2Cj4gKzA4MDA6Cj4gCj4+IGRyaXZlcnMvbXRkL3ViaS9kZWJ1Zy5jOjUxMjo2
-OiB3YXJuaW5nOiB1bnVzZWQgdmFyaWFibGUgJ2VycicgWy1XdW51c2VkLXZhcmlhYmxlXQo+Pgo+
-PiBjb21taXQgMzQyN2RkMjEzMjU5ICgibXRkOiBubyBuZWVkIHRvIGNoZWNrIHJldHVybiB2YWx1
-ZQo+PiBvZiBkZWJ1Z2ZzX2NyZWF0ZSBmdW5jdGlvbnMiKSBsZWF2ZSB0aGlzIHZhcmlhYmxlIG5v
-dCB1c2VkLgo+IAo+IFRoYW5rcyBmb3IgdGhlIGZpeCBidXQgSSBhbHJlYWR5IGZpeGVkIHRoaXMg
-dHJpdmlhbCBpc3N1ZSwgSSBqdXN0Cj4gZGlkIG5vdCBoYWQgdGltZSB5ZXN0ZXJkYXkgbmlnaHQg
-dG8gcHVzaCBpdCwgbm93IGl0IGlzIGRvbmUuIEl0IHdpbGwKPiBiZSBwYXJ0IG9mIHRvbW9ycm93
-J3MgbGludXgtbmV4dCByZWxlYXNlLgoKT2ssIHRoYW5rcyBmb3IgdGhlIGluZm8uCgo+IAo+IENo
-ZWVycywKPiBNaXF1w6hsCj4gCj4gLgo+IAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxp
-c3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQv
-Cg==
+Hello,
+
+This is repost of patchset from Boris Brezillon's
+[RFC,00/18] mtd: spi-nor: Proposal for 8-8-8 mode support [1].
+
+Background from cover letter for RFC[1].
+
+The trend has been around Octal NOR Flash lately and the latest mainline
+already supports 1-1-8 and 1-8-8 modes.
+
+Boris opened a discussion on how we should support stateful modes (X-X-X
+and XD-XD-XD, where X is the bus width and D means Double Transfer Rate).
+
+JESD216C has defined specification for Octal 8-8-8 and 8D-8D-8D.
+It defined command and command extension in
+JEDEC Basic Flash Parameter Table(18th DWORD) as well as how to
+enable 8-8-8/8D-8D-8D mode sequences (Write CFG Reg 2).
+
+The first set of patches is according to JESD216C adding Double Transfer
+Rate(DTR) fields, extension command and command bytes number to the
+spi_mem_op struct.
+
+The second set of patches define the relevant macrons and enum in spi-nor
+layer for Octal 8-8-8 and 8D-8D-8D mode operation.
+
+The last set of patches in the series are modifying spi_nor_fixups hook to
+tweak flash parameters for spi_nor_read/pp_setting() and then in a
+chip-specific way to enter 8-8-8 or 8D-8D-8D modes on a Macronix chip.
+
+Also patched spi-mxic driver for testing on Macronix's Zynq PicoZed board
+with Macronix's SPI controller (spi-mxic.c) and mx25uw51245g Octal flash.
+
+[1] https://patchwork.ozlabs.org/cover/982926/
+
+thnaks for your time and review.
+best regards,
+Mason
+
+
+Mason Yang (4):
+  spi: spi-mem: Add support for Octal 8D-8D-8D mode
+  mtd: spi-nor: Add support for Octal 8D-8D-8D mode
+  mtd: spi-nor: Add Octal 8D-8D-8D mode support for Macronix
+    mx25uw51245g
+  spi: mxic: Add support for Octal 8D-8D-8D mode
+
+ drivers/mtd/spi-nor/spi-nor.c | 273 +++++++++++++++++++++++++++++++++++++++++-
+ drivers/spi/spi-mem.c         |   8 +-
+ drivers/spi/spi-mxic.c        |  98 ++++++++++-----
+ include/linux/mtd/spi-nor.h   |  61 +++++++++-
+ include/linux/spi/spi-mem.h   |  13 ++
+ 5 files changed, 410 insertions(+), 43 deletions(-)
+
+-- 
+1.9.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
