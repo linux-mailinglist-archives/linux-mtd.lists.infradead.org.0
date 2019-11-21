@@ -2,83 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 685CF10559D
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 Nov 2019 16:30:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 804C1105A78
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 Nov 2019 20:38:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:
-	Message-ID:From:Date:To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=ij6OTCh3yMDCAvtam5mp2pE84/xLXsUhc57bno6oSnw=; b=if4
-	aWxPF4ri4VeJfjjHVRGhhn3M5aSaLWU/ps7QesuT3zY7XOFAGL6XyOJlXF/otDAFaFzusuzBDc6XH
-	emP0bY+LVR8TlYRJGu/08mFR7ThVP1JSJYYb5k0HT9yREtGB82HGAAnDghGno3uE6rmLgE2GWYxg6
-	/EH/q/PeCAGGQVYihUnq2cBUPBNyIlmNrpLg0lQsY97dSzcFaJpUzPSIrbhPCgE4z6G4npr8MdbXy
-	UUopbUMNOLf4QL16gyrh8yJKwfeZ5sIzVxDglNMcLJZF3ep+arwdDmyXtEwhzmUHmJgHo60waG/pC
-	H6HmyRiyQknZFftRbBRu+F159rvEI4Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ofQ7czjOgdgFrYubaGi765Ze4l6FwTf4RrEpDeKINwk=; b=C5Yvk1qAFiZc9S
+	BVOX/yeouSx45PxUvyGqptUVcpS9pT+bqoIJJkU1YMsA+0tURpy6uFqz1k3cX3ge9rBjN4rWWvT7Z
+	vIaor1zppi0Toe12uxP21FPdIIXbKmNoBk/47yhU+oy5qpQADzD/NvZTrSZw+Yr9BB+834KxBGWBJ
+	3neSMWfAm4hKTtm+/gEm+oOsIIKDs24uJGD9cQCPSRyN6vDHxh21A8SOU8eNGM9T+8lXtB2WCsYNg
+	YmoQvYlhXgTekQb7CDdnwjjAAKiDd9puxZkULtDsH8s9ZzYPN+aL1EH6yxLyZMnyo4pTKZjVX1XOf
+	aO8euSBcMZz0XolT2ugA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iXoOv-0006y3-Hi; Thu, 21 Nov 2019 15:29:45 +0000
-Received: from sonic306-20.consmr.mail.sg3.yahoo.com ([106.10.241.140])
+	id 1iXsHK-0002Az-Md; Thu, 21 Nov 2019 19:38:10 +0000
+Received: from mail-oi1-f196.google.com ([209.85.167.196])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iXoOi-0006xV-Iq
- for linux-mtd@lists.infradead.org; Thu, 21 Nov 2019 15:29:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048;
- t=1574350167; bh=5If8RNOeC5VOLQ3AEwcjrieMGzFiyhgIn61UwJBH9es=;
- h=Date:From:Reply-To:Subject:From:Subject;
- b=RpD0lFGJ/GRTsGMuNLw97YwDDxPCX6eajxYERksVdW/1UbDv2p8ilFAAhKRl5pt5D5uWhtC8JkygSZaURdkJIcWcr0+b3b5OIuHp7huo5+rMPfOrYRDKm+dTvZBdkc8zzbA4LAzKT3qNrvvrmvUc4jUVzjYeKPHjLaaf+sD6Gv5GNcPniOa0UnY5Pn8Epr+eCuIer8zYe2ZY8XGKRk1bROOKh4yuwj3hAXgb0+5+tdt/ohr3iYO/QoQRrkU3m6Hw+tn4d1COUvZYk1rfdRLJurPGyewZJip5hqYjBrVFhEXr7b4dFiTdEVFRKTDhA+Jq1ijRSKPaU4o3L8FaAIUrqQ==
-X-YMail-OSG: Hcfy6d4VM1kB_ZayhGZtQ7rk4TsRsKaIyrBH5YSjUatGZVz1CYgV2jJYnbR5AoQ
- oGabnF.ZphPS3oizTPKWg29Jn_GuR1V2XFQbqQvgh4tQ1v9rShVP0voa2ljdJWiBP97vXpvPhl0z
- hncWDz1eLb2zkUjfZnrpO8oA_ABFfaFZOy1NhU7kxRFNd58nsWNg0IJzTDsHiteQcrrcpigdgdKf
- 9V6Il2ofNl8f_e6QK39ryf.OqCq1.06jLz4Pl4.4Un55bZBDw5FfjFntqtV6uONZw1Ca1E292jxX
- VvCNCpyfGP8IXsZZ42W5Xnge_M7dA9wEGuSJ7hVcdatzVGifUeSttODvDe2FzKpND4Lmh68VUMGs
- hYx_bvt.r43aKTK3nGkQTojSFqVP3e_yX19.j8wH6nWR0C9kElmCBBjII9xpJjCW7kR0XFSqJbXh
- 6_cfxc4yCMlvQcj9E3h.VZRCXRXKqBO2HtOrfQMmAhZLjJLG4aROmjc4F6REGDnwW.2uN2yZwiGn
- 244H2HMFLbMCeUDlOGd3ljnhTsGsiOMX3FREzvNE4n6CAOYpOsyzGqAEp0F5dxJDiDhob20VWpua
- eLBq3jMlvHWRCBKUoBPKb5lF0YPUd4sDJemmIv6NWmJNwSlrAABJURrcIBFJLbom12NiS9AmRJqu
- BD8ywpoMm21NhwU_FYkTXr1da1DOxEY9lBGHoGkNyiQxKc697BUmyK6dIKkqOTpOsaqyLdTgIDMR
- gS0VlJuzlfAIKZX.Pm6IDVHCLcXG.ziIB65xxO9gKdttgs0olEXF4m3_6r27DDClvGeO0jciJpiE
- mLa1JKwTSqcbUBsexDLk4C0x9PUMiB.Z0Bdp_NwfyWL7BTj2b9eo1iPocLSlqjdyCLSjJi4ZBKk_
- B3vniUdcixiG74WTXo43VAexC1MkLTBr7qssAQBMsLZoLK.CvdoSnNXedFAZMj3RVOpvpI_.oHz1
- 9HezN6zcRyji1BnU8KdkgK8Ntib91N925n3ewnvuPe_RZBhzAmmxUyqt9ZahuVtg_BDF2wwr45RL
- It.s.flNZ1.fADHd9znr0e8fCTXlUa0gamNs3WrIRW8xQai5i4vXXa4i_e8fUVjo64YLy_H7KbOr
- QEclgh.QX7f7P5aI8u95Ck0ZKL48wmjpQjWGVbhZvkFttgtRqSp3blSwPl9c7FEL_I9Z885Z6jU_
- AKl9So3TpzHcFgSeC4KSf5WZAExPL_h68gktIr4l86QkHqIPKeDCrlMGxaN0ALPt7drq_HF4FlcF
- ggvuR5GUE5PM21fHK4ifmihSOPrzAxXyoTfVs3iP_RI13ZQ29o217uMx3aSEPF1MgqaOql98MjYs
- E_f72ow--
-Received: from sonic.gate.mail.ne1.yahoo.com by
- sonic306.consmr.mail.sg3.yahoo.com with HTTP; Thu, 21 Nov 2019 15:29:27 +0000
-Date: Thu, 21 Nov 2019 15:29:22 +0000 (UTC)
-From: "Mr. Joon-Kyu Lin" <johnpfox@yahoo.com>
-Message-ID: <1669325196.3448086.1574350162373@mail.yahoo.com>
-Subject: Venture Capital & Private Investors
+ id 1iXsGx-00021r-Ka; Thu, 21 Nov 2019 19:37:48 +0000
+Received: by mail-oi1-f196.google.com with SMTP id m193so4342251oig.0;
+ Thu, 21 Nov 2019 11:37:45 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=tMER4MOHixp2wY9ZjS4RrN2RrDNX7H+o1z/zXkM48ZU=;
+ b=XaUzvB4OBBh6WGpG1rsulZ6wBvYE0BZSYrU9epoToS0VrT8rZBKZRr96px5Tuk0Cw8
+ Y6UMQjg/UQzNSr2SfjNnkEGclyTGyv9m1c8r4ITbmmlQ8/xv8JpX5PqLg+aSiHnGK1WF
+ Yw+Vr52c9G6b1MOWbNGIH7hb+dYM3bWqSUDarIQfBp0Oz+ZfR26Ng+NSiPuiz44Q79d6
+ aIJiD3xukhVvh2FVjJmkJSAyG2DxsgTdkR5Hum6atTlBpv6yWgpv3A5T3UHszYCvIrZV
+ nULjvWu4kMtYg4VI3JfBBafuHw/THOZ75Zwyq8t9I0Yek94SCssovo4CJMvkvh2EPlZS
+ ZB1w==
+X-Gm-Message-State: APjAAAUWxkrRhbFum0vFtnsO4jgMQ2wSRj8hWTcynDW60aVFCn7q0Nip
+ Pdjd++I59UGHD6Pqe+YRSQ==
+X-Google-Smtp-Source: APXvYqxz3r1XfhG46Xqzohy//cfJAs84lDW7vsquvPUXB2FPHrRH/1ETgZRryOu7acvqdws+X02tgA==
+X-Received: by 2002:aca:4ac5:: with SMTP id x188mr8823046oia.148.1574365065094; 
+ Thu, 21 Nov 2019 11:37:45 -0800 (PST)
+Received: from localhost (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id e88sm1305777ote.39.2019.11.21.11.37.44
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 21 Nov 2019 11:37:44 -0800 (PST)
+Date: Thu, 21 Nov 2019 13:37:43 -0600
+From: Rob Herring <robh@kernel.org>
+To: Benjamin Gaignard <benjamin.gaignard@st.com>
+Subject: Re: [PATCH] dt-bindings: mtd: Convert stm32 fmc2-nand bindings to
+ json-schema
+Message-ID: <20191121193743.GA3627@bogus>
+References: <20191121130615.13007-1-benjamin.gaignard@st.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20191121130615.13007-1-benjamin.gaignard@st.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191121_072932_983557_D0025AA7 
-X-CRM114-Status: UNSURE (   1.65  )
+X-CRM114-CacheID: sfid-20191121_113747_672297_FDCA1817 
+X-CRM114-Status: UNSURE (   9.04  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 4.0 (++++)
+X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (4.0 points)
+ Content analysis details:   (0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [106.10.241.140 listed in list.dnswl.org]
- 1.2 MISSING_HEADERS        Missing To: header
+ no trust [209.85.167.196 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (johnpfox[at]yahoo.com)
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 1.1 MALFORMED_FREEMAIL     Bad headers on message from free email
- service 1.9 REPLYTO_WITHOUT_TO_CC  No description available.
- 0.0 T_HK_NAME_FM_MR_MRS    No description available.
+ provider (robherring2[at]gmail.com)
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (robherring2[at]gmail.com)
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.196 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,36 +90,34 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: afginvestmentbrokers@al-faisaliah.org
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org,
+ Christophe Kerello <christophe.kerello@st.com>, vigneshr@ti.com,
+ richard@nod.at, linux-kernel@vger.kernel.org, marek.vasut@gmail.com,
+ robh+dt@kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
+ Benjamin Gaignard <benjamin.gaignard@st.com>, computersforpeace@gmail.com,
+ dwmw2@infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, alexandre.torgue@st.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+On Thu, 21 Nov 2019 14:06:15 +0100, Benjamin Gaignard wrote:
+> Convert the STM32 fmc2-nand binding to DT schema format using json-schema
+> 
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@st.com>
+> CC: Christophe Kerello <christophe.kerello@st.com>
+> ---
+>  .../bindings/mtd/st,stm32-fmc2-nand.yaml           | 98 ++++++++++++++++++++++
+>  .../devicetree/bindings/mtd/stm32-fmc2-nand.txt    | 61 --------------
+>  2 files changed, 98 insertions(+), 61 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/mtd/st,stm32-fmc2-nand.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/mtd/stm32-fmc2-nand.txt
+> 
 
-Attention: 
+Applied, thanks.
 
-I am an investor that can provide funding for any viable business idea or
-venture.
-
-Please do let me know if you have fund management abilities, credible
-projects in need of funding or advanced stage projects requiring Bank
-Guarantees, Loans or Partnership, Joint Venture, Equity, we would be
-delighted to work with you.
-
-
-Best Regards,
-Mr. Joon-Kyu Lim
-Al Faisaliah Group (AFG)
-Venture Capital & Private Investors
-
---
-*This email and any attachments are intended for the named recipients only
-and contain confidential materials. Any unauthorized copying, reviewing,
-dissemination or other use by anyone other than the named recipients of
-this communication is strictly prohibited. If you received this email in
-error and/or are not a named recipient, please notify the sender (Al
-Faisaliah Group) and delete all copies of this email. Thank you.
+Rob
 
 ______________________________________________________
 Linux MTD discussion mailing list
