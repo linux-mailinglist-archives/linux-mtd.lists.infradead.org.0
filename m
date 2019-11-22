@@ -2,46 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B971210628B
-	for <lists+linux-mtd@lfdr.de>; Fri, 22 Nov 2019 07:05:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C0E01062AA
+	for <lists+linux-mtd@lfdr.de>; Fri, 22 Nov 2019 07:05:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=esBdtmDs7cj/MLt2xTgR0IbA6EmA8ol2Q9bW0my6GKU=; b=EGwkpZAro1+JeS
-	dzHQ8BjaSpWeh2ywuvRedTfiGHO+NS5Cy9lWPDtu9Ikw/9qJTZg4DxUp/RNwETjHZadIKzGyLfjfY
-	vD++8+jjUZhjQIBmgug95dFwMrwoONfjFtbu0iJsaHoFCu455+sCUDv6UQPkqLKQp+wPhyTiMz4Kg
-	+2WfaC9BivaQd9yHjyfazqjG9fT1M7GRIkZRanemXZmDX5lfyoaRMt+yRmq7BU1oUPGvfjGw4Xqwi
-	OWsqI5Po8not8K9VTkcQxlZ5Kx4/QYgqNlhLZP5dqJncrE/vPVpRFFa0LSUkxMVfYSQ75ipnGgEqK
-	DpKhnO6UVYSw95n2Fu+w==;
+	List-Owner; bh=ZC2yApIeexy00kBsrngxpI7Xx8tt5XLPoUj2lgmzUi4=; b=azq2qteIt1EM+Y
+	x8WhhDD9zEZaahyMB6TK06BLWcr237yTnP8bvHlmstul0SzuN5PKLh9qfW/XD4w2/QqbAFNQgIyja
+	0NHRL9EmUKW9xPlmx3A929uvnjIWW7oO3NHMr5N3y7zyD+LX0isKThIk9v7m/ppC5pxng5yse76Xz
+	bxod8++xuIXtQNbBcnH0cvgeDDH/7+BD88J3CfWvYAHaAWjMR0TERHCsJdqtPVYtSrNFFVLfOHSPW
+	evNFyE/kZE0gN4VVBmjIxax6usL5kchV+3vtt0XzopcpjohZkqI0GpnxPCkckkmF2hglL4qqjz6b/
+	kR0xTgzxUNZ8a6nTW+5Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iY24K-0002sJ-IB; Fri, 22 Nov 2019 06:05:24 +0000
+	id 1iY24a-0003PP-T6; Fri, 22 Nov 2019 06:05:40 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iY20p-0006re-57
- for linux-mtd@lists.infradead.org; Fri, 22 Nov 2019 06:01:48 +0000
+ id 1iY20q-0006sv-Hz
+ for linux-mtd@lists.infradead.org; Fri, 22 Nov 2019 06:01:50 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id D6B9A2070A;
- Fri, 22 Nov 2019 06:01:45 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 04D2D20718;
+ Fri, 22 Nov 2019 06:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1574402506;
- bh=abcTTU0ULRcd4e5L+QK2oU5epvpjofTCLsSbQ+zVTFs=;
+ s=default; t=1574402507;
+ bh=IqduOh9xVVfu65f4fsXLeH1S9VudomnpeTxQk5ILfJ0=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Ir1GOXKkayfFcEFYA81McfQ5kM015fcT3z1r40/vaNrAr1hEB5h9yVoCyekQHyT2h
- mRGSUX2/EMaodeWSxsmG0EbdouBAAXTzexXpF6fmeEjxMD/seoofWbfpIthsDP2Unl
- idVWDinZrnEQH7rbRffh/a2B9e8Oq8xKHss+za5Y=
+ b=jYbyjQ8hpSXZy/iaXXtmgCttnyrGGvHMtq1yTXQ5j0T2CIur0ZdEuepACq5ivyUHG
+ uqbmYCcMrC84qNO8x94KNB1m3CYHPCW2d4Sda8zrHQYQDm6MRVgjS+cXHy1av8pmI9
+ f9x4dx5Dw9oYYOOe4E50RdymM9P+A/C53M0MbHgM=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.9 16/91] ubi: Put MTD device after it is not used
-Date: Fri, 22 Nov 2019 01:00:14 -0500
-Message-Id: <20191122060129.4239-15-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.9 17/91] ubi: Do not drop UBI device reference
+ before using
+Date: Fri, 22 Nov 2019 01:00:15 -0500
+Message-Id: <20191122060129.4239-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191122060129.4239-1-sashal@kernel.org>
 References: <20191122060129.4239-1-sashal@kernel.org>
@@ -49,8 +50,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191121_220147_232412_394BA037 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20191121_220148_711064_87959595 
+X-CRM114-Status: GOOD (  12.19  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -89,36 +90,37 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Pan Bian <bianpan2016@163.com>
 
-[ Upstream commit b95f83ab762dd6211351b9140f99f43644076ca8 ]
+[ Upstream commit e542087701f09418702673631a908429feb3eae0 ]
 
-The MTD device reference is dropped via put_mtd_device, however its
-field ->index is read and passed to ubi_msg. To fix this, the patch
-moves the reference dropping after calling ubi_msg.
+The UBI device reference is dropped but then the device is used as a
+parameter of ubi_err. The bug is introduced in changing ubi_err's
+behavior. The old ubi_err does not require a UBI device as its first
+parameter, but the new one does.
 
+Fixes: 32608703310 ("UBI: Extend UBI layer debug/messaging capabilities")
 Signed-off-by: Pan Bian <bianpan2016@163.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@bootlin.com>
 Signed-off-by: Richard Weinberger <richard@nod.at>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/mtd/ubi/build.c | 2 +-
+ drivers/mtd/ubi/kapi.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/ubi/build.c b/drivers/mtd/ubi/build.c
-index ad2b57c6b13fd..211ee13d36ed4 100644
---- a/drivers/mtd/ubi/build.c
-+++ b/drivers/mtd/ubi/build.c
-@@ -1146,10 +1146,10 @@ int ubi_detach_mtd_dev(int ubi_num, int anyway)
- 	ubi_wl_close(ubi);
- 	ubi_free_internal_volumes(ubi);
- 	vfree(ubi->vtbl);
--	put_mtd_device(ubi->mtd);
- 	vfree(ubi->peb_buf);
- 	vfree(ubi->fm_buf);
- 	ubi_msg(ubi, "mtd%d is detached", ubi->mtd->index);
-+	put_mtd_device(ubi->mtd);
- 	put_device(&ubi->dev);
- 	return 0;
+diff --git a/drivers/mtd/ubi/kapi.c b/drivers/mtd/ubi/kapi.c
+index 88b1897aeb40f..7826f7c4ec2fb 100644
+--- a/drivers/mtd/ubi/kapi.c
++++ b/drivers/mtd/ubi/kapi.c
+@@ -227,9 +227,9 @@ struct ubi_volume_desc *ubi_open_volume(int ubi_num, int vol_id, int mode)
+ out_free:
+ 	kfree(desc);
+ out_put_ubi:
+-	ubi_put_device(ubi);
+ 	ubi_err(ubi, "cannot open device %d, volume %d, error %d",
+ 		ubi_num, vol_id, err);
++	ubi_put_device(ubi);
+ 	return ERR_PTR(err);
  }
+ EXPORT_SYMBOL_GPL(ubi_open_volume);
 -- 
 2.20.1
 
