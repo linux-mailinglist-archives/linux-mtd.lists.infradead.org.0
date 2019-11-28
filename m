@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4240E10C908
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 Nov 2019 13:57:38 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 437D510C916
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 Nov 2019 13:59:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,59 +11,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=z5+AlIcGvRgMyb+oN0hEAyCJqKQolHu0TadCnJrBGsc=; b=KttFXuSWk/1arUZhjbXoAXPdVZ
-	mFpLf1EXsYZhyhRAc5FNwhuulNvSVxWmo8+AmI20xGjTb436Dm0qiUbqLMPPAAYH9ElMJtS3wJPqj
-	MhP6WGdf+bpz1h/ik4x5SBm3WTMvkdwa5yXDGOOiL6XVryV+A9/Gjfk47GEWbD244e69HqHosHCXz
-	B+QNhusZblZxhgw7nHf7/QWO4qDGTObhtKXXwrf4qq2w9jd8XnNGTGIJ0rFJdVMhqYIdovEWxh4FL
-	skF2VD04+pXmmFxpAsxyp9ZqzR1BUogz3Is3+j4LVz7FKC3LehXBgOE0fckxRB7AfJLOxZhm9X4AG
-	7Np84Ueg==;
+	bh=B6ESru1v2Vn1dXelxNzLwvNLD70AWzvI9dV55k+6j4Q=; b=F+Z3RQx5Ss9m9S3SDZFuYwPMAH
+	62AnMC3EffeOeTYLM8+7qysj4qDue2hzXFDzvukAMj77RccXkmZgo05HXtjEeLX3x8sS5w386nxBT
+	JeqbQD9S4rvSDofbd1EysXpuZ7sDaVdYxsFhoEfH4jmQdFTIy/TLmCOTCd11GmDukt1CqEGYKdxPI
+	twbu0W9fd625FjXTzmapA/9ued7+eR27xpAIE00yQtki69wr2JeglHvapeYuihml2t1JbjbaBbiUE
+	58p722nA0IBEXaV4M/SsD95ib6qdHtV4gZW84hHovA0Epo7EPSztAb9FwGs+aSY+ktkuNA60z0txd
+	mGkyV7Gg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iaJMN-0004I0-Rl; Thu, 28 Nov 2019 12:57:27 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1iaJO6-0005Ar-Hz; Thu, 28 Nov 2019 12:59:14 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iaJLm-0003sd-4T
- for linux-mtd@lists.infradead.org; Thu, 28 Nov 2019 12:56:51 +0000
+ id 1iaJNk-0004zo-To
+ for linux-mtd@lists.infradead.org; Thu, 28 Nov 2019 12:58:54 +0000
 Received: from orion.localdomain ([95.117.37.214]) by mrelayeu.kundenserver.de
  (mreue011 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MUY9w-1iRTe00XvE-00QSQQ; Thu, 28 Nov 2019 13:54:36 +0100
+ 1M6lYs-1iS5a63Cne-008K9w; Thu, 28 Nov 2019 13:54:36 +0100
 From: "Enrico Weigelt, metux IT consult" <info@metux.net>
 To: linux-kernel@vger.kernel.org
-Subject: [PATCH 5/6] char: hw_random: intel-rng: use pci_get_device_by_id()
-Date: Thu, 28 Nov 2019 13:54:05 +0100
-Message-Id: <20191128125406.10417-5-info@metux.net>
+Subject: [PATCH 6/6] (v3) drivers: hwmon: i5k_amb: simplify probing / device
+ identification
+Date: Thu, 28 Nov 2019 13:54:06 +0100
+Message-Id: <20191128125406.10417-6-info@metux.net>
 X-Mailer: git-send-email 2.11.0
 In-Reply-To: <20191128125406.10417-1-info@metux.net>
 References: <20191128125406.10417-1-info@metux.net>
-X-Provags-ID: V03:K1:EbWrMi3cKVLJ5grbOjx3/hSD38kPrYADX4wYa3I2tB+lljpckSy
- 15HWVYCgNQbjb4Jw3Jq5wDzRihvWg1A40U38MsKdMEXp34A3CDPgBn18wQGaajyXKEeu5ay
- NsIDm3ieOx2cqQOzjrtF3v4KCOsDSDg4nKPQBitqKPLXkyvJNky+o2SHLXJPJQ6Nw06jjRO
- p/cWYppeb0dvhCnWHwmrw==
+X-Provags-ID: V03:K1:Nfm/ouWc4jRhP1248kvcV2nWBCbvyeuIdCR2JmLXcgSHdMu+yqx
+ 258WteSO6QCJnHCa1QNT5lY1wmMhjBYoIrcNIz2olr0AgfgeLTySHExNj7UAn5gP4y75/sM
+ HPLwgJvL12h40FWrzELS0M87+dKqmV4LVujLIP7HKSNaY7JDl0rLzPYwecMPIXJJrOIoicw
+ YXzQoKTGGsTjB31kjWAbQ==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:b3/pDDdW3UM=:HOt218E1TJBg5l8PwQMbn5
- w/I+vFLUvPQdEAp5cDPDg8n2h4ya8JtA1HanhyNAmcyh4vGsMgeYRXlZpmvZupMH+axBIuqxu
- pVFcwt4Sp1TMawpRn0F8Dv4vvffgxawkECTS8zzNlz8idaOZtBZbVNa8LAmWjXwgSKrkpSodl
- GnNhy4Pq+UMaqA5ikRxkqWeg9y/u5VllU0cKvl8g+g/brdHyCsqj1pXtL2K/n5bHFOTqC+rzu
- kI9M8bVpPIUPwYxM0aRhWZ6s8bTo4/CCiIDqsN2HAGB/iyPXUNnPROFJV7w+Z4IMLFcxMm2e2
- uNX+S+c0Mr2Q9jCug6/ntRuVhcBUpFChhRw1nCf3jlJi6Rrl7NU16lumMoqUoBmNSdO5ZBiua
- JDI+G2P254oeJieUNKspfKPMjXMZ+mVbeVUGIBV2EHkADJvn4zHbRZA8npJo2h4urY8LcjVCi
- F0McB4lBnIjPPbL/XyEZKdx53XUn8OTfNAdQWnk40u1SQ8cjqYLCjbdqw5YHP99HwciWY6qYw
- YFmBo7tZmLZuXvwd+B8O+8CiJ/K6lSUuZXn3RqDz18foPro7g1/IKzz3/623ktdU3AChdOCud
- BBaIsqme1ehxmVRejswtrs6qTMwX7saoU0f+2BbMnEWjKA+zrpvwppooxFiT9K/3JcsI4CRRQ
- C1lU8pQ5UCuTW1INIXckNLWG+HTBP7lmhcLKzmassUponhmRCYGY8LUwg+tC1U2V1s4NBM3DV
- M376+7mY/UZ2s/l0w27Lqhmv+C7hfea+YTSGQrNnOnNXBS4mFSGa/gsGiJXGg9qt+bXgnF4vx
- Wf6zkZEV35085jbvkNP9VGozwPbfIZsVTOE+NFgOcG+0J5BFDm3tdRJ5FqwaSS7iQU3gN9iQH
- yI5kHlzVQgjPoyZ/zF2Q==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:vjcQgIVAJKA=:aDHBRbTK2sWTuBcVnuFnxD
+ P/teRJ5gu2sSoO9yFzMJu6pV8pTCI3AyrdeT5mmw/jAJJEnp+wE6cfQsDxud+eXGqvKI/Z3qP
+ 4KtENYmfyxrFULP1JjVR0NFInGC07iTQisNoesNQylSxeZgvuXfshD7/De5LL5yiGvKGuAVhZ
+ 8+VQEg+YZXXuG2AenQK3nAUt21mGEgVP92qjIvNlctVCDMYQf6iqic+bGQdCz8ynh4nCxmKaj
+ NBLPqXZKTCrL3pFRuj8FDmJcSzXBSisg47etDwLrHOj4A2z4qgoWmq76nOUqZB5kfhHBmo0oT
+ cA0u5opG/1krt7SUXr+TC8c8v4mNSNvBgBjJ5GXt63p2ZDhSZORtBbmUGo4zMkFq/JOhde0ea
+ LZYuFSqcmevIKUbMShTJZn3l8CxukYPYLQmlYrnqW2Ua6EHJ+/KY+4WC0B8UaU27rkVPEIkTN
+ IoUye/+evW68VmCPuc+eXvpcVOZbYFZuDN4wx4w5/UnswH3lW/4bg3knbHCueUfa/TzrKVdiD
+ LaLNhPRkZkm+kMpY8JP3SgbLtWr8L6OrMv7yWnvgxzd+Lwc/8fj7V+TqwQt3YkStmB/WvNSkr
+ hmQ72za4nxmRmrHTFYqwG93egoG63BuBIfAQvCcqDgRylMtFyk/oqqXCWELoK1gZQ/OkD5Tx5
+ BaJWxNGwqc+BQlDmEH3FKsaguEbNDLBK/FBbkO8LtszNwapL+qhOUBqmS1OrwRpLsAeF9cUdc
+ YHEC6/+tghQ1eQ2c5OMaA33FlObrt+fOLsw9ekuDl0DEHM0OtOype3sVEouk4o/iL4Bz0e5CQ
+ 6r0xWGVcarWs/oo6BytEnXxzIx4kJJHZzuw3/b+wx/8U2olOwcBBBcPB3e1KJj4M+wy41x3Yr
+ CXgcobIA+Wr+GV2MXlAQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191128_045650_533654_F7FA95C7 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20191128_045853_259284_4ED9F038 
+X-CRM114-Status: GOOD (  12.89  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.133 listed in list.dnswl.org]
+ no trust [212.227.126.134 listed in list.dnswl.org]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -88,28 +89,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Use the new pci_get_device_by_id() helper in order to reduce
-a bit of boilerplate.
+Simpilify the probing by putting all chip-specific data directly
+into the pci match table, removing the redundant chipset_ids table.
 
-Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
+Changes v3:
+    * use pci_get_device_by_id() introduces by a previous patch
+      of this queue
+
+Changes v2:
+    * use PCI_DEVICE_DATA() macro in the pci match table
+    * directly pass the pci device id to i5k_channel_probe(),
+      instead of computing it internally by extra offset parameter
+
+Submitted: 2019-06-06
+Signed-off-by: Enrico Weigelt <info@metux.net>
 ---
- drivers/char/hw_random/intel-rng.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/hwmon/i5k_amb.c | 38 +++++++++++++++-----------------------
+ 1 file changed, 15 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/char/hw_random/intel-rng.c b/drivers/char/hw_random/intel-rng.c
-index 290c880266bf..6b8d37a81166 100644
---- a/drivers/char/hw_random/intel-rng.c
-+++ b/drivers/char/hw_random/intel-rng.c
-@@ -335,8 +335,7 @@ static int __init mod_init(void)
- 	struct intel_rng_hw *intel_rng_hw;
+diff --git a/drivers/hwmon/i5k_amb.c b/drivers/hwmon/i5k_amb.c
+index b09c39abd3a8..cb85607d104f 100644
+--- a/drivers/hwmon/i5k_amb.c
++++ b/drivers/hwmon/i5k_amb.c
+@@ -414,16 +414,14 @@ static int i5k_amb_add(void)
+ }
  
- 	for (i = 0; !dev && pci_tbl[i].vendor; ++i)
--		dev = pci_get_device(pci_tbl[i].vendor, pci_tbl[i].device,
--				     NULL);
-+		dev = pci_get_device_by_id(&pci_tbl[i]);
+ static int i5k_find_amb_registers(struct i5k_amb_data *data,
+-					    unsigned long devid)
++				  const struct pci_device_id *devid)
+ {
+ 	struct pci_dev *pcidev;
+ 	u32 val32;
+ 	int res = -ENODEV;
  
- 	if (!dev)
- 		goto out; /* Device not found. */
+ 	/* Find AMB register memory space */
+-	pcidev = pci_get_device(PCI_VENDOR_ID_INTEL,
+-				devid,
+-				NULL);
++	pcidev = pci_get_device_by_id(devid);
+ 	if (!pcidev)
+ 		return -ENODEV;
+ 
+@@ -447,14 +445,15 @@ static int i5k_find_amb_registers(struct i5k_amb_data *data,
+ 	return res;
+ }
+ 
+-static int i5k_channel_probe(u16 *amb_present, unsigned long dev_id)
++static int i5k_channel_probe(u16 *amb_present, unsigned int vendor,
++			     unsigned int device)
+ {
+ 	struct pci_dev *pcidev;
+ 	u16 val16;
+ 	int res = -ENODEV;
+ 
+ 	/* Copy the DIMM presence map for these two channels */
+-	pcidev = pci_get_device(PCI_VENDOR_ID_INTEL, dev_id, NULL);
++	pcidev = pci_get_device(vendor, device, NULL);
+ 	if (!pcidev)
+ 		return -ENODEV;
+ 
+@@ -473,23 +472,12 @@ static int i5k_channel_probe(u16 *amb_present, unsigned long dev_id)
+ 	return res;
+ }
+ 
+-static struct {
+-	unsigned long err;
+-	unsigned long fbd0;
+-} chipset_ids[]  = {
+-	{ PCI_DEVICE_ID_INTEL_5000_ERR, PCI_DEVICE_ID_INTEL_5000_FBD0 },
+-	{ PCI_DEVICE_ID_INTEL_5400_ERR, PCI_DEVICE_ID_INTEL_5400_FBD0 },
+-	{ 0, 0 }
+-};
+-
+-#ifdef MODULE
+ static const struct pci_device_id i5k_amb_ids[] = {
+-	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_5000_ERR) },
+-	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_5400_ERR) },
++	{ PCI_DEVICE_DATA(INTEL, 5000_ERR, PCI_DEVICE_ID_INTEL_5000_FBD0) },
++	{ PCI_DEVICE_DATA(INTEL, 5400_ERR, PCI_DEVICE_ID_INTEL_5400_FBD0) },
+ 	{ 0, }
+ };
+ MODULE_DEVICE_TABLE(pci, i5k_amb_ids);
+-#endif
+ 
+ static int i5k_amb_probe(struct platform_device *pdev)
+ {
+@@ -504,22 +492,26 @@ static int i5k_amb_probe(struct platform_device *pdev)
+ 	/* Figure out where the AMB registers live */
+ 	i = 0;
+ 	do {
+-		res = i5k_find_amb_registers(data, chipset_ids[i].err);
++		res = i5k_find_amb_registers(data, &i5k_amb_ids[i]);
+ 		if (res == 0)
+ 			break;
+ 		i++;
+-	} while (chipset_ids[i].err);
++	} while (i5k_amb_ids[i].device);
+ 
+ 	if (res)
+ 		goto err;
+ 
+ 	/* Copy the DIMM presence map for the first two channels */
+-	res = i5k_channel_probe(&data->amb_present[0], chipset_ids[i].fbd0);
++	res = i5k_channel_probe(&data->amb_present[0],
++				i5k_amb_ids[i].vendor,
++				i5k_amb_ids[i].driver_data);
+ 	if (res)
+ 		goto err;
+ 
+ 	/* Copy the DIMM presence map for the optional second two channels */
+-	i5k_channel_probe(&data->amb_present[2], chipset_ids[i].fbd0 + 1);
++	i5k_channel_probe(&data->amb_present[2],
++			  i5k_amb_ids[i].vendor,
++			  i5k_amb_ids[i].driver_data+1);
+ 
+ 	/* Set up resource regions */
+ 	reso = request_mem_region(data->amb_base, data->amb_len, DRVNAME);
 -- 
 2.11.0
 
