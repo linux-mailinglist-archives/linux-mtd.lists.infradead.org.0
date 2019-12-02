@@ -2,128 +2,78 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A64310E602
-	for <lists+linux-mtd@lfdr.de>; Mon,  2 Dec 2019 07:35:45 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9D5ED10ED1D
+	for <lists+linux-mtd@lfdr.de>; Mon,  2 Dec 2019 17:26:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9EHdrGxLzqGuDeMBozJaDuKMMUfM1NrNyoiN52edF5Y=; b=g6laKYu2dLLoC2
-	xsRRVQ3gRPxaxzfLvG2X5fsQ5bDxnv0G3l4m9y9hCQHRq3MSAkVrtVL1uKabh/nkUaQD/jANQrs9I
-	dKUzjP50UQeFUg+fairjP+WlZy5JDaa117VHF+tgiWk8jgGpeqa2f0iG6OTNHe8oKfjvdcOam01PA
-	Xf5ByJnYBgPQ/t2EY7/WqUK9M8uOmIXqyGdMs+8SOKsivcWfx34drE3AWBJTH4ELRVxmHZFbr2UZi
-	QJCZThn/a2b43nIs0jW7a1KKgFp0FyxzwcwLL5W65rxgaC7e2H/bH0cvTMhpZ5M4uv8NUGshg75v8
-	6K96vLf9u6WUz+RPbCgg==;
+	List-Owner; bh=uWmGPKN4b0H/WudUIFmEIo5WBfsn0ImdxmUPRs03NpY=; b=sOwHmKwTIDTtw9
+	ERWR/X40Y0X5lO9auL0Ewx8G7mZO/K0sGEBaIZLEx3pUmTcDyBtevENeLc542W2w9VAlOQDFm/Ojb
+	cPX6pll36HOFRA4N9mPrzuVtFebaq7BQgBflrbVkbjplUHqMdF3CsDtt+7s5z0bp8dbBHLZNAzcZE
+	U4iL+UpuVyhxWcT9lqtcbWNu4v8MX4WMwkjVsXERcdxuXbPFkDDPHVzz4ovqy+Jytt9LBBFrcEf/K
+	We6WqmVOZG6GEIbBpoPeab+ON9lgrlc7I3u3GvFzMkPT7dRojW4R3XKC1arzqabvd+Z3cueI9ngY9
+	hwGgtM0tGJv+kX+NrFDw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ibfJ0-0004jg-0f; Mon, 02 Dec 2019 06:35:34 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1iboWv-0005DB-Ck; Mon, 02 Dec 2019 16:26:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ibfIq-0004ig-Lc
- for linux-mtd@lists.infradead.org; Mon, 02 Dec 2019 06:35:26 +0000
-Received: from epcas1p1.samsung.com (unknown [182.195.41.45])
- by mailout2.samsung.com (KnoxPortal) with ESMTP id
- 20191202063519epoutp025cade87c084f48421d65fef745a1f2db~cel9jkzFC2429724297epoutp02M
- for <linux-mtd@lists.infradead.org>; Mon,  2 Dec 2019 06:35:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com
- 20191202063519epoutp025cade87c084f48421d65fef745a1f2db~cel9jkzFC2429724297epoutp02M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1575268519;
- bh=x9eSLjTHbnyoirTGHqzSOKthJrd7EbGZtAGfO5GSqts=;
- h=From:To:Subject:Date:In-Reply-To:References:From;
- b=UAoxV4trfk9xwKTJdaKEm4WiPZ57gdhadTRx5wb1FaX5/FM/WlWPG+VEzn1vTcDcb
- X6FzITfetd1D6+F2yTWwge1qCoh6UjU6IiDrC5wH82USJslP8LFLmZ4pYuL8Xt7q3R
- 6S+8UsGYFNukxcWNJbky7F0ssRiENaEl1uGIgUBM=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
- epcas1p1.samsung.com (KnoxPortal) with ESMTP id
- 20191202063519epcas1p15da26ab99657f9c7410517f30b6653c0~cel9QhoLa2429024290epcas1p1W;
- Mon,  2 Dec 2019 06:35:19 +0000 (GMT)
-Received: from epsmges1p3.samsung.com (unknown [182.195.40.166]) by
- epsnrtp3.localdomain (Postfix) with ESMTP id 47RFjL2bcgzMqYkw; Mon,  2 Dec
- 2019 06:35:18 +0000 (GMT)
-Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
- epsmges1p3.samsung.com (Symantec Messaging Gateway) with SMTP id
- 3E.71.52419.6A0B4ED5; Mon,  2 Dec 2019 15:35:18 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
- epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
- 20191202063518epcas1p4c27eb3123148b1ce151144409c632e3d~cel8BJ29y0512905129epcas1p48;
- Mon,  2 Dec 2019 06:35:18 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
- epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
- 20191202063518epsmtrp105627912d65575aae70675c2df61788b~cel8AjThU0427804278epsmtrp1d;
- Mon,  2 Dec 2019 06:35:18 +0000 (GMT)
-X-AuditID: b6c32a37-59fff7000001ccc3-96-5de4b0a669a9
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
- epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
- 3F.79.10238.6A0B4ED5; Mon,  2 Dec 2019 15:35:18 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.88.100.192]) by
- epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
- 20191202063517epsmtip23ca2dcfc6cff488c88661e2c2edf8208~cel73ut3R2970029700epsmtip2o;
- Mon,  2 Dec 2019 06:35:17 +0000 (GMT)
-From: Jungseung Lee <js07.lee@samsung.com>
-To: js07.lee@gmail.com, Marek Vasut <marek.vasut@gmail.com>, Tudor Ambarus
- <tudor.ambarus@microchip.com>, linux-mtd@lists.infradead.org,
- js07.lee@samsung.com
-Subject: [PATCH 3/3] mtd: spi-nor: Fix wrong TB selection of GD25Q256
-Date: Mon,  2 Dec 2019 15:35:07 +0900
-Message-Id: <20191202063507.21311-3-js07.lee@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20191202063507.21311-1-js07.lee@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrLKsWRmVeSWpSXmKPExsWy7bCmvu6yDU9iDV4/FLH4O+cdk8Wjm79Z
- LXY3LWO3OLrnHrPFxyUODqweO2fdZffYvKTe486PpYwefVtWMQawROXYZKQmpqQWKaTmJeen
- ZOal2yp5B8c7x5uaGRjqGlpamCsp5CXmptoqufgE6Lpl5gCtVVIoS8wpBQoFJBYXK+nb2RTl
- l5akKmTkF5fYKqUWpOQUGBoU6BUn5haX5qXrJefnWhkaGBiZAlUm5GQ8e9zEWLCPreLajJvs
- DYzrWLsYOTkkBEwkrt04xt7FyMUhJLCDUeLshYNgCSGBT4wSJ34aQiS+MUrMOTMDruP7hn9s
- EIm9jBIXp52Dav/MKNH2exlYFZuAlsSN35tYQRIiAgsZJeZdesIEkhAWcJWYefU0O4jNIqAq
- 8fr2ZDYQm1fAUuLYg4dMECvkJVZvOMAMYnMKWEks/LycHSLeyCbR8TOqi5EDyHaROP7QDSIs
- LPHq+BaoEimJl/1tUHaxxM6VE8GOkxBoYZR4tHwJVMJY4t3btcwgc5gFNCXW79KHCCtK7Pw9
- lxHEZhbgk3j3tYcVYhWvREebEESJksSbBy0sELaExIXHvVAlHhLvHphBgqGXUWLjot+MExhl
- ZyEsWMDIuIpRLLWgODc9tdiwwBg5kjYxgpOSlvkOxg3nfA4xCnAwKvHwGrx4HCvEmlhWXJl7
- iFGCg1lJhPe60sNYId6UxMqq1KL8+KLSnNTiQ4ymwHCcyCwlmpwPTJh5JfGGpkbGxsYWJmbm
- ZqbGSuK8HD8uxgoJpCeWpGanphakFsH0MXFwSjUw+iYt0TkaEquSl/A53kvnzpfs0zcqQ1v/
- 1Hs33WB3UhBc+KBCRiVrc2gYW7jqz8wAxpv+PFPzdrq8/nv38tqExt+biq173mhO/Wztelws
- MoNB5639dvt7zN1sYft4Q+03v2ljsCzu26CjfLNYgHOPy/IPYlc/6Zwz9mh5fNS39mHVzxrV
- eTOVWIozEg21mIuKEwEzfdamYAMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupgluLIzCtJLcpLzFFi42LZdlhJXnfZhiexBod2MFv8nfOOyeLRzd+s
- FrublrFbHN1zj9ni4xIHB1aPnbPusntsXlLvcefHUkaPvi2rGANYorhsUlJzMstSi/TtErgy
- nj1uYizYx1ZxbcZN9gbGdaxdjJwcEgImEt83/GPrYuTiEBLYzShxbt5TNoiEhMSjnV9Yuhg5
- gGxhicOHiyFqPjJKLFnxiAmkhk1AS+LG702sIAkRgaWMEleufGAESQgLuErMvHqaHcRmEVCV
- eH17MthQXgFLiWMPHjJBLJCXWL3hADOIzSlgJbHw83KweiGgmp/rLrJPYORdwMiwilEytaA4
- Nz232LDAMC+1XK84Mbe4NC9dLzk/dxMjOHy0NHcwXl4Sf4hRgINRiYe349XjWCHWxLLiytxD
- jBIczEoivNeVHsYK8aYkVlalFuXHF5XmpBYfYpTmYFES532adyxSSCA9sSQ1OzW1ILUIJsvE
- wSnVwOiifmLFe9kj149ezhQyzZvy6rO937yWd+lLD/E823Rp3q60HLMNVXVmDMcapvOqncjt
- YfecwLA1obl19yfuiq137oX37lUp8GS7Fmx2R+nbnDeXonx3b3c8rbbS6fAsN4dJPpXnJiQY
- 1Iad4JBM7gv8M7F/if+Dyj/bzzJOkb1vpNJw+A+D0FYlluKMREMt5qLiRABPjgASGwIAAA==
-X-CMS-MailID: 20191202063518epcas1p4c27eb3123148b1ce151144409c632e3d
-X-Msg-Generator: CA
-X-Sendblock-Type: SVC_REQ_APPROVE
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20191202063518epcas1p4c27eb3123148b1ce151144409c632e3d
-References: <20191202063507.21311-1-js07.lee@samsung.com>
- <CGME20191202063518epcas1p4c27eb3123148b1ce151144409c632e3d@epcas1p4.samsung.com>
+ id 1iboWm-0005Cd-RM
+ for linux-mtd@lists.infradead.org; Mon, 02 Dec 2019 16:26:26 +0000
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com
+ [209.85.222.179])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1086C20665
+ for <linux-mtd@lists.infradead.org>; Mon,  2 Dec 2019 16:26:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1575303984;
+ bh=yldwc/Z6MA1+VHq1mho9ORxlk97SJEe1yTyihqlVpb8=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=fqJ+7zLWZAgiTKrSRyHUV5V0bNtcQm1gNjjnXYlpESE9V6ZrADlt0rtVaNv8PboHD
+ HVQyUIrqjDxNUMBeTYHrpWC1yR/Z7pxyQHN4y65J+DslZdEAaFekavSMYzuhwEs5Xk
+ 1CIlE95uCfuP8sRzTtZ4TAjlXdMnDYvgXLGCDIbc=
+Received: by mail-qk1-f179.google.com with SMTP id q28so28526qkn.10
+ for <linux-mtd@lists.infradead.org>; Mon, 02 Dec 2019 08:26:24 -0800 (PST)
+X-Gm-Message-State: APjAAAUcUAScXUz/tvuGldo9u8Zuxj983SB44OuA88XZuzWef+9RAB1y
+ dfqFaDO53pgkoFlFXWSBTuiFO3TzTgujNM9r5A==
+X-Google-Smtp-Source: APXvYqy+Ji9mce4aB8DbJH5nRjKgp1CutJ2doJc952RWmxbZU8ura3b3pvFQQuFPyXDQLffIiY0xb+L15fjEIsfZvxA=
+X-Received: by 2002:a37:81c6:: with SMTP id
+ c189mr33951032qkd.223.1575303983133; 
+ Mon, 02 Dec 2019 08:26:23 -0800 (PST)
+MIME-Version: 1.0
+References: <20191113171505.26128-1-miquel.raynal@bootlin.com>
+ <20191113171505.26128-4-miquel.raynal@bootlin.com>
+ <20191118221341.GA30937@bogus> <20191125151523.0766b3b7@xps13>
+In-Reply-To: <20191125151523.0766b3b7@xps13>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 2 Dec 2019 10:26:11 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJR1OLexi9bArn0ZjNYB+d7eRTYpi4q0-eU93oVcz1AMA@mail.gmail.com>
+Message-ID: <CAL_JsqJR1OLexi9bArn0ZjNYB+d7eRTYpi4q0-eU93oVcz1AMA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] dt-bindings: mtd: Describe mtd-concat devices
+To: Miquel Raynal <miquel.raynal@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191201_223524_950806_F050BF65 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20191202_082624_930474_9C1C7791 
+X-CRM114-Status: GOOD (  27.01  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [203.254.224.25 listed in list.dnswl.org]
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -136,38 +86,81 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
+ Mark Brown <broonie@kernel.org>,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ Bernhard Frauendienst <kernel@nospam.obeliks.de>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-For GD25Q256, wrong SR bit for top/bottom selection
-are being used. Fix it to use appropriate bit.
-
-Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
----
- drivers/mtd/spi-nor/spi-nor.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
-index 227b56b0a5b0..7cd29491ceae 100644
---- a/drivers/mtd/spi-nor/spi-nor.c
-+++ b/drivers/mtd/spi-nor/spi-nor.c
-@@ -2395,7 +2395,8 @@ static const struct flash_info spi_nor_ids[] = {
- 	{
- 		"gd25q256", INFO(0xc84019, 0, 64 * 1024, 512,
- 			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_4B_OPCODES | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
-+			SPI_NOR_4B_OPCODES | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
-+			SPI_NOR_TB_SR_BIT6)
- 			.fixups = &gd25q256_fixups,
- 	},
- 
--- 
-2.17.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gTW9uLCBOb3YgMjUsIDIwMTkgYXQgODoxNSBBTSBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5
+bmFsQGJvb3RsaW4uY29tPiB3cm90ZToKPgo+IEhpIFJvYiwKPgo+IFJvYiBIZXJyaW5nIDxyb2Jo
+QGtlcm5lbC5vcmc+IHdyb3RlIG9uIE1vbiwgMTggTm92IDIwMTkgMTY6MTM6NDEgLTA2MDA6Cj4K
+PiA+IE9uIFdlZCwgTm92IDEzLCAyMDE5IGF0IDA2OjE1OjA0UE0gKzAxMDAsIE1pcXVlbCBSYXlu
+YWwgd3JvdGU6Cj4gPiA+IEZyb206IEJlcm5oYXJkIEZyYXVlbmRpZW5zdCA8a2VybmVsQG5vc3Bh
+bS5vYmVsaWtzLmRlPgo+ID4gPgo+ID4gPiBUaGUgbWFpbiB1c2UgY2FzZSB0byBjb25jYXRlbmF0
+ZSBNVEQgZGV2aWNlcyBpcyBwcm9iYWJseSBTUEktTk9SCj4gPiA+IGZsYXNoZXMgd2hlcmUgdGhl
+IG51bWJlciBvZiBhZGRyZXNzIGJpdHMgaXMgbGltaXRlZCB0byAyNCwgd2hpY2ggY2FuCj4gPiA+
+IGFjY2VzcyBhIHJhbmdlIG9mIDE2TWlCLiBCb2FyZCBtYW51ZmFjdHVyZXJzIG1pZ2h0IHdhbnQg
+dG8gZG91YmxlIHRoZQo+ID4gPiBTUEkgc3RvcmFnZSBzaXplIGJ5IGFkZGluZyBhIHNlY29uZCBm
+bGFzaCBhc3NlcnRlZCB0aGFua3MgdG8gYSBzZWNvbmQKPiA+ID4gY2hpcCBzZWxlY3RzIHdoaWNo
+IGVuaGFuY2VzIHRoZSBhZGRyZXNzaW5nIGNhcGFiaWxpdGllcyB0byAyNSBiaXRzLAo+ID4gPiAz
+Mk1pQi4gSGF2aW5nIHR3byBkZXZpY2VzIGZvciB0d2ljZSB0aGUgc2l6ZSBpcyBncmVhdCBidXQg
+d2l0aG91dCBtb3JlCj4gPiA+IGdsdWUsIHdlIGNhbm5vdCBkZWZpbmUgcGFydGl0aW9uIGJvdW5k
+YXJpZXMgc3ByZWFkIGFjcm9zcyB0aGUgdHdvCj4gPiA+IGRldmljZXMuIFRoaXMgaXMgdGhlIGdh
+cCBtdGQtY29uY2F0IGludGVuZHMgdG8gYWRkcmVzcy4KPiA+ID4KPiA+ID4gVGhlcmUgYXJlIHR3
+byBvcHRpb25zIHRvIGRlc2NyaWJlIGNvbmNhdGVuYXRlZCBkZXZpY2VzOgo+ID4gPiAxLyBPbmUg
+Zmxhc2ggY2hpcCBpcyBkZXNjcmliZWQgaW4gdGhlIERUIHdpdGggdHdvIENTOwo+ID4gPiAyLyBU
+d28gZmxhc2ggY2hpcHMgYXJlIGRlc2NyaWJlZCBpbiB0aGUgRFQgd2l0aCBvbmUgQ1MgZWFjaCwg
+YSB2aXJ0dWFsCj4gPiA+IGRldmljZSBpcyBhbHNvIGNyZWF0ZWQgdG8gZGVzY3JpYmUgdGhlIGNv
+bmNhdGVuYXRpb24uCj4gPiA+Cj4gPiA+IFNvbHV0aW9uIDEvIHByZXNlbnRzIGF0IGxlYXN0IDMg
+aXNzdWVzOgo+ID4gPiAqIFRoZSBoYXJkd2FyZSBkZXNjcmlwdGlvbiBpcyBhYnVzZWQ7Cj4gPiA+
+ICogVGhlIGNvbmNhdGVuYXRpb24gb25seSB3b3JrcyBmb3IgU1BJIGRldmljZXMgKHdoaWxlIGl0
+IGNvdWxkIGJlCj4gPiA+ICAgaGVscGZ1bCBmb3IgYW55IE1URCk7Cj4gPiA+ICogSXQgd291bGQg
+cmVxdWlyZSBhIGxvdCBvZiByZXdvcmsgaW4gdGhlIFNQSSBjb3JlIGFzIG1vc3Qgb2YgdGhlCj4g
+PiA+ICAgbG9naWMgYXNzdW1lcyB0aGVyZSBpcyBhbmQgdGhlcmUgYWx3YXlzIHdpbGwgYmUgb25s
+eSBvbmUgQ1MgcGVyCj4gPiA+ICAgY2hpcC4KPiA+Cj4gPiBUaGlzIHNlZW1zIG9rIGlmIGFsbCB0
+aGUgZGV2aWNlcyBhcmUgaWRlbnRpY2FsLgo+Cj4gVGhpcyBpcyBub3QgYW4gb3B0aW9uIGZvciBN
+YXJrIGFuZCBJIGFncmVlIHdpdGggaGltIGFzIHdlIGFyZSBmYWtpbmcKPiB0aGUgcmVhbGl0eTog
+dGhlIHR3byBkZXZpY2VzIHdlIHdhbnQgdG8gdmlydHVhbGx5IGNvbmNhdGVuYXRlIG1heSBiZQo+
+IHR3byBwaHlzaWNhbGx5IGRpZmZlcmVudCBkZXZpY2VzLiBCaW5kaW5nIHRoZW0gYXMgb25lIGlz
+IGx5aW5nLgo+Cj4gPiA+IFNvbHV0aW9uIDIvIGFsc28gaGFzIGNhdmVhdHM6Cj4gPiA+ICogVGhl
+IHZpcnR1YWwgZGV2aWNlIGhhcyBubyBoYXJkd2FyZSByZWFsaXR5Owo+ID4gPiAqIFBvc3NpYmxl
+IG9wdGltaXphdGlvbnMgYXQgdGhlIGhhcmR3YXJlIGxldmVsIHdpbGwgYmUgaGFyZCB0byBlbmFi
+bGUKPiA+ID4gICBlZmZpY2llbnRseSAoaWUuIGEgY29tbW9uIGRpcmVjdCBtYXBwaW5nIGFic3Ry
+YWN0ZWQgYnkgYSBTUEkKPiA+ID4gICBtZW1vcmllcyBvcmllbnRlZCBjb250cm9sbGVyKS4KPiA+
+Cj4gPiBTb21ldGhpbmcgbGlrZSB0aGlzIG1heSBiZSBuZWNlc3NhcnkgaWYgZGF0YSBpcyBpbnRl
+cmxlYXZlZCByYXRoZXIgdGhhbgo+ID4gY29uY2F0aW5hdGVkLgo+Cj4gVGhpcyBpcyBzb21ldGhp
+bmcgdGhhdCBpcyBnb25uYSBoYXBwZW4gdG9vLCBpdCBpcyBjYWxsZWQgImR1YWwKPiBwYXJhbGxl
+bCIuCgpUaGVuIGl0IHdvdWxkIGJlIGdvb2QgdG8gdGhpbmsgYWJvdXQgaG93IHRoYXQgc2hvdWxk
+IGxvb2suIE1heWJlCnRoZXJlJ3Mgb3ZlcmxhcCBvciBtYXliZSBub3QuCgo+ID4gU29sdXRpb24g
+Mwo+ID4gRGVzY3JpYmUgZWFjaCBkZXZpY2UgYW5kIHBhcnRpdGlvbiBzZXBhcmF0ZWx5IGFuZCBh
+ZGQgbGluayhzKSBmcm9tIG9uZQo+ID4gcGFydGl0aW9uIHRvIHRoZSBuZXh0Cj4gPgo+ID4gZmxh
+c2gwIHsKPiA+ICAgcGFydGl0aW9ucyB7Cj4gPiAgICAgY29tcGF0aWJsZSA9ICJmaXhlZC1wYXJ0
+aXRpb25zIjsKPiA+ICAgICBjb25jYXQtcGFydGl0aW9uID0gPCZmbGFzaDFfcGFydGl0aW9ucz47
+Cj4gPiAgICAgLi4uCj4gPiAgIH07Cj4gPiB9Owo+ID4KPiA+IGZsYXNoMSB7Cj4gPiAgIGZsYXNo
+MV9wYXJ0aXRpb246IHBhcnRpdGlvbnMgewo+ID4gICAgIGNvbXBhdGlibGUgPSAiZml4ZWQtcGFy
+dGl0aW9ucyI7Cj4gPiAgICAgLi4uCj4gPiAgIH07Cj4gPiB9Owo+Cj4gSSBob25lc3RseSBkb24n
+dCBzZWUgaG93IHRoaXMgaXMgZGlmZmVyZW50IGFzIHNvbHV0aW9uIDIvPwoKSXQncyBhIHNpbmds
+ZSBuZXcgcHJvcGVydHkgcmF0aGVyIHRoYW4gYSB3aG9sZSBiaW5kaW5nIGZvciBhIHZpcnR1YWwK
+ZGV2aWNlLiBJdCdzIGEgbWluaW1hbCBjaGFuZ2UgdG8gdGhlIERULiBJdCB3b3VsZCB3b3JrIHdp
+dGggZXhpc3RpbmcKYm9vdGxvYWRlcnMgKGFuZCBvdGhlciBPU3MgYW5kIG9sZGVyIGtlcm5lbHMp
+IHdpdGhvdXQgY2hhbmdlIGV4Y2VwdApmb3IgdGhlIG9uZSBjb25jYXRlbmF0ZWQgcGFydGl0aW9u
+LgoKPiBJbiBvbmUgY2FzZQo+IHdlIGRlc2NyaWJlIHRoZSBwYXJ0aXRpb24gY29uY2F0ZW5hdGlv
+biBpbiBvbmUgc3Vibm9kZSBhcyBhICJsaW5rIiwgaW4KPiB0aGUgb3RoZXIgd2UgY3JlYXRlIGEg
+c2VwYXJhdGUgbm9kZSB0byBkZXNjcmliZSB0aGUgbGluay4gQXJlIHlvdQo+IHN0cm9uZ2x5IG9w
+cG9zZWQgYXMgc29sdXRpb24gMi8/CgpJJ2QgcHJlZmVyIHRvIG5vdCBoYXZlIHZpcnR1YWwgZGV2
+aWNlcyB3aXRob3V0IGdvb2QgcmVhc29uLgoKPiBGcm9tIGEgcHVyZSBjb25jZXB0dWFsIHBvaW50
+IG9mIHZpZXcsCj4gaXMgaXQgcmVhbGx5IGRpZmZlcmVudCB0aGFuIDMvPwo+Cj4KPiBUaGFua3Ms
+Cj4gTWlxdcOobAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
