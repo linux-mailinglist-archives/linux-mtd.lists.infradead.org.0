@@ -2,56 +2,66 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EFF62116497
-	for <lists+linux-mtd@lfdr.de>; Mon,  9 Dec 2019 01:51:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E8ED11661A
+	for <lists+linux-mtd@lfdr.de>; Mon,  9 Dec 2019 06:16:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Acs9q6JUx55N+CBQ/BTfD0zy8OJvegShB51zCxirgS8=; b=amnv9gu8tVKPuK
-	XtYyvQm6ySN+AeAUFY0a3KraJqRzi0CaGA/DdENgEj94zdDz9iib8Y490O/DYWi3InhvEBF5jizjr
-	VlHJY4ovafxpisfjZVSxq3gnC8ekRc8yshZtoVDVkDgbXgJtKLe9mlvScAGgAdY4jjRYBD4V06Eid
-	2g7AKwGdbVQN6n/zLvcQyTRfa64pv5kx3UgAOf6vzGv6myKtXapGHkoK+lXVp9/3xGZNZXFLMEXLw
-	Lzn3na58a0WrjuKMfBW84+NEElenCANs2oYP4f12rxPe0GG5EtBCg6I1ZQF3qm2eBXB9DmaSQnBK1
-	V6OmPzwt2ZuObFRfxC2w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=UtbypBNWtVaEFjUu8Rvf5tvEEKaQznUGvJ3yaqqsy9I=; b=Bqk
+	n4Z07d/EDPNBXmzFfSgB3AprOvxbGd9XiV7LMV9VGpXLovt/5JHjm60nuFnbKwFzAyhbu5AJl6u8p
+	bl9LMAl9y9F0z8sMFId4OjgSmJJUzuoRxrR1CzJPX/XccHaoEbP2Lwcjz4ZedbCjOqAJLSrvqspsW
+	mkUlxauNzarH+ao/XPdVXlBjKCYm9XG4qUx7e6i8TCDqzWi1sElRJNdGEY5N2wjpEOZu2JiUxdib+
+	4P/4FwYwnRvbSd1GKX+aBh62GEgkP3HIXN7UrQb8ilKQxI8VJ8/6JSTAZeZkz5DMhDTLxREzPaI9s
+	L731ZL2azDW9MVYZrHsEDnETKF0Sl+A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ie7GE-0005On-SU; Mon, 09 Dec 2019 00:50:50 +0000
-Received: from zeniv.linux.org.uk ([195.92.253.2])
+	id 1ieBP1-0007cx-6E; Mon, 09 Dec 2019 05:16:11 +0000
+Received: from conuserg-11.nifty.com ([210.131.2.78])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ie7G4-00042C-5c
- for linux-mtd@lists.infradead.org; Mon, 09 Dec 2019 00:50:42 +0000
-Received: from viro by ZenIV.linux.org.uk with local (Exim 4.92.3 #3 (Red Hat
- Linux)) id 1ie7Do-0006tf-V9; Mon, 09 Dec 2019 00:48:21 +0000
-Date: Mon, 9 Dec 2019 00:48:20 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Deepa Dinamani <deepa.kernel@gmail.com>
-Subject: Re: [PATCH v2 0/6] Delete timespec64_trunc()
-Message-ID: <20191209004820.GZ4203@ZenIV.linux.org.uk>
-References: <20191203051945.9440-1-deepa.kernel@gmail.com>
- <CABeXuvpkYQbsvGTuktEAR8ptr478peet3EH=RD0v+nK5o2Wmjg@mail.gmail.com>
- <20191207060201.GN4203@ZenIV.linux.org.uk>
- <CABeXuvrvATrw9QfVpi1s80Duen6jf5sw+pU91yN_0f3N1xWJQQ@mail.gmail.com>
- <20191208030407.GO4203@ZenIV.linux.org.uk>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191208030407.GO4203@ZenIV.linux.org.uk>
-User-Agent: Mutt/1.12.1 (2019-06-15)
+ id 1ieBOo-0007cT-Cp
+ for linux-mtd@lists.infradead.org; Mon, 09 Dec 2019 05:16:02 +0000
+Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
+ [153.142.97.92]) (authenticated)
+ by conuserg-11.nifty.com with ESMTP id xB95FR53012005;
+ Mon, 9 Dec 2019 14:15:27 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com xB95FR53012005
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1575868528;
+ bh=YUKwrQ0HNTM5/RA0jtvxUxrn3eWB5Xxa4b2uKY9dbao=;
+ h=From:To:Cc:Subject:Date:From;
+ b=gDedeshFSu7VE1TZH3L6Mc/zJwLLcWAC4nUfyH1+SRaTCFwOF0rphr6qHaZ5sDWsR
+ 6dteJukWCZYitIcH0RdDfWGC2gZVwxvjHvOg4sp8ME+yOqCaZXlTd0ANc3jQGMO0sM
+ vS8mTs3PrFoK4cIFEhJ1rS3Hma9dcU1d94K1JWq//ZWx1AWXtsuyZBYHRzbS8Iay48
+ kyTukskR/KlrkNZ5XZQN6KDYORqTHmLQ+XuAtZeMzQoauDswMur+PJ+fLx4NEPk/w2
+ 7iQ5yCP2kKWDYufFSTKqPDKfbiUynmB5yXb6DRge1r3evPDQsYbm6CVYOcMNf5XFO/
+ Ho7W0mcaoXibw==
+X-Nifty-SrcIP: [153.142.97.92]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCH] mtd: rawnand: denali: error out if platform has no associated
+ data
+Date: Mon,  9 Dec 2019 14:15:23 +0900
+Message-Id: <20191209051523.21772-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191208_165040_210507_C014EA0F 
-X-CRM114-Status: UNSURE (   7.51  )
+X-CRM114-CacheID: sfid-20191208_211559_303201_3BE854EB 
+X-CRM114-Status: UNSURE (   8.18  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (1.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.92.253.2 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [210.131.2.78 listed in list.dnswl.org]
+ 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,31 +73,55 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: CIFS <linux-cifs@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Richard Weinberger <richard@nod.at>, Jeff Layton <jlayton@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-mtd <linux-mtd@lists.infradead.org>,
- Steve French <stfrench@microsoft.com>,
- Linux FS-devel Mailing List <linux-fsdevel@vger.kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- ceph-devel <ceph-devel@vger.kernel.org>,
- OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sun, Dec 08, 2019 at 03:04:07AM +0000, Al Viro wrote:
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
 
-> OK...  I've tossed a followup removing the truncation from kernfs;
-> the whole series looks reasonably safe, but I don't think it's urgent
-> enough to even try getting it merged before -rc1.  So here's what
-> I'm going to do: immediately after -rc1 it gets renamed[*] to #imm.timestamp,
-> which will be in the never-modified mode, in #for-next from the very
-> begining and safe for other trees to pull.
+denali->ecc_caps is a mandatory parameter. If it were left unset,
+nand_ecc_choose_conf() would end up with NULL pointer access.
 
-Rebased to -rc1, pushed out as #imm.timestamp, included into #for-next.
-Never-modified mode...
+So, every compatible must be associated with proper denali_dt_data.
+If of_device_get_match_data() returns NULL, let it fail immediately.
+
+Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+---
+
+ drivers/mtd/nand/raw/denali_dt.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/denali_dt.c b/drivers/mtd/nand/raw/denali_dt.c
+index 8b779a899dcf..276187939689 100644
+--- a/drivers/mtd/nand/raw/denali_dt.c
++++ b/drivers/mtd/nand/raw/denali_dt.c
+@@ -118,11 +118,12 @@ static int denali_dt_probe(struct platform_device *pdev)
+ 	denali = &dt->controller;
+ 
+ 	data = of_device_get_match_data(dev);
+-	if (data) {
+-		denali->revision = data->revision;
+-		denali->caps = data->caps;
+-		denali->ecc_caps = data->ecc_caps;
+-	}
++	if (WARN_ON(!data))
++		return -EINVAL;
++
++	denali->revision = data->revision;
++	denali->caps = data->caps;
++	denali->ecc_caps = data->ecc_caps;
+ 
+ 	denali->dev = dev;
+ 	denali->irq = platform_get_irq(pdev, 0);
+-- 
+2.17.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
