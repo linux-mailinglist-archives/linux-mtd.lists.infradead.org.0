@@ -2,29 +2,29 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47546116EC1
-	for <lists+linux-mtd@lfdr.de>; Mon,  9 Dec 2019 15:12:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F7F8116EBC
+	for <lists+linux-mtd@lfdr.de>; Mon,  9 Dec 2019 15:12:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kAEsKQ+GDmZtsXP+emclezif2HGfdU7XRtf1O8NWLSI=; b=c53kAMmFRSjXlT
-	zE2f/EMe2k5vfEHOe6HOJX6GyES5RACfPihnhtE/KcUVZORAQ8JRWth8ZxpSEvRcJIH+c3OVYYj5P
-	2WB79N5M4QpbJQ9VkoNtP4n02Pvv6SOGeK1TEQD8mOpP5KU3vVW9u/+dObida0hfoM0L+tC4p5oEB
-	SE73WrQYYzugUCsjX0e132cSGBRDDlos0VWTbzwr6ODjetZZQTWocxiBpPXUhnUJG8aqrjmJyTdtg
-	5TAnQoQp9cX98B9nWmgYi4M49CYDo3JomYXrqu/RhPDoIEOLZfqNHtjNgjSYYjFNsVEuETyW6WWdr
-	0q/K4U+LzJRd//mmuRfw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cULX0GWZZszOfZH8XgSrv+a+STBRxK/dHksu1+4dC7E=; b=bJ8m+XsyH8xuXk
+	UerdYEt1EyW4wTt3JDk9n/Kd0yg+xqSUIj9HBi1Or4V2P3MMQbmYiNUSncAeoLR6Bkc13Ly8oA4Ws
+	14rh+96+m0e1KzGJ20BuvTFZvywANK8twMsK+sQNAcpN7JGPVAxZ1YNUuBDDreO9wBSK7GUAX/soA
+	lHV9/gzWTPBkiw+s35uyiZD4KDBfrMbZ8zxBBatj15EuHaECvwXzuZyMZfU9F3/RNAVtQSIufswj4
+	/qGyhAd49nT2mhMDJS7ecxnNFBn2Z1itBz0G8v31nlG3J1lVvGDIA00ftHba+873Un3f2gMPSzO/7
+	RxWoYxUnTTVrK6GSguBg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ieJmD-00005F-Of; Mon, 09 Dec 2019 14:12:41 +0000
+	id 1ieJlg-00085D-Sx; Mon, 09 Dec 2019 14:12:08 +0000
 Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ieJlZ-00082o-6J
- for linux-mtd@lists.infradead.org; Mon, 09 Dec 2019 14:12:03 +0000
+ id 1ieJlY-00082m-R8
+ for linux-mtd@lists.infradead.org; Mon, 09 Dec 2019 14:12:02 +0000
 Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id C17D8952A78FAB84FF53;
+ by Forcepoint Email with ESMTP id B5CB71F1F54802B1C6EE;
  Mon,  9 Dec 2019 22:11:49 +0800 (CST)
 Received: from localhost.localdomain (10.69.192.58) by
  DGGEMS412-HUB.china.huawei.com (10.3.19.212) with Microsoft SMTP Server id
@@ -32,16 +32,19 @@ Received: from localhost.localdomain (10.69.192.58) by
 From: John Garry <john.garry@huawei.com>
 To: <broonie@kernel.org>, <marek.vasut@gmail.com>,
  <tudor.ambarus@microchip.com>
-Subject: [PATCH v2 0/3] HiSilicon v3xx SFC driver
-Date: Mon, 9 Dec 2019 22:08:07 +0800
-Message-ID: <1575900490-74467-1-git-send-email-john.garry@huawei.com>
+Subject: [PATCH v2 1/3] mtd: spi-nor: hisi-sfc: Try to provide some clarity on
+ which SFC we are
+Date: Mon, 9 Dec 2019 22:08:08 +0800
+Message-ID: <1575900490-74467-2-git-send-email-john.garry@huawei.com>
 X-Mailer: git-send-email 2.8.1
+In-Reply-To: <1575900490-74467-1-git-send-email-john.garry@huawei.com>
+References: <1575900490-74467-1-git-send-email-john.garry@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.69.192.58]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191209_061201_519883_BAE8DA9C 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20191209_061201_054973_997843C8 
+X-CRM114-Status: GOOD (  11.79  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -71,45 +74,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This patchset introduces support for the HiSilicon SFC V3XX driver.
+The driver is for the HiSilicon FMC (Flash Memory Controller), which
+supports SPI NOR in addition other memory technologies, like SPI NAND.
 
-Whilst the kernel tree already includes support for a "HiSilicon SFC
-driver", that is for different HW. Indeed, as mentioned in patch #1, the
-naming for that driver could be better, as it should support more memory
-technologies than SPI NOR (as I have been told), and it is actually known
-internally as FMC. As such, maybe "hisi-fmc" would have been better, but
-we can't change that now.
+Indeed, the naming in the driver is a little inappropriate, especially
+considering that there is already another HiSilicon SPI NOR flash
+controller (which I believe the FMC is derived from).
 
-I used V3XX in this driver name, as that is the unique versioning for
-this HW.
+Since we now want to provide software support for this other HiSilicon
+controller, update code comments to at least try to make it clear that
+this driver is for the FMC.
 
-As for the driver itself, it is quite simple. Only ACPI firmware is
-supported, and we assume m25p80 compatible SPI NOR part will be used.
+Signed-off-by: John Garry <john.garry@huawei.com>
+---
+ drivers/mtd/spi-nor/Kconfig    | 4 ++--
+ drivers/mtd/spi-nor/hisi-sfc.c | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-DMA is not supported, and we just use polling mode for operation
-completion notification. The driver uses the SPI MEM OPs.
-
-Changes from v1:
-- Add ACPI kconfig dependency
-- Fix up header comment style
-- Change macros naming style
-- Try to enforce aligned accesses in hisi_sfc_v3xx_adjust_op_size()
-
-John Garry (3):
-  mtd: spi-nor: hisi-sfc: Try to provide some clarity on which SFC we
-    are
-  spi: Add HiSilicon v3xx SPI NOR flash controller driver
-  MAINTAINERS: Add a maintainer for the HiSilicon v3xx SFC driver
-
- MAINTAINERS                     |   6 +
- drivers/mtd/spi-nor/Kconfig     |   4 +-
- drivers/mtd/spi-nor/hisi-sfc.c  |   2 +-
- drivers/spi/Kconfig             |   9 +
- drivers/spi/Makefile            |   1 +
- drivers/spi/spi-hisi-sfc-v3xx.c | 284 ++++++++++++++++++++++++++++++++
- 6 files changed, 303 insertions(+), 3 deletions(-)
- create mode 100644 drivers/spi/spi-hisi-sfc-v3xx.c
-
+diff --git a/drivers/mtd/spi-nor/Kconfig b/drivers/mtd/spi-nor/Kconfig
+index f237fcdf7f86..c1eda67d1ad2 100644
+--- a/drivers/mtd/spi-nor/Kconfig
++++ b/drivers/mtd/spi-nor/Kconfig
+@@ -46,11 +46,11 @@ config SPI_CADENCE_QUADSPI
+ 	  Flash as an MTD device.
+ 
+ config SPI_HISI_SFC
+-	tristate "Hisilicon SPI-NOR Flash Controller(SFC)"
++	tristate "Hisilicon FMC SPI-NOR Flash Controller(SFC)"
+ 	depends on ARCH_HISI || COMPILE_TEST
+ 	depends on HAS_IOMEM
+ 	help
+-	  This enables support for hisilicon SPI-NOR flash controller.
++	  This enables support for HiSilicon FMC SPI-NOR flash controller.
+ 
+ config SPI_MTK_QUADSPI
+ 	tristate "MediaTek Quad SPI controller"
+diff --git a/drivers/mtd/spi-nor/hisi-sfc.c b/drivers/mtd/spi-nor/hisi-sfc.c
+index a1258216f89d..6db964bf3b0e 100644
+--- a/drivers/mtd/spi-nor/hisi-sfc.c
++++ b/drivers/mtd/spi-nor/hisi-sfc.c
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0-or-later
+ /*
+- * HiSilicon SPI Nor Flash Controller Driver
++ * HiSilicon FMC SPI-NOR flash controller driver
+  *
+  * Copyright (c) 2015-2016 HiSilicon Technologies Co., Ltd.
+  */
 -- 
 2.17.1
 
