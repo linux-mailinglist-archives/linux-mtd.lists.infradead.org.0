@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74498127A07
-	for <lists+linux-mtd@lfdr.de>; Fri, 20 Dec 2019 12:34:12 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B5D691279FE
+	for <lists+linux-mtd@lfdr.de>; Fri, 20 Dec 2019 12:33:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,47 +11,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=jKud0ho6WOa3AeIfoDIUEpbpy4JMYq3GhNKqwjtZZpM=; b=TyaIW24thue6VNc0CW2oYOWegH
-	bGBAALiMKHf+ri3z2WPDjrU+d+4Qhv66EPC29rQpOT1w7Ab/Li+emTEe5pk1r2ZNLloZ0lPpOi6x+
-	OWuOO+YfMcsAWQ9hV5ZTGP+PM7tTcxWrlEASi80+p55VdcNUUszh31SpwbD4yuGTpYu0NDfCtd4fy
-	iHSWc3F2/CJ52NUcFLbFhQVaVkUlVdRsRY2W+KCp6ZBVdL2KyU//FVTUg4ftFHb6vjLLfRFnfpGmE
-	oa8r45mpY4VXMATG9/xiiosorS+6MoqrSytn8Lpbf7P3JyCE/ICuKiU/uY7VJm3mVTR0jU3Ctsoek
-	sJYCHL0A==;
+	bh=SDN+S/pmxufOyXnMNb6a8S1O3rnOHNNCkI+4kM0LRGA=; b=OWNPoN+SQbO72XkRc8IyQV1+JT
+	QQdzI/ktzFOwE1H8BC3zVQaFKFNlbhQa9yzfaC2T4myKf4Ip5wnib34cMdRbaGBr+K5qy4sk4yh8O
+	NFrsqOETPbdiXGGMe0Vd0fpYN/ePzP5jyrib9kLG+IGcd4jWRnYXr3rVawYw5UxsQ4Jgjsvrie4Dn
+	uqXpN0i03Z+/8knAYEqv8jVZrwHaZOjbvglrA6YTSrA/4VtB4JlT1pbrNv0RoGo3tCKZIk/1x5Be5
+	oec8B/LlRW3FKGsJxVRa/D9RXwxPbT2TIlpegtmE4apT7ZrWiLM8v/OicXbCA0WG1gaE7/Ofvhodl
+	rnE7B8kw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iiGXe-0001E2-EG; Fri, 20 Dec 2019 11:33:58 +0000
+	id 1iiGWv-0000UG-Nv; Fri, 20 Dec 2019 11:33:13 +0000
 Received: from conuserg-08.nifty.com ([210.131.2.75])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iiGWK-00008z-0v
- for linux-mtd@lists.infradead.org; Fri, 20 Dec 2019 11:32:37 +0000
+ id 1iiGWH-000080-DI
+ for linux-mtd@lists.infradead.org; Fri, 20 Dec 2019 11:32:36 +0000
 Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
  [153.142.97.92]) (authenticated)
- by conuserg-08.nifty.com with ESMTP id xBKBW2Ww010984;
- Fri, 20 Dec 2019 20:32:06 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com xBKBW2Ww010984
+ by conuserg-08.nifty.com with ESMTP id xBKBW2Wx010984;
+ Fri, 20 Dec 2019 20:32:07 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com xBKBW2Wx010984
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1576841527;
- bh=ebkAQxjiSXSHSZJ50xrvpwnSGWgbaQckYjuIVK7i+/s=;
+ s=dec2015msa; t=1576841528;
+ bh=my3TOmqDy5To4BV9jpt+Keyp543Zjs/fVShQ11GouiE=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=q9tqyp34bhuaZ8GMgUE6ux1iJpphWD4rLGw+wcOCE6Rmvg9RsG2iADpLVJq23mfEH
- EKszhamf4xolnnBF9Tk0a1T51iAqU7ozV67syYV0bhjRgOZwTMjiD0uz+7A+MPhhsd
- KrNKu4L6JeP8gJk9W68BijvkwYfn1N2tSDJ6Ul2f/pwakP53oMZNTbpVpNwOqV6p/6
- y7dDFdFHv6qW4DFaiwqtHxF1OQI+s13YiYpijQCjUGiIpkuxxZJBdcYiUOL9n5csuR
- v//dM1ziup0I4YKIn1nhiMEdKFJWrNuyJeEgzyplbWpUZgmdZ2cLmL3Vzuf8uALnPo
- oFqGr1ohj2VOw==
+ b=GrQ/g5y07vaA+qagWKN4ACyos7dSCu3OP+vo82RhtqmGC1SD66KHa/mcr8g6AdmZD
+ vP+JYrQRNB8tyQa/GHNiy9PMwjfoj/Hs9CPu4RWQke/JbJFvCGMyDPnhbJYPkxZ2Gt
+ ENEHjS6//KSTMqGFmWPEyG3eR9ZdfYuJ53QCoVVuYGEUFNJHPXviwjpP0809uJLJRE
+ GURkaFBN915RVcg5jgbh6wctnpTXPcte0qNUnvt/AlsXcKFXUDO71gXrs0DVL2hk5l
+ nALGwybjYsRnFXCiCtaa/L1H7NkXK6e/ppcT8MfY7j5shzl0e3h1kpLlI4hH3B4qck
+ o4tEkPUQPE64A==
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <yamada.masahiro@socionext.com>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH v3 3/5] dt-bindings: mtd: denali_dt: document reset property
-Date: Fri, 20 Dec 2019 20:31:53 +0900
-Message-Id: <20191220113155.28177-4-yamada.masahiro@socionext.com>
+Subject: [PATCH v3 4/5] mtd: rawnand: denali_dt: add reset controlling
+Date: Fri, 20 Dec 2019 20:31:54 +0900
+Message-Id: <20191220113155.28177-5-yamada.masahiro@socionext.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20191220113155.28177-1-yamada.masahiro@socionext.com>
 References: <20191220113155.28177-1-yamada.masahiro@socionext.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191220_033236_287266_C2A4AC15 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191220_033233_774451_970A329C 
+X-CRM114-Status: GOOD (  18.23  )
 X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (1.0 points)
@@ -75,12 +74,11 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Marek Vasut <marex@denx.de>, Mark Rutland <mark.rutland@arm.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
+Cc: Marek Vasut <marex@denx.de>, Vignesh Raghavendra <vigneshr@ti.com>,
  Masahiro Yamada <yamada.masahiro@socionext.com>,
  Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
  Ley Foon Tan <ley.foon.tan@intel.com>, Dinh Nguyen <dinguyen@kernel.org>,
- devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  Miquel Raynal <miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
@@ -95,55 +93,150 @@ this IP has two reset signals.
   reg_rst_n: reset all FFs in the register interface, and in the
              initialization sequencer
 
-This commit specifies these reset signals.
+This commit supports controlling those reset signals.
 
 It is possible to control them separately from the IP point of view
 although they might be often tied up together in actual SoC integration.
 
-At least for the upstream platforms, Altera/Intel SOCFPGA and Socionext
-UniPhier, the reset controller seems to provide only 1-bit control for
-the NAND controller. If it is the case, the resets property should
-reference to the same phandles for "nand" and "reg" resets, like this:
+The IP spec says, asserting only the reg_rst_n without asserting rst_n
+will cause unpredictable behavior in the controller. So, the driver
+deasserts ->rst_reg and ->rst in this order.
 
-    resets = <&nand_rst>, <&nand_rst>;
-    reset-names = "nand", "reg";
+Another thing that should be kept in mind is the automated initialization
+sequence (a.k.a. 'bootstrap' process) is kicked off when reg_rst_n is
+deasserted.
+
+When the reset is deasserted, the controller issues a RESET command
+to the chip select 0, and attempts to read out the chip ID, and further
+more, ONFI parameters if it is an ONFI-compliant device. Then, the
+controller sets up the relevant registers based on the detected
+device parameters.
+
+This process might be useful for tiny boot firmware, but is redundant
+for Linux Kernel because nand_scan_ident() probes devices and sets up
+parameters accordingly. Rather, this hardware feature is annoying
+because it ends up with misdetection due to bugs.
+
+So, commit 0615e7ad5d52 ("mtd: nand: denali: remove Toshiba and Hynix
+specific fixup code") changed the driver to not rely on it.
+
+However, there is no way to prevent it from running. The IP provides
+the 'bootstrap_inhibit_init' port to suppress this sequence, but it is
+usually out of software control, and dependent on SoC implementation.
+As for the Socionext UniPhier platform, LD4 always enables it. For the
+later SoCs, the bootstrap sequence runs depending on the boot mode.
+
+I added usleep_range() to make the driver wait until the sequence
+finishes. Otherwise, the driver would fail to detect the chip due
+to the race between the driver and hardware-controlled sequence.
 
 Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
-Acked-by: Rob Herring <robh@kernel.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
 
 Changes in v3: None
 Changes in v2:
-  - Split into two patches
+ - Split into two patches
 
- Documentation/devicetree/bindings/mtd/denali-nand.txt | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/mtd/nand/raw/denali_dt.c | 40 +++++++++++++++++++++++++++++++-
+ 1 file changed, 39 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/mtd/denali-nand.txt b/Documentation/devicetree/bindings/mtd/denali-nand.txt
-index b32aed1db46d..98916a84bbf6 100644
---- a/Documentation/devicetree/bindings/mtd/denali-nand.txt
-+++ b/Documentation/devicetree/bindings/mtd/denali-nand.txt
-@@ -14,6 +14,11 @@ Required properties:
-     interface clock, and the ECC circuit clock.
-   - clock-names: should contain "nand", "nand_x", "ecc"
+diff --git a/drivers/mtd/nand/raw/denali_dt.c b/drivers/mtd/nand/raw/denali_dt.c
+index 699255fb2dd8..f08740ae282b 100644
+--- a/drivers/mtd/nand/raw/denali_dt.c
++++ b/drivers/mtd/nand/raw/denali_dt.c
+@@ -6,6 +6,7 @@
+  */
  
-+Optional properties:
-+  - resets: may contain phandles to the controller core reset, the register
-+    reset
-+  - reset-names: may contain "nand", "reg"
+ #include <linux/clk.h>
++#include <linux/delay.h>
+ #include <linux/err.h>
+ #include <linux/io.h>
+ #include <linux/ioport.h>
+@@ -14,6 +15,7 @@
+ #include <linux/of.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
++#include <linux/reset.h>
+ 
+ #include "denali.h"
+ 
+@@ -22,6 +24,8 @@ struct denali_dt {
+ 	struct clk *clk;	/* core clock */
+ 	struct clk *clk_x;	/* bus interface clock */
+ 	struct clk *clk_ecc;	/* ECC circuit clock */
++	struct reset_control *rst;	/* core reset */
++	struct reset_control *rst_reg;	/* register reset */
+ };
+ 
+ struct denali_dt_data {
+@@ -157,6 +161,14 @@ static int denali_dt_probe(struct platform_device *pdev)
+ 	if (IS_ERR(dt->clk_ecc))
+ 		return PTR_ERR(dt->clk_ecc);
+ 
++	dt->rst = devm_reset_control_get_optional_shared(dev, "nand");
++	if (IS_ERR(dt->rst))
++		return PTR_ERR(dt->rst);
 +
- Sub-nodes:
-   Sub-nodes represent available NAND chips.
++	dt->rst_reg = devm_reset_control_get_optional_shared(dev, "reg");
++	if (IS_ERR(dt->rst_reg))
++		return PTR_ERR(dt->rst_reg);
++
+ 	ret = clk_prepare_enable(dt->clk);
+ 	if (ret)
+ 		return ret;
+@@ -172,10 +184,30 @@ static int denali_dt_probe(struct platform_device *pdev)
+ 	denali->clk_rate = clk_get_rate(dt->clk);
+ 	denali->clk_x_rate = clk_get_rate(dt->clk_x);
  
-@@ -46,6 +51,8 @@ nand: nand@ff900000 {
- 	reg-names = "nand_data", "denali_reg";
- 	clocks = <&nand_clk>, <&nand_x_clk>, <&nand_ecc_clk>;
- 	clock-names = "nand", "nand_x", "ecc";
-+	resets = <&nand_rst>, <&nand_reg_rst>;
-+	reset-names = "nand", "reg";
- 	interrupts = <0 144 4>;
+-	ret = denali_init(denali);
++	/*
++	 * Deassert the register reset, and the core reset in this order.
++	 * Deasserting the core reset while the register reset is asserted
++	 * will cause unpredictable behavior in the controller.
++	 */
++	ret = reset_control_deassert(dt->rst_reg);
+ 	if (ret)
+ 		goto out_disable_clk_ecc;
  
- 	nand@0 {
++	ret = reset_control_deassert(dt->rst);
++	if (ret)
++		goto out_assert_rst_reg;
++
++	/*
++	 * When the reset is deasserted, the initialization sequence is kicked
++	 * (bootstrap process). The driver must wait until it finished.
++	 * Otherwise, it will result in unpredictable behavior.
++	 */
++	usleep_range(200, 1000);
++
++	ret = denali_init(denali);
++	if (ret)
++		goto out_assert_rst;
++
+ 	for_each_child_of_node(dev->of_node, np) {
+ 		ret = denali_dt_chip_init(denali, np);
+ 		if (ret) {
+@@ -190,6 +222,10 @@ static int denali_dt_probe(struct platform_device *pdev)
+ 
+ out_remove_denali:
+ 	denali_remove(denali);
++out_assert_rst:
++	reset_control_assert(dt->rst);
++out_assert_rst_reg:
++	reset_control_assert(dt->rst_reg);
+ out_disable_clk_ecc:
+ 	clk_disable_unprepare(dt->clk_ecc);
+ out_disable_clk_x:
+@@ -205,6 +241,8 @@ static int denali_dt_remove(struct platform_device *pdev)
+ 	struct denali_dt *dt = platform_get_drvdata(pdev);
+ 
+ 	denali_remove(&dt->controller);
++	reset_control_assert(dt->rst);
++	reset_control_assert(dt->rst_reg);
+ 	clk_disable_unprepare(dt->clk_ecc);
+ 	clk_disable_unprepare(dt->clk_x);
+ 	clk_disable_unprepare(dt->clk);
 -- 
 2.17.1
 
