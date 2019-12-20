@@ -2,67 +2,66 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E8BA612785B
-	for <lists+linux-mtd@lfdr.de>; Fri, 20 Dec 2019 10:39:20 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B5611127A02
+	for <lists+linux-mtd@lfdr.de>; Fri, 20 Dec 2019 12:33:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vjtcTkrxFlal2p+GYBGQS+uR1hvQ1abfEZsyNj3xJIg=; b=AgEwT/akd9Roh1
-	eFJFw51vHr9FS3NwqjsRE58pKHMX52gylrW1OrKJfUPQ9MnHE/mu6M9YbFCD8ftdeQVgClY2mHTvW
-	0XjtnrzBGMnJPGN3FWT+Jp49vhOdgjpG3Ht3BRyRSboikJEG47O0Phl2q4UJsOe8k/ev0emmrszw+
-	6x5/XYlRiDktcQwMuJpKDgmRkqTZaGvCL8ctEkBk44APiPSObbDQlNwQ9gAV8XID34UsZlvk8CkxB
-	60ciHIE3oABTmS4Qta4g+LSuQVljKcgXYQG9rPQJfYfKc/0woEhiEAHgIELfB664FuqNHpFVOTeTM
-	palv1DcqJKdmQV6XxZ6g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=lDRr4KaoGTxZbl9xiSnyrh+6Ix10XVfFZSaKs5fnewg=; b=X3X
+	AJRL7VBmDBYCY7GGQwr9G2VxcI6EscWujaSTh0XIpYbTYJm/gm3G7e4dvi6XC+/VLVhYvwZY4DAzu
+	F7c9yUESDrth/aZU/VRG0i/7LYiFM061D/h1S0DNnYbImMIPteywKzmYK3wG+0KhCLuOLcvAwxoFa
+	hZPWrriFTeUJdKrvdz0t50A+pnU+6oEccXG9JjATshkaPuHv1ya5fiSitRFA6TXRqAB6FRnY7YMtC
+	djE89T+B6s94rSi7zLRL6MVVleyK4MQxEGPTmrky8Wzy6jjGHCejUlY0IZ9uRN+T6HOAq/9KsK158
+	gJ6Ek2U/WrSs9QAbgoYF3l+1tjDcx9Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iiEke-0002wX-Aq; Fri, 20 Dec 2019 09:39:16 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1iiGXL-000107-Ru; Fri, 20 Dec 2019 11:33:39 +0000
+Received: from conuserg-08.nifty.com ([210.131.2.75])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iiEkW-0002w4-Pk
- for linux-mtd@lists.infradead.org; Fri, 20 Dec 2019 09:39:10 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 47fNx60pyDz1qqxj;
- Fri, 20 Dec 2019 10:39:06 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 47fNx575dFz1rYZJ;
- Fri, 20 Dec 2019 10:39:05 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id mAiMHp691h1a; Fri, 20 Dec 2019 10:39:04 +0100 (CET)
-X-Auth-Info: /OjfFk9qEdMWF1ehyaoj67Cfalvz8DHUCDXYqMflBzI=
-Received: from desktop.lan (ip-86-49-35-8.net.upcbroadband.cz [86.49.35.8])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Fri, 20 Dec 2019 10:39:04 +0100 (CET)
-From: Marek Vasut <marex@denx.de>
+ id 1iiGWJ-00008v-4e
+ for linux-mtd@lists.infradead.org; Fri, 20 Dec 2019 11:32:36 +0000
+Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
+ [153.142.97.92]) (authenticated)
+ by conuserg-08.nifty.com with ESMTP id xBKBW2Wt010984;
+ Fri, 20 Dec 2019 20:32:02 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-08.nifty.com xBKBW2Wt010984
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+ s=dec2015msa; t=1576841524;
+ bh=6jBixM0kD4Z6TDatL5XzWOLAsBsJ6q5AmXiipGKg7PA=;
+ h=From:To:Cc:Subject:Date:From;
+ b=t7uLCHPmhCDjQn2UH113INPsymuwdIgQQTb39RAQ1PqTNqSC2PTZ/t4Csuu5m0B8z
+ 4oBITna0r3DfIq/t5cPhKmOeheC01CPYRtRjnDm6wxn2URSunjeAMLk6j+39bV9N8y
+ 79IsNPODMx3zCBIQmIzHm9cq7OOma3vPk8XCWprq+YWKXWZ8xkScJaOZrJC34aK7px
+ k3mGZXNBKBoCIRFssKJw1fMStrcFNaAUco1EoyEj2YVJLqiRrTTghUanFkFiNxas6/
+ /hoyonHHTuXuBxYnnqcq/KJQRX5L2kdJZ+m0ksdWNorOhyQmbysKIZp3xBhIBf5klr
+ dC1bLDbhkNIXA==
+X-Nifty-SrcIP: [153.142.97.92]
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH V2] mtd: rawnand: denali_dt: Add support for configuring
- SPARE_AREA_SKIP_BYTES
-Date: Fri, 20 Dec 2019 10:39:00 +0100
-Message-Id: <20191220093900.1855751-1-marex@denx.de>
-X-Mailer: git-send-email 2.24.1
-MIME-Version: 1.0
+Subject: [PATCH v3 0/5] mtd: rawnand: denali: a bungle of denali patches that
+ is cleanly applicable
+Date: Fri, 20 Dec 2019 20:31:50 +0900
+Message-Id: <20191220113155.28177-1-yamada.masahiro@socionext.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191220_013909_139135_73CD386B 
-X-CRM114-Status: GOOD (  19.14  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20191220_033235_426604_3CE5A0A2 
+X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (1.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.18.0.9 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [210.131.2.75 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [212.18.0.9 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,121 +73,50 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Marek Vasut <marex@denx.de>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>,
+Cc: Marek Vasut <marex@denx.de>, Mark Rutland <mark.rutland@arm.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>,
  Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
+ Ley Foon Tan <ley.foon.tan@intel.com>, Dinh Nguyen <dinguyen@kernel.org>,
+ devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
  Miquel Raynal <miquel.raynal@bootlin.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The SPARE_AREA_SKIP_BYTES register is reset when the controller reset
-signal is toggled. Yet, this register must be configured to match the
-content of the NAND OOB area. The current default value is always set
-to 8 and is programmed into the hardware in case the hardware was not
-programmed before (e.g. in a bootloader) with a different value. This
-however does not work when the block is reset properly by Linux.
+Some Denali driver patches are flying in ML.
 
-On Altera SoCFPGA CycloneV, ArriaV and Arria10, which are the SoCFPGA
-platforms which support booting from NAND, the SPARE_AREA_SKIP_BYTES
-value must be set to 2. On Socionext Uniphier, the value is 8. This
-patch adds support for preconfiguring the default value and handles
-the special SoCFPGA case by setting the default to 2 on all SoCFPGA
-platforms, while retaining the original behavior and default value of
-8 on all the other platforms.
+The recently re-submitted patch
+http://patchwork.ozlabs.org/patch/1213986/
 
-Signed-off-by: Marek Vasut <marex@denx.de>
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-To: linux-mtd@lists.infradead.org
-Reviewed-by: Tudor Ambarus <tudor.ambarus@microchip.com>
----
-V2: Move denali->oob_skip_bytes = data->oob_skip_bytes; right after
-    of_device_get_match_data()
----
- drivers/mtd/nand/raw/denali.c    | 13 ++++++++++---
- drivers/mtd/nand/raw/denali_dt.c |  5 +++++
- 2 files changed, 15 insertions(+), 3 deletions(-)
+... caused a conflict with:
+http://patchwork.ozlabs.org/patch/1205912/
 
-diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
-index 3102ddbd8abdb..b6c463d021677 100644
---- a/drivers/mtd/nand/raw/denali.c
-+++ b/drivers/mtd/nand/raw/denali.c
-@@ -1302,14 +1302,21 @@ int denali_init(struct denali_controller *denali)
- 
- 	/*
- 	 * Set how many bytes should be skipped before writing data in OOB.
-+	 * If a non-zero value has already been configured, update it in HW.
- 	 * If a non-zero value has already been set (by firmware or something),
- 	 * just use it. Otherwise, set the driver's default.
- 	 */
--	denali->oob_skip_bytes = ioread32(denali->reg + SPARE_AREA_SKIP_BYTES);
--	if (!denali->oob_skip_bytes) {
--		denali->oob_skip_bytes = DENALI_DEFAULT_OOB_SKIP_BYTES;
-+	if (denali->oob_skip_bytes) {
- 		iowrite32(denali->oob_skip_bytes,
- 			  denali->reg + SPARE_AREA_SKIP_BYTES);
-+	} else {
-+		denali->oob_skip_bytes =
-+			ioread32(denali->reg + SPARE_AREA_SKIP_BYTES);
-+		if (!denali->oob_skip_bytes) {
-+			denali->oob_skip_bytes = DENALI_DEFAULT_OOB_SKIP_BYTES;
-+			iowrite32(denali->oob_skip_bytes,
-+				  denali->reg + SPARE_AREA_SKIP_BYTES);
-+		}
- 	}
- 
- 	iowrite32(0, denali->reg + TRANSFER_SPARE_REG);
-diff --git a/drivers/mtd/nand/raw/denali_dt.c b/drivers/mtd/nand/raw/denali_dt.c
-index 8b779a899dcf4..443f9c1f6854d 100644
---- a/drivers/mtd/nand/raw/denali_dt.c
-+++ b/drivers/mtd/nand/raw/denali_dt.c
-@@ -27,6 +27,7 @@ struct denali_dt {
- struct denali_dt_data {
- 	unsigned int revision;
- 	unsigned int caps;
-+	unsigned int oob_skip_bytes;
- 	const struct nand_ecc_caps *ecc_caps;
- };
- 
-@@ -34,6 +35,7 @@ NAND_ECC_CAPS_SINGLE(denali_socfpga_ecc_caps, denali_calc_ecc_bytes,
- 		     512, 8, 15);
- static const struct denali_dt_data denali_socfpga_data = {
- 	.caps = DENALI_CAP_HW_ECC_FIXUP,
-+	.oob_skip_bytes = 2,
- 	.ecc_caps = &denali_socfpga_ecc_caps,
- };
- 
-@@ -42,6 +44,7 @@ NAND_ECC_CAPS_SINGLE(denali_uniphier_v5a_ecc_caps, denali_calc_ecc_bytes,
- static const struct denali_dt_data denali_uniphier_v5a_data = {
- 	.caps = DENALI_CAP_HW_ECC_FIXUP |
- 		DENALI_CAP_DMA_64BIT,
-+	.oob_skip_bytes = 8,
- 	.ecc_caps = &denali_uniphier_v5a_ecc_caps,
- };
- 
-@@ -51,6 +54,7 @@ static const struct denali_dt_data denali_uniphier_v5b_data = {
- 	.revision = 0x0501,
- 	.caps = DENALI_CAP_HW_ECC_FIXUP |
- 		DENALI_CAP_DMA_64BIT,
-+	.oob_skip_bytes = 8,
- 	.ecc_caps = &denali_uniphier_v5b_ecc_caps,
- };
- 
-@@ -122,6 +126,7 @@ static int denali_dt_probe(struct platform_device *pdev)
- 		denali->revision = data->revision;
- 		denali->caps = data->caps;
- 		denali->ecc_caps = data->ecc_caps;
-+		denali->oob_skip_bytes = data->oob_skip_bytes;
- 	}
- 
- 	denali->dev = dev;
+Instead of discussing "who should rebase his patch" again,
+I offer to rebase and tidy up all the patches in a series
+(if useful for the NAND maintainer).
+
+
+Marek Vasut (1):
+  mtd: rawnand: denali_dt: Add support for configuring
+    SPARE_AREA_SKIP_BYTES
+
+Masahiro Yamada (4):
+  mtd: rawnand: denali_dt: error out if platform has no associated data
+  dt-bindings: mtd: denali_dt: document reset property
+  mtd: rawnand: denali_dt: add reset controlling
+  mtd: rawnand: denali: remove hard-coded DENALI_DEFAULT_OOB_SKIP_BYTES
+
+ .../devicetree/bindings/mtd/denali-nand.txt   |  7 +++
+ drivers/mtd/nand/raw/denali.c                 | 14 ++---
+ drivers/mtd/nand/raw/denali_dt.c              | 56 +++++++++++++++++--
+ 3 files changed, 64 insertions(+), 13 deletions(-)
+
 -- 
-2.24.1
+2.17.1
 
 
 ______________________________________________________
