@@ -2,91 +2,148 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71F11129F5B
-	for <lists+linux-mtd@lfdr.de>; Tue, 24 Dec 2019 09:46:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AA546129F82
+	for <lists+linux-mtd@lfdr.de>; Tue, 24 Dec 2019 10:02:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tKj4Hz+h5B3D67BKN7RiMxxZQl5CUfMab9FzHkRDvqk=; b=O3ragaFSK4uF2/
-	EXu6+REayCTALr3LuhGBC9lboHEM1XhgdizsCdFJFECeY0pICUWEQTzNfoxqgy2l9F5tWR5dTo3Yl
-	Z9FkddNi0s0FZLTyFIAK60muLCWs/zv4hcy9vKGagCvTdLCXDYGZMxVc+JbH5Z7za1Ul7/eDFqc/p
-	6icEB1KPO5hwJcDyBW2/yFdGYpgBO/iwQSB2xXkEpzOnumgSy2aAIC+LamME/RDiyEf5VC79IjnUk
-	Q5fCgnFqgtvRZBlb/wIMuZUXHo7You/VoNNe3ZE0BzRHMvBu9i7T74Htn4SHs9eivRluOjuQdpBPy
-	YPzzdiHvwOdKfB9GcoCg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Hg5o0d2RsI/i0a+escwQAolQO+fYvCPHRgtax66NTtw=; b=Odd9xTtE+L9fzK
+	DRnflQ/WOdkhXnj6lQeUdQYob7HGCi9jMGQ+98ZTNQloc/XdYNT2i8NO9PXJnLej3nw3OBKSNrUyo
+	NHA/naq1bQR+DxrTcKlPoACySNgV3rwesJBioEhz8hbJq839MQ0d7LAowVqYaW5O9fnMRmx74B3EZ
+	GID8z7S4UOQ25kFKnVWK5nDy28Wlr1Jid/IShzi61JRqznIxixXSJj5zHIi0aMnyqIHIjaIqkspuN
+	dQ+L+9sKI4AeYZ5nI/pvnC8SDthrTPG1AvIEgzGX990zO/cZ0PocjM9nn+55mbx1Q3zFzxPG2UnUa
+	eAyjmfbH0X2xFSRMcXbQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ijfpS-000482-7j; Tue, 24 Dec 2019 08:46:10 +0000
-Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
+	id 1ijg5G-0000bs-H6; Tue, 24 Dec 2019 09:02:30 +0000
+Received: from esa6.microchip.iphmx.com ([216.71.154.253])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ijfpI-00045p-B2
- for linux-mtd@lists.infradead.org; Tue, 24 Dec 2019 08:46:02 +0000
-Received: by mail-io1-xd41.google.com with SMTP id t26so18536628ioi.13
- for <linux-mtd@lists.infradead.org>; Tue, 24 Dec 2019 00:45:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=LcGU1mt+nAQIi3eKcWZpiy7DqrkNG23tK1MNYV9CB+M=;
- b=oSNTlT55S3VMpFl+4fySqC3u4YoAoztGfoVSP3wFAPYFWsXQI1giXiHsJxeVgA8wKV
- hwULOTryEx3lBfxk63gUH81C2gQlAZlpm+aJQe+/8QTFExYby4VXgAHOExxmkLh2JtdG
- TiTDoeJwiEsRsob2+npOsu1HTE5l3KD8qzz/VgAKRx1Duv9MQ59SrgwEmUHNA+ZhhElO
- FLyTrc29L41ygHkbyLYW+d4tggvOE/k3tBa1QgwGaKmT05FNAOOQsBLQoIO1VpMQ67Vd
- aruBW7fco12liiTMGrdJ76u//KWiZN1ELjv5lB+Lg5aB3LosSk3HmcjI9v9Dl0cnEnaF
- MVfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=LcGU1mt+nAQIi3eKcWZpiy7DqrkNG23tK1MNYV9CB+M=;
- b=swExb+hr3he3YkOC96nMJxlluhzqBjnhrr3w2LTmIQGbzYlKEzzkBfvm3JOxDsRJSQ
- GwTFskdgiYQIJqsc8WwfGTGXlZSqJoXu3uRLyUR+4J8spy5PIbtg7StoC6zMdojAJaX6
- c4lIubqAT7bWCr9aVQNy5lfDXxBuT7kBezk9OQDU4f/ZDDod/as6h4/Ak93BKWR5L2CW
- hwzM0N/GsCe/6jMyh4NgZRQC6XyOXEUBUwCuTul8+uR1ms4Bdtvxh7eHP6ZSnGHNSLTO
- uGdOcQpUibLqLP2x5MdLnOBAbIskMJNeM7+Lutjn3VnNCy734eTYTBJOVTr7NS7YJMRr
- TqkQ==
-X-Gm-Message-State: APjAAAWa4qmjxHiJyNzDwoRKVx67gH2uT5hldECts1fA8N2cVOzcztwW
- y/3lHTbL03fn20AC1z47CM8tv0PnNcwwbhLhQAQ=
-X-Google-Smtp-Source: APXvYqzDXPiusXd90IvAVlyEbeO6jCMdOyb5CPbz+Z0EDnXal3aG8RcvJ2u/hlIr8XoTCaRoauJNJKQwlLXTh0fOni4=
-X-Received: by 2002:a5d:9158:: with SMTP id y24mr4336955ioq.298.1577177159339; 
- Tue, 24 Dec 2019 00:45:59 -0800 (PST)
+ id 1ijg4n-0000PB-2S
+ for linux-mtd@lists.infradead.org; Tue, 24 Dec 2019 09:02:04 +0000
+Received-SPF: Pass (esa6.microchip.iphmx.com: domain of
+ Tudor.Ambarus@microchip.com designates 198.175.253.82 as
+ permitted sender) identity=mailfrom;
+ client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="Tudor.Ambarus@microchip.com";
+ x-conformance=spf_only; x-record-type="v=spf1";
+ x-record-text="v=spf1 mx a:ushub1.microchip.com
+ a:smtpout.microchip.com -exists:%{i}.spf.microchip.iphmx.com
+ include:servers.mcsv.net include:mktomail.com
+ include:spf.protection.outlook.com ~all"
+Received-SPF: None (esa6.microchip.iphmx.com: no sender
+ authenticity information available from domain of
+ postmaster@email.microchip.com) identity=helo;
+ client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
+Authentication-Results: esa6.microchip.iphmx.com;
+ spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
+ spf=None smtp.helo=postmaster@email.microchip.com;
+ dkim=pass (signature verified) header.i=@microchiptechnology.onmicrosoft.com;
+ dmarc=pass (p=none dis=none) d=microchip.com
+IronPort-SDR: qxJb/OAdiR1eseeon1RUWbTVe9zML1gPHAf4byi9y+IP1vBWkzuX4KVu7JUWuPsCWyrACyfloQ
+ a/l232DbPeYjy5XU5PthasbIa1FWnxaPA4a9VIA0lVKsMi3sAsJyvo5MOTb9y94H4eTs+QtvJD
+ y/Q/KglI26ZMN6hzDi1brAf8iuNHGTt+X5fWY2Zcu0Hs4zpElPV1LeiJsOcw16Qa+k51giMUbX
+ Ay2bkStf3tFPtPme4oqT9sUhSIgYjL1m2zq76Lj6jFmErN7CMe/qp0cBKxD6fxjpnoSf7pcly0
+ FXU=
+X-IronPort-AV: E=Sophos;i="5.69,351,1571727600"; d="scan'208";a="58830916"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 24 Dec 2019 02:01:57 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Tue, 24 Dec 2019 02:01:57 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
+ via Frontend Transport; Tue, 24 Dec 2019 02:01:57 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=h+PVpumwbbKjSOuTRj4SCn5hCpLu/YoZkt4mxCPLooz3kQreUp+6/iSdYufCTURPMxpj0Pd7yNU9s+otTEt+f2Cb72DdrufIIevXiN4SC++Uc+VJPrdW63qa+YqRfXxwrx9War0GVuIKwrtRyCcDQlXepxjm7nwRUGk97S1cWpZtRCsVV4Z14bDSGir2DaZsUlXtWWOA/2nkK8v3WbTqx21d5xseChtKG/3yqsQ2EMAouFA9Bd8TZF4mpp3qcL5+Li4CPKMlZZay9BYLHISZEtTENzjnc5/W825Y3Of1zbdR/7MDr2vyla22+4yvoukBGoG17/3UuO81boL0KOs1vQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HA5Nca4LINlal1NSZOkooEBjg0aAxlzIT+rkPGGcwn0=;
+ b=nKma+uIKrN1aePw6OCGtRKHzumcdoxmlDslHEYsHYh+YoRun36WTOTDui0X/7OawVexklxRgpjLQU4Gv8a/nShhoO961l5sDDTHwaHsvbFUhM1Qyn1iHiAeKYkzx3EMa5m1qK6UoS7nJrjpod6n+nNa0YdYGvGBV3NwEJsdtHoTXzynhvlg22LLahdvjbrlf7/LqPgQlN8amhYtqNuPLmkrrKagNqt8LqP5xj3+V42HF/FiUDVpLOzfnIlft0vVJFXC9wdXDAuqTcAYFgmTh5TXsXWA7V//cGGcxNb9+ZE7wvlwA2uHKMQlVe4UNs5rRgES8g1Sy2E8KsGw4tPncIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HA5Nca4LINlal1NSZOkooEBjg0aAxlzIT+rkPGGcwn0=;
+ b=tgQYA+KVx5DLChAgw8L/ZIbXq5hiUkseSvBNLlZGx6hRCda/JPd6UaGqSrh50bDk0Nob7+EMl7y7BGHNaNMrqUrzykJvyrDPr4MjicOZtI2EJFJJl5uXAcyz78VT4NalvMsElHEmB5zJ7jHyyRrDlEbgPqReCyIv1Ol4czoHfYg=
+Received: from MN2PR11MB4448.namprd11.prod.outlook.com (52.135.39.157) by
+ MN2PR11MB4141.namprd11.prod.outlook.com (20.179.151.21) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2559.14; Tue, 24 Dec 2019 09:01:56 +0000
+Received: from MN2PR11MB4448.namprd11.prod.outlook.com
+ ([fe80::71cc:a5d4:8e1a:198b]) by MN2PR11MB4448.namprd11.prod.outlook.com
+ ([fe80::71cc:a5d4:8e1a:198b%7]) with mapi id 15.20.2559.017; Tue, 24 Dec 2019
+ 09:01:56 +0000
+From: <Tudor.Ambarus@microchip.com>
+To: <robimarko@gmail.com>, <miquel.raynal@bootlin.com>, <richard@nod.at>,
+ <vigneshr@ti.com>, <linux-mtd@lists.infradead.org>
+Subject: Re: [PATCH] mtd: spi-nor: Add 4B_OPCODES flag to w25q256
+Thread-Topic: [PATCH] mtd: spi-nor: Add 4B_OPCODES flag to w25q256
+Thread-Index: AQHVujjKp5CZAC54iEGscRsOtnR5+w==
+Date: Tue, 24 Dec 2019 09:01:55 +0000
+Message-ID: <1f7332ed-d439-39ef-e825-c042ed863e1d@microchip.com>
+References: <20191116161656.13973-1-robimarko@gmail.com>
+In-Reply-To: <20191116161656.13973-1-robimarko@gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [86.122.210.80]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8202c1ee-1873-4df0-907a-08d7884fed56
+x-ms-traffictypediagnostic: MN2PR11MB4141:
+x-microsoft-antispam-prvs: <MN2PR11MB4141E76524126ED68D4C70C4F0290@MN2PR11MB4141.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:843;
+x-forefront-prvs: 0261CCEEDF
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10009020)(39860400002)(366004)(376002)(346002)(136003)(396003)(189003)(199004)(316002)(81166006)(81156014)(110136005)(31686004)(8676002)(186003)(2616005)(6506007)(6486002)(26005)(53546011)(66556008)(64756008)(66446008)(66476007)(86362001)(76116006)(91956017)(6512007)(66946007)(36756003)(71200400001)(2906002)(4744005)(31696002)(478600001)(8936002)(5660300002);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR11MB4141;
+ H:MN2PR11MB4448.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: microchip.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: Nn3xa2w1Ts0GjXkZr8vlzXk6ZwetICbvX4N73LjNx4ohW76NulUEuItvSC2Vs9I8lHma9w12TKXEyJTH0DdsW30ojgd7rxmexpILBh6C/Rk48gapI5leMSNGfWTzE3RcWfHpMwE4taAuw9IgvsYanbgzmsAzYlD/BQD1Ds59LyMXKUP+ZHD+wvs6qBlvL8WWShUwSDMhyOePkzXOM0mQEcWGxLldoq6yr5aRmLMU/9zuWbsovXZ+hQMqgZhB82HiJUTbDTguZgAW1rr2s4O0YHGudx7KQxm9/xMyTNc3fpOv867/TeB2WD8S78DBMYPmGwERW10+31UPneCbYa6NtBnkU9KvKda17AG0xUEsegCs6DK/aJsVD2I/Yxyp6RsAhEfPl8c6LsmS7pBx47WMW9UBXfKETqEkwqb3gcH6NAd3wfeyp3FH814iHk8N5LpK
+x-ms-exchange-transport-forked: True
+Content-ID: <7A1241FB791F924185E2F81BA0FE7F14@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Received: by 2002:ac0:f302:0:0:0:0:0 with HTTP; Tue, 24 Dec 2019 00:45:58
- -0800 (PST)
-From: Beth Nat <clementidibia1960@gmail.com>
-Date: Tue, 24 Dec 2019 08:45:58 +0000
-Message-ID: <CAEG=icH-SN5dpsQRSZpGxr6Zs1qfbZ=LtCEFq=gRxqcGeKyiKw@mail.gmail.com>
-Subject: 
-To: undisclosed-recipients:;
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8202c1ee-1873-4df0-907a-08d7884fed56
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Dec 2019 09:01:56.0312 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EBPF1965MMtMm5DPDBTa4Nt33V52kkuB2mRH49PFYwZxz1EJ6iLreJ92vgkpk2qJdZdXIGSJmKWMuIPks+zr4ktxtiZv2Evq1luAqH9AH00=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191224_004600_409696_4381DE33 
-X-CRM114-Status: UNSURE (  -0.97  )
+X-CRM114-CacheID: sfid-20191224_010201_289233_C993A426 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.3 (+)
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.3 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:d41 listed in]
- [list.dnswl.org]
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit (bethnatividad9[at]gmail.com)
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [216.71.154.253 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (clementidibia1960[at]gmail.com)
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit (clementidibia1960[at]gmail.com)
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,16 +155,28 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: bethnatividad9@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-How are you today my dear? i saw your profile and it interests me, i
-am a Military nurse from USA. Can we be friend? I want to know more
-about you.
 
+
+On 11/16/19 6:16 PM, Robert Marko wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> The w25q256 supports 4-byte opcodes so lets add the flag.
+> 
+> Tested on OpenWrt under 4.19.82 kernel on 8devices Habanero.
+> 
+> Signed-off-by: Robert Marko <robimarko@gmail.com>
+> ---
+>  drivers/mtd/spi-nor/spi-nor.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+
+Patch applied, thanks.
+ta
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
