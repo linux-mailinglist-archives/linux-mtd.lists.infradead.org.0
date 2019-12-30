@@ -2,62 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5223412D250
-	for <lists+linux-mtd@lfdr.de>; Mon, 30 Dec 2019 17:53:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C94B212D24D
+	for <lists+linux-mtd@lfdr.de>; Mon, 30 Dec 2019 17:52:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lq2vsoNwGpOJH3xbjq9VDrfGgdpWLc7toLBIApVWO5A=; b=OGPt5Vba9AeHq4
-	lMoyZo86QjlyciBWy12hLz4fKBUiOOKArP2W4Z5u8WU0M6HkBq2ji9BymrXXcKm3fVG31w61v4FfX
-	IJH7foHBuTG5KfBjhnzlxLZg0p4l84CIk0kxNc6Exp+D5W+Yd38HvMC1Gw5mvPfXxthqldXTws/BM
-	XktMOAnj11xQeuPe14gXos/gaiDAF6L16XdhC76ujPwQo2kP7YsMEnXhvJEkgG8HWE77t33dj/BfL
-	NGvP+BbM7e+WdtirardGwgS4vL5Qirlqec3IgnyxkhAmHboiI3Gl0q1dDXKJLTwNgrg15P+BIQzZN
-	etZ1tzOGdzd6XNDbklQg==;
+	List-Owner; bh=51Rnf9BEVQopdRb8E7708CvXSWyoJyKfdFO40gozuxI=; b=LcNE4wx8HQcsvY
+	lL6CovkN/fwwCUxtPMEIsmCXpKGNliBEpjA8lvHTsd2DWyWqiPrR4Cf5PaD0UInE/ff0o+zZW6qDP
+	h91pZRVIVJ+X7dcytUa2GsfAOiSa+CZZJUGydA75xG+/IXSlZBVJxNrTYHrpWfHnLC/oCsz6P1jDO
+	WC/khZjenk7CVQ4xjl84C4WjTbEC8atL3ikWpNwqkQll6ELlYjV7EMstQes8rSPxURrk7+1fR6KGJ
+	/dgUcYadU2bbKAnOQIGx//JA+iBBAnDdhu56nDVhqdzM9f/FQ0DnDVaDlLF+WltQBdwhfR3kyAxMW
+	rVTa8W2kFcmrP0C5AvXg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ilyIE-0004hV-FA; Mon, 30 Dec 2019 16:53:22 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ilyH4-0003mZ-Vb
- for linux-mtd@bombadil.infradead.org; Mon, 30 Dec 2019 16:52:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:MIME-Version:
- References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
- Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
- List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=W+MwV62ec+xt0270sdQa2QIP0mnR2Qcf/HD0sUHAUhw=; b=m1ShNPPC8JIIpofur8nLjWVOKL
- lN5+BNuzLkFWRVt7TwFQ+9V55ctvDhFmOaTr/uTB+5d7dv1hmijvsAmlqaH4m8eFXkaNvtIUWyV0e
- EpzAWvsLQnBSYg5wiGSZuh4tNYNU2hJrSXbWDiRX4dNp3/2fbQQ63nU6MPYlioiprA1QMKWTGwU8C
- iheJLPkc+2g/GdR+vcbvh/uI4kqpOXTaCC5mxHEZjs1vkgSaQwZHy54qcxnkzI081ov7b39HtqZxI
- oR/MtFHoWgeRYLhfmlTphAlFBYN0M2utn7JP9dHPPQQKkh/9ihl7F4i+AYwTJJEAceTogejlOSMoC
- Yix4IMQg==;
+	id 1ilyHU-0003xZ-2V; Mon, 30 Dec 2019 16:52:36 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
- by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ilyH1-000501-Mp
- for linux-mtd@lists.infradead.org; Mon, 30 Dec 2019 16:52:08 +0000
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1ilyGd-0003J4-GS
+ for linux-mtd@lists.infradead.org; Mon, 30 Dec 2019 16:51:46 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id D9705C0005;
- Mon, 30 Dec 2019 16:51:32 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id D1098C0008;
+ Mon, 30 Dec 2019 16:51:33 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 2/8] mtd: rawnand: Define the "distance 3" MLC pairing scheme
-Date: Mon, 30 Dec 2019 17:51:23 +0100
-Message-Id: <20191230165129.11925-3-miquel.raynal@bootlin.com>
+Subject: [PATCH 3/8] mtd: rawnand: toshiba: Set the pairing scheme for
+ TC58TEG5DCLTA00
+Date: Mon, 30 Dec 2019 17:51:24 +0100
+Message-Id: <20191230165129.11925-4-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191230165129.11925-1-miquel.raynal@bootlin.com>
 References: <20191230165129.11925-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
-X-Spam-Note: CRM114 invocation failed
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20191230_085143_698728_4BF16AD9 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
-X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
+X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
@@ -87,91 +75,31 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Boris Brezillon <boris.brezillon@bootlin.com>
 
-Define a new page pairing scheme for MLC NANDs with a distance of 3
-pages between the lower and upper page.
+TC58TEG5DCLTA00 uses a stride of 3 between its lower and upper page.
+Set the appropriate pairing scheme at init time.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/internals.h |  3 ++
- drivers/mtd/nand/raw/nand_base.c | 50 ++++++++++++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
+ drivers/mtd/nand/raw/nand_toshiba.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
-index cba6fe7dd8c4..8f6fdda681cc 100644
---- a/drivers/mtd/nand/raw/internals.h
-+++ b/drivers/mtd/nand/raw/internals.h
-@@ -74,6 +74,9 @@ extern const struct nand_manufacturer_ops micron_nand_manuf_ops;
- extern const struct nand_manufacturer_ops samsung_nand_manuf_ops;
- extern const struct nand_manufacturer_ops toshiba_nand_manuf_ops;
+diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
+index 9114b96880d7..ed758ff80080 100644
+--- a/drivers/mtd/nand/raw/nand_toshiba.c
++++ b/drivers/mtd/nand/raw/nand_toshiba.c
+@@ -142,8 +142,11 @@ static void toshiba_nand_decode_id(struct nand_chip *chip)
  
-+/* MLC pairing schemes */
-+extern const struct mtd_pairing_scheme dist3_pairing_scheme;
-+
- /* Core functions */
- const struct nand_manufacturer *nand_get_manufacturer(u8 id);
- int nand_bbm_get_next_page(struct nand_chip *chip, int page);
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index f64e3b6605c6..a471f5714cd6 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -205,6 +205,56 @@ static const struct mtd_ooblayout_ops nand_ooblayout_lp_hamming_ops = {
- 	.free = nand_ooblayout_free_lp_hamming,
- };
- 
-+static int nand_pairing_dist3_get_info(struct mtd_info *mtd, int page,
-+				       struct mtd_pairing_info *info)
-+{
-+	int lastpage = (mtd->erasesize / mtd->writesize) - 1;
-+	int dist = 3;
-+
-+	if (page == lastpage)
-+		dist = 2;
-+
-+	if (!page || (page & 1)) {
-+		info->group = 0;
-+		info->pair = (page + 1) / 2;
-+	} else {
-+		info->group = 1;
-+		info->pair = (page + 1 - dist) / 2;
-+	}
-+
-+	return 0;
-+}
-+
-+static int nand_pairing_dist3_get_wunit(struct mtd_info *mtd,
-+					const struct mtd_pairing_info *info)
-+{
-+	int lastpair = ((mtd->erasesize / mtd->writesize) - 1) / 2;
-+	int page = info->pair * 2;
-+	int dist = 3;
-+
-+	if (!info->group && !info->pair)
-+		return 0;
-+
-+	if (info->pair == lastpair && info->group)
-+		dist = 2;
-+
-+	if (!info->group)
-+		page--;
-+	else if (info->pair)
-+		page += dist - 1;
-+
-+	if (page >= mtd->erasesize / mtd->writesize)
-+		return -EINVAL;
-+
-+	return page;
-+}
-+
-+const struct mtd_pairing_scheme dist3_pairing_scheme = {
-+	.ngroups = 2,
-+	.get_info = nand_pairing_dist3_get_info,
-+	.get_wunit = nand_pairing_dist3_get_wunit,
-+};
-+
- static int check_offs_len(struct nand_chip *chip, loff_t ofs, uint64_t len)
+ static int tc58teg5dclta00_init(struct nand_chip *chip)
  {
- 	int ret = 0;
++	struct mtd_info *mtd = nand_to_mtd(chip);
++
+ 	chip->onfi_timing_mode_default = 5;
+ 	chip->options |= NAND_NEED_SCRAMBLING;
++	mtd_set_pairing_scheme(mtd, &dist3_pairing_scheme);
+ 
+ 	return 0;
+ }
 -- 
 2.20.1
 
