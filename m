@@ -2,61 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 484B812D010
-	for <lists+linux-mtd@lfdr.de>; Mon, 30 Dec 2019 13:39:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 52DB812D253
+	for <lists+linux-mtd@lfdr.de>; Mon, 30 Dec 2019 17:53:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+lYQitQljLAkUbuuejVijIZbjBRcSkEnMz2bW+mlzUc=; b=XsMxB9UQbPQtpq
-	Kf2Dskim9scfiwrDXIsQhGuRoXtDfJa6teewH8IQqYfpeYyo8Dgx1xUPJ/jyDkrEP6UZYCefwY6Z0
-	ZsxqRutAoPof3wzY5MRtmh82d+cRGXsSkvDtTfA/1CiitRvGVCw06mdMMdxvBHS6ykzKAdziNLC+g
-	jrdhPt96NMz61HH7Ifdmt1mxlVL2XPXLBOYrxdIWt2BtYoPK5wqxCNOyCNMxHjk5eEv5t0I4Mmi9b
-	Sn2Y4PCI98i/BjANpx96jeunFcwwX2qxPvppJke7aT+AGs+i33rNwGExQUCV8VT+8xECnBcKox5KT
-	5pKtW0/M6tF8ELEwxibQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=baPGQMZK2lWpi5RhkuZiiR/OWp7S8zqSH7ZPsib5gZw=; b=Ygwe6AdYsoourF
+	xQv6KZxb0lx5k6zmHH0tEl3CR+SJKbYWkgwmOriWXT9MCtrYUPpCOlMXEA7nD3BqQ7H6BRKLNZhgf
+	7biwQjqbr4aan6WpLqz1ZQwozN5L2wDlro54lWw88WtRjJyXLVsv54g8XjouS0YRgxkYBV9geEx0F
+	PAZAKUogn5ejxa0reIv8v+CUjARk2Gwo+2S0AqcRTbwVV3xhz0UC5vuMtMyp6tODqSD4awlmtc9Bf
+	ESivPWQO/dyy3Zhv32VikgCQypHHcslXgTSZbrJAAbtTYDY/lP/+yRlfhjGsui5bSq3DFN+/fiSeM
+	RmDrVVDPeWRwDgm0Jmlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iluK0-0001j4-1Y; Mon, 30 Dec 2019 12:38:56 +0000
-Received: from mga18.intel.com ([134.134.136.126])
+	id 1ilyIl-0005DC-VK; Mon, 30 Dec 2019 16:53:55 +0000
+Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iluJp-0001iH-58
- for linux-mtd@lists.infradead.org; Mon, 30 Dec 2019 12:38:46 +0000
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
- by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 30 Dec 2019 04:38:41 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,375,1571727600"; d="scan'208";a="368597928"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
- by orsmga004.jf.intel.com with ESMTP; 30 Dec 2019 04:38:39 -0800
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
- (envelope-from <lkp@intel.com>)
- id 1iluJi-0007xD-M5; Mon, 30 Dec 2019 20:38:38 +0800
-Date: Mon, 30 Dec 2019 20:37:58 +0800
-From: kbuild test robot <lkp@intel.com>
-To: YueHaibing <yuehaibing@huawei.com>
-Subject: Re: [PATCH -next] mtd: rawnand: macronix: Use match_string() helper
- to simplify the code
-Message-ID: <201912302029.5N9R0LjB%lkp@intel.com>
-References: <20191230025217.30812-1-yuehaibing@huawei.com>
+ id 1ilyHB-0003sC-67
+ for linux-mtd@bombadil.infradead.org; Mon, 30 Dec 2019 16:52:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
+ MIME-Version:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=0Jih4qQ9A5oDp59to2utgAc/6bZwD/Gn92WdoGBFDHs=; b=uLN/ft+vK61Zo5NQs4XN8YUEsA
+ P8YzCi1bfwUBNbfHn5TaU0e/A5SCyXZZrxoRzeecT3wLPOs62ADSc1NvZ+DUua/5N0E0v7AtypDhx
+ 7UuK0ZXrVYbM7MgYDjiqmfA30KYku3wBq36oXvA1UUaxtPO6iUo7Le3E5t0u/qunMONf+Lr4IW95t
+ XkLd4RAt3YvdFgQnDwwK9aJ6BJjsOKcE/o8pru/kc8ANXyNzQwSi0Gv8/UafrotQsFT/2cAuhnWu7
+ yKGSIDkrTMbWhLe2fpZdI6WdX2QnJbQF9m95FOpFu5/SrAIz7hzKvgcr8Yqk68uUvtCLXwpsh5xbZ
+ HCaqGftA==;
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+ by merlin.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1ilyH8-000502-Lw
+ for linux-mtd@lists.infradead.org; Mon, 30 Dec 2019 16:52:15 +0000
+X-Originating-IP: 91.224.148.103
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 100CAC0007;
+ Mon, 30 Dec 2019 16:51:30 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>
+Subject: [PATCH 0/8] MLC in SLC mode
+Date: Mon, 30 Dec 2019 17:51:21 +0100
+Message-Id: <20191230165129.11925-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191230025217.30812-1-yuehaibing@huawei.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191230_043845_240709_861971E8 
-X-CRM114-Status: GOOD (  12.98  )
-X-Spam-Score: -2.3 (--)
-X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+X-Spam-Note: CRM114 invocation failed
+X-Spam-Score: -0.7 (/)
+X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [134.134.136.126 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.198 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -70,82 +74,43 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: kbuild-all@lists.01.org, vigneshr@ti.com, richard@nod.at,
- yuehaibing@huawei.com, linux-kernel@vger.kernel.org,
- frieder.schrempf@kontron.de, linux-mtd@lists.infradead.org,
- miquel.raynal@bootlin.com, tglx@linutronix.de, masonccyang@mxic.com.tw,
- allison@lohutok.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi YueHaibing,
-
-Thank you for the patch! Perhaps something to improve:
-
-[auto build test WARNING on next-20191220]
-[also build test WARNING on linus/master v5.5-rc4]
-[if your patch is applied to the wrong git tree, please drop us a note to help
-improve the system. BTW, we also suggest to use '--base' option to specify the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-
-url:    https://github.com/0day-ci/linux/commits/YueHaibing/mtd-rawnand-macronix-Use-match_string-helper-to-simplify-the-code/20191230-111849
-base:    7ddd09fc4b745fb1d8942f95389583e08412e0cd
-
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
-
-smatch warnings:
-drivers/mtd/nand/raw/nand_macronix.c:85 macronix_nand_fix_broken_get_timings() warn: unsigned 'i' is never less than zero.
-
-vim +/i +85 drivers/mtd/nand/raw/nand_macronix.c
-
-    54	
-    55	/*
-    56	 * Macronix AC series does not support using SET/GET_FEATURES to change
-    57	 * the timings unlike what is declared in the parameter page. Unflag
-    58	 * this feature to avoid unnecessary downturns.
-    59	 */
-    60	static void macronix_nand_fix_broken_get_timings(struct nand_chip *chip)
-    61	{
-    62		unsigned int i;
-    63		static const char * const broken_get_timings[] = {
-    64			"MX30LF1G18AC",
-    65			"MX30LF1G28AC",
-    66			"MX30LF2G18AC",
-    67			"MX30LF2G28AC",
-    68			"MX30LF4G18AC",
-    69			"MX30LF4G28AC",
-    70			"MX60LF8G18AC",
-    71			"MX30UF1G18AC",
-    72			"MX30UF1G16AC",
-    73			"MX30UF2G18AC",
-    74			"MX30UF2G16AC",
-    75			"MX30UF4G18AC",
-    76			"MX30UF4G16AC",
-    77			"MX30UF4G28AC",
-    78		};
-    79	
-    80		if (!chip->parameters.supports_set_get_features)
-    81			return;
-    82	
-    83		i = match_string(broken_get_timings, ARRAY_SIZE(broken_get_timings),
-    84				 chip->parameters.model);
-  > 85		if (i < 0)
-    86			return;
-    87	
-    88		bitmap_clear(chip->parameters.get_feature_list,
-    89			     ONFI_FEATURE_ADDR_TIMING_MODE, 1);
-    90		bitmap_clear(chip->parameters.set_feature_list,
-    91			     ONFI_FEATURE_ADDR_TIMING_MODE, 1);
-    92	}
-    93	
-
----
-0-DAY kernel test infrastructure                 Open Source Technology Center
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGVsbG8sCgpUaGlzIHNlcmllcyBoYXMgYmVlbiBseWluZyBzaW5jZSBhIGxvbmcgdGltZSBpbiBC
+b3JpcyB0cmVlLCBpdCBpcwpjbGVhbiBlbm91Z2ggdG8gYmUgdXBzdHJlYW1lZCBub3cuIFRoaXMg
+d29yayBpcyBiYXNlZCBvbiB0aGUgIk1URApwYXJ0aXRpb24gaGFuZGxpbmcgcmV3b3JrIiBwYXRj
+aC4KCkl0IGJhc2ljYWxseSBhbGxvd3MgdG8gd29yayAic2FmZWx5IiB3aXRoIE1MQyBOQU5Ecywg
+ZGV0YWlscyBpbnNpZGUuCgpDaGVlcnMsCk1pcXXDqGwKCkJvcmlzIEJyZXppbGxvbiAoOCk6CiAg
+bXRkOiByYXduYW5kOiB0b3NoaWJhOiBBZGQgYSBzcGVjaWZpYyBpbml0IGZvciBUQzU4VEVHNURD
+TFRBMDAKICBtdGQ6IHJhd25hbmQ6IERlZmluZSB0aGUgImRpc3RhbmNlIDMiIE1MQyBwYWlyaW5n
+IHNjaGVtZQogIG10ZDogcmF3bmFuZDogdG9zaGliYTogU2V0IHRoZSBwYWlyaW5nIHNjaGVtZSBm
+b3IgVEM1OFRFRzVEQ0xUQTAwCiAgbXRkOiBBZGQgc3VwcG9ydCBmb3IgZW11bGF0ZWQgU0xDIG1v
+ZGUgb24gTUxDIE5BTkRzCiAgZHQtYmluZGluZ3M6IG10ZDogcGFydGl0aW9uOiBEb2N1bWVudCB0
+aGUgc2xjLW1vZGUgcHJvcGVydHkKICBtdGQ6IHBhcnRpdGlvbnM6IG9mcGFydDogUGFyc2UgdGhl
+IHNsYy1tb2RlIHByb3BlcnR5CiAgbXRkOiBjbWRsaW5lcGFydDogQWRkIGFuIHNsYyBvcHRpb24g
+dG8gdXNlIFNMQyBtb2RlIG9uIGEgcGFydAogIHViaTogUmVsYXggdGhlICdubyBNTEMnIHJ1bGUg
+YW5kIGFsbG93IE1MQ3Mgb3BlcmF0aW5nIGluIFNMQyBtb2RlCgogLi4uL2RldmljZXRyZWUvYmlu
+ZGluZ3MvbXRkL3BhcnRpdGlvbi50eHQgICAgIHwgICAzICsKIGRyaXZlcnMvbXRkL210ZGNvcmUu
+YyAgICAgICAgICAgICAgICAgICAgICAgICB8IDE4OSArKysrKysrKysrKysrKysrLS0KIGRyaXZl
+cnMvbXRkL210ZHBhcnQuYyAgICAgICAgICAgICAgICAgICAgICAgICB8ICA1NCArKy0tLQogZHJp
+dmVycy9tdGQvbmFuZC9yYXcvaW50ZXJuYWxzLmggICAgICAgICAgICAgIHwgICAzICsKIGRyaXZl
+cnMvbXRkL25hbmQvcmF3L25hbmRfYmFzZS5jICAgICAgICAgICAgICB8ICA1MCArKysrKwogZHJp
+dmVycy9tdGQvbmFuZC9yYXcvbmFuZF90b3NoaWJhLmMgICAgICAgICAgIHwgIDE0ICsrCiBkcml2
+ZXJzL210ZC9wYXJzZXJzL2NtZGxpbmVwYXJ0LmMgICAgICAgICAgICAgfCAgMTIgKy0KIGRyaXZl
+cnMvbXRkL3BhcnNlcnMvb2ZwYXJ0LmMgICAgICAgICAgICAgICAgICB8ICAgMyArCiBkcml2ZXJz
+L210ZC91YmkvYnVpbGQuYyAgICAgICAgICAgICAgICAgICAgICAgfCAgIDUgKy0KIGluY2x1ZGUv
+bGludXgvbXRkL210ZC5oICAgICAgICAgICAgICAgICAgICAgICB8ICAgNyArLQogaW5jbHVkZS9s
+aW51eC9tdGQvcGFydGl0aW9ucy5oICAgICAgICAgICAgICAgIHwgICAyICsKIGluY2x1ZGUvdWFw
+aS9tdGQvbXRkLWFiaS5oICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiBzY3JpcHRzL3BubXRv
+bG9nbyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBCaW4gMCAtPiAyMjQxNiBieXRlcwog
+MTMgZmlsZXMgY2hhbmdlZCwgMzAwIGluc2VydGlvbnMoKyksIDQzIGRlbGV0aW9ucygtKQogY3Jl
+YXRlIG1vZGUgMTAwNzU1IHNjcmlwdHMvcG5tdG9sb2dvCgotLSAKMi4yMC4xCgoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBk
+aXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LW10ZC8K
