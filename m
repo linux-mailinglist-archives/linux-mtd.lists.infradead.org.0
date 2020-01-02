@@ -2,79 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8057012E61F
-	for <lists+linux-mtd@lfdr.de>; Thu,  2 Jan 2020 13:30:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DE4C12E65B
+	for <lists+linux-mtd@lfdr.de>; Thu,  2 Jan 2020 14:09:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=61xBJZu40buSuArNFba4QRNC6N6K1xumxL+EHFTJ3T0=; b=j+K
-	4Kw+bXsGf9Svi+H6y5dq+xjZplFDeGQEDK0xI7aIltVP5dmAITm71tdv7XqzJfpNqIxutiWhDLIEd
-	CV1jXUXAeBRTWafMmTD8kv2UIzffBNKZ1c+7pGT3TMCccPyXaaXIsqj+xaUsMAYKhuOereEpGrhhY
-	gFCzEM/R+noiWtLJLlGqW2k4TQ1yj2oBQMpxVYmyDpY3Lv2nQ+bXIPlDcVljS5DNy2KCBt1kWBJgv
-	2Jfwe9bieSW5hiZG69K0ZHUivF4eSCAIPkuHBz70JW0xj44Qd9RxKACfykr2aeV8XYrPs/sLg6sVR
-	IP8IdmheRs6UJqBchaPKMwk5Kjh3DIQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WBaugc1Moa1mGbNV1JQfUhW1yJw4G/4dej4M4Cj19Vc=; b=bRqD2hBRr7To4q
+	GnibQmEPQYxaNlin0ricHXCQ9tAohrv3BFAw4VtfrN3bUD60zCMsBGNcKuXWlhuRWH6B01sOfr+oP
+	A4GJXrQfd1YSSyxFulTAzUHwhO1ScJe974V+zwcDWrQLCs6UgskPHmWkn40I6flWHRvJTKucB+9T/
+	5hjSeZpjovb3VPkr0cU+XcS6+daW5cBJtFf0VCRkL3DsMeFFt1JF+d92fFjOi4f/mNDtm4P99YyG/
+	1Clvd5Dq0MXkmQO0cl3CU5nmbXoWNbCX+zdLmpcS2ITeYePvcEJ4V06RyJdapFBEjnOekn/EJDfnO
+	k2OT2XaZAP3KBrL8NlLQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1imzcB-0001pv-Le; Thu, 02 Jan 2020 12:30:11 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1in0Dn-0007g1-MF; Thu, 02 Jan 2020 13:09:03 +0000
+Received: from first.geanix.com ([116.203.34.67])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1imzbr-0001p5-2L
- for linux-mtd@lists.infradead.org; Thu, 02 Jan 2020 12:29:56 +0000
-Received: by mail-wr1-x444.google.com with SMTP id t2so39075277wrr.1
- for <linux-mtd@lists.infradead.org>; Thu, 02 Jan 2020 04:29:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=cA+TQSaGTxt5xkD1p6TsF9sSnBcZqg21qSn7PyozrCg=;
- b=DUSsfVTGufuKvgqV80Hxrcz8IAJ/YPFc7UJcVwXNcrOlnZwiNVIv5iu6HK+RB8fL66
- KuhQ3o/sYd1UuyWJk+7Az2+bFrrc9hUPs8MU0V0pigDjZUeenr/BU+tfy62Gxccik1dc
- qjqllv6zhTFwlEXyKapfLsH9g5gd3GKzyYSN6wLpVb+prxWlOVtpMAHtjIqtOKo8m2Qg
- eyz+bGylQ20+rCQh9FOT+evGsoyZADgKEw7KacVNdORLQeOuHe91h4L5C7gppBaJUChy
- w4esiV2Em19+JEkHWQBAO6Ip2oPeDOLpWcD7dUS+CkPuXT0bcQSbGPaVIDONuMceSPSh
- /A7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=cA+TQSaGTxt5xkD1p6TsF9sSnBcZqg21qSn7PyozrCg=;
- b=KHmCZRIeiiGdgv30DEjrOb1VrBuPj9d1xyQnOkNrnBAeM4/H8PaKZrOPuSWTLgy/7B
- RLZoRQKQirZu6FX/8kd8c4R1k/zvd1h2Ws7EMTZ3A5VDX/Pzkop5+fyHl2FB594qs7yW
- M22pqm8UFFk56pSK4Z+7u8csei25F/kUqsTL+k9UJWP9abkxh7T4SmBt0yDW5Wzh3Vun
- P3GyeoMoyW+CV1U6VmFj/wGBmoBmTRmFGM/AEk2325SSF0CFvZ9JjTNnj/J0ry7x1PdL
- Rdu4tNY95zf10OFXj0V0IjVO2k6Azi6lpw401E/hPelFI6/AuX++SwrNGHoXzU+fQU7g
- gyCw==
-X-Gm-Message-State: APjAAAXfFz6zax/ePzKxYinnGQmq9qp0woPq8HD4ckBEgXvcqcA4LPE+
- iGhyIBMTVTFCfuzAnR24Vfk=
-X-Google-Smtp-Source: APXvYqxKcQ9mP3w5Unv4wDGAsFl944QhBVqL/Fdgr1Jvi3G6QvE+DyQFUlowthQ66TuJtjhjwil91g==
-X-Received: by 2002:adf:f80b:: with SMTP id s11mr77975580wrp.12.1577968189318; 
- Thu, 02 Jan 2020 04:29:49 -0800 (PST)
-Received: from paul-Precision-3510.be.softathome.com ([149.6.134.59])
- by smtp.gmail.com with ESMTPSA id b16sm57419391wrj.23.2020.01.02.04.29.48
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
- Thu, 02 Jan 2020 04:29:48 -0800 (PST)
-From: Paul HENRYS <paul.henrysd@gmail.com>
-To: richard@nod.at,
-	miquel.raynal@bootlin.com,
-	vigneshr@ti.com
-Subject: [PATCH] ubi: Update mean Erase Counter calculation at run-time
-Date: Thu,  2 Jan 2020 13:29:00 +0100
-Message-Id: <1577968140-11528-1-git-send-email-paul.henrysd@gmail.com>
-X-Mailer: git-send-email 2.7.4
+ id 1in0DR-0007XA-R7
+ for linux-mtd@lists.infradead.org; Thu, 02 Jan 2020 13:08:44 +0000
+Received: from localhost (87-49-44-45-mobile.dk.customer.tdc.net [87.49.44.45])
+ by first.geanix.com (Postfix) with ESMTPSA id 7F05670C;
+ Thu,  2 Jan 2020 13:08:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=geanix.com; s=first;
+ t=1577970498; bh=Dfa8ENalQ2mEXtcrK/dPpXS61QrbohOlp3rcs5GNL+Y=;
+ h=From:To:Cc:Subject:Date;
+ b=Qm9WllhlFFiSTBjIic+LmeZngoRAn9m4wdbvxPCdZzKIqdxuBINfPyY/zvNaI7o82
+ EDUpekEGwIwwa27HTRy1mGMGfPJCelPVqzxeYnqjroJAvDBHtenBjoHkcsPgqzuIHg
+ iQ6kiT1hN/SDUjmug6wPg/xPm/chypz923qABqaisyRbqU8VLlzXYDFPrno/waVdak
+ p5BaY0mKTehVruqU2iTkANuw1xG5lo4F1hF+xFUXmOP9nSrlQAo2txsp4ps2pyNV43
+ 4yyM9B/ZV/YMOPX05m5K9Enh5jlLL8nEfZEnKKGQH1wiiMECIjnpi8pgcU8FmlPZ2h
+ RDg2J3ZWKWpjw==
+From: Esben Haabendal <esben@geanix.com>
+To: linux-mtd@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>,
+ Boris Brezillon <boris.brezillon@collabora.com>, Han Xu <han.xu@nxp.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [PATCH 1/2] mtd: rawnand: gpmi: Fix suspend/resume problem
+Date: Thu,  2 Jan 2020 14:08:25 +0100
+Message-Id: <20200102130826.170647-1-esben@geanix.com>
+X-Mailer: git-send-email 2.24.1
+MIME-Version: 1.0
+X-Spam-Status: No, score=-1.7 required=4.0 tests=BAYES_00,DKIM_INVALID,
+ DKIM_SIGNED,UNPARSEABLE_RELAY,URIBL_BLOCKED autolearn=disabled
+ version=3.4.3
+X-Spam-Checker-Version: SpamAssassin 3.4.3 (2019-12-06) on ea2d15de10a4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200102_042954_710931_C2A9E715 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20200102_050842_627809_A0EF26FC 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:444 listed in]
- [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (paul.henrysd[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -94,130 +78,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, Paul HENRYS <paul.henrysd@gmail.com>
-MIME-Version: 1.0
+Cc: martin@geanix.com, sean@geanix.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The mean EC value was only calculated when attaching a UBI device
-but not updated afterwards. A new parameter is added to the struct
-ubi_device to keep track of the sum of the erase counters of all
-eraseblocks for a UBI device while they are erased and potentially
-become bad. The mean EC is then calculated on request when reading
-the "mean_ec" sysfs file of a UBI device.
+On system resume, the gpmi clock must be enabled before accessing gpmi
+block.  Without this, resume causes something like
 
-Signed-off-by: Paul HENRYS <paul.henrysd@gmail.com>
+[  661.348790] gpmi_reset_block(5cbb0f7e): module reset timeout
+[  661.348889] gpmi-nand 1806000.gpmi-nand: Error setting GPMI : -110
+[  661.348928] PM: dpm_run_callback(): platform_pm_resume+0x0/0x44 returns -110
+[  661.348961] PM: Device 1806000.gpmi-nand failed to resume: error -110
+
+Signed-off-by: Esben Haabendal <esben@geanix.com>
 ---
- drivers/mtd/ubi/build.c | 10 ++++++++++
- drivers/mtd/ubi/ubi.h   |  3 ++-
- drivers/mtd/ubi/wl.c    |  5 +++++
- 3 files changed, 17 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/mtd/ubi/build.c b/drivers/mtd/ubi/build.c
-index d636bbe..3291fa4 100644
---- a/drivers/mtd/ubi/build.c
-+++ b/drivers/mtd/ubi/build.c
-@@ -126,6 +126,8 @@ static struct device_attribute dev_volumes_count =
- 	__ATTR(volumes_count, S_IRUGO, dev_attribute_show, NULL);
- static struct device_attribute dev_max_ec =
- 	__ATTR(max_ec, S_IRUGO, dev_attribute_show, NULL);
-+static struct device_attribute dev_mean_ec =
-+	__ATTR(mean_ec, S_IRUGO, dev_attribute_show, NULL);
- static struct device_attribute dev_reserved_for_bad =
- 	__ATTR(reserved_for_bad, S_IRUGO, dev_attribute_show, NULL);
- static struct device_attribute dev_bad_peb_count =
-@@ -364,6 +366,13 @@ static ssize_t dev_attribute_show(struct device *dev,
- 		ret = sprintf(buf, "%d\n", ubi->vol_count - UBI_INT_VOL_COUNT);
- 	else if (attr == &dev_max_ec)
- 		ret = sprintf(buf, "%d\n", ubi->max_ec);
-+	else if (attr == &dev_mean_ec) {
-+		/* Calculate mean erase counter */
-+		if (ubi->good_peb_count)
-+			ubi->mean_ec = div_u64(ubi->ec_sum,
-+						ubi->good_peb_count);
-+		ret = sprintf(buf, "%d\n", ubi->mean_ec);
-+	}
- 	else if (attr == &dev_reserved_for_bad)
- 		ret = sprintf(buf, "%d\n", ubi->beb_rsvd_pebs);
- 	else if (attr == &dev_bad_peb_count)
-@@ -391,6 +400,7 @@ static struct attribute *ubi_dev_attrs[] = {
- 	&dev_total_eraseblocks.attr,
- 	&dev_volumes_count.attr,
- 	&dev_max_ec.attr,
-+	&dev_mean_ec.attr,
- 	&dev_reserved_for_bad.attr,
- 	&dev_bad_peb_count.attr,
- 	&dev_max_vol_count.attr,
-diff --git a/drivers/mtd/ubi/ubi.h b/drivers/mtd/ubi/ubi.h
-index 9688b41..d796217 100644
---- a/drivers/mtd/ubi/ubi.h
-+++ b/drivers/mtd/ubi/ubi.h
-@@ -472,6 +472,7 @@ struct ubi_debug_info {
-  *
-  * @max_ec: current highest erase counter value
-  * @mean_ec: current mean erase counter value
-+ * @ec_sum: a temporary variable used when calculating @mean_ec
-  *
-  * @global_sqnum: global sequence number
-  * @ltree_lock: protects the lock tree and @global_sqnum
-@@ -580,8 +581,8 @@ struct ubi_device {
- 	struct mutex device_mutex;
+diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+index 334fe3130285..7ac8c8b95afc 100644
+--- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
++++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
+@@ -148,6 +148,10 @@ static int gpmi_init(struct gpmi_nand_data *this)
+ 	struct resources *r = &this->resources;
+ 	int ret;
  
- 	int max_ec;
--	/* Note, mean_ec is not updated run-time - should be fixed */
- 	int mean_ec;
-+	uint64_t ec_sum;
++	ret = pm_runtime_get_sync(this->dev);
++	if (ret < 0)
++		return ret;
++
+ 	ret = gpmi_reset_block(r->gpmi_regs, false);
+ 	if (ret)
+ 		goto err_out;
+@@ -181,6 +185,8 @@ static int gpmi_init(struct gpmi_nand_data *this)
  
- 	/* EBA sub-system's stuff */
- 	unsigned long long global_sqnum;
-diff --git a/drivers/mtd/ubi/wl.c b/drivers/mtd/ubi/wl.c
-index 5d77a38..24c47ce 100644
---- a/drivers/mtd/ubi/wl.c
-+++ b/drivers/mtd/ubi/wl.c
-@@ -442,6 +442,7 @@ static int sync_erase(struct ubi_device *ubi, struct ubi_wl_entry *e,
- 	int err;
- 	struct ubi_ec_hdr *ec_hdr;
- 	unsigned long long ec = e->ec;
-+	unsigned long long erasecycle;
+ 	return 0;
+ err_out:
++	pm_runtime_mark_last_busy(this->dev);
++	pm_runtime_put_autosuspend(this->dev);
+ 	return ret;
+ }
  
- 	dbg_wl("erase PEB %d, old EC %llu", e->pnum, ec);
- 
-@@ -458,6 +459,7 @@ static int sync_erase(struct ubi_device *ubi, struct ubi_wl_entry *e,
- 		goto out_free;
- 
- 	ec += err;
-+	erasecycle = err;
- 	if (ec > UBI_MAX_ERASECOUNTER) {
- 		/*
- 		 * Erase counter overflow. Upgrade UBI and use 64-bit
-@@ -479,6 +481,7 @@ static int sync_erase(struct ubi_device *ubi, struct ubi_wl_entry *e,
- 
- 	e->ec = ec;
- 	spin_lock(&ubi->wl_lock);
-+	ubi->ec_sum += erasecycle;
- 	if (e->ec > ubi->max_ec)
- 		ubi->max_ec = e->ec;
- 	spin_unlock(&ubi->wl_lock);
-@@ -1164,6 +1167,7 @@ static int __erase_worker(struct ubi_device *ubi, struct ubi_work *wl_wrk)
- 	}
- 	ubi->bad_peb_count += 1;
- 	ubi->good_peb_count -= 1;
-+	ubi->ec_sum -= e->ec;
- 	ubi_calculate_reserved(ubi);
- 	if (available_consumed)
- 		ubi_warn(ubi, "no PEBs in the reserved pool, used an available PEB");
-@@ -1738,6 +1742,7 @@ int ubi_wl_init(struct ubi_device *ubi, struct ubi_attach_info *ai)
- 	mutex_init(&ubi->move_mutex);
- 	init_rwsem(&ubi->work_sem);
- 	ubi->max_ec = ai->max_ec;
-+	ubi->ec_sum = ai->ec_sum;
- 	INIT_LIST_HEAD(&ubi->works);
- 
- 	sprintf(ubi->bgt_name, UBI_BGT_NAME_PATTERN, ubi->ubi_num);
 -- 
-2.7.4
+2.24.1
 
 
 ______________________________________________________
