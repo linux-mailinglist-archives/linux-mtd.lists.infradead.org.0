@@ -2,26 +2,26 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5A9A13431F
-	for <lists+linux-mtd@lfdr.de>; Wed,  8 Jan 2020 13:59:54 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AD262134329
+	for <lists+linux-mtd@lfdr.de>; Wed,  8 Jan 2020 14:00:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+v7rF2fmq/q7E8bo6k2nRxmXut9dI6mUfmtXXsFr1Ak=; b=bJsfgDFp1kNMS2
-	3T0jG9kfiQF9kbMTpQ4E9P9A7TNxXOyFLsvUdQCheY6l59OZTzxEimDvRMpdV86+1aAVSC4rorb+k
-	VvnunZ8xu1E85YsdfH50f104cDkkYXzUI1d5GmvukRdjFf18tjrLPqsMatdxW/iVUsgr4u2g6mEq1
-	hF8YPttBHWc7bp6AtWHs2brewbDicF2ig1qp0Ui37GK2cT4GhBUqFNyQcEgsspFN8poZCgtysBuAP
-	IkqhTDT+wpkPwQKZPXzpGfmkSNCAfr00nfMSGZx+krz4hnRbUFEhSwuHXc5a7lSnDhfqjO9Fnk8J+
-	/ZZHoRoQpeOwu3Tg8umA==;
+	List-Owner; bh=4C913l/Zep5XMIxAqnRI/YgrvNFzReSzsnK3YoVcMl0=; b=isYwrRUSEJyrD+
+	40MOAYZDKnPDXOg1TgdrI/aW3qeTdr4AizS+WQUCeRY5imc26M73ASdg/CQydsSbFjU+aWjqugzA1
+	tdoHBCm9n84No38PLAeg0jpOJBHxZe3F7UfV3Qd6uVJD1D4XWrGtypedF2ixyZyB6hpApuat5kc9z
+	svJeBl/FY1RvU5uJR339AB4NdTA5HQL7znJHpVzYUoLWlGxgW+stKRXHQlxHZNGaioiRAqHpErSyr
+	9rreVcpYn5fq3dKfGAhwTT6gj1wlcEnhRJdjQULmh/kM1u3e7Pyxmp+rKLfVvNt9i7NQN/ByGlBkG
+	NAXm+JZU4Jx2wY9aQfKQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ipAw7-0005n8-Uc; Wed, 08 Jan 2020 12:59:47 +0000
+	id 1ipAwz-0007kG-2U; Wed, 08 Jan 2020 13:00:41 +0000
 Received: from esa1.microchip.iphmx.com ([68.232.147.91])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ipAt8-0002xz-BK; Wed, 08 Jan 2020 12:56:44 +0000
+ id 1ipAtY-0003Wp-NB; Wed, 08 Jan 2020 12:57:10 +0000
 Received-SPF: Pass (esa1.microchip.iphmx.com: domain of
  Claudiu.Beznea@microchip.com designates 198.175.253.82 as
  permitted sender) identity=mailfrom;
@@ -44,23 +44,23 @@ Authentication-Results: esa1.microchip.iphmx.com;
  spf=Pass smtp.mailfrom=Claudiu.Beznea@microchip.com;
  spf=None smtp.helo=postmaster@email.microchip.com;
  dmarc=pass (p=none dis=none) d=microchip.com
-IronPort-SDR: 9cU8ThYttwLUZmpRVvjzL2LZtLgWyD+wtOljzte8cmE41byvtaCiFZVjQAYETsBeKqUthE1D/F
- PVppw5PsBgauBGKj+uG/cKEJPpDv3UaSA8Uwsp/2GcP0iotwJj+DKEhaDpW/6iWxy5dpSCdsUh
- KHDKLiHrLCdb0a2NADCII/J0v1Pi4bVv5cBrBTyvdCmVYC7gRFcmTv0ETTPFJbV12jz/kGHKCD
- LNb9tL5jCsz7In1RpsqUWAl3pWpfwJwKlSEPhm7V2PTbw0xxNWMU2hUWFXTFZSLhTdIUkVaF3z
- z00=
-X-IronPort-AV: E=Sophos;i="5.69,410,1571727600"; d="scan'208";a="64014409"
+IronPort-SDR: ix45JeaUMxHbr5AU0CVJMK3ny3iXJcUXITcGZWjACrY3Mj2cKs7Rhiy3iWBcp8nSxg94IOONkR
+ iJXYhOB+QjW8tb7xJJS/Ap3hOWsiCrS9aGa8ywYj8+2wdg4zLEWrdVsHzNHWPkk1aBB4n0KtWx
+ /GpeQpGgFVxqM9s0GjL7MTc1X6SsTgp0Dn1l6v5x11EXBzUZG3dtD+7WOaEUJEgKkqsXh1+OqH
+ LQUW+bBan2oS2g0ZVplMpyDZhr0H0XFXsnm3uiCwkfB6uFIceni3Y1iEj4skicBES02Je1EBA4
+ sLs=
+X-IronPort-AV: E=Sophos;i="5.69,410,1571727600"; d="scan'208";a="64014420"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 08 Jan 2020 05:56:41 -0700
+ 08 Jan 2020 05:57:07 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Wed, 8 Jan 2020 05:56:41 -0700
+ 15.1.1713.5; Wed, 8 Jan 2020 05:56:48 -0700
 Received: from m18063-ThinkPad-T460p.microchip.com (10.10.85.251) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.1713.5 via Frontend Transport; Wed, 8 Jan 2020 05:56:33 -0700
+ 15.1.1713.5 via Frontend Transport; Wed, 8 Jan 2020 05:56:41 -0700
 From: Claudiu Beznea <claudiu.beznea@microchip.com>
 To: <robh+dt@kernel.org>, <mark.rutland@arm.com>,
  <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -72,17 +72,16 @@ To: <robh+dt@kernel.org>, <mark.rutland@arm.com>,
  <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
  <wg@grandegger.com>, <mkl@pengutronix.de>, <a.zummo@towertech.it>,
  <broonie@kernel.org>
-Subject: [PATCH 05/16] dt-bindings: at91-sama5d2_adc: add microchip,
- sam9x60-adc
-Date: Wed, 8 Jan 2020 14:55:12 +0200
-Message-ID: <1578488123-26127-6-git-send-email-claudiu.beznea@microchip.com>
+Subject: [PATCH 06/16] dt-bindings: atmel-matrix: add microchip, sam9x60-matrix
+Date: Wed, 8 Jan 2020 14:55:13 +0200
+Message-ID: <1578488123-26127-7-git-send-email-claudiu.beznea@microchip.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1578488123-26127-1-git-send-email-claudiu.beznea@microchip.com>
 References: <1578488123-26127-1-git-send-email-claudiu.beznea@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200108_045642_465247_03F4342A 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20200108_045708_788937_72E22E44 
+X-CRM114-Status: UNSURE (   6.91  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -115,26 +114,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Add microchip,sam9x60-adc to DT bindings documentation.
+Add microchip,sam9x60-matrix to DT bindings documentation.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 ---
- Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/devicetree/bindings/mfd/atmel-matrix.txt | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt b/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
-index 4a3c1d496e1a..07c59f301b31 100644
---- a/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
-+++ b/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
-@@ -1,7 +1,7 @@
- * AT91 SAMA5D2 Analog to Digital Converter (ADC)
+diff --git a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt b/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
+index e3ef50ca02a5..89d05c64fb01 100644
+--- a/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
++++ b/Documentation/devicetree/bindings/mfd/atmel-matrix.txt
+@@ -13,6 +13,7 @@ Required properties:
+ 			"atmel,at91sam9n12-matrix", "syscon"
+ 			"atmel,at91sam9x5-matrix", "syscon"
+ 			"atmel,sama5d3-matrix", "syscon"
++			"microchip,sam9x60-matrix", "syscon"
+ - reg:			Contains offset/length value of the Bus Matrix
+ 			memory region.
  
- Required properties:
--  - compatible: Should be "atmel,sama5d2-adc".
-+  - compatible: Should be "atmel,sama5d2-adc" or "microchip,sam9x60-adc".
-   - reg: Should contain ADC registers location and length.
-   - interrupts: Should contain the IRQ line for the ADC.
-   - clocks: phandle to device clock.
 -- 
 2.7.4
 
