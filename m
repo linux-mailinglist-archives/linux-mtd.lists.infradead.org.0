@@ -2,55 +2,70 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79188137CAE
-	for <lists+linux-mtd@lfdr.de>; Sat, 11 Jan 2020 10:44:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F600137F2B
+	for <lists+linux-mtd@lfdr.de>; Sat, 11 Jan 2020 11:17:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=skXi8wSg7lUP9nOpf6sI3Olq0W75OdjSkdoxSD/QR3A=; b=THw5PAC7W3HqIj
-	NjcP0r2F1vnTtaTqAdwYnLG5nt7ngnRvEej8zThMY74StivzviQk+UfCzJCkgi7xgdun2iSIShgMr
-	y8eRd82NyEm1Nht18dbmjmLAEhW157+uZkqgLyEG7tNpOzXTOqdXIp2JHAPNC89z5NRMckAkW5r0X
-	w+p3EV4ljsF9O6KXJiWKB3R9+iD/Gux+Wc20sYlCKFU6j7K9nKW+q7LNYS4twMxPJa8WRJtCkJdD6
-	qvVctgrutv8PmAIxrhHM9Azx+TLRk8ekdVbPZfyqmRZqrmCwUbsWqorTIEbTNbRM3yXrUUe4i+dHq
-	zpI6pPD81gZGW1w6BkFQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TroO0bnTAxNMh3vWfos6WLUVHYP2kSBtVBMq/8CmXZI=; b=Kns6d7ZK89XsjA
+	bhIkfOR0Eq9/xGsw5vFvb1rxCRFrhcF3kn3PDloeXw/a5/VWmL618PFzAGaoRlZHWk6j3ELO7FXBO
+	nb4Foc6gFjGv/NoiNysF78q0KwIQuBVREx5VcNYDtBPKGnxw6hQUYGMLOWJr0WGyecxw+WnOImAgG
+	dnxbBDwk+KaZjzHiezyybeXyXQ9GoO/zLCjikKW/GbUor3FAgo/3XKrbCAiNbvw6Ac1y5jB9QCB+S
+	6uUsDblfB/1Fa+WcjYG24qtaDPnBBI7rW9IDHYByjdrknx4Gs1OAm6FSr1t4kkAl8bcT4H3a6iAYf
+	jWosuMw8o/NDyYlHQBHw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iqDJ4-0005pj-FS; Sat, 11 Jan 2020 09:43:46 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1iqDpS-0003Ya-Oz; Sat, 11 Jan 2020 10:17:14 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iqDIu-0005oy-44
- for linux-mtd@lists.infradead.org; Sat, 11 Jan 2020 09:43:38 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.59])
- by Forcepoint Email with ESMTP id E12A9E2B3071DDC9B529;
- Sat, 11 Jan 2020 17:43:30 +0800 (CST)
-Received: from huawei.com (10.90.53.225) by DGGEMS410-HUB.china.huawei.com
- (10.3.19.210) with Microsoft SMTP Server id 14.3.439.0; Sat, 11 Jan 2020
- 17:43:20 +0800
-From: Zhihao Cheng <chengzhihao1@huawei.com>
-To: <richard@nod.at>, <s.hauer@pengutronix.de>, <yi.zhang@huawei.com>
-Subject: [PATCH v2] ubifs: Fix deadlock in concurrent bulk-read and writepage
-Date: Sat, 11 Jan 2020 17:50:36 +0800
-Message-ID: <1578736236-141308-1-git-send-email-chengzhihao1@huawei.com>
-X-Mailer: git-send-email 2.7.4
+ id 1iqDp1-0003SH-NP; Sat, 11 Jan 2020 10:16:48 +0000
+Received: from archlinux (cpc149474-cmbg20-2-0-cust94.5-4.cable.virginm.net
+ [82.4.196.95])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id E34AB20673;
+ Sat, 11 Jan 2020 10:16:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1578737807;
+ bh=cWDB7LJUkZzYeNN+RNZaHLYw/EuP9iPySeFRixVAIjA=;
+ h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+ b=0qhrTvJ622zuqqpkVY6pldy0gCLgzoi6fLpEKdLGssA+K+q3Fav7TZlYrzPTGIIBl
+ TVokV2Sr087WkhwqRXpD6MVH1E4QUO9n4BX+xy9AuCHloJLmKQFiIN3G08ewL08zRg
+ Je0b8p1WKEiuZZW1e3Yt6xXOhhTJXUYByXAEcbvI=
+Date: Sat, 11 Jan 2020 10:16:38 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@microchip.com>
+Subject: Re: [PATCH v2 06/17] dt-bindings: at91-sama5d2_adc: add
+ microchip,sam9x60-adc
+Message-ID: <20200111101638.7920f26c@archlinux>
+In-Reply-To: <1578673089-3484-7-git-send-email-claudiu.beznea@microchip.com>
+References: <1578673089-3484-1-git-send-email-claudiu.beznea@microchip.com>
+ <1578673089-3484-7-git-send-email-claudiu.beznea@microchip.com>
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.225]
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200111_014336_332884_CE5D67C2 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200111_021647_788759_4022E0B2 
+X-CRM114-Status: GOOD (  12.48  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.191 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,46 +77,60 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: mark.rutland@arm.com, alexandre.belloni@bootlin.com, vigneshr@ti.com,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, pmeerw@pmeerw.net, miquel.raynal@bootlin.com,
+ lee.jones@linaro.org, linux-rtc@vger.kernel.org, lars@metafoo.de,
+ richard@nod.at, ludovic.desroches@microchip.com, wg@grandegger.com,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ tudor.ambarus@microchip.com, radu_nicolae.pirea@upb.ro,
+ linux-can@vger.kernel.org, robh+dt@kernel.org, mkl@pengutronix.de,
+ mchehab@kernel.org, linux-arm-kernel@lists.infradead.org, a.zummo@towertech.it,
+ richard.genoud@gmail.com, nicolas.ferre@microchip.com,
+ linux-spi@vger.kernel.org, vkoul@kernel.org, knaack.h@gmx.de,
+ dmaengine@vger.kernel.org, eugen.hristev@microchip.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SW4gdWJpZnMsIGNvbmN1cnJlbnQgZXhlY3V0aW9uIG9mIHdyaXRlcGFnZSBhbmQgYnVsayByZWFk
-IG9uIHRoZSBzYW1lIGZpbGUKbWF5IGNhdXNlIEFCQkEgZGVhZGxvY2ssIGZvciBleGFtcGxlIChS
-ZXByb2R1Y2UgbWV0aG9kIHNlZSBMaW5rKToKClByb2Nlc3MgQShCdWxrLXJlYWQgc3RhcnRzIGZy
-b20gcGFnZTQpICAgICAgICAgUHJvY2VzcyBCKHdyaXRlIHBhZ2U0IGJhY2spCiAgdmZzX3JlYWQg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3Yl93b3JrZm4gb3IgZnN5bmMK
-ICAuLi4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC4uLgogIGdl
-bmVyaWNfZmlsZV9idWZmZXJlZF9yZWFkICAgICAgICAgICAgICAgICAgICAgd3JpdGVfY2FjaGVf
-cGFnZXMKICAgIHViaWZzX3JlYWRwYWdlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-TE9DSyhwYWdlNCkKCiAgICAgIHViaWZzX2J1bGtfcmVhZCAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHViaWZzX3dyaXRlcGFnZQogICAgICAgIExPQ0sodWktPnVpX211dGV4KSAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIHViaWZzX3dyaXRlX2lub2RlCgoJICB1Ymlmc19kb19idWxrX3Jl
-YWQgICAgICAgICAgICAgICAgICAgICAgICAgICBMT0NLKHVpLT51aV9tdXRleCkKCSAgICBmaW5k
-X29yX2NyZWF0ZV9wYWdlKGFsbG9jIHBhZ2U0KSAgICAgICAgICAgICAgICAgIOKGkQoJICAgICAg
-TE9DSyhwYWdlNCkgICAgICAgICAgICAgICAgICAgPC0tICAgICBBQkJBIGRlYWRsb2NrIG9jY3Vy
-cyEKCkluIG9yZGVyIHRvIGVuc3VyZSB0aGUgc2VyaWFsaXphdGlvbiBleGVjdXRpb24gb2YgYnVs
-ayByZWFkLCB3ZSBjYW4ndApyZW1vdmUgdGhlIGJpZyBsb2NrICd1aS0+dWlfbXV0ZXgnIGluIHVi
-aWZzX2J1bGtfcmVhZCgpLiBJbnN0ZWFkLCB3ZQphbGxvdyB1Ymlmc19kb19idWxrX3JlYWQoKSB0
-byBsb2NrIHBhZ2UgZmFpbGVkIGJ5IHJlcGxhY2luZwpmaW5kX29yX2NyZWF0ZV9wYWdlKEZHUF9M
-T0NLKSB3aXRoCnBhZ2VjYWNoZV9nZXRfcGFnZShGR1BfTE9DSyB8IEZHUF9OT1dBSVQpLgoKU2ln
-bmVkLW9mZi1ieTogWmhpaGFvIENoZW5nIDxjaGVuZ3poaWhhbzFAaHVhd2VpLmNvbT4KU3VnZ2Vz
-dGVkLWJ5OiB6aGFuZ3lpIChGKSA8eWkuemhhbmdAaHVhd2VpLmNvbT4KQ2M6IDxTdGFibGVAdmdl
-ci5rZXJuZWwub3JnPgpGaXhlczogNDc5M2U3YzVlMWMgKCJVQklGUzogYWRkIGJ1bGstcmVhZCBm
-YWNpbGl0eSIpCkxpbms6IGh0dHBzOi8vYnVnemlsbGEua2VybmVsLm9yZy9zaG93X2J1Zy5jZ2k/
-aWQ9MjA2MTUzCi0tLQogZnMvdWJpZnMvZmlsZS5jIHwgNCArKystCiAxIGZpbGUgY2hhbmdlZCwg
-MyBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCgpkaWZmIC0tZ2l0IGEvZnMvdWJpZnMvZmls
-ZS5jIGIvZnMvdWJpZnMvZmlsZS5jCmluZGV4IGNkNTI1ODUuLmM2NDkwNDggMTAwNjQ0Ci0tLSBh
-L2ZzL3ViaWZzL2ZpbGUuYworKysgYi9mcy91Ymlmcy9maWxlLmMKQEAgLTc4Niw3ICs3ODYsOSBA
-QCBzdGF0aWMgaW50IHViaWZzX2RvX2J1bGtfcmVhZChzdHJ1Y3QgdWJpZnNfaW5mbyAqYywgc3Ry
-dWN0IGJ1X2luZm8gKmJ1LAogCiAJCWlmIChwYWdlX29mZnNldCA+IGVuZF9pbmRleCkKIAkJCWJy
-ZWFrOwotCQlwYWdlID0gZmluZF9vcl9jcmVhdGVfcGFnZShtYXBwaW5nLCBwYWdlX29mZnNldCwg
-cmFfZ2ZwX21hc2spOworCQlwYWdlID0gcGFnZWNhY2hlX2dldF9wYWdlKG1hcHBpbmcsIHBhZ2Vf
-b2Zmc2V0LAorCQkJCSBGR1BfTE9DS3xGR1BfQUNDRVNTRUR8RkdQX0NSRUFUfEZHUF9OT1dBSVQs
-CisJCQkJIHJhX2dmcF9tYXNrKTsKIAkJaWYgKCFwYWdlKQogCQkJYnJlYWs7CiAJCWlmICghUGFn
-ZVVwdG9kYXRlKHBhZ2UpKQotLSAKMi43LjQKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBs
-aXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRk
-Lwo=
+On Fri, 10 Jan 2020 18:17:58 +0200
+Claudiu Beznea <claudiu.beznea@microchip.com> wrote:
+
+> Add microchip,sam9x60-adc to DT bindings documentation.
+> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+
+Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+
+I'm assuming this lot of binding changes will all go via Rob.
+Let me know if you are expecting it to go via the various
+individual trees.
+
+Thanks,
+
+Jonathan
+
+
+> ---
+>  Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt b/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
+> index 4a3c1d496e1a..07c59f301b31 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
+> +++ b/Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt
+> @@ -1,7 +1,7 @@
+>  * AT91 SAMA5D2 Analog to Digital Converter (ADC)
+>  
+>  Required properties:
+> -  - compatible: Should be "atmel,sama5d2-adc".
+> +  - compatible: Should be "atmel,sama5d2-adc" or "microchip,sam9x60-adc".
+>    - reg: Should contain ADC registers location and length.
+>    - interrupts: Should contain the IRQ line for the ADC.
+>    - clocks: phandle to device clock.
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
