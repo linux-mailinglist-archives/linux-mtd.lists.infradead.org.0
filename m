@@ -2,75 +2,127 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 41AB213895E
-	for <lists+linux-mtd@lfdr.de>; Mon, 13 Jan 2020 02:56:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id F2827138B1A
+	for <lists+linux-mtd@lfdr.de>; Mon, 13 Jan 2020 06:39:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=B89yxvBsmQOlgHLaR/niFehxf1YxdEw0EjZQ3Ug1uio=; b=UKOQLfggMcY/ncIYuOoLu4n3j
-	dmGKpvnUl2xSiwANOPnKlZjFfljEs/WiiJzO8cOC71K4hvTHznEClcH6CzjUavmXyt0nofGIlLhit
-	lz0neMcB2j5cPmD7Y2fvRwga+y+0J6zFKnC0CthbXDNSuisEVigE+AmVL2owghmV4RUfzCskCOX/A
-	vHx6z/1TNrVGb+dLdXPBvB6KhOFTw1EJazR/rPO/sIz6YYaJNCIBGJ67a18pWtqFev7DCrsa/4k6p
-	pDiHtwU7zDZisubThp7hDbj0JYOqkHHB28+DZ91xD6aVBzY7+FhedEHMw6/aGGyZFqetjJ6lZGoKF
-	TNDpGm3HA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-Id:Date:
+	Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=I4dYYbiPqAazFdEAnhzdAiUfs2I1TzxkHOcNOTLdGyQ=; b=RZ6iUTHjJdFqKZ
+	wO2rOb+viBce1vr03Q42E4mj6mzRChQdgFjE90dPkPEzMlh4S5CWcxZC4Niud570MlM2zdDd8YwSG
+	P4fPaDjUnkhyj166FRVKDBvOVrRPVy68WEtdd9uyZ66zwvJlHxQ5vu6fzyb40wQcP8WYproSqvbxa
+	8FrCOIKmeQubSWlevXejy9U44t5MDS88smsOIrFFgp3vZADSEAd2CtpWSqwPe8AxFzqfoAhccT8wH
+	aNYmhhXc07pXo/DvrrEnA/zCkR7jaLYe0x47OQOnvF6puU0f7ZAtEQtV1LCxt6IJMgVjl5C3grquU
+	W1+RF0hsR7ERnZTV3z2Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iqoxY-0002yO-9W; Mon, 13 Jan 2020 01:56:04 +0000
-Received: from lucky1.263xmail.com ([211.157.147.135])
+	id 1iqsS4-0004N0-W2; Mon, 13 Jan 2020 05:39:49 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iqoxB-0002rl-SQ; Mon, 13 Jan 2020 01:55:43 +0000
-Received: from localhost (unknown [192.168.167.32])
- by lucky1.263xmail.com (Postfix) with ESMTP id D031C4FED9;
- Mon, 13 Jan 2020 09:55:29 +0800 (CST)
-X-MAIL-GRAY: 1
-X-MAIL-DELIVERY: 0
-X-ADDR-CHECKED4: 1
-X-ANTISPAM-LEVEL: 2
-X-SKE-CHECKED: 1
-X-ABS-CHECKED: 1
-Received: from [172.16.12.37] (unknown [58.22.7.114])
- by smtp.263.net (postfix) whith ESMTP id
- P42449T140532558391040S1578880527820565_; 
- Mon, 13 Jan 2020 09:55:28 +0800 (CST)
-X-IP-DOMAINF: 1
-X-UNIQUE-TAG: <94200a1cdef87e531379bdde04cd5b27>
-X-RL-SENDER: shawn.lin@rock-chips.com
-X-SENDER: lintao@rock-chips.com
-X-LOGIN-NAME: shawn.lin@rock-chips.com
-X-FST-TO: zyf@rock-chips.com
-X-SENDER-IP: 58.22.7.114
-X-ATTACHMENT-NUM: 0
-X-DNS-TYPE: 0
-Subject: =?UTF-8?Q?Re=3a_=5bRFC_PATCH_v1_00/10=5d_Enable_RK3066_NANDC_for_MK?=
- =?UTF-8?B?ODA444CQ6K+35rOo5oSP77yM6YKu5Lu255SxbGludXgtcm9ja2NoaXAtYm91bmNl?=
- =?UTF-8?Q?s+shawn=2elin=3drock-chips=2ecom=40lists=2einfradead=2eorg?=
- =?UTF-8?B?5Luj5Y+R44CR?=
-To: Johan Jonker <jbx6244@gmail.com>, miquel.raynal@bootlin.com
-References: <20200108205338.11369-1-jbx6244@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-Message-ID: <aad92eb5-00ed-5071-c206-491eff243537@rock-chips.com>
-Date: Mon, 13 Jan 2020 09:55:28 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.3.1
-MIME-Version: 1.0
-In-Reply-To: <20200108205338.11369-1-jbx6244@gmail.com>
+ id 1iqsQN-0002yn-F7
+ for linux-mtd@lists.infradead.org; Mon, 13 Jan 2020 05:38:06 +0000
+Received: from epcas1p1.samsung.com (unknown [182.195.41.45])
+ by mailout2.samsung.com (KnoxPortal) with ESMTP id
+ 20200113053758epoutp0258d711435c393145692651c2dfe5be01~pW54QhMnZ2191921919epoutp02K
+ for <linux-mtd@lists.infradead.org>; Mon, 13 Jan 2020 05:37:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com
+ 20200113053758epoutp0258d711435c393145692651c2dfe5be01~pW54QhMnZ2191921919epoutp02K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1578893878;
+ bh=ZT9gk3Qr65aOLdt/Ucet4AAG0kIErlyp2QZ2AQ3M2Sk=;
+ h=From:To:Subject:Date:References:From;
+ b=Qr7bNEJSQmzihwU+uVakJdYT4sTS9tIf8dKrOFi8+BxDrczvtSciv/NWLPLAKe9t7
+ DTD2QnzywzmntUgRzoRXuBF7QnJcn0EeSCWLIejxZgzKj2wX8YlSZr1fM45Int8VVj
+ MSyDtWtH0u1vzXfY6J4qCmO1dgB4gQ25gjAu7JkY=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+ epcas1p4.samsung.com (KnoxPortal) with ESMTP id
+ 20200113053758epcas1p43bb2ffef40316957b4a76d93f5526766~pW53-T_ab1289412894epcas1p4_;
+ Mon, 13 Jan 2020 05:37:58 +0000 (GMT)
+Received: from epsmges1p5.samsung.com (unknown [182.195.40.162]) by
+ epsnrtp2.localdomain (Postfix) with ESMTP id 47x2Rn4MjpzMqYkf; Mon, 13 Jan
+ 2020 05:37:57 +0000 (GMT)
+Received: from epcas1p2.samsung.com ( [182.195.41.46]) by
+ epsmges1p5.samsung.com (Symantec Messaging Gateway) with SMTP id
+ AE.DC.51241.5320C1E5; Mon, 13 Jan 2020 14:37:57 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+ epcas1p1.samsung.com (KnoxPortal) with ESMTPA id
+ 20200113053757epcas1p180df652be844a99d8320a900496b7dce~pW52wAvAi2077120771epcas1p10;
+ Mon, 13 Jan 2020 05:37:57 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+ epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+ 20200113053757epsmtrp298ed89ae0fa8d7f80648e8c35e9f9f6f~pW52vezjc0588805888epsmtrp22;
+ Mon, 13 Jan 2020 05:37:57 +0000 (GMT)
+X-AuditID: b6c32a39-14bff7000001c829-aa-5e1c023580ec
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+ epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+ FF.62.10238.5320C1E5; Mon, 13 Jan 2020 14:37:57 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.88.100.192]) by
+ epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+ 20200113053757epsmtip10f4749aa2674daa158317ee533ae7eb4~pW52k9NVt2824828248epsmtip1h;
+ Mon, 13 Jan 2020 05:37:57 +0000 (GMT)
+From: Jungseung Lee <js07.lee@samsung.com>
+To: Tudor Ambarus <tudor.ambarus@microchip.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, linux-mtd@lists.infradead.org, js07.lee@gmail.com,
+ js07.lee@samsung.com
+Subject: [PATCH v2 1/3] mtd: spi-nor: introduce SR_BP_SHIFT define
+Date: Mon, 13 Jan 2020 14:37:51 +0900
+Message-Id: <20200113053753.8184-1-js07.lee@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrBKsWRmVeSWpSXmKPExsWy7bCmnq4pk0ycwe0ueYu/c94xWTy6+ZvV
+ YnfTMnaLj0scLP6f/cDuwOqxc9Zddo/NS+o97vxYyujRt2UVo8fxG9uZAlijcmwyUhNTUosU
+ UvOS81My89JtlbyD453jTc0MDHUNLS3MlRTyEnNTbZVcfAJ03TJzgHYrKZQl5pQChQISi4uV
+ 9O1sivJLS1IVMvKLS2yVUgtScgoMDQr0ihNzi0vz0vWS83OtDA0MjEyBKhNyMqYf3cVecFe8
+ ouX5CpYGxqdCXYycHBICJhJbu54yg9hCAjsYJTa/D+xi5AKyPzFK7Fv/kgXC+cYocezNExaY
+ jmM/uqESexklNr5fxgbhfGaUWPazkxWkik1AS+LG702sIAkRgcWMEj1vLzOCJIQFnCRObjrK
+ DmKzCKhKnHx3EWwsr4CFRPe5VewQK+QlVm84wAzSLCHwklVi0cpNjBAJF4k5605DFQlLvDq+
+ BcqWkvj8bi8bhF0ssXPlRHaI5hZGiUfLl0AVGUu8e7sWaCoHB7OApsT6XfoQYUWJnb/ngs1n
+ FuCTePe1hxWkREKAV6KjDRpIShJvHrRAvS8hceFxLyuE7SHRvXo6CyTwYiUm3VjLNoFRZhbC
+ ggWMjKsYxVILinPTU4sNC0yRo2YTIzgVaVnuYDx2zucQowAHoxIP74Eq6Tgh1sSy4srcQ4wS
+ HMxKIrybzknFCfGmJFZWpRblxxeV5qQWH2I0BYbeRGYp0eR8YJrMK4k3NDUyNja2MDEzNzM1
+ VhLn5fhxMVZIID2xJDU7NbUgtQimj4mDU6qBUUNNp3YPP8urb8xKXW5TNjbfqjkZ5f4qTSqs
+ uGw1Z7h2ukOwZcQC25+r6g++aRJnTZjM7NN0Sd1j72H+6cxfVybsMbd/ucrmYnXwFQm2KasX
+ le6MUy252+rqZHzU0ve79baqP3nRa14ozfwnfNq9jvXUurYzP5nuJv4I9XrH/Taj5MvXFolE
+ JZbijERDLeai4kQAYTEOMFsDAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrCJMWRmVeSWpSXmKPExsWy7bCSnK4pk0ycwb2zbBZ/57xjsnh08zer
+ xe6mZewWH5c4WPw/+4HdgdVj56y77B6bl9R73PmxlNGjb8sqRo/jN7YzBbBGcdmkpOZklqUW
+ 6dslcGVMP7qLveCueEXL8xUsDYxPhboYOTkkBEwkjv3oZgGxhQR2M0qsPGkNEZeQeLTzC1Cc
+ A8gWljh8uLiLkQuo5COjxJJTq1lBatgEtCRu/N7ECpIQEVjOKHH+5112kISwgJPEyU1HwWwW
+ AVWJk+8ugi3gFbCQ6D63ih1igbzE6g0HmCcwci9gZFjFKJlaUJybnltsWGCYl1quV5yYW1ya
+ l66XnJ+7iREcFlqaOxgvL4k/xCjAwajEwytRKx0nxJpYVlyZe4hRgoNZSYR30zmpOCHelMTK
+ qtSi/Pii0pzU4kOM0hwsSuK8T/OORQoJpCeWpGanphakFsFkmTg4pRoYfa2LtOfLPbqqsG6R
+ U/9rv8x79jPmmBWs/HXgU8H78pnabw7Exxt4TZzwmbOlc7ZzgJLU3M5z55lCNx+/GX8vy1c+
+ y+6iupesx9ovUr7bV0t82cNfu87qz/a2zbLhq58t2akos6p26lez350xLMejlh79uqahluHn
+ lt/Z1w579/2RbVtXmF3orcRSnJFoqMVcVJwIAN74RBoHAgAA
+X-CMS-MailID: 20200113053757epcas1p180df652be844a99d8320a900496b7dce
+X-Msg-Generator: CA
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20200113053757epcas1p180df652be844a99d8320a900496b7dce
+References: <CGME20200113053757epcas1p180df652be844a99d8320a900496b7dce@epcas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200112_175542_402669_71DA381E 
-X-CRM114-Status: GOOD (  22.03  )
-X-Spam-Score: 1.5 (+)
+X-CRM114-CacheID: sfid-20200112_213803_991733_3230826A 
+X-CRM114-Status: GOOD (  17.20  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.5 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 1.5 RCVD_IN_SORBS_WEB      RBL: SORBS: sender is an abusable web server
- [58.22.7.114 listed in dnsbl.sorbs.net]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [211.157.147.135 listed in list.dnswl.org]
- 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [203.254.224.25 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,130 +134,96 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, vigneshr@ti.com,
- richard@nod.at, shawn.lin@rock-chips.com, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh+dt@kernel.org,
- linux-mtd@lists.infradead.org,
- =?UTF-8?B?6LW15Luq5bOw?= <yifeng.zhao@rock-chips.com>,
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-+ Yifeng Zhao
+The shift variable of SR_BP is conclusive because the first bit of SR_BP
+is fixed on all known flashes.
 
-On 2020/1/9 4:53, Johan Jonker wrote:
-> DISCLAIMER: Use at your own risk.
-> Status: For testing only!
-> 
-> Version: V1
-> 
-> Title: Enable RK3066 NANDC for MK808.
-> 
-> The majority of Rockchip devices use a closed source FTL driver
-> to reduce wear leveling. This patch serie proposes
-> an experimental raw NAND controller driver for basic tasks
-> in order to get the bindings and the nodes accepted for in the dts files.
-> 
-> What does it do:
-> 
-> On module load this driver will reserve its resources.
-> After initialization the MTD framework will then try to detect
-> the type and number of NAND chips. When all conditions are met,
-> it registers it self as MTD device.
-> This driver is then ready to receive user commands
-> such as to read and write NAND pages.
-> 
-> Test examples:
-> 
-> # dd if-/dev/mtd0 of=dd.bin bs=8192 count=4
-> 
-> # nanddump -a -l 32768 -f nanddump.bin /dev/mtd0
-> 
-> Not tested:
-> 
-> NANDC version 9.
-> NAND raw write.
-> RK3066 still has no support for Uboot.
-> Any write command would interfere with data structures made by the boot loader.
-> 
-> Etc.
-> 
-> Problems:
-> 
-> No bad block support. Most devices use a FTL bad block map with tags
-> that must be located on specific page locations which is outside
-> the scope of the raw MTD framework.
-> 
+Introduce SR_BP_SHIFT define and let them used by stm_* functions
+to replace ffs operation to get shift value.
 
+Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
+---
+ drivers/mtd/spi-nor/spi-nor.c | 11 +++++------
+ include/linux/mtd/spi-nor.h   |  2 ++
+ 2 files changed, 7 insertions(+), 6 deletions(-)
 
-Hi Johan,
-
-I loop in the author of the original NANDC driver who is now gonna to
-develop a new version of NANDC driver in near future that supports more
-features like bad block supoort. Maybe he could share his TODO.
-
-> No partition support. A FTL driver will store at random locations and
-> a linear user specific layout does not fit within
-> the generic character of this basic driver.
-> 
-> Etc.
-> 
-> Chris Zhong (1):
->    ARM: dts: rockchip: add nandc node for rk3066a/rk3188
-> 
-> Dingqiang Lin (2):
->    arm64: dts: rockchip: add nandc node for px30
->    arm64: dts: rockchip: add nandc node for rk3308
-> 
-> Jianqun Xu (1):
->    ARM: dts: rockchip: add nandc nodes for rk3288
-> 
-> Johan Jonker (2):
->    dt-bindings: mtd: add rockchip nand controller bindings
->    ARM: dts: rockchip: rk3066a-mk808: enable nandc node
-> 
-> Jon Lin (1):
->    ARM: dts: rockchip: add nandc node for rv1108
-> 
-> Wenping Zhang (1):
->    ARM: dts: rockchip: add nandc node for rk322x
-> 
-> Yifeng Zhao (1):
->    mtd: nand: raw: add rockchip nand controller driver
-> 
-> Zhaoyifeng (1):
->    arm64: dts: rockchip: add nandc node for rk3368
-> 
->   .../devicetree/bindings/mtd/rockchip,nandc.yaml    |   78 ++
->   arch/arm/boot/dts/rk3066a-mk808.dts                |    9 +
->   arch/arm/boot/dts/rk322x.dtsi                      |   11 +
->   arch/arm/boot/dts/rk3288.dtsi                      |   24 +
->   arch/arm/boot/dts/rk3xxx.dtsi                      |   11 +
->   arch/arm/boot/dts/rv1108.dtsi                      |   11 +
->   arch/arm64/boot/dts/rockchip/px30.dtsi             |   15 +
->   arch/arm64/boot/dts/rockchip/rk3308.dtsi           |   11 +
->   arch/arm64/boot/dts/rockchip/rk3368.dtsi           |   12 +
->   drivers/mtd/nand/raw/Kconfig                       |    8 +
->   drivers/mtd/nand/raw/Makefile                      |    1 +
->   drivers/mtd/nand/raw/rockchip_nandc.c              | 1224 ++++++++++++++++++++
->   12 files changed, 1415 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/mtd/rockchip,nandc.yaml
->   create mode 100644 drivers/mtd/nand/raw/rockchip_nandc.c
-> 
-> --
-> 2.11.0
-> 
-> 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-> 
-> 
-> 
-
+diff --git a/drivers/mtd/spi-nor/spi-nor.c b/drivers/mtd/spi-nor/spi-nor.c
+index addb6319fcbb..e3da6a8654a8 100644
+--- a/drivers/mtd/spi-nor/spi-nor.c
++++ b/drivers/mtd/spi-nor/spi-nor.c
+@@ -1767,7 +1767,6 @@ static void stm_get_locked_range(struct spi_nor *nor, u8 sr, loff_t *ofs,
+ 	struct mtd_info *mtd = &nor->mtd;
+ 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+ 	u8 tb_mask = SR_TB_BIT5;
+-	int shift = ffs(mask) - 1;
+ 	int pow;
+ 
+ 	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
+@@ -1778,7 +1777,7 @@ static void stm_get_locked_range(struct spi_nor *nor, u8 sr, loff_t *ofs,
+ 		*ofs = 0;
+ 		*len = 0;
+ 	} else {
+-		pow = ((sr & mask) ^ mask) >> shift;
++		pow = ((sr & mask) ^ mask) >> SR_BP_SHIFT;
+ 		*len = mtd->size >> pow;
+ 		if (nor->flags & SNOR_F_HAS_SR_TB && sr & tb_mask)
+ 			*ofs = 0;
+@@ -1860,7 +1859,7 @@ static int stm_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	int ret, status_old, status_new;
+ 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+ 	u8 tb_mask = SR_TB_BIT5;
+-	u8 shift = ffs(mask) - 1, pow, val;
++	u8 pow, val;
+ 	loff_t lock_len;
+ 	bool can_be_top = true, can_be_bottom = nor->flags & SNOR_F_HAS_SR_TB;
+ 	bool use_top;
+@@ -1909,7 +1908,7 @@ static int stm_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	 *   pow = ceil(log2(size / len)) = log2(size) - floor(log2(len))
+ 	 */
+ 	pow = ilog2(mtd->size) - ilog2(lock_len);
+-	val = mask - (pow << shift);
++	val = mask - (pow << SR_BP_SHIFT);
+ 	if (val & ~mask)
+ 		return -EINVAL;
+ 	/* Don't "lock" with no region! */
+@@ -1946,7 +1945,7 @@ static int stm_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	int ret, status_old, status_new;
+ 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+ 	u8 tb_mask = SR_TB_BIT5;
+-	u8 shift = ffs(mask) - 1, pow, val;
++	u8 pow, val;
+ 	loff_t lock_len;
+ 	bool can_be_top = true, can_be_bottom = nor->flags & SNOR_F_HAS_SR_TB;
+ 	bool use_top;
+@@ -1997,7 +1996,7 @@ static int stm_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	if (lock_len == 0) {
+ 		val = 0; /* fully unlocked */
+ 	} else {
+-		val = mask - (pow << shift);
++		val = mask - (pow << SR_BP_SHIFT);
+ 		/* Some power-of-two sizes are not supported */
+ 		if (val & ~mask)
+ 			return -EINVAL;
+diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+index 7e32adce72f7..541c06d042e8 100644
+--- a/include/linux/mtd/spi-nor.h
++++ b/include/linux/mtd/spi-nor.h
+@@ -137,6 +137,8 @@
+ 
+ #define SR1_QUAD_EN_BIT6	BIT(6)
+ 
++#define SR_BP_SHIFT		2
++
+ /* Enhanced Volatile Configuration Register bits */
+ #define EVCR_QUAD_EN_MICRON	BIT(7)	/* Micron Quad I/O */
+ 
+-- 
+2.17.1
 
 
 ______________________________________________________
