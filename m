@@ -2,69 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE0F4139E04
-	for <lists+linux-mtd@lfdr.de>; Tue, 14 Jan 2020 01:20:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BF2EC139E28
+	for <lists+linux-mtd@lfdr.de>; Tue, 14 Jan 2020 01:26:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eJJMq7tEdX5H3nc1UfSDVn2bRIWo7CnR7gUq/3vVpLs=; b=k0uEC8Dv/cCszH
-	VQ3OjI/lf9Q7LL9+YU6TcmRotPdfxeCfpstze1tEnSDl+0uoJsC5FRREN/8RQIPO47r0C/eZq8ThN
-	ZJLtP+XuiKVyZEEdkRBmkZ2B0bcQ9MwiVRwWuUQ2x3Ws1zGLYxwt8lQ0vVMfhHJLlV0astXR0NRr/
-	MfnT+6pImP4i4b2b2c3wUPbYHxG/pTjsIvYVJ7/u/KBFPc6/T0gwhgDeD2+9GZzdH8PMT2Ca3U1VC
-	Py6NXvdSSCnODCW3E0wmRvtdZFvDtk8nPmVMjVcJDboOZXZ9w8uBvWQ/ku27H56xMrzkU0ZWRWxBf
-	Ucr4yexlwTM1+buJiOMA==;
+	List-Owner; bh=SHy1SEV5/ddzuLikzXh0ZV9jYWCemdhEm9h8KpcXXg0=; b=AB+DMmlLLfvcTU
+	5Qmkck2uc8EfX/X+edjwHqHzCP6ws6Kib/xGX/2f7xZ1lIrmiqZ9iRYTl9psUQdrsr/Tk+Fuqvrig
+	JMB/PRMkvwOJIEzQIG3PNzqMUdZE7vVnvNiPbEqrLdgDpFDP2YJGInta5ErGv5wZiYBwcQN2W6RE9
+	t1lP6H2BaC7Ub6BRgHi/aq/hjHFVPRK2jnbBBavWOUOLiWXixJaPOprqKpAFMDDvsCmO3oyEO/ouT
+	P+j/PvfOLjbrb5VQEib22+kBOQg7ll98tTphhUECcB31dhb5153uoR9/ff/xpVBKghQkMzLR9g/4D
+	kccn4abp3+CC6fLjP+yA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ir9wo-0002q0-0r; Tue, 14 Jan 2020 00:20:42 +0000
-Received: from mail-ot1-f65.google.com ([209.85.210.65])
+	id 1irA2D-0006hL-Q2; Tue, 14 Jan 2020 00:26:17 +0000
+Received: from mail-oi1-f196.google.com ([209.85.167.196])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ir9wd-0002p2-Ci
- for linux-mtd@lists.infradead.org; Tue, 14 Jan 2020 00:20:32 +0000
-Received: by mail-ot1-f65.google.com with SMTP id 77so10853274oty.6
- for <linux-mtd@lists.infradead.org>; Mon, 13 Jan 2020 16:20:31 -0800 (PST)
+ id 1irA1M-00066p-9f
+ for linux-mtd@lists.infradead.org; Tue, 14 Jan 2020 00:25:26 +0000
+Received: by mail-oi1-f196.google.com with SMTP id l9so10157196oii.5
+ for <linux-mtd@lists.infradead.org>; Mon, 13 Jan 2020 16:25:24 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=E6IJAm/G2BZsEtWssBpYlld99L9pgrhy2OUvTYO1Gu4=;
- b=RTTPmdoCKPzp/428LSDt0/r/bwoE21O6erjswnNbEvR9947nmrNefbM0PxdapKzx0w
- /uiLM7kKLctVidysh4LekgMcpzWvxQ+S45XjwSTDfdvSYj8roiH2wJnwohdxOTdsrnMV
- Y1tcQOErFrkhf419b0Ru4ZDn8nUMaN3QrxKPGBT3kueym2IVF5wwiPh4Ru+OtU4gGHp5
- phFxHUInLb+VkkCT+Ha/nAVjI6pCZP9i1rZpke6RWo2EWpPTwC5jKgywrO79/xwtefdM
- qSF5QkbH+hNvTBqYYPMffXdqVw5sDechTAL4BkZk7ypqx2NTniQdrD72gF7zXhan40cL
- PMng==
-X-Gm-Message-State: APjAAAVC7q/MPa71bj66qixs+HyW13IYShBmsCs9MZo+zeBOtQSNLUlj
- fII49wdVQYnRwTp90SmhlibrfVPCzA==
-X-Google-Smtp-Source: APXvYqy/IeqKjrIkw9rTcH9cC+53Udg0S+CeeKT7LkdT3tSWCHehLnzuGUbl/Z+Mq7cleOh3KKB4eg==
-X-Received: by 2002:a9d:774e:: with SMTP id t14mr14608009otl.358.1578961230556; 
- Mon, 13 Jan 2020 16:20:30 -0800 (PST)
+ bh=nnCP/oi7Z0mxzEO5kxr1fVYeBOYXbt9IQu/uVhgHHc8=;
+ b=AYlJW3N7/IsaxeWvyITTCXkwB3ogg7rbZIy+2lqnmZAhRt0+cV4Tixsbj3a6PrONCO
+ KWLrwqgR5Mn3QdoF4zhvJc+5RQumn/pKAiEoBfEcgWNZy7WxrtUHNj8jjcALFo7NKC+s
+ ZNF6ySPkF1rfQcl4OPTLqqPu0agMqLBNv0rd+sMHTmLyN6+6ZMY9GAjiEXXuNdnROhuA
+ 1bVFBCjSjSHrT56mMJ3YTNATFbch4W6sxB/QDqulsbwuTb8xiWdzJXmgIJUYnzi/2UbD
+ 6Ar0YIOsWG5grHwXR4PlePZ+vsP9YxcENo3R7LUk8VMoCUE+nQ0bLY2s0x7e4aVzMuEa
+ Xojg==
+X-Gm-Message-State: APjAAAV89qLx56Y0lPPUDjU6N6CBYUZYdxEg9JcnY51VFEHvoPROrCp6
+ ddzpBb1oZ+DsZLkUTE0o5kvOtr3mnA==
+X-Google-Smtp-Source: APXvYqxcZLSdwa+cNbnNTYW16G3HHu7/tWNwKekMZZqNEI/LJgrnM+uFaDrkB21coGLdJ6hR/GijPw==
+X-Received: by 2002:aca:51c9:: with SMTP id f192mr15284334oib.10.1578961523136; 
+ Mon, 13 Jan 2020 16:25:23 -0800 (PST)
 Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
  [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id w27sm4736852oti.65.2020.01.13.16.20.29
+ by smtp.gmail.com with ESMTPSA id g19sm4773017otj.1.2020.01.13.16.25.22
  for <linux-mtd@lists.infradead.org>
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 13 Jan 2020 16:20:30 -0800 (PST)
-Received: from rob (uid 1000) (envelope-from rob@rob-hp-laptop) id 22198d
+ Mon, 13 Jan 2020 16:25:22 -0800 (PST)
+Received: from rob (uid 1000) (envelope-from rob@rob-hp-laptop) id 2219cf
  by rob-hp-laptop (DragonFly Mail Agent v0.11);
- Mon, 13 Jan 2020 18:16:27 -0600
-Date: Mon, 13 Jan 2020 18:16:27 -0600
+ Mon, 13 Jan 2020 18:16:49 -0600
+Date: Mon, 13 Jan 2020 18:16:49 -0600
 From: Rob Herring <robh@kernel.org>
 To: Claudiu Beznea <claudiu.beznea@microchip.com>
-Subject: Re: [PATCH v2 06/17] dt-bindings: at91-sama5d2_adc: add
- microchip,sam9x60-adc
-Message-ID: <20200114001627.GA10411@bogus>
+Subject: Re: [PATCH v2 07/17] dt-bindings: atmel-matrix: add
+ microchip,sam9x60-matrix
+Message-ID: <20200114001649.GA11024@bogus>
 References: <1578673089-3484-1-git-send-email-claudiu.beznea@microchip.com>
- <1578673089-3484-7-git-send-email-claudiu.beznea@microchip.com>
+ <1578673089-3484-8-git-send-email-claudiu.beznea@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1578673089-3484-7-git-send-email-claudiu.beznea@microchip.com>
+In-Reply-To: <1578673089-3484-8-git-send-email-claudiu.beznea@microchip.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200113_162031_431303_A2E42B4F 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20200113_162524_356965_42C78D4B 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -72,7 +72,9 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.65 listed in list.dnswl.org]
+ no trust [209.85.167.196 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.196 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
@@ -81,13 +83,10 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  in digit (robherring2[at]gmail.com)
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (robherring2[at]gmail.com)
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.65 listed in wl.mailspike.net]
  0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
  lines
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -117,13 +116,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 10 Jan 2020 18:17:58 +0200, Claudiu Beznea wrote:
-> Add microchip,sam9x60-adc to DT bindings documentation.
+On Fri, 10 Jan 2020 18:17:59 +0200, Claudiu Beznea wrote:
+> Add microchip,sam9x60-matrix to DT bindings documentation.
 > 
 > Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 > ---
->  Documentation/devicetree/bindings/iio/adc/at91-sama5d2_adc.txt | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/mfd/atmel-matrix.txt | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
 Acked-by: Rob Herring <robh@kernel.org>
