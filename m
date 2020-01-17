@@ -2,66 +2,62 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7F90E1411F3
-	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 20:48:41 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D8C8214121B
+	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 21:06:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7hnxeh0C624TwUYwAi4a02E8HVdQ4DzLitLJg6tSV/Q=; b=Vv+sgSQrfGkJbh
-	W5odymUf8SW3Sn5/EeqUL7S6DaeeWlavLl/XXoywcqvrKbTQ1c7RgZqM09mPprkdzbE0zmbrE5rdc
-	epJaYJYmvwq/gGcXg0aPKtmXkrZp9SvT/Oeiy/KN1yW58r+8u9rAsr90ve+UzqaP2xmqSj7rVSf6W
-	mD/A7+OGvLOaNOkPxjZJ1mPtiT/aTZ7ljDHipyTyiOQ7K4bgXkz85qyM4oTE5Q3jLmwwykGa7q9ol
-	KYm1BGj4Y7+JlPVZtCoA1OOzEdE82VN9qu8gZoFCU2dK0CAnQvJMD1jNp8WApUEv/eW9V5b0jc90S
-	Hi+a5Zh3RNa2sbdKDv8w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=AR9HhA7cNZIduwaypReQ1hJG8841WIIKvsQv8lPByhQ=; b=XjhPeE/T+IfAnv
+	Lby8kJNqqUjcB9VD4HRSE1Uo3TXfgy+sNElKWcTFiZIt5leFW39+ZM7+nVTK+OucpZF3aZiIikx2X
+	crIFKlv4BRuj/UiqZOMKXzXqaNLAJIPk9LRLl+se6rz6h6AdK7QB9ywh8JYnLdO7muiFQACfcOIhx
+	ziGZp0QDDtDZcwk+aN1uhLmfDIHzD6ZwFe80dEqwOh2cUKuGUCS37IoNh3MC/b4MxBdE7YohIzExI
+	c1bxJWOS5MRCETc01D3MFih8DoWshwC85EGpO2ZZjB8CHhsP8DCdgqeikmCkuYSS4tuW957TWCz1x
+	VCOE3ktv5rCcgBBorzwg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1isXbg-0002RS-H0; Fri, 17 Jan 2020 19:48:36 +0000
-Received: from mailrelay4-2.pub.mailoutpod1-cph3.one.com ([46.30.212.3])
+	id 1isXt2-0002ET-Nk; Fri, 17 Jan 2020 20:06:32 +0000
+Received: from first.geanix.com ([116.203.34.67])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1isXbX-0002Qx-Ak
- for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 19:48:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=haabendal.dk; s=20191106;
- h=content-type:mime-version:message-id:in-reply-to:date:references:subject:cc:
- to:from:from; bh=HiOTrvAV1yAo4CF3znlfKtymTP4NkmMANat1y2Eu0do=;
- b=wgvFc4dtK3vDe11eyuXJFuK6YU2V4Gb7bXD/rw/aRCyDF7zcFEoMkRIl2nR9qp06beS+xQu0Yey7+
- kwuXpxqAJMA4jTH/nMkMhoE5Vav5xwtdYuEHT3qXPSBZIQ3tTff5EiXMLkCn1cu3kutHYLWSnq7p5v
- nJ0yA6whRidYEm6Zdpczrdku5LJkLYrhlOkhRixjBtyi5TsY6D/yW3l1qhkHuHm976iRIrn07c1Bfn
- 7fs2B/RCxBrdhO36Vi4XIEL+LgPRx5uM51M7dVk0xrzqJjaKjmnWwSNhlZ8jLcBcwbLtY9PkCncfk8
- yCqvL8qUNoxgpxgAGTJKI4Elljc732g==
-X-HalOne-Cookie: f27a4b6d659b2a8cefbd360981683fd54d12ad72
-X-HalOne-ID: 4fca45e6-3962-11ea-92a7-d0431ea8bb10
-Received: from localhost (unknown [87.49.44.45])
- by mailrelay4.pub.mailoutpod1-cph3.one.com (Halon) with ESMTPSA
- id 4fca45e6-3962-11ea-92a7-d0431ea8bb10;
- Fri, 17 Jan 2020 19:48:20 +0000 (UTC)
-From: Esben Haabendal <esben@haabendal.dk>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH 1/2] mtd: rawnand: gpmi: Fix suspend/resume problem
-References: <20200102130826.170647-1-esben@geanix.com>
- <20200115074622.cn7eh6k3mtn6tze3@pengutronix.de>
- <20200115094638.1847f475@xps13>
-Date: Fri, 17 Jan 2020 20:48:19 +0100
-In-Reply-To: <20200115094638.1847f475@xps13> (Miquel Raynal's message of "Wed, 
- 15 Jan 2020 09:46:38 +0100")
-Message-ID: <871rrxx3ss.fsf@haabendal.dk>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.3 (gnu/linux)
+ id 1isXsH-0001oK-3A
+ for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 20:05:55 +0000
+Received: from localhost (87-49-44-45-mobile.dk.customer.tdc.net [87.49.44.45])
+ by first.geanix.com (Postfix) with ESMTPSA id 0CC92AB518;
+ Fri, 17 Jan 2020 20:04:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=geanix.com; s=first;
+ t=1579291489; bh=o6RcffWea1Gwpv70mI5JVEaFXbGMFEGYH8Sdo82hkqA=;
+ h=From:To:Cc:Subject:Date;
+ b=CwU3+cHZO+nj672zWHANU63vkD/2mOE8kjGg2X18kpCByGTQ8wzp627Kx4jU+QkUe
+ VLd/3z2Upw9EfznOlC3C+F5XKcjyg5219jv7l1vaxU5mDUmeBsA2CBH4p+KrcaTz0E
+ dNG5JC6CuC013YbkHFNdVv5hJsDITMF/OfpnkKLSxqUcYBOCurDfSxIusgjSR2AkbH
+ lwAGWKFPV+jZClyBj5qoe5z/zUYkJ0GeYkgtOkF9Whr5DNdgatsW1ZTIcIBVyUMV5N
+ JyXZKdi4mhJ+B4f/pxCkzzNjWM6KFr8we/7BMMo89Jv69nBZ2jRiJpXa7w+GsdTzvS
+ 1JG4TYMvOay+g==
+From: Esben Haabendal <esben@geanix.com>
+To: linux-mtd@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>,
+ Han Xu <han.xu@nxp.com>, Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v2 0/2] mtd: rawnand: gpmi: Suspend/resume fixes
+Date: Fri, 17 Jan 2020 21:05:35 +0100
+Message-Id: <20200117200537.9279-1-esben@geanix.com>
+X-Mailer: git-send-email 2.25.0
 MIME-Version: 1.0
+X-Spam-Status: No, score=-1.7 required=4.0 tests=BAYES_00,DKIM_INVALID,
+ DKIM_SIGNED,UNPARSEABLE_RELAY,URIBL_BLOCKED autolearn=disabled
+ version=3.4.3
+X-Spam-Checker-Version: SpamAssassin 3.4.3 (2019-12-06) on ea2d15de10a4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200117_114827_922899_FFD8E4F7 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20200117_120546_012357_74C2D4F1 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.30.212.3 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -80,60 +76,32 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
- Sascha Hauer <s.hauer@pengutronix.de>, sean@geanix.com,
- Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
- martin@geanix.com, Han Xu <han.xu@nxp.com>
+Cc: Richard Weinberger <richard@nod.at>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Miquel Raynal <miquel.raynal@bootlin.com> writes:
+This fixes a couple of suspend/resume problems in gpmi-nand driver,
+introduced in 5.3 with the implementation of exec_op for gpmi-nand driver.
 
-> Hi Esben,
->
-> Sascha Hauer <s.hauer@pengutronix.de> wrote on Wed, 15 Jan 2020
-> 08:46:22 +0100:
->
->> Hi Esben,
->> 
->> On Thu, Jan 02, 2020 at 02:08:25PM +0100, Esben Haabendal wrote:
->> > On system resume, the gpmi clock must be enabled before accessing gpmi
->> > block.  Without this, resume causes something like
->> > 
->> > [  661.348790] gpmi_reset_block(5cbb0f7e): module reset timeout
->> > [  661.348889] gpmi-nand 1806000.gpmi-nand: Error setting GPMI : -110
->> > [  661.348928] PM: dpm_run_callback(): platform_pm_resume+0x0/0x44 returns -110
->> > [  661.348961] PM: Device 1806000.gpmi-nand failed to resume: error -110
->> > 
->> > Signed-off-by: Esben Haabendal <esben@geanix.com>
->> > ---
->> >  drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 6 ++++++
->> >  1 file changed, 6 insertions(+)
->> > 
->> > diff --git a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
->> > index 334fe3130285..7ac8c8b95afc 100644
->> > --- a/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
->> > +++ b/drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c
->> > @@ -148,6 +148,10 @@ static int gpmi_init(struct gpmi_nand_data *this)
->> >  	struct resources *r = &this->resources;
->> >  	int ret;
->> >  
->> > +	ret = pm_runtime_get_sync(this->dev);
->> > +	if (ret < 0)
->> > +		return ret;  
->> 
->> This increases the devices usage counter...
->
-> I'm dropping the two patches for now, please resend with this fixed and
-> the Fixes/Cc:stable tags added.
->
-> I'll freeze the PR at the end of the week.
+Changes since v1:
+  - Fixed bug in gpmi_init() causing runtime pm becoming disabled
+  - Added Fixes tags and cc to stable
+  - Rebased to v5.5-rc6
 
-I will send out revised patches tonight.
+Esben Haabendal (2):
+  mtd: rawnand: gpmi: Fix suspend/resume problem
+  mtd: rawnand: gpmi: Restore nfc timing setup after suspend/resume
 
-/Esben
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+-- 
+2.25.0
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
