@@ -2,46 +2,45 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D33114138D
-	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 22:45:53 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2EE0814138F
+	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 22:46:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GlbH/uVVkhC8WrTCG8g6z2hJmNolMZeDuq0RcNIqbXw=; b=ANdMfpd2B/Qqfw
-	+0aa/St4psgV6HBG6w+NRsMObmFX4rMQZgPzkRXQmRNrDXaD0y1+9pnJPUu23rU0shvQTy7ESikAm
-	QfbQ2jW8b+WQK7ydEweLcSrk1PEWqreEgTgiuUf7P6HvouSOax7Agmnyx1Vte1lDPYwWNwBEwdrvr
-	aiiuRuFUVICu70TYqqKdOFs5Bb82Qqg6nkZRo8On+PoxzMOJ/uG/Jy3KqDP7esGYDYJ4xqFhslg4P
-	pEoGd4x+BTZKXdUr7BxgzN5WurVT5hzcjKgPGofu+6wnKJys9crk73kZV4ZRlAUxo1txLknDcilrP
-	ztitlHshFxAUWa7Mjh/Q==;
+	List-Owner; bh=MLrsDqttSgesAIQoyVvbqW7fq3JbmWfK8FMl1SGYSAk=; b=mtlnYihhFOAxLc
+	vkJIvIAWPTVZs8ClbkCGK5l6nZRPdWdfb+5PTtvxiEXmqtXgnAZxVxdvc6yZR6b6EXht3j32zTLxK
+	8r8KUJ+Kvx2gWPCRa5opj1NkoTtJtHKGKXmT+wQ6rMG4qfIgvsore1vgz9Oq+d4AfmiqIZz+axOkB
+	yqCDznOMqO2L//W8cwBWnEyQ+sPJSK2xB59jAw9Fx0GKkyZVBsmexYvqVqXdRIND0BYb9YjBbqphv
+	BA+JWMqCWU4MqQIFQrEyltz42Ax+0v6znS1NnS97/FtD1LYv7FcRyNcCuJXi7L1w5fXuXXYIVz6pp
+	Oj8RzqTrxsjARZV2eSpA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1isZQz-0004oX-Rb; Fri, 17 Jan 2020 21:45:41 +0000
+	id 1isZRD-00055G-Bc; Fri, 17 Jan 2020 21:45:55 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1isZNp-0000qT-5d
- for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 21:42:26 +0000
+ id 1isZNq-0000rg-RE
+ for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 21:42:28 +0000
 Received: from xps13.lan (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 6BA66240009;
- Fri, 17 Jan 2020 21:42:22 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id D7EF3240002;
+ Fri, 17 Jan 2020 21:42:23 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v4 12/21] mtd: rawnand: Deprecate nand-ecc-mode in favor of
- nand-ecc-provider
-Date: Fri, 17 Jan 2020 22:41:42 +0100
-Message-Id: <20200117214151.20767-13-miquel.raynal@bootlin.com>
+Subject: [PATCH v4 13/21] mtd: rawnand: Drop the legacy ECC type enumeration
+Date: Fri, 17 Jan 2020 22:41:43 +0100
+Message-Id: <20200117214151.20767-14-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200117214151.20767-1-miquel.raynal@bootlin.com>
 References: <20200117214151.20767-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200117_134225_357654_C247C25A 
-X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-CacheID: sfid-20200117_134227_046483_AD7FE18C 
+X-CRM114-Status: UNSURE (   8.69  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -73,29 +72,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Use nand-ecc-provider as the provider DT property. Fallback to
-nand-ecc-mode if the property does not exist.
+Now that all files have been migrated to use the new enumeration, drop
+the old one which is unused.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_base.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/nand_base.c |  8 --------
+ include/linux/mtd/rawnand.h      | 12 ------------
+ 2 files changed, 20 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index c4f5b0ac92be..e66a1d5f06c9 100644
+index e66a1d5f06c9..db67f71cff80 100644
 --- a/drivers/mtd/nand/raw/nand_base.c
 +++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -4793,7 +4793,9 @@ of_get_nand_ecc_engine_type(struct device_node *np)
- 	const char *pm;
- 	int err;
+@@ -4767,14 +4767,6 @@ static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
+ 	return ret;
+ }
  
--	err = of_property_read_string(np, "nand-ecc-mode", &pm);
-+	err = of_property_read_string(np, "nand-ecc-provider", &pm);
-+	if (err)
-+		err = of_property_read_string(np, "nand-ecc-mode", &pm);
- 	if (err)
- 		return NAND_ECC_ENGINE_INVALID;
+-static const char * const nand_ecc_modes[] = {
+-	[NAND_ECC_NONE]		= "none",
+-	[NAND_ECC_SOFT]		= "soft",
+-	[NAND_ECC_HW]		= "hw",
+-	[NAND_ECC_HW_SYNDROME]	= "hw_syndrome",
+-	[NAND_ECC_ON_DIE]	= "on-die",
+-};
+-
+ static const char * const nand_ecc_engine_providers[] = {
+ 	[NAND_ECC_ENGINE_NONE] = "none",
+ 	[NAND_ECC_ENGINE_SOFT] = "soft",
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 717669db7b10..90d989dc91d6 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -80,18 +80,6 @@ struct nand_chip;
  
+ #define NAND_DATA_IFACE_CHECK_ONLY	-1
+ 
+-/*
+- * Constants for ECC_MODES
+- */
+-enum nand_ecc_mode {
+-	NAND_ECC_INVALID,
+-	NAND_ECC_NONE,
+-	NAND_ECC_SOFT,
+-	NAND_ECC_HW,
+-	NAND_ECC_HW_SYNDROME,
+-	NAND_ECC_ON_DIE,
+-};
+-
+ /**
+  * enum nand_ecc_engine_type - NAND ECC engine type/provider
+  * @NAND_ECC_ENGINE_INVALID: Invalid value
 -- 
 2.20.1
 
