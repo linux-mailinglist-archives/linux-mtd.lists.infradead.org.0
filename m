@@ -2,46 +2,45 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E6D5314139B
-	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 22:47:35 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CC8DC1413A1
+	for <lists+linux-mtd@lfdr.de>; Fri, 17 Jan 2020 22:48:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4X1DZ+7R9JtZ1Hh0ta7q7sJVDAlUe4RztybV1APkz4=; b=MqlKrtVLxJ9Qme
-	FvXc18GkC/ljXNc39gyKTup2eEEZJ7iy/GGy0CcNa7RpRALr6hjfntNf6wCY/xvARDrgtP3I+hd6n
-	BR/H6vgyuiEFhv54wbicvym2R5qpePpIikrt8mN9inydP7yJ8Wy2/VjTE2Ze2hkynIDoGu0c77ZOJ
-	7m7kvdA8UXoStYRnYQeJdaxAl9CgiTXWg7pa/yhcd7T+6e0KU8gU2P5WE+5l5EDUhXnv22CdFPX4u
-	coK05Zawb65fl2yOLYXZcdGjgXAaCoQSEf0s+hoziZsPdqKWN7wiDXzY3i4ZNdb9pp0Y+u8oHWs1w
-	KrfxMHqWRBvD35buAzlA==;
+	List-Owner; bh=h3Bd33sTRsomrarhCTCVZl66KwHNKWa2b9wPhEuU7ew=; b=ZKS8S8Fpl2x75a
+	4L611ldYiF3u2Bz/lfjkRIdlmhVrJWCJl6fSw6tBXpK+V53PRB9XYKPgztj66DbHHwQItfjhNrDb+
+	RI475Zyt0qdYsoG4Fzs9ZzRPlVD1bzgNYe2Dq66nhF8dX9zE83ilSq+GC7AF+pVGEIzErqpHPdt2u
+	SPrj4uv4IEReK0l1GaWQZVir7V7U9GTOi2YtPwVdcwq7VcysvEgN8rDeszqgE6P8FCJg7EYHB/aNw
+	+2rdNsXiM2/c2WRlm1IaGJKbv++NvNQrjOAMqJIZEDRkcZDWnuBkJ0ByUUMzsdCxgN3nsfhepWo60
+	5vp/W+1r24ZchLhRJ5iQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1isZSm-0006JW-87; Fri, 17 Jan 2020 21:47:32 +0000
+	id 1isZTH-0006ln-I8; Fri, 17 Jan 2020 21:48:03 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1isZNw-0000wP-6q
- for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 21:42:33 +0000
+ id 1isZNx-0000xF-6e
+ for linux-mtd@lists.infradead.org; Fri, 17 Jan 2020 21:42:35 +0000
 Received: from xps13.lan (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id C09D0240003;
- Fri, 17 Jan 2020 21:42:29 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id C8653240005;
+ Fri, 17 Jan 2020 21:42:30 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v4 18/21] mtd: nand: Add an extra level in the Kconfig
- hierarchy
-Date: Fri, 17 Jan 2020 22:41:48 +0100
-Message-Id: <20200117214151.20767-19-miquel.raynal@bootlin.com>
+Subject: [PATCH v4 19/21] mtd: nand: Drop useless 'depends on' in Kconfig
+Date: Fri, 17 Jan 2020 22:41:49 +0100
+Message-Id: <20200117214151.20767-20-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200117214151.20767-1-miquel.raynal@bootlin.com>
 References: <20200117214151.20767-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200117_134232_463708_64DCD8D5 
-X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-CacheID: sfid-20200117_134233_393365_C9131908 
+X-CRM114-Status: UNSURE (   9.98  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -73,31 +72,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Use an extra level in Kconfig for all NAND related entries.
+Both OneNAND and raw NAND bits can't be compiled if MTD is disabled
+because of the if/endif logic in drivers/mtd/Kconfig. There is no need
+for an extra "depends on MTD" in their respective Kconfig files.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/Kconfig | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/mtd/nand/onenand/Kconfig | 1 -
+ drivers/mtd/nand/raw/Kconfig     | 1 -
+ 2 files changed, 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/Kconfig b/drivers/mtd/nand/Kconfig
-index a5d8a211cb8a..c1a45b071165 100644
---- a/drivers/mtd/nand/Kconfig
-+++ b/drivers/mtd/nand/Kconfig
-@@ -1,7 +1,12 @@
+diff --git a/drivers/mtd/nand/onenand/Kconfig b/drivers/mtd/nand/onenand/Kconfig
+index ae0b8fe5b990..c7f48ddcd52f 100644
+--- a/drivers/mtd/nand/onenand/Kconfig
++++ b/drivers/mtd/nand/onenand/Kconfig
+@@ -1,7 +1,6 @@
  # SPDX-License-Identifier: GPL-2.0-only
-+
-+menu "NAND"
-+
- config MTD_NAND_CORE
- 	tristate
+ menuconfig MTD_ONENAND
+ 	tristate "OneNAND Device Support"
+-	depends on MTD
+ 	depends on HAS_IOMEM
+ 	help
+ 	  This enables support for accessing all type of OneNAND flash
+diff --git a/drivers/mtd/nand/raw/Kconfig b/drivers/mtd/nand/raw/Kconfig
+index 74fb91adeb46..bdbd250f1ae7 100644
+--- a/drivers/mtd/nand/raw/Kconfig
++++ b/drivers/mtd/nand/raw/Kconfig
+@@ -12,7 +12,6 @@ config MTD_NAND_ECC_SW_HAMMING_SMC
  
- source "drivers/mtd/nand/onenand/Kconfig"
- source "drivers/mtd/nand/raw/Kconfig"
- source "drivers/mtd/nand/spi/Kconfig"
-+
-+endmenu
+ menuconfig MTD_RAW_NAND
+ 	tristate "Raw/Parallel NAND Device Support"
+-	depends on MTD
+ 	select MTD_NAND_CORE
+ 	select MTD_NAND_ECC_SW_HAMMING
+ 	help
 -- 
 2.20.1
 
