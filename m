@@ -2,73 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 19FC2141FDA
-	for <lists+linux-mtd@lfdr.de>; Sun, 19 Jan 2020 20:56:25 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6D245141FDC
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 Jan 2020 20:57:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=d2d2gTGOgJngQbAZitGJvbhJljo3YQgddYjkRNVQ//s=; b=o8B9N6SbKJy1d+
-	jP64GzmrC+fn3sPN+agKCoFYw4ftrpyy8bdTh9P1ZU2mA4jQ88BZe5/p7f5t5ZQm8KybG8/Pc7JlF
-	0xDND8GPaHj9pdAU2ClM7iSD/Y7WAmeOm8WVhj4hjfFko0SMBkiPKyZtVPbNjZGX3wjdPPW+UNzG7
-	cWjM05xqvvSsHDRSp3LgzcnAiPFZ/W6y1f0FUV3YezpPa4yfl/y7aOWO6W5QnWAzngP9giCc/fjgt
-	paXIBtHeoHV2G8dF5eIZwNYePUzNAxTFddb1+iarK5/WTDyvi+fAT9bwnp8dBay9I5I6OXs2zm8WX
-	hDgcpUleu2ZVuLddVr5A==;
+	List-Owner; bh=wDKc6YXSZiSuaFcioZDHrqNOBByzx7hZm4JzGBfcFfU=; b=e8ICnwr0Cr5dsy
+	XozKCW6JyAIot3LxeHQOHtn7Flo1XU/ISJobEhxEIFBflX7TaRJKSVqXNAQXwbZAfu1ItEzAYXlF3
+	goDhirEuD0iBhe2R9I42qsObUcVG+a5m8FYEK9SBv+ARyVEe4ck3Hi5Bsaqfa7X67P+9WFCflSk2E
+	VejlchX+6DTBaoDiQnx95PxhsVQ96UUdQZmadE0WGLXBw99Bpyo40ILbAqk/GlPChHPMZTy3yNaOU
+	blsXfkhJBiP8zTN8xCLTecM2eAOpndZCUvWZOzyspyyyvfCHHeFJWLlyJzRQwX4Pmsh165WY/wd24
+	iOViIb5mgNAijcG9kdew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1itGgH-0003i6-1O; Sun, 19 Jan 2020 19:56:21 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1itGgx-0003wx-S6; Sun, 19 Jan 2020 19:57:03 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1itGg7-0003hd-Jy
- for linux-mtd@lists.infradead.org; Sun, 19 Jan 2020 19:56:12 +0000
-Received: by mail-wr1-x441.google.com with SMTP id c14so27416802wrn.7
- for <linux-mtd@lists.infradead.org>; Sun, 19 Jan 2020 11:56:11 -0800 (PST)
+ id 1itGgp-0003wg-4i
+ for linux-mtd@lists.infradead.org; Sun, 19 Jan 2020 19:56:56 +0000
+Received: by mail-wm1-x344.google.com with SMTP id p17so12653494wmb.0
+ for <linux-mtd@lists.infradead.org>; Sun, 19 Jan 2020 11:56:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=wmwixtRBH7x1qvixh2xabvwY3fvytTqVpBbuNJcwmJ0=;
- b=bvuMbOKEO3nbRC9M5cYF+fRXIC4yY8g06Y3o0I3E9mjWThtGx2A4fj4LQg1V999y26
- I77eW2xPSTHRlifu/x97Vx3s+IgFsYgnSFAzbYczV1+MUv3c5b9tWauO5lXz1kraoOb2
- HhIxkzs3207ehLEM1oEx7hYoFV9t/bbCKxsC/Vwh7KCZ4isqkTzWpzsSWYhBlvJwCUhP
- gCPdf+GCmZSVeNieEkMJGastdzSVa93OycGLuq4Ca4GKJUhfV9g0qPM53a9hdJYQaM0H
- Pr3rDoPbE8rt02MckSbn8K93+rB+61XjpOHO1XtskFpv5zHJL3tGe3irf3afC8dTJYso
- E1cA==
+ :cc; bh=+bqI+HXZLDy3/2zlOr8wqNolH3lkOymLNufyRKitZ8E=;
+ b=civbAnkTNBldqP9wmccocUPWAcEg58tjX0np4qCeuC2xhLDm5y89dqcQlJpPzjo0j3
+ Yj8L9GHC1vkZQOnVexpSlHg7/b+yklYGWn0WSmOh819AIEDeWXVpVXUGawPpXcej6tS9
+ WTw+SFWp2GBBdMrIDRYQZ0IYLySsMpFiubHs9t76c2ap1PnpqcvaCy5kaPuXT4JGwRh2
+ ZisVtg+BiDoFSQ09qs/FaRtRCdNshOw6XHZOgtX1yTBKC5zn/dODezB4TZ76LuQRGAOx
+ +prnNqSmYqP7X7qOaCtecpR3LyIy7nKGy58V/6owtRbMu2WYKZNtb7iiVkX3R5jFLEVN
+ OwJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=wmwixtRBH7x1qvixh2xabvwY3fvytTqVpBbuNJcwmJ0=;
- b=C3NVK4SWrxh3TQWlrpW77Ykdw9Cwd1dqiJZxsLVM5XIlOt5IdWtdEAMDEv1pb+Un40
- mqoCWDPT8xWuh2dboix/NBsW/hBvRY2PPqxxMydye99goeFGkb4/t3F99ulHG8QCl3oW
- krwBRJMwMCRS1ywpxnAgcsypM5ooPc8Ln98Ir48aH4jgkXSyyNLC+Uk35e9pxdPh2+u/
- mYW2GJrWRaYfzBSe933WlwvpTjx9VY41REY7VxZcChoGDkAiN6SN8oGJ9IMhWychEbZK
- 6wqrwxB9r/v+J66Jfvrbu6VFFTSxp5NroEWt0eKqGq7pV8m8WkKlZ5o35lU2kSyKV7Ls
- NxdQ==
-X-Gm-Message-State: APjAAAXaEIIaWEPmbo5SQsn5cdPq0b3qIB2QDBLAnl1CmQL4FvJTRkgc
- 44NyVPF6aFDsHksfwZY72T/wyMwGapRUR0L7yGc=
-X-Google-Smtp-Source: APXvYqxBRJrU03q7Wg1m2tT+QixEoJJJvHysL7DhFGQFbFw1O5cEDSK9kmdQoDt3YmBI8IpKQ51h9h8D1NrquEEo9PQ=
-X-Received: by 2002:adf:ea42:: with SMTP id j2mr14072553wrn.270.1579463769965; 
- Sun, 19 Jan 2020 11:56:09 -0800 (PST)
+ bh=+bqI+HXZLDy3/2zlOr8wqNolH3lkOymLNufyRKitZ8E=;
+ b=R7VljvvpF24fYrDo/A7W30VvqvEAsy9CfT6SgfpEPtgWxqlvRT2BHMYrvil+xn5rTf
+ ae1bHHL+EZD7bqv5MWbtevC97kLU9OjbMB5Pj4Wrj6wI2qB//8HHYqlJxmhCn+N3np+2
+ gCc8Tobza8Bcu3YEy2x5xWkD8akHrnBhclKwJagyONMe6JjHfmka4BXz/WogtuS96veF
+ LUUgERUYhl4qEL3EYeuOYfgWuDDIwFHKAslueYaW22ZL2Sv0873fC7SZk10wV3BKRZzQ
+ LBssMnFBAVPNsERICVqcmOW0vMQO0ov0aqkswDw4rJJ1UqggOR8Os+5slycf+/rnAsnM
+ yS6w==
+X-Gm-Message-State: APjAAAUwubehopQMOk3KljpYc+QihP5zoCpgY1jEMepIO8uwBfOjCpQq
+ FVk3HaRpgdciHHKSFxneHM5LZWxfJZQeKU2XYo8=
+X-Google-Smtp-Source: APXvYqxhRLsE9iQ7PiuoE9YMecEvRVyFkeib7qlPPoXHS5if87dXpmVsbuDyohiDQ3awnPjrmCIuttfCbF3a9WwcB8U=
+X-Received: by 2002:a1c:6389:: with SMTP id
+ x131mr15827684wmb.155.1579463813949; 
+ Sun, 19 Jan 2020 11:56:53 -0800 (PST)
 MIME-Version: 1.0
 References: <20191106091537.32480-1-s.hauer@pengutronix.de>
- <20191106091537.32480-4-s.hauer@pengutronix.de>
-In-Reply-To: <20191106091537.32480-4-s.hauer@pengutronix.de>
+ <20191106091537.32480-3-s.hauer@pengutronix.de>
+In-Reply-To: <20191106091537.32480-3-s.hauer@pengutronix.de>
 From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Sun, 19 Jan 2020 20:55:59 +0100
-Message-ID: <CAFLxGvxbcMF1S=Ghmi2rH4-ecEPRtVPAS7LrRq5eX=Q6S4PMHg@mail.gmail.com>
-Subject: Re: [PATCH 3/7] ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
+Date: Sun, 19 Jan 2020 20:56:42 +0100
+Message-ID: <CAFLxGvwv=j0C5ZGUGDns5nfxsjFcHifkqJuu2E+HXupyNcq55Q@mail.gmail.com>
+Subject: Re: [PATCH 2/7] ubifs: move checks and preparation into setflags()
 To: Sascha Hauer <s.hauer@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200119_115611_682230_A085B368 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20200119_115655_440196_1638564F 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:441 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
@@ -100,91 +102,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, Nov 6, 2019 at 10:16 AM Sascha Hauer <s.hauer@pengutronix.de> wrote:
+On Wed, Nov 6, 2019 at 10:17 AM Sascha Hauer <s.hauer@pengutronix.de> wrote:
 >
-> The FS_IOC_FS[SG]ETXATTR ioctls are an alternative to FS_IOC_[GS]ETFLAGS
-> with additional features. This patch adds support for these ioctls.
+> setflags() can be reused for upcoming FS_IOC_FS[SG]ETXATTR ioctl support.
+> In preparation for that move the checks and preparation into that
+> function so we can reuse them as well.
 >
 > Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 > ---
->  fs/ubifs/ioctl.c | 103 ++++++++++++++++++++++++++++++++++++++++++++---
->  1 file changed, 98 insertions(+), 5 deletions(-)
->
-> diff --git a/fs/ubifs/ioctl.c b/fs/ubifs/ioctl.c
-> index 8230dba5fd74..533df56beab4 100644
-> --- a/fs/ubifs/ioctl.c
-> +++ b/fs/ubifs/ioctl.c
-> @@ -95,9 +95,46 @@ static int ubifs2ioctl(int ubifs_flags)
->         return ioctl_flags;
->  }
->
-> -static int setflags(struct file *file, int flags)
-> +/* Transfer xflags flags to internal */
-> +static inline unsigned long ubifs_xflags_to_iflags(__u32 xflags)
+>  fs/ubifs/ioctl.c | 46 +++++++++++++++++++++++++++-------------------
+>  1 file changed, 27 insertions(+), 19 deletions(-)
 
-Why inline? gcc should be smart enough to inline the function automatically
-if needed.
-
->  {
-> -       int oldflags, err, release;
-> +       unsigned long iflags = 0;
-> +
-> +       if (xflags & FS_XFLAG_SYNC)
-> +               iflags |= UBIFS_APPEND_FL;
-
-Shouldn't this be UBIFS_SYNC_FL?
-
-> +       if (xflags & FS_XFLAG_IMMUTABLE)
-> +               iflags |= UBIFS_IMMUTABLE_FL;
-> +       if (xflags & FS_XFLAG_APPEND)
-> +               iflags |= UBIFS_APPEND_FL;
-> +
-> +        return iflags;
-> +}
-> +
-> +/* Transfer internal flags to xflags */
-> +static inline __u32 ubifs_iflags_to_xflags(unsigned long flags)
-
-Same.
-
-> +{
-> +       __u32 xflags = 0;
-> +
-> +       if (flags & UBIFS_APPEND_FL)
-> +               xflags |= FS_XFLAG_SYNC;
-> +       if (flags & UBIFS_IMMUTABLE_FL)
-> +               xflags |= FS_XFLAG_IMMUTABLE;
-> +       if (flags & UBIFS_APPEND_FL)
-> +               xflags |= FS_XFLAG_APPEND;
-> +
-> +        return xflags;
-> +}
-> +
-> +static void ubifs_fill_fsxattr(struct inode *inode, struct fsxattr *fa)
-> +{
-> +       struct ubifs_inode *ui = ubifs_inode(inode);
-> +
-> +       simple_fill_fsxattr(fa, ubifs_iflags_to_xflags(ui->flags));
-> +}
-> +
-> +static int setflags(struct file *file, int flags, struct fsxattr *fa)
-> +{
-> +       int ubi_flags, oldflags, err, release;
->         struct inode *inode = file_inode(file);
->         struct ubifs_inode *ui = ubifs_inode(inode);
->         struct ubifs_info *c = inode->i_sb->s_fs_info;
-> @@ -110,6 +147,11 @@ static int setflags(struct file *file, int flags)
->         if (!inode_owner_or_capable(inode))
->                 return -EACCES;
->
-> +       if (fa)
-> +               ubi_flags = ubifs_xflags_to_iflags(fa->fsx_xflags);
-> +       else
-> +               ubi_flags = ioctl2ubifs(flags);
-> +
-
-So having both flags and fa set is not allowed?
-Can we please have an ubifs_assert() to catch this.
+Acked-by: Richard Weinberger <richard@nod.at>
 
 -- 
 Thanks,
