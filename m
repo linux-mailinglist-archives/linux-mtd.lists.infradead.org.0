@@ -2,54 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8DD0514341E
-	for <lists+linux-mtd@lfdr.de>; Mon, 20 Jan 2020 23:35:08 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DE29C143425
+	for <lists+linux-mtd@lfdr.de>; Mon, 20 Jan 2020 23:35:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N3a9Q4r6y/rqLHZTKQH50EnWss1EiEeOJ+veEFyjmvw=; b=VvguGn7VdyZmKv
-	lL0RpaERSwy4dDPAsxsMnkDsqbNlXQUfgl+hIqYbm937rkJUkVJ5FA48Uv0//+gDdsTjGSskYAnpL
-	93e7xkZaa5MxnyC8zqhzUcbClG48427a+YVOjaKrHYnGOjMGS4sqO4m50/3Jq1aiEW/ILuaFYEuiJ
-	jQu/xIs16R+CIpI3Hxw2gONn2o1xigyNQKVbYzsUHSmg54AzANw8gtl9BfeJcM/ii28hjVp9QEa3i
-	7f6yg/MRuGZ4AdDc1QWhl2vVF21VFeGcgK5wXFB2dcLzgmbwFn+jjmt0c8s7g7daU5ExzoEdwqt5O
-	V9jRXkArzyHS/37GgWwA==;
+	List-Owner; bh=CcjcYIdnkqmK7ePaK37hpk3RlPJpJZPJxtosLoWpppQ=; b=AiY72/BFraquxN
+	Ho0yn/zLHX4J0W10ETgxC4FRRFcbX8UQd8fguxoxunWjOxSrBT6b8zyXQvERfMCQEppWOZrEPcUBy
+	T4/VaZtKxUPV5V7RAsDjWTEp0q6LetCSYKw++BYx8bGQogPtmxAbdD+30cZgdIKO/Og6XmXCN1oxn
+	V+d3dQ3WMOOJPWOdEJS90pn1+1xfUnWD3BIGr1fBwnSF1w7RJhj3o6TKRbSx9mTYuOetqOByFnH1P
+	ofMefwKgTKixVtahNQOTTLOSpX2fR/mubN5qGbQUKKJyCgnSp733gvvL5zLPi0+StCl2cnYl7gtNh
+	MQBvWawKlZ1fxGyEKH/g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1itfdP-0007Kr-Vp; Mon, 20 Jan 2020 22:35:04 +0000
+	id 1itfeC-0000rd-1m; Mon, 20 Jan 2020 22:35:52 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1itfch-0006qd-4h
+ id 1itfch-0006r3-Jd
  for linux-mtd@lists.infradead.org; Mon, 20 Jan 2020 22:34:20 +0000
 Received: from sol.hsd1.ca.comcast.net (c-107-3-166-239.hsd1.ca.comcast.net
  [107.3.166.239])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 8125524125;
+ by mail.kernel.org (Postfix) with ESMTPSA id EE59C24654;
  Mon, 20 Jan 2020 22:34:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1579559658;
- bh=z2Y0IHglkKCvSNW3HrTdG8/6BD+OKkO7hiP7aqvSJao=;
+ s=default; t=1579559659;
+ bh=a6AglMzuzSADbIykjFsh6WiXfUA9a8BSXSse5YpowJc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=ZB3SVJ8mSzoYzK9TQg1dPhopO5UVnGDpovyzD09WXgRSNwFHyvEGuEnJuXKB8QU0M
- PwAjhqcs/SkmEahZUDCqWX/w8vAfdZ7DzKFpXQHyzzwViiMZ8WwPjBUBOy2vdNNi/P
- /gzyfLaRHRr2ZdmVU0xfBIzVXnFBcyFDVqXiNG6M=
+ b=CxGsA6XSOH79/Ez1YYKFPwXEuecFLee2D4d34j5HPAbu0KJ494XC9qdVSW62bCxh/
+ gg3un57dpwbCJT0BoaNxddQ6mXy41R5m3H+nmpvn5XDzbEb64fyS8RSpBsVTkZZBTi
+ etgWdPATptkXqIamnw2Ms4bOtO2E8kcWZ4mwWCDc=
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-fscrypt@vger.kernel.org
-Subject: [PATCH v5 4/6] ubifs: don't trigger assertion on invalid no-key
- filename
-Date: Mon, 20 Jan 2020 14:31:59 -0800
-Message-Id: <20200120223201.241390-5-ebiggers@kernel.org>
+Subject: [PATCH v5 5/6] ubifs: allow both hash and disk name to be provided in
+ no-key names
+Date: Mon, 20 Jan 2020 14:32:00 -0800
+Message-Id: <20200120223201.241390-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200120223201.241390-1-ebiggers@kernel.org>
 References: <20200120223201.241390-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200120_143419_222680_54E1A226 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200120_143419_670968_A2E7CF39 
+X-CRM114-Status: GOOD (  13.83  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -90,45 +89,73 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Eric Biggers <ebiggers@google.com>
 
-If userspace provides an invalid fscrypt no-key filename which encodes a
-hash value with any of the UBIFS node type bits set (i.e. the high 3
-bits), gracefully report ENOENT rather than triggering ubifs_assert().
+In order to support a new dirhash method that is a secret-keyed hash
+over the plaintext filenames (which will be used by encrypted+casefolded
+directories on ext4 and f2fs), fscrypt will be switching to a new no-key
+name format that always encodes the dirhash in the name.
 
-Test case with kvm-xfstests shell:
+UBIFS isn't happy with this because it has assertions that verify that
+either the hash or the disk name is provided, not both.
 
-    . fs/ubifs/config
-    . ~/xfstests/common/encrypt
-    dev=$(__blkdev_to_ubi_volume /dev/vdc)
-    ubiupdatevol $dev -t
-    mount $dev /mnt -t ubifs
-    mkdir /mnt/edir
-    xfs_io -c set_encpolicy /mnt/edir
-    rm /mnt/edir/_,,,,,DAAAAAAAAAAAAAAAAAAAAAAAAAA
+Change it to use the disk name if one is provided, even if a hash is
+available too; else use the hash.
 
-With the bug, the following assertion fails on the 'rm' command:
-
-    [   19.066048] UBIFS error (ubi0:0 pid 379): ubifs_assert_failed: UBIFS assert failed: !(hash & ~UBIFS_S_KEY_HASH_MASK), in fs/ubifs/key.h:170
-
-Fixes: f4f61d2cc6d8 ("ubifs: Implement encrypted filenames")
-Cc: <stable@vger.kernel.org> # v4.10+
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- fs/ubifs/dir.c | 2 ++
- 1 file changed, 2 insertions(+)
+ fs/ubifs/dir.c     | 4 +---
+ fs/ubifs/journal.c | 4 ++--
+ fs/ubifs/key.h     | 1 -
+ 3 files changed, 3 insertions(+), 6 deletions(-)
 
 diff --git a/fs/ubifs/dir.c b/fs/ubifs/dir.c
-index 636c3222c2308..5f937226976a6 100644
+index 5f937226976a6..ef85ec167a843 100644
 --- a/fs/ubifs/dir.c
 +++ b/fs/ubifs/dir.c
-@@ -228,6 +228,8 @@ static struct dentry *ubifs_lookup(struct inode *dir, struct dentry *dentry,
- 	if (nm.hash) {
- 		ubifs_assert(c, fname_len(&nm) == 0);
- 		ubifs_assert(c, fname_name(&nm) == NULL);
-+		if (nm.hash & ~UBIFS_S_KEY_HASH_MASK)
-+			goto done; /* ENOENT */
+@@ -225,9 +225,7 @@ static struct dentry *ubifs_lookup(struct inode *dir, struct dentry *dentry,
+ 		goto done;
+ 	}
+ 
+-	if (nm.hash) {
+-		ubifs_assert(c, fname_len(&nm) == 0);
+-		ubifs_assert(c, fname_name(&nm) == NULL);
++	if (fname_name(&nm) == NULL) {
+ 		if (nm.hash & ~UBIFS_S_KEY_HASH_MASK)
+ 			goto done; /* ENOENT */
  		dent_key_init_hash(c, &key, dir->i_ino, nm.hash);
- 		err = ubifs_tnc_lookup_dh(c, &key, dent, nm.minor_hash);
- 	} else {
+diff --git a/fs/ubifs/journal.c b/fs/ubifs/journal.c
+index a38e18d3ef1d7..3bf8b1fda9d74 100644
+--- a/fs/ubifs/journal.c
++++ b/fs/ubifs/journal.c
+@@ -588,7 +588,7 @@ int ubifs_jnl_update(struct ubifs_info *c, const struct inode *dir,
+ 
+ 	if (!xent) {
+ 		dent->ch.node_type = UBIFS_DENT_NODE;
+-		if (nm->hash)
++		if (fname_name(nm) == NULL)
+ 			dent_key_init_hash(c, &dent_key, dir->i_ino, nm->hash);
+ 		else
+ 			dent_key_init(c, &dent_key, dir->i_ino, nm);
+@@ -646,7 +646,7 @@ int ubifs_jnl_update(struct ubifs_info *c, const struct inode *dir,
+ 	ubifs_add_auth_dirt(c, lnum);
+ 
+ 	if (deletion) {
+-		if (nm->hash)
++		if (fname_name(nm) == NULL)
+ 			err = ubifs_tnc_remove_dh(c, &dent_key, nm->minor_hash);
+ 		else
+ 			err = ubifs_tnc_remove_nm(c, &dent_key, nm);
+diff --git a/fs/ubifs/key.h b/fs/ubifs/key.h
+index afa704ff5ca08..8142d9d6fe5da 100644
+--- a/fs/ubifs/key.h
++++ b/fs/ubifs/key.h
+@@ -150,7 +150,6 @@ static inline void dent_key_init(const struct ubifs_info *c,
+ 	uint32_t hash = c->key_hash(fname_name(nm), fname_len(nm));
+ 
+ 	ubifs_assert(c, !(hash & ~UBIFS_S_KEY_HASH_MASK));
+-	ubifs_assert(c, !nm->hash && !nm->minor_hash);
+ 	key->u32[0] = inum;
+ 	key->u32[1] = hash | (UBIFS_DENT_KEY << UBIFS_S_KEY_HASH_BITS);
+ }
 -- 
 2.25.0
 
