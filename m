@@ -2,56 +2,73 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9685D148CD6
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 18:18:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E587148F32
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 21:14:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SF4WC14Tfe4oT11ZDGsAcdmOnw9iv/TMdQ8InprY7jo=; b=Ruco/9QfoU3QhZ
-	i5S+OMtRPPJ1Wz8kOTDfMpgHf3qgbzl7mkA/gsaHHlsluck4TiWHXecsCyz7alrfWB+4xPGxaepeJ
-	ySKgRaW+x9sXRAYCAf7QIYaEPuyveZZ/nkxlaPVMRcOrcB0wllhSJvtC5i17zLZU/TTd8PJ0Wn2i9
-	T2BSFsQQtJyaePh8aXPKbTjlfoxk2bCXoF3nst8zu2CCisQCddl5i2wkqaxZl7zX2ZJZVcK+wjLcz
-	sHZ7zRgs1qASb2z7RR9uW9JmLnP3QBDi5krTMzH4MVm5nGxkvxADluxe9W8t9q+bYNcs3G7AEIpqn
-	DtGRdeA5uqVb0M0y0SMw==;
+	List-Owner; bh=AZ6ASmsaqSYqvnLotYtfdgfOsnq5hYRxrysS406lvFw=; b=dz0j6mqZttO/ug
+	QLXTHDanPVTJgJzHNvLRSDr72CVE/eDxa4NxzMACeCdC240eY0YMrFWDnSSHidjH5evm/ymWdO5Rr
+	l99uIx1iW0KJgUhZMVaeDsHdg6ePBaegVI1vWqNRnCXZRCw/xXZo2p5RjWegDzM2/wHUA1w4duzhu
+	v3hr6IMn36oIIXY4xGVgL+4ee09wQO3vimM8Qwsg4iU/9lR0lK/C4zh0SR8Wivvm3plJY9O9FiUpb
+	YYott5ikx0CKWGNrci5ObgWCGaORFMjQ42LgfOpXJz1ue2Oy6yXCoUSzoIKOtk2h/y+w/ze4Q4hIw
+	pQIe8wCn46A6RfN8rgrw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iv2bP-0005rY-84; Fri, 24 Jan 2020 17:18:39 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1iv5LK-0008OQ-Ph; Fri, 24 Jan 2020 20:14:14 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iv2b0-0005jZ-Th; Fri, 24 Jan 2020 17:18:16 +0000
-X-Originating-IP: 91.224.148.103
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay4-d.mail.gandi.net (Postfix) with ESMTPSA id 04F64E0003;
- Fri, 24 Jan 2020 17:17:52 +0000 (UTC)
-Date: Fri, 24 Jan 2020 18:17:51 +0100
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Johan Jonker <jbx6244@gmail.com>
-Subject: Re: [RFC PATCH v2 00/10] Enable RK3066 NANDC for MK808
-Message-ID: <20200124181751.721aa428@xps13>
-In-Reply-To: <20200124163001.28910-1-jbx6244@gmail.com>
-References: <20200124163001.28910-1-jbx6244@gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1iv5LC-0008NP-KT
+ for linux-mtd@lists.infradead.org; Fri, 24 Jan 2020 20:14:07 +0000
+Received: from gmail.com (unknown [104.132.1.77])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1F8CF2071E;
+ Fri, 24 Jan 2020 20:14:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1579896844;
+ bh=BXwKT7PuUAxXdQBtcYCaPasA/6uX1OMir4E6yh0LA3k=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=1ag7/2DSoxG5KYU0EMVWB64o75K0btoF+qRMCO5k9cTMqUywqJBdCg/sUprpKIHv/
+ 9MepeQSjc6pe8xJdw8+LoNAgcQY5x8NUgXg6RHWOLoXD7dmmnthVG6ewye8WF1rbAv
+ 53XYtcyTT0ewAW3ULL2QSG0sBV/ytCRp6aZzLJeA=
+Date: Fri, 24 Jan 2020 12:14:02 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org
+Subject: Re: [PATCH v5 4/6] ubifs: don't trigger assertion on invalid no-key
+ filename
+Message-ID: <20200124201317.GC41762@gmail.com>
+References: <20200120223201.241390-1-ebiggers@kernel.org>
+ <20200120223201.241390-5-ebiggers@kernel.org>
+ <20200122003014.GA180824@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200122003014.GA180824@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200124_091815_097510_4C3D83CB 
-X-CRM114-Status: GOOD (  14.60  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200124_121406_696075_92D8416F 
+X-CRM114-Status: GOOD (  12.79  )
+X-Spam-Score: -3.4 (---)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-3.4 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.196 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [217.70.183.196 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 1.8 FSL_HELO_FAKE          No description available.
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,63 +80,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, vigneshr@ti.com,
- richard@nod.at, shawn.lin@rock-chips.com, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh+dt@kernel.org,
- linux-mtd@lists.infradead.org, yifeng.zhao@rock-chips.com,
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Daniel Rosenberg <drosen@google.com>, kernel-team@android.com,
+ linux-kernel@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+ linux-fscrypt@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-ext4@vger.kernel.org, Gabriel Krisman Bertazi <krisman@collabora.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgSm9oYW4sCgpKb2hhbiBKb25rZXIgPGpieDYyNDRAZ21haWwuY29tPiB3cm90ZSBvbiBGcmks
-IDI0IEphbiAyMDIwIDE3OjI5OjUxCiswMTAwOgoKPiBESVNDTEFJTUVSOiBVc2UgYXQgeW91ciBv
-d24gcmlzay4KPiBTdGF0dXM6IEZvciB0ZXN0aW5nIG9ubHkhCj4gCj4gVmVyc2lvbjogVjIKPiAK
-PiBUaXRsZTogRW5hYmxlIFJLMzA2NiBOQU5EQyBmb3IgTUs4MDguCj4gCj4gVGhlIG1ham9yaXR5
-IG9mIFJvY2tjaGlwIGRldmljZXMgdXNlIGEgY2xvc2VkIHNvdXJjZSBGVEwgZHJpdmVyCj4gdG8g
-cmVkdWNlIHdlYXIgbGV2ZWxpbmcuIFRoaXMgcGF0Y2ggc2VyaWUgcHJvcG9zZXMKPiBhbiBleHBl
-cmltZW50YWwgcmF3IE5BTkQgY29udHJvbGxlciBkcml2ZXIgZm9yIGJhc2ljIHRhc2tzCj4gaW4g
-b3JkZXIgdG8gZ2V0IHRoZSBiaW5kaW5ncyBhbmQgdGhlIG5vZGVzIGFjY2VwdGVkIGZvciBpbiB0
-aGUgZHRzIGZpbGVzLgo+IAo+IFdoYXQgZG9lcyBpdCBkbzoKPiAKPiBPbiBtb2R1bGUgbG9hZCB0
-aGlzIGRyaXZlciB3aWxsIHJlc2VydmUgaXRzIHJlc291cmNlcy4KPiBBZnRlciBpbml0aWFsaXph
-dGlvbiB0aGUgTVREIGZyYW1ld29yayB3aWxsIHRoZW4gdHJ5IHRvIGRldGVjdAo+IHRoZSB0eXBl
-IGFuZCBudW1iZXIgb2YgTkFORCBjaGlwcy4gV2hlbiBhbGwgY29uZGl0aW9ucyBhcmUgbWV0LAo+
-IGl0IHJlZ2lzdGVycyBpdCBzZWxmIGFzIE1URCBkZXZpY2UuCj4gVGhpcyBkcml2ZXIgaXMgdGhl
-biByZWFkeSB0byByZWNlaXZlIHVzZXIgY29tbWFuZHMKPiBzdWNoIGFzIHRvIHJlYWQgYW5kIHdy
-aXRlIE5BTkQgcGFnZXMuCj4gCj4gVGVzdCBleGFtcGxlczoKPiAKPiAjIGRkIGlmPS9kZXYvbXRk
-MCBvZj1kZC5iaW4gYnM9ODE5MiBjb3VudD00Cj4gCj4gIyBuYW5kZHVtcCAtYSAtbCAzMjc2OCAt
-ZiBuYW5kZHVtcC5iaW4gL2Rldi9tdGQwCj4gCj4gTm90IHRlc3RlZDoKPiAKPiBOQU5EQyB2ZXJz
-aW9uIDkuCj4gTkFORCByYXcgd3JpdGUuCgpuYW5kYml0ZXJycyAtaSAvZGV2L210ZDx4PiB0byB2
-YWxpZGF0ZSBpdCB3b3JrcyEKCj4gUkszMDY2IHN0aWxsIGhhcyBubyBzdXBwb3J0IGZvciBVYm9v
-dC4KPiBBbnkgd3JpdGUgY29tbWFuZCB3b3VsZCBpbnRlcmZlcmUgd2l0aCBkYXRhIHN0cnVjdHVy
-ZXMgbWFkZSBieSB0aGUgYm9vdCBsb2FkZXIuCj4gCj4gRXRjLgo+IAo+IFByb2JsZW1zOgo+IAo+
-IE5vIGJhZCBibG9jayBzdXBwb3J0LiBNb3N0IGRldmljZXMgdXNlIGEgRlRMIGJhZCBibG9jayBt
-YXAgd2l0aCB0YWdzCj4gdGhhdCBtdXN0IGJlIGxvY2F0ZWQgb24gc3BlY2lmaWMgcGFnZSBsb2Nh
-dGlvbnMgd2hpY2ggaXMgb3V0c2lkZQo+IHRoZSBzY29wZSBvZiB0aGUgcmF3IE1URCBmcmFtZXdv
-cmsuCgpJIGRvbid0IHVuZGVyc3RhbmQgdGhpcyBzdG9yeSBvZiBiYWQgYmxvY2sgbWFwLiBBcmUg
-eW91IGNvbXBhcmluZyB3aXRoCmEgdmVuZG9yIGtlcm5lbD8KCklmIHZlbmRvcnMgaW52ZW50IG5l
-dyB3YXlzIHRvIGhhbmRsZSBNVEQgYmxvY2tzIGl0J3Mgc2FkIGJ1dCB0aGV5IHdpbGwKbmV2ZXIg
-YmUgY29tcGF0aWJsZSB3aXRoIG1haW5saW5lLiBJdCdzIGEgZmFjdC4gSG93ZXZlciBmb3IgYW4g
-dXBzdHJlYW0KdmVyc2lvbiwgSSBkb24ndCBnZXQgaWYgdGhlcmUgaXMgYW55IHJlYWwgaXNzdWU/
-IFRoZSBsb2NhdGlvbiBvZiB0aGUKQkJNIGlzIG5vdCByZWxhdGVkIHRvIHlvdXIgY29udHJvbGxl
-ciBkcml2ZXIgYnV0IGRlcGVuZHMgb24gdGhlIE5BTkQKY2hpcCBhbmQgYXMgeW91IHNheSBiZWxv
-dyB3ZSBrbm93IHByb3ZpZGUgdGhyZWUgcG9zc2libGUgcG9zaXRpb25zIGluCmEgYmxvY2suCgpX
-aGF0IHlvdSByZWZlciBhcyB0aGUgRlRMIGlzIHRoZSBlcXVpdmFsZW50IG9mIFVCSSBpbiBMaW51
-eCwgd2hpY2gKaW5kZWVkIG9mZmVycyB0byB0aGUgdXNlciBhIGxpbmVhciBsb2dpY2FsIHZpZXcg
-b2YgYWxsIHRoZSB2YWxpZCBibG9ja3MKd2hpbGUgcGh5c2ljYWxseSB0aGUgZGF0YSBpcyBzcHJl
-YWQgYWNyb3NzIGFsbCB0aGUgYXZhaWxhYmxlCmVyYXNlYmxvY2tzLgoKPiAKPiBoeW5peF9uYW5k
-X2luaXQoKSBhZGQgZXh0cmEgb3B0aW9uIE5BTkRfQkJNX0xBU1RQQUdFIGZvciBIMjdVQ0c4VDJB
-VFItQkMuCj4gCj4gTm8gcGFydGl0aW9uIHN1cHBvcnQuIEEgRlRMIGRyaXZlciB3aWxsIHN0b3Jl
-IGF0IHJhbmRvbSBsb2NhdGlvbnMgYW5kCj4gYSBsaW5lYXIgdXNlciBzcGVjaWZpYyBsYXlvdXQg
-ZG9lcyBub3QgZml0IHdpdGhpbgo+IHRoZSBnZW5lcmljIGNoYXJhY3RlciBvZiB0aGlzIGJhc2lj
-IGRyaXZlci4KPiAKPiBEcml2ZXIgYXNzdW1lcyB0aGF0IElPIHBpbnMgYXJlIGNvcnJlY3RseSBz
-ZXQgYnkgdGhlIGJvb3QgbG9hZGVyLgoKV2hpY2ggcGlucyBhcmUgeW91IHRhbGtpbmcgYWJvdXQ/
-IEFyZSB5b3UgbWlzc2luZyBhIHBpbmN0cmwgZHJpdmVyPwoKPiAKPiBGaXhlZCB0aW1pbmcgc2V0
-dGluZy4KPiAKPiBSSzMyMjhBL1JLMzIyOEIgY29tcGF0aWJpbGl0eSB2ZXJzaW9uIDcwMSB1bmtu
-b3duCj4gUlYxMTA4IG5hbmQgdmVyc2lvbiB1bmtub3duCj4gCj4gRXRjLgo+IAo+IFRvZG86Cj4g
-Cj4gTUxDID8KClRoaXMgaXMgbm90IHJlbGF0ZWQgdG8geW91ciBOQU5EIGNvbnRyb2xsZXIgZHJp
-dmVyIG5laXRoZXIuCgoKQ2hlZXJzLApNaXF1w6hsCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGlu
-ZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-bXRkLwo=
+On Tue, Jan 21, 2020 at 04:30:15PM -0800, Eric Biggers wrote:
+> On Mon, Jan 20, 2020 at 02:31:59PM -0800, Eric Biggers wrote:
+> > From: Eric Biggers <ebiggers@google.com>
+> > 
+> > If userspace provides an invalid fscrypt no-key filename which encodes a
+> > hash value with any of the UBIFS node type bits set (i.e. the high 3
+> > bits), gracefully report ENOENT rather than triggering ubifs_assert().
+> > 
+> > Test case with kvm-xfstests shell:
+> > 
+> >     . fs/ubifs/config
+> >     . ~/xfstests/common/encrypt
+> >     dev=$(__blkdev_to_ubi_volume /dev/vdc)
+> >     ubiupdatevol $dev -t
+> >     mount $dev /mnt -t ubifs
+> >     mkdir /mnt/edir
+> >     xfs_io -c set_encpolicy /mnt/edir
+> >     rm /mnt/edir/_,,,,,DAAAAAAAAAAAAAAAAAAAAAAAAAA
+> > 
+> > With the bug, the following assertion fails on the 'rm' command:
+> > 
+> >     [   19.066048] UBIFS error (ubi0:0 pid 379): ubifs_assert_failed: UBIFS assert failed: !(hash & ~UBIFS_S_KEY_HASH_MASK), in fs/ubifs/key.h:170
+> > 
+> > Fixes: f4f61d2cc6d8 ("ubifs: Implement encrypted filenames")
+> > Cc: <stable@vger.kernel.org> # v4.10+
+> > Signed-off-by: Eric Biggers <ebiggers@google.com>
+> 
+> Richard, can you review the two UBIFS patches in this series, and if you're okay
+> with them, provide Acked-by's so that we can take them through the fscrypt tree?
+> They don't conflict with anything currently in the UBIFS tree.
+> 
+
+Richard, any objection to us taking these patches through the fscrypt tree?
+
+- Eric
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
