@@ -2,40 +2,40 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9411B1485C4
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 14:16:00 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B7BB1485B9
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 14:13:56 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ECYfikYMcUPY0YmtUyVg6SOIhA5HFA4IBwvvGJ6qR2U=; b=AaIso/6hv5Tx7X
-	aZhjwOV+b+7xeT9jkCiaxHlYP4oeFCK3N4oACyrEBiQE7Glv3miqMk6UooQJPO4/nawgPhtx8Tej9
-	wmomNIQRew+Ex8xIj4dY7lAXJlw9Ej/lJOmzueByUXfh8al8BQs6i0aaj3D1jUq7VodsV2WHMUY66
-	weUD/qj/nWQKjwGCJu0vuO9d5v1eI7csvS/gjofYNe2GdKCUZujVTwFTZtwogpWdalAbxK+T+cfX4
-	ZJlbnU38CLvaBU2tFIf1mu0FkfLyCLcE5Y/Ys79PR77LQNbgdLSDJVWMl8Tw/b9BH8F5iLVw6lNlo
-	P7zNAej3nUDibr+PXnEw==;
+	List-Owner; bh=LP1YXkZdh4CQG+oP+UoOjyJhguvM3SqeEgmRFXYe/qM=; b=Bw15UZaqyOtIIN
+	aGiW4KC8DUYZAVHGPU+ZXTqD6m0kV9EETjCgKBRZuULmvlcLMoc5FKKJUMrapD2qQOOW0utmqLELo
+	VeYikbhyElsmAoD7Tm+FJTQE2jcbD7+W0QJ63EdG0FToyYL2VIUvPr52mqSiL3+f4d0SORDSsq/8I
+	brCo591tckDFwkV5fLD6douSu1x8nLQXmOM0YsExmv/T53qQW89Enfh0NiatNb6+EHsOPcv++PEF/
+	XTbsm+lrrKKhGJ2aURICRDjGfs+qiKAXZnugEVztD0FqvkmP54Je9JyirxHw0M3ZJLWHjfXYtcoC2
+	CwOLiybbkAUMfdNzVNow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iuyoV-0000dv-PK; Fri, 24 Jan 2020 13:15:55 +0000
+	id 1iuymQ-00064Q-FV; Fri, 24 Jan 2020 13:13:46 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iuymV-0006KP-OK
- for linux-mtd@lists.infradead.org; Fri, 24 Jan 2020 13:13:56 +0000
+ id 1iuymC-0005x0-28
+ for linux-mtd@lists.infradead.org; Fri, 24 Jan 2020 13:13:34 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1iuym5-0003aG-RW; Fri, 24 Jan 2020 14:13:25 +0100
+ id 1iuym5-0003aH-Rd; Fri, 24 Jan 2020 14:13:25 +0100
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1iuym5-0006ZG-1z; Fri, 24 Jan 2020 14:13:25 +0100
+ id 1iuym5-0006ZJ-2d; Fri, 24 Jan 2020 14:13:25 +0100
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-fsdevel@vger.kernel.org
-Subject: [PATCH 3/8] ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
-Date: Fri, 24 Jan 2020 14:13:18 +0100
-Message-Id: <20200124131323.23885-4-s.hauer@pengutronix.de>
+Subject: [PATCH 4/8] ubifs: do not ubifs_inode() on potentially NULL pointer
+Date: Fri, 24 Jan 2020 14:13:19 +0100
+Message-Id: <20200124131323.23885-5-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200124131323.23885-1-s.hauer@pengutronix.de>
 References: <20200124131323.23885-1-s.hauer@pengutronix.de>
@@ -46,8 +46,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200124_051351_907374_D01378A5 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20200124_051332_104439_33F9550C 
+X-CRM114-Status: GOOD (  12.14  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -73,169 +73,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The FS_IOC_FS[SG]ETXATTR ioctls are an alternative to FS_IOC_[GS]ETFLAGS
-with additional features. This patch adds support for these ioctls.
+new_inode() may return NULL, so only derefence the return inode when
+non NULL. This is merely a cleanup as calling ubifs_inode() on a NULL
+pointer doesn't do any harm, only using the return value would.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 ---
- fs/ubifs/ioctl.c | 105 ++++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 100 insertions(+), 5 deletions(-)
+ fs/ubifs/dir.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/fs/ubifs/ioctl.c b/fs/ubifs/ioctl.c
-index 8230dba5fd74..23967031b947 100644
---- a/fs/ubifs/ioctl.c
-+++ b/fs/ubifs/ioctl.c
-@@ -95,9 +95,46 @@ static int ubifs2ioctl(int ubifs_flags)
- 	return ioctl_flags;
- }
+diff --git a/fs/ubifs/dir.c b/fs/ubifs/dir.c
+index 0b98e3c8b461..cfce5fee9262 100644
+--- a/fs/ubifs/dir.c
++++ b/fs/ubifs/dir.c
+@@ -95,10 +95,10 @@ struct inode *ubifs_new_inode(struct ubifs_info *c, struct inode *dir,
+ 	}
  
--static int setflags(struct file *file, int flags)
-+/* Transfer xflags flags to internal */
-+static unsigned long ubifs_xflags_to_iflags(__u32 xflags)
- {
--	int oldflags, err, release;
-+	unsigned long iflags = 0;
-+
-+	if (xflags & FS_XFLAG_SYNC)
-+		iflags |= UBIFS_SYNC_FL;
-+	if (xflags & FS_XFLAG_IMMUTABLE)
-+		iflags |= UBIFS_IMMUTABLE_FL;
-+	if (xflags & FS_XFLAG_APPEND)
-+		iflags |= UBIFS_APPEND_FL;
-+
-+        return iflags;
-+}
-+
-+/* Transfer internal flags to xflags */
-+static __u32 ubifs_iflags_to_xflags(unsigned long flags)
-+{
-+	__u32 xflags = 0;
-+
-+	if (flags & UBIFS_SYNC_FL)
-+		xflags |= FS_XFLAG_SYNC;
-+	if (flags & UBIFS_IMMUTABLE_FL)
-+		xflags |= FS_XFLAG_IMMUTABLE;
-+	if (flags & UBIFS_APPEND_FL)
-+		xflags |= FS_XFLAG_APPEND;
-+
-+        return xflags;
-+}
-+
-+static void ubifs_fill_fsxattr(struct inode *inode, struct fsxattr *fa)
-+{
-+	struct ubifs_inode *ui = ubifs_inode(inode);
-+
-+	simple_fill_fsxattr(fa, ubifs_iflags_to_xflags(ui->flags));
-+}
-+
-+static int setflags(struct file *file, int flags, struct fsxattr *fa)
-+{
-+	int ubi_flags, oldflags, err, release;
- 	struct inode *inode = file_inode(file);
- 	struct ubifs_inode *ui = ubifs_inode(inode);
- 	struct ubifs_info *c = inode->i_sb->s_fs_info;
-@@ -110,6 +147,13 @@ static int setflags(struct file *file, int flags)
- 	if (!inode_owner_or_capable(inode))
- 		return -EACCES;
+ 	inode = new_inode(c->vfs_sb);
+-	ui = ubifs_inode(inode);
+ 	if (!inode)
+ 		return ERR_PTR(-ENOMEM);
  
-+	ubifs_assert(c, !(flags && fa));
-+
-+	if (fa)
-+		ubi_flags = ubifs_xflags_to_iflags(fa->fsx_xflags);
-+	else
-+		ubi_flags = ioctl2ubifs(flags);
-+
++	ui = ubifs_inode(inode);
  	/*
- 	 * Make sure the file-system is read-write and make sure it
- 	 * will not become read-only while we are changing the flags.
-@@ -126,11 +170,21 @@ static int setflags(struct file *file, int flags)
- 
- 	mutex_lock(&ui->ui_mutex);
- 	oldflags = ubifs2ioctl(ui->flags);
--	err = vfs_ioc_setflags_prepare(inode, oldflags, flags);
-+	err = vfs_ioc_setflags_prepare(inode, oldflags, ubifs2ioctl(ubi_flags));
- 	if (err)
- 		goto out_unlock;
- 
--	ui->flags = ioctl2ubifs(flags);
-+	if (fa) {
-+		struct fsxattr old_fa;
-+
-+		ubifs_fill_fsxattr(inode, &old_fa);
-+
-+		err = vfs_ioc_fssetxattr_check(inode, &old_fa, fa);
-+		if (err)
-+			goto out_unlock;
-+	}
-+
-+	ui->flags = ubi_flags;
- 	ubifs_set_inode_flags(inode);
- 	inode->i_ctime = current_time(inode);
- 	release = ui->dirty;
-@@ -156,6 +210,41 @@ static int setflags(struct file *file, int flags)
- 	return err;
- }
- 
-+static int ubifs_ioc_fsgetxattr(struct file *file, void __user *arg)
-+{
-+	struct inode *inode = file_inode(file);
-+	struct fsxattr fa;
-+
-+	ubifs_fill_fsxattr(inode, &fa);
-+
-+	if (copy_to_user(arg, &fa, sizeof(fa)))
-+		return -EFAULT;
-+
-+	return 0;
-+}
-+
-+static int check_xflags(unsigned int flags)
-+{
-+	if (flags & ~(FS_XFLAG_SYNC | FS_XFLAG_IMMUTABLE | FS_XFLAG_APPEND))
-+		return -EOPNOTSUPP;
-+	return 0;
-+}
-+
-+static int ubifs_ioc_fssetxattr(struct file *file, const void __user *arg)
-+{
-+	struct fsxattr fa;
-+	int err;
-+
-+	if (copy_from_user(&fa, (struct fsxattr __user *)arg, sizeof(fa)))
-+		return -EFAULT;
-+
-+	err = check_xflags(fa.fsx_xflags);
-+	if (err)
-+		return err;
-+
-+	return setflags(file, 0, &fa);
-+}
-+
- long ubifs_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- {
- 	int flags, err;
-@@ -179,7 +268,7 @@ long ubifs_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- 			flags &= ~FS_DIRSYNC_FL;
- 
- 
--		return setflags(file, flags);
-+		return setflags(file, flags, NULL);
- 	}
- 	case FS_IOC_SET_ENCRYPTION_POLICY: {
- 		struct ubifs_info *c = inode->i_sb->s_fs_info;
-@@ -208,6 +297,12 @@ long ubifs_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
- 	case FS_IOC_GET_ENCRYPTION_KEY_STATUS:
- 		return fscrypt_ioctl_get_key_status(file, (void __user *)arg);
- 
-+	case FS_IOC_FSGETXATTR:
-+		return ubifs_ioc_fsgetxattr(file, (void __user *)arg);
-+
-+	case FS_IOC_FSSETXATTR:
-+		return ubifs_ioc_fssetxattr(file, (const void __user *)arg);
-+
- 	default:
- 		return -ENOTTY;
- 	}
+ 	 * Set 'S_NOCMTIME' to prevent VFS form updating [mc]time of inodes and
+ 	 * marking them dirty in file write path (see 'file_update_time()').
 -- 
 2.25.0
 
