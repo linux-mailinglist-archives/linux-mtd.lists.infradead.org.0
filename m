@@ -2,41 +2,43 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 532461485C3
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 14:15:46 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C9B871485C1
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Jan 2020 14:15:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mGbUUB//HOmNACKL5bi8MFjCJFXLZweWduqFWaJ4fN8=; b=WCbxEGxny7y942
-	6W2EcnLoFVrsYhdGLSh1s096yMSisZL8kFqOTDcyCbljfkUl6C59RtllWVc/9YB1+3Lyw9M7W/2/J
-	jlNCiUXBgd3rTjZZHUe2Sl7S4gkrHcydCbxnQtSoEHvsqgqvRfgvZmyZBainEe00lB7p/DFCEwSHE
-	rwQh6WaiMPt84PWVo/vGIiJ3Eh3BYBRMKIoC4Mi/L6J/oFktTN6B8fMhFVp9IJp7Y0DZuT8OCXdy5
-	xZw9fB+5P11MKbKb42EyqTqU34XdNuFpOyKEfQ55stJzuTalssMA/Y0U/lGwr5NMKmdnhG54Bi2uK
-	agx4uZETGvj2QtIg0lJw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QJHnNv+EHfej3RzgU3XWAsuwW/drnqNlxZxHR6KZxSQ=; b=nN9EW4TdvFmrk6
+	d5/FgvYgZVGU7Llp2/d8E+IYYL57fOckdfS4EcqAXSOyNJ8UDql/zXtCtUaRLBjmt2dYNaD8ivfNX
+	KbdIthXd0lXUVzqmJ9iucTCCOLJ73sHs8Gpo1XuiyIgtEgoGzPA9dwh31zxjqoapSeSeaEC01Sw84
+	uODbZue8V92x6bEjPJTcUiQFsWE6Jv5Q36mRtfPdDSnFnbTz0ecEq5LLP4jKSxau1QbKBz/Sw2wvC
+	VjVQDskx/VHd6YGeyN03Qif+I4i5V6/Hk7ySUKTOZPqBYuSl5rWef6+tBA69RpT1qCzEpQ7AsoNnp
+	gyKv0fnZz7BI5fPJD8Sg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iuyoD-0000P7-MC; Fri, 24 Jan 2020 13:15:37 +0000
+	id 1iuynf-00078q-DB; Fri, 24 Jan 2020 13:15:03 +0000
 Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iuymN-0006Bj-DB
- for linux-mtd@lists.infradead.org; Fri, 24 Jan 2020 13:13:45 +0000
+ id 1iuymF-00063y-PB
+ for linux-mtd@lists.infradead.org; Fri, 24 Jan 2020 13:13:38 +0000
 Received: from dude.hi.pengutronix.de ([2001:67c:670:100:1d::7])
  by metis.ext.pengutronix.de with esmtps
  (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1iuym5-0003aD-RR; Fri, 24 Jan 2020 14:13:25 +0100
+ id 1iuym5-0003aE-RR; Fri, 24 Jan 2020 14:13:25 +0100
 Received: from sha by dude.hi.pengutronix.de with local (Exim 4.92)
  (envelope-from <sha@pengutronix.de>)
- id 1iuym4-0006Z6-Vz; Fri, 24 Jan 2020 14:13:24 +0100
+ id 1iuym5-0006Z8-0V; Fri, 24 Jan 2020 14:13:25 +0100
 From: Sascha Hauer <s.hauer@pengutronix.de>
 To: linux-fsdevel@vger.kernel.org
-Subject: [PATCH v4 0/8] Add quota support to UBIFS
-Date: Fri, 24 Jan 2020 14:13:15 +0100
-Message-Id: <20200124131323.23885-1-s.hauer@pengutronix.de>
+Subject: [PATCH 1/8] quota: Allow to pass mount path to quotactl
+Date: Fri, 24 Jan 2020 14:13:16 +0100
+Message-Id: <20200124131323.23885-2-s.hauer@pengutronix.de>
 X-Mailer: git-send-email 2.25.0
+In-Reply-To: <20200124131323.23885-1-s.hauer@pengutronix.de>
+References: <20200124131323.23885-1-s.hauer@pengutronix.de>
 MIME-Version: 1.0
 X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::7
 X-SA-Exim-Mail-From: sha@pengutronix.de
@@ -44,8 +46,8 @@ X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
  SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200124_051343_472055_336EEDB9 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20200124_051335_843628_192C96D6 
+X-CRM114-Status: GOOD (  18.48  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -71,102 +73,125 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+This patch introduces the Q_PATH flag to the quotactl cmd argument.
+When given, the path given in the special argument to quotactl will
+be the mount path where the filesystem is mounted, instead of a path
+to the block device.
+This is necessary for filesystems which do not have a block device as
+backing store. Particularly this is done for upcoming UBIFS support.
 
-This series adds quota support to UBIFS.
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ fs/quota/quota.c           | 53 +++++++++++++++++++++++++++-----------
+ include/uapi/linux/quota.h |  1 +
+ 2 files changed, 39 insertions(+), 15 deletions(-)
 
-Integrated more review feedback this time, see changelog.
-
-This series follows a very simple approach to quota: Neither the quota
-limits nor the quota usage are ever written to the medium. The quota
-usage is reconstructed from the filesystem during mount time. The quota
-limits must be set by the user each time after mount. This is probably
-not very convenient for systems that are used interactively, but UBIFS
-is targetted to embedded systems and here running a script after mount
-shouldn't be a problem. This of course isn't the way quota was thought
-to be, but I believe this is a good compromise for a feature that I predict
-is only rarely used on UBIFS. The big upside of this approach is that
-no on-disk format changes are required and thus we can't get any
-broken/corrupt filesystems because of quota support. Reconstructing the
-quota data each time during mount has an noticable but I think for many
-cases acceptable time overhead. I mounted a ~56MiB rootfs with 1920 files
-which takes around 0.7s longer when quota is enabled.
-
-As UBIFS works on mtd there is no block_device involved. The quotactl
-system call requires a path to a block device as argument. To overcome
-this we add support for passing the mount point instead. This is done
-with a new Q_PATH flag to the quotactl syscall indicating that the special
-argument belongs to the mount path rather than a path to the block device
-file
-
-The UBIFS quota support itself is based on a series by Dongsheng Yang
-posted here:
-http://lists.infradead.org/pipermail/linux-mtd/2015-September/061812.html
-This part hasn't changed much, except that the code for reading and writing
-quota files has been dropped.
-
-Sascha
-
-changes since v3:
-- implement ubifs_dqblk_find() using ubifs_dqblk_find_next()
-- Fix copy/paste errors in flag settings
-- drop unnecessary inline declaration
-- add ubifs_assert() for catching wrong usage of setflags()
-- add helper function for projid checking
-- Add a feature flag for supporting projid
-
-changes since v2:
-- Rebase on Jans quota-without-inode series
-- Use recently introduced vfs_ioc_fssetxattr_check() and simple_fill_fsxattr()
-- fix project quota support (was broken in v2 due to upstream changes in UBIFS)
-- check for illegal renames due to different project id
-
-Changes since v1:
-- Introduce Q_PATH flag to make passing a mountpath explicit
-- Do not mess with fs layer as suggested by Al Viro
-- create separate usrquota, grpquota and prjquota options rather than just
-  a single quota option
-- register a UBIFS specific quota_format and use dquot_enable()
-- drop "quota: Only module_put the format when existing" which is no
-  longer necesary
-
-Sascha Hauer (8):
-  quota: Allow to pass mount path to quotactl
-  ubifs: move checks and preparation into setflags()
-  ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
-  ubifs: do not ubifs_inode() on potentially NULL pointer
-  ubifs: Factor out ubifs_set_feature_flag()
-  ubifs: Add support for project id
-  ubifs: export get_znode
-  ubifs: Add quota support
-
-
-Sascha Hauer (8):
-  quota: Allow to pass mount path to quotactl
-  ubifs: move checks and preparation into setflags()
-  ubifs: Add support for FS_IOC_FS[SG]ETXATTR ioctls
-  ubifs: do not ubifs_inode() on potentially NULL pointer
-  ubifs: Factor out ubifs_set_feature_flag()
-  ubifs: Add support for project id
-  ubifs: export get_znode
-  ubifs: Add quota support
-
- Documentation/filesystems/ubifs.txt |   7 +-
- fs/quota/quota.c                    |  53 ++-
- fs/ubifs/Makefile                   |   1 +
- fs/ubifs/dir.c                      |  56 ++-
- fs/ubifs/file.c                     |  43 ++
- fs/ubifs/ioctl.c                    | 220 ++++++++--
- fs/ubifs/journal.c                  |   4 +-
- fs/ubifs/quota.c                    | 603 ++++++++++++++++++++++++++++
- fs/ubifs/sb.c                       |  29 +-
- fs/ubifs/super.c                    |  87 +++-
- fs/ubifs/tnc.c                      |  34 +-
- fs/ubifs/ubifs-media.h              |  10 +-
- fs/ubifs/ubifs.h                    |  43 ++
- include/uapi/linux/quota.h          |   2 +
- 14 files changed, 1117 insertions(+), 75 deletions(-)
- create mode 100644 fs/ubifs/quota.c
-
+diff --git a/fs/quota/quota.c b/fs/quota/quota.c
+index 5444d3c4d93f..9ef51d02d5a5 100644
+--- a/fs/quota/quota.c
++++ b/fs/quota/quota.c
+@@ -19,6 +19,7 @@
+ #include <linux/types.h>
+ #include <linux/writeback.h>
+ #include <linux/nospec.h>
++#include <linux/mount.h>
+ 
+ static int check_quotactl_permission(struct super_block *sb, int type, int cmd,
+ 				     qid_t id)
+@@ -821,15 +822,20 @@ int kernel_quotactl(unsigned int cmd, const char __user *special,
+ {
+ 	uint cmds, type;
+ 	struct super_block *sb = NULL;
+-	struct path path, *pathp = NULL;
++	struct path file_path, *file_pathp = NULL, sb_path;
+ 	int ret;
++	bool q_path;
+ 
+ 	cmds = cmd >> SUBCMDSHIFT;
+ 	type = cmd & SUBCMDMASK;
+ 
++
+ 	if (type >= MAXQUOTAS)
+ 		return -EINVAL;
+ 
++	q_path = cmds & Q_PATH;
++	cmds &= ~Q_PATH;
++
+ 	/*
+ 	 * As a special case Q_SYNC can be called without a specific device.
+ 	 * It will iterate all superblocks that have quota enabled and call
+@@ -847,28 +853,45 @@ int kernel_quotactl(unsigned int cmd, const char __user *special,
+ 	 * resolution (think about autofs) and thus deadlocks could arise.
+ 	 */
+ 	if (cmds == Q_QUOTAON) {
+-		ret = user_path_at(AT_FDCWD, addr, LOOKUP_FOLLOW|LOOKUP_AUTOMOUNT, &path);
++		ret = user_path_at(AT_FDCWD, addr,
++				   LOOKUP_FOLLOW | LOOKUP_AUTOMOUNT,
++				   &file_path);
+ 		if (ret)
+-			pathp = ERR_PTR(ret);
++			file_pathp = ERR_PTR(ret);
+ 		else
+-			pathp = &path;
++			file_pathp = &file_path;
+ 	}
+ 
+-	sb = quotactl_block(special, cmds);
+-	if (IS_ERR(sb)) {
+-		ret = PTR_ERR(sb);
+-		goto out;
++	if (q_path) {
++		ret = user_path_at(AT_FDCWD, special,
++				   LOOKUP_FOLLOW | LOOKUP_AUTOMOUNT,
++				   &sb_path);
++		if (ret)
++			goto out;
++
++		sb = sb_path.mnt->mnt_sb;
++	} else {
++		sb = quotactl_block(special, cmds);
++		if (IS_ERR(sb)) {
++			ret = PTR_ERR(sb);
++			goto out;
++		}
+ 	}
+ 
+-	ret = do_quotactl(sb, type, cmds, id, addr, pathp);
++	ret = do_quotactl(sb, type, cmds, id, addr, file_pathp);
++
++	if (q_path) {
++		path_put(&sb_path);
++	} else {
++		if (!quotactl_cmd_onoff(cmds))
++			drop_super(sb);
++		else
++			drop_super_exclusive(sb);
++	}
+ 
+-	if (!quotactl_cmd_onoff(cmds))
+-		drop_super(sb);
+-	else
+-		drop_super_exclusive(sb);
+ out:
+-	if (pathp && !IS_ERR(pathp))
+-		path_put(pathp);
++	if (file_pathp && !IS_ERR(file_pathp))
++		path_put(file_pathp);
+ 	return ret;
+ }
+ 
+diff --git a/include/uapi/linux/quota.h b/include/uapi/linux/quota.h
+index f17c9636a859..e1787c0df601 100644
+--- a/include/uapi/linux/quota.h
++++ b/include/uapi/linux/quota.h
+@@ -71,6 +71,7 @@
+ #define Q_GETQUOTA 0x800007	/* get user quota structure */
+ #define Q_SETQUOTA 0x800008	/* set user quota structure */
+ #define Q_GETNEXTQUOTA 0x800009	/* get disk limits and usage >= ID */
++#define Q_PATH     0x400000	/* quotactl special arg contains mount path */
+ 
+ /* Quota format type IDs */
+ #define	QFMT_VFS_OLD 1
 -- 
 2.25.0
 
