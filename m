@@ -2,59 +2,68 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 474D914A407
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Jan 2020 13:40:22 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7B4CD14A44F
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Jan 2020 13:56:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=B+Ihmv2v68csRC83FACkrk8aeqblAv0pgNhpkYjYg4E=; b=UHs
-	CY1tmzET7GHyeuyHXVghc5No6w3t5kg8nEsBp0ui6bbXn3tsOvvU7M3ufNtn5j18PIoYsuMpWL82x
-	VXCpeQM1Ath5o/a8CHBnvCcE1tiCScY7e4c4MVN9Ml5pRB/wHLc30LOD9TsDtbyUSDqGFPUytzd+n
-	YTNw72Knaow6ji5J8S1ebX3yyPxHj0kofPq7l7w1KKP86ePaVybWOEWervVZdDeZSxZE3agI3lWKn
-	t7okGxnW5nFeaD+EV6XCIbxvyXAHE6QKXoCV6PktgEiTEEZmBiVYpM45mHNTSViSCtuGdoyFQcBPd
-	G6YigGr+PhOmpGiY6zQu8g1LzDxp1sw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TYSRMQkWi9pxBqv2JBa9k0f59ZCz6XHCL4ngIU+pDkk=; b=bGIPg/kIh8wnoa
+	1QuQ2HC/g5QtK8KYhXS1/q0kthHAUcg+XIb2go9xt5VtphyV8wQ672/GrkOwEYpLjMHVHkTPA846r
+	Rte1d8NX4eumsKjVp51GzCmhDQ3WOOWxKmKFgqmJm32z+CjzvZgO1qrEdI4jMOH4UgWK2hvuNJTiS
+	/7cBVQ8gwGKqd0+rhlu54PsfdA69q+JnLNd3XseapXsCzXQ8gpc5VH8IFSyQKKnWIt18liVP2ZKMa
+	tM+4+zEsHiDMo+ULG4WfaGnW4FTkzFNKR0gdRMnA/xLizYHtKCsxjjro/D2tfIDddLcjG8rupMQGR
+	VoBLoLYDLPKeWvfpQ+dQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iw3gd-0001uG-8z; Mon, 27 Jan 2020 12:40:15 +0000
-Received: from conuserg-10.nifty.com ([210.131.2.77])
+	id 1iw3wK-0007Iy-QC; Mon, 27 Jan 2020 12:56:28 +0000
+Received: from conssluserg-05.nifty.com ([210.131.2.90])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iw3gV-00017P-Dr
- for linux-mtd@lists.infradead.org; Mon, 27 Jan 2020 12:40:09 +0000
-Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp
- [153.142.97.92]) (authenticated)
- by conuserg-10.nifty.com with ESMTP id 00RCdcZH001287;
- Mon, 27 Jan 2020 21:39:38 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-10.nifty.com 00RCdcZH001287
+ id 1iw3w9-0007Ie-0a
+ for linux-mtd@lists.infradead.org; Mon, 27 Jan 2020 12:56:18 +0000
+Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com
+ [209.85.221.174]) (authenticated)
+ by conssluserg-05.nifty.com with ESMTP id 00RCu2Du025439
+ for <linux-mtd@lists.infradead.org>; Mon, 27 Jan 2020 21:56:03 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 00RCu2Du025439
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1580128779;
- bh=ct4hR2SFtJIjSGrUUZxMPG18H6AE2oR0KNstaSmV6n8=;
- h=From:To:Cc:Subject:Date:From;
- b=s6Xg+yxtzaTk72msg7Iif1XiiCbN/rSWwZGAerAvb6VnNcACSJb693VxZNoPd05wd
- Y572qWqmaYwWCsyA8aYXSu3aNd6T/2aGcDwQ6PZY9sxqtow1gvTqg839zMWdPoCEoj
- mR31nUbeFm0VHpKir4taZK61fwwiHVetoyAT7RYMjYl2GtiIWpXalzaWFJkNeZ4UgW
- DHIqMkgT0Q71YXGQdf5prLTiE2SqIb1UPplz36d5NnFCJQR668g0BnaMEeuw0whYD3
- BFomzO1wJ+aMo/G4YyxC/A/aomYHcXjQa35xHaINZu0TQ3vmmfwHh36vMUY7OdNyUg
- tHijUaAZA9IxQ==
-X-Nifty-SrcIP: [153.142.97.92]
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH] mtd: rawnand: denali: deassert write protect pin
-Date: Mon, 27 Jan 2020 21:39:34 +0900
-Message-Id: <20200127123934.11847-1-yamada.masahiro@socionext.com>
-X-Mailer: git-send-email 2.17.1
+ s=dec2015msa; t=1580129763;
+ bh=dGCJAhJbUqKnSgxJYoXM3jsc9acDTx2CkDjtkeQlhGU=;
+ h=From:Date:Subject:To:Cc:From;
+ b=GLhdlobXtHz2mq06vtVXyy12ZSIMD3eIAwNIuHFhH7mp/cJ4wepYqbAJCF8H8onWN
+ yVv0pogud67uu92EzzHEyHit4h0uPDsa3inLCSM27aCnRBQXNa/z9JO9cOnpFkgGmb
+ 5PxdB+d1UFdUMN4b2jJWuOS3GJjN1gWhRRgXnG85SrJzOjW44/nozwNLFvpqjmvMud
+ 3FrbLNJpkUVijQIst1JnbfYWYSX/oG6roeRiHv+y4TGtTImIiU7fVO0MdgQNiw9Sac
+ 96AIRBm5mhpEUGZ8quPTgS9U1ToKHWUhX5bAziM5XxWxHUgSoh0zDx4W1fTNEX/sU8
+ 57FZU4zO3grZw==
+X-Nifty-SrcIP: [209.85.221.174]
+Received: by mail-vk1-f174.google.com with SMTP id i4so2593903vkc.3
+ for <linux-mtd@lists.infradead.org>; Mon, 27 Jan 2020 04:56:03 -0800 (PST)
+X-Gm-Message-State: APjAAAUtbPopy95Vd8MwjKI63h7QHh1vzskcnqa/RvYwznIyQswqulPw
+ i7FTxOe9ROTRuNR21hXlKa6R7BHwqvKA1/jUnvo=
+X-Google-Smtp-Source: APXvYqwvFOtz0RrJXzHK0X5fA15DZBprq5KVq/jc9f0H9xTNVNDkQwuKFzXCjMZmCjtSJC5i1PziAy9UPHv6VzZxTwE=
+X-Received: by 2002:a1f:1bc3:: with SMTP id b186mr8870779vkb.96.1580129761632; 
+ Mon, 27 Jan 2020 04:56:01 -0800 (PST)
+MIME-Version: 1.0
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Mon, 27 Jan 2020 21:55:25 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAR0FemABUg5uN5fhy5LRsOm7n5GhmFVVHE8T57knDM9Ug@mail.gmail.com>
+Message-ID: <CAK7LNAR0FemABUg5uN5fhy5LRsOm7n5GhmFVVHE8T57knDM9Ug@mail.gmail.com>
+Subject: How to handle write-protect pin of NAND device ?
+To: linux-mtd <linux-mtd@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200127_044007_829398_963A3454 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20200127_045617_307170_D1130A16 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (1.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [210.131.2.77 listed in list.dnswl.org]
+ no trust [210.131.2.90 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -71,63 +80,64 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Boris Brezillon <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
- linux-kernel@vger.kernel.org, Masahiro Yamada <yamada.masahiro@socionext.com>,
+Cc: Boris Brezillon <bbrezillon@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-If the write protect signal from this IP is connected to the NAND
-device, this IP can handle the WP# pin via the WRITE_PROTECT
-register.
+Hi.
 
-The Denali NAND Flash Memory Controller User's Guide describes
-this register like follows:
+I have a question about the
+WP_n pin of a NAND chip.
 
-  When the controller is in reset, the WP# pin is always asserted
-  to the device. Once the reset is removed, the WP# is de-asserted.
-  The software will then have to come and program this bit to
-  assert/de-assert the same.
 
-    1 - Write protect de-assert
-    0 - Write protect assert
+As far as I see, the NAND framework does not
+handle it.
 
-The default value is 1, so the write protect is de-asserted after
-the reset is removed. The driver can write to the device unless
-someone has explicitly cleared register before booting the kernel.
+Instead, it is handled in a driver level.
+I see some DT-bindings that handle the WP_n pin.
 
-The boot ROM of some UniPhier SoCs (LD4, Pro4, sLD8, Pro5) is the
-case; the boot ROM clears the WRITE_PROTECT register when the system
-is booting from the NAND device, so the NAND device becomes read-only.
+$ git grep wp -- Documentation/devicetree/bindings/mtd/
+Documentation/devicetree/bindings/mtd/brcm,brcmnand.txt:-
+brcm,nand-has-wp          : Some versions of this IP include a
+write-protect
+Documentation/devicetree/bindings/mtd/ingenic,jz4780-nand.txt:-
+wp-gpios: GPIO specifier for the write protect pin.
+Documentation/devicetree/bindings/mtd/ingenic,jz4780-nand.txt:
+         wp-gpios = <&gpf 22 GPIO_ACTIVE_LOW>;
+Documentation/devicetree/bindings/mtd/nvidia-tegra20-nand.txt:-
+wp-gpios: GPIO specifier for the write protect pin.
+Documentation/devicetree/bindings/mtd/nvidia-tegra20-nand.txt:
+         wp-gpios = <&gpio TEGRA_GPIO(S, 0) GPIO_ACTIVE_LOW>;
 
-Set it to 1 in the driver in order to allow the write access to the
-device.
 
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
----
 
- drivers/mtd/nand/raw/denali.c | 1 +
- 1 file changed, 1 insertion(+)
+I wrote a patch to avoid read-only issue in some cases:
+http://patchwork.ozlabs.org/patch/1229749/
 
-diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
-index fafd0a0aa8e2..6a6c919b2569 100644
---- a/drivers/mtd/nand/raw/denali.c
-+++ b/drivers/mtd/nand/raw/denali.c
-@@ -1317,6 +1317,7 @@ int denali_init(struct denali_controller *denali)
- 	iowrite32(CHIP_EN_DONT_CARE__FLAG, denali->reg + CHIP_ENABLE_DONT_CARE);
- 	iowrite32(ECC_ENABLE__FLAG, denali->reg + ECC_ENABLE);
- 	iowrite32(0xffff, denali->reg + SPARE_AREA_MARKER);
-+	iowrite32(WRITE_PROTECT__FLAG, denali->reg + WRITE_PROTECT);
- 
- 	denali_clear_irq_all(denali);
- 
--- 
-2.17.1
+Generally speaking, we expect NAND devices
+are writable in Linux. So, I think my patch is OK.
 
+
+However, I asked this myself:
+Is there a useful case to assert the write protect
+pin in order to make the NAND chip really read-only?
+For example, the system recovery image is stored in
+a read-only device, and the write-protect pin is
+kept asserted to assure nobody accidentally corrupts it.
+
+But, I am not sure if it should be handled in the
+framework level with a more generic DT-binding.
+
+
+Comments are appreciated.
+
+--
+Best Regards
+Masahiro Yamada
 
 ______________________________________________________
 Linux MTD discussion mailing list
