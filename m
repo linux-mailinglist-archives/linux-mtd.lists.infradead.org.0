@@ -2,48 +2,49 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B901314BE95
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Jan 2020 18:29:59 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C0FB014BE8F
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Jan 2020 18:29:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HTttLIAnVDZdY+fJjJ77mao/L5VOXXjuGh5rZOCIWd8=; b=k/VRDxa+7fyN1i
-	/gPwE8Ke7B3LjK4UUwDEp27yScDWSzhRlGjCUM9Wqv4IkbJcxJgUlsw4VCYkUuk0gU5f3eeVdqOcc
-	T3GazTph0IMPYzhjseywcIeucTDU+FP9cC4IK/sQ6Y2TOaCwmA3MtIRWG8IfWd6XsqVRbsiAL/dQW
-	1ghEQnQVnd9CTSSoWNzvqXVmL6ZoGorJ4TPIA6PqHr39zkDllWqlek3M4XZfasW9oDm5ZylEOYDvO
-	50wuA+CZlw1l4a1lbb1fh4OrJlWuKjifVx/0f5mNuisnTJUHDmSrRrpoIWcakkndL1j1mhoInUK6Y
-	oVlfoFZr7KLAzQa5x3sQ==;
+	List-Owner; bh=TVkX9JVFlSfQjWIXphxw25HlPD9agkao3tNB6BwRK58=; b=ttt9H6cZHZvH7l
+	P8LIytT6XPvLefVymdnStxtMbbyuIsiBTU0fKp7fxW/c6awyHXWFj9DL8IS1XEk7pZclRc6EHC9NQ
+	y8Pu8O6vol1ALjr8TBohkle64LmhmG/zELXaSm27zTJsbZz3m5L2azeVTfRHJeOVMOx3e2+sCm0qP
+	/TZB7EYsMJAkHyx8AScyx7jqtJJ0JQ/46ZaVoQoYjjCcaaB9CBAdQPsUgFZ3UJ6aCaIRoUPcnP0FY
+	vffP21QfQA5T6ToPYxOsKzayBkVYAK1ZceqTsOrNy1v+0eJGDGqlM99PlRCNexHN1HVlvKWM2yfJ9
+	d4fAjd4W6vzWOc5MA0lg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iwUgT-0002v5-Q2; Tue, 28 Jan 2020 17:29:53 +0000
+	id 1iwUfh-00024F-Sq; Tue, 28 Jan 2020 17:29:05 +0000
 Received: from lilium.sigma-star.at ([109.75.188.150])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iwUeF-0000ju-LZ
+ id 1iwUeF-0000jj-9a
  for linux-mtd@lists.infradead.org; Tue, 28 Jan 2020 17:27:37 +0000
 Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 3785818026540;
- Tue, 28 Jan 2020 18:27:32 +0100 (CET)
+ by lilium.sigma-star.at (Postfix) with ESMTP id 350B4180FEE22;
+ Tue, 28 Jan 2020 18:27:31 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id Supdisy_45R8; Tue, 28 Jan 2020 18:27:30 +0100 (CET)
+ with ESMTP id tKKLvazI8X7V; Tue, 28 Jan 2020 18:27:30 +0100 (CET)
 Received: from lilium.sigma-star.at ([127.0.0.1])
  by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id B-5KNuyUfBbx; Tue, 28 Jan 2020 18:27:29 +0100 (CET)
+ with ESMTP id 61Em79L4WzW8; Tue, 28 Jan 2020 18:27:30 +0100 (CET)
 From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 To: linux-mtd@lists.infradead.org
-Subject: [PATCH 7/8] mtd-utils: Fix potentially unterminated strings
-Date: Tue, 28 Jan 2020 18:27:14 +0100
-Message-Id: <20200128172715.19545-8-david.oberhollenzer@sigma-star.at>
+Subject: [PATCH 8/8] mtd-utils: Add checks to code that copies strings into
+ fixed sized buffers
+Date: Tue, 28 Jan 2020 18:27:15 +0100
+Message-Id: <20200128172715.19545-9-david.oberhollenzer@sigma-star.at>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20200128172715.19545-1-david.oberhollenzer@sigma-star.at>
 References: <20200128172715.19545-1-david.oberhollenzer@sigma-star.at>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200128_092735_895417_B9BB04FA 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20200128_092735_483449_38C6E351 
+X-CRM114-Status: GOOD (  10.80  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -68,74 +69,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This commit fixes some uses of strncpy that could leave the destination
-buffer unterminated.
-
 Signed-off-by: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
 ---
- lib/libubi.c                  | 3 ++-
- misc-utils/mtdpart.c          | 4 +++-
- tests/checkfs/checkfs.c       | 3 ++-
- tests/jittertest/JitterTest.c | 3 ++-
- 4 files changed, 9 insertions(+), 4 deletions(-)
+ jffsX-utils/jffs2dump.c | 3 ++-
+ ubi-utils/ubirename.c   | 7 +++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
-diff --git a/lib/libubi.c b/lib/libubi.c
-index afe3648..baaca2f 100644
---- a/lib/libubi.c
-+++ b/lib/libubi.c
-@@ -1008,7 +1008,8 @@ int ubi_mkvol(libubi_t desc, const char *node, struct ubi_mkvol_request *req)
- 	if (n > UBI_MAX_VOLUME_NAME)
- 		return -1;
+diff --git a/jffsX-utils/jffs2dump.c b/jffsX-utils/jffs2dump.c
+index ad7a9e3..d30b59f 100644
+--- a/jffsX-utils/jffs2dump.c
++++ b/jffsX-utils/jffs2dump.c
+@@ -149,7 +149,8 @@ static void process_options (int argc, char *argv[])
+ 				break;
+ 			case 'e':
+ 				convertendian = 1;
+-				strcpy (cnvfile, optarg);
++				strncpy (cnvfile, optarg, sizeof(cnvfile) - 1);
++				cnvfile[sizeof(cnvfile) - 1] = '\0';
+ 				break;
+ 			case 'r':
+ 				recalccrc = 1;
+diff --git a/ubi-utils/ubirename.c b/ubi-utils/ubirename.c
+index f88ef82..97bf030 100644
+--- a/ubi-utils/ubirename.c
++++ b/ubi-utils/ubirename.c
+@@ -126,6 +126,13 @@ int main(int argc, char * const argv[])
  
--	strncpy(r.name, req->name, UBI_MAX_VOLUME_NAME + 1);
-+	strncpy(r.name, req->name, UBI_MAX_VOLUME_NAME);
-+	r.name[UBI_MAX_VOLUME_NAME] = '\0';
- 	r.name_len = n;
+ 		rnvol.ents[count].vol_id = err;
+ 		rnvol.ents[count].name_len = strlen(argv[i + 1]);
++
++		if (rnvol.ents[count].name_len >=
++		    sizeof(rnvol.ents[count].name)) {
++			errmsg("\"%s\" volume name too long", argv[i + 1]);
++			goto out_libubi;
++		}
++
+ 		strcpy(rnvol.ents[count++].name, argv[i + 1]);
+ 	}
  
- 	fd = open(node, O_RDONLY);
-diff --git a/misc-utils/mtdpart.c b/misc-utils/mtdpart.c
-index e480e1b..ba35d87 100644
---- a/misc-utils/mtdpart.c
-+++ b/misc-utils/mtdpart.c
-@@ -174,7 +174,9 @@ int main(int argc, char * const argv[])
- 		case COMMAND_ADD:
- 			part.start = start_addr;
- 			part.length = length;
--			strncpy(part.devname, part_name, sizeof(part.devname));
-+			strncpy(part.devname, part_name,
-+				sizeof(part.devname) - 1);
-+			part.devname[sizeof(part.devname) - 1] = '\0';
- 			arg.op = BLKPG_ADD_PARTITION;
- 			break;
- 		case COMMAND_DEL:
-diff --git a/tests/checkfs/checkfs.c b/tests/checkfs/checkfs.c
-index 3e34cc4..203ad5c 100644
---- a/tests/checkfs/checkfs.c
-+++ b/tests/checkfs/checkfs.c
-@@ -512,7 +512,8 @@ static void processCmdLine(int argc, char **argv)
-     {
-         if(strcmp(argv[cnt], CMDLINE_PORT) == 0)
-         {
--            strncpy(SerialDevice, argv[++cnt], sizeof(SerialDevice));
-+            strncpy(SerialDevice, argv[++cnt], sizeof(SerialDevice) - 1);
-+	    SerialDevice[sizeof(SerialDevice) - 1] = '\0';
-             continue;
-         }else
-             if(strcmp(argv[cnt], CMDLINE_MAXFILEBYTES) == 0)
-diff --git a/tests/jittertest/JitterTest.c b/tests/jittertest/JitterTest.c
-index 797035b..2bee0b0 100644
---- a/tests/jittertest/JitterTest.c
-+++ b/tests/jittertest/JitterTest.c
-@@ -859,7 +859,8 @@ void HandleCmdLineArgs(
- 	      /* Set the file to log console log on. */
- 	      ++argNum;
- 
--	      strncpy(LogFile, argv[argNum], sizeof(LogFile));
-+	      strncpy(LogFile, argv[argNum], sizeof(LogFile) - 1);
-+	      LogFile[sizeof(LogFile) - 1] = '\0';
-             }
- 
-             else if ((strcmp(argv[argNum],"--grab_kprofile") ==
 -- 
 2.24.1
 
