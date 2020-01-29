@@ -2,62 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B66114CE12
-	for <lists+linux-mtd@lfdr.de>; Wed, 29 Jan 2020 17:15:21 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 253E414D0B5
+	for <lists+linux-mtd@lfdr.de>; Wed, 29 Jan 2020 19:50:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1iPYH7gmmlyYj4hCWPe+CuMzcFFSVl5fEzZAyCJhavY=; b=TkLN3nM/5HFsMw
-	B73nTyoIZ546+Z8t1g23RW/1R+R55UzzP5dbtGRQzDnkEfzW08S8Rq/UYkkr7mjLvEYUbEs75jOM0
-	5krdgzEqjHzdUHKR2IUBI2Pu3ohfQwtiHx5EtcrCjSqa0gkze+sn00pQIsH7uha8SU8t5YXa2GMLi
-	k9hDfQubOTyYsviuIPigJzKdEdDQzD4gwKJ8yFAPz5gCtl7t7HrLFBs4uHTTBKSWG3JEshstjXyI7
-	lThaGBA5Sga0d16Hz1xtsVP+qIIkzJ85tVovGTPO51pKWFl0lqFUfoikIUvD2017vsN5HOvihtZF/
-	vhBWc90v5hfbyIeFLrOQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p8hk3lbwGJHV/S0rziW7wP8AudtNRWA5MZyASmMm4LE=; b=I0eUk4Qz2fOPrk
+	2isS9eXoefYaWP55Wly8+xM/v4Li077WkGlEpdEp1c01FnyGihUUFNLG2dGkUwMc0UPm06vYo/vPB
+	Ba7IlWXplrl5nco9aUzMiknnIh2UBtRm6UINsLrrL7EIUYmvGTV23lebsdCXz9+QtpgFfxS+uzzun
+	dQ5YGrDHJd/0HO2XrT2tHGIgCahPZHFipQiSKNBh7BcVH72JCXX0Mi7D00iPeZSfZdqEJioqpI2ZG
+	DIOyDcx6T0lj3AIuQggSgzNeJ2irW5I2+Fb1gR5G88FCygRAibk8NHDNWMIBxh91+kjrz3RD5voXi
+	CJSmmnZ+ejhStfSWWhTA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iwpzp-0003dt-Go; Wed, 29 Jan 2020 16:15:17 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1iwsQE-0003QZ-OW; Wed, 29 Jan 2020 18:50:42 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iwpzX-0003By-Bw
- for linux-mtd@lists.infradead.org; Wed, 29 Jan 2020 16:15:03 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id A1BD6ACF0;
- Wed, 29 Jan 2020 16:14:56 +0000 (UTC)
-Received: by quack2.suse.cz (Postfix, from userid 1000)
- id 167D61E0D4F; Wed, 29 Jan 2020 17:14:50 +0100 (CET)
-Date: Wed, 29 Jan 2020 17:14:50 +0100
-From: Jan Kara <jack@suse.cz>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Subject: Re: [PATCH 1/8] quota: Allow to pass mount path to quotactl
-Message-ID: <20200129161450.GA8591@quack2.suse.cz>
-References: <20200124131323.23885-1-s.hauer@pengutronix.de>
- <20200124131323.23885-2-s.hauer@pengutronix.de>
- <20200127104518.GC19414@quack2.suse.cz>
- <20200128100631.zv7cn726twylcmb7@pengutronix.de>
- <20200129012929.GV23230@ZenIV.linux.org.uk>
+ id 1iwsQ5-0003Pn-6Z
+ for linux-mtd@lists.infradead.org; Wed, 29 Jan 2020 18:50:34 +0000
+Received: by mail-wr1-x441.google.com with SMTP id y17so720665wrh.5
+ for <linux-mtd@lists.infradead.org>; Wed, 29 Jan 2020 10:50:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=fishpost-de.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=pgT60YPjhpm/5ImmOU5ydiNvfAZlNUvB9Bdk4kF5yvo=;
+ b=OIW8uGDhXKpnjNknsdV54NEhJrgCP32k3zwngDJBEJ66+/x43NoCK2NhDiBSwaiKyH
+ EDUDTSputk3JCy8sxjeunA9tBAEyL+1z/tucW0A/31iwjpToqAC8ABbwx/RvpGifKHOJ
+ XCh94TndGH4auslo4e3DtXKf2vaga6clHI9vGKqWye270asbOONG6nXJp9yvmmOthjxC
+ 7/pEHf3RzmQ5oP71KORAKvVG1FZSuHLgPsg1MWRbVG+Rqoj8XDah9KPOMqzyk7GTMmDl
+ Gom5enW9ZAJ9SptOIlPy84xgD7+jDobVhVErebo4vBEW9z1b/Kj4EuWESK8kM4CwUn34
+ zQlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=pgT60YPjhpm/5ImmOU5ydiNvfAZlNUvB9Bdk4kF5yvo=;
+ b=pG0zqcsBYjTtKF2tUSfEooF9wpc94d1Y+FCEsYJr0oP8zstaGQ/mP3AbC++vAwZjCG
+ Z7DT3C2aTkUMXVmOT2GnZYyCxcalCEc9Nw8/s+6dr0TBC4W6UQZljDbszgrMGuftYbqk
+ N1ISpjGYjsRfmB5CRYPMa/fuiPteONuRCQJqRvHfBmVmWv2QqKH+UFC8s7nmSmDas6eR
+ bZVAcClhIYcyIzKhDmv7YR2IrNhojPndUPvrNm2BdZ5aTspYuwDZIUHy1rUTrmMYOveI
+ xp6pNu3P77sYNIrJ19ipbR5gyB7pbKWhQtKHKyAlLxhdoQZYCGqASQ7x0XI4Fc2Q9I5B
+ ynVg==
+X-Gm-Message-State: APjAAAUxneDPjr86w4dgLQ2F6PLQMgNW6srqikDvYsAbkxRS/KGfp7fC
+ sIiQZDKY7KZ7y2Kg4G2L7SeIh3D26gi49A==
+X-Google-Smtp-Source: APXvYqy9LpSPIINkJZFGQKIQWS/brLyBN7KppRSGcKdUuO0iYOrE3CBb9QgRCQvDe0hHFlUsWzEYDQ==
+X-Received: by 2002:adf:f58a:: with SMTP id f10mr224249wro.105.1580323828309; 
+ Wed, 29 Jan 2020 10:50:28 -0800 (PST)
+Received: from thinkbage.fritz.box
+ (dslb-084-059-208-128.084.059.pools.vodafone-ip.de. [84.59.208.128])
+ by smtp.gmail.com with ESMTPSA id c9sm3909229wrq.44.2020.01.29.10.50.27
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 29 Jan 2020 10:50:27 -0800 (PST)
+From: Bastian Germann <bastiangermann@fishpost.de>
+To: linux-mtd@lists.infradead.org
+Subject: [PATCH] libubigen: remove unnecessary include
+Date: Wed, 29 Jan 2020 19:50:12 +0100
+Message-Id: <20200129185013.21752-1-bastiangermann@fishpost.de>
+X-Mailer: git-send-email 2.25.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200129012929.GV23230@ZenIV.linux.org.uk>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200129_081502_226961_5B5DEEB6 
-X-CRM114-Status: GOOD (  15.95  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200129_105033_380140_535C189E 
+X-CRM114-Status: UNSURE (   7.65  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:441 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,86 +92,35 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Jan Kara <jack@suse.cz>, Richard Weinberger <richard@nod.at>,
- Sascha Hauer <s.hauer@pengutronix.de>, linux-mtd@lists.infradead.org,
- kernel@pengutronix.de, Jan Kara <jack@suse.com>, linux-fsdevel@vger.kernel.org
+Cc: Bastian Germann <bastiangermann@fishpost.de>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed 29-01-20 01:29:29, Al Viro wrote:
-> On Tue, Jan 28, 2020 at 11:06:31AM +0100, Sascha Hauer wrote:
-> > Hi Jan,
-> 
-> > @@ -810,6 +811,36 @@ static struct super_block *quotactl_block(const char __user *special, int cmd)
-> >  #endif
-> >  }
-> >  
-> > +static struct super_block *quotactl_path(const char __user *special, int cmd,
-> > +					 struct path *path)
-> > +{
-> > +	struct super_block *sb;
-> > +	int ret;
-> > +
-> > +	ret = user_path_at(AT_FDCWD, special, LOOKUP_FOLLOW | LOOKUP_AUTOMOUNT,
-> > +			   path);
-> > +	if (ret)
-> > +		return ERR_PTR(ret);
-> > +
-> > +	sb = path->mnt->mnt_sb;
-> > +restart:
-> > +	if (quotactl_cmd_onoff(cmd))
-> > +		down_write(&sb->s_umount);
-> > +	else
-> > +		down_read(&sb->s_umount);
-> > +
-> > +	if (quotactl_cmd_write(cmd) && sb->s_writers.frozen != SB_UNFROZEN) {
-> > +		if (quotactl_cmd_onoff(cmd))
-> > +			up_write(&sb->s_umount);
-> > +		else
-> > +			up_read(&sb->s_umount);
-> > +		wait_event(sb->s_writers.wait_unfrozen,
-> > +			   sb->s_writers.frozen == SB_UNFROZEN);
-> > +		goto restart;
-> > +	}
-> > +
-> > +	return sb;
-> > +}
-> 
-> This partial duplicate of __get_super_thawed() guts does *not* belong here,
-> especially not interleaved with quota-specific checks.
+libubigen.h does not use any symbol from mtd/ubi-media.h,
+so remove it from includes.
 
-OK, so some primitive in fs/super.c like:
+Signed-off-by: Bastian Germann <bastiangermann@fishpost.de>
+---
+ include/libubigen.h | 1 -
+ 1 file changed, 1 deletion(-)
 
-void hold_super_thawed(struct super_block *sb, bool excl);
-
-that would implement the above functionality and grab passive reference?
-
-> > +	if (q_path) {
-> > +		if (quotactl_cmd_onoff(cmd))
-> > +			up_write(&sb->s_umount);
-> > +		else
-> > +			up_read(&sb->s_umount);
-> > +
-> > +		path_put(&sb_path);
-> > +	} else {
-> > +		if (!quotactl_cmd_onoff(cmds))
-> > +			drop_super(sb);
-> > +		else
-> > +			drop_super_exclusive(sb);
-> > +	}
-> 
-> Er...  Why not have the same code that you've used to lock the damn thing
-> (needs to be moved to fs/super.c) simply get a passive ref to it?  Then
-> you could do the same thing, q_path or no q_path...
-
-Yes.
-
-								Honza
+diff --git a/include/libubigen.h b/include/libubigen.h
+index c25ac20..48d2fad 100644
+--- a/include/libubigen.h
++++ b/include/libubigen.h
+@@ -26,7 +26,6 @@
+ #define __LIBUBIGEN_H__
+ 
+ #include <stdint.h>
+-#include <mtd/ubi-media.h>
+ 
+ #ifdef __cplusplus
+ extern "C" {
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+2.25.0
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
