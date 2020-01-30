@@ -2,86 +2,84 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1AEAA14D8C0
-	for <lists+linux-mtd@lfdr.de>; Thu, 30 Jan 2020 11:14:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 361AB14DA3D
+	for <lists+linux-mtd@lfdr.de>; Thu, 30 Jan 2020 12:57:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4sPYvn+LQIFHICO7PmfOL3rqrxJZZvcuPjfeOeKD+to=; b=HoPA5BS6urEpde
-	FNptCtomqa+tAoVI5KyGBF8HBU+/6aSCzT70NAqB5j7RkO4N+pN+VX9Dfcxqosou5FByKmJi44JEW
-	5lDQ76LKweUw8EkrDnJxB1h7pJzcHB4SgoaW/8qcL/FMjZ4d82OGaY71ryuFNpz2r75NuiAj9pm47
-	LGA1IUqkq9HqhYvej4nO9RJagl6KpUtQHs7f0/hVh/DaC1ccIddIgN/LG0atUC8mGcPwzZVqooCvg
-	vZ1wXhlqIlnbWgOiqlwXqNw7sILd33L777+EoVZFZIJlXt28yD3ycQT6cdbRN0uQZYs9A+Qgyyf6P
-	MJubFfHsz+Ka8h44MYeg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:
+	MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dJ7JsxxGeIUhofgBVwU5wvGGOY1+J3VTe48spd199VQ=; b=j4aFdsUZHYgVBt
+	q7iWJtmE2LLiTIu0uZ5G01tPu+YJ0yGW57rPyfz56kmUqvg2SPehEf2mr7xC3O5KuwXHnZbqjz1IO
+	EhUPMki6VWT47IV5EVN+BUfUHJRcOZqWHYPodGhqMOhPFAO2m1fx697qBWoBpj4l27baPTNzFTL8K
+	3Q0++Z4imEIn9W9AGKsdfm2N8sOtJcI2v3f27GIqb1uyBKLNUpBv1KLxexAXFypuMTRjqbPx9SqnF
+	mznqcxLHrjD0VQJSCCQa0nsOzoCJWLjy3M1zwH3EeHlUpAtPNBGYJUvyuzKpEtTVVrlPoJ4TCoMU0
+	9MtxtGn99fM3IujFhWTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ix6pl-0004qc-VN; Thu, 30 Jan 2020 10:14:01 +0000
-Received: from lilium.sigma-star.at ([109.75.188.150])
+	id 1ix8S7-0007cE-GP; Thu, 30 Jan 2020 11:57:43 +0000
+Received: from server.gobernacioneloro.com ([69.64.36.20])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ix6pY-0004py-Mu
- for linux-mtd@lists.infradead.org; Thu, 30 Jan 2020 10:13:50 +0000
-Received: from localhost (localhost [127.0.0.1])
- by lilium.sigma-star.at (Postfix) with ESMTP id 5F3EE1815EA89;
- Thu, 30 Jan 2020 11:13:45 +0100 (CET)
-Received: from lilium.sigma-star.at ([127.0.0.1])
- by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id Cbwdozgx_dPl; Thu, 30 Jan 2020 11:13:43 +0100 (CET)
-Received: from lilium.sigma-star.at ([127.0.0.1])
- by localhost (lilium.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id yWx1dEtDOCCi; Thu, 30 Jan 2020 11:13:43 +0100 (CET)
-Subject: Re: [PATCH 1/8] mtd-utils: Fix printf format specifies with the wrong
- type
-To: Alexander Dahl <ada@thorsis.com>, linux-mtd@lists.infradead.org
-References: <20200128172715.19545-1-david.oberhollenzer@sigma-star.at>
- <20200128172715.19545-2-david.oberhollenzer@sigma-star.at>
- <1687829.rdH24INEY4@ada>
-From: David Oberhollenzer <david.oberhollenzer@sigma-star.at>
-Autocrypt: addr=david.oberhollenzer@sigma-star.at; prefer-encrypt=mutual;
- keydata=
- mQENBFZyf0YBCADHyKhABhxthCC9n48pvsuk5p3IEdYXMs8Apenh1N/Z4cViAz/d/nSCZ+FG
- FX/PSubEzq8AilZLejchAltaORCvA1Y6FgTlpcdJ6gHDfStDbJL/vk5N8aL7YNF7VfjTRntB
- tKbhKcrG05nbdNjIioAm04pt9rx5mV5KMbf22/FdZpOSSsC6/N7b/cFH9+fx8kwi4pNFuJwr
- BkWRuQ7rEtCoSpd22t+Vh9qA7kymW9gWY405258jnN65jBO7ElqU2CCuGRPg6uryAHV3RVCB
- 9j9AE3HLacQReFtt5ylyydSQbaK4K9asnd7U2/C11vIuuciXCppX4bPap/pMnGpzw0UNABEB
- AAG0N0RhdmlkIE9iZXJob2xsZW56ZXIgPGRhdmlkLm9iZXJob2xsZW56ZXJAc2lnbWEtc3Rh
- ci5hdD6JATcEEwEIACEFAlZyf0YCGwMFCwkIBwIGFQgJCgsCBBYCAwECHgECF4AACgkQvOXc
- PHQaAtFuEAgArXOhaoaVvCMVCa5N25Q/+Q6K1wrVpPmkH89yhQqCmfM6f+2VM5MGFDPfaSJ3
- 5fBDH0iwBQwlXIb7NSXWtzdXX9rMvJkJqv45TgeKtJApf/sRhmcN+clrwzP8oZQbxkP1YWzo
- Vwo4lOb3Kv7aY9yeCjqNbdJJ57NpvYOUrzrCpGkrDPBBQOvKF3wbq3oU/o3dT23NDeQ20jXg
- quJf/PCw6WCzRxqg58wH02MdMDQe8vByzVig2bM2e7DErtt+hPK/Dmdsqgns+Z+SrQcOvRa3
- GMAHAuHB0u2LhYO6NyaNCgzdgutorilYcq7FEKr8XqwOnfVmZdCW3qGKmLbn6qMEdLkBDQRW
- cn9GAQgAvugF8cFjv2Zs4BBb44SnxGawBySC1bMRas/MjA9EMHUAx/StcecQmxnl6BzEyGpr
- +TRnXIzcb5xI8SxitBDU5MLvwsHgNvpYp9fscd4kWP7oMir9ta3Q8SvT4OLbO4FZBGaURzGP
- ak8JmjMMtOoOBh4meOjz6GrJe9UIGxT94aB01w7YohfBANzK8xyk4ykKC5Op4XgaaMKOEQUa
- h7wajcojYSlvgOiXqEisMHlRDAW6sXL2sEM7TIpvYhy9txMLllpkYb0Pu1BvUpY/unsybWKA
- FyiTmeiY+nEveUvqX6Ef7BWdClBeCk2UaRvtcoLd22VxMlKTniHQcNMOXlRRawARAQABiQEf
- BBgBCAAJBQJWcn9GAhsMAAoJELzl3Dx0GgLRPtcH/jD6rn2+VIKgrHdt3ao3Abpu2fqYfwbI
- yPAtpXOddDptVq+0A/2arXT1Y8+jNSZpbAg8K+bLaEAcSUEjviKMpfI7ppTUBuGKrpgc5xsi
- UpKkJCb7oB1ZraIBNBPtPPVUhbwLie4uW/LVt+8rBKz3W9KEDOsT0ZCG/pW8Ld+EpDR9l0fm
- qoVHaw8PhLAtez+B7HS7Hv7iJPDtX85kFYpud8kIPENXVn9EjZudyMWgZb2LhYlcavNcszgR
- 7In6ift5SNySojCOfAV0iKZb8QUXWktLleY8kQ8jltOsSRTuO4PDfzvtCQDixUw4tQ7WLwDT
- qyUpot0oG03vtSG4LIRCdxI=
-Organization: sigma star gmbh
-Message-ID: <e43c98d8-9166-c0dc-3b1a-bc91aba24b41@sigma-star.at>
-Date: Thu, 30 Jan 2020 11:13:42 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+ id 1ix8S0-0007bo-6Q
+ for linux-mtd@lists.infradead.org; Thu, 30 Jan 2020 11:57:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=gobernacioneloro.gob.ec; s=default; h=Message-ID:Reply-To:Subject:To:From:
+ Date:Content-Transfer-Encoding:Content-Type:MIME-Version:Sender:Cc:Content-ID
+ :Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+ Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+ List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=4Fm+3oeewdK+ChIRdzYJNfbDCr1jNd3dfw71EG1xpOU=; b=Jo+etsSaJXNEEZ8NtrX/OL3JLd
+ DaeQYccovErlZmCFKRZbS/2smUftM8u/0XiK9l9K+vCp2MW2hGhdGsfN92Ss10ta6TK0GTsBKKlZh
+ zyraN9pZrzIbOCJ9p7jEoroQ8U1xZHjfIHiyvZS7wR2P1b6Y7Hgp2mfE/dnyDgfdja0E68gj/ZEEe
+ uKSya0RAfYR0jahvn7D/5xGOHFThPUkInUBue2kMD+z16ehxS52ZnuuK9j7IagJ8fC3ae8M3TXbEy
+ 9/fyfkKdrfJ5ClBTpBdFanETkBm+pGHIwa3ZwwYqYv7NYm/E5cDSwSun+y1XtBFVwn8rE+XsMBcA9
+ T1zppOnA==;
+Received: from localhost ([127.0.0.1]:45410 helo=server.gobernacioneloro.com)
+ by server.gobernacioneloro.com with esmtpa (Exim 4.92)
+ (envelope-from <tp.lalibertad@gobernacioneloro.gob.ec>)
+ id 1ix7rN-00023M-VK; Thu, 30 Jan 2020 06:19:46 -0500
 MIME-Version: 1.0
-In-Reply-To: <1687829.rdH24INEY4@ada>
-Content-Language: en-US
+Date: Thu, 30 Jan 2020 06:19:45 -0500
+From: Nicolas <tp.lalibertad@gobernacioneloro.gob.ec>
+To: undisclosed-recipients:;
+Subject: Darlehen
+Mail-Reply-To: jimkreditinvestment@gmail.com
+Message-ID: <1eb5a321007857cb9db764c9338d4a03@gobernacioneloro.gob.ec>
+X-Sender: tp.lalibertad@gobernacioneloro.gob.ec
+User-Agent: Roundcube Webmail/1.3.8
+X-AntiAbuse: This header was added to track abuse,
+ please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.gobernacioneloro.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - gobernacioneloro.gob.ec
+X-Get-Message-Sender-Via: server.gobernacioneloro.com: authenticated_id:
+ tp.lalibertad@gobernacioneloro.gob.ec
+X-Authenticated-Sender: server.gobernacioneloro.com: tp.lalibertad@gobernacioneloro.gob.ec
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200130_021348_893285_DBC68CAE 
-X-CRM114-Status: GOOD (  10.58  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200130_035736_288273_67846005 
+X-CRM114-Status: UNSURE (  -3.75  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 2.3 (++)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,31 +91,16 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: jimkreditinvestment@gmail.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 1/29/20 8:36 AM, Alexander Dahl wrote:
-> The correct length specifier for variables of type size_t would be 'z' so the 
-> format specifier would be %zx or %zu. The 'l' for long might work on one 
-> platform but lead to a warning on another. We face this regularly when 
-> compiling the same source for 64 bit x86 and 32 bit arm.
-> 
-...
-> Same with that ones.
-
-Thanks! I tried to quickly check the actual types by doing a quick backwards
-search but somehow must have missed that, probably relying to much on the
-gcc & scan warnings agreeing with each other. Obviously the warning would
-say "unsigned long" on x86_64 because it's typedef'd to that on x86_64. I'll
-make sure to also double check again on a 32 bit VM.
-
-Thanks,
-
-David
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+CgotLSAKQmVuw7Z0aWdlbiBTaWUgZmluYW56aWVsbGUgSGlsZmU/IEd1dGUgTmFjaHJpY2h0ZW4g
+ZsO8ciBTaWUgaGV1dGUuIApCZWFudHJhZ2VuIFNpZSBub2NoIGhldXRlIGVpbiBEYXJsZWhlbiB6
+d2lzY2hlbiA1MDAwIEV1cm8gdW5kIAo1MC4wMDAuMDAwLDAwIEV1cm8uIEtvbnRha3RpZXJlbiBT
+aWUgdW5zIHBlciBFLU1haWw6IApqaW1rcmVkaXRpbnZlc3RtZW50QGdtYWlsLmNvbQoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1U
+RCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
