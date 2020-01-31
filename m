@@ -2,69 +2,76 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA9FD14E636
-	for <lists+linux-mtd@lfdr.de>; Fri, 31 Jan 2020 00:50:51 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 30DE414EA78
+	for <lists+linux-mtd@lfdr.de>; Fri, 31 Jan 2020 11:09:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pCKhfLyebhV2owA3bcsezEVGLCWHZjsXd0nMfO9bb64=; b=DdJhX5iynVwC6T
-	T5xd0Y5Mw39sMD2lBBQqRNzF/lYQLOJxLNgPuyuABUap20k6dgZQKS1RCtuUfEmvsK0DMfdwAXqUK
-	z492UwdGF//fIUnjEOHg++tW/Jrw6UomxW5Liq6gcYpm5yAXywF9aIT4jfHRgW1Hs6mqoh2J6PVpB
-	aa4pn6EyKG8Skq0t3haypOHqpgyRn1vlbkqYCoJvueJaLfI9PDWcOhoW9f1E1ISDnDbxqeGVNgJgT
-	yUBjiYJ57NBc2lpxSGW9POsUz+yoAwkemSEx+0LtJU6GYqIx9fctJ3P9U1VGETwB5iWHNJu2eA5/j
-	MAWGrmABYelieYpK9XGg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=3xUaZd3GTZY7wIhIAifqTEBb488V7AAyCcMIAEkgZOI=; b=CitHIGZZBqRUH663hqNYv0/sJ
+	CNPK49psM9yBA8tcBlAcp2NVDrvCDXQKKI+oDoupOryqgOHGTrHogKQKOU8U605F75v4pRRi9GT4w
+	oLgeQGwgDWUNfjdyIVpnJaMCENfLjO2225Vfq5IBlyRGfcdEemGp269yfkpUzCEYemtRXZqc+EcK6
+	nsLa6WLs+0v/1jlH+Czpmd5S/HkwvnrBTS7j5fDXqotfTuQv8oZ/7OU8UTTKNGxQID63RAA/UeBC5
+	BNkmQ/8yHVs/VCf4pYZWtTLX0K+JG2/1MqojkBKF+NSopTBpaapONvDkwpEMpAyXmGlDzd9OjiEPS
+	XkStly6NQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ixJa6-0004Ot-Jq; Thu, 30 Jan 2020 23:50:42 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1ixTES-0002Vw-RT; Fri, 31 Jan 2020 10:09:00 +0000
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ixJZl-0004FN-4d
- for linux-mtd@lists.infradead.org; Thu, 30 Jan 2020 23:50:22 +0000
-Subject: Re: [GIT PULL] mtd: Changes for 5.6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1580428220;
- bh=byWzMdC5VzPUaMxxqzsKKy4GLzsK1n8h38uudDXjQ6A=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=BP1QD6LCGemSPfModyC6TC35FxMQc23KWTP9uEC+8dpQbhUJLYvy54YEZSiaVfsxc
- Nrxz18etI9uMHiwIrQdLbQWObcDr6Zt7OtCPPICfliZV6mItdOF20U3QAx0yskZViE
- jMr4kAyxjgQZd+rj/FIalPrvwUyhSS6eSoNOEg6g=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20200130212052.11ca8719@xps13>
-References: <20200130212052.11ca8719@xps13>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20200130212052.11ca8719@xps13>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/for-5.6
-X-PR-Tracked-Commit-Id: 4575243c5c173f8adbc08a5c6ea2269742ea2b47
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 35c222fd323629cf2e834eb8aff77058856ffdda
-Message-Id: <158042822052.30792.15827763280633240047.pr-tracker-bot@kernel.org>
-Date: Thu, 30 Jan 2020 23:50:20 +0000
-To: Miquel Raynal <miquel.raynal@bootlin.com>
+ id 1ixTEK-0002Uk-Sj
+ for linux-mtd@lists.infradead.org; Fri, 31 Jan 2020 10:08:54 +0000
+Received: from lhreml702-cah.china.huawei.com (unknown [172.18.7.106])
+ by Forcepoint Email with ESMTP id B3DECD5AAAA281B00F0D;
+ Fri, 31 Jan 2020 10:08:20 +0000 (GMT)
+Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
+ lhreml702-cah.china.huawei.com (10.201.108.43) with Microsoft SMTP Server
+ (TLS) id 14.3.408.0; Fri, 31 Jan 2020 10:08:21 +0000
+Received: from [127.0.0.1] (10.202.226.43) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5; Fri, 31 Jan
+ 2020 10:08:20 +0000
+Subject: Re: [PATCH v2 2/3] spi: Add HiSilicon v3xx SPI NOR flash controller
+ driver
+To: Andy Shevchenko <andy.shevchenko@gmail.com>, Mark Brown
+ <broonie@kernel.org>
+References: <df67b562-7d82-19f6-7581-680190a7772d@huawei.com>
+ <20200110140726.GB5889@sirena.org.uk>
+ <6db83881-927c-d11c-9c77-23a45892ddab@huawei.com>
+ <20200110193119.GI32742@smile.fi.intel.com>
+ <612a3c5d-69a4-af6b-5c79-c3fb853193ab@huawei.com>
+ <20200113114256.GH3897@sirena.org.uk>
+ <6dd45da9-9ccf-45f7-ed12-8f1406a0a56b@huawei.com>
+ <20200113140627.GJ3897@sirena.org.uk>
+ <CAHp75VfepiiVFLLmCwdBS0Z6tmR+XKBaOLg1qPPuz1McLjS=4Q@mail.gmail.com>
+ <20200113142754.GL3897@sirena.org.uk>
+ <20200113143403.GQ32742@smile.fi.intel.com>
+From: John Garry <john.garry@huawei.com>
+Message-ID: <0252a76d-7e2b-2c70-8b1b-0d041d972098@huawei.com>
+Date: Fri, 31 Jan 2020 10:08:19 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
+MIME-Version: 1.0
+In-Reply-To: <20200113143403.GQ32742@smile.fi.intel.com>
+Content-Language: en-US
+X-Originating-IP: [10.202.226.43]
+X-ClientProxiedBy: lhreml735-chm.china.huawei.com (10.201.108.86) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200130_155021_199785_49C222EA 
-X-CRM114-Status: UNSURE (   2.00  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200131_020853_077266_742E1664 
+X-CRM114-Status: GOOD (  13.81  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [185.176.76.210 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,30 +83,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
- Frieder Schrempf <frieder.schrempf@kontron.de>, linux-mtd@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jiancheng Xue <xuejiancheng@hisilicon.com>, chenxiang66@hisilicon.com,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ tudor.ambarus@microchip.com, Linuxarm <linuxarm@huawei.com>,
+ linux-spi <linux-spi@vger.kernel.org>, Marek Vasut <marek.vasut@gmail.com>,
+ "open list:MEMORY TECHNOLOGY..." <linux-mtd@lists.infradead.org>,
+ liusimin4@huawei.com, Mika Westerberg <mika.westerberg@linux.intel.com>,
+ wanghuiqiang <wanghuiqiang@huawei.com>, fengsheng5@huawei.com
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The pull request you sent on Thu, 30 Jan 2020 21:20:52 +0100:
-
-> git://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git tags/mtd/for-5.6
-
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/35c222fd323629cf2e834eb8aff77058856ffdda
-
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gMTMvMDEvMjAyMCAxNDozNCwgQW5keSBTaGV2Y2hlbmtvIHdyb3RlOgo+IE9uIE1vbiwgSmFu
+IDEzLCAyMDIwIGF0IDAyOjI3OjU0UE0gKzAwMDAsIE1hcmsgQnJvd24gd3JvdGU6Cj4+IE9uIE1v
+biwgSmFuIDEzLCAyMDIwIGF0IDA0OjE3OjMyUE0gKzAyMDAsIEFuZHkgU2hldmNoZW5rbyB3cm90
+ZToKPj4+IE9uIE1vbiwgSmFuIDEzLCAyMDIwIGF0IDQ6MDcgUE0gTWFyayBCcm93biA8YnJvb25p
+ZUBrZXJuZWwub3JnPiB3cm90ZToKPj4+PiBPbiBNb24sIEphbiAxMywgMjAyMCBhdCAwMTowMTow
+NlBNICswMDAwLCBKb2huIEdhcnJ5IHdyb3RlOgo+Pj4+PiBPbiAxMy8wMS8yMDIwIDExOjQyLCBN
+YXJrIEJyb3duIHdyb3RlOgo+Pgo+Pj4+Pj4gVGhlIGlkaW9tYXRpYyBhcHByb2FjaCBhcHBlYXJz
+IHRvIGJlIGZvciBpbmRpdmlkdWFsIGJvYXJkIHZlbmRvcnMKPj4+Pj4+IHRvIGFsbG9jYXRlIElE
+cywgeW91IGRvIGVuZCB1cCB3aXRoIG11bHRpcGxlIElEcyBmcm9tIG11bHRpcGxlCj4+Pj4+PiB2
+ZW5kb3JzIGZvciB0aGUgc2FtZSB0aGluZy4KPj4KPj4+Pj4gQnV0IEkgYW0gbm90IHN1cmUgaG93
+IGFwcHJvcHJpYXRlIHRoYXQgc2FtZSBhcHByb2FjaCB3b3VsZCBiZSBmb3Igc29tZSAzcmQKPj4+
+Pj4gcGFydHkgbWVtb3J5IHBhcnQgd2hpY2ggd2UncmUgc2ltcGx5IHdpcmluZyB1cCBvbiBvdXIg
+Ym9hcmQuIE1heWJlIGl0IGlzLgo+Pgo+Pj4+IEl0IHNlZW1zIHRvIGJlIHF1aXRlIGNvbW1vbiBm
+b3IgSW50ZWwgcmVmZXJlbmNlIGRlc2lnbnMgdG8gYXNzaWduCj4+Pj4gSW50ZWwgSURzIHRvIG5v
+bi1JbnRlbCBwYXJ0cyBvbiB0aGUgYm9hcmQgKHdoaWNoIGlzIHdoZXJlIEkKPj4+PiBiZWNhbWUg
+YXdhcmUgb2YgdGhpcyBwcmFjdGljZSkuCj4+Cj4+PiBCYXNpY2FsbHkgdmVuZG9yIG9mIGNvbXBv
+bmVudCBpbiBxdWVzdGlvbiBpcyByZXNwb25zaWJsZSBmb3IgSUQsIGJ1dAo+Pj4gaXQgc2VlbXMg
+dGhleSBzaW1wbGUgZG9uJ3QgY2FyZS4KPj4KPj4gQUZBSUNUIGEgbG90IG9mIHRoZSB0aW1lIGl0
+IHNlZW1zIHRvIGJlIHRoYXQgd2hvZXZlciBpcyB3cml0aW5nCj4+IHRoZSBzb2Z0d2FyZSBlbmRz
+IHVwIGFzc2lnbmluZyBhbiBJRCwgdGhhdCBtYXkgbm90IGJlIHRoZSBzaWxpY29uCj4+IHZlbmRv
+ci4KPiAKPiAuLi53aGljaCBpcyBlZmZlY3RpdmVseSBhYnVzaW5nIHRoZSBBQ1BJIElEIGFsbG9j
+YXRpb24gcHJvY2VkdXJlLgo+IAo+IChBbmQgeWVzLCBJbnRlbCBpdHNlbGYgZGlkIGl0IGluIHRo
+ZSBwYXN0IOKAlCBzZWUgYmFkbHkgY3JlYXRlZCBBQ1BJIElEcwo+ICAgaW4gdGhlIGRyaXZlcnMp
+Cj4gCgpIaSBNYXJrLAoKQWJvdXQgdGhpcyB0b3BpYyBvZiBBQ1BJIGhhdmluZyBubyBtZXRob2Qg
+dG8gZGVzY3JpYmUgZGV2aWNlIGJ1c3dpZHRoIGluIAp0aGUgcmVzb3VyY2UgZGVzY3JpcHRvciwg
+aXQgbWF5IGJlIGFuIGlkZWEgZm9yIG1lIHRvIHJhaXNlIGEgVGlhbm9jb3JlIApmZWF0dXJlIHJl
+cXVlc3QgQCBodHRwczovL2J1Z3ppbGxhLnRpYW5vY29yZS5vcmcvCgpUaGVyZSBzZWVtcyB0byBi
+ZSBhbiBhdmVudWUgdGhlcmUgZm9yIHJhaXNpbmcgbmV3IGZlYXR1cmVzIGZvciB0aGUgc3BlYy4g
+CkkgKG9yIG15IG9yZykgY2FuJ3QgcGFydGljaXBhdGUgaW4gQVdTRy4KCkkgd291bGQgaGF2ZSBu
+byBjb25jcmV0ZSBwcm9wb3NhbCBmb3Igc3BlYyB1cGRhdGUgZm9yIG5vdywgdGhvdWdoLiAKSG9w
+ZWZ1bGx5IG90aGVycyB3aXRoIG1vcmUgZXhwZXJ0aXNlIGNvdWxkIGNvbnRyaWJ1dGUuCgpJbiB0
+aGUgbWVhbnRpbWUsIEkgaGF2ZSBhbiBSRkMgZm9yIHVzaW5nIERNSSB0byBxdWlyayBzdXBwb3J0
+IGZvciB0aGlzIApvbiB0aGUgZHJpdmVyIC0gSSBjYW4gc2hhcmUgd2hlbiByZWFkeS4KClRoYW5r
+cywKSm9obgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
