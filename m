@@ -2,94 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1674014FA90
-	for <lists+linux-mtd@lfdr.de>; Sat,  1 Feb 2020 21:55:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 13F2914FCFF
+	for <lists+linux-mtd@lfdr.de>; Sun,  2 Feb 2020 13:01:11 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:Subject:From:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=l5LLw+WDEyZXLu0qY1IqX2zTAd/IAajAb1W2uLg7+Tk=; b=DYynH7SIDfprVb3l5Ag3zBURWs
-	FuXaxKFvWUU86lVeK+duJ+kmxaHky3nj0p65yS1UIjhVz8Y7KfZdYiqjzz4+JfNEUqKNdzex5ud+6
-	ITxaoHrm82ylXHcidDZT90gYY/W4LwKrrX+Tz+1kSkYUrGE41AefzmKi2ekm/ia7N4QX/9zUJ2zzZ
-	7/mnKOf1SN3Hf7iD/H9ZIak8cVew+uvU/4cfZkc5ha1af8CrtUli2eiRMtAZSx1L3CLqxfaaSKhqD
-	qXS0a03Er+1s+r3SB6J/JyD1OQ2blTpA1U1UQ5NrrTkzJESGaGgIkw19HMFV9oFK+H0uByrcG+H8J
-	ILDimWEA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=NjprqtfI1TWq1JrTQKHt4dCP6dabwZIr/PVngpUyl4o=; b=aSpIAWK3Tn9cpuP0JTFqsPWxt
+	CQ2WOJE+cE1cUpuV2d95LA63FJR1g23bhVGFInn7W2pX9aHk6F9Tu8MwII27qwYRzgVn+kMQJfW1U
+	htr4gLauE9wuQ31i6lE24wSKQyIgEGHcPvvam/bIYf1y9eLs8Ic/0bhPBwrBcf6oc7sC/hi1po+7J
+	Mmxpp67m0CH40sWv3LLx4IFlkafX601MY2Ogx1k0OaP6nSCXDf+bR9lGM7AaHFlVayLecdeZk7u3q
+	CL41arEA00/euKh5/3v1/mOn5SSjqe7lgaQzG3WKhDB7SEo5yahsIhNw7riDvq7Hek7NfnPjbrrqS
+	gAokjTgig==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ixznc-0003um-4j; Sat, 01 Feb 2020 20:55:28 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1iyDvm-0006Wi-CW; Sun, 02 Feb 2020 12:00:50 +0000
+Received: from heliosphere.sirena.org.uk ([172.104.155.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ixznR-0003uF-BI
- for linux-mtd@lists.infradead.org; Sat, 01 Feb 2020 20:55:18 +0000
-Received: by mail-lj1-x242.google.com with SMTP id w1so10728829ljh.5
- for <linux-mtd@lists.infradead.org>; Sat, 01 Feb 2020 12:55:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
- h=from:subject:to:references:organization:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=aDR7arjSMlMRJkwpPKCJoDo6pUjhnLXb2qa3+5T1Qe0=;
- b=Nt9YjEweiI8OfS/osWukAGNplcqDrBbC8dToCOwfdo9fiv4+2c4eQuSsLxgdKTSs2f
- rjb0NfdvyWOSrjBCoRp4NA0ebRJq3zLklaaWzLUhgFoxWlpXjHRas22rYULf3qKDnhWM
- 3Tem1w/ZTuJf4o+wXbk/EmkNnQfoISdMDji9du5x5TWS0s2gOuKcIoztvRR2Q8kn9Q2m
- cNhRAT93skGLO9st3QuNFFsTabjmcWt0qCJrmoC57TBX6RLaevyB4zNZ1DrtdwfUIhzK
- YJU8L46iZmm+PwToi4+h4ykCVqXCazNIUPo1Fcpxy584XpLhhuVp4nkwtrLTwYoXHZF7
- NERA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:subject:to:references:organization
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=aDR7arjSMlMRJkwpPKCJoDo6pUjhnLXb2qa3+5T1Qe0=;
- b=dmn2fILaoEQT79ukTnchZadB1vfcDTWNhDKg83+NPvyYFke858v34TmNk6G802xoE7
- R7IjiAPtsbjBRfeKiE/oWXlM7Ec/+tXgivCqlaHH4njfupkyJbWrLzBklaOSZaBgSrKv
- XVgLBb9XMZOAWh4DCtr0lAgpnG13r9tzzzPzqQJa0VkIgJ5T/IXomYGbEv+Pknf6e9dH
- /wR2896NYJxkbRgypvqqH5SHqBBskE+fbSGEAhbTTQM89OJFXiNzd/heW7dPOlU1XZe9
- 6XRELD9mcxBEX2+LC7uaA84KXQBe3Ten1TtAbyxkQuqc+s9rEsb83PFi27O+9SP+9itX
- wZBQ==
-X-Gm-Message-State: APjAAAXL7PF7ius9FWfsXqzYszVK/PtcXaVwWSH8VimCRYjPEdtc+2+0
- twkdjv/tIY3qRi3JUCWnYx8DLw==
-X-Google-Smtp-Source: APXvYqzrckxinsJ/vh8oucx5/g5YpZqyBhzxt//Q3BTnbKB2dPYT89z3zTG1WbGsO3rm2wtySQgYNw==
-X-Received: by 2002:a2e:9942:: with SMTP id r2mr9164394ljj.182.1580590510819; 
- Sat, 01 Feb 2020 12:55:10 -0800 (PST)
-Received: from wasted.cogentembedded.com
- ([2a00:1fa0:43e:23d7:3996:dfcf:1d71:1e48])
- by smtp.gmail.com with ESMTPSA id r2sm7774392lff.63.2020.02.01.12.55.09
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sat, 01 Feb 2020 12:55:09 -0800 (PST)
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Subject: [PATCH] mtd: spi-nor: use le32_to_cpu_array()
-To: Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
-References: <610761cf-5a19-c182-07d8-8d118ca20035@cogentembedded.com>
-Organization: Cogent Embedded
-Message-ID: <70ea17c5-c4cf-819c-9b47-5755d821b4b3@cogentembedded.com>
-Date: Sat, 1 Feb 2020 23:55:08 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+ id 1iyDvf-0006Vw-1r
+ for linux-mtd@lists.infradead.org; Sun, 02 Feb 2020 12:00:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=h7E2UaKOVX1aD/zQdXr3brFbm+K+Dp4X6pCQvTffYRk=; b=OfVWWu0JCHbYAyfezgu1tH+VP
+ xnqyb0yrlt9o5GwiUYRZObeQlGr4HN0MI+HmlZupvtTnAYJd1YVDWXosXbexKO+LeY48Xgik2/mGi
+ 3SbPaPtnQ3MPhs5Scu6FapchiQk260HBaBZrJ9GulAt3Cyvf8aMXnkcdPAsztDgl6bAGc=;
+Received: from [151.216.144.116] (helo=fitzroy.sirena.org.uk)
+ by heliosphere.sirena.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <broonie@sirena.org.uk>)
+ id 1iyDvT-0006po-EI; Sun, 02 Feb 2020 12:00:31 +0000
+Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
+ id 6E272D01A54; Sat,  1 Feb 2020 11:32:50 +0000 (GMT)
+Date: Sat, 1 Feb 2020 11:32:50 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Subject: Re: [PATCH v2 2/3] spi: Add HiSilicon v3xx SPI NOR flash controller
+ driver
+Message-ID: <20200201113250.GT3897@sirena.org.uk>
+References: <20200113114256.GH3897@sirena.org.uk>
+ <6dd45da9-9ccf-45f7-ed12-8f1406a0a56b@huawei.com>
+ <20200113140627.GJ3897@sirena.org.uk>
+ <CAHp75VfepiiVFLLmCwdBS0Z6tmR+XKBaOLg1qPPuz1McLjS=4Q@mail.gmail.com>
+ <20200113142754.GL3897@sirena.org.uk>
+ <20200113143403.GQ32742@smile.fi.intel.com>
+ <0252a76d-7e2b-2c70-8b1b-0d041d972098@huawei.com>
+ <CAHp75Ve=ZwJe2XV8Y1UN6sMe1ZHOBwUtRUD=aGqhR4Gc7BNUcg@mail.gmail.com>
+ <136bd652-dcb9-3efa-a92f-2263cbf840ad@huawei.com>
+ <CAHp75Vd=TY0tPfSHMSLTh1Pgg-E7MCP5Gym1yjpLgH0Tx-2xSg@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <610761cf-5a19-c182-07d8-8d118ca20035@cogentembedded.com>
-Content-Language: en-MW
+In-Reply-To: <CAHp75Vd=TY0tPfSHMSLTh1Pgg-E7MCP5Gym1yjpLgH0Tx-2xSg@mail.gmail.com>
+X-Cookie: Programming is an unnatural act.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200201_125517_461043_281A522B 
-X-CRM114-Status: GOOD (  14.28  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200202_040043_118988_AC2F2B7D 
+X-CRM114-Status: GOOD (  15.42  )
+X-Spam-Score: 0.6 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (0.6 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:242 listed in]
- [list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ no trust [172.104.155.198 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.5 DATE_IN_PAST_24_48     Date: is 24 to 48 hours before Received: date
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,69 +90,91 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jiancheng Xue <xuejiancheng@hisilicon.com>, chenxiang66@hisilicon.com,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ John Garry <john.garry@huawei.com>, Linuxarm <linuxarm@huawei.com>,
+ linux-spi <linux-spi@vger.kernel.org>, Marek Vasut <marek.vasut@gmail.com>,
+ "open list:MEMORY TECHNOLOGY..." <linux-mtd@lists.infradead.org>,
+ tudor.ambarus@microchip.com, liusimin4@huawei.com,
+ Mika Westerberg <mika.westerberg@linux.intel.com>,
+ wanghuiqiang <wanghuiqiang@huawei.com>, fengsheng5@huawei.com
+Content-Type: multipart/mixed; boundary="===============9053315819532250303=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The driver calls le32_to_cpu() to convert the little-endian tables
-to  a CPU endianness, where le32_to_cpus() should have been called.
-Was going to use that one... and then discovered a whole array
-converter, le32_to_cpu_array()! :-)
 
-Signed-off-by: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+--===============9053315819532250303==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fDWuavwabVZ6mXOJ"
+Content-Disposition: inline
 
----
-This patch is against the 'spi-nor/next' branch of the MTD 'linux.git' repo
-plus couple of SPI NOR patches posted earlier...
 
- drivers/mtd/spi-nor/spi-nor.c |   11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
+--fDWuavwabVZ6mXOJ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Index: linux/drivers/mtd/spi-nor/spi-nor.c
-===================================================================
---- linux.orig/drivers/mtd/spi-nor/spi-nor.c
-+++ linux/drivers/mtd/spi-nor/spi-nor.c
-@@ -3626,8 +3626,7 @@ static int spi_nor_parse_bfpt(struct spi
- 		return err;
- 
- 	/* Fix endianness of the BFPT DWORDs. */
--	for (i = 0; i < BFPT_DWORD_MAX; i++)
--		bfpt.dwords[i] = le32_to_cpu(bfpt.dwords[i]);
-+	le32_to_cpu_array(bfpt.dwords, BFPT_DWORD_MAX);
- 
- 	/* Number of address bytes. */
- 	switch (bfpt.dwords[BFPT_DWORD(1)] & BFPT_DWORD1_ADDRESS_BYTES_MASK) {
-@@ -4085,7 +4084,7 @@ static int spi_nor_parse_smpt(struct spi
- 	u32 *smpt;
- 	size_t len;
- 	u32 addr;
--	int i, ret;
-+	int ret;
- 
- 	/* Read the Sector Map Parameter Table. */
- 	len = smpt_header->length * sizeof(*smpt);
-@@ -4099,8 +4098,7 @@ static int spi_nor_parse_smpt(struct spi
- 		goto out;
- 
- 	/* Fix endianness of the SMPT DWORDs. */
--	for (i = 0; i < smpt_header->length; i++)
--		smpt[i] = le32_to_cpu(smpt[i]);
-+	le32_to_cpu_array(smpt, smpt_header->length);
- 
- 	sector_map = spi_nor_get_map_in_use(nor, smpt, smpt_header->length);
- 	if (IS_ERR(sector_map)) {
-@@ -4193,8 +4191,7 @@ static int spi_nor_parse_4bait(struct sp
- 		goto out;
- 
- 	/* Fix endianness of the 4BAIT DWORDs. */
--	for (i = 0; i < SFDP_4BAIT_DWORD_MAX; i++)
--		dwords[i] = le32_to_cpu(dwords[i]);
-+	le32_to_cpu_array(dwords, SFDP_4BAIT_DWORD_MAX);
- 
- 	/*
- 	 * Compute the subset of (Fast) Read commands for which the 4-byte
+On Fri, Jan 31, 2020 at 05:46:39PM +0200, Andy Shevchenko wrote:
+> On Fri, Jan 31, 2020 at 2:03 PM John Garry <john.garry@huawei.com> wrote:
+> > On 31/01/2020 11:39, Andy Shevchenko wrote:
+
+> > > DataBitLength is the size, in bits, of the smallest transfer unit for
+> > > this connection. _LEN is automatically
+> > > created to refer to this portion of the resource descriptor.
+
+> > > Is it what you are looking for? (As far as I know most of the
+> > > firmwares simple abuse this field among others)
+
+> > I didn't think so - I thought that there was a distinction between width
+> > and length in SPI terms.
+
+> My interpretation of this field is a data width of the slave.
+> Basically what we have as transfer->size inside SPI in the Linux
+> kernel.
+
+This discussion is about the number of data lines, SPI_TX_QUAD
+and friends.
+
+>      1 SpiSerialBusV2(0x0000,PolarityLow,FourWireMode,0x08,
+>     36 SpiSerialBusV2(0x0000,PolarityLow,FourWireMode,0x10,
+>     35 SpiSerialBusV2(0x0000,PolarityLow,FourWireMode,0x18,
+>     35 SpiSerialBusV2(0x0000,PolarityLow,FourWireMode,0x20,
+>      1 SpiSerialBusV2(0x0000,PolarityLow,ThreeWireMode,0x10,
+>      8 SpiSerialBusV2(0x0001,PolarityLow,FourWireMode,0x08,
+>      1 SpiSerialBusV2(0x0001,PolarityLow,FourWireMode,0x10,
+
+> So, it seems I stand corrected, the field is in right use, although
+> cases like 0x10 and 0x20 should be carefully checked.
+
+Those look like they're mainly controlling SPI_3WIRE so it does
+look like a reasonable fit, yes.
+
+--fDWuavwabVZ6mXOJ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl41YeEACgkQJNaLcl1U
+h9C+bQf9H0e8FvkTjz4ZUrRo0CSS5uWHyG8Ip87aiypFpHhI6CUAyHdGFwyLCrr9
+EE93J+iOOuXq/xO7PMU5mD5LQ5MJlOUeOEeUHvldsQg6snP76Cf4U0U3RIifoBe8
+tNMlneq9czEifmRnptwx0MFaW03kpgeX68wYT3p5HuWtjyOfrVOwk3jiz9PSR5BJ
+oPwOWzvyBKskSYYXGDtuHMtFqM9SjobrbHHK6rWlmr5xAqOUXAyRBTX22PYI5hi9
+r45kq+3FL3V0ayJZi5jZT5+VZsXCsUC41cwacJpl0aIUp7YRm+Xv1SV644y82AyW
+B8pYHbZNJ2tpXjEJOH38LZ94cRYOJg==
+=OiRO
+-----END PGP SIGNATURE-----
+
+--fDWuavwabVZ6mXOJ--
+
+
+--===============9053315819532250303==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============9053315819532250303==--
+
