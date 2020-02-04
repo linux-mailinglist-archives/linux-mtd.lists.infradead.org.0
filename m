@@ -2,57 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26875151758
-	for <lists+linux-mtd@lfdr.de>; Tue,  4 Feb 2020 10:06:19 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B57891518ED
+	for <lists+linux-mtd@lfdr.de>; Tue,  4 Feb 2020 11:35:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CynRKjH4S2hfP++GbHDCjUK2Mf+xSnjAFIFHiBtVOPI=; b=VtTmkFkQb1unzQ
-	Sw46X+90F7KzmOSvPGsDzhH26C6cAt3cmGlldWnNrk/ypC8GS5ZemBUZQfyVV2OaqCKsVlIZvlozf
-	muyS0hr8VXxduXCGkrlT4PVlb82xQ43XV48zNPBs7LI0DxZPWMzFdm6Rp9wJ9eFq+CqHnpmS27fXJ
-	0Wc9jEvduKDc0ozU/N4eHLmNEhoHFdefU1OFKbdlF6yNrjJeL8ns7+rLMI3GRurPLC1tZx/J/jVdz
-	mdRSTJFg1SZPy6y4NRQjFk+hRPj/TfMJvoY/7N1EKkJRXAZ5C4nqY2xerqr2HFkjy7prZwidAnWGv
-	t/p0By+5h3nHJswGKwzA==;
+	List-Owner; bh=M3Xwr1tGvMgeLl2MEs62KJF6iBQlbur/fgnvE0du2yw=; b=WPhG96cpvYisvs
+	Uo16NiOKDeDu8QR+QznoL7xInnwzrZhVoN1FLK6cbq33aKkGFE7ivvnwfUwBElm10uhRa58QPGqD/
+	znSXucigkjX1u7kfc0fBFxYjoAjArktmbg0Bfvlk97KOvKW2JYTJN/zFO5g60auulbz7697spMkCM
+	lzo2utK4/q6UTPup5855JONgGbGM4X3FGHEN6uYJcYsWRhgUqAkf17rg12D2RdRUQZmZeygVfU03M
+	itbtJRqBTw+cJ7FmVUZMo4yGEjbUAYKf/1Jq27Zhg57g+iNN/0qyK1DpCCOzuUd8SeFfqP0FhrxSm
+	NslhGRH+ULSLwSkN+/Jg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iyu9w-0000ch-9F; Tue, 04 Feb 2020 09:06:16 +0000
-Received: from bsmtp2.bon.at ([213.33.87.16])
+	id 1iyvYV-00023e-KT; Tue, 04 Feb 2020 10:35:43 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iyu9m-0000cD-Ux
- for linux-mtd@lists.infradead.org; Tue, 04 Feb 2020 09:06:09 +0000
-Received: from qschulz (vpn.streamunlimited.com [91.114.0.140])
- by bsmtp2.bon.at (Postfix) with ESMTPSA id 48Bf1T55S7z5tlL;
- Tue,  4 Feb 2020 10:05:49 +0100 (CET)
-Date: Tue, 4 Feb 2020 10:05:48 +0100
-From: Quentin Schulz <quentin.schulz@streamunlimited.com>
-To: JH <jupiter.hce@gmail.com>
-Subject: Re: [OE-core] Failed to add u-boot ubifs (not working)
-Message-ID: <20200204090548.jokxe7ircypcb6co@qschulz>
-References: <CAA=hcWQSba31fHCkAEdaK4+FwR_Szzs9t0fTajq4+USqnbZb1g@mail.gmail.com>
- <20200203110820.kokz6qu4l74nyhlk@qschulz>
- <CAA=hcWSa+athn4Jw_nOG3ofVEmCYpTqyJVWPGcv-kNV2FmjVeA@mail.gmail.com>
+ id 1iyvYJ-000201-SP
+ for linux-mtd@lists.infradead.org; Tue, 04 Feb 2020 10:35:33 +0000
+Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
+ by metis.ext.pengutronix.de with esmtps
+ (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iyvYC-0004wP-NX; Tue, 04 Feb 2020 11:35:24 +0100
+Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
+ (envelope-from <sha@pengutronix.de>)
+ id 1iyvYB-0004Gi-3r; Tue, 04 Feb 2020 11:35:23 +0100
+Date: Tue, 4 Feb 2020 11:35:23 +0100
+From: Sascha Hauer <s.hauer@pengutronix.de>
+To: Al Viro <viro@zeniv.linux.org.uk>
+Subject: Re: [PATCH 1/8] quota: Allow to pass mount path to quotactl
+Message-ID: <20200204103523.tbxzptf4lkr474yi@pengutronix.de>
+References: <20200124131323.23885-1-s.hauer@pengutronix.de>
+ <20200124131323.23885-2-s.hauer@pengutronix.de>
+ <20200127104518.GC19414@quack2.suse.cz>
+ <20200128100631.zv7cn726twylcmb7@pengutronix.de>
+ <20200129012929.GV23230@ZenIV.linux.org.uk>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAA=hcWSa+athn4Jw_nOG3ofVEmCYpTqyJVWPGcv-kNV2FmjVeA@mail.gmail.com>
-User-Agent: NeoMutt/20180716
+In-Reply-To: <20200129012929.GV23230@ZenIV.linux.org.uk>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-IRC: #ptxdist @freenode
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-Uptime: 09:21:53 up 211 days, 14:32, 79 users,  load average: 0.16, 0.19,
+ 0.23
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
+X-SA-Exim-Mail-From: sha@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
+ SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200204_010607_313619_F8C639DC 
-X-CRM114-Status: GOOD (  30.40  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200204_023531_920127_5F69F6E6 
+X-CRM114-Status: GOOD (  21.40  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [213.33.87.16 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [213.33.87.16 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,121 +78,156 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd <linux-mtd@lists.infradead.org>,
- openembedded-core@lists.openembedded.org
+Cc: Jan Kara <jack@suse.cz>, Richard Weinberger <richard@nod.at>,
+ linux-mtd@lists.infradead.org, kernel@pengutronix.de, Jan Kara <jack@suse.com>,
+ linux-fsdevel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi JH,
-
-On Tue, Feb 04, 2020 at 10:00:27AM +1100, JH wrote:
-> Hi Quentin,
+On Wed, Jan 29, 2020 at 01:29:29AM +0000, Al Viro wrote:
+> On Tue, Jan 28, 2020 at 11:06:31AM +0100, Sascha Hauer wrote:
+> > Hi Jan,
 > 
-> Thanks for your response.
+> > @@ -810,6 +811,36 @@ static struct super_block *quotactl_block(const char __user *special, int cmd)
+> >  #endif
+> >  }
+> >  
+> > +static struct super_block *quotactl_path(const char __user *special, int cmd,
+> > +					 struct path *path)
+> > +{
+> > +	struct super_block *sb;
+> > +	int ret;
+> > +
+> > +	ret = user_path_at(AT_FDCWD, special, LOOKUP_FOLLOW | LOOKUP_AUTOMOUNT,
+> > +			   path);
+> > +	if (ret)
+> > +		return ERR_PTR(ret);
+> > +
+> > +	sb = path->mnt->mnt_sb;
+> > +restart:
+> > +	if (quotactl_cmd_onoff(cmd))
+> > +		down_write(&sb->s_umount);
+> > +	else
+> > +		down_read(&sb->s_umount);
+> > +
+> > +	if (quotactl_cmd_write(cmd) && sb->s_writers.frozen != SB_UNFROZEN) {
+> > +		if (quotactl_cmd_onoff(cmd))
+> > +			up_write(&sb->s_umount);
+> > +		else
+> > +			up_read(&sb->s_umount);
+> > +		wait_event(sb->s_writers.wait_unfrozen,
+> > +			   sb->s_writers.frozen == SB_UNFROZEN);
+> > +		goto restart;
+> > +	}
+> > +
+> > +	return sb;
+> > +}
 > 
-> On 2/3/20, Quentin Schulz <quentin.schulz@streamunlimited.com> wrote:
-> > Hi JH,
-> >
-> > On Mon, Feb 03, 2020 at 09:56:49PM +1100, JH wrote:
-> >> Hi,
-> >>
-> >> I added my local machine to ubifs, is it correct?
-> >>
-> >> UBOOT_CONFIG[nand] = "mx6ull_14x14_evk_nand_config,ubifs"
-> >>
-> >
-> > Also, you need to select UBOOT_CONFIG somewhere, with the above line,
-> > you just say "if nand is selected as an UBOOT_CONFIG, do xyz". You still
-> > need to select it (with I assume, UBOOT_CONFIG += "nand" in a bbappend
-> > somewhere).
+> This partial duplicate of __get_super_thawed() guts does *not* belong here,
+> especially not interleaved with quota-specific checks.
 > 
-> Sorry for not being it clear, I indeed defined UBOOT_CONFIG = "nand"
-> in the local.conf. Should I define it as UBOOT_CONFIG += "nand" or
-> should I move it to a u-boot bbappend?
+> > +	if (q_path) {
+> > +		if (quotactl_cmd_onoff(cmd))
+> > +			up_write(&sb->s_umount);
+> > +		else
+> > +			up_read(&sb->s_umount);
+> > +
+> > +		path_put(&sb_path);
+> > +	} else {
+> > +		if (!quotactl_cmd_onoff(cmds))
+> > +			drop_super(sb);
+> > +		else
+> > +			drop_super_exclusive(sb);
+> > +	}
 > 
+> Er...  Why not have the same code that you've used to lock the damn thing
+> (needs to be moved to fs/super.c) simply get a passive ref to it?  Then
+> you could do the same thing, q_path or no q_path...
 
-From what you say below, it was defined in a machine configuration file,
-so modify it there. It;s fine *for debugging purposes* to modify the
-original file but in the case of machine configuration file, once you've
-settled with some modifications, you need to create a new one in your
-own layer and add the changes there so they can be shared with people
-(conf/local.conf is NOT supposed to be shared).
+I am getting confused here. To an earlier version of this series you
+responded:
 
-But UBOOT_CONFIG = "nand" looks decent to me (it's a machine specific
-variable, so rather set it in the machine configuration file).
+> And for path-based you don't need to mess with superblock
+> references - just keep the struct path until the end.  That
+> will keep the superblock alive and active just fine.
 
-> > What's in your mx6ull_14x14_evk_nand_config?
-> 
-> The mx6ull_14x14_evk_nand_config,ubifs was from a tip found and copied
-> from Internet, but the original definition is from included
-> meta-freescale/conf/machine/imx6ullevk.conf:
-> 
-> UBOOT_CONFIG ??= "sd"
-> UBOOT_CONFIG[sd] = "mx6ull_14x14_evk_config,sdcard"
-> UBOOT_CONFIG[mfgtool] = "mx6ull_14x14_evk_config"
-> 
-> I tried to use UBOOT_CONFIG[nand] = "mx6ull_14x14_evk_config,ubifs", no avail.
-> 
+I did that and got the objection from Jan:
 
-I'd first have a look what this ",sdcard" thing is doing (c.f.
-http://cgit.openembedded.org/openembedded-core/tree/meta/recipes-bsp/u-boot/u-boot.inc?h=thud).
+> So I've realized that just looking up superblock with user_path_at() is not
+> enough. Quota code also expects that the superblock will be locked
+> (sb->s_umount) and filesystem will not be frozen (in case the quota
+> operation is going to modify the filesystem). This is needed to serialize
+> e.g. remount and quota operations or quota operations among themselves.
 
-> > I haven't used that option before but what's ,ubifs supposed to do? Are
-> > you sure this nand option for UBOOT_CONFIG would actually create a .imx
-> > and not a .ubifs for example or something along those lines.
-> >
-> > TL;DR: Make sure UBOOT_CONFIG has nand in it, check that .imx is built
-> > with your defconfig and check that you're actually enabling the UBI
-> > command in your defconfig.
-> 
-> Yes, all enabled in my kernel 4.19.75:
-> 
+So after drawing circles we now seem to be back at passive references.
+What I have now in my tree is this in fs/super.c, untested currently:
 
-You're mixing things up. If you want the ubi command to be present in
-U-Boot, you need to put it in the U-Boot defconfig. Kernel defconfig has
-nothing to do with it. Though, you might want ubi support in the kernel
-but that's unrelated to your current issue.
+static bool __grab_super_thawed(struct super_block *sb, bool excl)
+{
+	while (1) {
+		bool again = false;
 
-> CONFIG_MTD_UBI=y
-> CONFIG_MTD_UBI_WL_THRESHOLD=4096
-> CONFIG_MTD_UBI_BEB_LIMIT=20
-> CONFIG_MTD_UBI_FASTMAP=y
-> # CONFIG_MTD_UBI_GLUEBI is not set
-> CONFIG_MTD_UBI_BLOCK=y
-> CONFIG_DTC=y
-> CONFIG_OF=y
-> 
-> > Also, it would be helpful if you could give links to the recipes you're
-> > using. I seem to recall in some other mail it was
-> > http://git.yoctoproject.org/cgit/cgit.cgi/meta-freescale/tree/recipes-bsp/u-boot/u-boot-imx_2017.03.bb?h=sumo
-> > but it could be thud version as well.
-> 
+		spin_lock(&sb_lock);
 
-I've seen a few mails from you recently on the mailing list which are
-more or less sequels to previous mails. FWIW, we have an IRC channel on
-freenode at #yocto, that might be helpful if you have quick questions
-(e.g. your "applying a patch" mail).
+		if (hlist_unhashed(&sb->s_instances)) {
+			spin_unlock(&sb_lock);
+			return false;
+		}
 
-I find Yocto to not be the most forgiving when copy-pasting stuff from
-the internet. I'd suggest to invest a little bit of time in reading the
-source code of what you're trying to modify (u-boot recipes, classes,
-etc.), you also have an extensive documentation here:
-https://www.yoctoproject.org/docs/2.6.4/mega-manual/mega-manual.html
-it is a manual containing all the other manuals you can find per topic
-here: https://www.yoctoproject.org/docs/
+		sb->s_count++;
+		spin_unlock(&sb_lock);
 
-I can also suggest Live coding sessions with Jozef on the project's YT
-channel https://www.youtube.com/user/TheYoctoProject. (It's Twitch
-streams uploaded to YT so if you'd rather watch when he's streaming:
-https://www.twitch.tv/letoatreidesthe2nd
+		if (excl)
+			down_write(&sb->s_umount);
+		else
+			down_read(&sb->s_umount);
 
-I want to end those recommendations on a note: sending mails is perfectly
-fine :)
+		if (sb->s_root && (sb->s_flags & SB_BORN)) {
+			if (sb->s_writers.frozen == SB_UNFROZEN)
+				return true;
+			else
+				again = true;
+		}
 
-Have fun with Yocto,
-Quentin
+		if (excl)
+			up_write(&sb->s_umount);
+		else
+			up_read(&sb->s_umount);
+
+		if (again)
+			wait_event(sb->s_writers.wait_unfrozen,
+				   sb->s_writers.frozen == SB_UNFROZEN);
+
+		put_super(sb);
+
+		if (!again)
+			return false;
+	}
+
+	return ret;
+}
+
+int grab_super_thawed(struct super_block *sb)
+{
+	return __grab_super_thawed(sb, false);
+}
+
+int grab_super_exclusive_thawed(struct super_block *sb)
+{
+	return __grab_super_thawed(sb, true);
+}
+
+Does this look ok now?
+
+Sascha
+
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
 ______________________________________________________
 Linux MTD discussion mailing list
