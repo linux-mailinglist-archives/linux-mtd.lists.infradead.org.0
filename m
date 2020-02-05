@@ -2,90 +2,72 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 538A5152847
-	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 10:27:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 97875152895
+	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 10:42:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WiMPbqN/Jp80sfelPu9m7+8wHrqLeH0p7fiQFPwKtnQ=; b=NCtqdFRW/dAGuB
-	qMmZb0XqatzSD6j6+66IsT3I2nXYTPicdODh85/JTh0fNTrexTs0XAcwidgZzVwVxYGLcRuSnpbj1
-	/BhhJp9Xg1/lPit4OUGXirtQ9r3e0IbqAa4B2+siE4RNImrJlNuLZ4w9UUuQ7vXw5bxLUODkEd0zU
-	QH2kJFeo96CCqzDb/wUkds+Yy4WoAFwh5AZlJ5TySGiSeaZujZnVAmw/vE8DTra481Y8kEhGa9Aek
-	l7jXjdHIUc65rHigHzrtIOpCJ5DGPcAO6Jn5NRAKojpwexfXSRawQ48SmEZWYAx1ThwMMrBAoNDh5
-	n8W2RbnPiRRzZIeD0BDg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qM4RoGHHYP1RPm9DoP0+cgzXdnUbizFA+U9/256JSDE=; b=jYrFDx7UOglr8K
+	CqdBYty/kreyU+hssPAcGXRpx1uYnbcFTA74mA37gKJnR6Yj9q/F9nrY0C+9jla1SfliAPcAbOlle
+	nnZp7MySF1QaUliuDzJzYusQDeQwytvSS7p4iES/bA6Hwt6EgWAVHPP/tfXkSq7oaYe1xtTkFXeq+
+	wUflAFvUoPs9sXIQ3o14VoLPiOa1lI2G3e2S6pONf9FcGy/L0cMSQM8MHsI+yzOKa6UhZ6mTCGt+l
+	wGWdeUMZDgrwsxRnttj/v/+tVTcybI7vhA3qWw+bXFmo0hKQIaX/9HyALippI8OtlKOAeWE/9q4LR
+	IszZA9h1adsvhv/i/dZQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1izGyG-0001U0-UF; Wed, 05 Feb 2020 09:27:44 +0000
-Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
+	id 1izHBv-0007nk-I0; Wed, 05 Feb 2020 09:41:51 +0000
+Received: from mail-out.m-online.net ([212.18.0.9])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1izGy8-0001TB-LN
- for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 09:27:37 +0000
-Received: by mail-pj1-x1041.google.com with SMTP id j17so739333pjz.3
- for <linux-mtd@lists.infradead.org>; Wed, 05 Feb 2020 01:27:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=KHzpm2mS2q1zks9PiDnpuujQ8A3/Outo+3RVvOxUyR4=;
- b=Qt0qRg63J2ZKZpJ9ztYY3BVnR5aTiKxF6iLrS6xB4FOFYDPMjcQ1LC6RhPy9L7Vs2N
- Nn4B/HcfrEzJ9TSzfkEm28eOTg0tKa+naYoBhvH5QkoDqeNNS73v/jS00rYCSDDUdmY6
- ivcC+ZjizULVK2WI6FI6rIw0X7iL4c9Ieyh9bwcwmg07Jd+hXpn7RKpyQ1gD/Bwe3REd
- 5NjHd4r34ZRlmGMyYyAlTCjHKYFJs3+kjRh7vSQrigrTudtuGcbOzz30LDq0dlg4WYna
- ANLaRhEkWH+3Lst5OSy3+aB9NWTj8XEQBpGRinNxxtRnSvjT2b9hRx7EZI8X56msh92+
- aKTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to:content-transfer-encoding;
- bh=KHzpm2mS2q1zks9PiDnpuujQ8A3/Outo+3RVvOxUyR4=;
- b=NkS48R3w+ZVNIrAgd4ZxIEGEs82TfU77mH+FrxBofNKcNC64PGMoTrOrDnxwXQMO4e
- 5iiW2SrIyvycFzNAIxSJwh5H1L5jo2kpp7kBC3cwMwvxfSdMWQ1PWpYJqEFPdp/MIYG6
- d1PCnjp4/5gDj3NGYLkgNGIZQpdK/rGuspEb3WXZp0Ajv5jwrau0OBLpTyyDI5U2Xo0X
- gCdnNxRppdMQAEse19/vpQN2NiolHjL3lYyQGjtYNZBBkcKHkdZZDVhKEuSngQlp+2cH
- NQ+0/npFKQAMFSv5FUoBvprVy8ep/Cerr1OMmtJxh/L1bZ1G8hpQEn/GDPNrVItP3xog
- thJg==
-X-Gm-Message-State: APjAAAU45XaKPO066eNFa0sVJW9qIjxgLvzdP1BMWjQebWm5t5y/pwpp
- r9gFMX5icHapeDc8Ke2tfKwFKXWRWCjYS7HfS3U=
-X-Google-Smtp-Source: APXvYqwGBMLAbBWY+yUnPbyGAO3e5bi4Q2eh6Se9Ji7XY3L6jNLNvukSNdDNrY1C28e3fYk3FnWJhbtkT45vvzhDAy0=
-X-Received: by 2002:a17:90a:35e6:: with SMTP id
- r93mr4553010pjb.44.1580894855748; 
- Wed, 05 Feb 2020 01:27:35 -0800 (PST)
+ id 1izHBn-0007nD-JV
+ for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 09:41:45 +0000
+Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
+ by mail-out.m-online.net (Postfix) with ESMTP id 48CGmN66tBz1qqkY;
+ Wed,  5 Feb 2020 10:41:40 +0100 (CET)
+Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
+ by mail.m-online.net (Postfix) with ESMTP id 48CGmN4lGfz1qyWX;
+ Wed,  5 Feb 2020 10:41:40 +0100 (CET)
+X-Virus-Scanned: amavisd-new at mnet-online.de
+Received: from mail.mnet-online.de ([192.168.8.182])
+ by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
+ port 10024)
+ with ESMTP id TZPwZsIG3GnN; Wed,  5 Feb 2020 10:41:39 +0100 (CET)
+X-Auth-Info: h/OgRrxpAUhFfQI/vTxfniaA2zPiaJ7xkHH2YdCGUuY=
+Received: from [127.0.0.1] (unknown [195.140.253.167])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.mnet-online.de (Postfix) with ESMTPSA;
+ Wed,  5 Feb 2020 10:41:39 +0100 (CET)
+Subject: Re: [PATCH] Revert "mtd: rawnand: denali: get
+ ->setup_data_interface() working again"
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20200205070834.3087104-1-marex@denx.de>
+ <20200205101223.21d99d93@xps13>
+From: Marek Vasut <marex@denx.de>
+Message-ID: <45a10680-5fe6-7cab-a7ef-f7f7a952e822@denx.de>
+Date: Wed, 5 Feb 2020 10:41:05 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.2
 MIME-Version: 1.0
-Received: by 2002:a17:90a:cf0e:0:0:0:0 with HTTP; Wed, 5 Feb 2020 01:27:35
- -0800 (PST)
-From: Jessica Meir <jessicaumeir638@gmail.com>
-Date: Wed, 5 Feb 2020 09:27:35 +0000
-Message-ID: <CAE7R3m1mrnFz1c1iiRfOf0L5MoQ8pZTXEtO6QXnHff_AV8FCgA@mail.gmail.com>
-Subject: =?UTF-8?Q?Tere=2C_minu_nimi_on_Jessica=2C_kas_saite_mu_s=C3=B5numi?=
-To: undisclosed-recipients:;
+In-Reply-To: <20200205101223.21d99d93@xps13>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200205_012736_723365_D5B916FA 
-X-CRM114-Status: UNSURE (  -0.56  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.3 (+)
+X-CRM114-CacheID: sfid-20200205_014143_790884_DE42BC42 
+X-CRM114-Status: GOOD (  17.06  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (1.3 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [jessica.u.m1977[at]gmail.com]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [jessicaumeir638[at]gmail.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [jessicaumeir638[at]gmail.com]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [212.18.0.9 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [212.18.0.9 listed in wl.mailspike.net]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,13 +79,59 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: jessica.u.m1977@gmail.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Dinh Nguyen <dinguyen@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
+ Tim Sander <tim@krieglstein.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-VGVyZSwgbWludSBuaW1pIG9uIEplc3NpY2EsIGthcyBzYWl0ZSBtdSBzw7VudW1pCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVRE
-IGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+On 2/5/20 10:12 AM, Miquel Raynal wrote:
+> Hi Marek,
+> 
+> Marek Vasut <marex@denx.de> wrote on Wed,  5 Feb 2020 08:08:34 +0100:
+> 
+>> This reverts commit d311e0c27b8fcc27f707f8cac48cd8bdc4155224, which
+>> completely breaks NAND access on Altera SoCFPGA (detected on ArriaV
+>> SoC).
+>>
+>> On SoCFPGA, denali->clk_rate = 31.25 MHz and denali->clk_x_rate = 125 MHz,
+>> hence the driver sets NAND_KEEP_TIMINGS flag. This did not happen before
+>> and is actually incorrect, as on SoCFPGA we do not want to retain timings
+>> from previous stage (the timings might be incorrect or outright invalid).
+>>
+>> Cc: Boris Brezillon <boris.brezillon@collabora.com>
+>> Cc: Dinh Nguyen <dinguyen@kernel.org>
+>> Cc: Masahiro Yamada <masahiroy@kernel.org>
+>> Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+>> Cc: Tim Sander <tim@krieglstein.org>
+>> To: linux-mtd <linux-mtd@lists.infradead.org>
+>> ---
+>>  drivers/mtd/nand/raw/denali.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
+>> index b6c463d02167..5fe3c62a756e 100644
+>> --- a/drivers/mtd/nand/raw/denali.c
+>> +++ b/drivers/mtd/nand/raw/denali.c
+>> @@ -1209,7 +1209,7 @@ int denali_chip_init(struct denali_controller *denali,
+>>  	}
+>>  
+>>  	/* clk rate info is needed for setup_data_interface */
+>> -	if (!denali->clk_rate || !denali->clk_x_rate)
+> 
+> I don't get it, if both clk_rate and clk_x_rate are set, the if
+> condition will not be entered, right?
+
+Err, then it's the other way around and I need to keep the timings on
+socfpga ?
+
+>> +	if (denali->clk_rate && denali->clk_x_rate)
+>>  		chip->options |= NAND_KEEP_TIMINGS;
+
+[...]
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
