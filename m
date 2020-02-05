@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 56FD815262B
-	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 07:02:12 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B72381526C5
+	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 08:19:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
@@ -18,11 +18,11 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	bYA19NTDG8wIGQMDSF0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1izDlB-0003gS-QO; Wed, 05 Feb 2020 06:02:01 +0000
+	id 1izEyS-0003Ab-1I; Wed, 05 Feb 2020 07:19:48 +0000
 Received: from lelv0143.ext.ti.com ([198.47.23.248])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1izDl3-0003fR-Kq
- for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 06:01:56 +0000
+ id 1izEyI-0003AC-WD
+ for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 07:19:40 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
  by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 01561Yqg108169;
  Wed, 5 Feb 2020 00:01:34 -0600
@@ -65,7 +65,7 @@ In-Reply-To: <6ef35a1b-cadb-95c0-8569-0518e3dee2f4@ncentric.com>
 Content-Language: en-US
 X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200204_220153_761570_AF4FC883 
+X-CRM114-CacheID: sfid-20200204_231939_118967_46981C7E 
 X-CRM114-Status: GOOD (  11.53  )
 X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
