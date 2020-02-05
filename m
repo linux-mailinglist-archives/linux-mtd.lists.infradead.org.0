@@ -2,119 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 36A21152768
-	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 09:12:42 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B4F2152783
+	for <lists+linux-mtd@lfdr.de>; Wed,  5 Feb 2020 09:22:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=1GOiIziDaUhv1CSPIuxwn4CInyx4I772a6dmROTTmPs=; b=PvqLSGmsdO+BIsesHMtsQ9MbB
-	I0B0ZmUH0/h9vlXlqkc8pncy6hUKkpVXE0V3ait1VO1sW5USr11KDN72whTC3rDTwC/2YIg4hYdP9
-	+2J9irIdoGmdmWta0ILjc1qsLh42tfYmtkNqVHsc9+zePR9c5KFjU0VSDjSucEtnPxhMTQfyjUcR6
-	8TtJiM0bKUEko/s8nLFAexjnPyxQP19nZoZb1PBTJ2V6YtLOSgzUtpBiy4ENKPI/zE1AFa7j2XVMX
-	oEptM2fAKIgocSdtH2Sc4LW24e3tdNDDnfWcd4tQkYApXt9c5gRCO7DEp1RpHqTQv+agVEjAIsV9S
-	cy3b7s1/Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zlCX4lxw+7jCUJmNaprRlOeoxHbki+Bm7UP4OvzuJ34=; b=NGN/8XX4kBOrQ2
+	vXyNRzxGSqsgCeD8AIUXyTzOEEP5EgLGdfJEYwpWA3WuXDdXN6jitKH9x1syy7juuEuAUwjggi8gm
+	yQ47VDto5xyr+8oyDqcWRmdMJQITdv4kdtpaYoQ1cvtDHuFWY2D4+FUMiGDmhBTsPbxgIaYgwArnm
+	4q7ZFPAOb6zijNbVsJ2T+JS2Rk59W2uabycxxjKh4+DOVJNwLn5yXWQjiODzyZR3wjJlKK8WyZ5JS
+	pMiIruXWMTa08YIuOVdEKUVOeW0s9NAH4iU3cwOKq4TAPiNTGfbpY8HcnUADQ3a2KKEetidJAktRZ
+	IV+zQqCMO+yKDuSfbVeQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1izFnX-0006KS-4x; Wed, 05 Feb 2020 08:12:35 +0000
-Received: from mail-am6eur05on2089.outbound.protection.outlook.com
- ([40.107.22.89] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1izFx7-00015G-0Z; Wed, 05 Feb 2020 08:22:29 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1izFnN-0006K0-3k
- for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 08:12:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EtvHn38gAg796IfAzKDX23SAvNX8CIJaqC39h5a/id3Omon44MKCMsAOVpQvqKdvk6C8USgMIyYuACHBbWHcdv2BAP6MnIsyQWK/SYFyPoYnmnmE6FHoa1i88GOQLZGTi8/iuRCH9YArz1ByugX4aV9db6vO9hjuujHzet9v4VYyEY2jX7THEv70Ux6cVs9U0KUocoXstmPQMcNcYqVVcpzk3nNd/MFF6vKt7vSVYGRed6uKxwTdEEghRMGFwCZoRlVwC6XbQDXtkMn7mGjiV+gR4AVmURKcIBslBuHW0HiKZForiSuBzX3Hb4AqUMGgZwnfxp/C94HIa8xO8S+/+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I5L9Du+dVOcznlHUcgXPpe3pgoro/TFLMZolUmwYj+M=;
- b=AqowDVfW4z5CpTflR3pPLJ0dAoBk5pbL7IUKZ3FF5JHizlCFkMeqQ/OgFrmolytOh8OWXd7R80+KlQcx6kVsC6lAsmlcco99iDRwPU6C98aDTCbCLQlobnSnzC1VPXzF0W4hBh9shzRYII1fJVJ0UiHtm2Yn/BkDYDeQp/sUfoeUOMNKOa+ur6WKF0/CoFkzhRc88lSodVGQLCnmtNHGq5kJjLLrCuUAU9ZOzBS2Zd/CheFEx1PbZ/+6tdL1EB1QkVf754AuWqXbedl1k2YwwXYbdfOQgCBCLsuDwZm2Cj1QpEOqH4OSBvdLGvdcQlNssaZsXs9l6BCdK835BkRm2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=niko.eu; dmarc=pass action=none header.from=niko.eu; dkim=pass
- header.d=niko.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=niko.eu; s=selector2; 
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I5L9Du+dVOcznlHUcgXPpe3pgoro/TFLMZolUmwYj+M=;
- b=x9BjnilQK4XDk2AjBL7fL4bSqHUcmYeAPUlvHrFdcUNQrVF3hGLNHtAiy24Q3SXa/hk+GkhMNbHkdr9ThoO6Wi5fcZzG2bBc/J1qyg5U3UHRfYhpfe2UyJS5hgT9FFpNfbEbw4rr9FpJsuw4mV7hiy5j8OZrF7by9PuLL/taGzc=
-Authentication-Results: spf=none (sender IP is )
- smtp.mailfrom=Jef.Driesen@niko.eu; 
-Received: from AM0PR08MB3874.eurprd08.prod.outlook.com (20.178.82.86) by
- AM0PR08MB3650.eurprd08.prod.outlook.com (20.177.108.220) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2707.21; Wed, 5 Feb 2020 08:12:19 +0000
-Received: from AM0PR08MB3874.eurprd08.prod.outlook.com
- ([fe80::2c29:d125:7cf8:8b4e]) by AM0PR08MB3874.eurprd08.prod.outlook.com
- ([fe80::2c29:d125:7cf8:8b4e%7]) with mapi id 15.20.2686.034; Wed, 5 Feb 2020
- 08:12:19 +0000
-Subject: Re: Corruped NAND booting for all devices
-To: JH <jupiter.hce@gmail.com>, linux-mtd <linux-mtd@lists.infradead.org>
-References: <CAA=hcWTmUFRnxH7XY_040QG0oiUErJ84-mZQ3Zbfaaj7-TMFtQ@mail.gmail.com>
-From: Jef Driesen <jef.driesen@niko.eu>
-Message-ID: <09505ab3-a51f-e0aa-1610-1ea1f106eec7@niko.eu>
-Date: Wed, 5 Feb 2020 09:12:17 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
-In-Reply-To: <CAA=hcWTmUFRnxH7XY_040QG0oiUErJ84-mZQ3Zbfaaj7-TMFtQ@mail.gmail.com>
-Content-Language: en-US
-X-ClientProxiedBy: AM0PR05CA0074.eurprd05.prod.outlook.com
- (2603:10a6:208:136::14) To AM0PR08MB3874.eurprd08.prod.outlook.com
- (2603:10a6:208:108::22)
+ id 1izFwv-000140-Ap
+ for linux-mtd@lists.infradead.org; Wed, 05 Feb 2020 08:22:19 +0000
+X-Originating-IP: 90.76.211.102
+Received: from xps13 (lfbn-tou-1-1151-102.w90-76.abo.wanadoo.fr
+ [90.76.211.102]) (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id A03A5FF815;
+ Wed,  5 Feb 2020 08:22:02 +0000 (UTC)
+Date: Wed, 5 Feb 2020 09:22:02 +0100
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Driesen Jef (JDI)" <Jef.Driesen@niko.eu>
+Subject: Re: ubifs: mounting fails due to error in orphan file handling
+Message-ID: <20200205092202.5f0929c3@xps13>
+In-Reply-To: <0d3a2ed9-8ff0-7030-a8c6-c5a204eb6b5b@niko.eu>
+References: <0d3a2ed9-8ff0-7030-a8c6-c5a204eb6b5b@niko.eu>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Received: from [10.47.50.82] (81.83.24.121) by
- AM0PR05CA0074.eurprd05.prod.outlook.com (2603:10a6:208:136::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2707.21 via Frontend
- Transport; Wed, 5 Feb 2020 08:12:18 +0000
-X-Originating-IP: [81.83.24.121]
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 3bf04dc6-214e-4298-d467-08d7aa131e5c
-X-MS-TrafficTypeDiagnostic: AM0PR08MB3650:
-X-Microsoft-Antispam-PRVS: <AM0PR08MB3650B0111B60DE14FFFF4582E2020@AM0PR08MB3650.eurprd08.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:5236;
-X-Forefront-PRVS: 0304E36CA3
-X-Forefront-Antispam-Report: SFV:NSPM;
- SFS:(10001)(10009020)(4636009)(376002)(136003)(39850400004)(396003)(346002)(366004)(199004)(189003)(81156014)(8676002)(81166006)(8936002)(66476007)(66556008)(66946007)(5660300002)(2906002)(36756003)(966005)(956004)(2616005)(16576012)(110136005)(44832011)(52116002)(6486002)(478600001)(31696002)(86362001)(31686004)(55236004)(16526019)(186003)(53546011)(26005)(316002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:AM0PR08MB3650;
- H:AM0PR08MB3874.eurprd08.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-Received-SPF: None (protection.outlook.com: niko.eu does not designate
- permitted sender hosts)
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: RPpHwoYwBEz5+qsRNFO0v8MMaQN0popDNCHivGEF8EnHHDKb2CjWnoS0AIlNC8w0Kehs5FbsNfJvZF7TMvUFQ7PSTj/59r1ZySDl7d0txRL6//j/8xzy5UgQ7hkgOUQ0bZqFsP2qPWxaIV/PLplzloswgZkQmnwACYvY+sUjsIPtyPEJcK7i+QKIhIe2WG4/rgwWlqzygMHQdM1hGSe1+RpkAAY7Ltj6JEg1LzL/hkeMYzOHqU4TX7usMMW+XugJMImxkan2wQJwQCq7Lsw6TNgGxJMl0sjy4F2hjeY/Hq5ThY/C4BVu3w5ia6V4DCeyE5F13Qi05J8F4dGWY2uCwyQ4MucsvlTR+RQqI7PTrITh2yWiq8ERDyy9qFUp1Npe0FV20+poczYPxdY7qTtquUzjn+Jx+HMuQ2dW1mv8EBf9iEv1cSktfULXeHpLFBSP79C1YSMjYn3Px0BczK3luoi+3GvhHhweG4LtzpvTKoRLV5YKRm35RDBnh57j7SC3xeAvtQaUvP0GEIjnDVOAblq6BogWANJOM+hsjQbq88iKAuRCLNxH82iTbglaBxqF7YBvZyVRvmoq95ZZpJEC7wP8OO59qPDOC3O3JfL55ifUh0Gd5bE4PagasWGimT8YStBFXqrePjRDrnPC9EA16OqkqRWcgnUMmIkPGLFtymT10q812h6V07+k0jmlW+oDqqcMY4xsJHy9SUKxWNaHAK7nLSSjA7hsvWxS1A9Mlbo=
-X-MS-Exchange-AntiSpam-MessageData: BhlQBOkEXfKHlf07EK4DWqKEZMjliU4B7k6hn9NZBYBexNGUg8QxPYcowBPqzODAb39dTYh9m4T38yAaFQCbRwjcTm1eqod1jCPIjat6v0fuVgoVsEgq8J37wlQIodOieXOVI0WMhmPnP/e7LwYDyg==
-X-OriginatorOrg: niko.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3bf04dc6-214e-4298-d467-08d7aa131e5c
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2020 08:12:18.8764 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: a4faf0fe-ff3f-4912-b675-3cfe1470e385
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CS5tNipQMmsmpV/HV1cmxCjjIJqiBiq6JjRkllKeEb4VOl6+QmxSu9JWeUFXZMr4uk7BnEdPQ9guGQkQHfrjgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR08MB3650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200205_001225_364433_FCA8AEB3 
-X-CRM114-Status: GOOD (  11.37  )
-X-Spam-Score: 2.3 (++)
+X-CRM114-CacheID: sfid-20200205_002217_646304_9AC233BE 
+X-CRM114-Status: GOOD (  19.33  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (2.3 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 2.5 URIBL_DBL_ABUSE_MALW   Contains an abused malware URL listed in
- the Spamhaus DBL blocklist [URIs: infradead.org]
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.22.89 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.199 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.0 MSGID_FROM_MTA_HEADER  Message-Id was added by a relay
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -126,47 +61,85 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: richard@nod.at,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 2/5/20 2:43 AM, JH wrote:
-> It is a bad day we have 5 devices failed NAND booting all of certain
-> today. The 5 devices running kernel 4.19.75 on iMX6ULL customized
-> board, the devices had been running for weeks, the device DC power is
-> supplied from AC via ADC and regulator, we turned power on and off
-> several times when installing those test devices to test boxes in the
-> last couple of days without problems, then they all failed together
-> mysteriously today. It could not complete the booting to Linux user
-> space, so I am not able to log into the user space to check and to
-> debug it.
-> 
-> ...
-> [    5.915558] UBIFS (ubi0:0): recovery needed
-> [    6.777033] UBIFS (ubi0:0): recovery deferred
-> [    6.782640] UBIFS (ubi0:0): UBIFS: mounted UBI device 0, volume 0,
-> name "rootfs_data", R/O mode
-> 
-> ...
-> 
-> [FAILED] Failed to mount /var/volatile.
-> See 'systemctl status var-volatile.mount' for details.
-> [DEPEND] Dependency failed for Bind mount volatile /var/cache.
-> [DEPEND] Dependency failed for Bind mount volatile /srv.
-> [DEPEND] Dependency failed for Bind mount volatile /var/spool.
-> [DEPEND] Dependency failed for Bind mount volatile /var/lib.
-
-At first sight, it looks you have a read-only ubifs filesystem, with an 
-overlay filesystem backed by another read-write ubifs filesystem? And 
-that read-write filesystem fails to mount after a power failure?
-
-In that case, this sounds very similar to the problem I reported last week:
-
-http://lists.infradead.org/pipermail/linux-mtd/2020-January/093542.html
-
-Jef
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgSmVmLAoKIkRyaWVzZW4gSmVmIChKREkpIiA8SmVmLkRyaWVzZW5Abmlrby5ldT4gd3JvdGUg
+b24gVHVlLCAyOApKYW4gMjAyMCAxMDo1MTozOSArMDAwMDoKCj4gSGksCj4gCj4gV2UncmUgZXhw
+ZXJpZW5jaW5nIHNvbWUga2luZCBvZiBmaWxlIHN5c3RlbSBjb3JydXB0aW9uIHdpdGggdGhlIFVC
+SUZTIAo+IGZpbGUgc3lzdGVtIGFmdGVyIHBvd2VyIGN1dHMuIFRoZSBwcm9ibGVtIHNob3dzIHVw
+IGFzIGFuIGVycm9yIGR1cmluZyBtb3VudDoKPiAKPiAjIG1vdW50IC10IHViaWZzIHViaTA6aG9t
+ZSAvaG9tZQo+IG1vdW50OiAvaG9tZTogc3BlY2lhbCBkZXZpY2UgdWJpMDpob21lIGRvZXMgbm90
+IGV4aXN0Lgo+IAo+IFRoZSB1bmRlcmx5aW5nIFVCSSB2b2x1bWVzIGFyZSBhbGwgZmluZToKPiAK
+PiAjIG10ZGluZm8gL2Rldi9tdGQwCj4gbXRkMAo+IE5hbWU6ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgdWJpCj4gVHlwZTogICAgICAgICAgICAgICAgICAgICAgICAgICBuYW5kCj4gRXJhc2Vi
+bG9jayBzaXplOiAgICAgICAgICAgICAgICAxMzEwNzIgYnl0ZXMsIDEyOC4wIEtpQgo+IEFtb3Vu
+dCBvZiBlcmFzZWJsb2NrczogICAgICAgICAgODE5MiAoMTA3Mzc0MTgyNCBieXRlcywgMTAyNC4w
+IE1pQikKPiBNaW5pbXVtIGlucHV0L291dHB1dCB1bml0IHNpemU6IDIwNDggYnl0ZXMKPiBTdWIt
+cGFnZSBzaXplOiAgICAgICAgICAgICAgICAgIDIwNDggYnl0ZXMKPiBPT0Igc2l6ZTogICAgICAg
+ICAgICAgICAgICAgICAgIDY0IGJ5dGVzCj4gQ2hhcmFjdGVyIGRldmljZSBtYWpvci9taW5vcjog
+ICA5MDowCj4gQmFkIGJsb2NrcyBhcmUgYWxsb3dlZDogICAgICAgICB0cnVlCj4gRGV2aWNlIGlz
+IHdyaXRhYmxlOiAgICAgICAgICAgICB0cnVlCj4gCj4gIyB1YmluZm8gLWEKPiBVQkkgdmVyc2lv
+bjogICAgICAgICAgICAgICAgICAgIDEKPiBDb3VudCBvZiBVQkkgZGV2aWNlczogICAgICAgICAg
+IDEKPiBVQkkgY29udHJvbCBkZXZpY2UgbWFqb3IvbWlub3I6IDEwOjU4Cj4gUHJlc2VudCBVQkkg
+ZGV2aWNlczogICAgICAgICAgICB1YmkwCj4gCj4gdWJpMAo+IFZvbHVtZXMgY291bnQ6ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgMwo+IExvZ2ljYWwgZXJhc2VibG9jayBzaXplOiAgICAgICAg
+ICAgICAgICAgMTI2OTc2IGJ5dGVzLCAxMjQuMCBLaUIKPiBUb3RhbCBhbW91bnQgb2YgbG9naWNh
+bCBlcmFzZWJsb2NrczogICAgIDgxOTIgKDEwNDAxODczOTIgYnl0ZXMsIDk5Mi4wIE1pQikKPiBB
+bW91bnQgb2YgYXZhaWxhYmxlIGxvZ2ljYWwgZXJhc2VibG9ja3M6IDAgKDAgYnl0ZXMpCj4gTWF4
+aW11bSBjb3VudCBvZiB2b2x1bWVzICAgICAgICAgICAgICAgICAxMjgKPiBDb3VudCBvZiBiYWQg
+cGh5c2ljYWwgZXJhc2VibG9ja3M6ICAgICAgIDAKPiBDb3VudCBvZiByZXNlcnZlZCBwaHlzaWNh
+bCBlcmFzZWJsb2NrczogIDE2MAo+IEN1cnJlbnQgbWF4aW11bSBlcmFzZSBjb3VudGVyIHZhbHVl
+OiAgICAgMzYKPiBNaW5pbXVtIGlucHV0L291dHB1dCB1bml0IHNpemU6ICAgICAgICAgIDIwNDgg
+Ynl0ZXMKPiBDaGFyYWN0ZXIgZGV2aWNlIG1ham9yL21pbm9yOiAgICAgICAgICAgIDI0NjowCj4g
+UHJlc2VudCB2b2x1bWVzOiAgICAgICAgICAgICAgICAgICAgICAgICAwLCAxLCAyCj4gCj4gVm9s
+dW1lIElEOiAgIDAgKG9uIHViaTApCj4gVHlwZTogICAgICAgIGR5bmFtaWMKPiBBbGlnbm1lbnQ6
+ICAgMQo+IFNpemU6ICAgICAgICAyNjc2IExFQnMgKDMzOTc4Nzc3NiBieXRlcywgMzI0LjAgTWlC
+KQo+IFN0YXRlOiAgICAgICBPSwo+IE5hbWU6ICAgICAgICByZnMyCj4gQ2hhcmFjdGVyIGRldmlj
+ZSBtYWpvci9taW5vcjogMjQ2OjEKPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LQo+IFZvbHVtZSBJRDogICAxIChvbiB1YmkwKQo+IFR5cGU6ICAgICAgICBkeW5hbWljCj4gQWxp
+Z25tZW50OiAgIDEKPiBTaXplOiAgICAgICAgMjY3NiBMRUJzICgzMzk3ODc3NzYgYnl0ZXMsIDMy
+NC4wIE1pQikKPiBTdGF0ZTogICAgICAgT0sKPiBOYW1lOiAgICAgICAgcmZzMwo+IENoYXJhY3Rl
+ciBkZXZpY2UgbWFqb3IvbWlub3I6IDI0NjoyCj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0KPiBWb2x1bWUgSUQ6ICAgMiAob24gdWJpMCkKPiBUeXBlOiAgICAgICAgZHluYW1p
+Ywo+IEFsaWdubWVudDogICAxCj4gU2l6ZTogICAgICAgIDI2NzQgTEVCcyAoMzM5NTMzODI0IGJ5
+dGVzLCAzMjMuOCBNaUIpCj4gU3RhdGU6ICAgICAgIE9LCj4gTmFtZTogICAgICAgIGhvbWUKPiBD
+aGFyYWN0ZXIgZGV2aWNlIG1ham9yL21pbm9yOiAyNDY6Mwo+IAo+IAo+IEkgYWxyZWFkeSBkZWJ1
+Z2dlZCB0aGUgdWJpZnMga2VybmVsIG1vZHVsZSB0byBsb2NhdGUgd2hlcmUgZXhhY3RseSB0aGUg
+Cj4gZXJyb3IgaXMgcmV0dXJuZWQsIGFuZCB0aGUgY2FsbCBjaGFpbiBpczoKPiAKPiB1Ymlmc19t
+b3VudCAtPiB1Ymlmc19maWxsX3N1cGVyIC0+IG1vdW50X3ViaWZzIC0+IHViaWZzX21vdW50X29y
+cGhhbnMg4oaSIAo+IGtpbGxfb3JwaGFucyAtPiBkb19raWxsX29ycGhhbnMgLT4gdWJpZnNfdG5j
+X2xvb2t1cCAtPiB1Ymlmc190bmNfbG9jYXRlCj4gCj4gVGhlIHViaWZzX3RuY19sb2NhdGUgZnVu
+Y3Rpb24gZmFpbHMgd2l0aCAtRU5PRU5UIGJlY2F1c2UgdGhlIAo+IHViaWZzX2xvb2t1cF9sZXZl
+bDAgZnVuY3Rpb24gcmV0dXJucyAwLgo+IAo+IElmIEkgcGF0Y2ggdGhlIG1vdW50X3ViaWZzIGZ1
+bmN0aW9uIHRvIGNhbGwgdWJpZnNfbW91bnRfb3JwaGFucyB3aXRoIAo+IHplcm8gZm9yIHRoZSB1
+bmNsZWFuIHBhcmFtZXRlciAoaW5zdGVhZCBvZiB0aGUgdmFsdWUgb2YgCj4gYy0+bmVlZF9yZWNv
+dmVyeSksIHRoZW4gdGhlIG1vdW50aW5nIHN1Y2NlZWRzLiBBZnRlcndhcmRzLCB3aGVuIAo+IHJl
+Ym9vdGluZyBvbmNlIG1vcmUgd2l0aCB0aGUgb3JpZ2luYWwgdW5wYXRjaGVkIGtlcm5lbCwgdGhl
+IGZpbGUgc3lzdGVtIAo+IGFwcGVhcnMgdG8gYmUgZml4ZWQgYWdhaW4sIGFuZCBtb3VudGluZyBz
+dWNjZWVkcy4KPiAKPiBJJ20gbm90IHJlYWxseSBzdXJlIHdoYXQncyBnb2luZyBvbiB1bmRlciB0
+aGUgaG9vZCwgYnV0IGl0IGxvb2tzIGxpa2UgYSAKPiBwcm9ibGVtIHdpdGggdGhlIGhhbmRsaW5n
+IG9mIHRoZSBvcnBoYW4gZmlsZXMuIFdpdGggdGhpcyBrbm93bGVkZ2UsIHdlIAo+IGFyZSBub3cg
+YWJsZSB0byByZXByb2R1Y2UgdGhlIHByb2JsZW0gcmVsaWFibGUsIGJ5IGRvaW5nIGEgcG93ZXIg
+Y3V0IAo+IHdoaWxlIHJ1bm5pbmcgdGhlIGF0dGFjaGVkIHNjcmlwdC4gVGhlIHNjcmlwdHMgY3Jl
+YXRlcyBtYW55IGZpbGVzIGluIGEgCj4gbG9vcCwga2VlcHMgdGhlbSBhbGwgb3BlbiBhbmQgcmVt
+b3ZlcyB0aGVtIGFnYWluLiBXaXRoIHRoaXMgYXBwcm9hY2ggd2UgCj4gaGl0IHRoZSBwcm9ibGVt
+IGFib3V0IG9uY2UgZXZlcnkgdHdvIGF0dGVtcHRzLgo+IAo+IFRoZSBwcm9ibGVtIGFwcGVhcmVk
+IGZvciB0aGUgZmlyc3QgdGltZSBhZnRlciB3ZSBzd2l0Y2hlZCBmcm9tIGtlcm5lbCAKPiB2NC43
+IHRvIHY1LjMuIEkgdHJpZWQgd2l0aCB2NS40IGFuZCBtYXN0ZXIgdG9vLCBpbiBjYXNlIHdlIGFy
+ZSBoaXR0aW5nIGEgCj4gcHJvYmxlbSB0aGF0IGlzIGFscmVhZHkgZml4ZWQsIGJ1dCB0aGV5IHNo
+b3cgdGhlIHNhbWUgcHJvYmxlbS4gQWZ0ZXIgCj4gZG9pbmcgc29tZSBiaXNlY3RpbmcsIHRoaXMg
+Y29tbWl0IGFwcGVhcnMgdG8gaGF2ZSBpbnRyb2R1Y2VkIHRoZSBwcm9ibGVtOgo+IAo+IGh0dHBz
+Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RvcnZhbGRzL2xpbnV4
+LmdpdC9jb21taXQvZnMvdWJpZnMvb3JwaGFuLmM/aWQ9ZWUxNDM4Y2U1ZGM0ZDY3ZGQ4ZGQxZmY1
+MTU4MzEyMmE2MWY1YmQ5ZQo+IAo+IEhvdyBjYW4gd2UgZml4IHRoaXM/CgpKdXN0IGFkZGluZyBS
+aWNoYXJkIGludG8gdGhlIGxvb3AsIGhlIGlzIG5vdCBhdmFpbGFibGUgcmlnaHQgbm93IGJ1dAp3
+aWxsIHByb2JhYmx5IGJlIGludGVyZXN0ZWQgYnkgdGhpcyBpc3N1ZS4gT24gbXkgc2lkZSwgSSBo
+YXZlIG5vIGNsdWUgOikKClRoYW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxp
+bmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LW10ZC8K
