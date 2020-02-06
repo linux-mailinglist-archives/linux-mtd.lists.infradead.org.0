@@ -2,83 +2,78 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C196153ED3
-	for <lists+linux-mtd@lfdr.de>; Thu,  6 Feb 2020 07:42:20 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 385C41540F7
+	for <lists+linux-mtd@lfdr.de>; Thu,  6 Feb 2020 10:13:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YS8uWrZpgFDG6pU+g8IZfnRqFfx/eGc1UMPocPo8GS0=; b=kNtpMnpP51i7d4
-	56MskgRKVBpxGf05guJgfZ1j+yZvYcqQpG2zQLZVewgOsFsDpBslh6gEW0vcJX3FPBnU0xyAZSfjD
-	ysKyY8bS9L/9BSwPSlswcvdnY3G7jr3ph+czriBvfelhjxnDKF0YJ6DU0mDZwgRL3/vFJ2vQR5ZYw
-	RAfpD9rTJA6nLNq2uSH7EWkjehEp1USMWUPJTtPEnaLwJOho+PKctw8Azm+IYAAh7VdE/fnwtrDSW
-	Eakx+TPwKq2M4sNYPco9toJ59bB82REol5ahLSZjvCtDd3TuqopJoMBbeaUSMYzNTrGkewucDKL12
-	6MQZIVSOtp/XCmhFZZPw==;
+	List-Owner; bh=O07lhKAHcMiqoEWmpeO9lopUCfVE5oW4qYu3k5dg+hU=; b=OWkERTyK4WnL3y
+	OFYn4/oNp7AR1U1SBz05VdZaxOGMcwV4Hl1fwbn9JTLEXvJyU5ntZwHbrug8DKCv+E09qBI8G20st
+	k+B5A8w4xen5w92nWyMK0vVaFz+DGqBFUPZZdaj8SfNNwDpN/C2X9tHBl5nI/HxAGRCpw7ZxKeuXT
+	xsegudd5EMLGRCp10R+DwdBA2DaD1eyPXGwwlsh4OfCXddcgDf57JjIINKfiUIMcJF+Q7Pf0Yn9lm
+	TjagoUzAnf4WRv9gWy2I1vGXqp4kDKDSO13CEVEKP3UFUyIkRHWBq4g4zU9OkQ7QJ1klJyIQ8ahIJ
+	6Mm9pTj2FEPdDfntx84Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1izare-0006Jp-8A; Thu, 06 Feb 2020 06:42:14 +0000
-Received: from mail-io1-xd43.google.com ([2607:f8b0:4864:20::d43])
+	id 1izdDr-0004Xr-Dg; Thu, 06 Feb 2020 09:13:19 +0000
+Received: from mail-oi1-x243.google.com ([2607:f8b0:4864:20::243])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1izarU-0006JV-GF
- for linux-mtd@lists.infradead.org; Thu, 06 Feb 2020 06:42:05 +0000
-Received: by mail-io1-xd43.google.com with SMTP id x1so5094821iop.7
- for <linux-mtd@lists.infradead.org>; Wed, 05 Feb 2020 22:42:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=bEXxKlcyLgE2p3I6l9a4mYEEpl5MYzkVEFvuOyNKPbU=;
- b=foievkMbImjEmCXaGTCfjIBNH8Y3XXMifOWUx7fb+9DjVyF4yyjCUDi6P199YcQJLa
- SqiLgnFCTJ7wu3bwlTcxJFeioXcu36wZL+ecKrXdgvrXAy5z72l0I/cOIvKj/QCutIIM
- Eh2yTdp/I+8bhveyg2S8pLz/GIAcRo4PuAp8Rm8YfazghjaGixf9jBXnoqukitymHEzp
- U4U2lhWUK7afsuNS/ou0lYMuP+mP4jMYPRFeGjwa9vCQJSCReGtUGhyfi3gDxyaBTsBE
- EZ+KIIqeOMdmtyWSfPsETndG3mP37JL01h1MMYPtt9jTaBQ8m9YzKAONzBNHg9B4ZuPT
- Bd8Q==
+ id 1izdDl-0004Wj-G7
+ for linux-mtd@lists.infradead.org; Thu, 06 Feb 2020 09:13:14 +0000
+Received: by mail-oi1-x243.google.com with SMTP id q81so3916427oig.0
+ for <linux-mtd@lists.infradead.org>; Thu, 06 Feb 2020 01:13:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=1CpJKgsAjlSqoe4gELRsfhNNMyIPojRkXjDATWcGuu4=;
+ b=GYL8bZM6NkTFf6TxXvu25c1GbCWB6hXWNKX734+SfLOA6BUhmqA8OgD+Zqpxp1Z1zN
+ oWbkkotrLcWLHxhekWqahMoLG3W2ap0jg3hnncU5+sPs1DI1lM/qRzU4Z9I/onG39FHH
+ U87i/i7nd8DXNiP/r/ZHnhm8XQwbuNmgflnjU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=bEXxKlcyLgE2p3I6l9a4mYEEpl5MYzkVEFvuOyNKPbU=;
- b=VUT2SV3JpBxs7qPbCJXaS02ElhXAqdyisfoulHVM17MWivRw57WOa34Vc+17Cs0/ds
- QJF9ir2AzXv7uVuAzhAY5Y+eLzWbCtea3xxrtzUUwWqdMi90m5k6PuxDWRPhGm7iQM2Z
- wTbnuY6WobGa0x3W+wudKABLbzmwZWlf069Ev5EfoSNT1lT6IDqVeEa3z/8QhHbEqvgb
- 1chEZaVmta0KUnbbDEaRVpHR5VVflXHC/PWZc5Xy446RqY5jQIBYexcY9q4QvFaNXGTF
- qzOTVg5VFJT4gcMaYKXa3UpYgSl5pbgHP8OIDUWH/7aSQHXuc5QW+Ou00mttDLZgD4Zs
- 2QCg==
-X-Gm-Message-State: APjAAAV4ewcOYGtApHCkUa+/qkdOnzxCAMhBAbUY1C77n1EIhx4fXxjw
- mMe9O05QTB4iwOi6dkaRBuxUYkU1kAl6sLZCO/HKAGEtvRQ=
-X-Google-Smtp-Source: APXvYqxIebhKmY4FjNNAioqVdDNoHQTchq3K5kzsiTAkIlXO/Ul5WdpWaYj9I/TKyYUwIzBKPADbh59zDQwPaFuoHI4=
-X-Received: by 2002:a5d:87ca:: with SMTP id q10mr25721223ios.192.1580971322929; 
- Wed, 05 Feb 2020 22:42:02 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=1CpJKgsAjlSqoe4gELRsfhNNMyIPojRkXjDATWcGuu4=;
+ b=RSbzM9WuUTPQ0YVM5/qT/TcgmZSXKcN4D5sCeTvdT1n0SNo0DA//VbSb1PgLJq5U6X
+ zalNKetuQz21Lo75YRpuNHA/CulL48BMt9mqEy4vB+pV1PZA0d0vpiF97VPCeG7fmURE
+ /ar8QS0WBbXoeYnkfYAOxl9qdbz6d8cIe0PrtTBWqRguFXiBdfcX4mslaQrl7E/g7Csv
+ qzN7jZPb2u0uiaFTFgobH3qjP3E3ugZWTzTP7n6BwSmKCFiq+TOIJpMKXG7DeOpigfMt
+ XmKGaKtPwnRN3qWrsKzZt7KEAfDuZuzO/vOH97qEgDj5uUG4N61LVABNexWtPlTc769W
+ vtyA==
+X-Gm-Message-State: APjAAAW+qUMyu4hjGDnpLdR3yFBFRXJjExoN2PkaqXkjWYUbaGsd1cRh
+ kOD9xOAGworXZRdMJiDNb+XV0Q==
+X-Google-Smtp-Source: APXvYqwkhyUAvVCT+rNa/7+99l/zd01X1+i693C/Ng8uMN/IvbeIkCoWD6oBCSLayQF3FRiTK8LTzw==
+X-Received: by 2002:aca:cf12:: with SMTP id f18mr6247795oig.81.1580980391763; 
+ Thu, 06 Feb 2020 01:13:11 -0800 (PST)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id a1sm913373oti.2.2020.02.06.01.13.10
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 06 Feb 2020 01:13:10 -0800 (PST)
+Date: Thu, 6 Feb 2020 01:13:08 -0800
+From: Kees Cook <keescook@chromium.org>
+To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
+Subject: Re: [PATCH v1 00/11] pstore: support crash log to block and mtd device
+Message-ID: <202002060108.7389A4C@keescook>
+References: <1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com>
 MIME-Version: 1.0
-Received: by 2002:ad5:5d0d:0:0:0:0:0 with HTTP;
- Wed, 5 Feb 2020 22:42:02 -0800 (PST)
-In-Reply-To: <CALLGbRKGmVCvDgr7g5D0BQaH6R1J_cfguC9WYRJxwo9KT+Fa-A@mail.gmail.com>
-References: <CAA=hcWTvGf9_izDMJhER-S=vEYcc22K4Syp5CuVjUr9tND7cgQ@mail.gmail.com>
- <CAA=hcWSX9tBOjX8DEsg+=9NPdKzdwQBa1PyxA-r9vCLVsz52tg@mail.gmail.com>
- <20200205212301.1e26c263@collabora.com>
- <CAA=hcWT+veAKUUKyJSZEx-mtoPAMzPhzd=gd8XtPq-NbrC9TMQ@mail.gmail.com>
- <CALLGbRKGmVCvDgr7g5D0BQaH6R1J_cfguC9WYRJxwo9KT+Fa-A@mail.gmail.com>
-From: JH <jupiter.hce@gmail.com>
-Date: Thu, 6 Feb 2020 17:42:02 +1100
-Message-ID: <CAA=hcWSELSKA5-rQ+6wrJY3iYdTs4Eeo5rLe0+azLYS7PcgCxQ@mail.gmail.com>
-Subject: Re: mtd_nandbiterrs errors
-To: Steve deRosier <derosier@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200205_224204_566809_A768E99F 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20200206_011313_561990_E61C7740 
+X-CRM114-Status: GOOD (  16.40  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:d43 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:243 listed in]
  [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [jupiter.hce[at]gmail.com]
- -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -86,6 +81,7 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,49 +93,60 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
- linux-mtd <linux-mtd@lists.infradead.org>
+Cc: Rob Herring <robh@kernel.org>, Tony Luck <tony.luck@intel.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Jonathan Corbet <corbet@lwn.net>,
+ Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
+ linux-doc@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-kernel@vger.kernel.org, Colin Cross <ccross@android.com>,
+ linux-mtd@lists.infradead.org, Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Steve,
+On Mon, Jan 20, 2020 at 09:03:42AM +0800, WeiXiong Liao wrote:
+> Why do we need to log to block (mtd) device?
+> 1. Most embedded intelligent equipment have no persistent ram, which
+>    increases costs. We perfer to cheaper solutions, like block devices.
+> 2. Do not any equipment have battery, which means that it lost all data
+>    on general ram if power failure. Pstore has little to do for these
+>    equipments.
+> 
+> Why do we need mtdpstore instead of mtdoops?
+> 1. repetitive jobs between pstore and mtdoops
+>    Both of pstore and mtdoops do the same jobs that store panic/oops log.
+> 2. do what a driver should do
+>    To me, a driver should provide methods instead of policies. What MTD
+>    should do is to provide read/write/erase operations, geting rid of codes
+>    about chunk management, kmsg dumper and configuration.
+> 3. enhanced feature
+>    Not only store log, but also show it as files.
+>    Not only log, but also trigger time and trigger count.
+>    Not only panic/oops log, but also log recorder for pmsg, console and
+>    ftrace in the future.
 
-Glad you help me here as well :-)
+Hi! Sorry for the delay in my review of this series -- it's been a busy
+couple of weeks for me. :) I'm still travelling this week, but I want to
+give this a good review. I really like the idea of having a block device
+backend for pstore; I'm excited to get this feature landed.
 
-On 2/6/20, Steve deRosier <derosier@gmail.com> wrote:
-> ECC is dependant on the device. And it can't be mixed-and-matched.
-> Every device has a datasheet that will tell you the minimum required.
-> You can (and usually should) go more than the minimum required, up to
-> however much you can fit in the OOB area. There's several ways to
-> check it, one way is to dump a programed page via u-boot `nand dump`
-> command from each partition and see how much of the OOB is taken up by
-> ECC bits. Personally, I'd do that even if I thought I knew what the
-> setting is supposed to be to validate that the data was actually
-> written in correctly. Depending on your system, you can find the
-> configured strength in your DTS. And also the u-boot config for your
-> platform (boot loader and kernel need to agree on ECC settings).
+I think there may be a lot of redundancy between ramoops and the block
+code in this series, but I suspect the refactoring of that can happen at
+a later time. I'd like to get this reviewed and tested and see if I can
+land it in the v5.7 merge window.
 
-Just got a dts file, it uses fsl,use-minimum-ecc, I think that dts was
-copied from original imx6ull EVK, it looks like it is 4 bits.
+I hope to have time to focus on this next week once I'm back in my
+normal timezone. ;)
 
-Sorry for a silly question, how could I run command in u-boot and
-Linux to verify the ECC strength bits and setting in u-boot and Linux?
+Thanks again!
 
-> You need to find the datasheets for your devices, it will tell you
-> what you need to know.
+-Kees
 
-The datasheet says "The system has to use a minimum 1-bit ECC per 528
-bytes of data to ensure data recovery". For 2KB page size, I guess a 4
-bits should be adequate, right? I need to find a way to run commands
-in u-boot and Linux to find the ECC bits.
-
-Thank you so much Steve,
-
-Kind regards,
-
-- jh
+-- 
+Kees Cook
 
 ______________________________________________________
 Linux MTD discussion mailing list
