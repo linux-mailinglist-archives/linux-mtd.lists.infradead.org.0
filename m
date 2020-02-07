@@ -2,91 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5ACC515580B
-	for <lists+linux-mtd@lfdr.de>; Fri,  7 Feb 2020 14:01:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 91FF3155AB3
+	for <lists+linux-mtd@lfdr.de>; Fri,  7 Feb 2020 16:26:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+r9hPJIxfdTnts/QMwp7fGmjJgaZF0BMOkydJPfaTww=; b=LeTZEeXkCRAQSL
-	K3kao1iDFIltOeY7KHVYTRr0azXJg+N+FciRVmTnfOD771uwylpmy+0nMphQ5PZmwVWZXpQLezCRA
-	4HvHJELWE3VX6OU+y6Jq4Br3tz/GEuZePGQOfySNC3evsGsQPkkTnjVdpOOPnk082fySRM6I2FxCB
-	lvRlQsO8LvhuZi61S9Oc07AG7OeMZF6+e8nbR4RYnTXv5j1qIApW1rlswF4DWQv1f0DKgtAa3cDR6
-	JMC3xQMf83tLfxtX+D8ZdaT1isJ4bgwUSUaQa0L2pg2HV7jwG+UYdvkvsRb/dINoiQer1I7+YsX5Y
-	oxb4HSoc0DjizH+NUBhQ==;
+	List-Owner; bh=8Ll9AzFSfCG0ydGGtpfHAdjQnjjP18pCLuF4eq8gOA8=; b=NS9om9BQS46AzK
+	xtPIGVe1qRjTAbMxBx2W4I8Asx63WWdMlWfEVts2WK+DmRf8Wo86x0/TaqsGQXaKGzxUquLf78Zpk
+	MqmcDsQfBEiwcsuk/GzQTOpcXvbUJVyw898A7ILQvYnKSdmlNebqOC14p34qECCedIgJplW7erkqi
+	vKnLPFomcFbt3d0csLb2zWme5lrzqe1WyR+2y4q3njVkxQxSU2HeuQE5A2w2h0wvgSfumk0Nd/yh3
+	Ki6uwBNhO4CEkXzgyOKpL0oRGOODBbOspxuvlDi7wYkjxCnpcYNH80MeH2x3Flg4e8WCruHmP5FuX
+	w+UNv3OJflz9gOPYIXgw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j03GD-00010D-SV; Fri, 07 Feb 2020 13:01:29 +0000
-Received: from mail-il1-x141.google.com ([2607:f8b0:4864:20::141])
+	id 1j05Wj-00013A-DC; Fri, 07 Feb 2020 15:26:41 +0000
+Received: from 3.mo2.mail-out.ovh.net ([46.105.58.226])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j03G4-0000zc-J1
- for linux-mtd@lists.infradead.org; Fri, 07 Feb 2020 13:01:22 +0000
-Received: by mail-il1-x141.google.com with SMTP id s18so1648734iln.0
- for <linux-mtd@lists.infradead.org>; Fri, 07 Feb 2020 05:01:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=4IDpUr8/lBjGDlP6vwyVyMKxwYxAKScLaCcjW3wnWfA=;
- b=biJM5pU/mOOpdic+lsjJl9Fn0v5FjdQZFF+FXHhrc1UuDAW15prA8UMWmaUluq4DB1
- NSIPM2qFURuFTiRk0KkL0vygXJ+RaIbmXDWnWG5s9uPl0kxlicOydTQI9FHk+poC+h3D
- 7xGcO7ncGEoaViaTKi4869MUmr++TyBohmRfc5G1l94F5x+ujcP4wrNKGBbGD1R85Na0
- JC4HV9wNSYlz4irdwnhyHfvkIwgJSIjzmXEGC6oOZEl3qK7LjYzYELLVG3YEnDRSuzNy
- 2GH3Gp4STZFJZIt0hwX1beiTVaCyMh9BeQnVsOHRmT60RIFii5sdh5QJS3jHFvHDxLrg
- CsGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=4IDpUr8/lBjGDlP6vwyVyMKxwYxAKScLaCcjW3wnWfA=;
- b=NE7YV0QGOW8fUlGUiWGS5GYDHRnslTwdWsn7qC41QjpLYzuozlz0yJBnb4zMM1UCXa
- lhb/+tsuLw34ASFUOXJh+2f98zATos4UOuQcTilN7EXgo0VHqPyV2Xco4J+mkeB46364
- QHRsa5JWBCnjWSm05weuwftXW7a9r/+Kki4j3F3KnPdq1rvdYQVV6b+MDSclQJ+hX6fw
- wFuzafqKJoRzTmLXoSk5a4NUanJY+aBssEQMemaIPcAOD1w5ZzLt7aZfQ+eHyeyKCaPO
- yZBPJoRn+tiFRCi81ncAvBpkFRgWN20FNDinurzFgbmhMxtPdDrkZHdVPiqvHeidO2JK
- c0Ug==
-X-Gm-Message-State: APjAAAW51DJNmSy00yye5Hm7IVe7sQcsK7fRnhHA1Ev/T+B6IwYAoT2L
- 8G5Zk3KMSyHCVzStrJ+9oDg8mq/6EXD+S+91ADw=
-X-Google-Smtp-Source: APXvYqwNIDHbSYPG5aN+ILU7k3NPOWD84Bm0vb30th4pSY8J48Xu8j7mMYm75hpXiKjGlyQcVs2oVHlK8t3IPQTDHnU=
-X-Received: by 2002:a92:5855:: with SMTP id m82mr9072837ilb.302.1581080478082; 
- Fri, 07 Feb 2020 05:01:18 -0800 (PST)
+ id 1j05WZ-00011a-Np
+ for linux-mtd@lists.infradead.org; Fri, 07 Feb 2020 15:26:34 +0000
+Received: from player157.ha.ovh.net (unknown [10.108.42.66])
+ by mo2.mail-out.ovh.net (Postfix) with ESMTP id 1B97D1C941A
+ for <linux-mtd@lists.infradead.org>; Fri,  7 Feb 2020 16:26:12 +0100 (CET)
+Received: from shaiton.org (mail-vk1-f169.google.com [209.85.221.169])
+ (Authenticated sender: postmaster@shaiton.org)
+ by player157.ha.ovh.net (Postfix) with ESMTPSA id 71843F22A2AF
+ for <linux-mtd@lists.infradead.org>; Fri,  7 Feb 2020 15:26:10 +0000 (UTC)
+Received: by mail-vk1-f169.google.com with SMTP id c129so690175vkh.7
+ for <linux-mtd@lists.infradead.org>; Fri, 07 Feb 2020 07:26:10 -0800 (PST)
+X-Gm-Message-State: APjAAAVWMzFV+3DR1ixnSR1a1PSkdu1buF85pN9xJ0nZigwx147l9hSL
+ JVB2L0ICMquIDZmf+X09TItah0GJKPVHj5Kn4uU=
+X-Google-Smtp-Source: APXvYqzerBI3iKKwKdjxIZv8oU2wvS8VWe68gJZEhs4bxXbfkcmX1onp7aqqEoviimWyvo3yOkDjvXjiDxDN732zZu8=
+X-Received: by 2002:a05:6122:48c:: with SMTP id
+ o12mr4934878vkn.35.1581089169654; 
+ Fri, 07 Feb 2020 07:26:09 -0800 (PST)
 MIME-Version: 1.0
-Received: by 2002:ad5:5d0d:0:0:0:0:0 with HTTP;
- Fri, 7 Feb 2020 05:01:17 -0800 (PST)
-In-Reply-To: <20200207115521.i7flzwf6e24obq5r@qschulz>
-References: <CAA=hcWSCZROrpDBWV5ZAA+LV6j0cjRSKxyjonOfWS4mCZAtdHg@mail.gmail.com>
- <em86bbcd60-f004-4acb-b508-4471dac5c7c1@andys-imac.leeshillfarm.local>
- <CAA=hcWQsP1N58iqrxEggZBdSksgHk+gfuG7yz0+C3G7o0=DzOw@mail.gmail.com>
- <c159fe1d7cc14f5c80878fe81a957bb4@tagmaster.com>
- <CAA=hcWQPrfb3UrYsfyhs4as8wGDf5DsyEtF=cgCo4gJprx=b1Q@mail.gmail.com>
- <20200207115521.i7flzwf6e24obq5r@qschulz>
-From: JH <jupiter.hce@gmail.com>
-Date: Sat, 8 Feb 2020 00:01:17 +1100
-Message-ID: <CAA=hcWR8F_jP5mascw02RnLRi2NkAb2juFhNmEoaeuY5G74HFw@mail.gmail.com>
-Subject: Re: [OE-core] [yocto] Support UBI u-boot
-To: Quentin Schulz <quentin.schulz@streamunlimited.com>
+References: <20190806104928.1224-1-s.hauer@pengutronix.de>
+In-Reply-To: <20190806104928.1224-1-s.hauer@pengutronix.de>
+From: Kevin Raymond <kr@shaiton.org>
+Date: Fri, 7 Feb 2020 16:25:58 +0100
+X-Gmail-Original-Message-ID: <CAPwc7DMK7RKDUW4Kx4eKVXVJ7y9pmYwCBA+OevN_RdrJvhXb3g@mail.gmail.com>
+Message-ID: <CAPwc7DMK7RKDUW4Kx4eKVXVJ7y9pmYwCBA+OevN_RdrJvhXb3g@mail.gmail.com>
+Subject: Re: [PATCH 0/2] mtd-utils: mkfs.ubifs: Add signing support for UBIFS
+ images
+To: linux-mtd@lists.infradead.org
+X-Ovh-Tracer-Id: 9337087928441219507
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: -100
+X-VR-SPAMCAUSE: gggruggvucftvghtrhhoucdtuddrgedugedrheehgdejiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfqggfjpdevjffgvefmvefgnecuuegrihhlohhuthemucehtddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeggfhgjhfffkffuvfgtsehttdertddttdejnecuhfhrohhmpefmvghvihhnucftrgihmhhonhguuceokhhrsehshhgrihhtohhnrdhorhhgqeenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkpheptddrtddrtddrtddpvddtledrkeehrddvvddurdduieelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmohguvgepshhmthhpqdhouhhtpdhhvghlohepphhlrgihvghrudehjedrhhgrrdhovhhhrdhnvghtpdhinhgvtheptddrtddrtddrtddpmhgrihhlfhhrohhmpehkrhesshhhrghithhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdhmthgusehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200207_050120_631234_2A1B1B58 
-X-CRM114-Status: GOOD (  16.43  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200207_072631_923684_A6374C65 
+X-CRM114-Status: GOOD (  21.92  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:141 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [jupiter.hce[at]gmail.com]
+ no trust [46.105.58.226 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [46.105.58.226 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,92 +78,107 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Andy Pont <andy.pont@sdcsystems.com>,
- Yocto discussion list <yocto@yoctoproject.org>,
- Patches and discussions about the oe-core layer
- <openembedded-core@lists.openembedded.org>,
- Pelle Windestam <Pelle.Windestam@tagmaster.com>,
- linux-mtd <linux-mtd@lists.infradead.org>,
- Meta Freescale <meta-freescale@yoctoproject.org>
+Cc: Richard Weinberger <richard@nod.at>, Sascha Hauer <s.hauer@pengutronix.de>,
+ david.oberhollenzer@sigma-star.at
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Quentin,
+Hi there,
 
-Thanks for your response, so glad you help me here again :-).
+I am testing ubifs authentication for my new board, however I can't
+git it to work.
+I am not able to have keyctl add my key to the kernel keyring.
 
-On 2/7/20, Quentin Schulz <quentin.schulz@streamunlimited.com> wrote:
->> /build/Installer/sa_platform_build/Source/Yocto/build/tmp-glibc/work/solar-oe-linux-gnueabi/u-boot-imx/2017.03-r0/git/cmd/ubi.c:448:
->> undefined reference to `mtdparts_init'
+This is by far the most easier documentation I found about ubifs authentication.
+
+I've got my kernel generating the asymmetric key, I can do the offline
+signing with mkfs.ubifs but am not able to mount the ubifs partition.
+I always get the following error:
+    mount: mounting /dev/ubi0_8 on /mnt failed: Required key not available
+
+I am really not sure about the "keyctl add" part.
+From the Sascha example, should we change 'mysecret' by
+'signing_key.pem' ? Should we change its format?
+keyctl return me an identifier who does not appear to exist.
+I don't have any new entry with the keyctl show command.
+
+I am using Linux kernel 5.4.18, and mtd-utils from master (revision
+95633c4dfe9).
+
+I have the x509 certificate entry in /proc/keys (as asymmetri Build
+time autogenerated kernel key)
+
+My kernel config has the following entries:
+CONFIG_UBIFS_FS_AUTHENTICATION=y
+CONFIG_CRYPTO_AUTHENC=m
+CONFIG_KEYS=y
+CONFIG_SYSTEM_TRUSTED_KEYS=""
+CONFIG_MODULE_SIG_FORMAT=y
+CONFIG_MODULE_SIG=y
+CONFIG_MODULE_SIG_SHA256=y
+CONFIG_MODULE_SIG_HASH="sha256"
+CONFIG_MODULE_SIG_KEY="certs/signing_key.pem"
+
+Thanks for your help, I am not sure if ubifs authentication is widely used yet.
+
+
+
+
+On Tue, Aug 6, 2019 at 12:49 PM Sascha Hauer <s.hauer@pengutronix.de> wrote:
 >
-> This function is not defined. So you look it up in the sources, find
-> where it's defined.
-
-That is a function call in cmd/ubi.c:
-
-int ubi_detach(void)
-{
-    if (mtdparts_init() != 0) {
-        printf("Error initializing mtdparts!\n");
-        return 1;
-    }
-.....
-
-That function is in cmd/mtdparts.c:
-int mtdparts_init(void) {
-.......
-}
-
-It is in the same source directory, I'll have to look it deep, why it
-does not compile cmd/mtdparts.c?
-
-
-> Is it in a file which is compiled/included somewhere?
-> Is it surrounded by #ifdef? And by surrounded, I mean the #ifdef can
-> be several thousands of lines above the function definition.
-
-Actually, there is no macros to surround that function.
-
-
-> In that case, I couldn't find the sources of u-boot-imx (didn't take the
-> time) but from upstream:
-> https://elixir.bootlin.com/u-boot/v2017.03/source/cmd/nand.c#L35
-
-The meta-freescale downloaded the u-boot source from
-https://source.codeaurora.org/external/imx/uboot-imx.git
-
-> It's surrounded by #if defined(CONFIG_CMD_MTDPARTS) so you need
-> CMD_MTDPARTS to be enabled. Do the same for all the other calls. There's
-> no magic thing, you thus have to look it up yourself most of the time.
-> Even though arguably, that's a mistake from upstream (there should be a
-> dependency on MTDPARTS in Kconfig, anyway...).
-
-You are right, the CONFIG_CMD_MTDPARTS is defined in many defconfig
-except it is not in my mx6ull_14x14_evk_defconfig, there are lots of
-definitions are defined in other defconfig, but missing in
-mx6ull_14x14_evk_defconfig. When I run make menuconfig, I enabled all
-MTD, NAND and UBI parts except UBI Fastmap (Experimental feature) in
-menuconfig, but I still could not find CONFIG_CMD_MTDPARTS and other
-definitions. Need to look it carefully.
-
-I suspect that to run make menuconfig might not be right command, I
-tried bitbake -c menuconfig u-boot:
-
-ERROR: Task do_menuconfig does not exist for target u-boot
-(./meta-freescale/recipes-bsp/u-boot/u-boot-imx_2017.03.bb:do_menuconfig).
-Close matches:
-  do_configure
-
-To run kernel menuconfig, I can add KERNEL_CONFIG_COMMAND =
-"oe_runmake_call -C ${S} O=${B} imx_v6_v7_defconfig" to a bbappend
-file to run bitbake -c menuconfig kernel. Is there an equivelent
-UBOOT_CONFIG_COMMAND to run oe_runmake?
-
-Thank you.
-
-- jh
+> This series adds the userspace part to mkfs.ubifs to generate signed UBIFS
+> images. With this a UBIFS image can be cryptographically signed in PKCS
+> #7 CMS format which is then authenticated in the Kernel before mounting
+> it. The necessary Kernel bits have been merged with 817aa094842d
+> ("ubifs: support offline signed images").
+>
+> Here is a quick walkthrough for generating and mounting a signed UBIFS image
+> using the kernel provided keys used for module signing:
+>
+> - configure kernel with CONFIG_UBIFS_FS_AUTHENTICATION, CONFIG_MODULE_SIG and
+>   CONFIG_INTEGRITY_ASYMMETRIC_KEYS enabled (assumed to be in ~/linux/ in
+>   this example)
+> - build kernel, ~/linux/certs/signing_key.x509 and ~/linux/certs/signing_key.pem
+>   will be generated
+> - generate ubifs image:
+>
+>   mkfs.ubifs --hash-algo=sha256 --auth-cert=~/linux/certs/signing_key.x509 \
+>         -d root -e  126976 -o ~/signed.ubifs -c 1024 -m 2048 \
+>         --auth-key=~/linux/certs/signing_key.pem
+>
+> - flash UBIFS image onto target and mount:
+>
+>   ubimkvol -N root -s 64MiB /dev/ubi0
+>   ubiupdatevol /dev/ubi0_0 signed.ubifs
+>   cat mysecret | keyctl padd logon ubifs:root @s
+>   mount -t ubifs /dev/ubi0_0 /mnt/ -o auth_hash_name=sha256,auth_key=ubifs:root
+>
+>
+> Sascha Hauer (2):
+>   ubifs-media: Update to Linux-5.3-rc3
+>   mkfs.ubifs: Add authentication support
+>
+>  include/mtd/ubifs-media.h           |  75 ++++-
+>  ubifs-utils/Makemodule.am           |   3 +-
+>  ubifs-utils/mkfs.ubifs/lpt.c        |  12 +
+>  ubifs-utils/mkfs.ubifs/mkfs.ubifs.c | 172 +++++++++---
+>  ubifs-utils/mkfs.ubifs/mkfs.ubifs.h |   1 +
+>  ubifs-utils/mkfs.ubifs/sign.c       | 409 ++++++++++++++++++++++++++++
+>  ubifs-utils/mkfs.ubifs/sign.h       |  80 ++++++
+>  ubifs-utils/mkfs.ubifs/ubifs.h      |  22 +-
+>  8 files changed, 730 insertions(+), 44 deletions(-)
+>  create mode 100644 ubifs-utils/mkfs.ubifs/sign.c
+>  create mode 100644 ubifs-utils/mkfs.ubifs/sign.h
+>
+> --
+> 2.20.1
+>
+>
+> ______________________________________________________
+> Linux MTD discussion mailing list
+> http://lists.infradead.org/mailman/listinfo/linux-mtd/
 
 ______________________________________________________
 Linux MTD discussion mailing list
