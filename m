@@ -2,58 +2,149 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 134ED157A0C
-	for <lists+linux-mtd@lfdr.de>; Mon, 10 Feb 2020 14:20:06 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 420EE157F2E
+	for <lists+linux-mtd@lfdr.de>; Mon, 10 Feb 2020 16:50:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IzDxElIMAmd4vrUos6pUEn9NyhfQ5Vs4o+hvOJhzy0M=; b=evODaq8+gj5Ci9
-	5hFZXSQE02bkhUnia4FIhLzwaxW+v9In8u89M3PhRLs8XLgrV5ILOB/R/jHm2FMxNUVOJAheV6zA8
-	DNP4jSTLJcyazEie3O+EWzdmfyKXcn5fDfOvSqO0z6UdRbqRq74qcxvbmv+FIpulUbAJP/75fL2TW
-	fYkYKFEAg4aZ0lCLkgg6n+a6sauGGD7NJpWIrSH6n+g6PBYSgutwgdDVI1YQd2WInkTQjPQp4YKIX
-	RlZEMEA7LWNUF1zLMIBMRPiBO607whsNagrkQMMHKQMLgjc4UAL1CaLBsnL1zxAsOY3KS2HbdH5Yh
-	q5ihgUZLscuJzhTRIodA==;
+	List-Owner; bh=OpWvZoTj/vm0nNb6uuAPUBcgjMdXWC20fUC9WHWruvg=; b=oYrxjXhkpSo2Zo
+	QFVJBzmGTLN3k8HzWdO7hNQ/6KNYdGwTFl6Z3Gyvqavms4XkMG+wvK2KnU+pMqWvB/EDjosvcoimL
+	4n2nrdDESaePhImT5h1bgyoV8cfRnEpPmayKT77ir8YrsWehSJTRMoH5zN/hD5fe5IkeiatMq4F1T
+	wY6+bkI86xDbuO5JGIsgs8ApD4rbxatuhU4Qq5SX2ZE1+ppXZoy3qJxOywRleE0nd5atiL7pwsdkY
+	A1ajSbvCJdCvyFYy6SdjssycAUVw5Z/PILkIPglstYfT9ZL7k2liFdIKV9gA1zUvO7pKQzs6AKZAx
+	wiI/QYIJ8QQSBlDjP9XQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j18yk-0000fd-Mq; Mon, 10 Feb 2020 13:19:58 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1j1BKk-0001bZ-1N; Mon, 10 Feb 2020 15:50:50 +0000
+Received: from esa4.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j18yc-0000dT-T4
- for linux-mtd@lists.infradead.org; Mon, 10 Feb 2020 13:19:52 +0000
-Received: from DGGEMS405-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 6E4F2CB45EBCE9134845;
- Mon, 10 Feb 2020 21:19:29 +0800 (CST)
-Received: from huawei.com (10.90.53.225) by DGGEMS405-HUB.china.huawei.com
- (10.3.19.205) with Microsoft SMTP Server id 14.3.439.0; Mon, 10 Feb 2020
- 21:19:18 +0800
-From: Hou Tao <houtao1@huawei.com>
-To: <linux-mtd@lists.infradead.org>, <richard@nod.at>, <s.hauer@pengutronix.de>
-Subject: [PATCH v2 2/2] UBI: fastmap: only produce the initial anchor PEB when
- fastmap is used
-Date: Mon, 10 Feb 2020 21:26:35 +0800
-Message-ID: <20200210132635.50072-2-houtao1@huawei.com>
-X-Mailer: git-send-email 2.22.0
-In-Reply-To: <20200210132635.50072-1-houtao1@huawei.com>
-References: <20200210132635.50072-1-houtao1@huawei.com>
+ id 1j1BKX-0001al-Bt
+ for linux-mtd@lists.infradead.org; Mon, 10 Feb 2020 15:50:39 +0000
+Received-SPF: Pass (esa4.microchip.iphmx.com: domain of
+ Tudor.Ambarus@microchip.com designates 198.175.253.82 as
+ permitted sender) identity=mailfrom;
+ client-ip=198.175.253.82; receiver=esa4.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="Tudor.Ambarus@microchip.com";
+ x-conformance=spf_only; x-record-type="v=spf1";
+ x-record-text="v=spf1 mx a:ushub1.microchip.com
+ a:smtpout.microchip.com -exists:%{i}.spf.microchip.iphmx.com
+ include:servers.mcsv.net include:mktomail.com
+ include:spf.protection.outlook.com ~all"
+Received-SPF: None (esa4.microchip.iphmx.com: no sender
+ authenticity information available from domain of
+ postmaster@email.microchip.com) identity=helo;
+ client-ip=198.175.253.82; receiver=esa4.microchip.iphmx.com;
+ envelope-from="Tudor.Ambarus@microchip.com";
+ x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
+Authentication-Results: esa4.microchip.iphmx.com;
+ spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
+ spf=None smtp.helo=postmaster@email.microchip.com;
+ dmarc=pass (p=none dis=none) d=microchip.com
+IronPort-SDR: mKJEV8M7w3m359kN4XWUkAh7aT8BYM0raIhR20rxWoOZHFe1SWUuwlxNe59PnkVQOSjNfRQD9C
+ GjxmO2tPgkygNz8grBmyGc15PfhwPR6RUgKsppMywhFU20GbOr89QLoz3p9oQvK4YyZUel3xoZ
+ 851uIa/V9PanJVqgG/5btUgqtoFZuc7ajN4Q2RK6jNrjC35Q227JaAsHtQxFpgkHpFRgWFjXBL
+ UOCIqnhX2DtulTeZ2WvG9zfUNihrOrzTCr5Snor5CxJ/ZlpQ7RA8IkRiAvmA0572bj2ONXysL4
+ oW4=
+X-IronPort-AV: E=Sophos;i="5.70,425,1574146800"; d="scan'208";a="63690602"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 10 Feb 2020 08:50:32 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Mon, 10 Feb 2020 08:50:31 -0700
+Received: from NAM02-BL2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, 
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
+ Transport; Mon, 10 Feb 2020 08:50:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bnuk08BNnKNP78KQ4V3vVvlx33ynjYsH0RULT6ENmLq4mX2o8cs3V0a7Fzv7HkkrC3jGVL/YvhgtoQVVOhgGO01DRpVSvnvGhv50YfGDfRdlJOJTGQg21w7vyQIifg2XERRHXZvgqOHTQ6XNZh9uX4E38VdNvPd/rZRAgCjmLiO+bt5/4nb8Jx+EjCwAkkNmRApzxdqaPxPjXuKwSlMJOJMN5jF2JGsF1ZFVPAT1LCFKeJiPpoTpXgSIBYu24UPotVXRRwexzotmGZitNxziVCsffLGM6MBoQoxMUnIX9a3nqXI/2mGGiTzJHnMeVrOTg9p8lZQQNH6j5SNTrqpn1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rnn14GDni7t6Ku6wEUvSJQvjxkMoHXiCwOc9nCwQI9Y=;
+ b=CTASuXlbmC0HNndk9B2TokJ2zRp+7M+wy1hLgCUNlBTfrlN6fbYGh66qjZZO2d0Fj49GmS9NHxzwqOm9cUKz3B2yHOjX+3k+TdTsZgHG9xn0WRREByr8EABx2MWgV3h3St7So8NbqpQ3U9Adu7fRMLyUpndSTTBUgKTHmFlKI612d+ddD9QqWjhUm/hTwtK9kwAgrlr8Q4eWD2E9tIQ8UyNCM4S93lQ6lm37wF2yDfTt5bvtRkHO1WpVdLMnBs3RtroXgNIHv2CAhzenqgj9f/8vsd5RQ9MVM544z6L7APfG4CIPgWJ6wHGlDQgcazj7J+utkqKjAqLG1cYm23B6sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rnn14GDni7t6Ku6wEUvSJQvjxkMoHXiCwOc9nCwQI9Y=;
+ b=izlHqkQOCYf3FfVSkyVVulYD4d6y2hKBt30n0VjxzTUBt8/pAbha5tRIMmCSjUKJcAHVA79sbPir0TxFqWUEs6lpSAy0w6HRiooivWuMfsWHeYD2hlftreREc5e3WWk/2P4a6gztfAl6wuiWns0pywEdErGxbftwePS/HumuNwg=
+Received: from MN2PR11MB4448.namprd11.prod.outlook.com (52.135.39.157) by
+ MN2PR11MB3936.namprd11.prod.outlook.com (10.255.180.15) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2707.21; Mon, 10 Feb 2020 15:50:28 +0000
+Received: from MN2PR11MB4448.namprd11.prod.outlook.com
+ ([fe80::3c8f:7a55:cbd:adfb]) by MN2PR11MB4448.namprd11.prod.outlook.com
+ ([fe80::3c8f:7a55:cbd:adfb%5]) with mapi id 15.20.2707.028; Mon, 10 Feb 2020
+ 15:50:27 +0000
+From: <Tudor.Ambarus@microchip.com>
+To: <michael@walle.cc>
+Subject: Re: [PATCH v3 2/3] mtd: spi-nor: add 4bit block protection support
+Thread-Topic: [PATCH v3 2/3] mtd: spi-nor: add 4bit block protection support
+Thread-Index: AQHV3bCHi2pGqMNGHESG9Z9T0h6ocA==
+Date: Mon, 10 Feb 2020 15:50:27 +0000
+Message-ID: <2666242.fqR9HCI5eq@localhost.localdomain>
+References: <20200113055907.9029-2-js07.lee@samsung.com>
+ <4425106.vomQgZVa01@localhost.localdomain>
+ <3eb14c9f46fde4d232ed5d1c6295ca91@walle.cc>
+In-Reply-To: <3eb14c9f46fde4d232ed5d1c6295ca91@walle.cc>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [94.177.32.156]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 6be3d176-95d3-4951-0186-08d7ae40f354
+x-ms-traffictypediagnostic: MN2PR11MB3936:
+x-microsoft-antispam-prvs: <MN2PR11MB3936DCEA7C9CF3415AC38FE8F0190@MN2PR11MB3936.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 03094A4065
+x-forefront-antispam-report: SFV:NSPM;
+ SFS:(10009020)(376002)(39860400002)(136003)(346002)(366004)(396003)(189003)(199004)(4326008)(8936002)(53546011)(6506007)(26005)(86362001)(966005)(71200400001)(186003)(8676002)(2906002)(81166006)(81156014)(66446008)(9686003)(6512007)(5660300002)(66946007)(76116006)(91956017)(316002)(6916009)(6486002)(64756008)(66556008)(66476007)(54906003)(478600001)(39026012);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR11MB3936;
+ H:MN2PR11MB4448.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
+ PTR:InfoNoRecords; MX:1; A:1; 
+received-spf: None (protection.outlook.com: microchip.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: f4pXC+7wFqaSK+dYUsSOGXyquvoHvJKIC3tyUKKtnzaHyDvogTxNbE7HX7XpLJorRo/gC+gBCWmCWQoY7Sw5x7rSKCaw4+zmmgkA/AKIPcogcEftu9PxNoJfq4jEW9P+G3cD+zIwvGWBt3kbmU9K0j4lNeUyyU4u8aIccL50Bvkgr9da3/cnzQgjkaxzn7q5dFYCLGpFWZxL8uF044HsdpJ/k9jB1gbFAsJmZ32C3ShaeBWnY4MB1i3I7vd6WPIMP4/foRnqO1Ee0QWLZs8r8NKzJ0z3P4tB2ZmqLgSjCb3tJOHWphITr8JUYdq+ZHcqWMl8MtJA2Y/ECi+Oj7wA3NPmnlPgB1IpsAG0vB7mXbE7VZNfeQEVQDEXAqhRXuMeaR7srCZeKf38qAzEo4KxIQz1fRwP5Wc+SNHAWU4nFgBbOJorIWfmeb/En5wtHraA2z6w4FS1kjtFwwWjVvUVdHEtKSSHByZu12qIa61LAjcFgrCs+cVoo64TBtdotn/2XP3Xnx1N8yy6DlD7WcRek4fT/WkbMXmtcintlapFz6cQWKZi7YCg3BISLbUtbyT+
+x-ms-exchange-antispam-messagedata: IMm4UD0293gvcj3fcu/SypnOFJqAKoUWqElR8kTjUMf7tPvkORRuNeau3P4bP/Q1qdM1exowMTyUpQ41sslLINgmTAnnIbRa0i+WLFE9T7uN7nx0DkQ/E7LhF7DKJjSuH2ouOueqT+ML84EPvurMxA==
+x-ms-exchange-transport-forked: True
+Content-ID: <0E28BCDB830DB04EB5768258105DC976@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.90.53.225]
-X-CFilter-Loop: Reflected
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6be3d176-95d3-4951-0186-08d7ae40f354
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Feb 2020 15:50:27.8174 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: aZRp+HGb+9JRZcoHp7AwPB2TL9m5I4U7heXFM7R0C6kxSxC12RWOsq2c7kKmc5sVQ0pNjp2qaC2fRe5dQPPEQioi16AG19jdJQm14OLNynE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB3936
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200210_051951_108803_F839FB4D 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200210_075037_505353_D07E8669 
+X-CRM114-Status: GOOD (  15.42  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ medium trust [68.232.154.123 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,37 +156,73 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: houtao1@huawei.com, vigneshr@ti.com, miquel.raynal@bootlin.com
+Cc: js07.lee@gmail.com, linux-mtd@lists.infradead.org, vigneshr@ti.com,
+ js07.lee@samsung.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Don't produce the initial anchor PEB when ubi device is read-only
-or fastmap is disabled, else the resulting PEB will be unusable
-to any volume.
+On Monday, February 10, 2020 2:14:48 PM EET Michael Walle wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> content is safe
+> Am 2020-02-10 12:27, schrieb Tudor.Ambarus@microchip.com:
+> > On Monday, February 10, 2020 12:40:59 PM EET Michael Walle wrote:
+> >> EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> >> the
+> >> content is safe
+> >> 
+> >> Am 2020-02-10 10:59, schrieb Tudor.Ambarus@microchip.com:
+> >> > On Monday, February 10, 2020 11:47:23 AM EET Tudor Ambarus wrote:
+> >> >> > btw. we should catch the two special cases:
+> >> >> > - lock none -> 0 (that was already the case)
+> >> >> > - lock all -> all BP bits
+> >> >> > 
+> >> >> > The latter is important if "bp_slots_needed < bp_slots_available"
+> >> >> > because there
+> >> >> > are multiple settings for protect all. Most flashes will define any
+> >> >> > remaining
+> >> >> > setting for "protect all", but I've also seen flashes where the
+> >> >> > in-between ones
+> >> >> > were undefined (not mentioned) and only the "all bit set" was
+> >> >> > protect
+> >> >> > all.
+> >> > 
+> >> > I re-read this. Do you have such an example of flash? Aren't the BP
+> >> > bits in
+> >> > this case marked with "X", i.e. don't care? If not, probably we can
+> >> > mask out
+> >> > those undefined slots.
+> >> 
+> >> There was definetly some datasheet where the remaining ones wasn't
+> >> described
+> >> _and_ there was no X (don't care) bits. Unfortunately, I don't find it
+> >> right
+> >> now. That datasheed made me wonder what the other "undefinded" cases
+> >> would be.
+> >> Probably it will also be "protect all"; I just mentioned it because it
+> >> would
+> >> be an easy special case to handle. I don't think we should mask out
+> >> anything,
+> >> either use the slot in between (ie the one which the formula gives us)
+> >> to
+> >> protect all or use the largest setting (ie [TB3 |] TB2 | TB1 | TB0).
+> >> And
+> >> given the reasons above, I'd prefer the latter.
+> > 
+> > I'm fine with using the largest setting, but we'll need the proof
+> > before going
+> > this way.
+> 
+> have a look at 7.1.11:
+>    https://www.winbond.com/resource-files/w25q80dv_revg_07212015.pdf
+> 
+> BP[2:0]=0b101 and 0b110 is not defined.
+> 
 
-Signed-off-by: Hou Tao <houtao1@huawei.com>
----
- drivers/mtd/ubi/wl.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Good enough for me. Thanks, Michael!
 
-diff --git a/drivers/mtd/ubi/wl.c b/drivers/mtd/ubi/wl.c
-index af2fe77eb66f..87ff4e51cb8c 100644
---- a/drivers/mtd/ubi/wl.c
-+++ b/drivers/mtd/ubi/wl.c
-@@ -1879,7 +1879,8 @@ int ubi_wl_init(struct ubi_device *ubi, struct ubi_attach_info *ai)
- 		goto out_free;
- 
- #ifdef CONFIG_MTD_UBI_FASTMAP
--	ubi_ensure_anchor_pebs(ubi);
-+	if (!ubi->ro_mode && !ubi->fm_disabled)
-+		ubi_ensure_anchor_pebs(ubi);
- #endif
- 	return 0;
- 
--- 
-2.22.0
+
 
 
 ______________________________________________________
