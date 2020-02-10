@@ -2,71 +2,77 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 801A7157028
-	for <lists+linux-mtd@lfdr.de>; Mon, 10 Feb 2020 08:58:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CCE3D1570F1
+	for <lists+linux-mtd@lfdr.de>; Mon, 10 Feb 2020 09:41:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FJ4mn19xwDwZSMn2LZMjiMkLc55RJLrUo/m2Jmb4fkk=; b=GeF9Y79Agqnl+c
-	fQIuBhi+c1c2e0QJjrjN8aisjgb3qodxR/DANcE0LC3H2uMaWTGgTBFgjq06K5XEgcTbYS8moUdpA
-	Kohvpm5mUV/KS/mPZqwj8IqweWe7MAzLAt1HSMPcFP0I3g10i6dzUlGsdxzlNMBPDY1stq1Y3+l5N
-	66W4FZYiDgaxn2MaibWhaK0wsLmVr1cpDjgq7p8ndDFpGUKOKb5+gaPEBwIRIsVazowrmZymRhp+u
-	oxbwbz2VslZAMpA6V2udaV8At1BS5mphq1HzIwKm37JYTWFxQqTCw4Mfr6dZMPfmt2Cs+VuQWGlTW
-	N3iCfG9E1dBYPlNKh38A==;
+	List-Owner; bh=eqSulYpI8RYghXhBo9diG/VZ/CmWCpNNL4YvASI7Cb0=; b=fQS4ZpA6AcAL7/
+	zmZfO/IcYSAQbRr4bpmiJskDJ4GKzVqr1DhdDMTpkRavydzvJ3msPfHM+QAH5I07Vhbbi8CRiB4sz
+	ijw+ZMdSTRhWupWHexa9RzShlmWKHz+iVdtoKppsBgqHD6dQ5Dt3YDPDHWsYeLZJ9oaz4daIWZZi5
+	jiZjtli1Irzmvd1SrV3guL15mM4ddsbS4mb7DuFNb66/P3sxPMxW1sttnqixzexKXGnbTzO28sisZ
+	QwMGv8x/zQAkFk+PH+IQqLVyxJ6U2DL7zl0Z9NvwJ7Buh4SHLHJpWQS00oE7PxsDh+H0h0CdmC6s4
+	IoSL+OGQpqmsW1GG1tSQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j13x2-0003XO-Di; Mon, 10 Feb 2020 07:57:52 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1j14dH-0003cY-Uc; Mon, 10 Feb 2020 08:41:31 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j13wr-0003Wo-OJ
- for linux-mtd@lists.infradead.org; Mon, 10 Feb 2020 07:57:43 +0000
-Received: from ptx.hi.pengutronix.de ([2001:67c:670:100:1d::c0])
- by metis.ext.pengutronix.de with esmtps
- (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <sha@pengutronix.de>)
- id 1j13wn-0003G0-LJ; Mon, 10 Feb 2020 08:57:37 +0100
-Received: from sha by ptx.hi.pengutronix.de with local (Exim 4.89)
- (envelope-from <sha@pengutronix.de>)
- id 1j13wm-0001Es-NS; Mon, 10 Feb 2020 08:57:36 +0100
-Date: Mon, 10 Feb 2020 08:57:36 +0100
-From: Sascha Hauer <s.hauer@pengutronix.de>
-To: Kevin Raymond <kr@shaiton.org>
-Subject: Re: [PATCH 0/2] mtd-utils: mkfs.ubifs: Add signing support for UBIFS
- images
-Message-ID: <20200210075736.qbf4mo7ut5jrjo7n@pengutronix.de>
-References: <20190806104928.1224-1-s.hauer@pengutronix.de>
- <CAPwc7DMK7RKDUW4Kx4eKVXVJ7y9pmYwCBA+OevN_RdrJvhXb3g@mail.gmail.com>
- <20200207155128.ouow363tvbg2whqk@pengutronix.de>
- <CAPwc7DOa-HzeEv7RsA6OrAwFjUnEOPQvP4bwn2B2vkC_95=n_g@mail.gmail.com>
+ id 1j14cq-0003Sp-OI; Mon, 10 Feb 2020 08:41:06 +0000
+X-UUID: 78f00cbbde854adc8629ad60cc099217-20200210
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com;
+ s=dk; 
+ h=Content-Transfer-Encoding:MIME-Version:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID;
+ bh=Jme6XnUcV22sv+Lb0GfidwDPAVP5wJkTpFliBwJ3cpI=; 
+ b=MlgjgnoIA4AD4sGad07cNjNs9aeX4kPOkUBvg6aJe/XqqKbp6z7t+WdI8EyBQG7wwk4xzFLVfTa+JAxwf9PZ2n7AHIwcbS7t1WZ32/TY3Vt36qp+4oPBYAJm/RO/vCS/hK5rMBvIQNeNet3kupcf44gHZJvloGaQBGVgtKNZf/Y=;
+X-UUID: 78f00cbbde854adc8629ad60cc099217-20200210
+Received: from mtkcas66.mediatek.inc [(172.29.193.44)] by mailgw01.mediatek.com
+ (envelope-from <yingjoe.chen@mediatek.com>)
+ (musrelay.mediatek.com ESMTP with TLS)
+ with ESMTP id 1163598211; Mon, 10 Feb 2020 00:40:59 -0800
+Received: from mtkcas08.mediatek.inc (172.21.101.126) by
+ MTKMBS62DR.mediatek.inc (172.29.94.18) with Microsoft SMTP Server (TLS) id
+ 15.0.1395.4; Mon, 10 Feb 2020 00:30:55 -0800
+Received: from mtkcas08.mediatek.inc (172.21.101.126) by mtkcas08.mediatek.inc
+ (172.21.101.126) with Microsoft SMTP Server (TLS) id 15.0.1395.4;
+ Mon, 10 Feb 2020 16:31:12 +0800
+Received: from [172.21.77.4] (172.21.77.4) by mtkcas08.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.0.1395.4 via Frontend
+ Transport; Mon, 10 Feb 2020 16:31:12 +0800
+Message-ID: <1581323455.2213.6.camel@mtksdaap41>
+Subject: Re: [PATCH v2] mtd: mtk-quadspi: add support for DMA reading
+From: Yingjoe Chen <yingjoe.chen@mediatek.com>
+To: Chuanhong Guo <gch981213@gmail.com>
+Date: Mon, 10 Feb 2020 16:30:55 +0800
+In-Reply-To: <20200208084022.193231-1-gch981213@gmail.com>
+References: <20200208084022.193231-1-gch981213@gmail.com>
+X-Mailer: Evolution 3.10.4-0ubuntu2 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAPwc7DOa-HzeEv7RsA6OrAwFjUnEOPQvP4bwn2B2vkC_95=n_g@mail.gmail.com>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-IRC: #ptxdist @freenode
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-Uptime: 08:09:10 up 217 days, 13:19, 69 users,  load average: 0.08, 0.23,
- 0.23
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-SA-Exim-Connect-IP: 2001:67c:670:100:1d::c0
-X-SA-Exim-Mail-From: sha@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de);
- SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-mtd@lists.infradead.org
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200209_235741_791396_EDABE9C6 
-X-CRM114-Status: GOOD (  31.90  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200210_004104_796155_322B26E2 
+X-CRM114-Status: GOOD (  10.78  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [216.200.240.184 listed in list.dnswl.org]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,107 +84,43 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
- david.oberhollenzer@sigma-star.at
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, Feb 07, 2020 at 06:20:57PM +0100, Kevin Raymond wrote:
-> On Fri, Feb 7, 2020 at 4:51 PM Sascha Hauer <s.hauer@pengutronix.de> wrote:
-> >
-> > Hi Kevin,
-> >
-> > On Fri, Feb 07, 2020 at 04:25:58PM +0100, Kevin Raymond wrote:
-> > > Hi there,
-> > >
-> > > I am testing ubifs authentication for my new board, however I can't
-> > > git it to work.
-> > > I am not able to have keyctl add my key to the kernel keyring.
-> > >
-> > > This is by far the most easier documentation I found about ubifs authentication.
-> > >
-> > > I've got my kernel generating the asymmetric key, I can do the offline
-> > > signing with mkfs.ubifs but am not able to mount the ubifs partition.
-> > > I always get the following error:
-> > >     mount: mounting /dev/ubi0_8 on /mnt failed: Required key not available
-> > >
-> > > I am really not sure about the "keyctl add" part.
-> > > From the Sascha example, should we change 'mysecret' by
-> > > 'signing_key.pem' ? Should we change its format?
-> >
-> > There are two different keys involved. One is an asymmetric
-> > private/public key pair needed for authenticating offline signed images.
-> > That's the one you compile the Kernel with and which you provide to
-> > mkfs.ubifs. This key is only used during first mount.
-> >
-> > The other one is a symmetric key which is used during runtime and that's
-> > the one you add with:
-> >
-> > cat mysecret | keyctl padd logon ubifs:root @s
-> >
-> > Note that "cat mysecret" is only an example. It obviously doesn't help
-> > authenticating having a key stored world readable on the device. The
-> > i.MX6 offers ways to generate secrets with the CAAM unit. However,
-> > for testing purposes some "echo foobarbaz | keyctl padd logon ubifs:root
-> > @s" does it.
+On Sat, 2020-02-08 at 16:40 +0800, Chuanhong Guo wrote:
+> PIO reading mode on this controller is pretty inefficient
+> (one cmd+addr+dummy sequence reads only one byte)
+> This patch adds support for reading using DMA mode which increases
+> reading speed from 1MB/s to 4MB/s
 > 
-> Alright I get it, the offline signing key is not the same as the one used at
-> runtime (which is definitly a good thing).
-> 
-> >
-> > You are trying offline signed images, but maybe you should start without
-> > an image and do runtime authentication only. For this create an empty
-> > UBI volume and just mount it like this (after doing the keyctl padd as
-> > above):
-> >
-> > mount -t ubifs /dev/ubi0_0 /mnt/ -o auth_hash_name=sha256,auth_key=ubifs:root
-> >
-> > I am not sure if the kernel can read the key if you put it into the
-> > session keyring. Systemd for example influences this and I don't know
-> > exactly how. You might have to replace "@s" with "@u".
-> 
-> Ok, using user session keyring is better in my example I can successfully define
-> a new symmetric key in order to mount a newly created partition.
-> I am not using systemd here, a simple busybox and sysV init.
-> 
-> However if I get the whole idea, If I use ubiupdatevol to update my partition,
-> I need the public key used while signing the ubifs at the first mount time
-> and then an other symmetric one ("mysecret" identified as 'ubifs:root' in this
-> exemple) in order to keep signing the partition.
+> DMA busy checking is implemented with readl_poll_timeout because
+> I don't have access to IRQ-related docs. The speed increment comes
+> from those saved cmd+addr+dummy clocks.
 
-Yes. You could do without the symmetric key in a readonly environment.
+Hi Chuanhong,
 
-> 
-> This public key is already present (available to the mount command?) but
-> I don't have a way to tell which one to use.
+Thanks for your patch, I'm checking with Guochun to see if we could
+release IRQ related information to you.
 
-You don't have to, the Kernel will pick the right one automatically.
 
-> 
-> mount -t ubifs /dev/ubi0_8 -o auth_key=ubifs:root,auth_hash_name=sha256 /mnt/
-> mount: mounting /dev/ubi0_8 on /mnt/ failed: Invalid argument
-> 
-> auth_key is the new symmetric key
-> my public key used when creating the offline signature is in /proc/keys
-> 
-> 3b1ecf1d I------     1 perm 1f030000     0     0 asymmetri Build time
-> autogenerated kernel key: a21494c43b8859eceedf1c3d6727fd26f51b1bea:
-> X509.rsa f51b1bea []
-> 
-> I am not sure what I am missing about the first mount of a signed ubifs.
+> This controller requires that DMA source/destination address and
+> reading length should be 16-byte aligned. We use a bounce buffer if
+> one of them is not aligned, read more than what we need, and copy
+> data from corresponding buffer offset.
 
-Me neither currently. I could play it through with a current
-Linux/mtd-utils tomorrow to see if there's anything not working.
+I've checked with our HW guys. The limitation is on DRAM only.
+So for read we should check buffer and length to make sure it is
+aligned, but don't need to check from.
 
-Sascha
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Joe.C
 
 ______________________________________________________
 Linux MTD discussion mailing list
