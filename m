@@ -2,75 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B8A0158C53
-	for <lists+linux-mtd@lfdr.de>; Tue, 11 Feb 2020 11:04:31 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 63A8B159002
+	for <lists+linux-mtd@lfdr.de>; Tue, 11 Feb 2020 14:34:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cmFr+Dy02vfcs8gYRLvu4hBthK6DF4rZ0ovg69E2520=; b=thPPG1yYxdGX2t
-	54a/XNKkhIJQvxCE7sTV9oo6R5G3YJiSv/Qt+r719hXgReZXf6+Lhw4WZKCKBdbk/Ky4ZR4yBH+ke
-	5znD9YQnH1f4S9mwDLzYvv7N6puYKcq3vy0Kj06xhG7mBNdwV4nfNN3E0ysw+LSSVZdWnsIWkYRfE
-	vjdTgcK1xaRYaXTQVW54f8bw7Km+12vn7hBqdcVU5FT7+jxJrokBmlTvhA94foIw7hJ+DDiVSMDR0
-	fGOVNyZq77YMt/KRjbQ7ad6PgwR1PJiGyamTOL11oLAnuK1GYKQt4fu9LeBrKR6E264GvQ7eV5wvq
-	C6UmeNapxdw3aPMczEGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=crd4oL+bIn+n35RSf02it86XszmAhHUX4xxeyHzqORk=; b=UjKrW9e2gc4ytx
+	n9PkzGX8iREslVKInMl1mA0ueXpgHpQeOgyRmePIgcESXk1fGNxtW4hmq48e2VhSKZO15lRc0BCzb
+	heF6Dqu67WAqeoTnfh9ZvNGSSjr/yNqXOEwAFbV531DZKh2t7oLOOTgrgKckVPBsEpAuUFXWYcjFv
+	O1uZ3S0pXFXnFgD+BWkLdvFsvWwjATJ6YspPQDY7qdo6K/3P+/DIrjmhrncmCzbwAm845dzMyRo0n
+	hHU34nVivHSboSOhW/cQQYqM/T+2n0ac79HIsLQHANYSBGtGzYX1L6jkvyu6t03uudiSm69wRW0rZ
+	X4LiF0nGYRQqyNbKO1Xg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1SP5-00067p-Aa; Tue, 11 Feb 2020 10:04:27 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1j1VgR-0003yi-6b; Tue, 11 Feb 2020 13:34:35 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1SOu-00067H-8J
- for linux-mtd@lists.infradead.org; Tue, 11 Feb 2020 10:04:18 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 48Gyzd2RCzz1rHDD;
- Tue, 11 Feb 2020 11:04:13 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 48Gyzd17J3z1qrYk;
- Tue, 11 Feb 2020 11:04:13 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id FjGa24uUwwnY; Tue, 11 Feb 2020 11:04:11 +0100 (CET)
-X-Auth-Info: ER4FsN9sA1y1ZrKSKhnuyEoBbziRu7X4FJ90Dnnwg5Q=
-Received: from [IPv6:::1] (unknown [195.140.253.167])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Tue, 11 Feb 2020 11:04:11 +0100 (CET)
-Subject: Re: [PATCH] Revert "mtd: rawnand: denali: get
- ->setup_data_interface() working again"
-From: Marek Vasut <marex@denx.de>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20200205070834.3087104-1-marex@denx.de>
- <20200205101223.21d99d93@xps13>
- <45a10680-5fe6-7cab-a7ef-f7f7a952e822@denx.de>
- <20200205105045.6877aca6@xps13>
- <bdb54ba5-648a-0b79-661c-5eb9604a1ee5@denx.de>
-Message-ID: <b6f094b7-01a9-34a2-bf10-019a05bc7cb3@denx.de>
-Date: Tue, 11 Feb 2020 11:04:10 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.2
+ id 1j1Vfu-0003mG-TP
+ for linux-mtd@lists.infradead.org; Tue, 11 Feb 2020 13:34:04 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+ by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 01BDXqb1085585;
+ Tue, 11 Feb 2020 07:33:52 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1581428032;
+ bh=qagrc5drcyyqyRVbRzDGijYxvDYbBFyarf0AzXcJ+2A=;
+ h=From:To:CC:Subject:Date;
+ b=sQVOwcs670HcbphfeOVngpvABQLOHFn45ldwnmTBI7mMZlRsWbsbPitDsWYci/HBJ
+ 51G45bcxVMxQx0Q+7vngaIwLGNaebtQat0mfr3M8FEo38aArINvdK7JGt/GuU4MPD1
+ 4eTUhGD+vaha5zSSnCD8JPCxiEYYZFiyi1SoCDnU=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+ by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 01BDXqtS069874
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 11 Feb 2020 07:33:52 -0600
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1847.3; Tue, 11
+ Feb 2020 07:33:52 -0600
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1847.3 via
+ Frontend Transport; Tue, 11 Feb 2020 07:33:52 -0600
+Received: from pratyush-OptiPlex-790.dhcp.ti.com (ileax41-snat.itg.ti.com
+ [10.172.224.153])
+ by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 01BDXm5H087522;
+ Tue, 11 Feb 2020 07:33:49 -0600
+From: Pratyush Yadav <p.yadav@ti.com>
+To: Tudor Ambarus <tudor.ambarus@microchip.com>, Miquel Raynal
+ <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/9] mtd: spi-nor: add xSPI Octal DTR support
+Date: Tue, 11 Feb 2020 19:03:39 +0530
+Message-ID: <20200211133348.15558-1-p.yadav@ti.com>
+X-Mailer: git-send-email 2.25.0
 MIME-Version: 1.0
-In-Reply-To: <bdb54ba5-648a-0b79-661c-5eb9604a1ee5@denx.de>
-Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200211_020416_603150_338FEE17 
-X-CRM114-Status: GOOD (  18.44  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200211_053403_033984_9368E4F1 
+X-CRM114-Status: GOOD (  10.64  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.18.0.9 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [212.18.0.9 listed in wl.mailspike.net]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.23.248 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -82,79 +90,51 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Dinh Nguyen <dinguyen@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
- Tim Sander <tim@krieglstein.org>
+Cc: Sekhar Nori <nsekhar@ti.com>, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Pratyush Yadav <p.yadav@ti.com>,
+ linux-spi@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 2/5/20 11:08 AM, Marek Vasut wrote:
-> On 2/5/20 10:50 AM, Miquel Raynal wrote:
->> Hi Marek,
->>
->> Marek Vasut <marex@denx.de> wrote on Wed, 5 Feb 2020 10:41:05 +0100:
->>
->>> On 2/5/20 10:12 AM, Miquel Raynal wrote:
->>>> Hi Marek,
->>>>
->>>> Marek Vasut <marex@denx.de> wrote on Wed,  5 Feb 2020 08:08:34 +0100:
->>>>   
->>>>> This reverts commit d311e0c27b8fcc27f707f8cac48cd8bdc4155224, which
->>>>> completely breaks NAND access on Altera SoCFPGA (detected on ArriaV
->>>>> SoC).
->>>>>
->>>>> On SoCFPGA, denali->clk_rate = 31.25 MHz and denali->clk_x_rate = 125 MHz,
->>>>> hence the driver sets NAND_KEEP_TIMINGS flag. This did not happen before
->>>>> and is actually incorrect, as on SoCFPGA we do not want to retain timings
->>>>> from previous stage (the timings might be incorrect or outright invalid).
->>>>>
->>>>> Cc: Boris Brezillon <boris.brezillon@collabora.com>
->>>>> Cc: Dinh Nguyen <dinguyen@kernel.org>
->>>>> Cc: Masahiro Yamada <masahiroy@kernel.org>
->>>>> Cc: Miquel Raynal <miquel.raynal@bootlin.com>
->>>>> Cc: Tim Sander <tim@krieglstein.org>
->>>>> To: linux-mtd <linux-mtd@lists.infradead.org>
->>>>> ---
->>>>>  drivers/mtd/nand/raw/denali.c | 2 +-
->>>>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
->>>>> index b6c463d02167..5fe3c62a756e 100644
->>>>> --- a/drivers/mtd/nand/raw/denali.c
->>>>> +++ b/drivers/mtd/nand/raw/denali.c
->>>>> @@ -1209,7 +1209,7 @@ int denali_chip_init(struct denali_controller *denali,
->>>>>  	}
->>>>>  
->>>>>  	/* clk rate info is needed for setup_data_interface */
->>>>> -	if (!denali->clk_rate || !denali->clk_x_rate)  
->>>>
->>>> I don't get it, if both clk_rate and clk_x_rate are set, the if
->>>> condition will not be entered, right?  
->>>
->>> Err, then it's the other way around and I need to keep the timings on
->>> socfpga ?
->>
->> Ok.
->>
->> Do you have a different compatible? Or a register to check? How do you
->> discriminate the different platforms by software? The quick and dirty
->> solution is to add a special case for your platform and specifically
->> use the NAND_KEEP_TIMINGS horror.
-> 
-> Sure, there's a socfpga compatible and at least two for uniphier.
-> 
->> But I think using ->software_data_interface is the right solution. So
->> I would highly recommend fixing the implementation of this hook
->> for your platform and in this case the commit reverted is not the
->> culprit, the one introducing setup_data_interface is (for the Fixes:
->> tag).
-> 
-> I'll leave the details to Yamada-san.
+Hi,
 
-Just got a confirmation that this fixes NAND behavior on SoCFPGA, so
-this patch should go in in some form.
+This series adds support for octal DTR flashes in the spi-nor framework,
+and then adds hooks for the Cypress Semper flash which is an xSPI
+compliant Octal DTR flash.
+
+The Cadence QSPI controller driver is also updated to run in Octal DTR
+mode.
+
+Tested on TI J721e EVM with 1-bit ECC on the Cypress flash.
+
+This series depends on [0].
+
+[0] https://patchwork.kernel.org/patch/11355593/
+
+Pratyush Yadav (9):
+  spi: spi-mem: allow specifying whether an op is DTR or not
+  spi: spi-mem: allow specifying a command's extension
+  spi: cadence-quadspi: Add support for octal DTR flashes
+  mtd: spi-nor: add support for DTR protocol
+  mtd: spi-nor: get command opcode extension type from BFPT
+  mtd: spi-nor: parse xSPI Profile 1.0 table
+  mtd: spi-nor: use dummy cycle and address width info from SFDP
+  mtd: spi-nor: enable octal DTR mode when possible
+  mtd: spi-nor: add support for Cypress Semper flash
+
+ drivers/mtd/spi-nor/spi-nor.c     | 595 +++++++++++++++++++++++++++---
+ drivers/spi/spi-cadence-quadspi.c | 262 +++++++++++--
+ drivers/spi/spi-mem.c             |  48 +++
+ include/linux/mtd/spi-nor.h       |  55 ++-
+ include/linux/spi/spi-mem.h       |  32 ++
+ include/linux/spi/spi.h           |   2 +
+ 6 files changed, 890 insertions(+), 104 deletions(-)
+
+--
+2.25.0
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
