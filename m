@@ -2,84 +2,37 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0E151616BB
-	for <lists+linux-mtd@lfdr.de>; Mon, 17 Feb 2020 16:54:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 59611161748
+	for <lists+linux-mtd@lfdr.de>; Mon, 17 Feb 2020 17:13:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aauJAVShKL0Ph0oclOTP8ZUCBjNck8g+ZS6wDxP5wJ0=; b=exEcAdtW6hqsLF
-	wPMNofAcz1wWLYWAgmsHgm6j90TchxUOpNuMI+Grs2+5p8C8ysauoXwwyb+FRKw79Ufc9QPh8iQZM
-	6V5mqcQt4qnOhqqZ7nV7yZSHb+0saU7813Q0o3zdxiRLtTVgMGOeGW1zr5mUpBIWNzaRv6Advjp7v
-	uneEgoqpvfuDSDOkRbV5dh6Ei0dbqDVpZdrdkQGpqzzEv+fV/GHHhEnLUYCO/hkPL3QnSlShMGqlD
-	oUXivceQKW/1XieKL0C1agVryB1bxB6hvAEFyuqfJQzeNERmR7eYH3EZwj1ctMT4VLt5X6qybPDo6
-	zdTL74FpCYyE8aFT6NYA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H95DvEZj2JwS3zF0yBt+U0rKTnNy72b22uvUUYEgLkU=; b=Wt2+q6ybkvwNkR
+	eUwUTkoRblliLFR6AlJTT05mNQ1E5B+CjMnlBnPRMLpX2idjbXxa81ITqSl2U40iEtDbIBjmDqwD9
+	mi2/Ooj6e/b8nOQ/7L0PdmUxfn20u9k40uzMlulhCU7PNMRKpfzekCjamLfdjoFsmmL5CXZXr0IZI
+	Uusjeea+3ND3gn8CYSLmX5tWnc6v2w85kafmq4FmwSBzrQ41Es0lY8DuJiVROCflbyvrPsbseCjit
+	GlmTPrXTqCbYnKHjF+myHF5mL7rBa60yh3cGLGXmPbgd8IWE2FVQVNzo9qNXMG3huaabsHDE8blfI
+	lyfxYyuLXneslSkOSzPw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3ijJ-0007VS-8K; Mon, 17 Feb 2020 15:54:41 +0000
-Received: from skedge03.snt-world.com ([91.208.41.68])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3iis-0007GO-RO
- for linux-mtd@lists.infradead.org; Mon, 17 Feb 2020 15:54:16 +0000
-Received: from sntmail11s.snt-is.com (unknown [10.203.32.181])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by skedge03.snt-world.com (Postfix) with ESMTPS id EABA767AB40;
- Mon, 17 Feb 2020 16:54:12 +0100 (CET)
-Received: from sntmail12r.snt-is.com (10.203.32.182) by sntmail11s.snt-is.com
- (10.203.32.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Mon, 17 Feb
- 2020 16:54:12 +0100
-Received: from sntmail12r.snt-is.com ([fe80::e551:8750:7bba:3305]) by
- sntmail12r.snt-is.com ([fe80::e551:8750:7bba:3305%3]) with mapi id
- 15.01.1913.005; Mon, 17 Feb 2020 16:54:12 +0100
-From: Schrempf Frieder <frieder.schrempf@kontron.de>
-To: Boris Brezillon <bbrezillon@kernel.org>, Schrempf Frieder
- <frieder.schrempf@kontron.de>, Jeff Kletsky <git-commits@allycomm.com>,
- liaoweixiong <liaoweixiong@allwinnertech.com>, Miquel Raynal
- <miquel.raynal@bootlin.com>
-Subject: [PATCH v2 3/3] mtd: spinand: Don not erase the block before writing a
- bad block marker
-Thread-Topic: [PATCH v2 3/3] mtd: spinand: Don not erase the block before
- writing a bad block marker
-Thread-Index: AQHV5ap/saRAn1//VEmaJshNaD42IA==
-Date: Mon, 17 Feb 2020 15:54:12 +0000
-Message-ID: <20200217155213.5594-4-frieder.schrempf@kontron.de>
-References: <20200217155213.5594-1-frieder.schrempf@kontron.de>
-In-Reply-To: <20200217155213.5594-1-frieder.schrempf@kontron.de>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.17.1
-x-originating-ip: [172.25.9.193]
-x-c2processedorg: 51b406b7-48a2-4d03-b652-521f56ac89f3
+	id 1j3j1O-0007h4-6E; Mon, 17 Feb 2020 16:13:22 +0000
+Received: from ip-109-41-129-189.web.vodafone.de ([109.41.129.189]
+ helo=bombadil.infradead.org)
+ by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j3j0c-0006ud-6y; Mon, 17 Feb 2020 16:12:34 +0000
+Received: from mchehab by bombadil.infradead.org with local (Exim 4.92.3)
+ (envelope-from <mchehab@bombadil.infradead.org>)
+ id 1j3j0Z-000fYx-H7; Mon, 17 Feb 2020 17:12:31 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Linux Doc Mailing List <linux-doc@vger.kernel.org>
+Subject: [PATCH 00/44] Manually convert filesystem FS documents to ReST
+Date: Mon, 17 Feb 2020 17:11:46 +0100
+Message-Id: <cover.1581955849.git.mchehab+huawei@kernel.org>
+X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
-X-SnT-MailScanner-Information: Please contact the ISP for more information
-X-SnT-MailScanner-ID: EABA767AB40.A1FAB
-X-SnT-MailScanner: Not scanned: please contact your Internet E-Mail Service
- Provider for details
-X-SnT-MailScanner-SpamCheck: 
-X-SnT-MailScanner-From: frieder.schrempf@kontron.de
-X-SnT-MailScanner-To: bbrezillon@kernel.org, git-commits@allycomm.com,
- liaoweixiong@allwinnertech.com, linux-kernel@vger.kernel.org,
- linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- richard@nod.at, stable@vger.kernel.org
-X-Spam-Status: No
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_075415_238036_174AFDE6 
-X-CRM114-Status: GOOD (  12.83  )
-X-Spam-Score: -0.7 (/)
-X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [91.208.41.68 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,62 +44,190 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>
+Cc: Latchesar Ionkov <lucho@ionkov.net>,
+ Martin Brandenburg <martin@omnibond.com>, Jan Kara <jack@suse.cz>,
+ Dominique Martinet <asmadeus@codewreck.org>,
+ Amir Goldstein <amir73il@gmail.com>, Bob Copeland <me@bobcopeland.com>,
+ David Howells <dhowells@redhat.com>, Joseph Qi <joseph.qi@linux.alibaba.com>,
+ linux-mtd@lists.infradead.org, Tyler Hicks <code@tyhicks.com>,
+ linux-afs@lists.infradead.org, Mike Marshall <hubcap@omnibond.com>,
+ Naohiro Aota <naohiro.aota@wdc.com>, Christoph Hellwig <hch@infradead.org>,
+ linux-nilfs@vger.kernel.org, Andreas Gruenbacher <agruenba@redhat.com>,
+ Sage Weil <sage@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Richard Weinberger <richard@nod.at>, Mark Fasheh <mark@fasheh.com>,
+ Chris Mason <clm@fb.com>, Ryusuke Konishi <konishi.ryusuke@gmail.com>,
+ cluster-devel@redhat.com, v9fs-developer@lists.sourceforge.net,
+ Gao Xiang <xiang@kernel.org>, linux-ext4@vger.kernel.org,
+ Salah Triki <salah.triki@gmail.com>, Alexey Dobriyan <adobriyan@gmail.com>,
+ devel@lists.orangefs.org, ecryptfs@vger.kernel.org,
+ Eric Van Hensbergen <ericvh@gmail.com>, Chao Yu <chao@kernel.org>,
+ Josef Bacik <josef@toxicpanda.com>, linux-fsdevel@vger.kernel.org,
+ Joel Becker <jlbec@evilplan.org>,
+ "Tigran A. Aivazian" <aivazian.tigran@gmail.com>,
+ David Sterba <dsterba@suse.com>, Jaegeuk Kim <jaegeuk@kernel.org>,
+ ceph-devel@vger.kernel.org, Ilya Dryomov <idryomov@gmail.com>,
+ Anton Altaparmakov <anton@tuxera.com>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Luis de Bethencourt <luisbg@kernel.org>, Nicolas Pitre <nico@fluxnic.net>,
+ linux-ntfs-dev@lists.sourceforge.net, Jeff Layton <jlayton@kernel.org>,
+ linux-f2fs-devel@lists.sourceforge.net, linux-btrfs@vger.kernel.org,
+ Jan Kara <jack@suse.com>, Bob Peterson <rpeterso@redhat.com>,
+ Phillip Lougher <phillip@squashfs.org.uk>, Johannes Thumshirn <jth@kernel.org>,
+ linux-erofs@lists.ozlabs.org, linux-karma-devel@lists.sourceforge.net,
+ ocfs2-devel@oss.oracle.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
+There are lots of plain text documents under Documentation/filesystems.
 
-Currently when marking a block, we use spinand_erase_op() to erase
-the block before writing the marker to the OOB area. Doing so without
-waiting for the operation to finish can lead to the marking failing
-silently and no bad block marker being written to the flash.
+Manually convert several of those to ReST and add them to the index file.
 
-In fact we don't need to do an erase at all before writing the BBM.
-The ECC is disabled for the raw access to the OOB data and we don't
-need to work around any issues with chips reporting ECC errors as it
-is known to be the case for raw NAND.
+Mauro Carvalho Chehab (44):
+  docs: filesystems: convert 9p.txt to ReST
+  docs: filesystems: convert adfs.txt to ReST
+  docs: filesystems: convert affs.txt to ReST
+  docs: filesystems: convert afs.txt to ReST
+  docs: filesystems: convert autofs-mount-control.txt to ReST
+  docs: filesystems: convert befs.txt to ReST
+  docs: filesystems: convert bfs.txt to ReST
+  docs: filesystems: convert btrfs.txt to ReST
+  docs: filesystems: convert ceph.txt to ReST
+  docs: filesystems: convert cramfs.txt to ReST
+  docs: filesystems: convert debugfs.txt to ReST
+  docs: filesystems: convert dlmfs.txt to ReST
+  docs: filesystems: convert ecryptfs.txt to ReST
+  docs: filesystems: convert efivarfs.txt to ReST
+  docs: filesystems: convert erofs.txt to ReST
+  docs: filesystems: convert ext2.txt to ReST
+  docs: filesystems: convert ext3.txt to ReST
+  docs: filesystems: convert f2fs.txt to ReST
+  docs: filesystems: convert gfs2.txt to ReST
+  docs: filesystems: convert gfs2-uevents.txt to ReST
+  docs: filesystems: convert hfsplus.txt to ReST
+  docs: filesystems: convert hfs.txt to ReST
+  docs: filesystems: convert hpfs.txt to ReST
+  docs: filesystems: convert inotify.txt to ReST
+  docs: filesystems: convert isofs.txt to ReST
+  docs: filesystems: convert nilfs2.txt to ReST
+  docs: filesystems: convert ntfs.txt to ReST
+  docs: filesystems: convert ocfs2-online-filecheck.txt to ReST
+  docs: filesystems: convert ocfs2.txt to ReST
+  docs: filesystems: convert omfs.txt to ReST
+  docs: filesystems: convert orangefs.txt to ReST
+  docs: filesystems: convert proc.txt to ReST
+  docs: filesystems: convert qnx6.txt to ReST
+  docs: filesystems: convert ramfs-rootfs-initramfs.txt to ReST
+  docs: filesystems: convert relay.txt to ReST
+  docs: filesystems: convert romfs.txt to ReST
+  docs: filesystems: convert squashfs.txt to ReST
+  docs: filesystems: convert sysfs.txt to ReST
+  docs: filesystems: convert sysv-fs.txt to ReST
+  docs: filesystems: convert tmpfs.txt to ReST
+  docs: filesystems: convert ubifs-authentication.rst.txt to ReST
+  docs: filesystems: convert ubifs.txt to ReST
+  docs: filesystems: convert udf.txt to ReST
+  docs: filesystems: convert zonefs.txt to ReST
 
-Fixes: 7529df465248 ("mtd: nand: Add core infrastructure to support SPI NANDs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
----
-Changes in v2:
- * Instead of waiting for the erase operation to finish, just don't
-   do an erase at all, as it is not needed.
- * Update the commit message
----
- drivers/mtd/nand/spi/core.c | 3 ---
- 1 file changed, 3 deletions(-)
+ Documentation/filesystems/{9p.txt => 9p.rst}  |  114 +-
+ .../filesystems/{adfs.txt => adfs.rst}        |   29 +-
+ .../filesystems/{affs.txt => affs.rst}        |   62 +-
+ .../filesystems/{afs.txt => afs.rst}          |   73 +-
+ ...t-control.txt => autofs-mount-control.rst} |  102 +-
+ .../filesystems/{befs.txt => befs.rst}        |   59 +-
+ .../filesystems/{bfs.txt => bfs.rst}          |   37 +-
+ .../filesystems/{btrfs.txt => btrfs.rst}      |    3 +
+ .../filesystems/{ceph.txt => ceph.rst}        |   26 +-
+ .../filesystems/{cramfs.txt => cramfs.rst}    |   19 +-
+ .../filesystems/{debugfs.txt => debugfs.rst}  |   54 +-
+ .../filesystems/{dlmfs.txt => dlmfs.rst}      |   28 +-
+ .../{ecryptfs.txt => ecryptfs.rst}            |   44 +-
+ .../{efivarfs.txt => efivarfs.rst}            |    5 +-
+ .../filesystems/{erofs.txt => erofs.rst}      |  175 +-
+ .../filesystems/{ext2.txt => ext2.rst}        |   41 +-
+ .../filesystems/{ext3.txt => ext3.rst}        |    2 +
+ .../filesystems/{f2fs.txt => f2fs.rst}        |  252 +--
+ .../{gfs2-uevents.txt => gfs2-uevents.rst}    |   20 +-
+ .../filesystems/{gfs2.txt => gfs2.rst}        |   20 +-
+ .../filesystems/{hfs.txt => hfs.rst}          |   23 +-
+ .../filesystems/{hfsplus.txt => hfsplus.rst}  |    2 +
+ .../filesystems/{hpfs.txt => hpfs.rst}        |  239 ++-
+ Documentation/filesystems/index.rst           |   46 +-
+ .../filesystems/{inotify.txt => inotify.rst}  |   33 +-
+ Documentation/filesystems/isofs.rst           |   64 +
+ Documentation/filesystems/isofs.txt           |   48 -
+ .../filesystems/{nilfs2.txt => nilfs2.rst}    |   40 +-
+ .../filesystems/{ntfs.txt => ntfs.rst}        |  143 +-
+ ...lecheck.txt => ocfs2-online-filecheck.rst} |   45 +-
+ .../filesystems/{ocfs2.txt => ocfs2.rst}      |   31 +-
+ Documentation/filesystems/omfs.rst            |  112 ++
+ Documentation/filesystems/omfs.txt            |  106 --
+ .../{orangefs.txt => orangefs.rst}            |  187 +-
+ .../filesystems/{proc.txt => proc.rst}        | 1498 +++++++++--------
+ .../filesystems/{qnx6.txt => qnx6.rst}        |   22 +
+ ...itramfs.txt => ramfs-rootfs-initramfs.rst} |   54 +-
+ .../filesystems/{relay.txt => relay.rst}      |  129 +-
+ .../filesystems/{romfs.txt => romfs.rst}      |   42 +-
+ .../{squashfs.txt => squashfs.rst}            |   60 +-
+ .../filesystems/{sysfs.txt => sysfs.rst}      |  324 ++--
+ .../filesystems/{sysv-fs.txt => sysv-fs.rst}  |  155 +-
+ .../filesystems/{tmpfs.txt => tmpfs.rst}      |   44 +-
+ .../filesystems/ubifs-authentication.rst      |   10 +-
+ .../filesystems/{ubifs.txt => ubifs.rst}      |   25 +-
+ .../filesystems/{udf.txt => udf.rst}          |   21 +-
+ .../filesystems/{zonefs.txt => zonefs.rst}    |  106 +-
+ 47 files changed, 2739 insertions(+), 2035 deletions(-)
+ rename Documentation/filesystems/{9p.txt => 9p.rst} (63%)
+ rename Documentation/filesystems/{adfs.txt => adfs.rst} (85%)
+ rename Documentation/filesystems/{affs.txt => affs.rst} (86%)
+ rename Documentation/filesystems/{afs.txt => afs.rst} (90%)
+ rename Documentation/filesystems/{autofs-mount-control.txt => autofs-mount-control.rst} (89%)
+ rename Documentation/filesystems/{befs.txt => befs.rst} (83%)
+ rename Documentation/filesystems/{bfs.txt => bfs.rst} (71%)
+ rename Documentation/filesystems/{btrfs.txt => btrfs.rst} (96%)
+ rename Documentation/filesystems/{ceph.txt => ceph.rst} (91%)
+ rename Documentation/filesystems/{cramfs.txt => cramfs.rst} (88%)
+ rename Documentation/filesystems/{debugfs.txt => debugfs.rst} (91%)
+ rename Documentation/filesystems/{dlmfs.txt => dlmfs.rst} (86%)
+ rename Documentation/filesystems/{ecryptfs.txt => ecryptfs.rst} (70%)
+ rename Documentation/filesystems/{efivarfs.txt => efivarfs.rst} (85%)
+ rename Documentation/filesystems/{erofs.txt => erofs.rst} (54%)
+ rename Documentation/filesystems/{ext2.txt => ext2.rst} (91%)
+ rename Documentation/filesystems/{ext3.txt => ext3.rst} (88%)
+ rename Documentation/filesystems/{f2fs.txt => f2fs.rst} (84%)
+ rename Documentation/filesystems/{gfs2-uevents.txt => gfs2-uevents.rst} (94%)
+ rename Documentation/filesystems/{gfs2.txt => gfs2.rst} (76%)
+ rename Documentation/filesystems/{hfs.txt => hfs.rst} (80%)
+ rename Documentation/filesystems/{hfsplus.txt => hfsplus.rst} (95%)
+ rename Documentation/filesystems/{hpfs.txt => hpfs.rst} (66%)
+ rename Documentation/filesystems/{inotify.txt => inotify.rst} (83%)
+ create mode 100644 Documentation/filesystems/isofs.rst
+ delete mode 100644 Documentation/filesystems/isofs.txt
+ rename Documentation/filesystems/{nilfs2.txt => nilfs2.rst} (89%)
+ rename Documentation/filesystems/{ntfs.txt => ntfs.rst} (85%)
+ rename Documentation/filesystems/{ocfs2-online-filecheck.txt => ocfs2-online-filecheck.rst} (77%)
+ rename Documentation/filesystems/{ocfs2.txt => ocfs2.rst} (88%)
+ create mode 100644 Documentation/filesystems/omfs.rst
+ delete mode 100644 Documentation/filesystems/omfs.txt
+ rename Documentation/filesystems/{orangefs.txt => orangefs.rst} (83%)
+ rename Documentation/filesystems/{proc.txt => proc.rst} (65%)
+ rename Documentation/filesystems/{qnx6.txt => qnx6.rst} (98%)
+ rename Documentation/filesystems/{ramfs-rootfs-initramfs.txt => ramfs-rootfs-initramfs.rst} (91%)
+ rename Documentation/filesystems/{relay.txt => relay.rst} (91%)
+ rename Documentation/filesystems/{romfs.txt => romfs.rst} (86%)
+ rename Documentation/filesystems/{squashfs.txt => squashfs.rst} (91%)
+ rename Documentation/filesystems/{sysfs.txt => sysfs.rst} (56%)
+ rename Documentation/filesystems/{sysv-fs.txt => sysv-fs.rst} (73%)
+ rename Documentation/filesystems/{tmpfs.txt => tmpfs.rst} (86%)
+ rename Documentation/filesystems/{ubifs.txt => ubifs.rst} (91%)
+ rename Documentation/filesystems/{udf.txt => udf.rst} (83%)
+ rename Documentation/filesystems/{zonefs.txt => zonefs.rst} (90%)
 
-diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
-index a94287884453..8dda51bbdd11 100644
---- a/drivers/mtd/nand/spi/core.c
-+++ b/drivers/mtd/nand/spi/core.c
-@@ -613,7 +613,6 @@ static int spinand_markbad(struct nand_device *nand, const struct nand_pos *pos)
- 	};
- 	int ret;
- 
--	/* Erase block before marking it bad. */
- 	ret = spinand_select_target(spinand, pos->target);
- 	if (ret)
- 		return ret;
-@@ -622,8 +621,6 @@ static int spinand_markbad(struct nand_device *nand, const struct nand_pos *pos)
- 	if (ret)
- 		return ret;
- 
--	spinand_erase_op(spinand, pos);
--
- 	return spinand_write_page(spinand, &req);
- }
- 
 -- 
-2.17.1
+2.24.1
+
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
