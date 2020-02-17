@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C6A60160B54
-	for <lists+linux-mtd@lfdr.de>; Mon, 17 Feb 2020 07:58:40 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 012ED160B4F
+	for <lists+linux-mtd@lfdr.de>; Mon, 17 Feb 2020 07:58:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,36 +11,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=N7qhHhvmDLx9bHwa/xUp31MXwXA783WA0JZjUdd76GE=; b=fDa/eRVOw0Kdx1MsdTObQb2lOA
-	J8nqYTlpu+bD7bxmlbuoSvFjsPZz0eCG3yclutQxXe4/WeSdQ86qIGYZHQotAL8kej71EfqUVVjE0
-	Rx0RnrF6ngLpyyjRZTn3nON0dYyUgZ9cgnOtyHR9b2yHFh0fGy4PaKfonwk+x999+cnOjuA5diEUy
-	FPHu/Xnp6Xzbd5WD4/4S3zZjnC7HypB5MqCPRur2M5ESqtzUypG4bpj370m1ntLTxmg9/v6BlTp2X
-	1LA2QTwH3KcZgYRiYo+j97AFUjsjoBpGrJJaDZAZ4UB5k+A/S4ovRGcdT0soI3pWluweovFgibAgY
-	TVgVpJDw==;
+	bh=kyhdne6jVn7IsUoAUvviZ6va8Fl8KPbVojPsRTIzmR0=; b=dzo1b6zySn6+KiTakHbvQCkAe7
+	2LyqaeNTyCKfpqtAHtLkAGoM43McaB/wdR0yBmb46qWadV7CXfRvDZy9t1OFQXwALGBPvdIVhDXqX
+	1l1MYAp/EEnopeAYLnSm3X9AhCQPoHzoVVXdAzDXpw5+wcS34PSrUchAqvvJpr9Ip4c1QWM44GjGS
+	sDtiVJfwnxGjs12zAztW2bJWxJqjvDaOFsvEHRUAP7ySAtewqUKA4WMTrrou7lTTUkIvauvUM/vr7
+	MtYDjbZoK1t5d8eM9JgcH3b1sZ+/yiBu4TUFG3WgZSFz0RkiIatrYieytVCpdJljBuDQeGlOY5X5M
+	QNQ7tedQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3aMX-0001zz-3n; Mon, 17 Feb 2020 06:58:37 +0000
+	id 1j3aLq-0001ZM-Hv; Mon, 17 Feb 2020 06:57:54 +0000
 Received: from twhmllg3.macronix.com ([211.75.127.131])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3aLk-0001Y5-4l
- for linux-mtd@lists.infradead.org; Mon, 17 Feb 2020 06:57:50 +0000
+ id 1j3aLk-0001Y6-4i
+ for linux-mtd@lists.infradead.org; Mon, 17 Feb 2020 06:57:49 +0000
 Received: from localhost.localdomain ([172.17.195.96])
- by TWHMLLG3.macronix.com with ESMTP id 01H6ug7Q005796;
- Mon, 17 Feb 2020 14:56:43 +0800 (GMT-8)
+ by TWHMLLG3.macronix.com with ESMTP id 01H6ug7R005796;
+ Mon, 17 Feb 2020 14:56:44 +0800 (GMT-8)
  (envelope-from masonccyang@mxic.com.tw)
 From: Mason Yang <masonccyang@mxic.com.tw>
 To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
  robh+dt@kernel.org, mark.rutland@arm.com
-Subject: [PATCH v5 1/2] mtd: rawnand: Add support for Macronix NAND randomizer
-Date: Mon, 17 Feb 2020 14:56:39 +0800
-Message-Id: <1581922600-25461-2-git-send-email-masonccyang@mxic.com.tw>
+Subject: [PATCH v5 2/2] dt-bindings: mtd: Document Macronix NAND device
+ bindings
+Date: Mon, 17 Feb 2020 14:56:40 +0800
+Message-Id: <1581922600-25461-3-git-send-email-masonccyang@mxic.com.tw>
 X-Mailer: git-send-email 1.9.1
 In-Reply-To: <1581922600-25461-1-git-send-email-masonccyang@mxic.com.tw>
 References: <1581922600-25461-1-git-send-email-masonccyang@mxic.com.tw>
-X-MAIL: TWHMLLG3.macronix.com 01H6ug7Q005796
+X-MAIL: TWHMLLG3.macronix.com 01H6ug7R005796
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200216_225748_450331_FE3257EB 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20200216_225748_445104_E70C3AA6 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -71,135 +73,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Macronix NANDs support randomizer operation for user data scrambled,
-which can be enabled with a SET_FEATURE.
-
-User data written to the NAND device without randomizer is still readable
-after randomizer function enabled.
-The penalty of randomizer are subpage accesses prohibited and more time
-period is needed in program operation and entering deep power-down mode.
-i.e., tPROG 300us to 340us(randomizer enabled)
-
-For more high-reliability concern, if subpage write not available with
-hardware ECC and then to enable randomizer is recommended by default.
-Driver checks byte 167 of Vendor Blocks in ONFI parameter page table
-to see if this high-reliability function is supported. By adding a new
-specific DT property in children nodes to enable randomizer function.
+Document the bindings used by the Macronix NAND device.
 
 Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
 ---
- drivers/mtd/nand/raw/nand_macronix.c | 81 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
+ .../devicetree/bindings/mtd/nand-macronix.txt      | 28 ++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mtd/nand-macronix.txt
 
-diff --git a/drivers/mtd/nand/raw/nand_macronix.c b/drivers/mtd/nand/raw/nand_macronix.c
-index 3ff7ce0..0a2fe25 100644
---- a/drivers/mtd/nand/raw/nand_macronix.c
-+++ b/drivers/mtd/nand/raw/nand_macronix.c
-@@ -11,6 +11,19 @@
- #define MACRONIX_READ_RETRY_BIT BIT(0)
- #define MACRONIX_NUM_READ_RETRY_MODES 6
- 
-+#define ONFI_FEATURE_ADDR_MXIC_RANDOMIZER 0xB0
-+#define MACRONIX_RANDOMIZER_BIT BIT(1)
-+#define MACRONIX_RANDOMIZER_ENPGM BIT(0)
-+#define MACRONIX_RANDOMIZER_RANDEN BIT(1)
-+#define MACRONIX_RANDOMIZER_RANDOPT BIT(2)
-+#define MACRONIX_RANDOMIZER_MODE_ENTER	\
-+	(MACRONIX_RANDOMIZER_ENPGM |	\
-+	 MACRONIX_RANDOMIZER_RANDEN |	\
-+	 MACRONIX_RANDOMIZER_RANDOPT)
-+#define MACRONIX_RANDOMIZER_MODE_EXIT	\
-+	(MACRONIX_RANDOMIZER_RANDEN |	\
-+	 MACRONIX_RANDOMIZER_RANDOPT)
+diff --git a/Documentation/devicetree/bindings/mtd/nand-macronix.txt b/Documentation/devicetree/bindings/mtd/nand-macronix.txt
+new file mode 100644
+index 0000000..1d7a895
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mtd/nand-macronix.txt
+@@ -0,0 +1,28 @@
++Macronix NANDs Device Tree Bindings
++-----------------------------------
 +
- struct nand_onfi_vendor_macronix {
- 	u8 reserved;
- 	u8 reliability_func;
-@@ -29,15 +42,83 @@ static int macronix_nand_setup_read_retry(struct nand_chip *chip, int mode)
- 	return nand_set_features(chip, ONFI_FEATURE_ADDR_READ_RETRY, feature);
- }
- 
-+static int macronix_nand_randomizer_check_enable(struct nand_chip *chip)
-+{
-+	u8 feature[ONFI_SUBFEATURE_PARAM_LEN];
-+	int ret;
++Macronix NANDs support randomizer operation for user data scrambled,
++which can be enabled with a SET_FEATURE. The penalty of randomizer are
++subpage accesses prohibited and more time period is needed in program
++operation, i.e., tPROG 300us to 340us(randomizer enabled).
++Randomizer enabled is a one time persistent and non reversible operatoin.
 +
-+	ret = nand_get_features(chip, ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+				feature);
-+	if (ret < 0)
-+		return ret;
++For more high-reliability concern, if subpage write not available with
++hardware ECC and filesystem and then to enable randomizer is recommended
++by default.
 +
-+	if (feature[0])
-+		return feature[0];
++By adding a new specific property in children nodes to enable
++randomizer function.
 +
-+	feature[0] = MACRONIX_RANDOMIZER_MODE_ENTER;
-+	ret = nand_set_features(chip, ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+				feature);
-+	if (ret < 0)
-+		return ret;
++Required NAND chip properties in children mode:
++- randomizer enable: should be "mxic,enable-randomizer-otp"
 +
-+	/* RANDEN and RANDOPT OTP bits are programmed */
-+	feature[0] = 0x0;
-+	ret = nand_prog_page_op(chip, 0, 0, feature, 1);
-+	if (ret < 0)
-+		return ret;
++Example:
 +
-+	ret = nand_get_features(chip, ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+				feature);
-+	if (ret < 0)
-+		return ret;
++	nand: nand-controller@unit-address {
 +
-+	feature[0] &= MACRONIX_RANDOMIZER_MODE_EXIT;
-+	ret = nand_set_features(chip, ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+				feature);
-+	if (ret < 0)
-+		return ret;
-+
-+	return 0;
-+}
-+
- static void macronix_nand_onfi_init(struct nand_chip *chip)
- {
- 	struct nand_parameters *p = &chip->parameters;
- 	struct nand_onfi_vendor_macronix *mxic;
-+	struct device_node *dn = nand_get_flash_node(chip);
-+	int rand_otp = 0;
-+	int ret;
- 
- 	if (!p->onfi)
- 		return;
- 
-+	if (of_find_property(dn, "mxic,enable-randomizer-otp", NULL))
-+		rand_otp = 1;
-+
- 	mxic = (struct nand_onfi_vendor_macronix *)p->onfi->vendor;
-+	/* Subpage write is prohibited in randomizer operatoin */
-+	if (rand_otp && chip->options & NAND_NO_SUBPAGE_WRITE &&
-+	    mxic->reliability_func & MACRONIX_RANDOMIZER_BIT) {
-+		if (p->supports_set_get_features) {
-+			bitmap_set(p->set_feature_list,
-+				   ONFI_FEATURE_ADDR_MXIC_RANDOMIZER, 1);
-+			bitmap_set(p->get_feature_list,
-+				   ONFI_FEATURE_ADDR_MXIC_RANDOMIZER, 1);
-+			ret = macronix_nand_randomizer_check_enable(chip);
-+			if (ret < 0) {
-+				bitmap_clear(p->set_feature_list,
-+					     ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+					     1);
-+				bitmap_clear(p->get_feature_list,
-+					     ONFI_FEATURE_ADDR_MXIC_RANDOMIZER,
-+					     1);
-+				pr_info("Macronix NAND randomizer failed\n");
-+			} else {
-+				pr_info("Macronix NAND randomizer enabled\n");
-+			}
-+		}
-+	}
-+
- 	if ((mxic->reliability_func & MACRONIX_READ_RETRY_BIT) == 0)
- 		return;
- 
++		nand@0 {
++			reg = <0>;
++			mxic,enable-randomizer-otp;
++		};
++	};
 -- 
 1.9.1
 
