@@ -2,89 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CFAB6162176
-	for <lists+linux-mtd@lfdr.de>; Tue, 18 Feb 2020 08:20:55 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B80D116234C
+	for <lists+linux-mtd@lfdr.de>; Tue, 18 Feb 2020 10:22:48 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bgaEIUDCfWlnkW+ToeKrX1jX8xGw8XixvjdCm5S3ha4=; b=fPKc2C3JnwMOcU
-	sLszOgKS3uDAQsPnpp4fwzAti/J3ebQioKjiIm+GS7cCLzSSRsnAnJhRv5A42vwVkUEbzYtV5M6Py
-	2pfpDtPds3H/5zFUAqBf929wRfo/mARZ70dDTaeaYn9QsRrFBQB/S+TmFw3iJah1gvNk8S4GKWBFN
-	QXMTIjQZ3I3QjmV8KRnTK7XzE0pDQX5gn3xgSYOU9P9+jIy+u7+FEN5RSxG6MirsIE6tU7Wc2wOKI
-	ny8EZDh6wyxeUx0VcFJRLnL70lXbnVqT6CwNu3TMFkDpc4DXeAy7dfl6mJmrJhPoFiDuS+blMqRzX
-	r7A4PtDbKn9jp91Czquw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=UBWzztCIsW1T5c8+PvGy6CAS5iavttkCV5ohZA44QgM=; b=F7CRsMK4actGLYmoVJik/qGuF
+	UWu9HiTqwpr2yGoijtbejyYt6A908w9nV90K3vGBStRz0OZhT5GhXgxIqiYo5buo/crCvGfKINLSs
+	E0qW30ubyt2cgKPmXyzWMce8St+jtV7tCerkon79d4741w7vzBE54zkF47jrRjMJbqnGXcDGL32HD
+	fEZH8NyDo2RBYl7daTx2ilQfVfzRf77p7RxowQrGmv+0Asl+jyrjdappopnty/cm2cTHGiJew/6U3
+	FDZA5GEwdZGuo1oc0A5/6lFVRBuQerb/Ph24BEprB3fQHq/1rkdxnUu6koBLod4nrvCZGDZs9/Qza
+	8KfGjMpBw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3xBY-0000Nx-J8; Tue, 18 Feb 2020 07:20:48 +0000
-Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
+	id 1j3z5X-0000fs-Hi; Tue, 18 Feb 2020 09:22:43 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3xBO-0000Nf-RL
- for linux-mtd@lists.infradead.org; Tue, 18 Feb 2020 07:20:40 +0000
-Received: by mail-il1-x143.google.com with SMTP id p8so16408995iln.12
- for <linux-mtd@lists.infradead.org>; Mon, 17 Feb 2020 23:20:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:in-reply-to:references:from:date:message-id:subject:to
- :cc; bh=7jGl0wNCwOoe/f3cnv39Il46yTDC1l6xo6CwzoreJxU=;
- b=lO6B4I8WSsFjKKmxAxN5wqEqtcta6kLddINbSf9+T+lC0uBzrhQNhlKxxKK/CkmY2N
- 7LTGEND2H9q+YIE3LRNpeImX2TLMY2DcQeFS7yeSRBjQgkSOMYYPGzKJxX3UOhICF4uz
- x4ZtRw3xFZXmtim7AG3xsyFPQOUsKRLQIk4z/mah/l9cBzGaX1EdKaj8BmiqXd4x9e/V
- ZYyYAftP+2SwcOsKyYdxyqxA3X5AJGVX/I6Kk1iSaA1KSc/4PFw9L7hQOV/Mu/tUeJ/4
- /yV4UCPyTCPEqIDUb1/rOE/hBSanmuUE1JmmkLuc5xHwui7u3cV6ZCirbQ3TMS44kxlR
- ClMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:in-reply-to:references:from:date
- :message-id:subject:to:cc;
- bh=7jGl0wNCwOoe/f3cnv39Il46yTDC1l6xo6CwzoreJxU=;
- b=FP5Au3ru4O83yPlUOIFjs5bUZPL9dQwWvy+MmZ9PQdLx7ScO895cSu5oTrRG7QPKcO
- ZMpmTyr60aWk+aXH2JS3pgghcZ6oaU4Bdkdw77MEH3stbBRbmGtWYRjtv028TFf6BJ0J
- IKtHKR5WqHTZBGvQA2BDWtkXgMt3Ret9SryQvUGGYBdzyuUjeyapMVolDbxo8JlVsGBY
- H5llIngf/yWWih5WoH44+UPAIh0aM/cZUgyvyNHXH20xPqiS6DwDrU5yzBbxTGZOLbYK
- mLk30v6N5c2XSurXCpCmRNRYKiXxc12p9MPZM5DN93JFAR5AWh1C8MzAU3oADDbLgMT9
- /fUw==
-X-Gm-Message-State: APjAAAUSrApcM3o2rGU0RXYGpuGCz6Fh2M/kbrVu7c/MODmY2Srk6d10
- KxRpH8vGbaKcaEdPxyQ0wSTfBmUo/XDNzwzVqyE=
-X-Google-Smtp-Source: APXvYqw6842SKZ5OauYiNhy08S/JKCohjTd+EbXULneGmKen0zPFYa1bUB2YJLmHkUlhAP43GRCFWAzjgav7zYJ2f78=
-X-Received: by 2002:a92:5855:: with SMTP id m82mr17716040ilb.302.1582010437335; 
- Mon, 17 Feb 2020 23:20:37 -0800 (PST)
+ id 1j3z5P-0000f5-Jm
+ for linux-mtd@lists.infradead.org; Tue, 18 Feb 2020 09:22:37 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id B448FACCE;
+ Tue, 18 Feb 2020 09:22:32 +0000 (UTC)
+Received: by quack2.suse.cz (Postfix, from userid 1000)
+ id BAE0D1E0CF7; Tue, 18 Feb 2020 10:22:31 +0100 (CET)
+Date: Tue, 18 Feb 2020 10:22:31 +0100
+From: Jan Kara <jack@suse.cz>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+Subject: Re: [PATCH 1/8] quota: Allow to pass mount path to quotactl
+Message-ID: <20200218092231.GG16121@quack2.suse.cz>
+References: <20200124131323.23885-1-s.hauer@pengutronix.de>
+ <20200124131323.23885-2-s.hauer@pengutronix.de>
+ <20200127104518.GC19414@quack2.suse.cz>
+ <20200128100631.zv7cn726twylcmb7@pengutronix.de>
+ <20200129012929.GV23230@ZenIV.linux.org.uk>
+ <20200204103523.tbxzptf4lkr474yi@pengutronix.de>
 MIME-Version: 1.0
-Received: by 2002:ad5:5d0d:0:0:0:0:0 with HTTP; Mon, 17 Feb 2020 23:20:36
- -0800 (PST)
-In-Reply-To: <CAAfyv34yO7bSR9GBod1bXpD0sFnsSETsJQAzcmSgyY0orGtfcg@mail.gmail.com>
-References: <CAA=hcWTDqhJEE7MXFY9rvN93nf8=nWvshLoXKF3EMXYGLmZGbA@mail.gmail.com>
- <CAAfyv34yO7bSR9GBod1bXpD0sFnsSETsJQAzcmSgyY0orGtfcg@mail.gmail.com>
-From: JH <jupiter.hce@gmail.com>
-Date: Tue, 18 Feb 2020 18:20:36 +1100
-Message-ID: <CAA=hcWQFcdUJKGTOitOAx1URD7r=9PPxsdd=hQO-Yb77=QHTDg@mail.gmail.com>
-Subject: Re: [yocto] Change RO rootfs failed RF Kill Switch Status and Failed
- to start Run pending postinsts
-To: Belisko Marek <marek.belisko@gmail.com>
+Content-Type: multipart/mixed; boundary="gKMricLos+KVdGMg"
+Content-Disposition: inline
+In-Reply-To: <20200204103523.tbxzptf4lkr474yi@pengutronix.de>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_232038_890739_05B79BFA 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200218_012235_947891_2CE929A5 
+X-CRM114-Status: GOOD (  31.43  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [jupiter.hce[at]gmail.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:143 listed in]
- [list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,164 +71,240 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Yocto discussion list <yocto@yoctoproject.org>,
- linux-wireless <linux-wireless@vger.kernel.org>,
- linux-mtd <linux-mtd@lists.infradead.org>,
- Patches and discussions about the oe-core layer
- <openembedded-core@lists.openembedded.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jan Kara <jack@suse.cz>, Richard Weinberger <richard@nod.at>,
+ linux-mtd@lists.infradead.org, Al Viro <viro@zeniv.linux.org.uk>,
+ kernel@pengutronix.de, Jan Kara <jack@suse.com>, linux-fsdevel@vger.kernel.org
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Belisko,
 
-Thanks for your resonse.
+--gKMricLos+KVdGMg
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 2/18/20, Belisko Marek <marek.belisko@gmail.com> wrote:
-> Can you pls provide output of systemctl status systemd-rfkill
-> There should be some more info what issue is.
+I'm sorry for the late reply, I was busy with other things and I wasn't
+quite sure how I'd like this to be handled :)
 
-Failed at step STATE_DIRECTORY spawning /lib/systemd/systemd-rfkill:
-Read-only file system, did it try to write something in /lib/systemd?
-How should I fix it?
+On Tue 04-02-20 11:35:23, Sascha Hauer wrote:
+> On Wed, Jan 29, 2020 at 01:29:29AM +0000, Al Viro wrote:
+> > On Tue, Jan 28, 2020 at 11:06:31AM +0100, Sascha Hauer wrote:
+> > > Hi Jan,
+> > 
+> > > @@ -810,6 +811,36 @@ static struct super_block *quotactl_block(const char __user *special, int cmd)
+> > >  #endif
+> > >  }
+> > >  
+> > > +static struct super_block *quotactl_path(const char __user *special, int cmd,
+> > > +					 struct path *path)
+> > > +{
+> > > +	struct super_block *sb;
+> > > +	int ret;
+> > > +
+> > > +	ret = user_path_at(AT_FDCWD, special, LOOKUP_FOLLOW | LOOKUP_AUTOMOUNT,
+> > > +			   path);
+> > > +	if (ret)
+> > > +		return ERR_PTR(ret);
+> > > +
+> > > +	sb = path->mnt->mnt_sb;
+> > > +restart:
+> > > +	if (quotactl_cmd_onoff(cmd))
+> > > +		down_write(&sb->s_umount);
+> > > +	else
+> > > +		down_read(&sb->s_umount);
+> > > +
+> > > +	if (quotactl_cmd_write(cmd) && sb->s_writers.frozen != SB_UNFROZEN) {
+> > > +		if (quotactl_cmd_onoff(cmd))
+> > > +			up_write(&sb->s_umount);
+> > > +		else
+> > > +			up_read(&sb->s_umount);
+> > > +		wait_event(sb->s_writers.wait_unfrozen,
+> > > +			   sb->s_writers.frozen == SB_UNFROZEN);
+> > > +		goto restart;
+> > > +	}
+> > > +
+> > > +	return sb;
+> > > +}
+> > 
+> > This partial duplicate of __get_super_thawed() guts does *not* belong here,
+> > especially not interleaved with quota-specific checks.
+> > 
+> > > +	if (q_path) {
+> > > +		if (quotactl_cmd_onoff(cmd))
+> > > +			up_write(&sb->s_umount);
+> > > +		else
+> > > +			up_read(&sb->s_umount);
+> > > +
+> > > +		path_put(&sb_path);
+> > > +	} else {
+> > > +		if (!quotactl_cmd_onoff(cmds))
+> > > +			drop_super(sb);
+> > > +		else
+> > > +			drop_super_exclusive(sb);
+> > > +	}
+> > 
+> > Er...  Why not have the same code that you've used to lock the damn thing
+> > (needs to be moved to fs/super.c) simply get a passive ref to it?  Then
+> > you could do the same thing, q_path or no q_path...
+> 
+> I am getting confused here. To an earlier version of this series you
+> responded:
+> 
+> > And for path-based you don't need to mess with superblock
+> > references - just keep the struct path until the end.  That
+> > will keep the superblock alive and active just fine.
+> 
+> I did that and got the objection from Jan:
+> 
+> > So I've realized that just looking up superblock with user_path_at() is not
+> > enough. Quota code also expects that the superblock will be locked
+> > (sb->s_umount) and filesystem will not be frozen (in case the quota
+> > operation is going to modify the filesystem). This is needed to serialize
+> > e.g. remount and quota operations or quota operations among themselves.
+
+Yes, using passive reference is not necessary. On the other hand the
+symmetry with how get_super() and friends work has some appeal too so if Al
+wants that, well, he's the maintainer ;)
+
+> So after drawing circles we now seem to be back at passive references.
+> What I have now in my tree is this in fs/super.c, untested currently:
+
+I was thinking how to make the API most sensible. In the end I've decided
+for a variant that is attached - we pass in struct path which enforces
+active reference to a superblock and thus we don't have to be afraid of the
+superblock going away or similar problems. Also the operation "get me
+superblock for a path" kind of makes sense...
+
+Guys, what do you think?
+
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
+
+--gKMricLos+KVdGMg
+Content-Type: text/x-patch; charset=us-ascii
+Content-Disposition: attachment; filename="0001-fs-Provide-functions-for-getting-locked-and-thawed-s.patch"
+
+From 18c7913475342f10b4723c7e22409acc573e6436 Mon Sep 17 00:00:00 2001
+From: Jan Kara <jack@suse.cz>
+Date: Tue, 18 Feb 2020 10:05:21 +0100
+Subject: [PATCH] fs: Provide functions for getting locked and thawed
+ superblock from a path
+
+Provide functions to get locked (with s_umount) and if desired also thawed
+superblock for a given struct path. We additionally also get passive
+reference count of the superblock so that the superblock can be unlocked
+with put_super() / put_super_exlusive() similarly to how get_super_*()
+class of functions operates.
+
+Signed-off-by: Jan Kara <jack@suse.cz>
+---
+ fs/super.c         | 64 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/fs.h |  3 +++
+ 2 files changed, 67 insertions(+)
+
+diff --git a/fs/super.c b/fs/super.c
+index cd352530eca9..2c78eac57fa5 100644
+--- a/fs/super.c
++++ b/fs/super.c
+@@ -836,6 +836,70 @@ struct super_block *get_super_exclusive_thawed(struct block_device *bdev)
+ }
+ EXPORT_SYMBOL(get_super_exclusive_thawed);
+ 
++static struct super_block *__hold_super(struct path *path, bool excl,
++					bool thawed)
++{
++	struct super_block *sb = path->mnt->mnt_sb;
++
++	while (1) {
++		if (excl)
++			down_write(&sb->s_umount);
++		else
++			down_read(&sb->s_umount);
++		if (!thawed || sb->s_writers.frozen == SB_UNFROZEN) {
++			spin_lock(&sb_lock);
++			sb->s_count++;
++			spin_unlock(&sb_lock);
++			return sb;
++		}
++		if (excl)
++			up_write(&sb->s_umount);
++		else
++			up_read(&sb->s_umount);
++		wait_event(sb->s_writers.wait_unfrozen,
++					sb->s_writers.frozen == SB_UNFROZEN);
++	}
++}
++
++/**
++ *	hold_super - get locked superblock for a path
++ *	@path: path to get superblock for
++ *
++ *	This function gets superblock for @path and returns it with s_umount
++ *	held in shared mode and superblock's passive refcount (sb->s_count)
++ *	incremented.
++ */
++struct super_block *hold_super(struct path *path)
++{
++	return __hold_super(path, false, false);
++}
++
++/**
++ *	hold_super_thawed - get locked thawed superblock for a path
++ *	@path: path to get superblock for
++ *
++ *	This function gets superblock for @path, makes sure it is not frozen,
++ *	and returns it with s_umount held in shared mode and superblock's
++ *	passive refcount (sb->s_count) incremented.
++ */
++struct super_block *hold_super_thawed(struct path *path)
++{
++	return __hold_super(path, false, true);
++}
++
++/**
++ *	hold_super_thawed_exclusive - get locked thawed superblock for a path
++ *	@path: path to get superblock for
++ *
++ *	This function gets superblock for @path, makes sure it is not frozen,
++ *	and returns it with s_umount held in exclusive mode and superblock's
++ *	passive refcount (sb->s_count) incremented.
++ */
++struct super_block *hold_super_thawed_exclusive(struct path *path)
++{
++	return __hold_super(path, true, true);
++}
++
+ /**
+  * get_active_super - get an active reference to the superblock of a device
+  * @bdev: device to get the superblock for
+diff --git a/include/linux/fs.h b/include/linux/fs.h
+index 3cd4fe6b845e..2406494d2f54 100644
+--- a/include/linux/fs.h
++++ b/include/linux/fs.h
+@@ -3305,6 +3305,9 @@ extern struct file_system_type *get_fs_type(const char *name);
+ extern struct super_block *get_super(struct block_device *);
+ extern struct super_block *get_super_thawed(struct block_device *);
+ extern struct super_block *get_super_exclusive_thawed(struct block_device *bdev);
++struct super_block *hold_super(struct path *path);
++struct super_block *hold_super_thawed(struct path *path);
++struct super_block *hold_super_thawed_exclusive(struct path *path);
+ extern struct super_block *get_active_super(struct block_device *bdev);
+ extern void drop_super(struct super_block *sb);
+ extern void drop_super_exclusive(struct super_block *sb);
+-- 
+2.16.4
 
 
-# systemctl status systemd-rfkill -l
-* systemd-rfkill.service - Load/Save RF Kill Switch Status
-   Loaded: loaded
-(8;;file://solar/lib/systemd/system/systemd-rfkill.service/lib/systemd/system/systemd-rfkill.service8;;;
-static; vendor preset: disabled)
-   Active: failed (Result: exit-code) since Tue 2020-02-18 00:47:30
-UTC; 1min 59s ago
-     Docs: 8;;man:systemd-rfkill.service(8)man:systemd-rfkill.service(8)8;;
-  Process: 149 ExecStart=/lib/systemd/systemd-rfkill (code=exited,
-status=238/STATE_DIRECTORY)
- Main PID: 149 (code=exited, status=238/STATE_DIRECTORY)
-
-Feb 18 00:47:30 solar systemd[1]: Starting Load/Save RF Kill Switch Status...
-Feb 18 00:47:30 solar systemd[149]: systemd-rfkill.service: Failed to
-set up special execution directory in /var/lib: Read-only file system
-Feb 18 00:47:30 solar systemd[149]: systemd-rfkill.service: Failed at
-step STATE_DIRECTORY spawning /lib/systemd/systemd-rfkill: Read-only
-file system
-Feb 18 00:47:30 solar systemd[1]: systemd-rfkill.service: Main process
-exited, code=exited, status=238/STATE_DIRECTORY
-Feb 18 00:47:30 solar systemd[1]: systemd-rfkill.service: Failed with
-result 'exit-code'.
-Feb 18 00:47:30 solar systemd[1]: Failed to start Load/Save RF Kill
-Switch Status.
-Feb 18 00:47:30 solar systemd[1]: systemd-rfkill.service: Start
-request repeated too quickly.
-Feb 18 00:47:30 solar systemd[1]: systemd-rfkill.service: Failed with
-result 'exit-code'.
-Feb 18 00:47:30 solar systemd[1]: Failed to start Load/Save RF Kill
-Switch Status.
-
->> [FAILED] Failed to start Run pending postinsts.
->> See 'systemctl status run-postinsts.service' for details.
-> Pls this one also: systemctl status run-postinsts
-
-# systemctl status run-postinsts -l
-* run-postinsts.service - Run pending postinsts
-   Loaded: loaded
-(8;;file://solar/lib/systemd/system/run-postinsts.service/lib/systemd/system/run-postinsts.service8;;;
-enabled; vendor preset: enabled)
-   Active: failed (Result: exit-code) since Tue 2020-02-18 00:47:37
-UTC; 6min ago
-  Process: 153 ExecStart=/usr/sbin/run-postinsts (code=exited, status=0/SUCCESS)
-  Process: 159 ExecStartPost=/bin/systemctl --no-reload disable
-run-postinsts.service (code=exited, status=1/FAILURE)
- Main PID: 153 (code=exited, status=0/SUCCESS)
-
-Feb 18 00:47:36 solar systemd[1]: Starting Run pending postinsts...
-Feb 18 00:47:36 solar run-postinsts[153]: Configuring packages on first boot....
-Feb 18 00:47:36 solar run-postinsts[153]:  (This may take several
-minutes. Please do not power off the machine.)
-Feb 18 00:47:36 solar run-postinsts[153]: /usr/sbin/run-postinsts:
-eval: line 1: can't create /var/log/postinstall.log: nonexistent
-directory
-Feb 18 00:47:36 solar run-postinsts[153]:  Removing any system startup
-links for run-postinsts ...
-Feb 18 00:47:37 solar systemctl[159]: Failed to disable unit: File
-/etc/systemd/system/sysinit.target.wants/run-postinsts.service:
-Read-only file system
-Feb 18 00:47:37 solar systemd[1]: run-postinsts.service: Control
-process exited, code=exited, status=1/FAILURE
-Feb 18 00:47:37 solar systemd[1]: run-postinsts.service: Failed with
-result 'exit-code'.
-Feb 18 00:47:37 solar systemd[1]: Failed to start Run pending postinsts.
-
-Was the problem to write to /var/log, the /var/volatile does not have a log?
-
-# ls -l /var
-drwxr-xr-x    2 1000     1000           160 Feb 18  2020 backups
-drwxr-xr-x    5 1000     1000           100 Feb 18 00:47 cache
-drwxr-xr-x    9 1000     1000           180 Feb 18 00:47 lib
-drwxr-xr-x    3 1000     1000           224 Feb 18  2020 local
-lrwxrwxrwx    1 1000     1000            11 Feb 18  2020 lock -> ../run/lock
-lrwxrwxrwx    1 1000     1000            12 Feb 18 00:52 log -> volatile/log
-lrwxrwxrwx    1 1000     1000             6 Feb 18  2020 run -> ../run
-drwxr-xr-x    3 1000     1000            60 Feb 18  2020 spool
-lrwxrwxrwx    1 1000     1000            12 Feb 18  2020 tmp -> volatile/tmp
-drwxrwxrwt    8 root     root           160 Feb 18 00:47 volatile
-
-# ls -l /var/volatile/
-drwxr-xr-x    5 1000     1000           100 Feb 18 00:47 cache
-drwxr-xr-x    9 1000     1000           180 Feb 18 00:47 lib
-drwxr-xr-x    3 1000     1000            60 Feb 18  2020 spool
-
-All system mount is the same as the original RW rootfs, did both write
-to none standard RW system mount?
-
-Here is defined system mount in fstab:
-
-proc                 /proc                proc       defaults              0  0
-devpts               /dev/pts             devpts     mode=0620,gid=5       0  0
-tmpfs                /run                 tmpfs
-mode=0755,nodev,nosuid,strictatime 0  0
-tmpfs                /var/volatile        tmpfs      defaults              0  0
-
-
-Here is the mount:
-
-# mount
-ubi0:rootfs-volume on / type ubifs (ro,relatime,assert=read-only,ubi=0,vol=2)
-devtmpfs on /dev type devtmpfs
-(rw,relatime,size=84564k,nr_inodes=21141,mode=755)
-sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
-proc on /proc type proc (rw,relatime)
-securityfs on /sys/kernel/security type securityfs
-(rw,nosuid,nodev,noexec,relatime)
-tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
-devpts on /dev/pts type devpts (rw,relatime,gid=5,mode=620,ptmxmode=000)
-tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
-tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
-cgroup2 on /sys/fs/cgroup/unified type cgroup2
-(rw,nosuid,nodev,noexec,relatime,nsdelegate)
-cgroup on /sys/fs/cgroup/systemd type cgroup
-(rw,nosuid,nodev,noexec,relatime,xattr,name=systemd)
-tmpfs on /etc/machine-id type tmpfs (ro,mode=755)
-tmpfs on /tmp type tmpfs (rw,nosuid,nodev)
-debugfs on /sys/kernel/debug type debugfs (rw,nosuid,nodev,noexec,relatime)
-fusectl on /sys/fs/fuse/connections type fusectl
-(rw,nosuid,nodev,noexec,relatime)
-tmpfs on /var/volatile type tmpfs (rw,relatime)
-ubi0:data-volume on /data type ubifs (rw,noatime,assert=read-only,ubi=0,vol=3)
-tmpfs on /var/spool type tmpfs (rw,relatime)
-tmpfs on /var/cache type tmpfs (rw,relatime)
-tmpfs on /var/lib type tmpfs (rw,relatime)
-tracefs on /sys/kernel/debug/tracing type tracefs
-(rw,nosuid,nodev,noexec,relatime)
-
-How should I fix it?
-
-Thank you.
-
-Kind regards,
-
-- jh
+--gKMricLos+KVdGMg
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--gKMricLos+KVdGMg--
+
