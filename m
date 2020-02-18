@@ -2,55 +2,91 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BAB711624ED
-	for <lists+linux-mtd@lfdr.de>; Tue, 18 Feb 2020 11:49:00 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C11F6162555
+	for <lists+linux-mtd@lfdr.de>; Tue, 18 Feb 2020 12:11:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8KaG5B4UjZd7y1DZnaIZQwtevC1hnaxVixRAqYjwhrA=; b=YxhkQ41c0m+RgL
-	V08LFwRzS7Epw2ZatOxo+b8OH3q6ozU6vO+ThxADnvqUdlqX80aLImyFbRekDoFU4Ny0p0gjSpBcl
-	o/MjS98PgERQ3Hv4ON08ye0iNT49ub9SuQ3lqHkCxE5Grx4wNmYZwoGoiaJrFm4Sm5FloESV2Wajt
-	o+/0t+fHfqfezM93VPImDVaPhoNHcJfrtDkxaOslfTrhXS4op83lxb8Ht1I76is0lKsVygjSDLamg
-	CA7eUgPhlCJtOPC+JhiNl6A2sbCun6vELqNQwLQyq6LHki+3y9Bt8M9oJjFSg58URmuDxKACOrzA1
-	gVfn4NPmKsLk4nDauSDQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=gE6xEk+J8hDxyztk8HDeH4XGV6hr5K7o/6x3uUpX2I0=; b=Eu/LeEO/k2P0/RmxiztuWGRb3J
+	KgzoBqyPQp5sxo3xZqQJrmPtJ9CllMwUDrFIUB2NCsCET0sLd/cBqeVj3LE+/XrCvhhw1btp4jZUl
+	9EvLBPz/Qg2ghaSFhXhyY5CqZDzGONRH/kINBXvFdHujdoVONLMnHfBimrJQ/ALQ31pu4GXnnEcDm
+	+r0l+fefKjkEhf53PTTSXfYS+Jb6n3h3PW/3oHLhU36uQeXHol/K0m0lJdKOO/qKooAfYnYH27a0u
+	9tXxdRdtScZfUQejnxeDO3hLoe2CODbv/H9XtxI/nN1t/ZiiQ3VV+KKnbJ6JUK7QVQIMq7AB9Ltzg
+	f6pD7gKA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j40Qt-0005RI-P7; Tue, 18 Feb 2020 10:48:51 +0000
-Received: from relay11.mail.gandi.net ([217.70.178.231])
+	id 1j40mw-0006m0-3K; Tue, 18 Feb 2020 11:11:38 +0000
+Received: from fllv0015.ext.ti.com ([198.47.19.141])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j40Qi-0005QB-20
- for linux-mtd@lists.infradead.org; Tue, 18 Feb 2020 10:48:41 +0000
-Received: from xps13 (lfbn-tou-1-1151-102.w90-76.abo.wanadoo.fr
- [90.76.211.102]) (Authenticated sender: miquel.raynal@bootlin.com)
- by relay11.mail.gandi.net (Postfix) with ESMTPSA id C0F8D100010;
- Tue, 18 Feb 2020 10:48:37 +0000 (UTC)
-Date: Tue, 18 Feb 2020 11:48:37 +0100
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Piotr Sroka <piotrs@cadence.com>
-Subject: Re: [PATCH 4/4] mtd: rawnand: cadence: reinit complete before
- execute command
-Message-ID: <20200218114837.2d5e6104@xps13>
-In-Reply-To: <1581328530-29966-4-git-send-email-piotrs@cadence.com>
-References: <1581328530-29966-1-git-send-email-piotrs@cadence.com>
- <1581328530-29966-4-git-send-email-piotrs@cadence.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1j40mo-0006lJ-AF
+ for linux-mtd@lists.infradead.org; Tue, 18 Feb 2020 11:11:32 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+ by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 01IBBK75088560;
+ Tue, 18 Feb 2020 05:11:20 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1582024281;
+ bh=fmRfaaGmQAhtEAzHt+zAAmiTjXifLEvmXqrKSGHq+0c=;
+ h=Subject:To:References:From:Date:In-Reply-To;
+ b=NlA81kG3qrX8KicySesEUivTaa4HZT2ECt+rYLZI2AYriJ4r7KfwGrSHDbvwdP1s6
+ EzhuGKY20gu7w9pKNliboCwLfqlVYkKAQHdiotvw6BmT0SooWfG3Bl/mTVxye1GVwO
+ P/I9XJE06QGoT6Qxq50rucWgiquTePALf9breUC0=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+ by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 01IBBKlI085576
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Tue, 18 Feb 2020 05:11:20 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1847.3; Tue, 18
+ Feb 2020 05:11:20 -0600
+Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1847.3 via
+ Frontend Transport; Tue, 18 Feb 2020 05:11:20 -0600
+Received: from [172.24.145.136] (ileax41-snat.itg.ti.com [10.172.224.153])
+ by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 01IBBH1C038767;
+ Tue, 18 Feb 2020 05:11:18 -0600
+Subject: Re: [PATCH RFT 0/2/2] mtd: hyperbus: add Renesas RPC-IF driver
+To: "Behme Dirk (CM/ESO2)" <dirk.behme@de.bosch.com>, Sergei Shtylyov
+ <sergei.shtylyov@cogentembedded.com>, Miquel Raynal
+ <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, <linux-mtd@lists.infradead.org>
+References: <fd1360ab-8872-f750-1314-77c6d432b413@cogentembedded.com>
+ <eba43289-3cb2-406b-cc5f-1209778621bf@cogentembedded.com>
+ <16309076-4378-d9ff-30c3-93a46af1d803@ti.com>
+ <eed17a25-e21c-b493-98e8-e25150216731@de.bosch.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Message-ID: <aef44eb7-78df-8505-ad37-d67fd499532e@ti.com>
+Date: Tue, 18 Feb 2020 16:41:57 +0530
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.2
 MIME-Version: 1.0
+In-Reply-To: <eed17a25-e21c-b493-98e8-e25150216731@de.bosch.com>
+Content-Language: en-US
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200218_024840_236171_DCE0E2C2 
-X-CRM114-Status: GOOD (  12.25  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200218_031130_495011_6CD2B5F1 
+X-CRM114-Status: GOOD (  20.46  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.231 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.19.141 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,33 +98,73 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
- linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@gmail.com>,
- linux-mtd@lists.infradead.org, Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>,
- Kazuhiro Kasai <kasai.kazuhiro@socionext.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgUGlvdHIsCgpQaW90ciBTcm9rYSA8cGlvdHJzQGNhZGVuY2UuY29tPiB3cm90ZSBvbiBNb24s
-IDEwIEZlYiAyMDIwIDEwOjU1OjI4CiswMTAwOgoKPiBSZWluaXRpbGFpemUgY29tcGxldGUgb2Jq
-ZWN0IGJlZm9yZSBleGVjdXRpbmcgQ0RNQSBjb21tYW5kIHRvIG1ha2Ugc3VyZQo+IHRoYXQgZG9u
-ZSBmbGFnIGlzIG9rLgoKTG9va3MgZmluZSwgYmVzaWRlcyB0aGUgbmVlZCBmb3IgRml4ZXMvU3Rh
-YmxlIHRhZ3MsIHdoYXQgZG8geW91IHRoaW5rPwoKPiAKPiBTaWduZWQtb2ZmLWJ5OiBQaW90ciBT
-cm9rYSA8cGlvdHJzQGNhZGVuY2UuY29tPgo+IC0tLQo+ICBkcml2ZXJzL210ZC9uYW5kL3Jhdy9j
-YWRlbmNlLW5hbmQtY29udHJvbGxlci5jIHwgMSArCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2Vy
-dGlvbigrKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL210ZC9uYW5kL3Jhdy9jYWRlbmNlLW5h
-bmQtY29udHJvbGxlci5jIGIvZHJpdmVycy9tdGQvbmFuZC9yYXcvY2FkZW5jZS1uYW5kLWNvbnRy
-b2xsZXIuYwo+IGluZGV4IDVjMWJiYjA1YWI1MS4uZWZkZGM1YzY4YWZiIDEwMDY0NAo+IC0tLSBh
-L2RyaXZlcnMvbXRkL25hbmQvcmF3L2NhZGVuY2UtbmFuZC1jb250cm9sbGVyLmMKPiArKysgYi9k
-cml2ZXJzL210ZC9uYW5kL3Jhdy9jYWRlbmNlLW5hbmQtY29udHJvbGxlci5jCj4gQEAgLTk5OCw2
-ICs5OTgsNyBAQCBzdGF0aWMgaW50IGNhZGVuY2VfbmFuZF9jZG1hX3NlbmQoc3RydWN0IGNkbnNf
-bmFuZF9jdHJsICpjZG5zX2N0cmwsCj4gIAkJcmV0dXJuIHN0YXR1czsKPiAgCj4gIAljYWRlbmNl
-X25hbmRfcmVzZXRfaXJxKGNkbnNfY3RybCk7Cj4gKwlyZWluaXRfY29tcGxldGlvbigmY2Ruc19j
-dHJsLT5jb21wbGV0ZSk7Cj4gIAo+ICAJd3JpdGVsX3JlbGF4ZWQoKHUzMiljZG5zX2N0cmwtPmRt
-YV9jZG1hX2Rlc2MsCj4gIAkJICAgICAgIGNkbnNfY3RybC0+cmVnICsgQ01EX1JFRzIpOwoKVGhh
-bmtzLApNaXF1w6hsCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+Hi,
+
+On 18/02/20 12:42 pm, Behme Dirk (CM/ESO2) wrote:
+> Hi Vignesh,
+> 
+> On 18.02.2020 05:00, Vignesh Raghavendra wrote:
+>> Hi Sergei
+>>
+[...]
+>>
+>> Looking around, there seems to be more than one SPI controllers, apart
+>> from Renesas, which also support SPI NOR and HyperFlash protocol within
+>> a single IP block. E.g.: Cadence xSPI controller [1]. Therefore, we need
+>> a generic framework to support these kind of controllers.
+>>
+>> One way would be to extend spi_mem_op to support above template along
+>> with a new field to distinguish SPI NOR vs HyperFlash protocol. HyperBus
+>> core can then register a spi_device and use spi-mem ops to talk to
+>> controller driver.
+>> So, I suggest making Renesas RPC-IF backend a full fledged spi-mem
+>> driver (instead of driver/memory) and use extended spi_mem_op to support
+>> HyperFlash.
+> 
+> 
+> From Renesas Hyperflash user point of view, I wonder if a two step
+> approach would be possible and acceptable, here?
+> 
+> Being a user of the Renesas Hyperflash, I want a driver for that. And,
+> of course, I want it "now" ;)
+> 
+> So I wonder if it would be a valid option to have a functioning Renesas
+> Hypeflash driver, first. And in a second step abstract that in a more
+> generic way to support additional controllers. While in parallel having
+> a functional driver for the Renesas people, already.
+> 
+
+AFAICS, the backend driver is not merged and is still in RFC phase.
+Therefore I don't see any benefit of two step approach here. Besides
+you'll have to throw away this new driver (hyperbus/rpc-if.c) entirely
+later on.
+
+How difficult is it to rewrite backend to be spi-mem driver? There is
+already has a spi_mem_ops frontend implementation, so I don't see much
+of an issue.
+Extending hyperbus core to use spi-mem should also straight forward
+Would involve moving this patch into core file.
+
+> Is the support for [1] a more or less theoretical one, at the moment? Or
+> are there users of that which need support "now", too?
+> 
+
+Its not theoretical, I do see patches for xSPI controller here:
+https://patchwork.kernel.org/cover/11354193/
+
+So, its best to sort this out now so as to avoid possible backward
+compatibility issues (especially with DT bindings)
+
+Regards
+Vignesh
+
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
