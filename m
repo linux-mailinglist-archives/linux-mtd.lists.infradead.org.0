@@ -2,57 +2,83 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC26716A56E
-	for <lists+linux-mtd@lfdr.de>; Mon, 24 Feb 2020 12:46:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DBD5216AF37
+	for <lists+linux-mtd@lfdr.de>; Mon, 24 Feb 2020 19:33:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=xyjuJUHhZOkT/D9nhNbyBjbLZV0/q8JEHKzIFzGMscY=; b=e/p2X6rHcf7e1Z/m52K1TpAw9
-	IjRdShodCkjFb7i1IoAdz6IrkR0VmB7RJvEqAkEEqg5W4ThDjeeq2A2nd0V1KC29ZinHA7CldkLTf
-	tHbldD3tPYwfeCSios+qLxoDDBHquq30tllDOg+qvSwoeoSngMcYCdjd5sd8+37ey4gAeYYzMrWnD
-	okltyQt7ZpPUdZV9b/nSoTuwWjgnMb4eFOH83s9m3fgQqt3K7XueQ4184fAWyys9Lhb3FpLmDhF0S
-	gHIpxjfkxCQB2Bhh3uz0s9KZYiq52BUXFUZYZxywk+bohGebx1o/BItqCddB6NUgFCejb5xu4pP0o
-	N9v8M6piQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iMHOQg7T/sinPWHMyS00KF1bXlM1IGHjs8wooiHIylI=; b=j99+FMrWsuCiTC
+	LAYn/2m5mS50rHophqFu7Y0p+ZBp0ebB7CVwQ4qsd/xnRbnlPNTaOitrdI2CdNUeBO8RSdfsnP3Gr
+	D28zynHuADv6VcSkJldG4cynkz3s6Hq9/huqgAei0/0CosGpQWYEA+JKq0hlQsyxPdmuUNmVReVaB
+	+/3qCUeMvrBLdv8Bbt717T5UvWklhqHqSy5jMQVRQptZS3RszG3dRUoOO1oX657ZJgcDG8K5zYUEG
+	bZkdeScRJocxtED3Ul7aOg/gjCMohB9SgBR2WeY+GtR/a7kWqmOjZkMaZlMsraDEzfAruiGoJZVtO
+	a4WU/M55JVQda/gccvvQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j6CBW-0001fG-Pb; Mon, 24 Feb 2020 11:46:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j6CB7-0001Ue-SR; Mon, 24 Feb 2020 11:45:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12FB530E;
- Mon, 24 Feb 2020 03:45:34 -0800 (PST)
-Received: from localhost (unknown [10.37.6.21])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66C063F534;
- Mon, 24 Feb 2020 03:45:33 -0800 (PST)
-Date: Mon, 24 Feb 2020 11:45:32 +0000
-From: Mark Brown <broonie@kernel.org>
+	id 1j6IXb-0007KB-2I; Mon, 24 Feb 2020 18:33:15 +0000
+Received: from mail-oi1-f193.google.com ([209.85.167.193])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j6ISU-00012V-8Z; Mon, 24 Feb 2020 18:28:00 +0000
+Received: by mail-oi1-f193.google.com with SMTP id r137so9884991oie.5;
+ Mon, 24 Feb 2020 10:27:57 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=8b3MliEDFbDrUpBm8jGhwYqreoGs6m8FNnF/yNIueEU=;
+ b=Tb2wTBaOM1MDXpLpney58Kpc8cOzF4gKSRXv8h79ePvc/KQ3YelB/kJ9WOTrzVCQQm
+ kPytDDHcy5CbZnKgpBf4cyBCo8knl/Ji7WvsoXrm8+L/66lxeAP4NbEkq1ZnsxNZHmmb
+ OrXD/SUmsT5JGlhlq23Uew5YuIZ24lcTT3nPIuuJx4yX8wqHmel8DSxYjsIzAyDI6cBb
+ sMvz8mLzEA8BHpI1lRHOeoQudOx/WWli2k4Uuj3OTUF8gJ6qJ2h7bjh564mNVjo1bLtW
+ DkcT9JzFQ5JSm6SvOhAcbVV2Tw1Gnr0XsSg/CLJczD/DoncISpeaFMDbz0gZOxyS386d
+ dWwA==
+X-Gm-Message-State: APjAAAUdtenKB4Q+z9FWgSOHBaBNW9YWCHZeU52rLOh3kYr9Actf6JdH
+ v0CUoMclJUj+qftYkx5Tig==
+X-Google-Smtp-Source: APXvYqyzy4iiGXu+ZZ3t2yBP3j4K/yU2pKb0H/blTr6+iujeHVCL8mJihe7tO3CjLAVcADKqUCNWGQ==
+X-Received: by 2002:aca:bfc2:: with SMTP id p185mr318449oif.57.1582568876626; 
+ Mon, 24 Feb 2020 10:27:56 -0800 (PST)
+Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id v10sm4255017oic.32.2020.02.24.10.27.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 24 Feb 2020 10:27:56 -0800 (PST)
+Received: (nullmailer pid 13156 invoked by uid 1000);
+ Mon, 24 Feb 2020 18:27:55 -0000
+Date: Mon, 24 Feb 2020 12:27:55 -0600
+From: Rob Herring <robh@kernel.org>
 To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 Subject: Re: [PATCH] docs: dt: fix several broken doc references
-Message-ID: <20200224114532.GC6215@sirena.org.uk>
+Message-ID: <20200224182755.GB27161@bogus>
 References: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
 In-Reply-To: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
-X-Cookie: How you look depends on where you go.
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200224_034537_964241_59DA0CD7 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20200224_102758_377277_40004144 
+X-CRM114-Status: GOOD (  11.42  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.1 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [217.140.110.172 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.167.193 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [robherring2[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [robherring2[at]gmail.com]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.193 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,68 +98,41 @@ Cc: alsa-devel@alsa-project.org, Olivier Moysan <olivier.moysan@st.com>,
  Vignesh Raghavendra <vigneshr@ti.com>, devel@driverdev.osuosl.org,
  Jonathan Corbet <corbet@lwn.net>, Richard Weinberger <richard@nod.at>,
  Piotr Sroka <piotrs@cadence.com>, devicetree@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@st.com>, Rob Herring <robh+dt@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@st.com>, Mark Brown <broonie@kernel.org>,
  linux-arm-kernel@lists.infradead.org,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Arnaud Pouliquen <arnaud.pouliquen@st.com>,
  Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
  "David S. Miller" <davem@davemloft.net>
-Content-Type: multipart/mixed; boundary="===============2876462954138368862=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
-
-
---===============2876462954138368862==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DIOMP1UsTsWJauNi"
-Content-Disposition: inline
-
-
---DIOMP1UsTsWJauNi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 On Sun, Feb 23, 2020 at 09:59:53AM +0100, Mauro Carvalho Chehab wrote:
 > There are several DT doc references that require manual fixes.
 > I found 3 cases fixed on this patch:
->=20
+> 
 > 	- directory named "binding/" instead of "bindings/";
 > 	- .txt to .yaml renames;
 > 	- file renames (still on txt format);
+> 
+> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+> ---
+>  .../devicetree/bindings/mtd/cadence-nand-controller.txt       | 2 +-
+>  .../devicetree/bindings/net/brcm,bcm7445-switch-v4.0.txt      | 2 +-
+>  Documentation/devicetree/bindings/sound/st,stm32-sai.txt      | 2 +-
+>  Documentation/devicetree/bindings/sound/st,stm32-spdifrx.txt  | 2 +-
+>  Documentation/devicetree/bindings/spi/st,stm32-spi.yaml       | 2 +-
+>  MAINTAINERS                                                   | 4 ++--
+>  .../devicetree/bindings/net/wireless/siliabs,wfx.txt          | 2 +-
+>  7 files changed, 8 insertions(+), 8 deletions(-)
 
-This seems like it should've been split up a bit.  :/
+Applied.
 
-Acked-by: Mark Brown <broonie@kernel.org>
-
---DIOMP1UsTsWJauNi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl5Tt1sACgkQJNaLcl1U
-h9CeXgf/ee/xxhTgqVSMNL+gDYl+cgPqn0CVS5ynzTQm6XlCEEXDBneO8oAyMs9Q
-B35qG/r62a8QVrA/l3LzqVMhLlv8zL4iGOheD5+eZ6gHnMv7lPajWNmGOfnMJd9H
-UKLDbTT2i5G+9z8eCMtms1XURh+HwDOazAYv0AivApzVodTmO2psgQP1QLL2OzJL
-LPC4wm0qrtgar4rno/OfhGR/wyJfJKLE7MqnJ73wcaO5fZ48mtXx0mZwh3aJqtxe
-3inu1PkxuHNSlxEIMHFKg8Tvg/cGD1vngJEwsEZ8AJ+bTOcI8HX+goLuAyNwTG6F
-VynhL1Jdiscm+V62nRat6prHHhzWBw==
-=WoRy
------END PGP SIGNATURE-----
-
---DIOMP1UsTsWJauNi--
-
-
---===============2876462954138368862==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Rob
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
-
---===============2876462954138368862==--
-
