@@ -2,89 +2,57 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D044416A357
-	for <lists+linux-mtd@lfdr.de>; Mon, 24 Feb 2020 11:00:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DC26716A56E
+	for <lists+linux-mtd@lfdr.de>; Mon, 24 Feb 2020 12:46:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hvZ7JxRRRB9exp41nVE0lEm6k0VtNuQhbO0TQ1m8F9E=; b=kPVorOM69GGpl4
-	TwuvHkLHZEZMJ1fo3F8R2IMH0P+475kOTwXebdsdW+dPTq1zx4EhmoT8BXf8Ms0DKL1FqVgI1oPSa
-	VhYWcMrHxNIY2QFDW4Txtpo/iD7MNJrMUTonCLyH6IfB7yo09ME85iWJ4jqzEtRRsvOuzwFdtQxho
-	/CR1Tvi4Z9PKPk/TCpv36YJBLMCWrE2ZHpiFJzsYcr/TwXecOZ0vN4iw5Z9+8tIH2qpVtdzW909Nu
-	mePpgARM9dwtJ7gmQrzWE/lVinBoVjVXnq9O+bj9lrAEFR4lV4gAJ+0NlLrLt5KRDOcEITmV+h1eC
-	4PFNsBjj09QcRpK0USmQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=xyjuJUHhZOkT/D9nhNbyBjbLZV0/q8JEHKzIFzGMscY=; b=e/p2X6rHcf7e1Z/m52K1TpAw9
+	IjRdShodCkjFb7i1IoAdz6IrkR0VmB7RJvEqAkEEqg5W4ThDjeeq2A2nd0V1KC29ZinHA7CldkLTf
+	tHbldD3tPYwfeCSios+qLxoDDBHquq30tllDOg+qvSwoeoSngMcYCdjd5sd8+37ey4gAeYYzMrWnD
+	okltyQt7ZpPUdZV9b/nSoTuwWjgnMb4eFOH83s9m3fgQqt3K7XueQ4184fAWyys9Lhb3FpLmDhF0S
+	gHIpxjfkxCQB2Bhh3uz0s9KZYiq52BUXFUZYZxywk+bohGebx1o/BItqCddB6NUgFCejb5xu4pP0o
+	N9v8M6piQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j6AX7-0005dP-Ey; Mon, 24 Feb 2020 10:00:13 +0000
-Received: from mail-ua1-x942.google.com ([2607:f8b0:4864:20::942])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j6AWo-0005cv-RA
- for linux-mtd@lists.infradead.org; Mon, 24 Feb 2020 09:59:56 +0000
-Received: by mail-ua1-x942.google.com with SMTP id g13so2996040uab.7
- for <linux-mtd@lists.infradead.org>; Mon, 24 Feb 2020 01:59:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=AmWO2CXU5DL6vZu9aIfT0OhpFKvoC0rPyh0VmFLRcSI=;
- b=tL8RVElXJeztDZGyA9lXPqramBQBS2LzFitRxGECiU6D/06vY10Etk5PoQX+S69tfQ
- THwdI76G53CyAxrZe9IW34USngXatoZ6ZICdv4p3FbIFRs2eog/b7FTAu0r5GyUEE2xR
- NfIHWCWxukpxM6j3w1GunBaXyxovmjNzth9DvO59gcmiW/7PIVz9CvUE9kD0gzOiZHGw
- u0yfC2tvBGHRayroQjYHp2lFwh1TDtvWnnwv8oQoP/8o1IMhTAD/Cu531uGUagE8nRPZ
- vpf+a5u+jYcAzY/cav0ZsIH5nWwqT+5mefCm1iQAIAMJNDPjkY03dkG3ZL40t9K/mrlN
- kXhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=AmWO2CXU5DL6vZu9aIfT0OhpFKvoC0rPyh0VmFLRcSI=;
- b=LfES2B0EgsNGy0zHWH7wTMuK3ayO0RIvDr7dtAR+NpyzmRZfN2+KwlzYnv7Ll7WPnb
- ajRiadXyFUtlIVgG79D3SUJ4iR7X45N3VdjP2xJjYFYTp/dwdJzOxYhOtIoaZ3QSPbtS
- cYE30QwGgUuXib5EeMzyC5puBJLx/eYrik40iQ6JWWvk74+2ZwNrkrJCs3AWSRvY3Gw+
- KJjZWnsJ7mHAn4PNug2FJfIGucT4Ea4/hEs5ofJe2uS59uUy4A0DVIZwglJCTpoEg1op
- bVhqe3qvCvP4c09aV4VHtOZcZ8UmAE3U6dZxWgFNmLnUzTg+1y983+dSPW9+ca0c9RAG
- 5mkQ==
-X-Gm-Message-State: APjAAAXApM37MKpHgd0S6p3ZlvRcC7goRjk9AVdiDJLsvA/PwS29Qe24
- RK6LQyQYwkK/jxJp8s76d7wd23VTfi429xeoA38=
-X-Google-Smtp-Source: APXvYqywj8WNnwD2MhWOoNL9KF23Z6u0E5rG3AsnfPaVMiMAPipSxEAfmzxOn9mqdrSaxryo37xtW7uXdJUkBPnzyCc=
-X-Received: by 2002:ab0:1c51:: with SMTP id o17mr25124852uaj.63.1582538392920; 
- Mon, 24 Feb 2020 01:59:52 -0800 (PST)
+	id 1j6CBW-0001fG-Pb; Mon, 24 Feb 2020 11:46:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j6CB7-0001Ue-SR; Mon, 24 Feb 2020 11:45:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12FB530E;
+ Mon, 24 Feb 2020 03:45:34 -0800 (PST)
+Received: from localhost (unknown [10.37.6.21])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 66C063F534;
+ Mon, 24 Feb 2020 03:45:33 -0800 (PST)
+Date: Mon, 24 Feb 2020 11:45:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Subject: Re: [PATCH] docs: dt: fix several broken doc references
+Message-ID: <20200224114532.GC6215@sirena.org.uk>
+References: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
 MIME-Version: 1.0
-Received: by 2002:ab0:238b:0:0:0:0:0 with HTTP; Mon, 24 Feb 2020 01:59:52
- -0800 (PST)
-From: Tracy William <captraymondjpierce@gmail.com>
-Date: Mon, 24 Feb 2020 10:59:52 +0100
-Message-ID: <CAAcDt7H847bhKB5LMAukVOu-Xxey=5JHOhrkNFJ0uK8Qz7-qNg@mail.gmail.com>
-Subject: From Dr Tracy William
-To: undisclosed-recipients:;
+In-Reply-To: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
+X-Cookie: How you look depends on where you go.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200224_015954_888425_BCBFB152 
-X-CRM114-Status: UNSURE (  -3.23  )
+X-CRM114-CacheID: sfid-20200224_034537_964241_59DA0CD7 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.1 (+)
+X-Spam-Score: -2.1 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (1.1 points)
+ Content analysis details:   (-2.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:942 listed in]
- [list.dnswl.org]
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [tracymedicinemed3[at]yahoo.com]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [217.140.110.172 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [captraymondjpierce[at]gmail.com]
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,28 +64,76 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: tracymedicinemed3@yahoo.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: alsa-devel@alsa-project.org, Olivier Moysan <olivier.moysan@st.com>,
+ =?iso-8859-1?B?Suly9G1l?= Pouiller <jerome.pouiller@silabs.com>,
+ Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+ linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Vignesh Raghavendra <vigneshr@ti.com>, devel@driverdev.osuosl.org,
+ Jonathan Corbet <corbet@lwn.net>, Richard Weinberger <richard@nod.at>,
+ Piotr Sroka <piotrs@cadence.com>, devicetree@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@st.com>, Rob Herring <robh+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnaud Pouliquen <arnaud.pouliquen@st.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ "David S. Miller" <davem@davemloft.net>
+Content-Type: multipart/mixed; boundary="===============2876462954138368862=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
--- 
-Hello Dear,
-how are you doing.
-Its my pleasure to contact you for a long term relationship.
-I was just surfing through the Internet when i found your email address.
-I want to make a new and special friend.
-Lets keep in touch and get to know more about each other and see what
-happens in future.
 
-My name is Tracy William,I am from the United States of America,but
-presently live and work in England.
-Pls reply to my personal email(tracymedicinemed3@yahoo.com)
-I will send my details and pictures as soon as i hear from you
-bye
-Tracy
+--===============2876462954138368862==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="DIOMP1UsTsWJauNi"
+Content-Disposition: inline
+
+
+--DIOMP1UsTsWJauNi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Sun, Feb 23, 2020 at 09:59:53AM +0100, Mauro Carvalho Chehab wrote:
+> There are several DT doc references that require manual fixes.
+> I found 3 cases fixed on this patch:
+>=20
+> 	- directory named "binding/" instead of "bindings/";
+> 	- .txt to .yaml renames;
+> 	- file renames (still on txt format);
+
+This seems like it should've been split up a bit.  :/
+
+Acked-by: Mark Brown <broonie@kernel.org>
+
+--DIOMP1UsTsWJauNi
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl5Tt1sACgkQJNaLcl1U
+h9CeXgf/ee/xxhTgqVSMNL+gDYl+cgPqn0CVS5ynzTQm6XlCEEXDBneO8oAyMs9Q
+B35qG/r62a8QVrA/l3LzqVMhLlv8zL4iGOheD5+eZ6gHnMv7lPajWNmGOfnMJd9H
+UKLDbTT2i5G+9z8eCMtms1XURh+HwDOazAYv0AivApzVodTmO2psgQP1QLL2OzJL
+LPC4wm0qrtgar4rno/OfhGR/wyJfJKLE7MqnJ73wcaO5fZ48mtXx0mZwh3aJqtxe
+3inu1PkxuHNSlxEIMHFKg8Tvg/cGD1vngJEwsEZ8AJ+bTOcI8HX+goLuAyNwTG6F
+VynhL1Jdiscm+V62nRat6prHHhzWBw==
+=WoRy
+-----END PGP SIGNATURE-----
+
+--DIOMP1UsTsWJauNi--
+
+
+--===============2876462954138368862==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============2876462954138368862==--
+
