@@ -2,83 +2,89 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DBD5216AF37
-	for <lists+linux-mtd@lfdr.de>; Mon, 24 Feb 2020 19:33:21 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 72A8716B618
+	for <lists+linux-mtd@lfdr.de>; Tue, 25 Feb 2020 00:57:58 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iMHOQg7T/sinPWHMyS00KF1bXlM1IGHjs8wooiHIylI=; b=j99+FMrWsuCiTC
-	LAYn/2m5mS50rHophqFu7Y0p+ZBp0ebB7CVwQ4qsd/xnRbnlPNTaOitrdI2CdNUeBO8RSdfsnP3Gr
-	D28zynHuADv6VcSkJldG4cynkz3s6Hq9/huqgAei0/0CosGpQWYEA+JKq0hlQsyxPdmuUNmVReVaB
-	+/3qCUeMvrBLdv8Bbt717T5UvWklhqHqSy5jMQVRQptZS3RszG3dRUoOO1oX657ZJgcDG8K5zYUEG
-	bZkdeScRJocxtED3Ul7aOg/gjCMohB9SgBR2WeY+GtR/a7kWqmOjZkMaZlMsraDEzfAruiGoJZVtO
-	a4WU/M55JVQda/gccvvQ==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CpoT/4RYbYkaeMYZMCYK6P/Bk5PIZkkg5xx8qbKGlok=; b=QAOUa5PluYfYIc
+	W/pQGTi46DD4/dSUDMmQY3VMBvXQa1fQ7LsIFtZoP+VEnWjFuEHFaWhT+lbjR0TlInfvs5wtBRKGJ
+	BUytXYiyQzh5KhAO/LJ6lFxW94w00lhrwKZXErQj1NDaGcg0F+FcRANXZK/OEhS8ogaCKivCeY8zS
+	QFDiYUGOwdXzSHghcLVQmwUH2ljJSJM67Y8zkjF2TVljCanKVQPB9LNwrBmib629DhGriEx7gzsDh
+	vdvvmFEEtPC33Xjq4NKFB9OJazsjqmKwL2cimtWlswCSbfhaWlYtJECCbj+Klclgw0KALIQKWBKz5
+	ZLSVCMobJo6R/JXBwO/A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j6IXb-0007KB-2I; Mon, 24 Feb 2020 18:33:15 +0000
-Received: from mail-oi1-f193.google.com ([209.85.167.193])
+	id 1j6Nbk-0002BH-Of; Mon, 24 Feb 2020 23:57:52 +0000
+Received: from mail-oi1-x244.google.com ([2607:f8b0:4864:20::244])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j6ISU-00012V-8Z; Mon, 24 Feb 2020 18:28:00 +0000
-Received: by mail-oi1-f193.google.com with SMTP id r137so9884991oie.5;
- Mon, 24 Feb 2020 10:27:57 -0800 (PST)
+ id 1j6Nbc-0002Ax-OH
+ for linux-mtd@lists.infradead.org; Mon, 24 Feb 2020 23:57:45 +0000
+Received: by mail-oi1-x244.google.com with SMTP id q81so10823622oig.0
+ for <linux-mtd@lists.infradead.org>; Mon, 24 Feb 2020 15:57:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:reply-to:from:date:message-id:subject:to;
+ bh=E/e++dZNrLP95f8mQeSyqNWxeHBZO1usUka5rlOqoU8=;
+ b=QT7e2QTmpjFh7sPnVkDW04ofF/1mAj5l3NJJNTgC/0yj3OBmGrlGxs8+YaY8Pj90fD
+ dRalmefoxblXsTQNgLalT9kypCT/fflDKiyguPA0yyQD4HIcyC1hho3dkzUKO6u4KPNv
+ E1VYHUZAZIZzuHpx8cUgF0aAm+NWww/P8VFq/vSuCUgVZrt5bKFrKBiUlixBa1/ej1O5
+ 2z9Sg9bQ77Pf8TSLgvXHdf2rnH2zscLZdZbo5Yj/ihzh6AQhJnLQBgLx0xs60x9naPfz
+ buSyrahhOtuNfgP7r25DvjdE/VCvUpFyWgwQYOwwnmgaGsR1rpxuHHw89A+w+lOWE5PC
+ hKlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=8b3MliEDFbDrUpBm8jGhwYqreoGs6m8FNnF/yNIueEU=;
- b=Tb2wTBaOM1MDXpLpney58Kpc8cOzF4gKSRXv8h79ePvc/KQ3YelB/kJ9WOTrzVCQQm
- kPytDDHcy5CbZnKgpBf4cyBCo8knl/Ji7WvsoXrm8+L/66lxeAP4NbEkq1ZnsxNZHmmb
- OrXD/SUmsT5JGlhlq23Uew5YuIZ24lcTT3nPIuuJx4yX8wqHmel8DSxYjsIzAyDI6cBb
- sMvz8mLzEA8BHpI1lRHOeoQudOx/WWli2k4Uuj3OTUF8gJ6qJ2h7bjh564mNVjo1bLtW
- DkcT9JzFQ5JSm6SvOhAcbVV2Tw1Gnr0XsSg/CLJczD/DoncISpeaFMDbz0gZOxyS386d
- dWwA==
-X-Gm-Message-State: APjAAAUdtenKB4Q+z9FWgSOHBaBNW9YWCHZeU52rLOh3kYr9Actf6JdH
- v0CUoMclJUj+qftYkx5Tig==
-X-Google-Smtp-Source: APXvYqyzy4iiGXu+ZZ3t2yBP3j4K/yU2pKb0H/blTr6+iujeHVCL8mJihe7tO3CjLAVcADKqUCNWGQ==
-X-Received: by 2002:aca:bfc2:: with SMTP id p185mr318449oif.57.1582568876626; 
- Mon, 24 Feb 2020 10:27:56 -0800 (PST)
-Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
- [24.155.109.49])
- by smtp.gmail.com with ESMTPSA id v10sm4255017oic.32.2020.02.24.10.27.55
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 24 Feb 2020 10:27:56 -0800 (PST)
-Received: (nullmailer pid 13156 invoked by uid 1000);
- Mon, 24 Feb 2020 18:27:55 -0000
-Date: Mon, 24 Feb 2020 12:27:55 -0600
-From: Rob Herring <robh@kernel.org>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Subject: Re: [PATCH] docs: dt: fix several broken doc references
-Message-ID: <20200224182755.GB27161@bogus>
-References: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
+ h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+ :subject:to;
+ bh=E/e++dZNrLP95f8mQeSyqNWxeHBZO1usUka5rlOqoU8=;
+ b=OlltJpt4SG3/uO30r7yulO2pY58su4U1l925cthoizbV7kzBhz8Pv6BCb/UgjrbNDp
+ inVauTsq3DK/zSxov/naql/ibRvAlIlVDRxYUxSczScU7DHnmIGAPV5CGh63PzPq8Tga
+ D3Hgx+OYYi5B7QdXlXmmmi8r5syOx0msfpFmWrcqrdIxUxvr/HMaXQW/YrtTpM/UnaGd
+ SbSNKR9t0ljLoIMZVIHnxLJUTZUBo+8T/xfCUUkU1sxX87Buc+UaiJ5yFGU3uVQiugff
+ yAm8RDCa9IJ1USupPW46f3V+FPgEoRxoZHnND3aaFXE8KP8qKcrZgBKMMqaZwHZgkD+v
+ UWeA==
+X-Gm-Message-State: APjAAAVfaRdLViT0jCRsIMgG5ct6n6n2mli+Q8OG4dPneXOhyRmDYl2V
+ 079lpvs4juel7JpLqZw5x+sKT8aJnT0PsOgdeeM=
+X-Google-Smtp-Source: APXvYqxoWqxZF53LWceFgw7XFzYknaz7Erx/9gvx2hSWtByyJPbsMD0i5GygY40Q0fhBiA+A9wOLFP3ZJH3YuQ9nDSM=
+X-Received: by 2002:aca:f354:: with SMTP id r81mr1246111oih.90.1582588663389; 
+ Mon, 24 Feb 2020 15:57:43 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0e530494349b37eb2eab4a8eccf56626e0b18e6d.1582448388.git.mchehab+huawei@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Received: by 2002:a05:6830:2366:0:0:0:0 with HTTP; Mon, 24 Feb 2020 15:57:42
+ -0800 (PST)
+From: Chang Myung <6466789@gmail.com>
+Date: Tue, 25 Feb 2020 00:57:42 +0100
+Message-ID: <CAMZJ9OhVapHks1NdmCMM8KCQQWvmxcWaUwvb9Xx4jK2=gdRH0g@mail.gmail.com>
+Subject: Good day !
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200224_102758_377277_40004144 
-X-CRM114-Status: GOOD (  11.42  )
-X-Spam-Score: 0.5 (/)
+X-CRM114-CacheID: sfid-20200224_155744_785886_0B9E18EA 
+X-CRM114-Status: UNSURE (  -3.91  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.1 (+)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.5 points)
+ Content analysis details:   (1.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.167.193 listed in list.dnswl.org]
+ no trust [2607:f8b0:4864:20:0:0:0:244 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [robherring2[at]gmail.com]
+ in digit [6466789[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [robherring2[at]gmail.com]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.167.193 listed in wl.mailspike.net]
- 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ provider [6466789[at]gmail.com]
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
+ different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,48 +96,18 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: alsa-devel@alsa-project.org, Olivier Moysan <olivier.moysan@st.com>,
- =?iso-8859-1?B?Suly9G1l?= Pouiller <jerome.pouiller@silabs.com>,
- Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- Vignesh Raghavendra <vigneshr@ti.com>, devel@driverdev.osuosl.org,
- Jonathan Corbet <corbet@lwn.net>, Richard Weinberger <richard@nod.at>,
- Piotr Sroka <piotrs@cadence.com>, devicetree@vger.kernel.org,
- Alexandre Torgue <alexandre.torgue@st.com>, Mark Brown <broonie@kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnaud Pouliquen <arnaud.pouliquen@st.com>,
- Liam Girdwood <lgirdwood@gmail.com>, linux-spi@vger.kernel.org,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>
+Reply-To: changmyny@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sun, Feb 23, 2020 at 09:59:53AM +0100, Mauro Carvalho Chehab wrote:
-> There are several DT doc references that require manual fixes.
-> I found 3 cases fixed on this patch:
-> 
-> 	- directory named "binding/" instead of "bindings/";
-> 	- .txt to .yaml renames;
-> 	- file renames (still on txt format);
-> 
-> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-> ---
->  .../devicetree/bindings/mtd/cadence-nand-controller.txt       | 2 +-
->  .../devicetree/bindings/net/brcm,bcm7445-switch-v4.0.txt      | 2 +-
->  Documentation/devicetree/bindings/sound/st,stm32-sai.txt      | 2 +-
->  Documentation/devicetree/bindings/sound/st,stm32-spdifrx.txt  | 2 +-
->  Documentation/devicetree/bindings/spi/st,stm32-spi.yaml       | 2 +-
->  MAINTAINERS                                                   | 4 ++--
->  .../devicetree/bindings/net/wireless/siliabs,wfx.txt          | 2 +-
->  7 files changed, 8 insertions(+), 8 deletions(-)
-
-Applied.
-
-Rob
+Good day  !
+ I sent you mail before regarding my project plan in your country that
+I would like to discuss with you, can you please get back to me for
+further details through my private email (changmyny@gmail.com)
+Regards,
+Chang Myung.
 
 ______________________________________________________
 Linux MTD discussion mailing list
