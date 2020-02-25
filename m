@@ -2,88 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EB9A416C030
-	for <lists+linux-mtd@lfdr.de>; Tue, 25 Feb 2020 13:04:55 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B88E16EC8F
+	for <lists+linux-mtd@lfdr.de>; Tue, 25 Feb 2020 18:32:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=LcaRQuTwhSf7tqjk1vmwYjmYKXhpI2RAdMnlJlySUY0=; b=QLh
-	K7IUIVUPsQgYPpBSKzc76dSfEP6meSU42HRcMBIyRgy7UxFO0vHhCmvZcEyyi4jEp6T8oTfEKL8pe
-	V1SLY7HSA8PSP/sLUqZg+x8pqCFeTfLOqCk/UxRhheA7bNsgFklrTU0VEMYIeBUdAqg0AGYjX9TzN
-	Ymfe9VBkQJI0/axf5f6EQNITXMTAEeP7QFqKyaqr5m5ROpu86yAKOmfqhvGOYdYPdpy7EOKRZZxb7
-	aRpunu7y//GwxafZ6P+PmMO/Zhu12vb6mQaEeXDoRHRpkhX0m9qq+aQFZr4N6ovFK6D5dfzZGkSsA
-	0o0j3J1tazJ40kfPWWMtuqAY8HBay5Q==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hNSFxVEWvdzU49B4hS+6Ya0UbZs1lRyUW2xviXHwEvc=; b=bkJcfXgXAISGeT
+	tGjpVLAbsFFSQjaIsrDihQHx/kdfpDvJGEUEdx4aJett57DmCybvL01/pB5B55MgfnG3jrkealoVx
+	oOPD1P4Y+YJ85kklyXrP8FDUO+fTmla7LfVykWVlmGIarwv5RIATv2xex/IG3nBtCrWxlP0yUUeXT
+	MxQ2M9p9rGRtgTCOVMzPdb42laOMMksEE+WTbi+37VGQhLWI5ZbERhpG/jjPkxYh76j3hB+uhYAHT
+	+HkFp3xrdmu5Hvs5DiRt9oGM5Wn9CNmeYYGgZgVSLT6Lcq8SLH9BvGpdtvDAveaT94uNWA8Yfwv15
+	/gbpgGAcNK5nqWigPH4A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j6YxB-00074N-TD; Tue, 25 Feb 2020 12:04:45 +0000
-Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
+	id 1j6e3q-0007Gh-Ay; Tue, 25 Feb 2020 17:31:58 +0000
+Received: from mail-ot1-f67.google.com ([209.85.210.67])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j6Yx5-00073r-9e
- for linux-mtd@lists.infradead.org; Tue, 25 Feb 2020 12:04:40 +0000
-Received: by mail-wr1-x444.google.com with SMTP id l5so10176582wrx.4
- for <linux-mtd@lists.infradead.org>; Tue, 25 Feb 2020 04:04:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=bZwPA3RGwD8pU8aBxNxgLZ7Z78acc8f6Au1L1blgYZs=;
- b=RuoVrntUjxMkKp/DGeRRH5Rb5SXvh1z9Wy2+xBsTVq2/lFj3Qyfff8+z8IZnBoQmCH
- FapxQbhdbn2R3+qqRbZhYIGEspdsBHPiAqb65ZqMo8dQ/QMicsv+/Xt7v6EB7ZisEBIE
- UH/xvfPTryCOIvUPfsjvlOm3teoD4vITJU3gUKPjT/0xkxfLvU0AFfEe4l5xjogXTGwK
- 44vkbO20tfpFJ50TbtNoTd3/INyWHxpy4wluLMMPzx2E4jhWZPAxBEyYLl2STTlVYOSW
- v0VYNBNYWkwKoJhVZ1DY+3nDH1XoFfKGfr+bx4WiZwRyWiw3Iy403k11rEWQWI1q4tT0
- jcAg==
+ id 1j6e3a-0007EW-1z; Tue, 25 Feb 2020 17:31:43 +0000
+Received: by mail-ot1-f67.google.com with SMTP id r16so304888otd.2;
+ Tue, 25 Feb 2020 09:31:39 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=bZwPA3RGwD8pU8aBxNxgLZ7Z78acc8f6Au1L1blgYZs=;
- b=emakJk23rP/A0y15Yv5Rb1x2Ms85/4LIDx937HA61H9Z6UMzQFmDdoWLu+t0scxnkV
- RTg2Q2v7uM3on3ZNZ60UMl0NTRud7hEaRSmsDUG9+67mdw55k7rUmslzJ4/ncwX7sMYA
- lYdIGBnihoHKmJp3tmvN4qOLPXPStufkMzmyHqKoSPIdR4JbFREZq8UDrzFClj1eoePq
- y9cg9lQHdWoOtIOeGmRO80h/8Dz+xNJfCrx2VXVnfzYTe3ezA7PBV74UjPtUaLgu4pmz
- kxcFXMXERX6l1dB/UcAsuJ8eyMWtzDwJd2XgBw7hHhQHccuwQGlxHeb+tvZjRaFL6jn3
- Rdlg==
-X-Gm-Message-State: APjAAAXK+tQPAo/7iJ7RAxsuMx+NnnO0XYytSjJl1JpYe/KBLJDwuoKL
- O84oD4r+mFyssIZI1QNB0LpocpkYTFRbbT1VM74=
-X-Google-Smtp-Source: APXvYqzhhXfMcw+Nub2bB882QV+q7F54yGp2AN9SL9LoGAFkbvFuljzIiYIrVRFi5H52UKNV3rcW39ZTQlfWgnNQtn4=
-X-Received: by 2002:a05:6000:149:: with SMTP id
- r9mr68666027wrx.147.1582632277159; 
- Tue, 25 Feb 2020 04:04:37 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=QS0K6caHcm4ENnIoTn05eBvdx/7W9kVs7Tic77EWV3U=;
+ b=hsIz/bxPRi4SG+/Vu44pJYjU95WbdEzG96YD0bUmWGHIr1QJIyFkwLvz6v/7NetUKc
+ 8RQ2ffdUFfzk5AbA/H4Vcqj7RUL3hwohsdrvhkTsnkhP5KbT5MR+lU76pQ1WZRNAL+nZ
+ SeYYxjbCVI+D05v8JZS1MNkDgX3s+I4AkkzaLCWnmT46aJjGNtpQMR5Zn/f03UjSPpUh
+ MLSSCsx1utNwqZ7gGwYAVn88BHYCzj+IOeLprRBVmnclQqNDyPgu9v2JK+HOhnQ6I7eo
+ i4mTyiWkeFN/J+BzKms+AlumYx8/aYQzXpL+Q/Qr8iVIxExLhGWQ+tytwm6o/foAhmoJ
+ kblg==
+X-Gm-Message-State: APjAAAWmlbEdoT0NW7ONQhn8wypTLbWyOtbKNYLJrv3L5ojoUBL5oHg+
+ 14eeMPXLbYun2hIRVHrfNQ==
+X-Google-Smtp-Source: APXvYqwB2+0s7QgvbO4hUWGFqaHT7kZzFUz3IlneivicGP+fTVhYNubNwANumJrX5ONqlNtblqsZ9g==
+X-Received: by 2002:a9d:7559:: with SMTP id b25mr44320296otl.189.1582651899014; 
+ Tue, 25 Feb 2020 09:31:39 -0800 (PST)
+Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id l12sm5915266oth.9.2020.02.25.09.31.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 25 Feb 2020 09:31:38 -0800 (PST)
+Received: (nullmailer pid 2861 invoked by uid 1000);
+ Tue, 25 Feb 2020 17:31:37 -0000
+Date: Tue, 25 Feb 2020 11:31:37 -0600
+From: Rob Herring <robh@kernel.org>
+To: Chuanhong Guo <gch981213@gmail.com>
+Subject: Re: [PATCH 0/2] rewrite mtk-quadspi spi-nor driver with spi-mem
+Message-ID: <20200225173137.GA31830@bogus>
+References: <20200215065826.739102-1-gch981213@gmail.com>
+ <20200218125557.GD4232@sirena.org.uk>
+ <CAJsYDVL03KJv7eewGekBPCfpbOuTX0tJ6qZaydvJnBDzZ5vEwg@mail.gmail.com>
 MIME-Version: 1.0
-Received: by 2002:a5d:4b82:0:0:0:0:0 with HTTP; Tue, 25 Feb 2020 04:04:36
- -0800 (PST)
-From: "fedmfiinance10@gmail.com" <fedmfiinance10@gmail.com>
-Date: Tue, 25 Feb 2020 12:04:36 +0000
-Message-ID: <CAHbjaFD9V_JZW4BW+ugqEi6JqHb=8fgfTLuhhJqB-QwehYA=EA@mail.gmail.com>
-Subject: Prompt reply would be greatly appreciated
-To: undisclosed-recipients:;
+Content-Disposition: inline
+In-Reply-To: <CAJsYDVL03KJv7eewGekBPCfpbOuTX0tJ6qZaydvJnBDzZ5vEwg@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200225_040439_338079_080E04A9 
-X-CRM114-Status: UNSURE (   0.72  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.2 (/)
+X-CRM114-CacheID: sfid-20200225_093142_096472_F93FA678 
+X-CRM114-Status: GOOD (  11.69  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.2 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:444 listed in]
- [list.dnswl.org]
+ no trust [209.85.210.67 listed in list.dnswl.org]
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [fedmfiinance10[at]gmail.com]
+ in digit [robherring2[at]gmail.com]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [fedmfiinance10[at]gmail.com]
- 0.1 BAD_CREDIT             BODY: Eliminate Bad Credit
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ provider [robherring2[at]gmail.com]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.67 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,36 +93,36 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Richard Weinberger <richard@nod.at>, open list <linux-kernel@vger.kernel.org>,
+ linux-spi@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-RE: LOAN FACILITY
+On Thu, Feb 20, 2020 at 07:58:06AM +0800, Chuanhong Guo wrote:
+> Hi!
+> 
+> On Tue, Feb 18, 2020 at 8:55 PM Mark Brown <broonie@kernel.org> wrote:
+> > This is an ABI break so you shouldn't be doing this, if the existing
+> > binding works it should continue to work.
+> 
+> The missing spi-max-frequency is the only part preventing old
+> device tree to work with this driver.
+> If the goal is to make existing dt binding work, I could patch dt using
+> of_add_property in v2. I saw similar device tree patching for legacy
+> bindings in pinctrl-single driver.
 
-Have you been trying to obtain a Loan from any of the Banks or Loan
-Companies and they have refused to grant you Loan due to bad credit?.
-We have Loan facility at a low Interest Rate of 3% annually for a
-duration of 15 years with 24 months moratorium period.
+You should should really only need 'spi-max-frequency' if the max freq 
+is less than the minimum of the host and device max freq.
 
-The categories of Loan facility offered include but not limited to:
-Business Loan, Personal Loan, Company Loan, Mortgage Loan, Debt
-consolidation and financial funding for both turnkey and mega projects
-etc.
-
-Should you find this interesting, kindly get in touch with your
-business plan for details, terms and conditions and share your
-WhatsApp line for easy communication.
-
-Prompt reply would be greatly appreciated
-
-Best Regards,
-Mr. Shabab Isaac
-CONSULTANTS OF FINANCIAL SERVICES LIMITED
-57 Frederick Road, Sutton, Surrey,
-SM1 2HP United Kingdom
-Company number: 08898840
-Phone: +44-7452379198  / WhatsApp: +44-7978379923
+Rob
 
 ______________________________________________________
 Linux MTD discussion mailing list
