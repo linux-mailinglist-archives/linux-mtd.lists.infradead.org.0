@@ -2,55 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 835DF17234D
-	for <lists+linux-mtd@lfdr.de>; Thu, 27 Feb 2020 17:26:18 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BCDC317235C
+	for <lists+linux-mtd@lfdr.de>; Thu, 27 Feb 2020 17:29:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YveL7mEnFJolAezKvCZPo20ceRua2a2LOPRSeDLhSRg=; b=h9MwHFVQnDB8VZ
-	SiD+pXusbQdOERPi8n9N10rvNogjaBYl8hdA6GHRSbkOmkBqw5hbkw+oPcA9O3W6ENNW6eOXjlbya
-	eYwrkkvJFSf+zsai6oqW3m0jrvIKdlbdoppAGpMkMbYURGEjpp8dK4c9qwuIRw28r083G+H96GO0U
-	0D8QNBz+ainNEc4NPyVL2bds5Y+4OQajCL1lDiQxhxN3wSJLAdHwJlKjzwcwLai3O+gdS4qKQDUKQ
-	p9jhk/bYyYjIFOA8XTY08peYUe10dyG1Aq7BeVwYDymf8kf+GWvteSMVR+nw7d/rXR2XnTud3KcXN
-	XD6rO4WBC3G6bc4701ng==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=49xUrga5j3Vkc7ZIsRJfg+0aVHyNQQwMeVv+AzT3ohY=; b=ME7t6SWsmZowEGa40LhCvFglb
+	2Rn/REOGStW/GRHCP2khNCS0/gccuAW1D8JsGRAGx5DLvu2Lg6gvRlyfaPTfpXob/q1uq+rcUfVQP
+	PFRbsY5VrOntHMGE74wmfmHv6gAmRz0as4qjHBSEB4pjhUJNYvbLHiIXQAPZjwzpcYgqvUGXfSv0A
+	6g0g2waGk7VUbu5q3bwRBK1hpKzBLUu0wmGu3KuSWkJ62x4g5pEBX8EHqXt/MxqTxhBPwpt5Ia0Kh
+	kWGfplkZG/yEcHi1DdPd5bZPMIl8pje2RZiatp17OQGrFhmQlBZ73V6PrwrOGZYDd2yYcKJPJrtF+
+	qqcCE+MvQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7LzE-0005Kg-Im; Thu, 27 Feb 2020 16:26:08 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7LwL-00026G-7X
- for linux-mtd@lists.infradead.org; Thu, 27 Feb 2020 16:23:11 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 524F12963D9;
- Thu, 27 Feb 2020 16:23:07 +0000 (GMT)
-Date: Thu, 27 Feb 2020 17:23:04 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Pratyush Yadav <p.yadav@ti.com>
-Subject: Re: [PATCH v2 02/11] spi: set mode bits for "spi-rx-dtr" and
- "spi-tx-dtr"
-Message-ID: <20200227172247.0e8ec459@collabora.com>
-In-Reply-To: <20200226093703.19765-3-p.yadav@ti.com>
+	id 1j7M1y-0007RM-KS; Thu, 27 Feb 2020 16:28:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j7M1l-0007Pt-4Y
+ for linux-mtd@lists.infradead.org; Thu, 27 Feb 2020 16:28:46 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 858671FB;
+ Thu, 27 Feb 2020 08:28:44 -0800 (PST)
+Received: from localhost (unknown [10.37.6.21])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F12813F7B4;
+ Thu, 27 Feb 2020 08:28:43 -0800 (PST)
+Date: Thu, 27 Feb 2020 16:28:42 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 01/11] dt-bindings: spi: allow expressing DTR capability
+Message-ID: <20200227162842.GE4062@sirena.org.uk>
 References: <20200226093703.19765-1-p.yadav@ti.com>
- <20200226093703.19765-3-p.yadav@ti.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ <20200226093703.19765-2-p.yadav@ti.com>
+ <20200227171147.32cc6fcf@collabora.com>
 MIME-Version: 1.0
+In-Reply-To: <20200227171147.32cc6fcf@collabora.com>
+X-Cookie: Edwin Meese made me wear CORDOVANS!!
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_082309_494395_E870F6E9 
-X-CRM114-Status: GOOD (  20.41  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200227_082845_240774_60C595AB 
+X-CRM114-Status: GOOD (  10.01  )
+X-Spam-Score: -2.1 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [217.140.110.172 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,82 +70,63 @@ Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
  Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <tudor.ambarus@microchip.com>,
  Richard Weinberger <richard@nod.at>, Sekhar Nori <nsekhar@ti.com>,
- linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
- linux-spi@vger.kernel.org, Mark Brown <broonie@kernel.org>,
- linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Pratyush Yadav <p.yadav@ti.com>
+Content-Type: multipart/mixed; boundary="===============8231614862037215551=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, 26 Feb 2020 15:06:54 +0530
-Pratyush Yadav <p.yadav@ti.com> wrote:
 
-> These two DT properties express DTR receive and transmit capabilities of
-> a SPI flash and controller. Introduce two new mode bits: SPI_RX_DTR and
-> SPI_TX_DTR which correspond to the new DT properties. Set these bits
-> when the two corresponding properties are present in the device tree.
-> Also update the detection of unsupported mode bits to include the new
-> bits.
-> 
-> Signed-off-by: Pratyush Yadav <p.yadav@ti.com>
-> ---
->  drivers/spi/spi.c       | 10 +++++++++-
->  include/linux/spi/spi.h |  2 ++
->  2 files changed, 11 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-> index 38b4c78df506..25c8ed9343f9 100644
-> --- a/drivers/spi/spi.c
-> +++ b/drivers/spi/spi.c
-> @@ -1927,6 +1927,13 @@ static int of_spi_parse_dt(struct spi_controller *ctlr, struct spi_device *spi,
->  		}
->  	}
->  
-> +	/* Device DTR mode. */
-> +	if (of_property_read_bool(nc, "spi-tx-dtr"))
-> +		spi->mode |= SPI_TX_DTR;
-> +
-> +	if (of_property_read_bool(nc, "spi-rx-dtr"))
-> +		spi->mode |= SPI_RX_DTR;
-> +
+--===============8231614862037215551==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y2zxS2PfCDLh6JVG"
+Content-Disposition: inline
 
-If this DTR mode is only used in spi-mem, maybe we shouldn't add those
-flags. SPI mem devices are usually smart enough to advertise what they
-support, and the subsystem in charge of those devices (in this specific
-case, spi-nor) will check what the controller supports
-using spi_mem_supports_op(). The only case we might have to deal with
-at some point is board level limitations (disabling DTR because the
-routing prevents using this mode).
 
->  	if (spi_controller_is_slave(ctlr)) {
->  		if (!of_node_name_eq(nc, "slave")) {
->  			dev_err(&ctlr->dev, "%pOF is not called 'slave'\n",
-> @@ -3252,7 +3259,8 @@ int spi_setup(struct spi_device *spi)
->  		bad_bits &= ~SPI_CS_HIGH;
->  	ugly_bits = bad_bits &
->  		    (SPI_TX_DUAL | SPI_TX_QUAD | SPI_TX_OCTAL |
-> -		     SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL);
-> +		     SPI_RX_DUAL | SPI_RX_QUAD | SPI_RX_OCTAL |
-> +		     SPI_TX_DTR  | SPI_RX_DTR);
->  	if (ugly_bits) {
->  		dev_warn(&spi->dev,
->  			 "setup: ignoring unsupported mode bits %x\n",
-> diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
-> index 6d16ba01ff5a..bf1108318389 100644
-> --- a/include/linux/spi/spi.h
-> +++ b/include/linux/spi/spi.h
-> @@ -183,6 +183,8 @@ struct spi_device {
->  #define	SPI_TX_OCTAL	0x2000			/* transmit with 8 wires */
->  #define	SPI_RX_OCTAL	0x4000			/* receive with 8 wires */
->  #define	SPI_3WIRE_HIZ	0x8000			/* high impedance turnaround */
-> +#define SPI_RX_DTR	0x10000			/* receive in DTR mode */
-> +#define SPI_TX_DTR	0x20000			/* transmit in DTR mode */
->  	int			irq;
->  	void			*controller_state;
->  	void			*controller_data;
+--y2zxS2PfCDLh6JVG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
+On Thu, Feb 27, 2020 at 05:11:47PM +0100, Boris Brezillon wrote:
+> Pratyush Yadav <p.yadav@ti.com> wrote:
+
+> > Allow spi devices to express DTR receive and transmit capabilities via
+> > the properties "spi-rx-dtr" and "spi-tx-dtr".
+
+> Is the RX/TX granularity really useful?
+
+It's what we do for other properties, and if this is anything like the
+other things adding extra wiring you can't assume that the ability to
+use the feature for TX implies RX.
+
+--y2zxS2PfCDLh6JVG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl5X7jcACgkQJNaLcl1U
+h9A5kgf/Y0DRJYdf4AUiGakcZO9I33l1RhLd5LtXAlID2YL52F81QjI/Uh6tRy8r
+6otcXAH1qzNwt2nV9Rsns7oy/Em4FpAf248Syn9SZiGE5JtiAS3opEuoAxKeJ604
+JNMbbAB/6AdKeIN3HrtjEb560Ht2WF9EEkrA5L45YYC6uHNf3YD1QseYg5l88d/K
+0g/2qCx8TpynDd2YEKAxBjExG6u4MK2pRtJBMZSAO/Ky3foUaUxUy/jBne/8IF+8
+6/YhGyxrXmJoklyW8KFJsPYNuR6pKAyl769Gy0w9KNvvs+O4cuBrVMxP+EUOwWbt
+OdSZ0ur//F4vDI6KkaOrG2YCg2r7Nw==
+=OoLn
+-----END PGP SIGNATURE-----
+
+--y2zxS2PfCDLh6JVG--
+
+
+--===============8231614862037215551==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============8231614862037215551==--
+
