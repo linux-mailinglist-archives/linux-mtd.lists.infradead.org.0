@@ -2,45 +2,45 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8D2C173F82
-	for <lists+linux-mtd@lfdr.de>; Fri, 28 Feb 2020 19:25:39 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4ADB8173F88
+	for <lists+linux-mtd@lfdr.de>; Fri, 28 Feb 2020 19:26:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:
 	In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=9VVexgWYYNJ1+QO/zPP4A4B5OPzz6IFAIYRG1bW8bIY=; b=kjz
-	R/OcJL63ol87Jl+91aHLAKjYEi05agM9fyZFVPVyzNHJ1mhvxO0M78Nrrfzi6Epc7oZ7cbPhfEMfr
-	m7YP3j8gK5jIgfh1oL+XCZ29BiPwXKQy6439hXoJ+IioWUGeJOMSILE2BZr8IezioZVH9T06rOMH1
-	uOlCv+Z0jezi0D2iXldgqkp2l3GPMHLL8v4ARHrbKyK9gAS27J8dcH+FaiHC3/yUYvRAzavXbv1TN
-	I9XvngH6IRwtYTDkkWTemN7xINUl7Ly9N3ot8Rhr7f1LRo+uYHiFdu4UXdDabw3lvlc6s09QYYjpx
-	aDZGrTI1YOi3oQrjH8YHh7uB4BZmstw==;
+	References:List-Owner; bh=QCbfL0Kowggps06xqkWINN6MkvHsKVBicHN8bkr3bWs=; b=jb7
+	Y4H1qxjyAfSfOWGW2rxM4fKrMLxAp2+Vr4aB8RaBJ16qWGkknpUcl/5RxnKMY6aiN7jjdDJkQ2o5R
+	/DDEdmhEV187ShpX3xdHvCIgaByYaz5e9Pkyv9Kt1sqjqUJSW3N+vvzqnq3cD6jKeYqVP0hxhD9y5
+	EwvGKXxaJokS4Uyaw0R0PBLoHh762t1eC/2xkmXP4fxILj3WY1qiQEvgfYVWTttjde28PU3jQVQUJ
+	0HwnYhZi7bKWU1OQ+yFIaE9p3UsDo40fYCDFfEp/DTS8oArsH6NNYZMpWH09XbsdZODotqd44Zelf
+	fdbfWtVlVABy1P/4cBHlv/c1ZI4gAQw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7kKO-0004yo-PD; Fri, 28 Feb 2020 18:25:36 +0000
+	id 1j7kKd-00059E-BC; Fri, 28 Feb 2020 18:25:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7kKJ-0004yT-FY
- for linux-mtd@lists.infradead.org; Fri, 28 Feb 2020 18:25:33 +0000
+ id 1j7kKO-00053T-Pf
+ for linux-mtd@lists.infradead.org; Fri, 28 Feb 2020 18:25:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C84E7FEC;
- Fri, 28 Feb 2020 10:25:30 -0800 (PST)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41458FEC;
+ Fri, 28 Feb 2020 10:25:35 -0800 (PST)
 Received: from localhost (unknown [10.37.6.21])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B3703F7B4;
- Fri, 28 Feb 2020 10:25:30 -0800 (PST)
-Date: Fri, 28 Feb 2020 18:25:28 +0000
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BA1603F7B4;
+ Fri, 28 Feb 2020 10:25:34 -0800 (PST)
+Date: Fri, 28 Feb 2020 18:25:33 +0000
 From: Mark Brown <broonie@kernel.org>
 To: John Garry <john.garry@huawei.com>
-Subject: Applied "spi: HiSilicon v3xx: Use DMI quirk to set controller
- buswidth override bits" to the spi tree
-In-Reply-To: <1582903131-160033-4-git-send-email-john.garry@huawei.com>
-Message-Id: <applied-1582903131-160033-4-git-send-email-john.garry@huawei.com>
+Subject: Applied "spi: HiSilicon v3xx: Properly set CMD_CONFIG for Dual/Quad
+ modes" to the spi tree
+In-Reply-To: <1582903131-160033-3-git-send-email-john.garry@huawei.com>
+Message-Id: <applied-1582903131-160033-3-git-send-email-john.garry@huawei.com>
 X-Patchwork-Hint: ignore
 X-Bad-Reply: In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200228_102531_609065_B04AFC98 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20200228_102536_926853_BB114DD8 
+X-CRM114-Status: GOOD (  13.29  )
 X-Spam-Score: -2.1 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.1 points)
@@ -74,7 +74,7 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 The patch
 
-   spi: HiSilicon v3xx: Use DMI quirk to set controller buswidth override bits
+   spi: HiSilicon v3xx: Properly set CMD_CONFIG for Dual/Quad modes
 
 has been applied to the spi tree at
 
@@ -99,113 +99,86 @@ to this mail.
 Thanks,
 Mark
 
-From 34e608b023e96f51b31274435b49c8ae61e2389f Mon Sep 17 00:00:00 2001
+From 8fe21d6b347247227c349c9b2f7c462fae362af4 Mon Sep 17 00:00:00 2001
 From: John Garry <john.garry@huawei.com>
-Date: Fri, 28 Feb 2020 23:18:51 +0800
-Subject: [PATCH] spi: HiSilicon v3xx: Use DMI quirk to set controller buswidth
- override bits
+Date: Fri, 28 Feb 2020 23:18:50 +0800
+Subject: [PATCH] spi: HiSilicon v3xx: Properly set CMD_CONFIG for Dual/Quad
+ modes
 
-The Huawei D06 board (and variants) can support Quad mode of operation.
+The CMD_CONFIG register memory interface type field is not set configured
+for Dual and Quad modes, so set appropriately.
 
-Since we have no current method in ACPI SPI bus device resource description
-to describe this information, use DMI to detect the board, and set the
-controller buswidth override bits.
+This was not detected previously as we only ever operated in standard SPI
+mode.
 
 Signed-off-by: John Garry <john.garry@huawei.com>
-Link: https://lore.kernel.org/r/1582903131-160033-4-git-send-email-john.garry@huawei.com
+Link: https://lore.kernel.org/r/1582903131-160033-3-git-send-email-john.garry@huawei.com
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/spi/spi-hisi-sfc-v3xx.c | 56 ++++++++++++++++++++++++++++++++-
- 1 file changed, 55 insertions(+), 1 deletion(-)
+ drivers/spi/spi-hisi-sfc-v3xx.c | 43 +++++++++++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
 diff --git a/drivers/spi/spi-hisi-sfc-v3xx.c b/drivers/spi/spi-hisi-sfc-v3xx.c
-index 45d906110ed1..e3b57252d075 100644
+index 4cf8fc80a7b7..45d906110ed1 100644
 --- a/drivers/spi/spi-hisi-sfc-v3xx.c
 +++ b/drivers/spi/spi-hisi-sfc-v3xx.c
-@@ -7,6 +7,7 @@
+@@ -17,6 +17,12 @@
+ #define HISI_SFC_V3XX_VERSION (0x1f8)
  
- #include <linux/acpi.h>
- #include <linux/bitops.h>
-+#include <linux/dmi.h>
- #include <linux/iopoll.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
-@@ -250,6 +251,44 @@ static const struct spi_controller_mem_ops hisi_sfc_v3xx_mem_ops = {
- 	.exec_op = hisi_sfc_v3xx_exec_op,
- };
+ #define HISI_SFC_V3XX_CMD_CFG (0x300)
++#define HISI_SFC_V3XX_CMD_CFG_DUAL_IN_DUAL_OUT (1 << 17)
++#define HISI_SFC_V3XX_CMD_CFG_DUAL_IO (2 << 17)
++#define HISI_SFC_V3XX_CMD_CFG_FULL_DIO (3 << 17)
++#define HISI_SFC_V3XX_CMD_CFG_QUAD_IN_QUAD_OUT (5 << 17)
++#define HISI_SFC_V3XX_CMD_CFG_QUAD_IO (6 << 17)
++#define HISI_SFC_V3XX_CMD_CFG_FULL_QIO (7 << 17)
+ #define HISI_SFC_V3XX_CMD_CFG_DATA_CNT_OFF 9
+ #define HISI_SFC_V3XX_CMD_CFG_RW_MSK BIT(8)
+ #define HISI_SFC_V3XX_CMD_CFG_DATA_EN_MSK BIT(7)
+@@ -161,6 +167,43 @@ static int hisi_sfc_v3xx_generic_exec_op(struct hisi_sfc_v3xx_host *host,
+ 	if (op->addr.nbytes)
+ 		config |= HISI_SFC_V3XX_CMD_CFG_ADDR_EN_MSK;
  
-+static int hisi_sfc_v3xx_buswidth_override_bits;
++	switch (op->data.buswidth) {
++	case 0 ... 1:
++		break;
++	case 2:
++		if (op->addr.buswidth <= 1) {
++			config |= HISI_SFC_V3XX_CMD_CFG_DUAL_IN_DUAL_OUT;
++		} else if (op->addr.buswidth == 2) {
++			if (op->cmd.buswidth <= 1) {
++				config |= HISI_SFC_V3XX_CMD_CFG_DUAL_IO;
++			} else if (op->cmd.buswidth == 2) {
++				config |= HISI_SFC_V3XX_CMD_CFG_FULL_DIO;
++			} else {
++				return -EIO;
++			}
++		} else {
++			return -EIO;
++		}
++		break;
++	case 4:
++		if (op->addr.buswidth <= 1) {
++			config |= HISI_SFC_V3XX_CMD_CFG_QUAD_IN_QUAD_OUT;
++		} else if (op->addr.buswidth == 4) {
++			if (op->cmd.buswidth <= 1) {
++				config |= HISI_SFC_V3XX_CMD_CFG_QUAD_IO;
++			} else if (op->cmd.buswidth == 4) {
++				config |= HISI_SFC_V3XX_CMD_CFG_FULL_QIO;
++			} else {
++				return -EIO;
++			}
++		} else {
++			return -EIO;
++		}
++		break;
++	default:
++		return -EOPNOTSUPP;
++	}
 +
-+/*
-+ * ACPI FW does not allow us to currently set the device buswidth, so quirk it
-+ * depending on the board.
-+ */
-+static int __init hisi_sfc_v3xx_dmi_quirk(const struct dmi_system_id *d)
-+{
-+	hisi_sfc_v3xx_buswidth_override_bits = SPI_RX_QUAD | SPI_TX_QUAD;
-+
-+	return 0;
-+}
-+
-+static const struct dmi_system_id hisi_sfc_v3xx_dmi_quirk_table[]  = {
-+	{
-+	.callback = hisi_sfc_v3xx_dmi_quirk,
-+	.matches = {
-+		DMI_MATCH(DMI_SYS_VENDOR, "Huawei"),
-+		DMI_MATCH(DMI_PRODUCT_NAME, "D06"),
-+	},
-+	},
-+	{
-+	.callback = hisi_sfc_v3xx_dmi_quirk,
-+	.matches = {
-+		DMI_MATCH(DMI_SYS_VENDOR, "Huawei"),
-+		DMI_MATCH(DMI_PRODUCT_NAME, "TaiShan 2280 V2"),
-+	},
-+	},
-+	{
-+	.callback = hisi_sfc_v3xx_dmi_quirk,
-+	.matches = {
-+		DMI_MATCH(DMI_SYS_VENDOR, "Huawei"),
-+		DMI_MATCH(DMI_PRODUCT_NAME, "TaiShan 200 (Model 2280)"),
-+	},
-+	},
-+	{}
-+};
-+
- static int hisi_sfc_v3xx_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -265,6 +304,8 @@ static int hisi_sfc_v3xx_probe(struct platform_device *pdev)
- 	ctlr->mode_bits = SPI_RX_DUAL | SPI_RX_QUAD |
- 			  SPI_TX_DUAL | SPI_TX_QUAD;
- 
-+	ctlr->buswidth_override_bits = hisi_sfc_v3xx_buswidth_override_bits;
-+
- 	host = spi_controller_get_devdata(ctlr);
- 	host->dev = dev;
- 
-@@ -320,7 +361,20 @@ static struct platform_driver hisi_sfc_v3xx_spi_driver = {
- 	.probe	= hisi_sfc_v3xx_probe,
- };
- 
--module_platform_driver(hisi_sfc_v3xx_spi_driver);
-+static int __init hisi_sfc_v3xx_spi_init(void)
-+{
-+	dmi_check_system(hisi_sfc_v3xx_dmi_quirk_table);
-+
-+	return platform_driver_register(&hisi_sfc_v3xx_spi_driver);
-+}
-+
-+static void __exit hisi_sfc_v3xx_spi_exit(void)
-+{
-+	platform_driver_unregister(&hisi_sfc_v3xx_spi_driver);
-+}
-+
-+module_init(hisi_sfc_v3xx_spi_init);
-+module_exit(hisi_sfc_v3xx_spi_exit);
- 
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("John Garry <john.garry@huawei.com>");
+ 	if (op->data.dir != SPI_MEM_NO_DATA) {
+ 		config |= (len - 1) << HISI_SFC_V3XX_CMD_CFG_DATA_CNT_OFF;
+ 		config |= HISI_SFC_V3XX_CMD_CFG_DATA_EN_MSK;
 -- 
 2.20.1
 
