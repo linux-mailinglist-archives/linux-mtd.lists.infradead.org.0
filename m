@@ -2,80 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B410F173A32
-	for <lists+linux-mtd@lfdr.de>; Fri, 28 Feb 2020 15:45:47 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E0369173A99
+	for <lists+linux-mtd@lfdr.de>; Fri, 28 Feb 2020 16:03:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vRiQFWPi+QL1inEFF6MLjnO/FwEEIP1D10Jnho2V+X8=; b=GbdQGLDHdhK+nY
-	h1ivherjEbfovKn1k8SAtiQstjpcpe8UJRz4XcKwHJCQIklXFzrWap8YLBvRHcf9UJHwkvFGuqRc4
-	Ph2PwE3DdRxcfCKUnpdXIFKLnPdHyH4XDLxS5H60hpmKsr3sl3e9dGiNk/LNWQ1D1nDSOo+1RkDbQ
-	UW/lo9QBGm6/9OQZEKNLcAhEmzCGuGNdUJn+Y1/itUa6+GgcpjBIOQ2ZPpEKZ174zLgnUgv/rfe6s
-	xqHPvA1XdUt8bzis/fqv1i+8dwcvUtFUd62QaRPEfMzHCU0tZqHQZKLmXzVXnisThW8fWxuYqAMtO
-	lraxAciLKp3wYYvTu8mw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=6s9lEGxDwpxGqnPj7j15mV9kKqZy8SYWm7zyYj1uE+c=; b=HWI
+	ZxM22Mh9QWJ+855jYq7yDJIpPuR/M3KMS+IdJjtmbf2H1hOPFRZhghCKHKs34yqcXh0ngs7MpH5gQ
+	Wigv8WTF8yyS063B/PQWhrjK3u4TUOM3PvudY3D9tyBfKwjnOwniA1XcLTApQM4b7EkZw1edZ10dO
+	iZ/XZ2zzcJMInuYA6uQE3gHhIKgG+sRtx3HR1AHjIm0xjo9X26cdxYNH3TzuebPfqni1vct16bJf9
+	mfieS0V3xEPNJDSsmuhNA3E+MrXXFwcj1yk5Gl5f5kLrhSlvPnlHSKiO+rqASp1apz4xMK5mz+Iqc
+	ttwUsPM7YnaMz5exs6VK0RYly03jVlw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7gtP-00038z-E3; Fri, 28 Feb 2020 14:45:31 +0000
-Received: from mail-yw1-xc42.google.com ([2607:f8b0:4864:20::c42])
+	id 1j7hAt-0002WZ-Ph; Fri, 28 Feb 2020 15:03:35 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7gtK-00038W-1v
- for linux-mtd@lists.infradead.org; Fri, 28 Feb 2020 14:45:27 +0000
-Received: by mail-yw1-xc42.google.com with SMTP id x184so3490483ywd.6
- for <linux-mtd@lists.infradead.org>; Fri, 28 Feb 2020 06:45:25 -0800 (PST)
+ id 1j7hAh-0002VY-MH
+ for linux-mtd@lists.infradead.org; Fri, 28 Feb 2020 15:03:25 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id v4so3277861wrs.8
+ for <linux-mtd@lists.infradead.org>; Fri, 28 Feb 2020 07:03:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=WlHYJpV9LDx+Kwr6eflFKbZEkhaqyVolWhtkZZvo7vI=;
- b=GkOjaf/q1FzCfBFXjuVe0YaR6gdnsjqUpGIPoO/3gLgf7h+xUD4fONQ6HR8rEaAvw2
- TU2QzpwxBczKxmLooSOGzyn5wN7HBcea+gRntnUGgshAi+m2J/L69iBCuqYVl7Sy8LKU
- 4DrZDIjwRAdv3vLFibyYke9j8MAYKbhZYJWm5/QwSOQRogwtXS4YhOHeFcQU6ucrpPXl
- ohjjoTc1cDLXgdhNkr47QQ4yEIwF0YwacdBkcYqL4VKJGmGElpOKefuM0OORrUVY+YkI
- trne7+4PRLq4raVBF5x0H8kMr4WDbhOjGvGYpd3I8zCE2sQHycRaF+lZ+UqE3HyhRv5L
- RsdQ==
+ h=from:to:cc:subject:date:message-id;
+ bh=rqRsY3IWGJs9c2oqjoPbTBhi2h3Tjt34hwIqWxHRNh4=;
+ b=Z4ryQdcckQ0xnuIbqH6ezo1dgI+d92xbhITxcZlGRdkNhMq7T/VjW0ymLUJd6QCm8u
+ pXPIg/qm1YoaRQtzwGIYLQotkCsN9jqqsNWcZcNboUgZ409ZT/f5FHcPoTqGC83GJb4Y
+ dUQA6I8HJyFInC/w2j/XSZ8oxEG9ilIPAAEEkW+gYbQZp7lJLpZ8yD88FqiCQsrA6vLv
+ 3sUGGxhRAb2gz8sWsZATKrZIjRnHyAIkuLvIaYdmKhRncGNCfPoStzF/DCR7I/iPKJs8
+ aReL0KjdbYTN/nU0+Tl7twe7mWeXtWMdy+70kqzXdA+GZRgVdKJVN1TI8TURHnDpPgfK
+ CN3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=WlHYJpV9LDx+Kwr6eflFKbZEkhaqyVolWhtkZZvo7vI=;
- b=P8s2JktYTWSdyM3zyrm15sifeh1Rj4zxs4d04BlxV03s95EPvP8wOrHFUA11uaXXod
- a7JestKCGZbEb+lj57lNzUX+rg7iHAMzsZciEjlkgXyhwCWRKwx1DhAMFyal+Wb69o1T
- Dh7UTTqw80xHWS3X328W9yYlkFVIqliMJuF4dbAn6QLIL2iNKKZbJNAzYoc8Q68bzo/b
- tUITVHBX+UGV0s0r3UWUkkKy/TqOYOSU3I1zM8iJ6tZKB9S6f5GBEvZJNNxDwRMUZ+9F
- WvP8dzkEn/ZtuN3t2dWtehFksQt16cYO5mgtDa0jKqjSce1bOoVpknW5+a3Q3+Ziu/7G
- PVaA==
-X-Gm-Message-State: APjAAAVdgcV1n0xOdQeZZNYqH8zt031CAcrfmgP2uudxgER5001diBde
- r6jMqyWzV3fzIdgtNc337+IGveR8zE1RLU0vDRM=
-X-Google-Smtp-Source: APXvYqwRu1mn/DXSpaYIzN/RhNH0JwK/+ZHCxuYEkBNKMCrhp3K4DLPmBgHVjT/ErZa1QFj3Jlt8hDlGd8D8vojNsCs=
-X-Received: by 2002:a25:b98b:: with SMTP id r11mr2941908ybg.295.1582901124731; 
- Fri, 28 Feb 2020 06:45:24 -0800 (PST)
-MIME-Version: 1.0
-Received: by 2002:a05:6902:52f:0:0:0:0 with HTTP; Fri, 28 Feb 2020 06:45:24
- -0800 (PST)
-From: CY Eden <rev.robertevem@gmail.com>
-Date: Fri, 28 Feb 2020 14:45:24 +0000
-Message-ID: <CANw8eOESjH2OuVkhW=DXT+gs6bmFzQmXHpoLECJgc43cA2VxAA@mail.gmail.com>
-Subject: 
-To: undisclosed-recipients:;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=rqRsY3IWGJs9c2oqjoPbTBhi2h3Tjt34hwIqWxHRNh4=;
+ b=YA8owsKoU2deFpdJPkQ23hhEJlFu8ZpDI4VX1qcl0AatSigwtQl5vLOVJ/7g8nWMHM
+ ADYah8sQvaJ5jWV/b9upT6RDypZtALm5jcBPvYqKViuzRkHYLXGqAqiqPmH4rdAN9ndz
+ df3qSh2CGjT2ti3jyFHtDCuyl1GzCqj5sUYyGaDcp6ud3oJ0mjqD87RWm9uy0Mv1J7py
+ ch2+W+8jpUeFuk50wXmZRSZnIxaXv5Vlh0+ox5JSlPtXO1/jmz4zSB6kjW1WWYHS5NBl
+ 59W3s/8ypJ4snODwIMqyX3Hiu1d8ltfhNBvzMLG0aDnDUWqbuvaxuorNvcPGH1OPwrYh
+ rhCw==
+X-Gm-Message-State: APjAAAVrMY2T2nhN3NzkKUebj5+qBVYCX0FTKv/xEEC4fg5mlzyuX/Sd
+ rrCQcW81KKFoJDv5dLHk91s=
+X-Google-Smtp-Source: APXvYqwJ3fwO0JpCT6Gv71plFAALDnHST5fzOxWtUvbW9WOWp6lAXxvCBYf8VT/XP6IZgVqupcdjhQ==
+X-Received: by 2002:a5d:6692:: with SMTP id l18mr5040421wru.382.1582902200928; 
+ Fri, 28 Feb 2020 07:03:20 -0800 (PST)
+Received: from opensdev.fritz.box
+ (business-178-015-117-054.static.arcor-ip.net. [178.15.117.54])
+ by smtp.gmail.com with ESMTPSA id m125sm2540235wmf.8.2020.02.28.07.03.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 28 Feb 2020 07:03:19 -0800 (PST)
+From: shiva.linuxworks@gmail.com
+X-Google-Original-From: sshivamurthy@micron.com
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Boris Brezillon <bbrezillon@kernel.org>,
+ Frieder Schrempf <frieder.schrempf@kontron.de>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/6] Add new series Micron SPI NAND devices
+Date: Fri, 28 Feb 2020 16:03:05 +0100
+Message-Id: <20200228150311.12184-1-sshivamurthy@micron.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200228_064526_120143_8BBD5244 
-X-CRM114-Status: UNSURE (  -0.98  )
+X-CRM114-CacheID: sfid-20200228_070323_730485_22C98F06 
+X-CRM114-Status: UNSURE (   7.88  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.1 (+)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (1.1 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:c42 listed in]
- [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [rev.robertevem[at]gmail.com]
+ provider [shiva.linuxworks[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [cyeden1[at]gmail.com]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:42f listed in]
+ [list.dnswl.org]
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -83,8 +88,6 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,14 +99,77 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: cyeden1@gmail.com
+Cc: Shivamurthy Shastri <sshivamurthy@micron.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hello I have an important information from UNITED NATIONS for
-you,reply for more details
+From: Shivamurthy Shastri <sshivamurthy@micron.com>
+
+This patchset is for the new series of Micron SPI NAND devices, and the
+following links are their datasheets.
+
+M78A:
+[1] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m78a_1gb_3v_nand_spi.pdf
+[2] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m78a_1gb_1_8v_nand_spi.pdf
+
+M79A:
+[3] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m79a_2gb_1_8v_nand_spi.pdf
+[4] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m79a_ddp_4gb_3v_nand_spi.pdf
+
+M70A:
+[5] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m70a_4gb_3v_nand_spi.pdf
+[6] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m70a_4gb_1_8v_nand_spi.pdf
+[7] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m70a_ddp_8gb_3v_nand_spi.pdf
+[8] https://www.micron.com/~/media/documents/products/data-sheet/nand-flash/70-series/m70a_ddp_8gb_1_8v_nand_spi.pdf
+
+Changes since v4:
+-----------------
+
+1. Patch 2 is separated into two as per the comment by Boris.
+2. Renamed MICRON_CFG_CONTI_READ into MICRON_CFG_CR.
+3. Reworked die selection function as per the comment by Boris.
+
+Changes since v3:
+-----------------
+
+1. Patch 3 and 4 reworked as follows
+   - Patch 3 introducing the Continuous read feature
+   - Patch 4 adding devices with the feature
+
+Changes since v2:
+-----------------
+
+1. Patch commit messages have been modified.
+2. Handled devices with Continuous Read feature with vendor specific flag.
+3. Reworked die selection function as per the comment.
+
+Changes since v1:
+-----------------
+
+1. The patch split into multiple patches.
+2. Added comments for selecting the die.
+
+Shivamurthy Shastri (6):
+  mtd: spinand: micron: Generalize the OOB layout structure and function
+    names
+  mtd: spinand: micron: Describe the SPI NAND device MT29F2G01ABAGD
+  mtd: spinand: micron: Add new Micron SPI NAND devices
+  mtd: spinand: micron: identify SPI NAND device with Continuous Read
+    mode
+  mtd: spinand: micron: Add M70A series Micron SPI NAND devices
+  mtd: spinand: micron: Add new Micron SPI NAND devices with multiple
+    dies
+
+ drivers/mtd/nand/spi/micron.c | 150 ++++++++++++++++++++++++++++++----
+ include/linux/mtd/spinand.h   |   1 +
+ 2 files changed, 137 insertions(+), 14 deletions(-)
+
+-- 
+2.17.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
