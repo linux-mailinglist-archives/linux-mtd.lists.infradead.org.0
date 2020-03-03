@@ -2,86 +2,91 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66EC4177D0B
-	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 18:14:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B1A6177E41
+	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 19:08:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eM1Ivh2fMk71ErwxFxDBIqkDmrwbKlzjyDzkxtzbXkQ=; b=Th32PIl1X28L/J
-	R4el+y1MX++uF13y42TN0Yqqc+DgEJaBwq8tq11LaXFwqEqh2FpRfIfS+Vrh+m1NfV4QJ7hzVV+Vy
-	+9FbJ5evveCtOBs9+7lgKx6pu1vjoKDrIOwBPc4NC9B3qQoOvNEmyK4Q5mYGPWfXeWg0Xp1yPlsjF
-	MiHU02FMlc2L98/+VnFBMAboGvDy7weEU7ewYqVhYuFW3RJ2HZpvG0QQNkkLM4EIdko9bCVZ5VTu8
-	0hLESnAAgMua0OplqHbXeLJeBrCpi26Lc2v6u0fxBT6ZmxEmqhhyLqrGxd+eb1MgUVZritXQTBIkF
-	Zk+iHOCE1D0wa44JIxYw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=W8ZzsbO6xhoiFGDYVHVvj+fKL4j5Sh7falLsAFZMZRw=; b=ONOEQPYPFRML5v
+	VIYBuoOojHK3AQQN0VKR2cALpo49oSG16U7SFtCXLAwv1dI2ZXBce2YhpCGeYRiwhEBgSiQ3/uquV
+	Oexgtc9WG28LAjVcJyHJXlmZbRgXVDr647SPHS6odrqxHpNbmnF8L4ZpgqlXP1VT0tt6lJ8jASfst
+	NTxE8plviG0vjG1Z5HE+XmALcJIXn7vK0QARcn4XH6KBsHoU2zuUaSUYFiZ5pnqJZXNOmU33MZXuu
+	7gRPub+rRP88oZyKR81ACYF/TA1HTupWD6LHQyv1TyqXDAxOmBbreFF2PzIkPp1PcwiadDxAj25YE
+	TcBvy20hIaBoANwdKBqw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9B76-0004W4-UU; Tue, 03 Mar 2020 17:13:48 +0000
-Received: from mail-out.m-online.net ([212.18.0.10])
+	id 1j9ByJ-0003XP-Hy; Tue, 03 Mar 2020 18:08:47 +0000
+Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9B6v-0004Vh-2e
- for linux-mtd@lists.infradead.org; Tue, 03 Mar 2020 17:13:38 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 48X3WL3QVFz1rY67;
- Tue,  3 Mar 2020 18:13:34 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 48X3WL2hcBz1qyDv;
- Tue,  3 Mar 2020 18:13:34 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id agO0GKgrehjs; Tue,  3 Mar 2020 18:13:32 +0100 (CET)
-X-Auth-Info: eIbBlhidtRIf4dNDrdIadwQ93O4Y4wJ0VIrQJFwuT4k=
-Received: from [IPv6:::1] (unknown [195.140.253.167])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Tue,  3 Mar 2020 18:13:32 +0100 (CET)
-Subject: Re: [PATCH] Revert "mtd: rawnand: denali: get
- ->setup_data_interface() working again"
-To: Masahiro Yamada <masahiroy@kernel.org>
-References: <20200205070834.3087104-1-marex@denx.de>
- <20200205101223.21d99d93@xps13>
- <45a10680-5fe6-7cab-a7ef-f7f7a952e822@denx.de>
- <20200205105045.6877aca6@xps13>
- <bdb54ba5-648a-0b79-661c-5eb9604a1ee5@denx.de>
- <b6f094b7-01a9-34a2-bf10-019a05bc7cb3@denx.de>
- <20200211170707.2183625e@xps13>
- <b1a10583-e110-9568-4007-aa2b3f38a7be@denx.de>
- <CAK7LNARqYDh4AJ+N-PTHui0H89-humECskJVUxW4cTf6edEBMQ@mail.gmail.com>
- <f4e2deeb-cc0e-fb06-46fa-d6cf4f2a73ad@denx.de>
- <CAK7LNAR4MU+Rfmpz99iwLuEbD4jMwUdh91uz3zyQdvjyLEQcMQ@mail.gmail.com>
- <29cce21c-2214-7238-0bc5-db2c1a54576f@denx.de>
- <CAK7LNASckTZO-9uVjtQH8iKhU0HH9WiMK-CzMxjESQOOUM0cKA@mail.gmail.com>
- <CAK7LNAT3EG0XocC0xT0f=6MBpXLga3FehOjEYbRyP6AJUbqb2Q@mail.gmail.com>
- <311cdc3c-59b5-a46b-62f0-e78fc970134a@denx.de>
- <CAK7LNAT1Bzs68X8PiWQHg4g2bpPGd-WM9D4vwf59XfwwLVuVQQ@mail.gmail.com>
-From: Marek Vasut <marex@denx.de>
-Message-ID: <e86925d0-805c-d364-57ca-6400b77cffd7@denx.de>
-Date: Tue, 3 Mar 2020 18:11:34 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.2
+ id 1j9ByC-0003Wz-5n
+ for linux-mtd@lists.infradead.org; Tue, 03 Mar 2020 18:08:41 +0000
+Received: by mail-io1-xd42.google.com with SMTP id c17so4660075ioc.4
+ for <linux-mtd@lists.infradead.org>; Tue, 03 Mar 2020 10:08:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:reply-to:from:date:message-id:subject:to;
+ bh=42VRx4KA+cD1ZZnhz/34yl/kjJSKnU+ahvHX6e7S6BM=;
+ b=rsjB5ruwM+js1rgLS/2Ql0jQDE8A8Fmm63WcN6KMCbH/6gZOZE8S7PIFVaEV7JuasD
+ jbHdOYNBD2cbSpFDAm18SnSOoD2/409c2pZBBjhx60jkLPhygD24Pia76+3dWkjP+NG8
+ I0hejckebuyfEw9Z9S7UYcYdxw9V2RHUmfQUNIrvLFkrCqVs4xS8Hf4ZZaGtScisQNW/
+ Y7S7KeHo4B4FkIQQT2rA2JGnHkgQnml+0LyNOfeZykJ25cxS7XemUaJcxOr14yp+1z3e
+ KoxkDrz/Heux7w+8FeWO3tQ9pQ5UWO0vRIAPTM9QqaM9hYte+TSo0F5zQXOORR1WioEp
+ aBnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+ :subject:to;
+ bh=42VRx4KA+cD1ZZnhz/34yl/kjJSKnU+ahvHX6e7S6BM=;
+ b=nkZD9u24f1jMQz7AM6JIj+anugmbWlXD/w/y2uNd4JcXT4PEsFWP8OYTpAQCH3KDgy
+ 4WGGIzFZ1EFepA3dyVfTA/Bcx6RwcpCogKfbCnA9tfrbBrnkQGri3s9gqtlKDDggxzVS
+ RiSqpdrFFh76sU3JkCRm8J2gRx+5JPsyfS1MIDdobzb2aeb2c9JwTjjiz2pG/Cb+JuKH
+ 0IRW70Vw41SZlYjnUKT6fEa6FVATlGoE2vXB9vDSMIhwPrsxb4vd/sumI1FOKXU5rLi+
+ kuAqA/YS1kFFcI8XbbOYSZTgwIjoR8qSu4y/C8vgzAXD3tseNpzrXAQbNgu9DmjODv30
+ cC6Q==
+X-Gm-Message-State: ANhLgQ1Bf+MruIb61Yq8tbEzzqMfceXhnLo9Qqd4UUK1sbdiSFJGAq+g
+ AZ4GrPLRz5V3vvLB0Sc8kc5qVrw6GHug8TDopuI=
+X-Google-Smtp-Source: ADFU+vvxDReu20JmXsmcA++rxbuMUk4M7I8JHwZHOJ3DH6rswr2QKxfwaz7lPOHxRBO1Pnh615b/JUyiMjCIiiS7l5w=
+X-Received: by 2002:a6b:e013:: with SMTP id z19mr5005031iog.103.1583258919277; 
+ Tue, 03 Mar 2020 10:08:39 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <CAK7LNAT1Bzs68X8PiWQHg4g2bpPGd-WM9D4vwf59XfwwLVuVQQ@mail.gmail.com>
-Content-Language: en-US
+Received: by 2002:a02:9f04:0:0:0:0:0 with HTTP;
+ Tue, 3 Mar 2020 10:08:38 -0800 (PST)
+From: DR CHALLY NOAH <mayorabrahamedge404@gmail.com>
+Date: Tue, 3 Mar 2020 19:08:38 +0100
+Message-ID: <CALqVJWdV=8A8yB0OsiEZTWuv0O6WSQU5jLrCGAEEFvE9r_yAsg@mail.gmail.com>
+Subject: Hello Dear
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200303_091337_419591_0E7FAA56 
-X-CRM114-Status: GOOD (  19.33  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200303_100840_217451_F650A751 
+X-CRM114-Status: UNSURE (  -1.83  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 2.3 (++)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.18.0.10 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:d42 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [mayorabrahamedge404[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [212.18.0.10 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [mayorabrahamedge404[at]gmail.com]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
+ different freemails
+ 0.6 MONEY_FRAUD_3          Lots of money and several fraud phrases
+ 0.6 ADVANCE_FEE_2_NEW_MONEY Advance Fee fraud and lots of money
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,89 +98,24 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Dinh Nguyen <dinguyen@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- linux-mtd <linux-mtd@lists.infradead.org>, Tim Sander <tim@krieglstein.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>
+Reply-To: dr.challynoah@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 2/25/20 1:41 AM, Masahiro Yamada wrote:
-> Hi.
-
-Hi,
-
-> On Thu, Feb 20, 2020 at 3:45 AM Marek Vasut <marex@denx.de> wrote:
->>
->> On 2/18/20 6:55 AM, Masahiro Yamada wrote:
->>> Hi
->>
->> Hi,
->>
->> [...]
->>
->>>> There is no change around the ->setup_data_interface() hook
->>>> after v4.19
->>>> The only difference I could think of is the clock frequency.
->>>>
->>>> But, it is OK if you do not want to test it.
->>>>
->>>> And you are confident.
->>>>
->>>> So, let's suspect the ->setup_data_interface() hook.
->>>>
->>>>
->>>> If possible, can you provide the dump of
->>>> the attached debug code?
->>>>
->>>
->>>
->>> I attached two experimental patches.
->>>
->>> I cannot test them because
->>> the mainline code works fine for my boards.
->>>
->>> Does either of them improve something
->>> on your settings?
-> 
-> 
-> 
-> I am still waiting for you to let me know
-> the result of my patches.
-
-Neither patch works, sorry.
-
->> Considering that the NAND works if denali_setup_data_interface() is not
->> called, would it rather make sense to first read and print what's
->> programmed into the controller and then print what the code calculated
->> and intends to program into the controller ?
-> 
-> denali_select_target() is called every operation.
-> So, if you dumped this function for a working platform,
-> it might flood the printk buffer.
-> 
-> denali_setup_data_interface() is called just twice.
-> That's why I injected the debug code there.
-> 
-> 
->>
->> See attached patch, with which (without this revert) you get this:
->> denali->reg + TWHR2_AND_WE_2_RE = 0x00001414 -> 0x0000143f
->> denali->reg + TCWAW_AND_ADDR_2_DATA = 0x0000143f -> 0x00001432
->> denali->reg + RE_2_WE = 0x00000014 -> 0x00000019
->> denali->reg + ACC_CLKS = 0x00000004 -> 0x00000005
->> denali->reg + RDWR_EN_LO_CNT = 0x00000002 -> 0x00000009
->> denali->reg + RDWR_EN_HI_CNT = 0x00000002 -> 0x00000004
->> denali->reg + CS_SETUP_CNT = 0x00000001 -> 0x00000008
->> denali->reg + RE_2_RE = 0x00000014 -> 0x00000019
-> 
-> OK, the left-hand side is probably the timing
-> set up by U-Boot.
-
-Yep, the timings that work. So now, how do you get to those working
-timings using the Linux driver ?
+Hello Dear,
+What Have Kept You Waiting To Claim Your $600,000.00 USD Compensation Award?
+This said fund was issued out by the UNITED NATIONS To compensate
+you.Please If You Have Not Claim Your Fund (Award),Kindly contact me
+at   DR.CHALLYNOAH@GMAIL.COM   for further details on how to proceed your
+fund (award)release to you or better still reply back Immediately You
+Receive This Information For An Urgent Confirmation And Release Of Your
+Fund To You Without Delays, as your email was listed among those to be
+compensated this year.Congratulations..
+Best Regards,
+Dr Chally Noah.
+Minister Of Finance On Foreign Remittance:
 
 ______________________________________________________
 Linux MTD discussion mailing list
