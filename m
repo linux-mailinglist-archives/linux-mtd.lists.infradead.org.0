@@ -2,91 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B1A6177E41
-	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 19:08:51 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 95C391785E2
+	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 23:47:28 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=W8ZzsbO6xhoiFGDYVHVvj+fKL4j5Sh7falLsAFZMZRw=; b=ONOEQPYPFRML5v
-	VIYBuoOojHK3AQQN0VKR2cALpo49oSG16U7SFtCXLAwv1dI2ZXBce2YhpCGeYRiwhEBgSiQ3/uquV
-	Oexgtc9WG28LAjVcJyHJXlmZbRgXVDr647SPHS6odrqxHpNbmnF8L4ZpgqlXP1VT0tt6lJ8jASfst
-	NTxE8plviG0vjG1Z5HE+XmALcJIXn7vK0QARcn4XH6KBsHoU2zuUaSUYFiZ5pnqJZXNOmU33MZXuu
-	7gRPub+rRP88oZyKR81ACYF/TA1HTupWD6LHQyv1TyqXDAxOmBbreFF2PzIkPp1PcwiadDxAj25YE
-	TcBvy20hIaBoANwdKBqw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fd0Ug+1OJv8NXUlPBvaDbFXC4gA3y+BjDGcskBUNFSE=; b=pACMBusiU4VBVD
+	a3wH4vXA8ptpeM++fbe36fWCAkl4JbEwr7ToQIw2YI+E64gQWyenHNg8m90Hspdyiblu701vuBO3M
+	iRLmUkVMbr4OGlaCNeFTJToP6O2npCLwB3TTZXtuQXhN4DJ7Jw7NCknCLn5L3lCa33o1dXOOI4cwc
+	eMgWFK9sW50ODIXfDO7DxNtNv6u7hOxlLmXOkTollXQOk0tleJ0TYrfn5i8EgYR5e9Wwln78KmsEI
+	OfV7k12KY5Kq2iCTuDBRXmEjJZWLASSEOnSekUG6hOEst36jmjtXlqOuYkpTQVK7a2abaBNFmy8iS
+	9U5MO8kbUB5LxESYj8Gg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9ByJ-0003XP-Hy; Tue, 03 Mar 2020 18:08:47 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1j9GJt-0008FC-Un; Tue, 03 Mar 2020 22:47:21 +0000
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9ByC-0003Wz-5n
- for linux-mtd@lists.infradead.org; Tue, 03 Mar 2020 18:08:41 +0000
-Received: by mail-io1-xd42.google.com with SMTP id c17so4660075ioc.4
- for <linux-mtd@lists.infradead.org>; Tue, 03 Mar 2020 10:08:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=42VRx4KA+cD1ZZnhz/34yl/kjJSKnU+ahvHX6e7S6BM=;
- b=rsjB5ruwM+js1rgLS/2Ql0jQDE8A8Fmm63WcN6KMCbH/6gZOZE8S7PIFVaEV7JuasD
- jbHdOYNBD2cbSpFDAm18SnSOoD2/409c2pZBBjhx60jkLPhygD24Pia76+3dWkjP+NG8
- I0hejckebuyfEw9Z9S7UYcYdxw9V2RHUmfQUNIrvLFkrCqVs4xS8Hf4ZZaGtScisQNW/
- Y7S7KeHo4B4FkIQQT2rA2JGnHkgQnml+0LyNOfeZykJ25cxS7XemUaJcxOr14yp+1z3e
- KoxkDrz/Heux7w+8FeWO3tQ9pQ5UWO0vRIAPTM9QqaM9hYte+TSo0F5zQXOORR1WioEp
- aBnQ==
+ id 1j9GJh-0008Dn-Cn; Tue, 03 Mar 2020 22:47:10 +0000
+Received: by mail-ot1-f65.google.com with SMTP id i14so95454otp.5;
+ Tue, 03 Mar 2020 14:47:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=42VRx4KA+cD1ZZnhz/34yl/kjJSKnU+ahvHX6e7S6BM=;
- b=nkZD9u24f1jMQz7AM6JIj+anugmbWlXD/w/y2uNd4JcXT4PEsFWP8OYTpAQCH3KDgy
- 4WGGIzFZ1EFepA3dyVfTA/Bcx6RwcpCogKfbCnA9tfrbBrnkQGri3s9gqtlKDDggxzVS
- RiSqpdrFFh76sU3JkCRm8J2gRx+5JPsyfS1MIDdobzb2aeb2c9JwTjjiz2pG/Cb+JuKH
- 0IRW70Vw41SZlYjnUKT6fEa6FVATlGoE2vXB9vDSMIhwPrsxb4vd/sumI1FOKXU5rLi+
- kuAqA/YS1kFFcI8XbbOYSZTgwIjoR8qSu4y/C8vgzAXD3tseNpzrXAQbNgu9DmjODv30
- cC6Q==
-X-Gm-Message-State: ANhLgQ1Bf+MruIb61Yq8tbEzzqMfceXhnLo9Qqd4UUK1sbdiSFJGAq+g
- AZ4GrPLRz5V3vvLB0Sc8kc5qVrw6GHug8TDopuI=
-X-Google-Smtp-Source: ADFU+vvxDReu20JmXsmcA++rxbuMUk4M7I8JHwZHOJ3DH6rswr2QKxfwaz7lPOHxRBO1Pnh615b/JUyiMjCIiiS7l5w=
-X-Received: by 2002:a6b:e013:: with SMTP id z19mr5005031iog.103.1583258919277; 
- Tue, 03 Mar 2020 10:08:39 -0800 (PST)
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=Z0du2wcxyjg7iRH0s/qpIMsj7X0YCwaBDvE2vsxIrbk=;
+ b=lagoFGtSBW7BIMufWo914TZz8gdFTZT16BflTmeZmo2Cvo3+YHT8jP1H3+alOk3zqO
+ EfaLbQbGV5KKO0TFxkFkS2SgV0bYuY5zmkbZOIKybKNvqfkvAHyZwoQSrpmnifLZ+sNh
+ BWVAmoYiJedYKBiw+WpXaZxnfZC9/jcHprkwb2YpiUIX1ORwv4cLnneBI7oxgcKMAYuy
+ LqU2a3es6aUE1gcxWvpLDpSSu4YXhWjEW5hjZLUmCQIB+fhXRuuR8zYBC0Gc4M/JYPC/
+ NAiMAcHXUmT7SS6+g9ENqaA4MbeTbgYU9S9YCxqsDJs9sI5qlkZtCa/kJugR+Be0ja/D
+ 97Lg==
+X-Gm-Message-State: ANhLgQ2tvuEduWb4HPW1NNwaVTaiQX78p1ZsEPamzMxNGN5XC4EiiW87
+ vUjXJ/adXGmbTkNXX48VNw==
+X-Google-Smtp-Source: ADFU+vuU+JCOVQpYg1AlYEQdEKGSsg5SLhgtKZoaS1dScWhKEQWMAhE4l5CbjQlxM9gWy34zkZG6zg==
+X-Received: by 2002:a9d:4c92:: with SMTP id m18mr129586otf.168.1583275628368; 
+ Tue, 03 Mar 2020 14:47:08 -0800 (PST)
+Received: from rob-hp-laptop (24-155-109-49.dyn.grandenetworks.net.
+ [24.155.109.49])
+ by smtp.gmail.com with ESMTPSA id b2sm5879600oii.20.2020.03.03.14.47.07
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 03 Mar 2020 14:47:07 -0800 (PST)
+Received: (nullmailer pid 32174 invoked by uid 1000);
+ Tue, 03 Mar 2020 22:47:06 -0000
+Date: Tue, 3 Mar 2020 16:47:06 -0600
+From: Rob Herring <robh@kernel.org>
+To: Chuanhong Guo <gch981213@gmail.com>
+Subject: Re: [PATCH v2 3/4] dt-bindings: convert mtk-quadspi binding doc for
+ spi-mtk-nor
+Message-ID: <20200303224706.GA22867@bogus>
+References: <20200228043636.559915-1-gch981213@gmail.com>
+ <20200228043636.559915-4-gch981213@gmail.com>
 MIME-Version: 1.0
-Received: by 2002:a02:9f04:0:0:0:0:0 with HTTP;
- Tue, 3 Mar 2020 10:08:38 -0800 (PST)
-From: DR CHALLY NOAH <mayorabrahamedge404@gmail.com>
-Date: Tue, 3 Mar 2020 19:08:38 +0100
-Message-ID: <CALqVJWdV=8A8yB0OsiEZTWuv0O6WSQU5jLrCGAEEFvE9r_yAsg@mail.gmail.com>
-Subject: Hello Dear
-To: undisclosed-recipients:;
+Content-Disposition: inline
+In-Reply-To: <20200228043636.559915-4-gch981213@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200303_100840_217451_F650A751 
-X-CRM114-Status: UNSURE (  -1.83  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 2.3 (++)
+X-CRM114-CacheID: sfid-20200303_144709_439257_1FC5268B 
+X-CRM114-Status: GOOD (  20.46  )
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (2.3 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:d42 listed in]
- [list.dnswl.org]
+ no trust [209.85.210.65 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [mayorabrahamedge404[at]gmail.com]
+ provider [robherring2[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [mayorabrahamedge404[at]gmail.com]
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain 0.0 LOTS_OF_MONEY          Huge... sums of money
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
- 0.6 MONEY_FRAUD_3          Lots of money and several fraud phrases
- 0.6 ADVANCE_FEE_2_NEW_MONEY Advance Fee fraud and lots of money
+ in digit [robherring2[at]gmail.com]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [209.85.210.65 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,24 +93,112 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: dr.challynoah@gmail.com
+Cc: devicetree@vger.kernel.org, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, open list <linux-kernel@vger.kernel.org>,
+ linux-spi@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hello Dear,
-What Have Kept You Waiting To Claim Your $600,000.00 USD Compensation Award?
-This said fund was issued out by the UNITED NATIONS To compensate
-you.Please If You Have Not Claim Your Fund (Award),Kindly contact me
-at   DR.CHALLYNOAH@GMAIL.COM   for further details on how to proceed your
-fund (award)release to you or better still reply back Immediately You
-Receive This Information For An Urgent Confirmation And Release Of Your
-Fund To You Without Delays, as your email was listed among those to be
-compensated this year.Congratulations..
-Best Regards,
-Dr Chally Noah.
-Minister Of Finance On Foreign Remittance:
+On Fri, Feb 28, 2020 at 12:36:35PM +0800, Chuanhong Guo wrote:
+> spi-mtk-nor is a driver to replace mtk-quadspi and they have almost
+> the same device-tree bindings. Reuse this binding documentation and
+> convert it for new driver:
+> 
+> 1. "Mediatek SoCs" -> "Mediatek ARM SoCs" because MTK MIPS SoCs
+>    use different controllers.
+> 2. document "interrupts" as a required property because it's
+>    available on all SoCs with this controller and new driver takes
+>    advantages of it. It's implemented as optional only to maintain
+>    backward compatibility.
+> 3. replace binding example with a mt7629 one because this is the
+>    only one I know the interrupt assignment.
+
+That doesn't really matter. It would be less churn without that change 
+and examples are just examples.
+
+> 
+> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+> ---
+> Change since v1:
+>  none
+> 
+>  .../mtk-quadspi.txt => spi/spi-mtk-nor.txt}   | 34 ++++++++-----------
+>  1 file changed, 15 insertions(+), 19 deletions(-)
+>  rename Documentation/devicetree/bindings/{mtd/mtk-quadspi.txt => spi/spi-mtk-nor.txt} (62%)
+> 
+> diff --git a/Documentation/devicetree/bindings/mtd/mtk-quadspi.txt b/Documentation/devicetree/bindings/spi/spi-mtk-nor.txt
+> similarity index 62%
+> rename from Documentation/devicetree/bindings/mtd/mtk-quadspi.txt
+> rename to Documentation/devicetree/bindings/spi/spi-mtk-nor.txt
+> index a12e3b5c495d..829da480b9a9 100644
+> --- a/Documentation/devicetree/bindings/mtd/mtk-quadspi.txt
+> +++ b/Documentation/devicetree/bindings/spi/spi-mtk-nor.txt
+> @@ -1,4 +1,4 @@
+> -* Serial NOR flash controller for MediaTek SoCs
+> +* SPI NOR flash controller for MediaTek ARM SoCs
+>  
+>  Required properties:
+>  - compatible: 	  For mt8173, compatible should be "mediatek,mt8173-nor",
+> @@ -13,6 +13,7 @@ Required properties:
+>  		  "mediatek,mt7629-nor", "mediatek,mt8173-nor"
+>  		  "mediatek,mt8173-nor"
+>  - reg: 		  physical base address and length of the controller's register
+> +- interrupts:	  Interrupt number used by the controller.
+>  - clocks: 	  the phandle of the clocks needed by the nor controller
+>  - clock-names: 	  the names of the clocks
+>  		  the clocks should be named "spi" and "sf". "spi" is used for spi bus,
+> @@ -22,29 +23,24 @@ Required properties:
+>  - #address-cells: should be <1>
+>  - #size-cells:	  should be <0>
+>  
+> -The SPI flash must be a child of the nor_flash node and must have a
+> -compatible property. Also see jedec,spi-nor.txt.
+> -
+> -Required properties:
+> -- compatible:	  May include a device-specific string consisting of the manufacturer
+> -		  and name of the chip. Must also include "jedec,spi-nor" for any
+> -		  SPI NOR flash that can be identified by the JEDEC READ ID opcode (0x9F).
+> -- reg :		  Chip-Select number
+> +There should be only one spi slave device following generic spi bindings.
+> +It's not recommended to use this controller for devices other than SPI NOR
+> +flash due to limited transfer capability of this controller.
+>  
+>  Example:
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/clock/mt7629-clk.h>
+>  
+> -nor_flash: spi@1100d000 {
+> -	compatible = "mediatek,mt8173-nor";
+> -	reg = <0 0x1100d000 0 0xe0>;
+> -	clocks = <&pericfg CLK_PERI_SPI>,
+> -		 <&topckgen CLK_TOP_SPINFI_IFR_SEL>;
+> +spi_nor: spi@11014000 {
+> +	compatible = "mediatek,mt7629-nor",
+> +		     "mediatek,mt8173-nor";
+> +	reg = <0x11014000 0xe0>;
+> +	interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_LOW>;
+> +	clocks = <&pericfg CLK_PERI_FLASH_PD>,
+> +		 <&topckgen CLK_TOP_FLASH_SEL>;
+>  	clock-names = "spi", "sf";
+>  	#address-cells = <1>;
+>  	#size-cells = <0>;
+> -
+> -	flash@0 {
+> -		compatible = "jedec,spi-nor";
+> -		reg = <0>;
+> -	};
+
+Better to leave this in the example IMO.
+
+Rob
 
 ______________________________________________________
 Linux MTD discussion mailing list
