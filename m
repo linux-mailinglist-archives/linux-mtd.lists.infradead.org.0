@@ -2,64 +2,61 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 97E631773F7
-	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 11:23:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E4E1417763D
+	for <lists+linux-mtd@lfdr.de>; Tue,  3 Mar 2020 13:43:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4hjC324sPvehNjDQ34F2nUtSGsNvkMGfyMp4zanFv2Y=; b=Vwhl8rFqFHTtJY
-	T+2RvzaNd2JTAzuaNvoPZcbrZfqpCLl9lFkaFbdgUmh/lJu9EWLzanv62jeW3cLRqNYB2cZ1X2Q4a
-	cMZVj12jxAPx/FYV7bW1XMHGx7NNWODQpjKrEAmBARO+0TIKXRBggsXU2ewiUSgzFpPBEsZdwqVs8
-	EHcpCNybor+XWUs7va9Gse/5CsYqJwd3JKi19OEdPnPR/0baBX0zD6GB1Z7hSTlxjaWSgp+pyzb4N
-	8LskPruqdvuMqMdGllAMY2uhuiY1esc8ytx4Q1G710Gb3MI4Z0nOyUxql/SmdboldiMPAu7aE1eRA
-	AuJERdhqMS9woE9JMVKA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=kxPY/jsEWATa0rzP8GRGf7CQxeto+0pDtlVP0OcMcRc=; b=Cz1DZDLdywJICC5h+XyJa1orz
+	Zy/neFOe0oMrfOgoFhEo1RQTACllpGUUdAmFkzR/16h6lIbt3UrqFt6EvXlOtR/UI2W1UcuBh/AnR
+	ryG2t+DyUGSdqo7cjloO+HHKpEx+WtdxCCvP0QzQ+TEgZWjxnZzn5x2a9pmdVL82gMFiAAZrLf9Wc
+	+EEeqDOoyBwsrdpsuopWsY3Qo4X2EQAvdVxGLl911Uyjs5a8ejZGrYUcY0Kpf3jIbcgtWvXpJl7Ls
+	/IkDR2V63WdOpt1O3xGJbgY7VK/H7zxAvg50qkKATtvi2eQhciXc0nqFK8lSNhNe5z41H8PFYtnjX
+	u1vqX8JyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j94hM-0005kz-Rh; Tue, 03 Mar 2020 10:22:48 +0000
-Received: from mga01.intel.com ([192.55.52.88])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j94hE-0005kZ-UM; Tue, 03 Mar 2020 10:22:42 +0000
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
- by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384;
- 03 Mar 2020 02:22:30 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,510,1574150400"; d="scan'208";a="351793990"
-Received: from lahna.fi.intel.com (HELO lahna) ([10.237.72.163])
- by fmsmga001.fm.intel.com with SMTP; 03 Mar 2020 02:22:23 -0800
-Received: by lahna (sSMTP sendmail emulation); Tue, 03 Mar 2020 12:22:22 +0200
-Date: Tue, 3 Mar 2020 12:22:22 +0200
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Tudor.Ambarus@microchip.com
-Subject: Re: [PATCH 12/23] mtd: spi-nor: Move Intel bits out of core.c
-Message-ID: <20200303102222.GL2540@lahna.fi.intel.com>
-References: <20200302180730.1886678-1-tudor.ambarus@microchip.com>
- <20200302180730.1886678-13-tudor.ambarus@microchip.com>
+	id 1j96tp-0006Yc-JA; Tue, 03 Mar 2020 12:43:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j96tj-0006XR-BC
+ for linux-mtd@lists.infradead.org; Tue, 03 Mar 2020 12:43:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82C99FEC;
+ Tue,  3 Mar 2020 04:43:40 -0800 (PST)
+Received: from localhost (unknown [10.37.6.21])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 050CE3F534;
+ Tue,  3 Mar 2020 04:43:39 -0800 (PST)
+Date: Tue, 3 Mar 2020 12:43:38 +0000
+From: Mark Brown <broonie@kernel.org>
+To: John Garry <john.garry@huawei.com>
+Subject: Re: [PATCH RFC 1/3] spi: Allow SPI controller override device buswidth
+Message-ID: <20200303124338.GD3866@sirena.org.uk>
+References: <1582903131-160033-1-git-send-email-john.garry@huawei.com>
+ <1582903131-160033-2-git-send-email-john.garry@huawei.com>
+ <CAMuHMdW7Xu6EzfmVFx1+i1byy3KOS5A+h2GuMb8nkZ+-jD1=BA@mail.gmail.com>
+ <f6f21e75-7cee-89da-bb87-95327a4ec2cc@huawei.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200302180730.1886678-13-tudor.ambarus@microchip.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <f6f21e75-7cee-89da-bb87-95327a4ec2cc@huawei.com>
+X-Cookie: Drilling for oil is boring.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200303_022240_992739_C3403DEB 
-X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-CacheID: sfid-20200303_044343_429626_AE06C3AC 
+X-CRM114-Status: UNSURE (   8.45  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.0 (-----)
+X-Spam-Score: -2.0 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-2.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [192.55.52.88 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [217.140.110.172 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [192.55.52.88 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,33 +68,62 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: kstewart@linuxfoundation.org, alexandre.belloni@bootlin.com,
- vigneshr@ti.com, linux-aspeed@lists.ozlabs.org, thor.thayer@linux.intel.com,
- jethro@fortanix.com, rfontana@redhat.com, linux-mtd@lists.infradead.org,
- miquel.raynal@bootlin.com, opensource@jilayne.com, richard@nod.at,
- allison@lohutok.net, michal.simek@xilinx.com, Ludovic.Desroches@microchip.com,
- joel@jms.id.au, nishkadg.linux@gmail.com, john.garry@huawei.com, vz@mleia.com,
- alexander.sverdlin@nokia.com, matthias.bgg@gmail.com, tglx@linutronix.de,
- swboyd@chromium.org, ludovic.barre@st.com,
- linux-arm-kernel@lists.infradead.org, bbrezillon@kernel.org, andrew@aj.id.au,
- Nicolas.Ferre@microchip.com, linux-kernel@vger.kernel.org, dinguyen@kernel.org,
- michael@walle.cc, linux-mediatek@lists.infradead.org, info@metux.net
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-spi <linux-spi@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linuxarm <linuxarm@huawei.com>, Geert Uytterhoeven <geert@linux-m68k.org>,
+ MTD Maling List <linux-mtd@lists.infradead.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Content-Type: multipart/mixed; boundary="===============4236404230505480623=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, Mar 02, 2020 at 06:07:51PM +0000, Tudor.Ambarus@microchip.com wrote:
-> From: Boris Brezillon <bbrezillon@kernel.org>
-> 
-> Create a SPI NOR manufacturer driver for Intel chips, and move the
-> Intel definitions outside of core.c.
-> 
-> Signed-off-by: Boris Brezillon <bbrezillon@kernel.org>
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
 
-Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+--===============4236404230505480623==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IDYEmSnFhs3mNXr+"
+Content-Disposition: inline
+
+
+--IDYEmSnFhs3mNXr+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Tue, Mar 03, 2020 at 09:42:45AM +0000, John Garry wrote:
+
+> However, maybe another callback could be introduced, .early_setup().
+
+One thing I like about the explicit core code is that it makes it much
+easier to see which drivers are doing the worrying thing, with just
+overwriting things in a callback everything is very freeform and you
+have to audit things individually.
+
+--IDYEmSnFhs3mNXr+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl5eUPkACgkQJNaLcl1U
+h9BYcAf4kl/gydZycwZtTddrolWZTe5aGp9hdBn91H5K4i0f3Sp/wzjZi9Z7NMLZ
+hFT1kd7fwU9kHr5QBDt66s8mnC/A8WU/yLekP7hKQkumLFBXT+EzpW4ZsD0OFB8R
+KvAr5BCFqvJMdRPYCqsqi1nvZwNA4jYhWXp5sGlT3T/4GH0ulhQDZghULkx+8e06
+Kd23pOwyQmDQgwVTqQ/YuB36cPzriYsoxu3vijQZLIVGO4K/PPqiaoq5Af1EiGlr
+mcwa0IaW3IMQbjLk5KPuITz8YUMrPryVc+unOuertCfFYoHcYmgIO/Aq6yOpnbRl
+UajtjXoFfB5jRdSGvoDFHjZcfYfJ
+=FOcd
+-----END PGP SIGNATURE-----
+
+--IDYEmSnFhs3mNXr+--
+
+
+--===============4236404230505480623==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============4236404230505480623==--
+
