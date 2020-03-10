@@ -2,67 +2,76 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 94079180495
-	for <lists+linux-mtd@lfdr.de>; Tue, 10 Mar 2020 18:14:47 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A4EA118066F
+	for <lists+linux-mtd@lfdr.de>; Tue, 10 Mar 2020 19:32:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=iYDhSmmhNhqaGH6hDv1ubQLJvt6gsAgdEL1137k14dY=; b=OmInHsiCIH3DttFHYRuQjXAOk
-	b+Xq+X3PKWhQOvOP4whs8i3abh7O/ASLGZEckJ0tLiHPei2fMgsSUurtyO81orMich6WDjuACisoq
-	WV1/CUA5baMWS1uHFcj5o66Mup4pwHzpr6i1fAnwakGZMh8d5cAcxoIb5Arkxtr3KW73gCYtSp+pN
-	O9sCaaddyMDWdlbxe0AI1Ua2b2PwaS/Px0sXTg5h+7WkeixERia6bqTOpoRbcxmGcqZbZfKPSPW1R
-	PaV8yXFCTIehWQZZyr8Td2VDfMtH7zYuqoB+EOni0bOktY56r7HENLqZGot2DLTVVBSp5wVzHue0U
-	sv0knJ0sA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WX63XnjDxqTRhnfQytVDRxxOS97INzAA3vCSdVmg/LI=; b=bQFAEQUVT7U4JX
+	Pu/kV+wu1buCb7RlWr67/iG7mwzmL98ct+rtzEcXZmNljeZFLPUHDLN81Kb+ehMYJg9vnbDxgp7jW
+	JTClljpVFiIxLDjcRGkNIlZv3p4nNgqxCL+MSA/qCNMIAPZ+tLOASrKf3/KZLqW/f6lT16wHaTtKu
+	i1vA+Hvea5HzMLvLKUry+wIAU8CoXC+4+lxL6j37HO5jl4UfsKfWSJfHoC0tEpk+a+CD5Wq0/oF9R
+	sWwAGdJqSyirumI1r4M2HxA5/46P3dGtH/u68XIlQeXZSNRVSIJobDSRSrBl8AbDP5Paln3I48U3I
+	YZ03lls6fhHYq9VUVopw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBiSb-0002Jg-IQ; Tue, 10 Mar 2020 17:14:29 +0000
-Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
+	id 1jBjfV-0004V1-EN; Tue, 10 Mar 2020 18:31:53 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBiSU-0002ID-Ew
- for linux-mtd@lists.infradead.org; Tue, 10 Mar 2020 17:14:24 +0000
-Received: from lhreml702-cah.china.huawei.com (unknown [172.18.7.108])
- by Forcepoint Email with ESMTP id 52588B476245A54C551D;
- Tue, 10 Mar 2020 17:14:14 +0000 (GMT)
-Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
- lhreml702-cah.china.huawei.com (10.201.108.43) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Tue, 10 Mar 2020 17:14:13 +0000
-Received: from [127.0.0.1] (10.202.226.45) by lhreml724-chm.china.huawei.com
- (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.1713.5; Tue, 10 Mar
- 2020 17:14:13 +0000
-Subject: Re: linux-next: Tree for Mar 10 (mtd/spi-nor/)
-To: Randy Dunlap <rdunlap@infradead.org>, Stephen Rothwell
- <sfr@canb.auug.org.au>, Linux Next Mailing List <linux-next@vger.kernel.org>
-References: <20200310201923.24e34363@canb.auug.org.au>
- <43df5279-7d91-020d-1632-9b3528f4feee@infradead.org>
-From: John Garry <john.garry@huawei.com>
-Message-ID: <f9d33b09-fe9f-2c26-96dc-b2eaa53c614b@huawei.com>
-Date: Tue, 10 Mar 2020 17:14:13 +0000
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.1.2
+ id 1jBjeA-0003RY-EH
+ for linux-mtd@bombadil.infradead.org; Tue, 10 Mar 2020 18:30:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+ References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+ Content-Type:Content-ID:Content-Description;
+ bh=3P81yqEW+Ifcj5TCERENWO5zhpoRWbsy+iCwo3MBMpE=; b=qaWwg55LgB2qQwP3JSpca3D9a/
+ fIJoC0h6XHuTmVJhp8LD/E2xVHpAitYZOIVPJLxOzjP6cBDeO3FcbDqigmALJb/scjBkeeAJTdypi
+ RTRBrDGjraf/2k8obLXTy+O791ayAie7p0AD17zju/G+iHyDWK/LCqhBEPWRXr5ro2cIBqAOexeQm
+ n616AXHFYJgrnr2ObUiizmnh459BcM+ab9nPQRxr7Ycle25MzL/xuXqgIdmLpQLKDwG1Yyz9L9h6Q
+ bAIrZYVN0c9yU5YZVtViZP3abKoJaHSK8YDoKmVDbtcXxXgXQKXPK7cJa920MmC2At2AHcqC4R+et
+ nItlRAHg==;
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+ by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jBje5-00008l-Hz
+ for linux-mtd@lists.infradead.org; Tue, 10 Mar 2020 18:30:28 +0000
+X-Originating-IP: 91.224.148.103
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay3-d.mail.gandi.net (Postfix) with ESMTPSA id 726D360009;
+ Tue, 10 Mar 2020 18:29:37 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Piotr Sroka <piotrs@cadence.com>
+Subject: Re: [PATCH 4/4] mtd: rawnand: cadence: reinit complete before execute
+ command
+Date: Tue, 10 Mar 2020 19:29:36 +0100
+Message-Id: <20200310182936.17670-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <1581328530-29966-4-git-send-email-piotrs@cadence.com>
+References: 
 MIME-Version: 1.0
-In-Reply-To: <43df5279-7d91-020d-1632-9b3528f4feee@infradead.org>
-Content-Language: en-US
-X-Originating-IP: [10.202.226.45]
-X-ClientProxiedBy: lhreml706-chm.china.huawei.com (10.201.108.55) To
- lhreml724-chm.china.huawei.com (10.201.108.75)
-X-CFilter-Loop: Reflected
+X-linux-mtd-patch-notification: thanks
+X-linux-mtd-patch-commit: 335e1ad05264d4ec4727b2832f42be5f299651ff
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200310_101422_650777_90700E73 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20200310_183025_755949_429E1AB7 
+X-CRM114-Status: UNSURE (   5.96  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
-X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+X-Spam-Score: -2.6 (--)
+X-Spam-Report: SpamAssassin version 3.4.3 on casper.infradead.org summary:
+ Content analysis details:   (-2.6 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [185.176.76.210 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -1.9 BAYES_00               BODY: Bayes spam probability is 0 to 1%
+ [score: 0.0000]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [217.70.183.195 listed in wl.mailspike.net]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.195 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,58 +83,26 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Joe Perches <joe@perches.com>, Mark Brown <broonie@kernel.org>,
- linux-mtd@lists.infradead.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
+ linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@gmail.com>,
+ linux-mtd@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
+ Brian Norris <computersforpeace@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>,
+ Kazuhiro Kasai <kasai.kazuhiro@socionext.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-+
+On Mon, 2020-02-10 at 09:55:28 UTC, Piotr Sroka wrote:
+> Reinitilaize complete object before executing CDMA command to make sure
+> that done flag is ok.
+> 
+> Signed-off-by: Piotr Sroka <piotrs@cadence.com>
 
-On 10/03/2020 14:37, Randy Dunlap wrote:
-> On 3/10/20 2:19 AM, Stephen Rothwell wrote:
->> Hi all,
->>
->> Changes since 20200306:
->>
->> Removed tree: nfc-next (abanboned)
-> 
->                                doned
-> 
-> 
-> on i386:
-> 
-> WARNING: unmet direct dependencies detected for MTD_SPI_NOR
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
 
-Uh, so kbuild honors a "select" of a config option which has unmet 
-dependencies:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/kbuild/kconfig-language.rst?h=v5.6-rc5#n143
-
-So this looks introduced by:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/drivers/spi/Kconfig?h=next-20200310&id=e14572c52546c16e159c4c1814984843a119e823
-
->    Depends on [m]: MTD [=m] && SPI_MASTER [=y] >    Selected by [y]:
->    - SPI_HISI_SFC_V3XX [=y] && SPI [=y] && SPI_MASTER [=y] && (ARM64 && ACPI [=y] || COMPILE_TEST [=y]) && HAS_IOMEM [=y]
-> 
-> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/intel-spi.ko] undefined!
-> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/mtk-quadspi.ko] undefined!
-> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/hisi-sfc.ko] undefined!
-> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/aspeed-smc.ko] undefined!
-> 
-> 
-> Full randconfig file is attached.
-> 
-> 
-> ______________________________________________________
-> Linux MTD discussion mailing list
-> http://lists.infradead.org/mailman/listinfo/linux-mtd/
-> 
-
+Miquel
 
 ______________________________________________________
 Linux MTD discussion mailing list
