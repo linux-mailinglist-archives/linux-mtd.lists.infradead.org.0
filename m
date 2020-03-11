@@ -2,41 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 576B0180948
-	for <lists+linux-mtd@lfdr.de>; Tue, 10 Mar 2020 21:37:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id ADC71180DC4
+	for <lists+linux-mtd@lfdr.de>; Wed, 11 Mar 2020 02:47:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5HyNlJhLMz5TiDiKt7geU8L1akTj1ALtoFG+xBQCyYE=; b=Kr9YJOUQn/QFJt
-	877GvSM5XP7lbDXZ58p/Uzq1AUs9xqPFXHk8bRiyrV7wHXmXj9i3QhEqfsm7wmEeLhKt9cOMkzmje
-	MH1TZRQ2x5aLzeAPHiwEsQVGEHRJKaRJAyPKuuQ8YKr5KY+MFZW8gFVDgeEkEZN0Idv9W/XBV08cE
-	0MyPyo5UOacI/wDk6xRVE4C0UHLTm7Z532TTeBUuYQrSkVsX6IvnNBKlqRMypgxRNgrZJGDIsn3/p
-	8tOw3IA2O4L11aM7lThPCjOcNFj03+UjhIvm1kOfa89c21rR976eDG8cF7ecENR5as5vVKr+VXKpC
-	PbTnRuzEvpje7VX1HFrg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=81MWalQlY8nMFMzgu3BLY47m4o+s7jdEo+QR1UihSO8=; b=sZl
+	02qIOG/dizKIzHp/Cb6VM1YQ8OksqB1UpYhJLU++ACMMDkSP8v09SU4op1+bzCmzxBkiyGkMOMoB8
+	fLmPDgDNu3TlqjYl6E5XtWq5PUK0ETXCWGr4serO84TbA4XvGi2dIHGCXLg8PqzNvkoUsXm6q/6Hl
+	htMFx9fDXrFWBZwNTyIqEccZxIAf3MU7TWezsqOn2NyuIJ3N28MOpFQb7KBhiBmN9teVPn6TlC0a8
+	7WSBoMmkuYsVsK9KD9nHDfhMXDEQgsKxgJDvut9VoG0bUkD5e+BG5GRZZYcti/WEHb//wuLRVmzjq
+	jUGGW2Lv4eURv252wInhnGf1jd6pI7g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBlcv-000393-Tv; Tue, 10 Mar 2020 20:37:21 +0000
-Received: from [2601:1c0:6280:3f0::19c2]
- by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBlcV-00034o-Om; Tue, 10 Mar 2020 20:36:55 +0000
-Subject: Re: linux-next: Tree for Mar 10 (mtd/spi-nor/)
-To: John Garry <john.garry@huawei.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-References: <20200310201923.24e34363@canb.auug.org.au>
- <43df5279-7d91-020d-1632-9b3528f4feee@infradead.org>
- <f9d33b09-fe9f-2c26-96dc-b2eaa53c614b@huawei.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <aa3b19cd-e043-e5ea-5d77-38b53bda2e60@infradead.org>
-Date: Tue, 10 Mar 2020 13:36:54 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
-MIME-Version: 1.0
-In-Reply-To: <f9d33b09-fe9f-2c26-96dc-b2eaa53c614b@huawei.com>
-Content-Language: en-US
+	id 1jBqT5-0006tO-7Q; Wed, 11 Mar 2020 01:47:31 +0000
+Received: from mo-csw1516.securemx.jp ([210.130.202.155]
+ helo=mo-csw.securemx.jp)
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jBqSw-0006sz-W9
+ for linux-mtd@lists.infradead.org; Wed, 11 Mar 2020 01:47:24 +0000
+Received: by mo-csw.securemx.jp (mx-mo-csw1516) id 02B1l9uk002491;
+ Wed, 11 Mar 2020 10:47:09 +0900
+X-Iguazu-Qid: 34triqBKPQ0PGTNQU4
+X-Iguazu-QSIG: v=2; s=0; t=1583891228; q=34triqBKPQ0PGTNQU4;
+ m=BJbfuCHSBkFwoHEZqBUYMdwQP41o/mM0L9KuOOruQf8=
+Received: from imx2.toshiba.co.jp (imx2.toshiba.co.jp [106.186.93.51])
+ by relay.securemx.jp (mx-mr1510) id 02B1l7Qa003838;
+ Wed, 11 Mar 2020 10:47:08 +0900
+Received: from enc01.localdomain ([106.186.93.100])
+ by imx2.toshiba.co.jp  with ESMTP id 02B1l6db020674;
+ Wed, 11 Mar 2020 10:47:06 +0900 (JST)
+Received: from hop001.toshiba.co.jp ([133.199.164.63])
+ by enc01.localdomain  with ESMTP id 02B1l6Aw016080;
+ Wed, 11 Mar 2020 10:47:06 +0900
+From: Yoshio Furuyama <ytc-mb-yfuruyama7@kioxia.com>
+To: miquel.raynal@bootlin.com, vigneshr@ti.com
+Subject: [PATCH v4 0/2] mtd: spinand: toshiba: Support for new Kioxia Serial
+ NAND
+Date: Wed, 11 Mar 2020 10:47:04 +0900
+X-TSB-HOP: ON
+Message-Id: <cover.1583834323.git.ytc-mb-yfuruyama7@kioxia.com>
+X-Mailer: git-send-email 2.7.4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200310_184723_244220_663F6203 
+X-CRM114-Status: UNSURE (   4.33  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
+X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
+ Content analysis details:   (-0.7 points)
+ pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [210.130.202.155 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -48,91 +70,26 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Joe Perches <joe@perches.com>, Mark Brown <broonie@kernel.org>,
- linux-mtd@lists.infradead.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 3/10/20 10:14 AM, John Garry wrote:
-> +
-> =
+First patch is to rename function name becase of add new device.
+Second patch is to supprot for new device.
 
-> On 10/03/2020 14:37, Randy Dunlap wrote:
->> On 3/10/20 2:19 AM, Stephen Rothwell wrote:
->>> Hi all,
->>>
->>> Changes since 20200306:
->>>
->>> Removed tree: nfc-next (abanboned)
->>
->> =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
-=A0=A0=A0=A0=A0=A0 doned
->>
->>
->> on i386:
->>
->> WARNING: unmet direct dependencies detected for MTD_SPI_NOR
-> =
+Yoshio Furuyama (2):
+  mtd: spinand: toshiba: Rename function name to change suffix and
+    prefix (8Gbit)
+  mtd: spinand: toshiba: Support for new Kioxia Serial NAND
 
-> Uh, so kbuild honors a "select" of a config option which has unmet depend=
-encies:
-> =
+ drivers/mtd/nand/spi/toshiba.c | 173 +++++++++++++++++++++++++++++++----------
+ 1 file changed, 130 insertions(+), 43 deletions(-)
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/D=
-ocumentation/kbuild/kconfig-language.rst?h=3Dv5.6-rc5#n143
-
-Yes.
-
-> So this looks introduced by:
-> =
-
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commi=
-t/drivers/spi/Kconfig?h=3Dnext-20200310&id=3De14572c52546c16e159c4c18149848=
-43a119e823
-> =
-
->> =A0=A0 Depends on [m]: MTD [=3Dm] && SPI_MASTER [=3Dy] >=A0=A0=A0 Select=
-ed by [y]:
->> =A0=A0 - SPI_HISI_SFC_V3XX [=3Dy] && SPI [=3Dy] && SPI_MASTER [=3Dy] && =
-(ARM64 && ACPI [=3Dy] || COMPILE_TEST [=3Dy]) && HAS_IOMEM [=3Dy]
-
-Would it be acceptable to move the Kconfig entry for this:
-
-config SPI_HISI_SFC_V3XX
-	tristate "HiSilicon SPI-NOR Flash Controller for Hi16XX chipsets"
-	depends on (ARM64 && ACPI) || COMPILE_TEST
-	depends on HAS_IOMEM
-	select MTD_SPI_NOR
-
-into drivers/mtd/spi-nor/Kconfig, say after this one:
-
-config SPI_HISI_SFC
-	tristate "Hisilicon FMC SPI-NOR Flash Controller(SFC)"
-	depends on ARCH_HISI || COMPILE_TEST
-	depends on HAS_IOMEM
-
-and drop the "select MTD_SPI_NOR" because when it's in drivers/mtd/spi-nor/=
-Kconfig,
-it will depend on MTD_SPI_NOR.
-
-
->> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/intel-spi.ko] undefined!
->> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/mtk-quadspi.ko] undefined!
->> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/hisi-sfc.ko] undefined!
->> ERROR: "spi_nor_scan" [drivers/mtd/spi-nor/aspeed-smc.ko] undefined!
->>
->>
->> Full randconfig file is attached.
->>
-
-
--- =
-
-~Randy
+-- 
+1.9.1
 
 
 ______________________________________________________
