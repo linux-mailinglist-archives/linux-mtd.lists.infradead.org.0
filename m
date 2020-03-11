@@ -2,120 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id EB4C1181F8A
-	for <lists+linux-mtd@lfdr.de>; Wed, 11 Mar 2020 18:34:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AFCE2181FB0
+	for <lists+linux-mtd@lfdr.de>; Wed, 11 Mar 2020 18:39:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sAE7l2WqUSt+n/WQ/K+L8HjlFtTinBxk+w16OPYYr1I=; b=s7hXzO6WtpmQDG
-	MSta+RsgmbPfP2T0pwjNAi90lOlAencbODEVRmyx0ZQEi6q/1+PFubPMADQuSlBWwuU+joA8+hVdj
-	DOFpEWk3nHVjqfjp6J3c3j5khX2uWUljTu9I3kA4TOwCKFvXWTNfDsLQsqxaPfVxJ7rYQ8Fhh/Yu5
-	+HcdzaeYPvf1JT2VD0FI6ByjagI0s4gwDbZGt981ZSzFBvVZhYEsI9H0QMUgKdG3ovx72m6pkcfg5
-	d+TRudt5lIgyw4LHlxeZlRtsktrv6zX2eZqoRkvHbWJb/oYyS95XCnsTpaL+7WupH4367ccf5K4Wa
-	wIZvJsejq+5I3iTB/egQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B9SHR/rMd5xbKQ8NgFTQm/A4+cwxi2TfKexdy6G70U0=; b=eebrAV0d9RwCDD
+	r4ISWqzD048OzHfYHSofCPS6u3ujvgaAaF5PQMALLJlFZL4XZ2TX5GEBAoPFv3Y7hGrceXOWv3RFM
+	mI+VW56vLaPpR3Q+LR6aNDq9b+W/HS4D7mvwkt3Nu9BaF7+mOUOGRmj/g3nRiUWs3H6Bf9H7WjqzA
+	TdNF83J92nGAnVCEo11TNZlpVZvnrfsFG/NReogZUn6z4vDWtiYg4eqwArlZuDLLB7iwlT/h9hdhv
+	L01wmuNNwed6CDWR7Z9+eJU8QOfPkB0Sid4+k8GM2Lzn+nNWYrt+q2gCixZ3A//2lnRVmJrAd2Jw7
+	t09sU22nmuyy8NuRSXAA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jC5Ez-0000LS-4V; Wed, 11 Mar 2020 17:33:57 +0000
-Received: from mail-eopbgr750050.outbound.protection.outlook.com
- ([40.107.75.50] helo=NAM02-BL2-obe.outbound.protection.outlook.com)
+	id 1jC5KQ-0003xi-GW; Wed, 11 Mar 2020 17:39:34 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jC5Er-0000Jy-9c
- for linux-mtd@lists.infradead.org; Wed, 11 Mar 2020 17:33:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SqgdoSPvPd6gDO7S1yw8ErmHh23MiGNtL8Mm7lcSOyEqAfSv7MH755pCqrsD+qUAP8EBlhKjzUVnp8At/RNJkEgiCtSqyUfDPsmQ/TuktQWZ6m2vW55pGrIfSpwBxmo2lGeVaeaqczvfAKNgo+sc2LZsLuLsa+EaLyanzJIXKLzqh97O48FAGeRuu/Dg+iUYcVAR1IhFjKbExM6mKJpGq7YLeDv5wElA4NJlkTe51LKrTIJPxzb8qzhCFKX+Cz2vURtythgmo6FTqRQVhDG/vU5MQBfh6USpNUKYj3NIMhTV3KLQmXnbRyc3DOBXq/mFeAPOVxH0cLxi6EjaYNbHnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dWhV3jmCXxDWPeTdzbQSVVspoCjPdH5Uq6CkBDOgp2I=;
- b=IDqI9uZpJ7K/EaIUIQaZ/USb1bMLC3z2eQ4uuN2egf92CChP44vXpXsAXhdKP1K1KO1db3fnlgfep3OrmBKMs/4TDIcphiWGS8xGTd8oixRYcusy87tIcatqfTBRkB8cVt56AamaCl9tOPyIa3c7QhEn6QYAgy+xwOy79OXHDAr3CYXcZzBLlaARU7ICX4cCQokmbRkOOvg3o1RjH8RUSUP9K0TtldJIMxt0CJ9V7HPm02euyMLwdcvFdIMNckD+Q066l6KSBIjoC4ZWJY5/xS2Bzgz9eeBvKX2mxAWlJovtWQ4QDsuQv8yEBpSxDwS6z5iCV735exj2rJocAnNhgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=micron.com; dmarc=pass action=none header.from=micron.com;
- dkim=pass header.d=micron.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=micron.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dWhV3jmCXxDWPeTdzbQSVVspoCjPdH5Uq6CkBDOgp2I=;
- b=HgpKqJidu2Y5W9A4SSYggtF8GPBLusJKaLkvEUm/BYcGIbjaGtRqgP0hgdd39fMNt1/Tq/ZdCDWyMv0m+xsL64geXxN+DzAnBOT89YeS8OxttuJ20VFhWS9dao4U0syp2Sb2rExscHzB19Bv+UTEJCItIrKzVlIk19x4Zz4XueY=
-Received: from MN2PR08MB6397.namprd08.prod.outlook.com (2603:10b6:208:1aa::10)
- by MN2PR08MB5936.namprd08.prod.outlook.com (2603:10b6:208:11a::20)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2793.14; Wed, 11 Mar
- 2020 17:33:41 +0000
-Received: from MN2PR08MB6397.namprd08.prod.outlook.com
- ([fe80::884a:b0f5:3cf5:f4a4]) by MN2PR08MB6397.namprd08.prod.outlook.com
- ([fe80::884a:b0f5:3cf5:f4a4%4]) with mapi id 15.20.2793.018; Wed, 11 Mar 2020
- 17:33:41 +0000
-From: "Shivamurthy Shastri (sshivamurthy)" <sshivamurthy@micron.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, Boris Brezillon
- <boris.brezillon@collabora.com>
-Subject: RE: [EXT] Re: [PATCH v6 0/6] Add new series Micron SPI NAND devices
-Thread-Topic: [EXT] Re: [PATCH v6 0/6] Add new series Micron SPI NAND devices
-Thread-Index: AQHV97yqdMFOd0WUj0Kd2FcGzJVvLKhDpJ6Q
-Date: Wed, 11 Mar 2020 17:33:41 +0000
-Message-ID: <MN2PR08MB6397BAEC050EF2C1A9CE8CDAB8FC0@MN2PR08MB6397.namprd08.prod.outlook.com>
-References: <20200309115230.7207-1-sshivamurthy@micron.com>
- <20200311164932.23cc7a42@xps13>
-In-Reply-To: <20200311164932.23cc7a42@xps13>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-dg-rorf: true
-x-dg-ref: PG1ldGE+PGF0IG5tPSJib2R5LnR4dCIgcD0iYzpcdXNlcnNcc3NoaXZhbXVydGh5XGFwcGRhdGFccm9hbWluZ1wwOWQ4NDliNi0zMmQzLTRhNDAtODVlZS02Yjg0YmEyOWUzNWJcbXNnc1xtc2ctNzE1YWU1ODctNjNiZS0xMWVhLWIxZWEtOTgzYjhmNzQ1MjUxXGFtZS10ZXN0XDcxNWFlNTg5LTYzYmUtMTFlYS1iMWVhLTk4M2I4Zjc0NTI1MWJvZHkudHh0IiBzej0iMjM0MSIgdD0iMTMyMjg0MjE2MTk1MDkyMTM1IiBoPSJOVHVwYk54WXdxbU5kaURRQ3ZIdkV5eFFMV009IiBpZD0iIiBibD0iMCIgYm89IjEiIGNpPSJjQUFBQUVSSFUxUlNSVUZOQ2dVQUFIQUFBQUNuRHJNenkvZlZBU3VBZ3YreE1QZGZLNENDLzdFdzkxOEFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUJBQUFCQUFBQUlTQjI1d0FBQUFBQUFBQUFBQUFBQUE9PSIvPjwvbWV0YT4=
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=sshivamurthy@micron.com; 
-x-originating-ip: [165.225.86.136]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: dc52d287-c8bf-445c-0c44-08d7c5e2576c
-x-ms-traffictypediagnostic: MN2PR08MB5936:|MN2PR08MB5936:|MN2PR08MB5936:
-x-microsoft-antispam-prvs: <MN2PR08MB5936EB61C70B962F6D849135B8FC0@MN2PR08MB5936.namprd08.prod.outlook.com>
-x-ms-exchange-transport-forked: True
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 0339F89554
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(4636009)(136003)(376002)(396003)(366004)(39860400002)(346002)(199004)(5660300002)(478600001)(966005)(2906002)(55236004)(7696005)(54906003)(81156014)(71200400001)(6506007)(8676002)(86362001)(81166006)(9686003)(110136005)(55016002)(4326008)(66446008)(64756008)(66556008)(66476007)(33656002)(316002)(66946007)(52536014)(26005)(76116006)(186003)(8936002);
- DIR:OUT; SFP:1101; SCL:1; SRVR:MN2PR08MB5936;
- H:MN2PR08MB6397.namprd08.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; 
-received-spf: None (protection.outlook.com: micron.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: AjykihFX52q5/+Ha6jc1Jo9JnTpH0SMm9xiJZoFBGFLtF80HAG6jaCL7jHoM3Iw/Gfk5jcr5sFhnpwPYVX37TdaBLXsZ1JxyhBqc+OL4hvOMefBal6VmoMrO8lPKMfQbuHMcLFrsYItRI7Wr437+XATF4FXuAbQdR6w9JP7yGo3UP6TnF/jPdHbH8xiCHOQNcABLew+Ncd8/ch6BnaZtFnYJuniAUbcU5CFILs8IpbS8vyxi2gDGVZLA78YrIwQ3GzMyZqo9v03wd6rKYd2NcNYJbKemYyXI7D6bgdAExYQ2DPuuKhZSUOjywDDmcdbXdv4gYzfhx/XOri2BeY/8n0fX8tG2T5VIqNBrKthgHSAig1MOR9vyvBNck0wGLqDK93KgViwdnpAR4BBNM6H+xlYSFPZ98xZv4Zr+Zbfpaiu8Qzjvx4rJ8GjCPwOqp+7X04b6ZHzDwVaMajSDNScmWeAXnT9PSkq4mVKDQlQPCGiCZvods8mOcu01+vXY/oFIQMigDEK3UDdsKBAxpzviHQ==
-x-ms-exchange-antispam-messagedata: 2ZBuwFxcJEFwmmZyzSSOOKQvIfHhMD547fYrnXroDtdnIeJ/j9GIhOFgwXsCGO3D4r5kV4fMVFxyG4dPfvWvuDrS9ZhMr0GhPdPdJLxMolM4w5yz+Htvy0w+Z0LH6hZxkNVbvNXsyCWaWFle+oH2lA==
+ id 1jC5KD-0003wc-8s
+ for linux-mtd@lists.infradead.org; Wed, 11 Mar 2020 17:39:22 +0000
+Received: from DGGEMS407-HUB.china.huawei.com (unknown [172.30.72.60])
+ by Forcepoint Email with ESMTP id 43322579B4F62CF1EA02;
+ Thu, 12 Mar 2020 01:39:17 +0800 (CST)
+Received: from localhost.localdomain (10.69.192.58) by
+ DGGEMS407-HUB.china.huawei.com (10.3.19.207) with Microsoft SMTP Server id
+ 14.3.487.0; Thu, 12 Mar 2020 01:39:08 +0800
+From: John Garry <john.garry@huawei.com>
+To: <broonie@kernel.org>
+Subject: [PATCH] spi: Stop selecting MTD_SPI_NOR for SPI_HISI_SFC_V3XX
+Date: Thu, 12 Mar 2020 01:35:15 +0800
+Message-ID: <1583948115-239907-1-git-send-email-john.garry@huawei.com>
+X-Mailer: git-send-email 2.8.1
 MIME-Version: 1.0
-X-OriginatorOrg: micron.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc52d287-c8bf-445c-0c44-08d7c5e2576c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2020 17:33:41.5138 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: f38a5ecd-2813-4862-b11b-ac1d563c806f
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wS1E46hHTeYaRZz3O9+xUMD8ZcHGjoKZHoa5i2uMc7KdayuK07Y4w57pSIxtoxV6ap0zu8ydt5GXNSJ0teYf3Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR08MB5936
+X-Originating-IP: [10.69.192.58]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200311_103349_414650_76886DAA 
-X-CRM114-Status: GOOD (  13.85  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200311_103921_500253_EB67C22E 
+X-CRM114-Status: UNSURE (   6.49  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [40.107.75.50 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [40.107.75.50 listed in wl.mailspike.net]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [45.249.212.190 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -127,82 +62,45 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- "shiva.linuxworks@gmail.com" <shiva.linuxworks@gmail.com>,
- Richard Weinberger <richard@nod.at>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Frieder Schrempf <frieder.schrempf@kontron.de>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
+Cc: sfr@canb.auug.org.au, John Garry <john.garry@huawei.com>,
+ Tudor.Ambarus@microchip.com, chenxiang66@hisilicon.com, rdunlap@infradead.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-next@vger.kernel.org, linux-mtd@lists.infradead.org, joe@perches.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Miquel,
+By selecting MTD_SPI_NOR for SPI_HISI_SFC_V3XX, we may introduce unmet
+dependencies:
 
-> 
-> Hi Shiva,
-> 
-> shiva.linuxworks@gmail.com wrote on Mon,  9 Mar 2020 12:52:24 +0100:
-> 
-> > From: Shivamurthy Shastri <sshivamurthy@micron.com>
-> >
-> > This patchset is for the new series of Micron SPI NAND devices, and the
-> > following links are their datasheets.
-> >
-> > M78A:
-> > [1] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m78a_1gb_3v_nand_spi.pdf
-> > [2] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m78a_1gb_1_8v_nand_spi.pdf
-> >
-> > M79A:
-> > [3] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m79a_2gb_1_8v_nand_spi.pdf
-> > [4] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m79a_ddp_4gb_3v_nand_spi.pdf
-> >
-> > M70A:
-> > [5] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m70a_4gb_3v_nand_spi.pdf
-> > [6] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m70a_4gb_1_8v_nand_spi.pdf
-> > [7] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m70a_ddp_8gb_3v_nand_spi.pdf
-> > [8] https://www.micron.com/~/media/documents/products/data-
-> sheet/nand-flash/70-series/m70a_ddp_8gb_1_8v_nand_spi.pdf
-> >
-> > Changes since v5:
-> > -----------------
-> >
-> > 1. Rebased series to v5.6-rc1.
-> 
-> I am very sorry but actually I had issues applying all your patches not
-> because they were not based on v5.6-rc1, but because since then I
-> applied a patch changing the detection that changed the content of a
-> lot of structures (including in Micron's patches).
-> 
-> Can you please rebase again on top of the current nand/next? I am very
-> sorry for this extra work, this is my mistake.
-> 
-> Head should be:
-> 
-> 	a5d53ad26a8b ("mtd: rawnand: brcmnand: Add support for flash-edu
-> for dma transfers")
-> 
-> And the culprit commit is:
-> 
-> 	f1541773af49 ("mtd: spinand: rework detect procedure for different
-> READ_ID operation")
+WARNING: unmet direct dependencies detected for MTD_SPI_NOR
+  Depends on [m]: MTD [=m] && SPI_MASTER [=y]
+  Selected by [y]:
+  - SPI_HISI_SFC_V3XX [=y] && SPI [=y] && SPI_MASTER [=y] && (ARM64 && ACPI [=y] || COMPILE_TEST [=y]) && HAS_IOMEM [=y]
+
+Since MTD_SPI_NOR is only selected by SPI_HISI_SFC_V3XX for practical
+reasons - slave devices use the spi-nor driver, enabled by MTD_SPI_NOR -
+just drop it.
+
+Signed-off-by: John Garry <john.garry@huawei.com>
+
+diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
+index 66c6c0d77ea7..ad1a2547a414 100644
+--- a/drivers/spi/Kconfig
++++ b/drivers/spi/Kconfig
+@@ -299,7 +299,6 @@ config SPI_HISI_SFC_V3XX
+ 	tristate "HiSilicon SPI-NOR Flash Controller for Hi16XX chipsets"
+ 	depends on (ARM64 && ACPI) || COMPILE_TEST
+ 	depends on HAS_IOMEM
+-	select MTD_SPI_NOR
+ 	help
+ 	  This enables support for HiSilicon v3xx SPI-NOR flash controller
+ 	  found in hi16xx chipsets.
+-- 
+2.17.1
 
 
-I will rebase and send the patches.
-Meanwhile, there will be small code change because of the READ_ID patch.
-
-Do I need to drop Reviewed-by from Boris?
-
-Thanks,
-Shiva
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
