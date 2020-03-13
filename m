@@ -2,30 +2,30 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5CD38184F76
-	for <lists+linux-mtd@lfdr.de>; Fri, 13 Mar 2020 20:48:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A8BEB184F74
+	for <lists+linux-mtd@lfdr.de>; Fri, 13 Mar 2020 20:47:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=88291iW351FeD6B1MADh2q/FtkKafwIF39ukGpsNyBI=; b=YVHLhVESlqDsB8
-	JcbtVCuDr/in+umMoCgM7bC8Mhh6+QQTfoA02aRc+/LMOdVDB+j4PHm1McYb0kZjBO55bfG/punn9
-	TOFPy+eb6/JMorYDzE4cyzBn7xvJ6r1bc5G2dDlg/uNHNq8qnXXTXRa37CY8PsU4hhlNEmwVtBr93
-	4OIZYJ1tlbWLwuf3fM8IVCquEzmgRHzRYkcCtqQa1+3/FOtxtRXoAeXk58rvHUkUcg3l0Ws0QW+7/
-	j2fyRcjkbh52E0EAHB2x09J9q53IAhmiQHl8n4ug4umN90lcJWVkwR/pZ7NssiirFOxz003/Z6rl8
-	Uvv/a4NLngzBxCE8VV7Q==;
+	List-Owner; bh=TXHbGzda20uT/GLjrKHzvtzWEUFINSV46/X5QwMvSC4=; b=o6pEp2KfyZQUZx
+	cnk3neNoPk9YGlrXf6kmMRLyMo/t3Qey/QuGut3hRZoAoPqgw6FhMdyZFkeBV97kIDwDUnfftN/DD
+	bedmy2ccaTPSQhaKBfqmn6G8MhWHb+MRYDth6B4RLNR7Eq8d+JrJjgpUy4aWjdVQEt69SqoOfeGXM
+	Le/HHsPAoQ7/s2BJBEzEijxXSUeXd7Rta4mBabna3w2K2L4EALpDz/mY7CioAh1xwuwftaC4zPaV2
+	e2jQ9e6LJBgY+4vxwL7szwXEDOQOEl2toaOAlN4TI8VyGpFuT88gYS80Zx3Cr4mF+GV52b8bgQ4uk
+	ARLj1AxsEkagVrdzhUhA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jCqII-0005DP-Uo; Fri, 13 Mar 2020 19:48:30 +0000
-Received: from esa6.microchip.iphmx.com ([216.71.154.253])
+	id 1jCqHc-0004fZ-R8; Fri, 13 Mar 2020 19:47:48 +0000
+Received: from esa5.microchip.iphmx.com ([216.71.150.166])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jCqCq-0008LF-Cm; Fri, 13 Mar 2020 19:42:56 +0000
-Received-SPF: Pass (esa6.microchip.iphmx.com: domain of
+ id 1jCqCr-0008KR-8j; Fri, 13 Mar 2020 19:42:55 +0000
+Received-SPF: Pass (esa5.microchip.iphmx.com: domain of
  Tudor.Ambarus@microchip.com designates 198.175.253.82 as
  permitted sender) identity=mailfrom;
- client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ client-ip=198.175.253.82; receiver=esa5.microchip.iphmx.com;
  envelope-from="Tudor.Ambarus@microchip.com";
  x-sender="Tudor.Ambarus@microchip.com";
  x-conformance=spf_only; x-record-type="v=spf1";
@@ -33,27 +33,26 @@ Received-SPF: Pass (esa6.microchip.iphmx.com: domain of
  a:smtpout.microchip.com -exists:%{i}.spf.microchip.iphmx.com
  include:servers.mcsv.net include:mktomail.com
  include:spf.protection.outlook.com ~all"
-Received-SPF: None (esa6.microchip.iphmx.com: no sender
+Received-SPF: None (esa5.microchip.iphmx.com: no sender
  authenticity information available from domain of
  postmaster@email.microchip.com) identity=helo;
- client-ip=198.175.253.82; receiver=esa6.microchip.iphmx.com;
+ client-ip=198.175.253.82; receiver=esa5.microchip.iphmx.com;
  envelope-from="Tudor.Ambarus@microchip.com";
  x-sender="postmaster@email.microchip.com"; x-conformance=spf_only
-Authentication-Results: esa6.microchip.iphmx.com;
+Authentication-Results: esa5.microchip.iphmx.com;
  spf=Pass smtp.mailfrom=Tudor.Ambarus@microchip.com;
  spf=None smtp.helo=postmaster@email.microchip.com;
  dmarc=pass (p=none dis=none) d=microchip.com
-IronPort-SDR: aboUV9t57jJs5PhoPbJ9EQ7ts2h5tIBcBI6RemY4SIJu2kDi+wSwUuUIma1p7VzVUp4OJdapJU
- 0bRBNauA6wXe/UMBHGPbTbZh4OxkFjv6CHa30Y5c1AUf/s7vGPq1GoBImLuWKz7pK/emS3Vdnj
- C+louIlfdhPbtTZKlDWHCOrIwJ8B3RFEK3rhIFq+KAlpyOnwP2+pFlQ8Vpq1/kIDUJcQ/sKm2I
- DkwMmfETCpyvc56u+cwKK9dUHmppcYU2Ro+ce7qCm1248/HUmrPX31xR1da5OdDSTmHqg6Tv65
- AuQ=
-X-IronPort-AV: E=Sophos;i="5.70,549,1574146800"; 
-   d="scan'208";a="5602927"
+IronPort-SDR: Mk7JQB3YdCqeFZgQcSq0t9EBN07mx6cqpT9tHe4m6GWFsDxm3b6W+tAOBCR9MpmWoDiIuqsbRn
+ vKbmTCRXH3+TQ98F3t6EkfGb5OpkxbcaPIaVgu2IeTQWL7wX6gmYdZKznBI8RurgW9qy1PfeFD
+ hTxwQ45E1NxLApjWghgXwtfe1GNUlrIi+DVQPT1vRa96O0Ug5RjPNdqVCvWMJ5Q8kfKyG6dYpv
+ rYUo/GcD0v8E1jlVyohYOa2wqz+t8WkiJ+jCxNqBKWhNy31AJIizXFLka1LSBDJztUiLmf+LN6
+ cKw=
+X-IronPort-AV: E=Sophos;i="5.70,549,1574146800"; d="scan'208";a="68809662"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 13 Mar 2020 12:42:51 -0700
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 13 Mar 2020 12:42:53 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
  chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -62,14 +61,14 @@ Received: from NAM04-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
  email.microchip.com (10.10.87.72) with Microsoft SMTP Server
  (version=TLS1_2, 
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
- Transport; Fri, 13 Mar 2020 12:42:45 -0700
+ Transport; Fri, 13 Mar 2020 12:42:46 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=S3b7hQc/85ClGDl+rUGtE0bEXQ8tf8keRqIKHZ987CNcnujH1fEOGQTlT3hti48lDN309ObiToQWBTkO5RQ8vT74QtqNz+BMf/lKxNzetbbjKMDh4uHwwEzsmX5KS8xp79B2Ha5XI/zKnrQFf6Djn4+5Qo7xG5KcazkmP5FJcBCc00jsaflV9QV5ROPabOuT7WjuHE/3YBuB1C+Ldj4mJSAUAkFImTv5LkKwETf9yKvISC/HHS2wHjklWx4CfzFz9tgi2MNN5qwmPndO/85ulBOfRoDNVZpQZxcLxq/FPAYfNLXfKg5xc+YrPu51084kG+uPKChjODkkVHAu+TeRvQ==
+ b=GkL+IIJYtJIg1UkSh805Xg9+Ewf8yqShTCk7MH0mzbnWN9mkGZfvRnzdd8ZSVxjQh2PuskZJw1aoKpi7ZuWcePoxq7XTJylqnxrgp+KCaorgKjQdZaHLWSdn8cpXnH+HNZvon3EJFeOswz3hL3kguEsyAO21dS8XkUF+8H0BXtoOTOt04vqhOdIKICJDbGpcpgpuGgc0s7aU9+YQg//LPFyaurv8mFg7mFYE/j7NszEnB7E/lL6M8vIEsAX0opk6t/gthHrJXW68qGWGIe4kxrRomeZmUbBzpiFuMH4PfQQGe7+obGTTb74nXlXmiGjNV03QHaUk1Xly2iP1DwuyPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6mG46Dyyz3HSTrOCn7VbaqeMIJkXcnUZ0LnBpsyFPfw=;
- b=eKHZn2CdDu1LAKjsdXXQkRJ6/XY3TWfY0UkSRZlHxPfBkBfeNWWyJZrpj/5AoLxd597d57CZFTd39AxlYQpQw/CuE+ZZYZt15chFfOfOlCLidXBYOQeO6ssOXE9cLm+JP1IDyQWQCx5EDAempDsvRWWqoOSUOMKKdUSqW9kUOMkThUs5gtW9UQCDDgdZ5QaD9WGRw0V28fuF96njMwIg/hM7XR17Ab/BZPaMfLUIveg9NjAJpXSw0oSDRihINXGhvz5O4pNjJnmmYgYYKYhCc2YZgFP7nf5MROK0hnJIUc2kyZDoA6C9XLGwC4Gfenj4tRdsSqxrMUxiiquX+cc8Vw==
+ bh=ey40N/VDoz8bP6BOpKgMVRiJNMY5Cs6hOr4Q3F6reTU=;
+ b=QwcTBRLgJOXy1o2c1/KnPUtFGet26l1b74KmGppi7m+kTZDyYgoK8dhRc4c6MX8SJfGjcVVmHzCU3+kOXVRT1i0g90pQERf9osDTYcAcmjgXDlXCBha45MptTbTlGTdheXJ1y9x4m77EOI7xlSi8YF8vRTKzNGusLVF0smhIYVFe7NuhU5rt1uFTCQj2RzmfxE1+Kpjhzum8LyjzQJiotmPaBSTizOsMx0aKOS0k9c7Q9FF6VDV9x4koErZkz1Lw674JZ6w6zTHj1Ayqr0+o7UEfWvbDRObUt8IQU6VuHJ6UEIMm5Ztbedha5fqAlQifzTItyCLPKZ9Fmb9kXaJvyA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -77,24 +76,24 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6mG46Dyyz3HSTrOCn7VbaqeMIJkXcnUZ0LnBpsyFPfw=;
- b=D97zHwAA3xHe8zvJbxQHCWg9YaNA5w11uWl4N6msbiXrKf84JPnecfeAyr2zhp2i+8Vhh3xpxKHGekbc+zz+kXF9VsDNVlq5K4yid3eO7iEA/sLQJhUCpV4FVoxvhpmeAyXUKkihznWwYNK8MK5fX+EDHy9RBXUIvWgrZUHvWWw=
+ bh=ey40N/VDoz8bP6BOpKgMVRiJNMY5Cs6hOr4Q3F6reTU=;
+ b=Q6NC7ebd7T2NpVBfuREi+nN2tJOGHd8SlE0R6OG7CkbEu3SpG2YpIXyYy+4XGrPWYFYCGZ/vjbCYme5oME1gTDLZfVgVOAYhOzsg+6V8uxm2fSOaVM7buKArPHPxwq0QLS2Ruy82kjYbA4/seIuxwIagbCEVAmHaTwSv5820Dmk=
 Received: from MN2PR11MB4448.namprd11.prod.outlook.com (2603:10b6:208:193::29)
  by BYASPR01MB10.namprd11.prod.outlook.com (2603:10b6:a02:92::33) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2814.13; Fri, 13 Mar
- 2020 19:42:50 +0000
+ 2020 19:42:51 +0000
 Received: from MN2PR11MB4448.namprd11.prod.outlook.com
  ([fe80::3c8f:7a55:cbd:adfb]) by MN2PR11MB4448.namprd11.prod.outlook.com
  ([fe80::3c8f:7a55:cbd:adfb%5]) with mapi id 15.20.2793.018; Fri, 13 Mar 2020
- 19:42:49 +0000
+ 19:42:50 +0000
 From: <Tudor.Ambarus@microchip.com>
 To: <bbrezillon@kernel.org>, <vigneshr@ti.com>
-Subject: [PATCH v2 12/25] mtd: spi-nor: Move GigaDevice bits out of core.c
-Thread-Topic: [PATCH v2 12/25] mtd: spi-nor: Move GigaDevice bits out of core.c
-Thread-Index: AQHV+W+QSPOuame32EKDdLflumdU1A==
+Subject: [PATCH v2 13/25] mtd: spi-nor: Move Intel bits out of core.c
+Thread-Topic: [PATCH v2 13/25] mtd: spi-nor: Move Intel bits out of core.c
+Thread-Index: AQHV+W+Q+i04YDcpJ06/M6NUuV3hkw==
 Date: Fri, 13 Mar 2020 19:42:43 +0000
-Message-ID: <20200313194130.342251-13-tudor.ambarus@microchip.com>
+Message-ID: <20200313194130.342251-14-tudor.ambarus@microchip.com>
 References: <20200313194130.342251-1-tudor.ambarus@microchip.com>
 In-Reply-To: <20200313194130.342251-1-tudor.ambarus@microchip.com>
 Accept-Language: en-US
@@ -103,15 +102,15 @@ X-MS-Has-Attach:
 X-MS-TNEF-Correlator: 
 x-originating-ip: [94.177.32.156]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c9b449fa-e06c-4c7e-10c8-08d7c786b69a
+x-ms-office365-filtering-correlation-id: dea8e7c8-c849-4abb-2c11-08d7c786b73c
 x-ms-traffictypediagnostic: BYASPR01MB10:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BYASPR01MB1099153B51609917F04DD5F0FA0@BYASPR01MB10.namprd11.prod.outlook.com>
+x-microsoft-antispam-prvs: <BYASPR01MB10FEAC48A630C2921847F9F0FA0@BYASPR01MB10.namprd11.prod.outlook.com>
 x-bypassexternaltag: True
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
 x-forefront-prvs: 034119E4F6
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(136003)(346002)(39860400002)(396003)(366004)(376002)(199004)(478600001)(54906003)(107886003)(6512007)(110136005)(26005)(186003)(6486002)(4326008)(2616005)(316002)(71200400001)(6666004)(6506007)(86362001)(36756003)(8676002)(5660300002)(2906002)(66476007)(66446008)(66556008)(76116006)(64756008)(91956017)(66946007)(1076003)(81166006)(81156014)(8936002);
+ SFS:(10009020)(136003)(346002)(39860400002)(396003)(366004)(376002)(199004)(478600001)(54906003)(6512007)(110136005)(26005)(186003)(6486002)(4326008)(2616005)(316002)(71200400001)(6666004)(6506007)(86362001)(36756003)(8676002)(5660300002)(2906002)(66476007)(66446008)(66556008)(76116006)(64756008)(91956017)(66946007)(1076003)(81166006)(81156014)(8936002);
  DIR:OUT; SFP:1101; SCL:1; SRVR:BYASPR01MB10;
  H:MN2PR11MB4448.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; 
@@ -119,26 +118,26 @@ received-spf: None (protection.outlook.com: microchip.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: NLE/5KTwMAuuz6C8I3GjPyS8xAa4irIbQt2KOM9fFfpmqVjlaZAqRJUM15Fj56uKZ9DKWtLPoBcnP5MWjG9CJ0TnUWMVaPXuntH9cjNLk5c+ZjMxR+Usk8Svv0DxieVpgSSKEcabms03vE42x+4+B/7aDEfh1t1XEL3f5RVz0lEdz8qK9+lQQgx/QtsZrry2qrt8zHakCGfXWzdwV3j6Xh4Uwr7Kc0iiSsnYJBNF1mDOZ/jXfCQrhpUeiKwh7NEfzdLbcP2fM8Oe90fq3diRlG/UOf+i++Jse3hmKh9J46iGL6yz3ZBW5iaoOxyD53RWpgbv9uSewrNfRujmEWqx0PHbXn22YryCIOKWvInfI9l8XTEBfNdfATMYkePwB8DYktmmA2jjFf+kH1CMaFnXvpKuxAzNf6qgiFbbpepKTvlXe3JYa1eeaBATrqgPqrIC
-x-ms-exchange-antispam-messagedata: ITfgREMIRcCm2JcY+27X6eLRyNnhy321XKu12wpOtVhnokelaJYajMj2CpcI81a8ABRFpzUMia6d/dy3qoNA3KBPUL7vF7rwIhBklG8ej4dg6UL8aaaNiTXikl87nBglwa6EbT+mA/UqvOb+NmWm/w==
+x-microsoft-antispam-message-info: iRU+Ipk1TwE7l7eRCpIshRCOSoe4CkP0louNCsj9jE6sOqptdcG3vu2ckH8V3MhvOsNCDCPswVvKAuS4upJHVjlXP3QkHUZBLLJVPqiozR2MRt0Kwassn2A/1bMPSdjIouJcD/1ZWIxFtKCaSDbORGaQw768s/mLpxpmHAV0Kt3N3S27lP4qJQG1JkSE5IX5+t4rdoz7VfVK9Fc78F+d7rdsMti4HF79LfoNJiNJXTmp+Zo1bhr+BNQ0hoQNOEXnxYiQoXqXBw3YKiLGXH1MEgo5UOU5q9xboNboZZhS0fS5a2VeEBHdu7zwcNm0YQyuWbGsSVz5EZL0a3vZQzA9Vr/9U76yrMInv/Ci8C+1ogW4rNoN+uM9VMWq91jabEBNZRAuuVA8UfiOcjQKIeRPdk6O044ZyFC87dOtne3kTLYftcXa0l2x5XfJI49KqxV7
+x-ms-exchange-antispam-messagedata: fAz/NYf94o8cEZoGPilCOUMo0A+kcjpFmCRhoZBnihl2LvvVC32+4owQ5Qp6SjP/MMl3OArhc+HBjh6PZ7L08ayiazDgqm84GPjWdX/zZhA8bHIMKThzviZr5uos41ED5oEgobVvX8s/eJSW2hOR0w==
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9b449fa-e06c-4c7e-10c8-08d7c786b69a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2020 19:42:43.1439 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dea8e7c8-c849-4abb-2c11-08d7c786b73c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2020 19:42:43.7385 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: t3th7Agr1UhuycR9FuKHvJcDtxNMreAzpATFi5ZCMNPsSza5YBvVVlbvwdYs5G+Ib0e904cLIxk77wPG3eZfaoOrM7scsdTwli4EfknospI=
+X-MS-Exchange-CrossTenant-userprincipalname: rCCfiNxzKv/T8oSWkgCoX1Ea0XuHTtRz6MEiiTHvu4tTazWHw+vBMOl8cvoL+/JUy9AWrsYlv9yFSuwoZfXLQZr6RnOh5WT70SIRX/e09ls=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYASPR01MB10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200313_124252_505721_42D2168C 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20200313_124253_345951_259E8892 
+X-CRM114-Status: GOOD (  12.65  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [216.71.154.253 listed in list.dnswl.org]
+ medium trust [216.71.150.166 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -155,8 +154,9 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, Tudor.Ambarus@microchip.com, linux-mtd@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, miquel.raynal@bootlin.com
+Cc: Tudor.Ambarus@microchip.com, richard@nod.at, linux-mtd@lists.infradead.org,
+ miquel.raynal@bootlin.com, mika.westerberg@linux.intel.com,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
@@ -164,132 +164,95 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Boris Brezillon <bbrezillon@kernel.org>
 
-Create a SPI NOR manufacturer driver for GigaDevice chips, and move the
-GigaDevice definitions outside of core.c.
+Create a SPI NOR manufacturer driver for Intel chips, and move the
+Intel definitions outside of core.c.
 
 Signed-off-by: Boris Brezillon <bbrezillon@kernel.org>
 Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+Reviewed-by: Mika Westerberg <mika.westerberg@linux.intel.com>
 ---
- drivers/mtd/spi-nor/Makefile     |  1 +
- drivers/mtd/spi-nor/core.c       | 60 +-------------------------------
- drivers/mtd/spi-nor/core.h       |  1 +
- drivers/mtd/spi-nor/gigadevice.c | 59 +++++++++++++++++++++++++++++++
- 4 files changed, 62 insertions(+), 59 deletions(-)
- create mode 100644 drivers/mtd/spi-nor/gigadevice.c
+ drivers/mtd/spi-nor/Makefile |  1 +
+ drivers/mtd/spi-nor/core.c   | 15 +--------------
+ drivers/mtd/spi-nor/core.h   |  1 +
+ drivers/mtd/spi-nor/intel.c  | 32 ++++++++++++++++++++++++++++++++
+ 4 files changed, 35 insertions(+), 14 deletions(-)
+ create mode 100644 drivers/mtd/spi-nor/intel.c
 
 diff --git a/drivers/mtd/spi-nor/Makefile b/drivers/mtd/spi-nor/Makefile
-index ca6222d98b0f..38f704be4b03 100644
+index 38f704be4b03..8eb741a27fa7 100644
 --- a/drivers/mtd/spi-nor/Makefile
 +++ b/drivers/mtd/spi-nor/Makefile
-@@ -6,4 +6,5 @@ spi-nor-objs			+= eon.o
- spi-nor-objs			+= esmt.o
+@@ -7,4 +7,5 @@ spi-nor-objs			+= esmt.o
  spi-nor-objs			+= everspin.o
  spi-nor-objs			+= fujitsu.o
-+spi-nor-objs			+= gigadevice.o
+ spi-nor-objs			+= gigadevice.o
++spi-nor-objs			+= intel.o
  obj-$(CONFIG_MTD_SPI_NOR)	+= spi-nor.o
 diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index 3850c638f95a..236632d15c42 100644
+index 236632d15c42..e860f4efdeba 100644
 --- a/drivers/mtd/spi-nor/core.c
 +++ b/drivers/mtd/spi-nor/core.c
-@@ -2054,21 +2054,6 @@ static struct spi_nor_fixups mx25l25635_fixups = {
- 	.post_bfpt = mx25l25635_post_bfpt_fixups,
- };
- 
--static void gd25q256_default_init(struct spi_nor *nor)
--{
--	/*
--	 * Some manufacturer like GigaDevice may use different
--	 * bit to set QE on different memories, so the MFR can't
--	 * indicate the quad_enable method for this case, we need
--	 * to set it in the default_init fixup hook.
--	 */
--	nor->params.quad_enable = spi_nor_sr1_bit6_quad_enable;
--}
--
--static struct spi_nor_fixups gd25q256_fixups = {
--	.default_init = gd25q256_default_init,
--};
--
- /* NOTE: double check command sets and memory organization when you add
-  * more nor chips.  This current list focusses on newer chips, which
-  * have been converging on command sets which including JEDEC ID.
-@@ -2081,50 +2066,6 @@ static struct spi_nor_fixups gd25q256_fixups = {
+@@ -2066,11 +2066,6 @@ static struct spi_nor_fixups mx25l25635_fixups = {
   * old entries may be missing 4K flag.
   */
  static const struct flash_info spi_nor_ids[] = {
--	/* GigaDevice */
--	{
--		"gd25q16", INFO(0xc84015, 0, 64 * 1024,  32,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25q32", INFO(0xc84016, 0, 64 * 1024,  64,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25lq32", INFO(0xc86016, 0, 64 * 1024, 64,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25q64", INFO(0xc84017, 0, 64 * 1024, 128,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25lq64c", INFO(0xc86017, 0, 64 * 1024, 128,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25lq128d", INFO(0xc86018, 0, 64 * 1024, 256,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25q128", INFO(0xc84018, 0, 64 * 1024, 256,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB)
--	},
--	{
--		"gd25q256", INFO(0xc84019, 0, 64 * 1024, 512,
--			SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
--			SPI_NOR_4B_OPCODES | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
--			SPI_NOR_TB_SR_BIT6)
--			.fixups = &gd25q256_fixups,
--	},
+-	/* Intel/Numonyx -- xxxs33b */
+-	{ "160s33b",  INFO(0x898911, 0, 64 * 1024,  32, 0) },
+-	{ "320s33b",  INFO(0x898912, 0, 64 * 1024,  64, 0) },
+-	{ "640s33b",  INFO(0x898913, 0, 64 * 1024, 128, 0) },
 -
- 	/* Intel/Numonyx -- xxxs33b */
- 	{ "160s33b",  INFO(0x898911, 0, 64 * 1024,  32, 0) },
- 	{ "320s33b",  INFO(0x898912, 0, 64 * 1024,  64, 0) },
-@@ -2430,6 +2371,7 @@ static const struct spi_nor_manufacturer *manufacturers[] = {
- 	&spi_nor_esmt,
+ 	/* ISSI */
+ 	{ "is25cd512",  INFO(0x7f9d20, 0, 32 * 1024,   2, SECT_4K) },
+ 	{ "is25lq040b", INFO(0x9d4013, 0, 64 * 1024,   8,
+@@ -2372,6 +2367,7 @@ static const struct spi_nor_manufacturer *manufacturers[] = {
  	&spi_nor_everspin,
  	&spi_nor_fujitsu,
-+	&spi_nor_gigadevice,
+ 	&spi_nor_gigadevice,
++	&spi_nor_intel,
  };
  
  static const struct flash_info *
+@@ -3151,11 +3147,6 @@ static int spi_nor_setup(struct spi_nor *nor,
+ 	return nor->params.setup(nor, hwcaps);
+ }
+ 
+-static void intel_set_default_init(struct spi_nor *nor)
+-{
+-	nor->flags |= SNOR_F_HAS_LOCK;
+-}
+-
+ static void issi_set_default_init(struct spi_nor *nor)
+ {
+ 	nor->params.quad_enable = spi_nor_sr1_bit6_quad_enable;
+@@ -3194,10 +3185,6 @@ static void spi_nor_manufacturer_init_params(struct spi_nor *nor)
+ {
+ 	/* Init flash parameters based on MFR */
+ 	switch (JEDEC_MFR(nor->info)) {
+-	case SNOR_MFR_INTEL:
+-		intel_set_default_init(nor);
+-		break;
+-
+ 	case SNOR_MFR_ISSI:
+ 		issi_set_default_init(nor);
+ 		break;
 diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
-index d094112aa4a2..da88d7e55c76 100644
+index da88d7e55c76..3d31e7fc4ac4 100644
 --- a/drivers/mtd/spi-nor/core.h
 +++ b/drivers/mtd/spi-nor/core.h
-@@ -172,6 +172,7 @@ extern const struct spi_nor_manufacturer spi_nor_eon;
- extern const struct spi_nor_manufacturer spi_nor_esmt;
+@@ -173,6 +173,7 @@ extern const struct spi_nor_manufacturer spi_nor_esmt;
  extern const struct spi_nor_manufacturer spi_nor_everspin;
  extern const struct spi_nor_manufacturer spi_nor_fujitsu;
-+extern const struct spi_nor_manufacturer spi_nor_gigadevice;
+ extern const struct spi_nor_manufacturer spi_nor_gigadevice;
++extern const struct spi_nor_manufacturer spi_nor_intel;
  
  int spi_nor_write_enable(struct spi_nor *nor);
  int spi_nor_write_disable(struct spi_nor *nor);
-diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigadevice.c
+diff --git a/drivers/mtd/spi-nor/intel.c b/drivers/mtd/spi-nor/intel.c
 new file mode 100644
-index 000000000000..7930e4490dab
+index 000000000000..d8196f101368
 --- /dev/null
-+++ b/drivers/mtd/spi-nor/gigadevice.c
-@@ -0,0 +1,59 @@
++++ b/drivers/mtd/spi-nor/intel.c
+@@ -0,0 +1,32 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2005, Intec Automation Inc.
@@ -300,54 +263,27 @@ index 000000000000..7930e4490dab
 +
 +#include "core.h"
 +
-+static void gd25q256_default_init(struct spi_nor *nor)
++static const struct flash_info intel_parts[] = {
++	/* Intel/Numonyx -- xxxs33b */
++	{ "160s33b",  INFO(0x898911, 0, 64 * 1024,  32, 0) },
++	{ "320s33b",  INFO(0x898912, 0, 64 * 1024,  64, 0) },
++	{ "640s33b",  INFO(0x898913, 0, 64 * 1024, 128, 0) },
++};
++
++static void intel_default_init(struct spi_nor *nor)
 +{
-+	/*
-+	 * Some manufacturer like GigaDevice may use different
-+	 * bit to set QE on different memories, so the MFR can't
-+	 * indicate the quad_enable method for this case, we need
-+	 * to set it in the default_init fixup hook.
-+	 */
-+	nor->params.quad_enable = spi_nor_sr1_bit6_quad_enable;
++	nor->flags |= SNOR_F_HAS_LOCK;
 +}
 +
-+static struct spi_nor_fixups gd25q256_fixups = {
-+	.default_init = gd25q256_default_init,
++static const struct spi_nor_fixups intel_fixups = {
++	.default_init = intel_default_init,
 +};
 +
-+static const struct flash_info gigadevice_parts[] = {
-+	{ "gd25q16", INFO(0xc84015, 0, 64 * 1024,  32,
-+			  SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			  SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25q32", INFO(0xc84016, 0, 64 * 1024,  64,
-+			  SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			  SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25lq32", INFO(0xc86016, 0, 64 * 1024, 64,
-+			   SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			   SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25q64", INFO(0xc84017, 0, 64 * 1024, 128,
-+			  SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			  SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25lq64c", INFO(0xc86017, 0, 64 * 1024, 128,
-+			    SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			    SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25lq128d", INFO(0xc86018, 0, 64 * 1024, 256,
-+			     SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			     SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25q128", INFO(0xc84018, 0, 64 * 1024, 256,
-+			   SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			   SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB) },
-+	{ "gd25q256", INFO(0xc84019, 0, 64 * 1024, 512,
-+			   SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
-+			   SPI_NOR_4B_OPCODES | SPI_NOR_HAS_LOCK |
-+			   SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6)
-+		.fixups = &gd25q256_fixups },
-+};
-+
-+const struct spi_nor_manufacturer spi_nor_gigadevice = {
-+	.name = "gigadevice",
-+	.parts = gigadevice_parts,
-+	.nparts = ARRAY_SIZE(gigadevice_parts),
++const struct spi_nor_manufacturer spi_nor_intel = {
++	.name = "intel",
++	.parts = intel_parts,
++	.nparts = ARRAY_SIZE(intel_parts),
++	.fixups = &intel_fixups,
 +};
 -- 
 2.23.0
