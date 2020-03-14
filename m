@@ -2,89 +2,92 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9CD11855DF
-	for <lists+linux-mtd@lfdr.de>; Sat, 14 Mar 2020 15:49:59 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 29348185615
+	for <lists+linux-mtd@lfdr.de>; Sat, 14 Mar 2020 18:23:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:Subject:From:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=elnxEGOv3ish7WMt89jgaLKlbXTH32xDtVm9XSM7sYU=; b=PYFrjhxAhSfQ9Q
-	Pc1krL2yVz6n4fOOOh7UAmADOtN19KUw+jpdQi7jzRyT4bpCswHN2BwVaxMfvlRqXih9DANzpHm1V
-	D8UMSzX6AZ8J38DuBWEKVkwJ1HJO3C+CdfLr7BCDiQNuclot/02qq7InOwPuATUxEtGeU6/dsU02N
-	g+IoMvT/yUGMQ+Sl/ZhLGzGFQHKrym6zy72nb9PBf7hfmFvS+9i5WboJwgcZy+1tM2bM39UZPYavF
-	vXNVHQvcFzT6cAFUvsv0vLPLOuizGCpPhK78U8teidfua+bwE2x/ehxhewJnpRodQTGjpAQ0EfbZE
-	9R8eN1CnA1NQzSHHvX7w==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=67Bg8ulE8fbNUcwIkt3svv0UQPuk542cCviQW867MQU=; b=SCa
+	wrKO877UUJSd/QcqX/NaqHmurcL/49Vzj7wQ2U3VFxaEuijVu48fWQdZn8k89b/w5vpP/O8y/RNE0
+	EsPUbTHpff8PhOcx4c9kB21MGQHKckupQPeh5AbA/vHmAMoUKpBNYneZ2DWTAMeHnXtE6+ChRKjOa
+	G/KaiPdKfiaEogSV+Cbq//K8knUTgQYOoh2KkLarECfSrVUoCmKCxpzP/hJpHPXsADQVD3+VZSD72
+	nQKc/iAyEVzILcrW6WDYx6+9DknvbZBBkpNAVYngP1hghids1zMmAlt1TMJLMdLxMlI3rXobzJr11
+	dQHQzaYszKqQ302XCyX+gAM88UcBzOQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jD86l-0007Ng-BM; Sat, 14 Mar 2020 14:49:47 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1jDAVm-0007YC-0Y; Sat, 14 Mar 2020 17:23:46 +0000
+Received: from mail-io1-xd41.google.com ([2607:f8b0:4864:20::d41])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jD86e-0007N2-Kj
- for linux-mtd@lists.infradead.org; Sat, 14 Mar 2020 14:49:42 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
- by mail-out.m-online.net (Postfix) with ESMTP id 48flp70pdNz1qrf4;
- Sat, 14 Mar 2020 15:49:34 +0100 (CET)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
- by mail.m-online.net (Postfix) with ESMTP id 48flp66QYhz1qs9S;
- Sat, 14 Mar 2020 15:49:34 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
- by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new,
- port 10024)
- with ESMTP id tJEY-46AaVFc; Sat, 14 Mar 2020 15:49:33 +0100 (CET)
-X-Auth-Info: Yz+HJBIg/H0sxK32O27DNWS3rrwJ+pmURdtz/Yah8L4=
-Received: from [IPv6:::1] (unknown [195.140.253.167])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.mnet-online.de (Postfix) with ESMTPSA;
- Sat, 14 Mar 2020 15:49:33 +0100 (CET)
-From: Marek Vasut <marex@denx.de>
-Subject: Re: [PATCH] Revert "mtd: rawnand: denali: get
- ->setup_data_interface() working again"
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20200205070834.3087104-1-marex@denx.de>
- <20200211170707.2183625e@xps13>
- <b1a10583-e110-9568-4007-aa2b3f38a7be@denx.de>
- <CAK7LNARqYDh4AJ+N-PTHui0H89-humECskJVUxW4cTf6edEBMQ@mail.gmail.com>
- <f4e2deeb-cc0e-fb06-46fa-d6cf4f2a73ad@denx.de>
- <CAK7LNAR4MU+Rfmpz99iwLuEbD4jMwUdh91uz3zyQdvjyLEQcMQ@mail.gmail.com>
- <29cce21c-2214-7238-0bc5-db2c1a54576f@denx.de>
- <CAK7LNASckTZO-9uVjtQH8iKhU0HH9WiMK-CzMxjESQOOUM0cKA@mail.gmail.com>
- <CAK7LNAT3EG0XocC0xT0f=6MBpXLga3FehOjEYbRyP6AJUbqb2Q@mail.gmail.com>
- <311cdc3c-59b5-a46b-62f0-e78fc970134a@denx.de>
- <CAK7LNAT1Bzs68X8PiWQHg4g2bpPGd-WM9D4vwf59XfwwLVuVQQ@mail.gmail.com>
- <e86925d0-805c-d364-57ca-6400b77cffd7@denx.de>
- <CAK7LNARDp1Zru3_XAQyBZHwsRov-QWOnrrwodS8pjszsKy2ysw@mail.gmail.com>
- <d4b4abf4-1af9-d57c-5b93-2d56a5dc456b@denx.de>
- <20200311140807.6f56baf3@xps13>
- <5fa809a3-cd2b-74de-3615-387232051ae2@denx.de>
- <20200311143302.309bf468@xps13>
- <aaec50bb-05da-8d4e-3e15-17fbfeb52f68@denx.de>
- <20200311153923.443f3e64@xps13>
-Message-ID: <45157038-8309-3c00-3019-a1c7afc059c0@denx.de>
-Date: Sat, 14 Mar 2020 15:48:08 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
+ id 1jDAVf-0007XT-1o
+ for linux-mtd@lists.infradead.org; Sat, 14 Mar 2020 17:23:40 +0000
+Received: by mail-io1-xd41.google.com with SMTP id n21so12768505ioo.10
+ for <linux-mtd@lists.infradead.org>; Sat, 14 Mar 2020 10:23:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:sender:from:date:message-id:subject:to;
+ bh=rySLrb6e8pdxDloLytBEUWmIP8HvBNLPxIuJLcg1j9c=;
+ b=h9YhYCfhuvcoOK9JuTSnuiXg2cILoy3ExIWXtsaJYq8huKBTSezqcgybwNUJnF31OD
+ 8M4XkdAA+wF3Kc0hz30O/kK9eMooTs7yoqdIBJNfvWQnNRWRGMPcYzXrJl2zdeF1j7va
+ J8XdxMT0KmL8llAYJuvJtfAv+moo5flCUCJCh/tlglJ+fFmIUPVbZ1fac7bCjKhbkCn+
+ rZJerUAJLBThHl7kvNkOSCFj/J2Gim7L2OHs8nEEBbbGF0yG+oMEoxI1m7Q6XmwEaoXK
+ TKHu+SSgJteucaBn++J1ylejcFocesa/O0LZlk7VxDKA6TPZDYhdjLA4ADjt7vhRjRdb
+ KZMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:sender:from:date:message-id:subject
+ :to; bh=rySLrb6e8pdxDloLytBEUWmIP8HvBNLPxIuJLcg1j9c=;
+ b=E0v7Xqp9O4SGEBuaiIT0yLtUGnimCKojkxeFGX213NVNN8uunQ+2p92bC3hvr1IwFc
+ qc15Qf+/ZNKitw2gASNXuaIfHm3jDaWFgQklpxbmft0Qo7gPyYn2eCWPZ7+oW8OVUR31
+ U9WU1heNpJZ7BaDmE5Dtv8hDzZ9RUvwE4eMfjrrvhm3JNABPiqBjZ3EX4LM2w4ixqFxn
+ /UQT2eYTbXtQLKz3+w22Cf2fE/+gz8UepWpCErsbetvGdTowAnXsCLA6wXR2QzcGxzWe
+ C290Cs0WtoIb1g31ivDkuG3Mbarqs1SzuOpTLv0glSx7CV6RAZZSZxr7QSV5x4M2zY3L
+ iPcQ==
+X-Gm-Message-State: ANhLgQ2lQCEWoashtNMJsHPbrldixgqG4JQT3sZEHIi34N2xGDYp7to3
+ jj2Zqld41243TzUUm9kCVbJDUFsKu1TAhcq5rGw=
+X-Google-Smtp-Source: ADFU+vsJ8OZ/Dhr0DwwgkL8CDPySYZHLYuNtMBF50V178xoCgQ3+Wbsy6eqrOFGI1hDMkk7GA6AGM8FMlDHfqPtuVxs=
+X-Received: by 2002:a02:3f4c:: with SMTP id c12mr12249418jaf.115.1584206617074; 
+ Sat, 14 Mar 2020 10:23:37 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20200311153923.443f3e64@xps13>
-Content-Language: en-US
+Received: by 2002:a02:63c1:0:0:0:0:0 with HTTP; Sat, 14 Mar 2020 10:23:36
+ -0700 (PDT)
+From: Omar Ousman <omarousman25@gmail.com>
+Date: Sat, 14 Mar 2020 18:23:36 +0100
+X-Google-Sender-Auth: e3Esaw6NMf2t59gU8aF8hbfxq5E
+Message-ID: <CAOdk3H=BWVFSbBHnPp89pkv5eyhE_YLWx_uztwjom2+untGdDQ@mail.gmail.com>
+Subject: You received my last mail,,,,
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200314_074940_983109_2A9F1E4E 
-X-CRM114-Status: GOOD (  28.97  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200314_102339_089476_58B64109 
+X-CRM114-Status: UNSURE (  -0.95  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 3.1 (+++)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (3.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.18.0.9 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [212.18.0.9 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:d41 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [omarousman25[at]gmail.com]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [jcliff271[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 0.0 FILL_THIS_FORM         Fill in a form with personal information
+ 2.0 FILL_THIS_FORM_LONG    Fill in a form with personal information
+ 0.0 T_FILL_THIS_FORM_LOAN  Answer loan question(s)
+ 0.0 MONEY_FORM             Lots of money if you fill out a form
+ 1.0 MONEY_FRAUD_3          Lots of money and several fraud phrases
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,110 +99,25 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Dinh Nguyen <dinguyen@kernel.org>, Masahiro Yamada <masahiroy@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- linux-mtd <linux-mtd@lists.infradead.org>, Tim Sander <tim@krieglstein.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 3/11/20 3:39 PM, Miquel Raynal wrote:
-> Hi Marek,
+I am Mr.Omar Ousman, a regional managing director (CORIS BANK
+INTERNATIONAL) Ouagadougou Burkina Faso, in my department we have
+US$9,500.0000 million united state dollars, to transfer into your
+account as a dormant fund.If you are interested to use this fund to
+help the orphans around the world contact and send me your personal
+information for more details to my email omarousman25@gmail.com
 
-Hello Miquel,
+Your full names..........
+Your country of origin..........
+Your occupation..........
+Your Age..........
+Your Mobile Number..........
 
-[...]
-
->>> I checked the denali driver and indeed u-boot should not be much clever
->>> than Linux. Are the differences significant? The code is so close, you
->>> can probably check why you have differences. Also verify that the same
->>> ONFI mode is used.  
->>
->> It might've made sense to check those driver differences before making
->> such an statement ;-)
->> That said, I don't think either U-Boot or Linux uses the ONFI
->> information for this NAND, but I might be wrong.
-> 
-> I don't know what is the exact device but most of the time, even for
-> non ONFI-compliant chips, the core starts talking at the lowest ONFI
-> speed (mode 0) and then negotiate with the NAND chip the actual timings
-> to use. This works if get/set_features is supported, otherwise you
-> might have a default mode somewhere. Is it the same in both cases? Does
-> the core tries to apply the same timings? Is the calculation the same?
-> 
-> These are pointers but I am sure you can figure all that out.
-
-The calculation is obviously not the same anymore, due to the recent
-changes in the Linux driver, which seems to have broken it (in Linux).
-
->>>>> and
->>>>> may optimize better the timings depending on the selected mode ([0-5])
->>>>> (hence the different calls to ->setup_data_interface().    
->>>>
->>>> I would expect those two should produce identical timing parameters,
->>>> period, otherwise one or the other is wrong. Thus far, it was Linux that
->>>> produced non-working results.  
->>>
->>> Again, we define minimum and maximum delays. If the right thing is to
->>> not wait more than 5us and you wait up to 6, it does not mean you
->>> wrote "bad timings". 4us would be a bad timing though. It depends on
->>> what you are looking at.  
->>
->> I am look at for example
->>
->>  denali->reg + TCWAW_AND_ADDR_2_DATA = 0x0000143f -> 0x00001432
->>
->> Register was 0x143f before, now is 0x1432 , which is less.
->> I guess that would be the "bad timing" then ?
-> 
-> Well, is it a minimum or a maximum ? How do you know U-Boot value is
-> straight on the edge? If you want to know if timings are valid, open
-> the part datasheet, do the math with a paper and compare. This is the
-> scientific way to declare timings valid or invalid.
-
-If the value were straight at the edge, I would expect this would
-trigger errors over the years, when those values were used, or maybe it
-would trigger an error in the thermal chamber tests ? If neither of that
-happens, then the values are probably not at the edge enough to matter.
-
-That said, timing calculations do not factor in only the datasheet
-values, but also signal propagation delays and other details of the data
-path on the PCB and in the SOC, so it's not as simple as you claim it
-is. Moreover, while the NAND datasheet is available in public, the
-Denali IP datasheet is not, so "do the math with a paper and compare" is
-inapplicable here either way, sorry.
-
->>>>> Run a stress test, if it passes, you should be good :)    
->>>>
->>>> Thank you for the hint, I think the stress test thus far could be
->>>> considered sufficient. I guess we can agree on that ?  
->>>
->>> Oh yeah absolutely :)  
-> 
-> Just to be sure, we are talking about the new timings derived with
-> Masahiro's patch in Linux here, right?
-
-The timings which went through extensive testing are the original ones.
-
-The ones coming out of Masahiro's patch at least do not trigger those
-massive UBI errors, however they were tested only very lightly. And I
-feel like adding +1/-1 somewhere into the patch is rather iffy, so I
-would hope the Denali datasheet has something about this and why this is
-needed.
-
-> Because "perfect timings" => "work in the oven" but let be clear on
-> the fact that "work in the oven" does not imply "perfect timings".
-
-Let's be clear that I still prefer "practically working and possibly
-imperfect" over "theoretically perfect and practically not working".
-
-Also, correction, thermal chamber is not an owen, it does testing over
-the entire temperature range of the device.
-
--- 
-Best regards,
-Marek Vasut
+Best Regards,
 
 ______________________________________________________
 Linux MTD discussion mailing list
