@@ -2,54 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2518518964F
-	for <lists+linux-mtd@lfdr.de>; Wed, 18 Mar 2020 08:44:15 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 726491896C2
+	for <lists+linux-mtd@lfdr.de>; Wed, 18 Mar 2020 09:21:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/5v7nRGgmvACGgVNsNvqjCMdQw0zgtvcsQr+6RGGD1g=; b=OtzLMQa4EcGl/6VTOdngOH4tZ/
-	gV1uCk7mStxds89gpcgXvnsKeIkBqgqlI+m6uy7Z8gQ2MoUBdnq7u9ts+ICqyHqEQyyrvVmOIUnYP
-	Fpk86ZZ0J9lQM68BWJijf2nCiQ3XjqSrdtr1a935o42YMyVaxVSwY0lbdOU5aTMc2XveTWBmpHO8P
-	m9sgFiVRznAws2tKZvBj2Mcn9crFfOsH3hHWkX/v6+E7bg+jTycbYJ6SfxqGxHLqjeG1d+r/onT3n
-	5sHxhaMVWRqE5XOxquKIjQSBhKwdySzHt+Yr6cYRLZ+873D8xU1JqavndjPHOH93vBgh8qQ0Lb3e2
-	G6A9T/2g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=W1QhzN7syc644jeXTdEtEpEc6OADY9LNdxFPwHuHFws=; b=RJLeq+MPUQKeNfdZmEJSv9ERL
+	eh0qOq8PMqy6jY1piDzNXeoz+dJ/rebGwvkfgxje3If7NExYZ24tcqcrsV6/FIY4O1cf6Gox1iGa5
+	mU13fPXfbPuTxLGL+vqsNZrOlIelp9Ok07rlwkK8uN6Y5XtjI+iRDlSZTtKbkycFzykPhljZJpibG
+	2qkvmedwSHNozrrW7a+ltZMlALjK1pLmK1EhJ+12aLK3KViyuJcGxjGOb8I2CT7WSlTIK6M/0Xpu/
+	+5AawGZHvTC+YbVcKZpmZ2B+j/ZQOLpbsm37iQ+xXVP5zuLJsUKY3pFDLGh5DEPMuN9ykIke+mosO
+	wIdkQZ/Tg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jETMy-0005yN-2H; Wed, 18 Mar 2020 07:44:04 +0000
-Received: from twhmllg4.macronix.com ([122.147.135.202])
+	id 1jETxI-0002Cp-UM; Wed, 18 Mar 2020 08:21:36 +0000
+Received: from mo-csw1115.securemx.jp ([210.130.202.157]
+ helo=mo-csw.securemx.jp)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jETMP-0005bo-P0
- for linux-mtd@lists.infradead.org; Wed, 18 Mar 2020 07:43:32 +0000
-Received: from localhost.localdomain ([172.17.195.96])
- by TWHMLLG4.macronix.com with ESMTP id 02I7gTOB041137;
- Wed, 18 Mar 2020 15:42:31 +0800 (GMT-8)
- (envelope-from masonccyang@mxic.com.tw)
-From: Mason Yang <masonccyang@mxic.com.tw>
-To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
- bbrezillon@kernel.org
-Subject: [PATCH v4 2/2] mtd: rawnand: macronix: Add support for deep power
- down mode
-Date: Wed, 18 Mar 2020 15:42:28 +0800
-Message-Id: <1584517348-14486-3-git-send-email-masonccyang@mxic.com.tw>
-X-Mailer: git-send-email 1.9.1
-In-Reply-To: <1584517348-14486-1-git-send-email-masonccyang@mxic.com.tw>
-References: <1584517348-14486-1-git-send-email-masonccyang@mxic.com.tw>
-X-MAIL: TWHMLLG4.macronix.com 02I7gTOB041137
+ id 1jETx7-0002Bv-4l
+ for linux-mtd@lists.infradead.org; Wed, 18 Mar 2020 08:21:27 +0000
+Received: by mo-csw.securemx.jp (mx-mo-csw1115) id 02I8L2fm010762;
+ Wed, 18 Mar 2020 17:21:02 +0900
+X-Iguazu-Qid: 2wHI1scKEP6Un1aFpV
+X-Iguazu-QSIG: v=2; s=0; t=1584519662; q=2wHI1scKEP6Un1aFpV;
+ m=tYEeYQOfbv0NS8WQPefQvNX9sqJ7svQnh+4MDaVVJEk=
+Received: from imx2.toshiba.co.jp (imx2.toshiba.co.jp [106.186.93.51])
+ by relay.securemx.jp (mx-mr1113) id 02I8L0Dp028359;
+ Wed, 18 Mar 2020 17:21:01 +0900
+Received: from enc01.localdomain ([106.186.93.100])
+ by imx2.toshiba.co.jp  with ESMTP id 02I8bJ4b003726;
+ Wed, 18 Mar 2020 17:37:19 +0900 (JST)
+Received: from hop001.toshiba.co.jp ([133.199.164.63])
+ by enc01.localdomain  with ESMTP id 02I8L0KQ016170;
+ Wed, 18 Mar 2020 17:21:00 +0900
+Subject: Re: [PATCH v4 0/2] mtd: spinand: toshiba: Support for new Kioxia
+ Serial NAND
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+References: <cover.1583834323.git.ytc-mb-yfuruyama7@kioxia.com>
+ <20200311165011.63a3d82e@xps13>
+From: Yoshio Furuyama <ytc-mb-yfuruyama7@kioxia.com>
+X-TSB-HOP: ON
+Message-ID: <42e02e2c-ee61-1b0d-5d8e-3a512c042151@kioxia.com>
+Date: Wed, 18 Mar 2020 14:40:47 +0900
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
+MIME-Version: 1.0
+In-Reply-To: <20200311165011.63a3d82e@xps13>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200318_004330_088811_0020764C 
-X-CRM114-Status: GOOD (  10.05  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200318_012125_460794_BB7B5150 
+X-CRM114-Status: GOOD (  14.49  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [122.147.135.202 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [210.130.202.157 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -62,135 +75,36 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: juliensu@mxic.com.tw, s.hauer@pengutronix.de, yuehaibing@huawei.com,
- linux-kernel@vger.kernel.org, stefan@agner.ch, linux-mtd@lists.infradead.org,
- frieder.schrempf@kontron.de, tglx@linutronix.de,
- Mason Yang <masonccyang@mxic.com.tw>, allison@lohutok.net
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd@lists.infradead.org, vigneshr@ti.com,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Macronix AD series support deep power down mode for a minimum
-power consumption state.
-
-Overload nand_suspend() & nand_resume() in Macronix specific code to
-support deep power down mode.
-
-Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
----
- drivers/mtd/nand/raw/nand_macronix.c | 74 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 74 insertions(+)
-
-diff --git a/drivers/mtd/nand/raw/nand_macronix.c b/drivers/mtd/nand/raw/nand_macronix.c
-index 3ff7ce0..756c175 100644
---- a/drivers/mtd/nand/raw/nand_macronix.c
-+++ b/drivers/mtd/nand/raw/nand_macronix.c
-@@ -6,11 +6,14 @@
-  * Author: Boris Brezillon <boris.brezillon@free-electrons.com>
-  */
- 
-+#include "linux/delay.h"
- #include "internals.h"
- 
- #define MACRONIX_READ_RETRY_BIT BIT(0)
- #define MACRONIX_NUM_READ_RETRY_MODES 6
- 
-+#define MXIC_CMD_POWER_DOWN 0xB9
-+
- struct nand_onfi_vendor_macronix {
- 	u8 reserved;
- 	u8 reliability_func;
-@@ -91,6 +94,76 @@ static void macronix_nand_fix_broken_get_timings(struct nand_chip *chip)
- 		     ONFI_FEATURE_ADDR_TIMING_MODE, 1);
- }
- 
-+static int nand_power_down_op(struct nand_chip *chip)
-+{
-+	int ret;
-+
-+	if (nand_has_exec_op(chip)) {
-+		struct nand_op_instr instrs[] = {
-+			NAND_OP_CMD(MXIC_CMD_POWER_DOWN, 0),
-+		};
-+
-+		struct nand_operation op = NAND_OPERATION(chip->cur_cs, instrs);
-+
-+		ret = nand_exec_op(chip, &op);
-+		if (ret)
-+			return ret;
-+
-+	} else {
-+		chip->legacy.cmdfunc(chip, MXIC_CMD_POWER_DOWN, -1, -1);
-+	}
-+
-+	return 0;
-+}
-+
-+static int mxic_nand_suspend(struct nand_chip *chip)
-+{
-+	int ret;
-+
-+	nand_select_target(chip, 0);
-+	ret = nand_power_down_op(chip);
-+	if (ret < 0)
-+		pr_err("Suspending MXIC NAND chip failed (%d)\n", ret);
-+	nand_deselect_target(chip);
-+
-+	return ret;
-+}
-+
-+static void mxic_nand_resume(struct nand_chip *chip)
-+{
-+	/*
-+	 * Toggle #CS pin to resume NAND device and don't care
-+	 * of the others CLE, #WE, #RE pins status.
-+	 * A NAND controller ensure it is able to assert/de-assert #CS
-+	 * by sending any byte over the NAND bus.
-+	 * i.e.,
-+	 * NAND power down command or reset command w/o R/B# status checking.
-+	 */
-+	nand_select_target(chip, 0);
-+	nand_power_down_op(chip);
-+	/* The minimum of a recovery time tRDP is 35 us */
-+	usleep_range(35, 100);
-+	nand_deselect_target(chip);
-+}
-+
-+static void macronix_nand_deep_power_down_support(struct nand_chip *chip)
-+{
-+	int i;
-+	static const char * const deep_power_down_dev[] = {
-+		"MX30UF1G28AD",
-+		"MX30UF2G28AD",
-+		"MX30UF4G28AD",
-+	};
-+
-+	i = match_string(deep_power_down_dev, ARRAY_SIZE(deep_power_down_dev),
-+			 chip->parameters.model);
-+	if (i < 0)
-+		return;
-+
-+	chip->suspend = mxic_nand_suspend;
-+	chip->resume = mxic_nand_resume;
-+}
-+
- static int macronix_nand_init(struct nand_chip *chip)
- {
- 	if (nand_is_slc(chip))
-@@ -98,6 +171,7 @@ static int macronix_nand_init(struct nand_chip *chip)
- 
- 	macronix_nand_fix_broken_get_timings(chip);
- 	macronix_nand_onfi_init(chip);
-+	macronix_nand_deep_power_down_support(chip);
- 
- 	return 0;
- }
--- 
-1.9.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+Ck9uIDIwMjAvMDMvMTIgMDo1MCwgTWlxdWVsIFJheW5hbCB3cm90ZToKPiBIaSBZb3NoaW8sCj4K
+PiBZb3NoaW8gRnVydXlhbWEgPHl0Yy1tYi15ZnVydXlhbWE3QGtpb3hpYS5jb20+IHdyb3RlIG9u
+IFdlZCwgMTEgTWFyCj4gMjAyMCAxMDo0NzowNCArMDkwMDoKPgo+PiBGaXJzdCBwYXRjaCBpcyB0
+byByZW5hbWUgZnVuY3Rpb24gbmFtZSBiZWNhc2Ugb2YgYWRkIG5ldyBkZXZpY2UuCj4+IFNlY29u
+ZCBwYXRjaCBpcyB0byBzdXBwcm90IGZvciBuZXcgZGV2aWNlLgo+Pgo+PiBZb3NoaW8gRnVydXlh
+bWEgKDIpOgo+PiAgICBtdGQ6IHNwaW5hbmQ6IHRvc2hpYmE6IFJlbmFtZSBmdW5jdGlvbiBuYW1l
+IHRvIGNoYW5nZSBzdWZmaXggYW5kCj4+ICAgICAgcHJlZml4ICg4R2JpdCkKPj4gICAgbXRkOiBz
+cGluYW5kOiB0b3NoaWJhOiBTdXBwb3J0IGZvciBuZXcgS2lveGlhIFNlcmlhbCBOQU5ECj4+Cj4+
+ICAgZHJpdmVycy9tdGQvbmFuZC9zcGkvdG9zaGliYS5jIHwgMTczICsrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKystLS0tLS0tLS0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDEzMCBpbnNlcnRp
+b25zKCspLCA0MyBkZWxldGlvbnMoLSkKPj4KPiBJIGFtIHZlcnkgc29ycnkgYnV0IGFjdHVhbGx5
+IEkgaGFkIGlzc3VlcyBhcHBseWluZyBhbGwgeW91ciBwYXRjaGVzIG5vdAo+IGJlY2F1c2UgdGhl
+eSB3ZXJlIG5vdCBiYXNlZCBvbiB2NS42LXJjMSwgYnV0IGJlY2F1c2Ugc2luY2UgdGhlbiBJCj4g
+YXBwbGllZCBhIHBhdGNoIGNoYW5naW5nIHRoZSBkZXRlY3Rpb24gdGhhdCBjaGFuZ2VkIHRoZSBj
+b250ZW50IG9mIGEKPiBsb3Qgb2Ygc3RydWN0dXJlcyAoaW5jbHVkaW5nIGluIFRvc2hpYmEncyBk
+cml2ZXIpLgo+Cj4gQ2FuIHlvdSBwbGVhc2UgcmViYXNlIGFnYWluIG9uIHRvcCBvZiB0aGUgY3Vy
+cmVudCBuYW5kL25leHQ/IEkgYW0gdmVyeQo+IHNvcnJ5IGZvciB0aGlzIGV4dHJhIHdvcmssIHRo
+aXMgaXMgbXkgbWlzdGFrZS4KClRoYW5rcyBjb21tZW50LiDCoCDCoCDCoCDCoCBJIHdpbGwgcmV2
+aXNlIHJldiAoVjUpIG5leHQgd2Vlay4KCkJSCgo+IEhlYWQgc2hvdWxkIGJlOgo+Cj4gCWE1ZDUz
+YWQyNmE4YiAoIm10ZDogcmF3bmFuZDogYnJjbW5hbmQ6IEFkZCBzdXBwb3J0IGZvciBmbGFzaC1l
+ZHUgZm9yIGRtYSB0cmFuc2ZlcnMiKQo+Cj4gQW5kIHRoZSBjdWxwcml0IGNvbW1pdCBpczoKPgo+
+IAlmMTU0MTc3M2FmNDkgKCJtdGQ6IHNwaW5hbmQ6IHJld29yayBkZXRlY3QgcHJvY2VkdXJlIGZv
+ciBkaWZmZXJlbnQgUkVBRF9JRCBvcGVyYXRpb24iKQo+Cj4gVGhhbmtzLAo+IE1pcXXDqGwKPgo+
+Cj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVh
+ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
