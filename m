@@ -2,44 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BFF4D18964D
-	for <lists+linux-mtd@lfdr.de>; Wed, 18 Mar 2020 08:43:43 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A8AFA18964E
+	for <lists+linux-mtd@lfdr.de>; Wed, 18 Mar 2020 08:44:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=0gzklepIfQpUV9fDd2xNOkAcZcL7VlB+CXF6qY+/+6Y=; b=nFy
-	ZkTcRQVjbtuXdxg9J7t20OmycDoPm3zt9Iuw2+pVQM+FKfwVusYep4EJdKzuRICwlNP95XcWY8E52
-	5gBuvHNNSrsRowxzzq/Xg9PHqGk4HrN/trr5F9Suf2lsq31N95RRUSWioX+g/V5P4sPNMylY9/Gjd
-	o+3ZnEhZPFuG4pQmF/z5ukddqs+xOX6fx/2Z7g2YIa71xMVSyN3I79lLh6Kju4rhj/a805Br9BaEp
-	j6iVen+GNLR8QsR5V47i0LqsTQw3XI0WJAQGUwXb2pjLXzA8ZRVVd+QuHRr08GLdDTtEjP5KvshJF
-	Hz34EDUQS4sHk3J48ZEvTm6PrRcAe9w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=bOFY5FQvw5DpR3S40Rjkdr1XPJSqHtInuOgghQwZLKw=; b=F4xl9ErJyvqS4tkJE6/D+ZumC7
+	KgftVgDFnvUisC1fsZzx0wdK0d8xXV2ACzwejvnXHkpLZoiecnlkZbiS1yXWwgkF1/SxLniCH2KEP
+	DgKndRke2F1A86NuJU/YvzPL84AiJhccCuUBVVmL2DyySTErDwInQMqAmwZ+TPn57yyi5EBd8vu5X
+	OqKAkfchGbGCPJBzzqNJgueObr9sJ0eI8sL+cVlzjAb5Cncwlq0e/vb6TKi6DkxxaQwUwDLJiWsVu
+	NhQzXHiFjBZ+QiTye+facIKkaOzWNKx6hAobdOKPy9lCnFAz4FSvIQxXqc+7deBp8nmw1SHNtDtf3
+	ysBJjDgg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jETMa-0005ct-38; Wed, 18 Mar 2020 07:43:40 +0000
+	id 1jETMk-0005kx-PU; Wed, 18 Mar 2020 07:43:50 +0000
 Received: from twhmllg4.macronix.com ([122.147.135.202])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jETMP-0005bp-Oz
+ id 1jETMP-0005bq-Ou
  for linux-mtd@lists.infradead.org; Wed, 18 Mar 2020 07:43:31 +0000
 Received: from localhost.localdomain ([172.17.195.96])
- by TWHMLLG4.macronix.com with ESMTP id 02I7gTO9041137;
- Wed, 18 Mar 2020 15:42:29 +0800 (GMT-8)
+ by TWHMLLG4.macronix.com with ESMTP id 02I7gTOA041137;
+ Wed, 18 Mar 2020 15:42:30 +0800 (GMT-8)
  (envelope-from masonccyang@mxic.com.tw)
 From: Mason Yang <masonccyang@mxic.com.tw>
 To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
  bbrezillon@kernel.org
-Subject: [PATCH v4 0/2] mtd: rawnand: Add support for manufacturer specific
+Subject: [PATCH v4 1/2] mtd: rawnand: Add support for manufacturer specific
  suspend/resume operation
-Date: Wed, 18 Mar 2020 15:42:26 +0800
-Message-Id: <1584517348-14486-1-git-send-email-masonccyang@mxic.com.tw>
+Date: Wed, 18 Mar 2020 15:42:27 +0800
+Message-Id: <1584517348-14486-2-git-send-email-masonccyang@mxic.com.tw>
 X-Mailer: git-send-email 1.9.1
-X-MAIL: TWHMLLG4.macronix.com 02I7gTO9041137
+In-Reply-To: <1584517348-14486-1-git-send-email-masonccyang@mxic.com.tw>
+References: <1584517348-14486-1-git-send-email-masonccyang@mxic.com.tw>
+X-MAIL: TWHMLLG4.macronix.com 02I7gTOA041137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200318_004330_086497_E1ABCA90 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200318_004330_085291_ACE6DFA9 
+X-CRM114-Status: GOOD (  13.33  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -70,47 +72,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
+Patch nand_suspend() & nand_resume() to let manufacturers overwrite
+suspend/resume operations.
 
-Changelog
+Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/mtd/nand/raw/nand_base.c | 17 +++++++++++++----
+ include/linux/mtd/rawnand.h      |  4 ++++
+ 2 files changed, 17 insertions(+), 4 deletions(-)
 
-v4:
-Patch nand_suspend() return error code to the upper layer,
-removed _ prefix of suspend/resme hooks and kbuildtest robot tag.
-
-v3:
-patch nand_lock_area/nand_unlock_area.
-fixed kbuidtest robot warnings and reviewer's comments as below:
-- Patched the Kdoc for both lock_area/unlock_area and _suspend/_resume
-- Created a helper to read default protected value (after device power on)
-  for protection function detection.
-- patched the prefix for Macronix deep power down command, 0xB9
-- Patched the description of mxic_nand_resume() and add a small sleeping 
-  delay.
-- Created a helper for deep power down device part number detection.
-
-v2:
-Patch nand_lock() & nand_unlock() for MTD->_lock/_unlock default call-back
-function replacement. 
-Patch nand_suspend() & nand_resume() with manufacturer specific operation.
-
-v1:
-Patch manufacturer post_init for MTD->_lock/_unlock & MTD->_suspend/_resume
-replacement.
-
-thanks for your time & review.
-Mason
-
-Mason Yang (2):
-  mtd: rawnand: Add support for manufacturer specific suspend/resume
-    operation
-  mtd: rawnand: macronix: Add support for deep power down mode
-
- drivers/mtd/nand/raw/nand_base.c     | 17 +++++++--
- drivers/mtd/nand/raw/nand_macronix.c | 74 ++++++++++++++++++++++++++++++++++++
- include/linux/mtd/rawnand.h          |  4 ++
- 3 files changed, 91 insertions(+), 4 deletions(-)
-
+diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+index f64e3b6..bde17a3 100644
+--- a/drivers/mtd/nand/raw/nand_base.c
++++ b/drivers/mtd/nand/raw/nand_base.c
+@@ -4321,16 +4321,22 @@ static int nand_block_markbad(struct mtd_info *mtd, loff_t ofs)
+ /**
+  * nand_suspend - [MTD Interface] Suspend the NAND flash
+  * @mtd: MTD device structure
++ *
++ * Returns 0 for success or negative error code otherwise.
+  */
+ static int nand_suspend(struct mtd_info *mtd)
+ {
+ 	struct nand_chip *chip = mtd_to_nand(mtd);
++	int ret = 0;
+ 
+ 	mutex_lock(&chip->lock);
+-	chip->suspended = 1;
++	if (chip->suspend)
++		ret = chip->suspend(chip);
++	if (!ret)
++		chip->suspended = 1;
+ 	mutex_unlock(&chip->lock);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ /**
+@@ -4342,11 +4348,14 @@ static void nand_resume(struct mtd_info *mtd)
+ 	struct nand_chip *chip = mtd_to_nand(mtd);
+ 
+ 	mutex_lock(&chip->lock);
+-	if (chip->suspended)
++	if (chip->suspended) {
++		if (chip->resume)
++			chip->resume(chip);
+ 		chip->suspended = 0;
+-	else
++	} else {
+ 		pr_err("%s called for a chip which is not in suspended state\n",
+ 			__func__);
++	}
+ 	mutex_unlock(&chip->lock);
+ }
+ 
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 4ab9bcc..b3dccb9 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -1064,6 +1064,8 @@ struct nand_legacy {
+  * @lock:		lock protecting the suspended field. Also used to
+  *			serialize accesses to the NAND device.
+  * @suspended:		set to 1 when the device is suspended, 0 when it's not.
++ * @suspend:		[REPLACEABLE] specific NAND device suspend operation
++ * @resume:		[REPLACEABLE] specific NAND device resume operation
+  * @bbt:		[INTERN] bad block table pointer
+  * @bbt_td:		[REPLACEABLE] bad block table descriptor for flash
+  *			lookup.
+@@ -1117,6 +1119,8 @@ struct nand_chip {
+ 
+ 	struct mutex lock;
+ 	unsigned int suspended : 1;
++	int (*suspend)(struct nand_chip *chip);
++	void (*resume)(struct nand_chip *chip);
+ 
+ 	uint8_t *oob_poi;
+ 	struct nand_controller *controller;
 -- 
 1.9.1
 
