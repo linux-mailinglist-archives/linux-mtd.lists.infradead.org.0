@@ -2,33 +2,33 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C9DD18F1BD
-	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:26:00 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D40C418F1C1
+	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:26:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7k56YSszkj7rnWhllSODIwz6W9Iz71pxCQ0Y2CLIVFs=; b=VUbfYqimjs8UJJ
-	xzNS2UnPTmSvMaTbhe/S1mHy7jJaN3wbVxk4zR5CHYGg42uXtVjM1JAHmWecw1G56W2jtzbjL94uF
-	WkYMz1Mzj6SxaHChZ2pHslOWq6y34WsDxF5KP0ZoD/IJgxa0+eHYdDEEOAul8IzwXHgd9vhOchn8N
-	CkardgT9mCRV7btQdGHTk6FXf1Q8dP3rh01vSUa/Q8AgFNO5WA7TrYqLVM0Exjj8FexiKF+pMCETr
-	6V7/Z9M6iYIpDLcYi2e37ct3hDjqPIOfvbd0baY7jhRvDvZK3dICBM6/ljXqhSyGuBthbdIDlEs9H
-	yqs6hAM3NN6bE0v+YKmg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bAjdTX+eEEtXBdCVElNPbW16YYoValGuJB+vzF6FhCk=; b=DNaSPkplDK0lAu
+	gCaafxpFiYNMau/PHvAdoSOUcjlNAO0gz+RQM4UvubTBJDOqK5RcJ38CvyNV0M0a+LDReZD2qMY89
+	kK56IChugvUHJYWMd23HzQYhJe8Q0Hh1D1RU/40/qDhmAVIE8M6/O+iIvwFDS3TiuGMfHWTvhwWHn
+	JOKOn9D3NCQIVRGSIMjhAd6N3NtdMhBh9hMB4xtXCyyvDOHfGk0465U+lriYtUB93KLyP8nPtsTqM
+	VMD+UFWQpbTjU2qlqGZzzA+QPwmw4HFS0WXtw9A6xfOnxZDSXYv46cb3hh4ecgfJEgY05R9ulQPlq
+	tftoRWZhvblzP6NM8xbA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGJLK-0005P4-Oz; Mon, 23 Mar 2020 09:25:58 +0000
+	id 1jGJM1-00064o-0d; Mon, 23 Mar 2020 09:26:41 +0000
 Received: from esa1.microchip.iphmx.com ([68.232.147.91])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGJKA-0004TA-W5
- for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:49 +0000
-IronPort-SDR: 1fLgfsEx84RWk/dtYA/P9Hsr2qbMWIZL5bui2N7P1fd5ffYKL+b1fYWzPiSQ9A5gWosGHu6hvZ
- kItkdokY8MVurAtzcVOn7Sx/GGJyYHCIBaNYGHtzX9nG5ffirvQbcxUjn0NYUrmne5rv12VxDA
- RbdxxgNZAQHdbrN1r6iAWupXKXHhHCBJATgyDtSpgIIk0AzElRrCo1LTGw0ND+grtRbCxbgNnh
- b4IlayeoWZvROcP9gH7RGm5QJZnNdMJPzjA6Z8g14H2Wjc/WL+IsYKUqnaWY0VffAtHoPkcM1b
- XLs=
-X-IronPort-AV: E=Sophos;i="5.72,295,1580799600"; d="scan'208";a="73067116"
+ id 1jGJKD-0004TA-4G
+ for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:50 +0000
+IronPort-SDR: 5ZEsfy0NjJMgFkz90VG4CKqMmBLXKBvq6tcKtZSqyjY2QoARWO4Hhh/4LYboBxb9tePvR3pPk/
+ kYDn2iAXOVnGVAOaaFGm3sVWZDjpvboy3JwXOO1j2uhz4ZAyDL6blDNRtfzm0CHaenc07RInjr
+ OG7WwMLSO7hWM11D3oWBLhOQHnhF4dxhhg12K5AyRX5GQwfRq6qDvjqAhhk+CatAVnCCF3jCGe
+ k70nxnFD6D09G+Aja4DlIgp/QAYLeeGGuUh37Oi2nWHk5PNEmiUW9J4cBcZdMw4OsFJIW+g7Mn
+ nlI=
+X-IronPort-AV: E=Sophos;i="5.72,295,1580799600"; d="scan'208";a="73067117"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
@@ -36,19 +36,19 @@ Received: from smtpout.microchip.com (HELO email.microchip.com)
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 23 Mar 2020 02:24:39 -0700
+ 15.1.1713.5; Mon, 23 Mar 2020 02:24:40 -0700
 Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
  email.microchip.com (10.10.87.71) with Microsoft SMTP Server
  (version=TLS1_2, 
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
- Transport; Mon, 23 Mar 2020 02:24:39 -0700
+ Transport; Mon, 23 Mar 2020 02:24:40 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dyJSHmjSL/Nb00/SzQyeF5Dz58cKF8ZIttNxbfNa/RtU3Q8HAjnZRBG2oPBmUmpBEg9vAf2+qX5QH4tEiM/dXujPQk7YuYwabF5ohb3jk36oKxZMsd+dxQ5xl7tXYuLZyMMGDatkN6ZFKgx5vLSm6KC30nU4vFckpTTFA0XKsc+8VKwtBM0jSRQjSZu7Wl+6b2c1HNr4saDXWkAznMP3+rwfP2S0AhkeZ/c5ngvkZ8TjmbOX10S+XEW70d1NYzxdwJ/CtO1ObpX/x01t6i83Br5wGPxoykJjIpebENRQG7iO7IJzudTpe4STpGJLKN0RZoahW2UZFvaqdYFOXtVKCA==
+ b=RtVtTmiuurVylvVLH/bdtdHFb3awj51l42aUPYVZ3E5CiiLab4PbQ0y8fW1mxlvczlEMFUxnYPemACKbKeuXy3Bohfe0zY1SqDI03jpOvs3ApzviEHII4VGdJUJap7WTT3tYLzCYtySJQaM3iSM9zleTpmMV3sREHIrmVMopq0yrLyiWnYBy9IhFPUb+yj4XtM1yvj62DCx05fjpr7vAByEEgk+vDq0c/er4+Wx8YMJHih0/lFfl2ZNm7B7ghF/kMnL2hbdjYLss5wKl98Su99drAlJaTsafx6e5ZYoLlC5NquUgz7Xr42Dzm5ZVigtIVxqzic0ML1b0bctdETmGyQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r97/2suzNcoS2b5SpM8nZ1pq3kU5VUEiCu/DNPMWnLQ=;
- b=g0uxZCxYbF9h/lAu2f85bDhdllL1ETopHK0M1zYGAhkNWkoGpAQHr2ym0DHpsGBqOCMZaYj9MlTB8rtmoqHrDQ+fg6KB4VKAiiLnLIl3TGnhQvYg2/RZ/9kLTNOsXKrNOiEVQcXGz3afiuMrO090FaSdI8F74u4UbNf0SzvZsApD3StBtjfBbytsjDSZJ4CTTExV1V7oLRiIs2prXQlNOuGDqKVKh8ZVQnXN7n57tHlDkwlokeU7WWPTYTiJzwosyuk+qZcA5SBUBZy9vPhS0v12yvJooQhXG4KlciDh1xuQHRn/kKN27l/p7FxtEmtmZfcdkUWKi5zmhy8SSmIE1w==
+ bh=4BYWyPsMigYkanm89bFCDHQvWShYHHN74j1hHqwTQWo=;
+ b=CVEUgTc+VacyCsYumwyctgB6mj5tHzbU+2tSnbW0jrqqZQ4HarFNzC8pyGCAaA9wzVjLiN2ddXcloH0PIlvBbnJCr1eJCkc6rTRKQjFUizxhXOgFq+jjmp0+inshDKx3PDVtF6CIC+DXclKkBjsSCEBuRHVo3QLaBN+diLA2BiXo6tfjZX/yLQ73Rrru5Jhgs/PVSvoZiIeQ1DSn0rToC8AUGMLSnWPkgCY470MQ/xMMMtiMlNQjCXXCEv/fCiZHYEeAM61k50Gx/vhyK6GF7ObB8BkL1lIr3UiXnFQ2crKu5UpGLbDxBBPfHTC8Kwi7tXSUNMX+3o8sLAZv+7xksw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -56,8 +56,8 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r97/2suzNcoS2b5SpM8nZ1pq3kU5VUEiCu/DNPMWnLQ=;
- b=pnAAmSyYvp9ht+VqwZ91ZRW1W4treMdSv0bPLt3qqJWO1GuzDU9b772i9IpHgcWeXVrrCuiN3DT9UCTYEXyU+Zt6M9cCtv35Iopivst3Ke2AFai0ydHUplUaVy84NHPXA/FCTgngvj1MDky5GchXS7gZVGDr6mDYqfQIM/We9Ss=
+ bh=4BYWyPsMigYkanm89bFCDHQvWShYHHN74j1hHqwTQWo=;
+ b=bT8ybywzZK5Hukwy37PibxPPfjN//4IkQjDQIC8rfOs3ujIvcIKX/rMcF4ZBqP5zMivLeXM1tPvHQVsjXRIFkVr+Khs586bah7+wjyQky7jOjBxZGJ9zM1Dqqld53dxu+FlekanM6bRzztti84zgFtJ2N+FuJ0BbIZg2BoyJKHk=
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
  by BY5PR11MB4449.namprd11.prod.outlook.com (2603:10b6:a03:1cc::23)
  with Microsoft SMTP Server (version=TLS1_2,
@@ -66,14 +66,17 @@ Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::e918:9196:b47e:9692]) by BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::e918:9196:b47e:9692%3]) with mapi id 15.20.2835.021; Mon, 23 Mar 2020
- 09:24:32 +0000
+ 09:24:34 +0000
 From: <Tudor.Ambarus@microchip.com>
 To: <js07.lee@samsung.com>, <michael@walle.cc>, <vigneshr@ti.com>
-Subject: [PATCH v3 0/5] mtd: spi-nor: Add SR 4bit block protection support
-Thread-Topic: [PATCH v3 0/5] mtd: spi-nor: Add SR 4bit block protection support
-Thread-Index: AQHWAPTc4qvJEoy/pkuKBEyfTyO2iQ==
-Date: Mon, 23 Mar 2020 09:24:32 +0000
-Message-ID: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
+Subject: [PATCH v3 1/5] mtd: spi-nor: Fix gap in SR block protection locking
+Thread-Topic: [PATCH v3 1/5] mtd: spi-nor: Fix gap in SR block protection
+ locking
+Thread-Index: AQHWAPTc+rZUxlHsAUikj/5G7+sVPw==
+Date: Mon, 23 Mar 2020 09:24:33 +0000
+Message-ID: <20200323092430.1466234-2-tudor.ambarus@microchip.com>
+References: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
+In-Reply-To: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -82,12 +85,12 @@ authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Tudor.Ambarus@microchip.com; 
 x-originating-ip: [94.177.32.156]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 38ee28b9-50ab-47c1-8275-08d7cf0bff3c
+x-ms-office365-filtering-correlation-id: 4d9a011c-120d-4b6e-aff4-08d7cf0bffd6
 x-ms-traffictypediagnostic: BY5PR11MB4449:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR11MB44499036BA6D5399FA7187BBF0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
+x-microsoft-antispam-prvs: <BY5PR11MB44496C53BA5EA7F5EF97DB6DF0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
 x-bypassexternaltag: True
-x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-ms-oob-tlc-oobclassifiers: OLM:8882;
 x-forefront-prvs: 0351D213B3
 x-forefront-antispam-report: SFV:NSPM;
  SFS:(10009020)(39860400002)(396003)(346002)(136003)(376002)(366004)(199004)(8936002)(8676002)(81156014)(81166006)(36756003)(76116006)(91956017)(66946007)(54906003)(110136005)(316002)(2906002)(66476007)(64756008)(66446008)(66556008)(5660300002)(2616005)(107886003)(186003)(71200400001)(1076003)(86362001)(26005)(6512007)(6486002)(4326008)(6506007)(478600001);
@@ -98,20 +101,19 @@ received-spf: None (protection.outlook.com: microchip.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 1NnmMN6IzdiUTbcFCMrOD3P6gwXzvholmG8UsIWOfnVb27kqj7d6yMb1ycHqRzbr8Clhk0QrtJg9xBrYPMfQzXDFy0UVZS8pDNGjviGDkHDDLSfZdBKJnPgHRCjlBwULUdA6hnldP4g6i6UyWwWmx9MOTUvMkbQX59NAjKpiYpytIFU27/LaddI2AY1D8Zoesl6gR0w6NqnOkDNk4rpOc8wM3z7QrAFWMxYsCERX/7yFra0QBpzNIa7RkIdmLIgI0eciLxwtV7cYodZw1DnobTH0lIVrAk5U5j3R1XKcn+SXLfeHmJmFLmM2LaT9bmSAMyTo/yNmZSJQrIl3h5vGczKqH97+kPSlj7s/YM1Oep3+bpe7SM8KOg1tJi3PatpWgFXWAgBkFXlvKPXXS/n1JoH6iCxNsym1Bsw9E0Su6+7ko7hj9gZYbNpE2NlZTbzx
-x-ms-exchange-antispam-messagedata: cI4gmrqrx2ZDbTTNQnRkY4Fw8zIblOUdilQF/sCNQS5D34FQUMJpaujF8GxS1oUJkimHJo2zoY58tYdA1KarlJNPAAJ5pdPxD4KjSKQYPK/31I2dY6ddQAFfZTvheInLpaHZJt2cOwtfSvGiUr1Zfw==
+x-microsoft-antispam-message-info: HbF57OJSi7KVxaweqs8aI6SJta3UCWOirGF/J3E0jCq/mEXbJdlgXz2B8Z/QjDxSssTU19OtAdH1gzMxBQvm98hFtl8gzROV4bfQeL4Q5FFUUCdASVGpBXHmOp4/0+Sj39XVP8mO2PlIIeRi4u8zB2KeYh8EhxKUE6DnFDvmdc24fyK4D/v1uEjmsqFGmkMKXt0aiKS3GUOU+j9W6Ib3lV42MoGeJLs1e4cBsup8i5PTnb8T/rKtnNgy7dWwL+Znibp6GYbzej1FxXJtgIjT2fn5JDIBLE4EAvfvXX6d25fx+vNYYijzKGKukvMktLng1UYFhoOeNj6ykFapEgI5qZ2wzOR6MRS44IQI0X4apiUn587VdRzhG9JjVLfnFvBbDLOwif08fZ4XtWZna05X9TezZ3UKDXlOMr1409BblHY+1xTBdh/e+QgKVy0+GkPC
+x-ms-exchange-antispam-messagedata: MPIjsJpNhF1ZSVpLvv2dwAHao6woRLFjTgiksO60U7eUNkA0QwiHNLszHxU0zIFgfqJlW7ZKRStE0vFoqn+A1t4ZFKM/CPzzE07C1I592cf0sy/u7F5SGhwFU4VAXBzW2M7rPXSJV/tPDF1ZBSnPdQ==
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38ee28b9-50ab-47c1-8275-08d7cf0bff3c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:32.8510 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d9a011c-120d-4b6e-aff4-08d7cf0bffd6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:33.3697 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ZMkOvy+IAQ1k0IzYyR29AmA78C5TAtTrFdxfwBwB2ea2XDjHCu5IljyTXlifvShYtXiMHqDoN3zy4av44o4inkGDuuC/h6KWjWdo8QFW2kU=
+X-MS-Exchange-CrossTenant-userprincipalname: aTclvUJTE6vhhOUeo6SsCS+hsLlHCrQMiJm2u00elGVfkJAPPwY37pmK6Jrh5hnTS/1+5iUTTAPk/r3wd7BtoufNu5c2b91t+RrZJesKgrM=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_022447_034615_952F5729 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200323_022449_193449_1C382849 
+X-CRM114-Status: GOOD (  11.44  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -143,35 +145,98 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Tudor Ambarus <tudor.ambarus@microchip.com>
 
-Hi, Jungseung, Michael, Vignesh,
+Fix the gap for the SR block protection, the BP bits were set with
+a +1 value than actually needed. This patch does not change the
+behavior of the locking operations, just fixes the protected areas.
 
-I took Jungseung's v2 and amend it here and there, the description
-of the changes are in each patch. You'll notice that there are 2 new
-small patches, the first one is needed so that we start the BP3 support
-from something that works. The new formula should not change what was
-before, and silently fix a bug, so the first patch is to address this.
-The second patch is Michael's suggestion split from Jungseung's patch,
-for a clearer separation of the fixes.
+On a 16Mbit flash with 64KByte erase sector, the following changed
+for the lock operation:
 
-This was just compiled, not (yet) tested on a flash, I'll test it later
-today. So I need you guys to double check the changes, do some testing,
-and if all good, let me know.
+Number of blocks | BP2:0 before | BP2:0 now |
+               1 | 010b         | 001b      |
+               2 | 110b         | 010b      |
+               3 | 110b         | 010b      |
+               4 | 100b         | 011b      |
+               5 | 100b         | 011b      |
+               6 | 100b         | 011b      |
+               7 | 100b         | 011b      |
+               8 | 101b         | 100b      |
+               9 | 101b         | 100b      |
+             ... | ...          | ...       |
 
-Jungseung Lee (3):
-  mtd: spi-nor: Add new formula for SR block protection handling
-  mtd: spi-nor: Add SR 4bit block protection support
-  mtd: spi-nor: Enable locking for n25q512ax3/n25q512a
+For the lock operation, if one requests to lock an area that is not
+matching the upper boundary of a BP protected area, we round down
+the total length and lock less than the user requested, in order to
+not lock more than the user actually requested.
 
-Tudor Ambarus (2):
-  mtd: spi-nor: Fix gap in SR block protection locking
-  mtd: spi-nor: Set all BP bits to one when lock_len == mtd->size
+For the unlock operation, read the number of blocks column as
+"locked all but number of blocks value". On a 16Mbit flash with
+64KByte erase sector, the following changed for the lock operation:
 
- drivers/mtd/spi-nor/core.c      | 144 +++++++++++++++++++++-----------
- drivers/mtd/spi-nor/core.h      |  10 +++
- drivers/mtd/spi-nor/micron-st.c |   8 +-
- include/linux/mtd/spi-nor.h     |   2 +
- 4 files changed, 113 insertions(+), 51 deletions(-)
+Number of blocks | BP2:0 before | BP2:0 now |
+               1 | 111b         | 101b      |
+             ... | ...          | ...       |
+              15 | 111b         | 101b      |
+              16 | 110b         | 101b      |
+              17 | 110b         | 100b      |
+             ... | ...          | ...       |
+              24 | 101b         | 100b      |
+              25 | 101b         | 011b      |
+              26 | 101b         | 011b      |
+              27 | 101b         | 011b      |
+              28 | 100b         | 011b      |
+              29 | 100b         | 010b      |
+              30 | 011b         | 010b      |
+              31 | 010b         | 001b      |
+              32 | 000b         | 000b      |
 
+For the unlock operation, if one requests to unlock an area that is
+not matching the upper boundary of a BP protected area, we round up
+the total length and unlock more than the user actually requested.
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+---
+ drivers/mtd/spi-nor/core.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
+index 877557dbda7f..36660068bc04 100644
+--- a/drivers/mtd/spi-nor/core.c
++++ b/drivers/mtd/spi-nor/core.c
+@@ -1654,13 +1654,13 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	/*
+ 	 * Need smallest pow such that:
+ 	 *
+-	 *   1 / (2^pow) <= (len / size)
++	 *   1 / ((2^pow) - 1) <= (len / size)
+ 	 *
+ 	 * so (assuming power-of-2 size) we do:
+ 	 *
+-	 *   pow = ceil(log2(size / len)) = log2(size) - floor(log2(len))
++	 *   pow = ceil(log2(size / len)) = log2(size) - floor(log2(len)) + 1
+ 	 */
+-	pow = ilog2(mtd->size) - ilog2(lock_len);
++	pow = ilog2(mtd->size) - ilog2(lock_len) + 1;
+ 	val = mask - (pow << SR_BP_SHIFT);
+ 	if (val & ~mask)
+ 		return -EINVAL;
+@@ -1739,13 +1739,13 @@ static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	/*
+ 	 * Need largest pow such that:
+ 	 *
+-	 *   1 / (2^pow) >= (len / size)
++	 *   1 / ((2^pow) - 1) >= (len / size)
+ 	 *
+ 	 * so (assuming power-of-2 size) we do:
+ 	 *
+-	 *   pow = floor(log2(size / len)) = log2(size) - ceil(log2(len))
++	 *   pow = floor(log2(size / len)) = log2(size) - ceil(log2(len)) + 1
+ 	 */
+-	pow = ilog2(mtd->size) - order_base_2(lock_len);
++	pow = ilog2(mtd->size) - order_base_2(lock_len) + 1;
+ 	if (lock_len == 0) {
+ 		val = 0; /* fully unlocked */
+ 	} else {
 -- 
 2.23.0
 
