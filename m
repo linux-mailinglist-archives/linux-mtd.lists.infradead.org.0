@@ -2,34 +2,34 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3706018F1BB
-	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:25:36 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 858AF18F1BA
+	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:25:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E3ocJ+WZDDdCNuocd3QtYpOQy0ToAKppo3OZ5C+wVqw=; b=PHQJdWmFQoVvqa
-	1FmoA1giGNyrAiTTAz4BO7wlrLuityrDzxXScLh+TRzX59TgdXdYxsjttvUiUgyU1ZMuM16ZdNkSQ
-	uUHEbKJ6nzvy/fp+TPvi5YFjEA+uOIldlOZOJm6NCBLqfWe8TKOETAPr9kykLXZqigsqlS8s4hz3j
-	7pVhTKm3QHAwyitMFK1TKBzBGWUCvDM8EqcZh+djvQiln8N2JAuVbEGt/ybzhsW1ENpXQ8EsB6fiM
-	KLxRH3mU1dLPTxO4XSbU9AZ8dZ/2GbdfDqXSaLlnvXlbZLNZTRulYERK/Bn2WYK0Y0v1MpLrHL95I
-	obdoi1SLy1GTD8+aO3ww==;
+	List-Owner; bh=E3ocJ+WZDDdCNuocd3QtYpOQy0ToAKppo3OZ5C+wVqw=; b=NkBE+SUsifOCLe
+	lWGRo6bJdrQL+1d/t2/wCO7LTxNgLwEuurp1mcZ7Y8uzAH8VsdSYTe82cuUCsnLwNLa26LC5iBGo4
+	6diCt0A9YQhxzkkf6ZT/DZpyLCOfXarAePgdK64KRXcsV0HwUUfTa0JELsln03Q6jWl9DL69CaKog
+	GvPRrCbpW659G3J5Ivum+6nwbUzI6egKk7x5Nryinj12Hsbjt8hnM3RDtk1pNMQ08EfMTxKQGkQWY
+	GTsKEZ5SaVYIcZE6YYarQioWwhvYqc4g2B9VDXdDddWeb+2fDq5E0fLp/Em/rb/hZ0EAcA0+a4gDE
+	u0/3NZxoT9RGndLZO/KQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGJKl-0004uc-Lw; Mon, 23 Mar 2020 09:25:23 +0000
+	id 1jGJKb-0004fp-C7; Mon, 23 Mar 2020 09:25:13 +0000
 Received: from esa6.microchip.iphmx.com ([216.71.154.253])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGJKA-0004TE-3j
- for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:47 +0000
-IronPort-SDR: 1975KyWJM1JcTtVHzUqQp7cUeUx5tSXaSnX5qzP+AFe6vZHCipPAPGo6e31bIvM5Yg8/Pz0CzN
- 3B1q27UmYJWYyWkiy9id1EYcJL5LMpGk9P0McSCiEsArDusFTb+q0REO1Fg+TxKVEuEuFX+wkc
- YxG3uqky+YTL5Cq1+Eo4MOU4gyQA/Pp+EueT6IalhC3qcsG3lVZBN1rNeXV4d/Js48cxMNyeNd
- ZF6+HQT9Iu/E9YZs7LXaOBfS9LnWCpOSlCuKFShbKpXEmGZLkm+WijuJkS6NVQtz9x6f5EkBEY
- uUI=
+ id 1jGJK7-0004TE-6F
+ for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:46 +0000
+IronPort-SDR: h8h3bWUMrtPz0myISfQniEPP7vodEe7VD8mntnm1+c2OO/Msxd11cg4k8pymv2tE3F3BfrAAR9
+ R7IWcO8SJFiED+RgaWJTVQfRcV4IXPvANZgNEKuoFrXQobg33Q9hcR2zj/ZINd/N1xSdXcBLbm
+ WRnJ9ABhhJ4NzD06QfSEF5TW5GY7ntsXSjpul4UcKBBH8IJTdCAYvnKzKFr5mp5s6+ccH9XywL
+ phqaFLFLUI1YiXOiDy0sY7SxyR6RiJ00DgQD1RkXk3QHMpOtcVFOT9Tty/9K6pYUWFp9i+lq0X
+ +S0=
 X-IronPort-AV: E=Sophos;i="5.72,295,1580799600"; 
-   d="scan'208";a="6620294"
+   d="scan'208";a="6620293"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
@@ -44,12 +44,12 @@ Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
  Transport; Mon, 23 Mar 2020 02:24:41 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gXpgPHCr06KIOnqdmm5BVwKIGokkKRfGrggwSrrCtWgaDdB3SpOzfRD1hT4Fj8jStEjPzdTT3m8Z5jiOk3QC1yGPvVmkdcsMd0COHIyJEPFrdXuXUSRPgElix5lx65ji5jQDuJcvTXam02OfPgyKX1TsLtRgfK+IrJ5js8aKBoKfWSgpNkbhrtYZbEGATnKkrFm1sp8Dce5UIvwI6zOWJ28ziMeFUjmpaMKEaZNKe588/ntoHZPzctbZLQmL+BPTU0oyFX8btMYrhVN2TURZF01D/Ft12VJZ4v+0QOy0YOGS1kMkShSbhXFWxT4ofw8rc0KKg+rS9fN7kuzI31twCA==
+ b=X50M88tpW+traGxGa1wXutTUDSgjkp/bF5SrMgWSGo1Drr0ADgEeXsNk40TdUzpFSJO2GJU45e1K3EdhD53Nj9tKQeDqvxm6IeFmvP+5bypw9T141HL2add4MET1TcZxkhOQ8aksuAeWkCH7I2p/gMYQs9uUpiwK4X/BO6LCqZl5Mx914PnwNyxvnwJe5alDkzC9SJv/mkqHjrliy2nTRrrO3bt8ik0htcYU8jHs+5p5RGFs2H7AycqqSP35zMjB5BRqiDKxCcuqoxTOFCMRZzwvmCQZgZqTMLF3titAQ02Q19npu/x3I9MQJq7zjh8B7y2fm1/hJdnJPfgKbCmbxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
  bh=dDy68fF7bu+PCWO1ckygtvkIdKQ+P41BDlqmS0PJEGc=;
- b=gX7OqtQvbkBLITG96mTN+6RxiHchxw4xqoSX0mzxIlU5/tpxSgmD+MVuzDs1WUW4qOLCKdx1y5YV1BXihUhuJS83UHd0mGYa+wFhxDmN7TIt5qzM7K5K9z5JXrPNqEya0y1Etj8+VwoU6kOlSfEZj9W5idml64LVZjMIh4e6jvus3WxpYb0Q2DPV5gPJ5wmgHs6vkJ9jhQ627tAsXOd47Zo7SPAQN5eFY2Y5AWuOdlURCPRNhnpLzSW7tfYU01K/UTusKbbvetZBigiqFf96SEnkBMLqAoVdCFydU/pH8yoL+XFYdS+BxQ3VU/jJBK3FQAco/hDFgtziLoJYuXHaEA==
+ b=cwDssuEc24lKeWTUUJfBLSTE67S8EIzW0glZQqSbvkvjClVGwNGwG0tY0Bz43p2AFqUP5uD2rtVWZfvZuCfs48Tq4r2iAN+mVPNsjYUqAeUJ8pIEh+C4j3EtSyW73nvffyLXeOANmlHZaUqz37iQ2VHXfuWyv8ClXEm3c1c6UcTDbvWhmeIhI/eFq9U4SX+38AJJFBVIMDVa6pvqLuvcFyWqwFJ8Cmgp9of/e5VjofBilTsYkbCYQO07EX2rUu949rrtKAA+q7jZDPEF8kkyNfg1fyqKfzZX/OmIZPXytOns0DvRp1++yVBVRSr806X6vKC+1aON9mD9WdorJGwfnw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -58,7 +58,7 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
  bh=dDy68fF7bu+PCWO1ckygtvkIdKQ+P41BDlqmS0PJEGc=;
- b=CSD17xfQP2xbsH0OM1op/y7Zj4dUHxp0y1HPlU2SSvx5abU9LsIf53XvnHWpewf8epnRt36ISsxNLCSYyAGoz6foMCDGMUOh5LwR9M6SblW3lsy75c15GRveDL9IKAAuuHwwAio0eS6rGopuNPpj7LScapPV9ULUiNW7CUme094=
+ b=kWeWarrE61N9uq1ZYzLOyZkzUL+1nT3DsL4uxqaLc6/Lj3wtd8cd4QAtEcHs9Bi+ok5J84Ae9ktbJC5/mQgnPJrHF3N4Loa+Ttxdw9I66/5TAkwUtwYMTt/ue3Q/XpE9MJeW+wSxbMsICEJdBN4K2e6vQzKTRjGGReukzlBF/Zc=
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
  by BY5PR11MB4449.namprd11.prod.outlook.com (2603:10b6:a03:1cc::23)
  with Microsoft SMTP Server (version=TLS1_2,
@@ -70,11 +70,11 @@ Received: from BY5PR11MB4419.namprd11.prod.outlook.com
  09:24:35 +0000
 From: <Tudor.Ambarus@microchip.com>
 To: <js07.lee@samsung.com>, <michael@walle.cc>, <vigneshr@ti.com>
-Subject: [PATCH v3 4/5] mtd: spi-nor: Add SR 4bit block protection support
-Thread-Topic: [PATCH v3 4/5] mtd: spi-nor: Add SR 4bit block protection support
-Thread-Index: AQHWAPTegR7iigdWDECxp9El2paD9w==
+Subject: [PATCH v3 4/5] mtd: spi-nor: Add 4bit SR block protection support
+Thread-Topic: [PATCH v3 4/5] mtd: spi-nor: Add 4bit SR block protection support
+Thread-Index: AQHWAPTe+FMJ8S5uPkm5x+wjpuNoJw==
 Date: Mon, 23 Mar 2020 09:24:35 +0000
-Message-ID: <20200323092430.1466234-6-tudor.ambarus@microchip.com>
+Message-ID: <20200323092430.1466234-5-tudor.ambarus@microchip.com>
 References: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
 In-Reply-To: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
 Accept-Language: en-US
@@ -85,10 +85,10 @@ authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Tudor.Ambarus@microchip.com; 
 x-originating-ip: [94.177.32.156]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: fd5820da-1952-4ce8-ca41-08d7cf0c0104
+x-ms-office365-filtering-correlation-id: 64b828c3-d071-44fc-b001-08d7cf0c008d
 x-ms-traffictypediagnostic: BY5PR11MB4449:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR11MB4449A39B2D85203FC51B3738F0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
+x-microsoft-antispam-prvs: <BY5PR11MB444983657DEE522DD14FECCFF0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
 x-bypassexternaltag: True
 x-ms-oob-tlc-oobclassifiers: OLM:5236;
 x-forefront-prvs: 0351D213B3
@@ -101,18 +101,18 @@ received-spf: None (protection.outlook.com: microchip.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 0kVNhCQ3LfNeAius3uhrvpBLcgDZ2N/NqOjej687hKU3/IeeiQUwBBDCLdNWLn63+0Haeyvr4HnLjlcFlnwR+DgNyFZVw0AdFu48wvjmJcjJWF+19vzzQgMsPyw6lsWNU1eyZQsnmsuXMwdGy0gginbDdeLOA6y2hv8hkBx3VOw46odFNnvrnD3+k195CYi8uF4onzEj1WzjPSMAnTNgjHOHKqeRGd8EfXOLtOpGP2pTLGclqhXvpCJnnAjG4dRRBoQ6emFTTGby/1VrqUiVjmA4L0M00SxU2l5jgwM6exRhVRM3BZSYhp59WDa+LQtCK4W72tbwsBYFXTpVUQ5IzDgLCn3dsiPS4vhHbVyS/q7bYAv4gN7t8ZLl6cLELYgWIV4RZIsCiGLvhVs7CfmSs6UMvT+YD9OSqpeqDd2TBkbx5KrvPL5ujWcXoy3stfP8
-x-ms-exchange-antispam-messagedata: rDFIa6Oua20f2mZFAQObGLY4o7/ruLIpuEzoOOyLPjykNdUtBzGnlbMci3MpvfBcNqoYaihjD5fj5gCDJ7YGjrKAvHO/so/hIcDpYAXU+4MY+ytQINNKaefHsQhHNvDp6ipt34rYNm1bStlZZYt1ZQ==
+x-microsoft-antispam-message-info: QAzbOkuPvYYgEe5vjFzRqQlKKKwTQ7C8sR++5qnKaMFqmxJgyD6K9yMl71uohBNemGT59295T84iGGFBC5WNjYafIXz+1UGs0SQKYch2B/pIPMpozIlgwRnPxBUvZt1d+Z5/jiD/ZPcK4Us7WgozF1JG1zY1JRtZ6M7zhOp9XBIqrLGl0lPdPjk3nwbxR+wDTSbSZa0RY6p+mDypjOLUpeYoRWGyNZQUq9j58Yc+3YwU22vxGxbGmNmOwBCLWCNm7JoPQKNLUbiK8/zxnYJBR5W7CBE8gIW1Y0W9/8+RqMrB6OzTnY5Y/yXPy4hWDphdQbW9cLKCh3a8k+MBPDxq41mYBZpgFcVtQRutjUid6q1QZVQUX6gQob8VvBNDHsLknUM7Y+/DNW6EVuZ2jbvSaioAzL8k01XaarzdsPETRO45gNZ+TF9EEeEenlyVFVRb
+x-ms-exchange-antispam-messagedata: B8SuMvx1dKOUM2/Ev8JNw9EtX5rbK2EMgfqhgzeqdAbJi7TSwCTmP+5m/+a9p0xn282czoxdPNAi7U0sjbAP4yzoHBgvPL0tcDUgX1eo8XIJUNKRfNBBsyi6sbccWUNv/Nqaa1iEhlyu5bsdaTIT+A==
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd5820da-1952-4ce8-ca41-08d7cf0c0104
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:35.6714 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64b828c3-d071-44fc-b001-08d7cf0c008d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:35.1127 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9McpyNbSubDpKhnYHczkiUJ5FefbdxE5fP6Wkh2Q7h5gMdpBlUqNdFCQdMkA11SE6IQe2fGKRHjB0ypZw+i4aXRDSd/ZWdH7gXGA4Pxfrwc=
+X-MS-Exchange-CrossTenant-userprincipalname: cWgyu4lnNpWPwXT9HG2R0CuLLk3vHV1m3iK/Z/3rE8wwvfOoB1NyMyADJeRT8fv8pVjtGVYDcXn0pqV9bzG2mwyKAXtYN9xawokfljMTtEc=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_022446_186799_5174187F 
+X-CRM114-CacheID: sfid-20200323_022443_318836_7BE2988F 
 X-CRM114-Status: GOOD (  15.73  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
