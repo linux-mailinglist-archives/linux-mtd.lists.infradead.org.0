@@ -2,53 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AA8C18F1C2
-	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:27:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3706018F1BB
+	for <lists+linux-mtd@lfdr.de>; Mon, 23 Mar 2020 10:25:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=njNGy/kyuK61XYPVmzbgEOkJUNTAZUYwbs1Gyg/eVpo=; b=HdvlQKv0qDp1BX
-	l6O2gbEVB3CwaRWk/2ZRhWZjBdMj2rZAtfjUNY+TrvSo9AB+v9pMMr1yDWQL2dNrxhbm2Hv1OfIYn
-	KLtXooyPJCyI3bmBoY1KF5v+Cbnb8QmJ/wWHLXqX39JkdH0o127BDRlCcMBJg5Ppqr5GAzm5RASDs
-	tOgasUSDPSkAHosFV9d2NmLW/O0DjndJpRNP36jvu0PNR+z/A8CB8ylvNwEuZucCcg4SGWedJMhkL
-	e9oC6yD4jupbPwbUGdnxD2yxCk6weCWeA9vIuAlCalEk20Kn8od/zmiY6IRM/p5bfrsOEOM6HERHP
-	oISH83e/KK1t4z7LQ4NQ==;
+	List-Owner; bh=E3ocJ+WZDDdCNuocd3QtYpOQy0ToAKppo3OZ5C+wVqw=; b=PHQJdWmFQoVvqa
+	1FmoA1giGNyrAiTTAz4BO7wlrLuityrDzxXScLh+TRzX59TgdXdYxsjttvUiUgyU1ZMuM16ZdNkSQ
+	uUHEbKJ6nzvy/fp+TPvi5YFjEA+uOIldlOZOJm6NCBLqfWe8TKOETAPr9kykLXZqigsqlS8s4hz3j
+	7pVhTKm3QHAwyitMFK1TKBzBGWUCvDM8EqcZh+djvQiln8N2JAuVbEGt/ybzhsW1ENpXQ8EsB6fiM
+	KLxRH3mU1dLPTxO4XSbU9AZ8dZ/2GbdfDqXSaLlnvXlbZLNZTRulYERK/Bn2WYK0Y0v1MpLrHL95I
+	obdoi1SLy1GTD8+aO3ww==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGJMK-0007Xe-U5; Mon, 23 Mar 2020 09:27:00 +0000
-Received: from esa1.microchip.iphmx.com ([68.232.147.91])
+	id 1jGJKl-0004uc-Lw; Mon, 23 Mar 2020 09:25:23 +0000
+Received: from esa6.microchip.iphmx.com ([216.71.154.253])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGJKE-0004TA-V1
- for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:52 +0000
-IronPort-SDR: ae6iZ+AAWn3yYTu2DWwQ9IVCsLgqQXmdEa3NDfUrEShD5BVFncTC9Q8sjYtR779qrknUNZ/LNX
- O9sbz6x2O65h5GB81k8A5kX5ufI6ascFjQIGy2QqTa0Kkkygdrsva8tHiv2UgUkdbHyXB+6wVB
- sDUJd6mb2UOdQLHjQ0VtTAsX+WDL3Fbz8ECn10he4EdspYkqdxCTGWk/Kd48+LZbLyl4ervMxb
- nc4QA3s6JWgeSJjAhRJSpGyOLhXBCdkyGJ2FuxJaudM0g7GhYX93dhz5+1MwfC93RVmSUO773X
- q8Q=
-X-IronPort-AV: E=Sophos;i="5.72,295,1580799600"; d="scan'208";a="73067124"
+ id 1jGJKA-0004TE-3j
+ for linux-mtd@lists.infradead.org; Mon, 23 Mar 2020 09:24:47 +0000
+IronPort-SDR: 1975KyWJM1JcTtVHzUqQp7cUeUx5tSXaSnX5qzP+AFe6vZHCipPAPGo6e31bIvM5Yg8/Pz0CzN
+ 3B1q27UmYJWYyWkiy9id1EYcJL5LMpGk9P0McSCiEsArDusFTb+q0REO1Fg+TxKVEuEuFX+wkc
+ YxG3uqky+YTL5Cq1+Eo4MOU4gyQA/Pp+EueT6IalhC3qcsG3lVZBN1rNeXV4d/Js48cxMNyeNd
+ ZF6+HQT9Iu/E9YZs7LXaOBfS9LnWCpOSlCuKFShbKpXEmGZLkm+WijuJkS6NVQtz9x6f5EkBEY
+ uUI=
+X-IronPort-AV: E=Sophos;i="5.72,295,1580799600"; 
+   d="scan'208";a="6620294"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
  23 Mar 2020 02:24:36 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 23 Mar 2020 02:24:41 -0700
+ 15.1.1713.5; Mon, 23 Mar 2020 02:24:36 -0700
 Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
  email.microchip.com (10.10.87.71) with Microsoft SMTP Server
  (version=TLS1_2, 
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
  Transport; Mon, 23 Mar 2020 02:24:41 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ciarQWgh/pradRy5/0wR5t7tF9bQZJmbJ9ptDSKQtTlnJeBIz5fVDq6xNpbMz13FAOzTy/yl1ixDokFz9Q/6BxlKXfm19nm/SMqENRlp+V5pCHshGJvRABmaKMQLOrJJUFhC/4MCv81JOnAXAouSriGh9tP+eNHgnlXsZEAY0Wv2AihuFgG4PbjevONE2ovpPPLHCm08xgJMFWp/yeC7bwdlD1UcMEP0YeR1+UbyesbiVymfXnzAjpuA5adGYEDWZlvPmqESBPfq2ezT3iJRUmQ41wteZPwBbdAPP6sboVkY5/0aym+0hr4dT2b0eAIUoPeMRpGeEGKYpe+X7s60Ww==
+ b=gXpgPHCr06KIOnqdmm5BVwKIGokkKRfGrggwSrrCtWgaDdB3SpOzfRD1hT4Fj8jStEjPzdTT3m8Z5jiOk3QC1yGPvVmkdcsMd0COHIyJEPFrdXuXUSRPgElix5lx65ji5jQDuJcvTXam02OfPgyKX1TsLtRgfK+IrJ5js8aKBoKfWSgpNkbhrtYZbEGATnKkrFm1sp8Dce5UIvwI6zOWJ28ziMeFUjmpaMKEaZNKe588/ntoHZPzctbZLQmL+BPTU0oyFX8btMYrhVN2TURZF01D/Ft12VJZ4v+0QOy0YOGS1kMkShSbhXFWxT4ofw8rc0KKg+rS9fN7kuzI31twCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M6iIQ4rU8Vsr2Y2/ntqOk02gigDe7EF/BdHuWaijq3k=;
- b=TKt4QXKDibVLpPWmBU4APPxjG5FYOZYA4CsJdW27hvwK6dQEzJrb9L17UYNm9PNnHFVbDc7UL7jL8jniJU6RpXdICJT5pMSvlpFze5lFVSWsBKnjHADWf3do4BzsUUjKFpjkWnN6vpmnzZE4OjM2aeZNRweKVgZp2ffyAU1sgAkY4XisLFHqbUL07Ioqm6azhHEdmkMlTJF6b0MLvDVoml9o3Xu47uNJKMvq5EQ/zDqDFGu5JChaAZLsBNBYOMEZSw8PVX7dH9UakiqKdnXd3iYyjgILwogYhDNyhHBSN1EmUawW8NSI8SkSqJ2KSDqkrL/tUmiHSXZC0SxC8S+/2w==
+ bh=dDy68fF7bu+PCWO1ckygtvkIdKQ+P41BDlqmS0PJEGc=;
+ b=gX7OqtQvbkBLITG96mTN+6RxiHchxw4xqoSX0mzxIlU5/tpxSgmD+MVuzDs1WUW4qOLCKdx1y5YV1BXihUhuJS83UHd0mGYa+wFhxDmN7TIt5qzM7K5K9z5JXrPNqEya0y1Etj8+VwoU6kOlSfEZj9W5idml64LVZjMIh4e6jvus3WxpYb0Q2DPV5gPJ5wmgHs6vkJ9jhQ627tAsXOd47Zo7SPAQN5eFY2Y5AWuOdlURCPRNhnpLzSW7tfYU01K/UTusKbbvetZBigiqFf96SEnkBMLqAoVdCFydU/pH8yoL+XFYdS+BxQ3VU/jJBK3FQAco/hDFgtziLoJYuXHaEA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -56,26 +57,24 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M6iIQ4rU8Vsr2Y2/ntqOk02gigDe7EF/BdHuWaijq3k=;
- b=iF+g8pP5kofJoXtQ/+APZHTaIQ0Jp+beFWBgrIz0Afy3Z0Q+5NjOEUF4ehCgBIDhQ6z2lJqTFyAoinDXaELGGfKgLODSV2AZoaujy+Jn04ek0XWD7MLvYDbRYNiSm9QhCUSyaXt+Ub8TaRt4RETofZhOi1vGldEKpU8TC3IqhvM=
+ bh=dDy68fF7bu+PCWO1ckygtvkIdKQ+P41BDlqmS0PJEGc=;
+ b=CSD17xfQP2xbsH0OM1op/y7Zj4dUHxp0y1HPlU2SSvx5abU9LsIf53XvnHWpewf8epnRt36ISsxNLCSYyAGoz6foMCDGMUOh5LwR9M6SblW3lsy75c15GRveDL9IKAAuuHwwAio0eS6rGopuNPpj7LScapPV9ULUiNW7CUme094=
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
  by BY5PR11MB4449.namprd11.prod.outlook.com (2603:10b6:a03:1cc::23)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2835.22; Mon, 23 Mar
- 2020 09:24:34 +0000
+ 2020 09:24:35 +0000
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::e918:9196:b47e:9692]) by BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::e918:9196:b47e:9692%3]) with mapi id 15.20.2835.021; Mon, 23 Mar 2020
- 09:24:34 +0000
+ 09:24:35 +0000
 From: <Tudor.Ambarus@microchip.com>
 To: <js07.lee@samsung.com>, <michael@walle.cc>, <vigneshr@ti.com>
-Subject: [PATCH v3 3/5] mtd: spi-nor: Add new formula for SR block protection
- handling
-Thread-Topic: [PATCH v3 3/5] mtd: spi-nor: Add new formula for SR block
- protection handling
-Thread-Index: AQHWAPTd52zG839Gm0+JAaqFu95iGQ==
-Date: Mon, 23 Mar 2020 09:24:34 +0000
-Message-ID: <20200323092430.1466234-4-tudor.ambarus@microchip.com>
+Subject: [PATCH v3 4/5] mtd: spi-nor: Add SR 4bit block protection support
+Thread-Topic: [PATCH v3 4/5] mtd: spi-nor: Add SR 4bit block protection support
+Thread-Index: AQHWAPTegR7iigdWDECxp9El2paD9w==
+Date: Mon, 23 Mar 2020 09:24:35 +0000
+Message-ID: <20200323092430.1466234-6-tudor.ambarus@microchip.com>
 References: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
 In-Reply-To: <20200323092430.1466234-1-tudor.ambarus@microchip.com>
 Accept-Language: en-US
@@ -86,15 +85,15 @@ authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Tudor.Ambarus@microchip.com; 
 x-originating-ip: [94.177.32.156]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a1a51817-29d1-412a-3c22-08d7cf0c003e
+x-ms-office365-filtering-correlation-id: fd5820da-1952-4ce8-ca41-08d7cf0c0104
 x-ms-traffictypediagnostic: BY5PR11MB4449:
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR11MB44493F85F446026546E7C9EFF0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
+x-microsoft-antispam-prvs: <BY5PR11MB4449A39B2D85203FC51B3738F0F00@BY5PR11MB4449.namprd11.prod.outlook.com>
 x-bypassexternaltag: True
-x-ms-oob-tlc-oobclassifiers: OLM:2733;
+x-ms-oob-tlc-oobclassifiers: OLM:5236;
 x-forefront-prvs: 0351D213B3
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(39860400002)(396003)(346002)(136003)(376002)(366004)(199004)(8936002)(8676002)(81156014)(81166006)(36756003)(76116006)(91956017)(66946007)(54906003)(110136005)(316002)(2906002)(66476007)(64756008)(66446008)(66556008)(5660300002)(2616005)(107886003)(186003)(71200400001)(1076003)(86362001)(26005)(6512007)(6486002)(4326008)(6506007)(966005)(478600001);
+ SFS:(10009020)(39860400002)(396003)(346002)(136003)(376002)(366004)(199004)(8936002)(8676002)(81156014)(81166006)(36756003)(76116006)(91956017)(66946007)(54906003)(110136005)(316002)(2906002)(66476007)(64756008)(66446008)(66556008)(5660300002)(2616005)(107886003)(186003)(71200400001)(1076003)(86362001)(26005)(6512007)(6486002)(4326008)(6506007)(478600001);
  DIR:OUT; SFP:1101; SCL:1; SRVR:BY5PR11MB4449;
  H:BY5PR11MB4419.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; 
@@ -102,26 +101,26 @@ received-spf: None (protection.outlook.com: microchip.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: OaIS1k2PfvhDyyhz+Fi+/M+QiWRAD5/+iyWxHqrrtqOArm9+fyjNLfGxD5jREEq6M1ikP5p9Kvj8lt1XkL/ZMh2PMfxJEdsAjkr48Fjoo09UFG4M78znk/PwFzKi+UeVBgqQSFskTp/e0ZgJ7P5/Ou44b7nGiF33Ox+wW1IDVhYLrf8lZoynCKIdY/eQQC603WtifJSxhg3IALzBcI4qkHG+moGaXlEyR/oZ0zjRujNIiV7S8TSWTkZiOdrc1rAQlsS+BiXTeWXIVOH/XMpJXEp8Kj5+a8boC0AvPc/ddkdv2OzewWZrPh/QoeXmSjsr1nAcv2XlFOCLM01fskxqnQhoIVBQRQXXpY+j3m1kX1pNiLoO65Eg4gL1uku/1WaFH+vxIT+Hu1MVEAbvZ3TyP45DG4ILmkr/gJB164gkqE4zItY3BgL6uihXe02JZV/wFUz6ElL/THMIxzLRs9o8ls71clFHCL16xWnAcHrWGPEaN8Xlp2xQjzMcupVWpjca4LtrJcNZlvuhlfk/kAl6EQ==
-x-ms-exchange-antispam-messagedata: 6RGYuD8/+MbHeXCy80WPwjQURrtbslK7/ZkpjsGVnT6JYLYIzSUxkXd3cfg/BzVSTpuSy0RuAjBMk97T0juPZTyau3n5oLqmfTMTz/s05sECd95U1BPlsZnp9Vos0e9nxGp4SDpSrjkNfRDuEj4IrQ==
+x-microsoft-antispam-message-info: 0kVNhCQ3LfNeAius3uhrvpBLcgDZ2N/NqOjej687hKU3/IeeiQUwBBDCLdNWLn63+0Haeyvr4HnLjlcFlnwR+DgNyFZVw0AdFu48wvjmJcjJWF+19vzzQgMsPyw6lsWNU1eyZQsnmsuXMwdGy0gginbDdeLOA6y2hv8hkBx3VOw46odFNnvrnD3+k195CYi8uF4onzEj1WzjPSMAnTNgjHOHKqeRGd8EfXOLtOpGP2pTLGclqhXvpCJnnAjG4dRRBoQ6emFTTGby/1VrqUiVjmA4L0M00SxU2l5jgwM6exRhVRM3BZSYhp59WDa+LQtCK4W72tbwsBYFXTpVUQ5IzDgLCn3dsiPS4vhHbVyS/q7bYAv4gN7t8ZLl6cLELYgWIV4RZIsCiGLvhVs7CfmSs6UMvT+YD9OSqpeqDd2TBkbx5KrvPL5ujWcXoy3stfP8
+x-ms-exchange-antispam-messagedata: rDFIa6Oua20f2mZFAQObGLY4o7/ruLIpuEzoOOyLPjykNdUtBzGnlbMci3MpvfBcNqoYaihjD5fj5gCDJ7YGjrKAvHO/so/hIcDpYAXU+4MY+ytQINNKaefHsQhHNvDp6ipt34rYNm1bStlZZYt1ZQ==
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1a51817-29d1-412a-3c22-08d7cf0c003e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:34.5501 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd5820da-1952-4ce8-ca41-08d7cf0c0104
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Mar 2020 09:24:35.6714 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: NhoPutwzICYxmiBumHOCy6pepbb2nmsitAMGDQEXtRwGChkQk9diJpiFN3f718NHAl6u7508QTmyf6kvLYBem1WABnHzAMWS5UjGt7hXYpI=
+X-MS-Exchange-CrossTenant-userprincipalname: 9McpyNbSubDpKhnYHczkiUJ5FefbdxE5fP6Wkh2Q7h5gMdpBlUqNdFCQdMkA11SE6IQe2fGKRHjB0ypZw+i4aXRDSd/ZWdH7gXGA4Pxfrwc=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4449
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_022451_020987_CC4CADCC 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20200323_022446_186799_5174187F 
+X-CRM114-Status: GOOD (  15.73  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [68.232.147.91 listed in list.dnswl.org]
+ medium trust [216.71.154.253 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -146,171 +145,220 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Jungseung Lee <js07.lee@samsung.com>
 
-The current mainline locking was restricted and could only be applied
-to flashes that has 3 block protection bit and fixed locking ratio.
+Currently, we are supporting block protection only for flash chips with
+3 block protection bits (BP0-2) in the SR register.
 
-A new method of normalization was reached at the end of the discussion [1].
+Enable block protection support for flashes with 4 block protection bits
+(BP0-3).
 
-    (1) - if bp slot is insufficient.
-    (2) - if bp slot is sufficient.
-
-    if (bp_slots_needed > bp_slots)    // (1)
-        min_prot_length = sector_size << (bp_slots_needed - bp_slots);
-    else                               // (2)
-        min_prot_length = sector_size;
-
-This patch changes logic to handle block protection based on min_prot_length.
-It is suitable for the overall flashes with exception of some corner cases
-(see EON and catalyst) and easy to extend and apply for the case of 2bit or
-4bit block protection.
-
-[1] http://lists.infradead.org/pipermail/linux-mtd/2020-February/093934.html
+Add a flash_info flag for flashes that describe 4 block protection bits.
+Add another flash_info flag for flashes in which BP3 bit is not adjacent
+to the BP0-2 bits.
 
 Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
 Reviewed-by: Michael Walle <michael@walle.cc>
 Tested-by: Michael Walle <michael@walle.cc>
-[ta: - drop spi_nor_get_bp_mask(), spi_nor_get_tb_mask()
-- rename spi_nor_get_min_prot_length/spi_nor_get_min_prot_length_sr
-- static u64 spi_nor_get_min_prot_length
-- unsigned int bp_slots, bp_slots_needed;
-- bp_slots = (mask >> SR_BP_SHIFT) + 1 - 2;
+[ta:
+- introduce spi_nor_get_sr_bp_mask(), spi_nor_get_sr_tb_mask()
+- drop Micron n25q512ax3 / BP0-3) boilerplate description
+- be explicit in spi_nor_get_locked_range_sr aboyt SR_BP3 as Michael
+suggested,
 - amend commit description]
 Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
 ---
- drivers/mtd/spi-nor/core.c | 72 ++++++++++++++++++++++----------------
- 1 file changed, 41 insertions(+), 31 deletions(-)
+ drivers/mtd/spi-nor/core.c  | 66 +++++++++++++++++++++++++++----------
+ drivers/mtd/spi-nor/core.h  | 10 ++++++
+ include/linux/mtd/spi-nor.h |  2 ++
+ 3 files changed, 60 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index 3788a95c0a47..c0d186f417d8 100644
+index c0d186f417d8..b70c0b2e0958 100644
 --- a/drivers/mtd/spi-nor/core.c
 +++ b/drivers/mtd/spi-nor/core.c
-@@ -1514,29 +1514,51 @@ static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
+@@ -1514,13 +1514,34 @@ static int spi_nor_erase(struct mtd_info *mtd, struct erase_info *instr)
  	return ret;
  }
  
-+static u64 spi_nor_get_min_prot_length_sr(struct spi_nor *nor)
++static u8 spi_nor_get_sr_bp_mask(struct spi_nor *nor)
 +{
-+	unsigned int bp_slots, bp_slots_needed;
 +	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
 +
-+	/* Reserved one for "protect none" and one for "protect all". */
-+	bp_slots = (mask >> SR_BP_SHIFT) + 1 - 2;
-+	bp_slots_needed = ilog2(nor->info->n_sectors);
++	if (nor->flags & SNOR_F_HAS_SR_BP3_BIT6)
++		return mask | SR_BP3_BIT6;
 +
-+	if (bp_slots_needed > bp_slots)
-+		return nor->info->sector_size <<
-+			(bp_slots_needed - bp_slots);
-+	else
-+		return nor->info->sector_size;
++	if (nor->flags & SNOR_F_HAS_4BIT_BP)
++		return mask | SR_BP3;
++
++	return mask;
 +}
 +
- static void spi_nor_get_locked_range_sr(struct spi_nor *nor, u8 sr, loff_t *ofs,
- 					uint64_t *len)
++static u8 spi_nor_get_sr_tb_mask(struct spi_nor *nor)
++{
++	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
++		return SR_TB_BIT6;
++	else
++		return SR_TB_BIT5;
++}
++
+ static u64 spi_nor_get_min_prot_length_sr(struct spi_nor *nor)
+ {
+ 	unsigned int bp_slots, bp_slots_needed;
+-	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
++	u8 mask = spi_nor_get_sr_bp_mask(nor);
+ 
+ 	/* Reserved one for "protect none" and one for "protect all". */
+-	bp_slots = (mask >> SR_BP_SHIFT) + 1 - 2;
++	bp_slots = (1 << hweight8(mask)) - 2;
+ 	bp_slots_needed = ilog2(nor->info->n_sectors);
+ 
+ 	if (bp_slots_needed > bp_slots)
+@@ -1535,12 +1556,14 @@ static void spi_nor_get_locked_range_sr(struct spi_nor *nor, u8 sr, loff_t *ofs,
  {
  	struct mtd_info *mtd = &nor->mtd;
-+	u64 min_prot_len;
- 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
- 	u8 tb_mask = SR_TB_BIT5;
--	int pow;
-+	u8 bp = (sr & mask) >> SR_BP_SHIFT;
+ 	u64 min_prot_len;
+-	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+-	u8 tb_mask = SR_TB_BIT5;
+-	u8 bp = (sr & mask) >> SR_BP_SHIFT;
++	u8 mask = spi_nor_get_sr_bp_mask(nor);
++	u8 tb_mask = spi_nor_get_sr_tb_mask(nor);
++	u8 bp, val = sr & mask;
  
- 	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
- 		tb_mask = SR_TB_BIT6;
+-	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
+-		tb_mask = SR_TB_BIT6;
++	if (nor->flags & SNOR_F_HAS_SR_BP3_BIT6 && val & SR_BP3_BIT6)
++		val = (val & ~SR_BP3_BIT6) | SR_BP3;
++
++	bp = val >> SR_BP_SHIFT;
  
--	if (!(sr & mask)) {
-+	if (!bp) {
+ 	if (!bp) {
  		/* No protection */
- 		*ofs = 0;
- 		*len = 0;
--	} else {
--		pow = ((sr & mask) ^ mask) >> SR_BP_SHIFT;
--		*len = mtd->size >> pow;
--		if (nor->flags & SNOR_F_HAS_SR_TB && sr & tb_mask)
--			*ofs = 0;
--		else
--			*ofs = mtd->size - *len;
-+		return;
- 	}
-+
-+	min_prot_len = spi_nor_get_min_prot_length_sr(nor);
-+	*len = min_prot_len << (bp - 1);
-+
-+	if (*len > mtd->size)
-+		*len = mtd->size;
-+
-+	if (nor->flags & SNOR_F_HAS_SR_TB && sr & tb_mask)
-+		*ofs = 0;
-+	else
-+		*ofs = mtd->size - *len;
- }
+@@ -1598,7 +1621,8 @@ static int spi_nor_is_unlocked_sr(struct spi_nor *nor, loff_t ofs, uint64_t len,
  
  /*
-@@ -1609,6 +1631,7 @@ static int spi_nor_is_unlocked_sr(struct spi_nor *nor, loff_t ofs, uint64_t len,
- static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
- {
+  * Lock a region of the flash. Compatible with ST Micro and similar flash.
+- * Supports the block protection bits BP{0,1,2} in the status register
++ * Supports the block protection bits BP{0,1,2}/BP{0,1,2,3} in the status
++ * register
+  * (SR). Does not support these features found in newer SR bitfields:
+  *   - SEC: sector/block protect - only handle SEC=0 (block protect)
+  *   - CMP: complement protect - only support CMP=0 (range is not complemented)
+@@ -1633,8 +1657,8 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
  	struct mtd_info *mtd = &nor->mtd;
-+	u64 min_prot_len;
+ 	u64 min_prot_len;
  	int ret, status_old, status_new;
- 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
- 	u8 tb_mask = SR_TB_BIT5;
-@@ -1651,20 +1674,12 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
- 	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
- 		tb_mask = SR_TB_BIT6;
+-	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+-	u8 tb_mask = SR_TB_BIT5;
++	u8 mask = spi_nor_get_sr_bp_mask(nor);
++	u8 tb_mask = spi_nor_get_sr_tb_mask(nor);
+ 	u8 pow, val;
+ 	loff_t lock_len;
+ 	bool can_be_top = true, can_be_bottom = nor->flags & SNOR_F_HAS_SR_TB;
+@@ -1671,9 +1695,6 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	else
+ 		lock_len = ofs + len;
  
--	/*
--	 * Need smallest pow such that:
--	 *
--	 *   1 / ((2^pow) - 1) <= (len / size)
--	 *
--	 * so (assuming power-of-2 size) we do:
--	 *
--	 *   pow = ceil(log2(size / len)) = log2(size) - floor(log2(len)) + 1
--	 */
+-	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
+-		tb_mask = SR_TB_BIT6;
+-
  	if (lock_len == mtd->size) {
  		val = mask;
  	} else {
--		pow = ilog2(mtd->size) - ilog2(lock_len) + 1;
--		val = mask - (pow << SR_BP_SHIFT);
-+		min_prot_len = spi_nor_get_min_prot_length_sr(nor);
-+		pow = ilog2(lock_len) - ilog2(min_prot_len) + 1;
-+		val = pow << SR_BP_SHIFT;
+@@ -1681,6 +1702,9 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 		pow = ilog2(lock_len) - ilog2(min_prot_len) + 1;
+ 		val = pow << SR_BP_SHIFT;
  
++		if (nor->flags & SNOR_F_HAS_SR_BP3_BIT6 && val & SR_BP3)
++			val = (val & ~SR_BP3) | SR_BP3_BIT6;
++
  		if (val & ~mask)
  			return -EINVAL;
-@@ -1701,6 +1716,7 @@ static int spi_nor_sr_lock(struct spi_nor *nor, loff_t ofs, uint64_t len)
- static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
- {
- 	struct mtd_info *mtd = &nor->mtd;
-+	u64 min_prot_len;
- 	int ret, status_old, status_new;
- 	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
- 	u8 tb_mask = SR_TB_BIT5;
-@@ -1742,20 +1758,14 @@ static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
  
- 	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
- 		tb_mask = SR_TB_BIT6;
--	/*
--	 * Need largest pow such that:
--	 *
--	 *   1 / ((2^pow) - 1) >= (len / size)
--	 *
--	 * so (assuming power-of-2 size) we do:
--	 *
--	 *   pow = floor(log2(size / len)) = log2(size) - ceil(log2(len)) + 1
--	 */
--	pow = ilog2(mtd->size) - order_base_2(lock_len) + 1;
-+
+@@ -1718,8 +1742,8 @@ static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	struct mtd_info *mtd = &nor->mtd;
+ 	u64 min_prot_len;
+ 	int ret, status_old, status_new;
+-	u8 mask = SR_BP2 | SR_BP1 | SR_BP0;
+-	u8 tb_mask = SR_TB_BIT5;
++	u8 mask = spi_nor_get_sr_bp_mask(nor);
++	u8 tb_mask = spi_nor_get_sr_tb_mask(nor);
+ 	u8 pow, val;
+ 	loff_t lock_len;
+ 	bool can_be_top = true, can_be_bottom = nor->flags & SNOR_F_HAS_SR_TB;
+@@ -1756,9 +1780,6 @@ static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 	else
+ 		lock_len = ofs;
+ 
+-	if (nor->flags & SNOR_F_HAS_SR_TB_BIT6)
+-		tb_mask = SR_TB_BIT6;
+-
  	if (lock_len == 0) {
  		val = 0; /* fully unlocked */
  	} else {
--		val = mask - (pow << SR_BP_SHIFT);
-+		min_prot_len = spi_nor_get_min_prot_length_sr(nor);
-+		pow = ilog2(lock_len) - ilog2(min_prot_len) + 1;
-+		val = pow << SR_BP_SHIFT;
+@@ -1766,6 +1787,9 @@ static int spi_nor_sr_unlock(struct spi_nor *nor, loff_t ofs, uint64_t len)
+ 		pow = ilog2(lock_len) - ilog2(min_prot_len) + 1;
+ 		val = pow << SR_BP_SHIFT;
+ 
++		if (nor->flags & SNOR_F_HAS_SR_BP3_BIT6 && val & SR_BP3)
++			val = (val & ~SR_BP3) | SR_BP3_BIT6;
 +
  		/* Some power-of-two sizes are not supported */
  		if (val & ~mask)
  			return -EINVAL;
+@@ -3125,6 +3149,12 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
+ 	if (info->flags & USE_CLSR)
+ 		nor->flags |= SNOR_F_USE_CLSR;
+ 
++	if (info->flags & SPI_NOR_4BIT_BP) {
++		nor->flags |= SNOR_F_HAS_4BIT_BP;
++		if (info->flags & SPI_NOR_BP3_SR_BIT6)
++			nor->flags |= SNOR_F_HAS_SR_BP3_BIT6;
++	}
++
+ 	if (info->flags & SPI_NOR_NO_ERASE)
+ 		mtd->flags |= MTD_NO_ERASE;
+ 
+diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+index 3ce826b35ad1..6f2f6b27173f 100644
+--- a/drivers/mtd/spi-nor/core.h
++++ b/drivers/mtd/spi-nor/core.h
+@@ -24,6 +24,8 @@ enum spi_nor_option_flags {
+ 	SNOR_F_HAS_16BIT_SR	= BIT(9),
+ 	SNOR_F_NO_READ_CR	= BIT(10),
+ 	SNOR_F_HAS_SR_TB_BIT6	= BIT(11),
++	SNOR_F_HAS_4BIT_BP      = BIT(12),
++	SNOR_F_HAS_SR_BP3_BIT6  = BIT(13),
+ };
+ 
+ struct spi_nor_read_command {
+@@ -301,6 +303,14 @@ struct flash_info {
+ 					 * status register. Must be used with
+ 					 * SPI_NOR_HAS_TB.
+ 					 */
++#define SPI_NOR_4BIT_BP		BIT(17) /*
++					 * Flash SR has 4 bit fields (BP0-3)
++					 * for block protection.
++					 */
++#define SPI_NOR_BP3_SR_BIT6	BIT(18) /*
++					 * BP3 is bit 6 of status register.
++					 * Must be used with SPI_NOR_4BIT_BP.
++					 */
+ 
+ 	/* Part specific fixup hooks. */
+ 	const struct spi_nor_fixups *fixups;
+diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
+index e656858b50a5..1e2af0ec1f03 100644
+--- a/include/linux/mtd/spi-nor.h
++++ b/include/linux/mtd/spi-nor.h
+@@ -111,7 +111,9 @@
+ #define SR_BP0			BIT(2)	/* Block protect 0 */
+ #define SR_BP1			BIT(3)	/* Block protect 1 */
+ #define SR_BP2			BIT(4)	/* Block protect 2 */
++#define SR_BP3			BIT(5)	/* Block protect 3 */
+ #define SR_TB_BIT5		BIT(5)	/* Top/Bottom protect */
++#define SR_BP3_BIT6		BIT(6)	/* Block protect 3 */
+ #define SR_TB_BIT6		BIT(6)	/* Top/Bottom protect */
+ #define SR_SRWD			BIT(7)	/* SR write protect */
+ /* Spansion/Cypress specific status bits */
 -- 
 2.23.0
 
