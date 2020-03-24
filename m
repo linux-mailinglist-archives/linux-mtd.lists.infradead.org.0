@@ -2,131 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0F5D190573
-	for <lists+linux-mtd@lfdr.de>; Tue, 24 Mar 2020 07:02:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A3AA41905E9
+	for <lists+linux-mtd@lfdr.de>; Tue, 24 Mar 2020 07:50:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sZRrftGfZZokjczF1A7jLRdb4j61+RvCXRfNscGki/8=; b=fAUPAMzLhh8NeM
-	glUH+Pjl3iI/cRo9QwJQsFARCYvgD2TMvKxbMfh2j2GKCx23P7/fMWxtELnMu+RVOIRtArFNEcJE4
-	FSrJdjOrz0/8ToxwijLEjZg/OZN+EEPQQEhywsp5D+B0UfrjIYT+51qZqDEPR1FdugWFb04N/Dq/1
-	epuezpfX8TW9z16h9SDGMxDDEh20nW50q01kCI7uarjLRkMqec0RVVcYSJzSAwZD3wkM3QZLHYDee
-	pe1HbpFXRELRxm1RBrfwXcH87XHd8YTq6Cocr6PHAPH7BOE4XBjQ/X68q6oxfgrv38T2gxjKGAwjW
-	QpQOjeJ5tIvjvKFcFsDA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=4FmzI6k0/GJr6ndgrs8k2IMvU8ytoz8VGxXaIgrd14E=; b=dh8
+	eIyCt0br/P1WHmhc2pH150k1XhJCmyUIWeZgPa8NQfcOgWg14VeOoggqydxwky+C0EfmegfTO0mVT
+	0WXBlg4JsCTbG+IeNfGh2JOCclJTtY7LHgPmSPpiMXD1kY3gUa2kCOf0k1NvvSZN6RmAX+6o5vnRr
+	u5QUyLmy05sRre/iR7PyaRN6MJsm5tSWFcOU6zzDbA8mNt1Rp9ZaR+ZWRBQ29LyeJYKmpQmBNPC9P
+	kzMUsPnFj/0ZwGRWhlzq4H797sqWRRG2yEAAVVcHF7x/jmBaAxP5HgoqYKltr6s91DunYe2n5MF5l
+	iMKt0NHclqRvKM0hoDGLNdYCqbMYZ2Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGcdi-0005jU-Af; Tue, 24 Mar 2020 06:02:14 +0000
-Received: from esa1.microchip.iphmx.com ([68.232.147.91])
+	id 1jGdNo-0004HO-Ch; Tue, 24 Mar 2020 06:49:52 +0000
+Received: from mo-csw1516.securemx.jp ([210.130.202.155]
+ helo=mo-csw.securemx.jp)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGcd8-0005KT-7G
- for linux-mtd@lists.infradead.org; Tue, 24 Mar 2020 06:01:39 +0000
-IronPort-SDR: ljihu9PxI9wuFZaUMUsMxvTKdFPDkwX+nCwHIIKrPGrFWHDFo2fc0MK3rGXVQAEhXGuAnXaFFv
- DplXLBvS4Yscr6ujLYUhGjHnuWvzXSkY5U0/fPf79S4g7sqgv1hNNeBdd7eOlQpa8VhTvO1qSP
- bvpHiyIOaT5njktpGmRiFgypwlBF/VHmAqlG8g3sEI1bMpQUhhuCi5bU91sv7jfYxomBcSGk5s
- A4Pmfj4bl+zUwfYQGM24wKO4dl4qj1PPc3w2j3zmLwxmeL03QME4GwKrhk9AOjmH35AeuVYHKc
- M80=
-X-IronPort-AV: E=Sophos;i="5.72,299,1580799600"; d="scan'208";a="73217564"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 23 Mar 2020 23:01:33 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 23 Mar 2020 23:01:32 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server
- (version=TLS1_2, 
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
- Transport; Mon, 23 Mar 2020 23:01:38 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=SYb8ZcpT7gB3eQHD8ayGyWPQutUh8Ez1pw2xDWqJYIfT5P94x9GemOIDK1FsNUCIuC5Ic12+sEIop0P3aEovgOhkAHKvYJhj5TNdiWyHk68nkaXGhUM3HaHjmy0+eJiTM2dGaoHx/eOXFRt4paC8xazIPUoGZzkgTeLCntf8unAgY7XxdJBX4JdsWCk2g4ofdxhKXV5Mi+MNGOENRr7z6CcvH5iFFWC8gbyjRxM05lnST3TxMJ01T1M1Sy8g8OM7hC7hhgKd3ERXIEucXTaT+wuvOh0e6O0LH8AV9p5OR6heGhea/LHbQuZmaUNpcb9liyRA4eFArAfT/nYfWllBVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=637C6BIZsGCX+1bzPDSmV4dAmf7p+4usskJryQKfk0Y=;
- b=byKgi1MmlAhalhumH/wePJifjWyKkLz3DgbrPBNdoOg7qgXntKC/j0ONSAaKiLtXe2AZRRlvyYBgEwJfWFe3D+K9NQUw1YiU8ozzHg0Oj3FWF6P+p6zt77Jmro+yUpM0+a+17EBSgJWWQtZOeWe8zmpv7dxEi+IjcSXNcPQ3fxRfaI6YhUENErJLbcszTiSSs97opSb/CZ9jdVqLVQo4Hg1Kr2xSrrzi/3Kcz/wFGE5TnpcNW8COmZh1SMx1T2oG9xKQZPyg+UDR40TMTnaua8xaFVxxIbe83f5iBdd64RlItAsOm1nM3XSk1/eF2crBLb8yGCZtHRBbDQ1kIOslYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=637C6BIZsGCX+1bzPDSmV4dAmf7p+4usskJryQKfk0Y=;
- b=mhuWwp5jUYOj+vu/+vSUd2uhcfJANrZpwtcggcm9TBuSkfENw3PwP48tgSJQapJzhfqJQQwPixJhmvUQjLN2bW/IhFV39mSftBIJg/0Iox3FrTUIJ/uWPVD87ph/BlnkFvpqewZ+iLrWmp5b5zZgdBdyCuvoJFvKGKT+E2+sgXU=
-Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
- by BY5PR11MB4184.namprd11.prod.outlook.com (2603:10b6:a03:192::33)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2835.22; Tue, 24 Mar
- 2020 06:01:31 +0000
-Received: from BY5PR11MB4419.namprd11.prod.outlook.com
- ([fe80::e918:9196:b47e:9692]) by BY5PR11MB4419.namprd11.prod.outlook.com
- ([fe80::e918:9196:b47e:9692%3]) with mapi id 15.20.2835.021; Tue, 24 Mar 2020
- 06:01:31 +0000
-From: <Tudor.Ambarus@microchip.com>
-To: <js07.lee@samsung.com>, <michael@walle.cc>, <vigneshr@ti.com>
-Subject: [PATCH v4 4/4] mtd: spi-nor: Enable locking for n25q512ax3/n25q512a
-Thread-Topic: [PATCH v4 4/4] mtd: spi-nor: Enable locking for
- n25q512ax3/n25q512a
-Thread-Index: AQHWAaGqh8NFj6s2eECgk/wjHXaRhQ==
-Date: Tue, 24 Mar 2020 06:01:30 +0000
-Message-ID: <20200324060123.1533917-5-tudor.ambarus@microchip.com>
-References: <20200324060123.1533917-1-tudor.ambarus@microchip.com>
-In-Reply-To: <20200324060123.1533917-1-tudor.ambarus@microchip.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=Tudor.Ambarus@microchip.com; 
-x-originating-ip: [94.177.32.156]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c035f821-43c7-4fdc-32bd-08d7cfb8ccae
-x-ms-traffictypediagnostic: BY5PR11MB4184:
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BY5PR11MB41843072AF78F1BF2E977415F0F10@BY5PR11MB4184.namprd11.prod.outlook.com>
-x-bypassexternaltag: True
-x-ms-oob-tlc-oobclassifiers: OLM:7691;
-x-forefront-prvs: 03524FBD26
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(376002)(39850400004)(136003)(346002)(366004)(396003)(6512007)(8936002)(86362001)(2906002)(71200400001)(316002)(478600001)(54906003)(110136005)(81166006)(186003)(26005)(2616005)(76116006)(91956017)(6506007)(66476007)(64756008)(66446008)(66556008)(36756003)(6486002)(5660300002)(1076003)(8676002)(81156014)(4326008)(107886003)(66946007);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BY5PR11MB4184;
- H:BY5PR11MB4419.namprd11.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; 
-received-spf: None (protection.outlook.com: microchip.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 2m+mfv+HqI79yNNus/167lXllxyhYfgGv7eKwtyagqFI4ssKfuaAdU95geM9bSsDzDXuPg80OlMLfrfaXE55A4somnGmuWfABj7WYg7MhspsN0Px4uKvn+GQ0LviRcUuMfLVAoZs1RC2GJK4hiPr+7yVRDhTV5VQWvL2rzqqSf46gBWSugwSTzGo8NJuwIDAYOg9+pskIoI1rS9GWS1GAccNGG7aUlMgAzKnVKIUcF395KRYOyvcETaDYeDwwtJdE11sn8HrpSUvwLNvzZdil2g3xJSbUFWJdhxXEeHZx9ykNAXG15j1jlb2DzISNMN2rtzFojAdr3d2hCgKbZ7XQppvUq9WbsI7mUHiHjsqhIXBMm+OI76nhq6gkKb4LUJ/wBqcxJGGvjjS7vv8P3ZJkJrlrXzyYg9xC8mMR8kXcOsFQNyylfUBXXbu6yeRDrro
-x-ms-exchange-antispam-messagedata: FNxzExRm/4Gwt+HFMnQVyoVHJEUneZdp8IrdTqlkXUnlmA3m1i8w1RL9b1Hfx5rp6t0s5rGqyvjd8vqjMo44lxNnS4fqWfaAi9UpvBETZc8EWDyk4ZZhFiaB8T2TA/qbmIC2H701MmKxYNZ/GIr91A==
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: c035f821-43c7-4fdc-32bd-08d7cfb8ccae
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Mar 2020 06:01:30.9485 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yAovL0zPqccFK4rnD9SVa0VFAR7yoLpv0CTI507BvHDuiJoCC1V9G4LYZrDYKA6l9Rb1LvAagTEeONmGI8bxZRz8eBoODbQWje+bJBogerg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4184
+ id 1jGdNh-0004Gp-GL
+ for linux-mtd@lists.infradead.org; Tue, 24 Mar 2020 06:49:47 +0000
+Received: by mo-csw.securemx.jp (mx-mo-csw1516) id 02O6nVTs010867;
+ Tue, 24 Mar 2020 15:49:32 +0900
+X-Iguazu-Qid: 34trWq5avtnaVNYr0i
+X-Iguazu-QSIG: v=2; s=0; t=1585032571; q=34trWq5avtnaVNYr0i;
+ m=wsPGRAhtXjyFu7PbYsoh/2Lf9/c1dyQ1oLRf9Vcu8UA=
+Received: from imx2.toshiba.co.jp (imx2.toshiba.co.jp [106.186.93.51])
+ by relay.securemx.jp (mx-mr1513) id 02O6nUIk008719;
+ Tue, 24 Mar 2020 15:49:31 +0900
+Received: from enc01.localdomain ([106.186.93.100])
+ by imx2.toshiba.co.jp  with ESMTP id 02O75mV7025945;
+ Tue, 24 Mar 2020 16:05:48 +0900 (JST)
+Received: from hop001.toshiba.co.jp ([133.199.164.63])
+ by enc01.localdomain  with ESMTP id 02O6nTiC009914;
+ Tue, 24 Mar 2020 15:49:30 +0900
+From: Yoshio Furuyama <ytc-mb-yfuruyama7@kioxia.com>
+To: miquel.raynal@bootlin.com, vigneshr@ti.com
+Subject: [PATCH v5 0/2] mtd: spinand: toshiba: Support for new Kioxia Serial
+ NAND
+Date: Tue, 24 Mar 2020 15:49:27 +0900
+X-TSB-HOP: ON
+Message-Id: <cover.1584949601.git.ytc-mb-yfuruyama7@kioxia.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_230138_288705_9554D607 
-X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-CacheID: sfid-20200323_234945_752747_1130D190 
+X-CRM114-Status: UNSURE (   4.56  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [68.232.147.91 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [210.130.202.155 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -138,51 +70,27 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, Tudor.Ambarus@microchip.com
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Jungseung Lee <js07.lee@samsung.com>
+First patch is to rename function name becase of add new device.
+Second patch is to supprot for new device.
 
-Some Micron models are known to have lock/unlock support,
-and that also support 4bit block protection (BP0-3).
+Yoshio Furuyama (2):
+  mtd: spinand: toshiba: Rename function name to change suffix and
+    prefix (8Gbit)
+  mtd: spinand: toshiba: Support for new Kioxia Serial NAND
 
-This patch support lock/unlock feature on the flashes.
-Tested on n25q512ax3. The other is modified following the datasheet.
+ drivers/mtd/nand/spi/toshiba.c | 182 +++++++++++++++++++++++++++++++----------
+ 1 file changed, 138 insertions(+), 44 deletions(-)
 
-Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
-Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
----
- drivers/mtd/spi-nor/micron-st.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mtd/spi-nor/micron-st.c b/drivers/mtd/spi-nor/micron-st.c
-index 3874a62d8b47..6c034b9718e2 100644
---- a/drivers/mtd/spi-nor/micron-st.c
-+++ b/drivers/mtd/spi-nor/micron-st.c
-@@ -47,12 +47,16 @@ static const struct flash_info st_parts[] = {
- 			       SECT_4K | USE_FSR | SPI_NOR_DUAL_READ |
- 			       SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES) },
- 	{ "n25q512ax3",  INFO(0x20ba20, 0, 64 * 1024, 1024,
--			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
-+			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			      SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
-+			      SPI_NOR_4BIT_BP | SPI_NOR_BP3_SR_BIT6) },
- 	{ "mt25qu512a",  INFO6(0x20bb20, 0x104400, 64 * 1024, 1024,
- 			       SECT_4K | USE_FSR | SPI_NOR_DUAL_READ |
- 			       SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES) },
- 	{ "n25q512a",    INFO(0x20bb20, 0, 64 * 1024, 1024,
--			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ) },
-+			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			      SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
-+			      SPI_NOR_4BIT_BP | SPI_NOR_BP3_SR_BIT6) },
- 	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048,
- 			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
- 			      NO_CHIP_ERASE) },
 -- 
-2.23.0
+1.9.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
