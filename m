@@ -2,62 +2,66 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E655D19228A
-	for <lists+linux-mtd@lfdr.de>; Wed, 25 Mar 2020 09:23:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7612D192362
+	for <lists+linux-mtd@lfdr.de>; Wed, 25 Mar 2020 09:56:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
 	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=0pyIF4QFa17X54QYJc4kPr+K4VlgATPoNM/lfrXRCOc=; b=jPH
-	SZ3p5N4xJNuPGoicWyDIoX2k680Skl3qEe6Nffp6Qzyt8K3sHk4X7yeZqDvBXWqQS/bZNRt0kiXX0
-	O5VCGhIAI3ck/YBtN1tEo77qP0TXMtSynLcy6e7KfyUjLAg79yuFlU8vUcf3exfRttEM0mcj0u/jP
-	tzQTvm/LM/QzXq4xhjUjJ6+yAw4ICT1lmZ1UM/OsAYRDNerK/mP5pnY61L+f8O71ZVP07hqQgE+er
-	CORcyEmWHaUdeRdMkr3/WhyJUMyJ/P+ThuRRzQHQD/EmS5Y9Fgjd8R4JB4OVqPERAiBR1MeBPrA1U
-	pp/q3vo/txxjA4InJ0j1pkTGawpIn1g==;
+	References:List-Owner; bh=K66whKlfGBtp+xErF/eqK48YJqpENiLuZUjEDY8bf2E=; b=PxR
+	nCcIYcEaEE4m2+Wso9IlISPVkEHm0xMR3YLTJZIp0slo8JT+oty+pRZTfWShDdgUYwCkpq0Nv2/aF
+	pFgKHjYfsISL3ZROys1fkovP5E8xSXsgzAMdyQokZLFHtc6mfguJZnQVc2nU0HVcLO3WS+HMdk1PP
+	4Yg9AmsEaUBy8IlDzHR6B1diaMjxmqUL9m1VBrFhJBVneEy1PCD+hdrHjTNRoU0YeOWHSJ1ckrs9n
+	d/Uk+jO8sCC78roHTTlWukkKicL++Yp7pKyvD3hq9p/otKyGbRz2OavQhwn2fTzXEHiDVvEqoEO+r
+	Joiv5RfDqZhC303tr3qLJqZSlNP1BhQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jH1Jq-0007ti-Qy; Wed, 25 Mar 2020 08:23:22 +0000
-Received: from mo-csw1516.securemx.jp ([210.130.202.155]
- helo=mo-csw.securemx.jp)
+	id 1jH1pT-0008Ud-IB; Wed, 25 Mar 2020 08:56:03 +0000
+Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jH1Jg-0007sk-WB
- for linux-mtd@lists.infradead.org; Wed, 25 Mar 2020 08:23:14 +0000
-Received: by mo-csw.securemx.jp (mx-mo-csw1516) id 02P8MuYD003287;
- Wed, 25 Mar 2020 17:22:57 +0900
-X-Iguazu-Qid: 34trcFcTRJxa7WDNQZ
-X-Iguazu-QSIG: v=2; s=0; t=1585124576; q=34trcFcTRJxa7WDNQZ;
- m=W7gmK4DKrNiSCJBF3mY2YxXV1oZxu7GXwOuhitf8o3I=
-Received: from imx12.toshiba.co.jp (imx12.toshiba.co.jp [61.202.160.132])
- by relay.securemx.jp (mx-mr1510) id 02P8Mtni010856;
- Wed, 25 Mar 2020 17:22:56 +0900
-Received: from enc02.toshiba.co.jp ([61.202.160.51])
- by imx12.toshiba.co.jp  with ESMTP id 02P8MtPD015687;
- Wed, 25 Mar 2020 17:22:55 +0900 (JST)
-Received: from hop101.toshiba.co.jp ([133.199.85.107])
- by enc02.toshiba.co.jp  with ESMTP id 02P8MsgB027015;
- Wed, 25 Mar 2020 17:22:54 +0900
-From: Yoshio Furuyama <ytc-mb-yfuruyama7@kioxia.com>
-To: miquel.raynal@bootlin.com, vigneshr@ti.com
-Subject: [PATCH v4] mtd: rawnand: toshiba: Support reading the number of
- bitflips for BENAND (Built-in ECC NAND)
-Date: Wed, 25 Mar 2020 17:22:52 +0900
-X-TSB-HOP: ON
-Message-Id: <1585124572-4693-1-git-send-email-ytc-mb-yfuruyama7@kioxia.com>
-X-Mailer: git-send-email 2.7.4
+ id 1jH1p1-0008G5-9W
+ for linux-mtd@lists.infradead.org; Wed, 25 Mar 2020 08:55:37 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436284|-1; CH=green;
+ DM=|CONTINUE|false|;
+ DS=CONTINUE|ham_system_inform|0.0720342-0.000775372-0.92719;
+ FP=0|0|0|0|0|-1|-1|-1; HT=e01a16370; MF=liaoweixiong@allwinnertech.com; NM=1;
+ PH=DS; RN=17; RT=17; SR=0; TI=SMTPD_---.H50xpyL_1585126516; 
+Received: from
+ PC-liaoweixiong.allwinnertech.com(mailfrom:liaoweixiong@allwinnertech.com
+ fp:SMTPD_---.H50xpyL_1585126516)
+ by smtp.aliyun-inc.com(10.147.42.241);
+ Wed, 25 Mar 2020 16:55:25 +0800
+From: WeiXiong Liao <liaoweixiong@allwinnertech.com>
+To: Kees Cook <keescook@chromium.org>, Anton Vorontsov <anton@enomsg.org>,
+ Colin Cross <ccross@android.com>, Tony Luck <tony.luck@intel.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
+ Rob Herring <robh@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Subject: [PATCH v3 00/11] pstore: mtd: support crash log to block and mtd
+ device
+Date: Wed, 25 Mar 2020 16:54:55 +0800
+Message-Id: <1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200325_012313_244471_EF4C3439 
-X-CRM114-Status: GOOD (  12.48  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200325_015535_604283_5D332BAE 
+X-CRM114-Status: GOOD (  10.84  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [210.130.202.155 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [121.197.207.205 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,109 +73,88 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: WeiXiong Liao <liaoweixiong@allwinnertech.com>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Add support vendor specific commands for KIOXIA CORPORATION BENAND.
-The actual bitflips number can be retrieved by this command.
+Why do we need to log to block (mtd) device?
+1. Most embedded intelligent equipment have no persistent ram, which
+   increases costs. We perfer to cheaper solutions, like block devices.
+2. Do not any equipment have battery, which means that it lost all data
+   on general ram if power failure. Pstore has little to do for these
+   equipments.
 
-Signed-off-by: Yoshio Furuyama <ytc-mb-yfuruyama7@kioxia.com>
----
-changelog[v4]:Change title and message.
-              Define "max ecc steps for BENAND".
-changelog[v3]:Tested version.
-original patch:"[RFC,v2] mtd: nand: toshiba: Add support for ->exec_op()".
+Why do we need mtdpstore instead of mtdoops?
+1. repetitive jobs between pstore and mtdoops
+   Both of pstore and mtdoops do the same jobs that store panic/oops log.
+2. do what a driver should do
+   To me, a driver should provide methods instead of policies. What MTD
+   should do is to provide read/write/erase operations, geting rid of codes
+   about chunk management, kmsg dumper and configuration.
+3. enhanced feature
+   Not only store log, but also show it as files.
+   Not only log, but also trigger time and trigger count.
+   Not only panic/oops log, but also log recorder for pmsg, console and
+   ftrace in the future.
 
- drivers/mtd/nand/raw/nand_toshiba.c | 58 +++++++++++++++++++++++++++++++++++--
- 1 file changed, 56 insertions(+), 2 deletions(-)
+Before upstream submission, pstore/blk is tested on arch ARM and x84_64,
+block device and mtd device, built as modules and in kernel. Here are the
+details:
 
-diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
-index 9c03fbb..f3dcd69 100644
---- a/drivers/mtd/nand/raw/nand_toshiba.c
-+++ b/drivers/mtd/nand/raw/nand_toshiba.c
-@@ -14,14 +14,68 @@
- /* Recommended to rewrite for BENAND */
- #define TOSHIBA_NAND_STATUS_REWRITE_RECOMMENDED	BIT(3)
- 
-+/* ECC Status Read Command for BENAND */
-+#define TOSHIBA_NAND_CMD_ECC_STATUS_READ	0x7A
-+
-+/* ECC Status Mask for BENAND */
-+#define TOSHIBA_NAND_ECC_STATUS_MASK		0x0F
-+
-+/* Uncorrectable Error for BENAND */
-+#define TOSHIBA_NAND_ECC_STATUS_UNCORR		0x0F
-+
-+/* Max ECC Steps for BENAND */
-+#define TOSHIBA_NAND_MAX_ECC_STEPS		8
-+
-+static int toshiba_nand_benand_read_eccstatus_op(struct nand_chip *chip,
-+						 u8 *buf)
-+{
-+	u8 *ecc_status = buf;
-+
-+	if (nand_has_exec_op(chip)) {
-+		const struct nand_sdr_timings *sdr =
-+			nand_get_sdr_timings(&chip->data_interface);
-+		struct nand_op_instr instrs[] = {
-+			NAND_OP_CMD(TOSHIBA_NAND_CMD_ECC_STATUS_READ,
-+				    PSEC_TO_NSEC(sdr->tADL_min)),
-+			NAND_OP_8BIT_DATA_IN(chip->ecc.steps, ecc_status, 0),
-+		};
-+		struct nand_operation op = NAND_OPERATION(chip->cur_cs, instrs);
-+
-+		return nand_exec_op(chip, &op);
-+	}
-+
-+	return -ENOTSUPP;
-+}
-+
- static int toshiba_nand_benand_eccstatus(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 	int ret;
- 	unsigned int max_bitflips = 0;
--	u8 status;
-+	u8 status, ecc_status[TOSHIBA_NAND_MAX_ECC_STEPS];
- 
- 	/* Check Status */
-+	ret = toshiba_nand_benand_read_eccstatus_op(chip, ecc_status);
-+	if (!ret) {
-+		unsigned int i, bitflips = 0;
-+
-+		for (i = 0; i < chip->ecc.steps; i++) {
-+			bitflips = ecc_status[i] & TOSHIBA_NAND_ECC_STATUS_MASK;
-+			if (bitflips == TOSHIBA_NAND_ECC_STATUS_UNCORR) {
-+				mtd->ecc_stats.failed++;
-+			} else {
-+				mtd->ecc_stats.corrected += bitflips;
-+				max_bitflips = max(max_bitflips, bitflips);
-+			}
-+		}
-+
-+		return max_bitflips;
-+	}
-+
-+	/*
-+	 * Fallback to regular status check if
-+	 * toshiba_nand_benand_read_eccstatus_op() failed.
-+	 */
- 	ret = nand_status_op(chip, &status);
- 	if (ret)
- 		return ret;
-@@ -108,7 +162,7 @@ static void toshiba_nand_decode_id(struct nand_chip *chip)
- 	 */
- 	if (chip->id.len >= 6 && nand_is_slc(chip) &&
- 	    (chip->id.data[5] & 0x7) == 0x6 /* 24nm */ &&
--	    !(chip->id.data[4] & 0x80) /* !BENAND */) {
-+	    !(chip->id.data[4] & TOSHIBA_NAND_ID4_IS_BENAND) /* !BENAND */) {
- 		memorg->oobsize = 32 * memorg->pagesize >> 9;
- 		mtd->oobsize = memorg->oobsize;
- 	}
+	https://github.com/gmpy/articles/blob/master/pstore/Test-Pstore-Block.md
+
+[PATCH v3]:
+1. patch 1~10: a lot of improvements according to Kees Cook <keescook@chromium.org>
+               including rename module, typo, reorder, rewrite document, bugs
+			   and so on.
+2. patch 11: rename funtions of pstore/blk and update document.
+[PATCH v2]:
+1. fix syntax error in documents. Thank Randy Dunlap <rdunlap@infradead.org>
+2. replace pr_* with dev_* for mtdpstore.
+   Thank Vignesh Raghavendra <vigneshr@ti.com>
+3. improve mtdpstore. Thank Miquel Raynal <mraynal@kernel.org>
+[PATCH v1]:
+1. fix errors and warnings reported by kbuild test robot.
+
+WeiXiong Liao (11):
+  pstore/zone: a common layer to manage storage as zones
+  pstore/blk: new support logger for block devices
+  pstore/blk: respect for driver to pick pstore front-ends
+  pstore/blk: pstore/zone: support pmsg recorder
+  pstore/blk: blkoops: support console recorder
+  pstore/blk: blkoops: support ftrace recorder
+  Documentation: create document for pstore/blk
+  pstore/zone: skip broken zone for MTD device
+  pstore/blk: a way to get user configure about pstore front-ends.
+  pstore/zone: pstore/blk: support non-block devices
+  mtd: new support oops logger based on pstore/blk
+
+ Documentation/admin-guide/pstore-block.rst |  237 +++++
+ MAINTAINERS                                |    1 +
+ drivers/mtd/Kconfig                        |   10 +
+ drivers/mtd/Makefile                       |    1 +
+ drivers/mtd/mtdpstore.c                    |  564 +++++++++++
+ fs/pstore/Kconfig                          |  107 ++
+ fs/pstore/Makefile                         |    4 +
+ fs/pstore/platform.c                       |    3 +-
+ fs/pstore/pstore_blk.c                     |  480 +++++++++
+ fs/pstore/pstore_zone.c                    | 1511 ++++++++++++++++++++++++++++
+ include/linux/pstore.h                     |    1 +
+ include/linux/pstore_blk.h                 |   77 ++
+ include/linux/pstore_zone.h                |   60 ++
+ 13 files changed, 3055 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/admin-guide/pstore-block.rst
+ create mode 100644 drivers/mtd/mtdpstore.c
+ create mode 100644 fs/pstore/pstore_blk.c
+ create mode 100644 fs/pstore/pstore_zone.c
+ create mode 100644 include/linux/pstore_blk.h
+ create mode 100644 include/linux/pstore_zone.h
+
 -- 
 1.9.1
 
