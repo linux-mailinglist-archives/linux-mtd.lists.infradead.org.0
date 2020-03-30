@@ -2,84 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FD2919803A
-	for <lists+linux-mtd@lfdr.de>; Mon, 30 Mar 2020 17:53:58 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4B52C1981B7
+	for <lists+linux-mtd@lfdr.de>; Mon, 30 Mar 2020 18:54:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UJmDPh2EFZtjV1f3A10VQPLcxTQ1tQDjuU7iQew1Afs=; b=rfDuoQKgkUcmfH
-	XMJ6oOZJrQ3Ny0X14rK/OsAEh2m4AQ16xWGFe0Rzy/rPJ0NTC5pUWC2Jn3fapwBbjufnsk08emBBE
-	+GLxKqNyG6bXiidw1WViRd4Yk87TKHeevNDH9zlOiwGiZje53MY5pfVWlRoQ/ettLZJQyqPxZr+FV
-	VOb6JIBzsarb0XAmDiZVCaQCQYHc9HwRRQNS7XCikoQ3Bgv2M75AizLo+Uv0ohdIJceXHhNjRlXyJ
-	301TcIJZtYpHfkJ5+WA/GB+OQVpS1dqw9qGNMXogNAo/t/r1lnxdLYn6lOQBWAZ5fHDkbPGqz5BAY
-	IQyjpvOwApFAfbmOEzuQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qGenFQ2CBnwdzx5a0cMENz4TzqX/MVVJ3OhGJ4oF7X8=; b=bIMkL0KvRG8UL4
+	eR32vregtvKCHjOI3dLE7HsdNRP2C54tqEONL6y2kZMEpzTrccuImz2tCV/Y2R19AgoR4LCrw7KR6
+	ORD7kv2k7yo2pBATK/wn6SKqnKRN2IEySQ31Fzy4R9mjwBXTfR31WGY78g1KW+SNj6E0kUh2wQ9nV
+	vHa7Us4ra4sdfz/lX/etz2BLDepxY4GyKpIVr7isJdSCq1wJZKLl7rO7Pf7G5rIcIyJxDZxi6ANHQ
+	HHPsxdAdZsWhCr2/JbcN+iLXYVLPmSnk+rj5e1wQRR5DZfonVlLeUEEGvk8kFININhJR0OcI6plXF
+	XTsuq030V9OqZcYMthxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jIwjU-0005HK-I4; Mon, 30 Mar 2020 15:53:48 +0000
-Received: from mail-ot1-x341.google.com ([2607:f8b0:4864:20::341])
+	id 1jIxft-00034i-Am; Mon, 30 Mar 2020 16:54:09 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jIwjJ-0005Gy-7l
- for linux-mtd@lists.infradead.org; Mon, 30 Mar 2020 15:53:38 +0000
-Received: by mail-ot1-x341.google.com with SMTP id 22so18570675otf.0
- for <linux-mtd@lists.infradead.org>; Mon, 30 Mar 2020 08:53:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=VVN3Re8xiB6SGwnlrtE3SUwCqIKN30aActygWBYWwJI=;
- b=l1WfGJkGioHMpTQMk8Mkd+HTBryTe2hCVAQ3mxfs5O9An5TRFIPlOzjDEjGcBONiZh
- /5FIyjS3MEOeGW6q2eRr3D82VS7HbKJNI48Vv44L7B073z1tpgxwX+xkwtuPrah+hzxs
- GafsVAzl7evLaSKGErq+ISUMBjNaVkamzV74zXh8ZFsYgvllEignemToBYHcVPirZJQQ
- Li5ccParGzclrPOELB0KZcoSgbdWZpeN3PnnlvZ0fnGoilQS4BLbUDbtVsfbgze4ZObW
- YZPvkYqLDy7tT2oF+wJ1Dayzm4yBqS0q9e2JEoteQ5HkLHs3fc8ypkLiS5ORvvIvSARq
- O7dA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=VVN3Re8xiB6SGwnlrtE3SUwCqIKN30aActygWBYWwJI=;
- b=RgG4ok/AFEdWsJyzhWd41Rcmjw4KAGv9TU3JPzeyFELcWclr0r/tn1M/L4hVUiCfoQ
- MELgiS+LndMSqo4APV/p8mTsBc9fI3CWDjkqYqMAiIBmHY+Pu+SVywfjfZlYZ0g7FN6n
- v74Jt6nubUk4BRqVv0UsVoPSmh81WhdmYCUsWJXXbrYcKVPSUBMux4MALDJkXaUh3mUn
- A4GVYgD4dDbT6GVtUSvCMxZ/Uv1ZWCaBHMjWsVZsNpDj7Uk3IYYI1oqgPvCEeuFl+tzo
- CbFSQ5of6+6WOYXi5NrMiNQ3G129NmiNmCmcnEbfAv393zK5O9pIDCWFfQNUF6BcjdT9
- zfww==
-X-Gm-Message-State: ANhLgQ0/AnJ2KOQO2SgW1zgaJEWgG9oMsiIwLhjXAKiCDRhiln2twHHC
- CDUpGc2nJe46zokHqZGorkQxL0WALapvpHKFu48=
-X-Google-Smtp-Source: ADFU+vsIvkN+Zg8HX3N+h1ENMjldzwUZt3+HC8mCYHZrr5tOh6yUASpmk5RbM5PeCeNs9TcFRoUL9xDphFF3vtkeV6s=
-X-Received: by 2002:a9d:412:: with SMTP id 18mr9498775otc.134.1585583613865;
- Mon, 30 Mar 2020 08:53:33 -0700 (PDT)
+ id 1jIxfl-00034J-R6
+ for linux-mtd@lists.infradead.org; Mon, 30 Mar 2020 16:54:03 +0000
+Received: from sol.localdomain (c-107-3-166-239.hsd1.ca.comcast.net
+ [107.3.166.239])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 7BEF82072E;
+ Mon, 30 Mar 2020 16:54:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1585587240;
+ bh=j/ppsQG0leh5vH+RTE+F7A3zvmhx3HDCWWopSVH2uDQ=;
+ h=Date:From:To:Cc:Subject:From;
+ b=M/wdnXbyHUTJv5ngtkxL30OP3/Kuj4H/2XLXZMGrhRmQHk4kBf8kUv4xIehJ2WNAi
+ RYGO4xyaxQ0k6rkp1d/w6AkdnbU3iITZGeIBWDU4aBLtglq2LUaNtRCnK+4ktYJsaH
+ Et7KNGgLmKcCwRBMlzckx0KzqoHRi1/YU5977jgo=
+Date: Mon, 30 Mar 2020 09:53:59 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [GIT PULL] fscrypt updates for 5.7
+Message-ID: <20200330165359.GA1895@sol.localdomain>
 MIME-Version: 1.0
-References: <CAP6exY+LQ4Cz3Wq3P=MP78HhHCovMYDfwhpVuASp17h3s2sgMw@mail.gmail.com>
- <CAP6exYJ_jzrB0D=RLXMNeegu4BwQq8raXVOMugkqzX2ZP_JSqw@mail.gmail.com>
- <20200327155608.GM2564@lahna.fi.intel.com> <20200327171907.7a7ffc73@xps13>
- <20200327164802.GN2564@lahna.fi.intel.com> <20200327175238.784cf47c@xps13>
- <CAP6exYJ4-pBBZKA0z8TKPqh_0tKzJadjXEBZk9dc9ij8BJ9Xew@mail.gmail.com>
- <20200327171619.GO2564@lahna.fi.intel.com>
- <CAP6exYJWWT2SFLjPCdjAEEjmZYwqYuTxd_aRaf=xEELmXqfMpA@mail.gmail.com>
- <CAP6exY+p-Chi2R4Y1H8UvcbE6rvEpMiK3UaX2OyBq=ZO6uULpg@mail.gmail.com>
- <20200330060859.GR2564@lahna.fi.intel.com> <20200330092722.2ff41863@xps13>
-In-Reply-To: <20200330092722.2ff41863@xps13>
-From: ron minnich <rminnich@gmail.com>
-Date: Mon, 30 Mar 2020 08:53:22 -0700
-Message-ID: <CAP6exY+F2VoEZkwcYp38HNt7NyZucQrdQ8MqQyTQ62U12pAcSw@mail.gmail.com>
-Subject: Re: [PATCH 1/1] mtd/intel-spi: Support cmdline-based partition
-To: Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200330_085337_280217_54BC6A24 
-X-CRM114-Status: GOOD (  12.27  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200330_095401_899373_0DB8EE22 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -5.4 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-5.4 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:341 listed in]
- [list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [rminnich[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -88,6 +63,7 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ -0.2 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,48 +75,50 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Mika Westerberg <mika.westerberg@linux.intel.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, linux-mtd@lists.infradead.org
+Cc: Theodore Ts'o <tytso@mit.edu>, linux-kernel@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-fscrypt@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ Jaegeuk Kim <jaegeuk@kernel.org>, linux-ext4@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, Mar 30, 2020 at 12:27 AM Miquel Raynal
-<miquel.raynal@bootlin.com> wrote:
+The following changes since commit 98d54f81e36ba3bf92172791eba5ca5bd813989b:
 
-> Would it be hard to support an extra ':' after the MTD device name?
-> This way would would allow anything inside the optional '(' ')' but
-> would keep the trailing ':'.
->
-> toTay:
->         mtdparts=name:part1,part2
->
-> So:
->         mtdparts=(0000:00:1f.5):25165824(BIOS),-(squashfs)
+  Linux 5.6-rc4 (2020-03-01 16:38:46 -0600)
 
+are available in the Git repository at:
 
-I thought about that ':' too. It does add a bit more to the code, and
-a bit more in the way of error cases. I always worry, when code is
-going into flash,
-about errors where something looks close to right but is wrong. (says
-the person who just typed it instead of is a few times :-)
+  https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git tags/fscrypt-for-linus
 
-What if we did this:
-mtdparts=[0000:00:1f.5]25165824(BIOS),-(squashfs)
+for you to fetch changes up to 861261f2a9cc488c845fc214d9035f7a11094591:
 
-Is the "]" 'enough different' that we do not need the ':'?
+  ubifs: wire up FS_IOC_GET_ENCRYPTION_NONCE (2020-03-19 21:57:06 -0700)
 
-I kind of like the [] better anyway as it makes the mtdid stand out a
-bit more from the part names? But is it enough that we don't need the
-':'? Would you still prefer the () as opposed to the []?
+----------------------------------------------------------------
 
-I'll do what you feel is best, however, I'm still getting back into this area.
+Add an ioctl FS_IOC_GET_ENCRYPTION_NONCE which retrieves a file's
+encryption nonce.  This makes it easier to write automated tests which
+verify that fscrypt is doing the encryption correctly.
 
-Thanks again!
+----------------------------------------------------------------
+Eric Biggers (4):
+      fscrypt: add FS_IOC_GET_ENCRYPTION_NONCE ioctl
+      ext4: wire up FS_IOC_GET_ENCRYPTION_NONCE
+      f2fs: wire up FS_IOC_GET_ENCRYPTION_NONCE
+      ubifs: wire up FS_IOC_GET_ENCRYPTION_NONCE
 
-ron
+ Documentation/filesystems/fscrypt.rst | 11 +++++++++++
+ fs/crypto/fscrypt_private.h           | 20 ++++++++++++++++++++
+ fs/crypto/keysetup.c                  | 16 ++--------------
+ fs/crypto/policy.c                    | 21 ++++++++++++++++++++-
+ fs/ext4/ioctl.c                       |  6 ++++++
+ fs/f2fs/file.c                        | 11 +++++++++++
+ fs/ubifs/ioctl.c                      |  4 ++++
+ include/linux/fscrypt.h               |  6 ++++++
+ include/uapi/linux/fscrypt.h          |  1 +
+ 9 files changed, 81 insertions(+), 15 deletions(-)
 
 ______________________________________________________
 Linux MTD discussion mailing list
