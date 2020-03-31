@@ -2,80 +2,61 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D2A0019A07F
-	for <lists+linux-mtd@lfdr.de>; Tue, 31 Mar 2020 23:13:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1C5D119A13F
+	for <lists+linux-mtd@lfdr.de>; Tue, 31 Mar 2020 23:50:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4axLZ1qINqGZKf5Hme8bvF/N35+BDPF05qC3FWv3Z7o=; b=NwkAa6GoLe1myh
-	+zyrfz+y0PBCfozoWnTHypDg0CQxDdq3az9jP8ewNXAEmx8HGBqBLezE88oM4o02hC7WlKQFh/Ow8
-	6LMHkrlyeH7Vftq0Zk6GwT/TQsunW6RDFeyI9LeVa+SLbFUVvSkRDuf//GW61zP3hnvYB53g4ZotB
-	/I2QiEtcZ3jH9eFgGM5K2zaRkkqhI7LPr9Bw8xspEAkHkSc39YAME1tbHHxqiKwLPWNm5c5pGQv5N
-	6zoh4ujDGZe4seTsFhIOQav8ouT1WhJkY2CM7/XKWNJEGu5niOMbTQU7UZk77qakFPC4d+tUFfMQo
-	0ie35MIsJFX1VaABKeag==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2h7Z4ESru+btnjh3+MdkTyMxr2JAfEaDhf3VKYzpwPA=; b=fJRobhp80k1yRU
+	hKae7C/Zj/xLB6wy3Xl2tAoN1i0ZRpMcwKWrULgLPWZLdWK25DO5PmwPNauMai6HlJgP5ZcA/RO8z
+	+rQ9mk0pFiDxyiP4p2j6yrWIRGNss3qaIRm8cNRchcX9+IQwTLOYQPtlLMnBPKpdz/VUJ8fYvq+t5
+	3VJ+cz9AaNhf91EKokFHmKR8J3P0u3D+mVp/7haG9fZ9HzxIpa2DtzXkxwQEjc7clNE9g7AtMo9tX
+	pH3lzp/Vqk/W3noW/g02/Khzn2fEzcKlbt42/AsFnC45moo88T5nyoukXOlZwLvxLgTCXUkULvA3g
+	p5uvNSaKjfG56PPaXARA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJOCP-0004iq-4f; Tue, 31 Mar 2020 21:13:29 +0000
-Received: from mail-qt1-x842.google.com ([2607:f8b0:4864:20::842])
+	id 1jJOm2-000407-IE; Tue, 31 Mar 2020 21:50:18 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJOCI-0004i5-7N
- for linux-mtd@lists.infradead.org; Tue, 31 Mar 2020 21:13:23 +0000
-Received: by mail-qt1-x842.google.com with SMTP id e14so19791113qts.2
- for <linux-mtd@lists.infradead.org>; Tue, 31 Mar 2020 14:13:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=BDLu4BCkm+Jnqc5zSIvTfuz2SxsHBrDYB6DXZhzD3Mk=;
- b=Ub4NV8m3Rx25iqO/Z3yhB1mH9VEs/w86Gt5+V9DGUjvJCgCV5zZILBtzwMfDbEistH
- EJ3wMKsPDRpSqKbPqLBFIk2KkTO3hAtn8YSITUJibUrDe3nxFLBUY42FkdggNUzn9KdS
- nGZVXLGHdt4ANke3uzUbASywVakxRuAdtIm+Yi6krqGq+BfWehBKmQW7EOAt+Lf4VRkE
- o9S4WWF5LhwVEVAAhUl+HKdvlWvzS9T50hMbX1DEMnvOXKwHooKoW3w6UTEA4v2asxZ+
- 6m2OSpMKIu7vQ0/J6JoVqBLjKV4EM2RnJD4Ji/tNE7tLygWEZ44lGhxbXS5+TJZ3tbD5
- Gfqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=BDLu4BCkm+Jnqc5zSIvTfuz2SxsHBrDYB6DXZhzD3Mk=;
- b=ItiLKvNPCGyu6pBKENi9FVaDUe3W+zVccnvmnwmINKCKD9/saVD8q0tCI5B7OySwRL
- K6uv9gopulw+Afeg0gfNhm2lmsim9b3I7NKK9VZ4lMIarcr8hYjcfaiZa7ldQH0JOoAR
- aa/LKVxMDSAyoeDbakyvQAJwZmuFTU0Px1/jhU55X9/1J5ZAqo4oKLjDlQKDS8Wi9jUR
- WMA8tk8SyG0mabMA2jCePhuvpZ8ypr8GHqIhqz/UVFBap2jzAIZ6Vgzya+RkVWU83HSD
- e6hZ6781MM0EQyRX5Yls+6BjVprxm6DPVHvpPOUPNIw0iPBSW7uwNCa91Oi6U4AVaa35
- Zy8g==
-X-Gm-Message-State: ANhLgQ1Mn4xv4tBekp2PfBbuK1leQ2P/5CHKJ0wId1XjJBFJP9jx3Vjj
- cCnvhpvyZ0sqlKsNTgOxovefWehAvzvKbfaYKP4=
-X-Google-Smtp-Source: ADFU+vvEaWvl4dTQqZ0UkrkQx6+IcQrxpx/jPlviBoDLJMJr4Nmix7CXa9a7/HUhjtUh3KTQaGHtZUGxEDifOX5uSo8=
-X-Received: by 2002:ac8:4603:: with SMTP id p3mr7340590qtn.78.1585689200631;
- Tue, 31 Mar 2020 14:13:20 -0700 (PDT)
-MIME-Version: 1.0
-Received: by 2002:a0c:9e59:0:0:0:0:0 with HTTP; Tue, 31 Mar 2020 14:13:20
- -0700 (PDT)
-From: Mr Akain Karim <mrnyamenemedimafo@gmail.com>
-Date: Tue, 31 Mar 2020 14:13:20 -0700
-Message-ID: <CACs4+1016YfnvPFXmXvjaeHyT1o+WsdZf9NDd7iyWw5WUwQNCQ@mail.gmail.com>
-Subject: COMPLIMENT OF THE DAY
-To: undisclosed-recipients:;
+ id 1jJOlm-00033X-Kf
+ for linux-mtd@lists.infradead.org; Tue, 31 Mar 2020 21:50:04 +0000
+Subject: Re: [GIT PULL] fscrypt updates for 5.7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1585691402;
+ bh=LcVm+V24+2+NTOJ9JrmVVXkl728hyFi9uw2iR9GZGHU=;
+ h=From:In-Reply-To:References:Date:To:Cc:From;
+ b=QBosVPQuppbe6iZRabDz1qeEjuf4lM4SbPhgQX19V+1KKwMbxjrmHXREfGjQgEAUF
+ 1k3zIgblJ+TDv4YnoOKB9A98doinoZvVZuc8iMFiMPG+UFI7hDw4U4aD3I5STWWgcy
+ isOSyBj3OEr06AjfDkcZv2vMHRFMaEr6lNNQwIms=
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20200330165359.GA1895@sol.localdomain>
+References: <20200330165359.GA1895@sol.localdomain>
+X-PR-Tracked-List-Id: <linux-fsdevel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20200330165359.GA1895@sol.localdomain>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git
+ tags/fscrypt-for-linus
+X-PR-Tracked-Commit-Id: 861261f2a9cc488c845fc214d9035f7a11094591
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 1455c69900c8c6442b182a74087931f4ffb1cac4
+Message-Id: <158569140192.7220.17954616110607840136.pr-tracker-bot@kernel.org>
+Date: Tue, 31 Mar 2020 21:50:01 +0000
+To: Eric Biggers <ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200331_141322_265481_5E995C7C 
-X-CRM114-Status: UNSURE (  -2.10  )
+X-CRM114-CacheID: sfid-20200331_145002_744458_28FB26B3 
+X-CRM114-Status: UNSURE (   1.20  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 2.0 (++)
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (2.0 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:842 listed in]
- [list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [mrnyamenemedimafo[at]gmail.com]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [akainkarim1[at]gmail.com]
- 0.5 SUBJ_ALL_CAPS          Subject is all capitals
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -84,12 +65,7 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.4 HK_SCAM                No description available.
- 0.0 T_HK_NAME_FM_MR_MRS    No description available.
- 0.0 LOTS_OF_MONEY          Huge... sums of money
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
- 0.0 MONEY_FRAUD_8          Lots of money and very many fraud phrases
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,39 +77,29 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: akainkarim1@gmail.com
+Cc: Theodore Ts'o <tytso@mit.edu>, linux-kernel@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-fscrypt@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ Jaegeuk Kim <jaegeuk@kernel.org>, linux-ext4@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Compliment of the day,
+The pull request you sent on Mon, 30 Mar 2020 09:53:59 -0700:
 
-I am Mr Akain Karim, Product Development Head Private Banking & Wealth
-Management at the foreign remittance department, I Have a Business
-Proposal of $10.5million For You and I  was compelled to use this
-medium due to the nature of this project, I have access to very vital
-information that can be used to transfer this huge amount of money,
-which may culminate into the investment of the said funds into your
-company or any lucrative venture such as business ventures in Medical
-and Health care projects, Real estate projects, mining projects,
-agricultural projects renewable energy projects, Oil and Gas, start-up
-projects and business expansions / Loan with lower rate. in your
-country, If you will like to assist me as a partner then indicate your
-interest, after which we shall both discuss the modalities and the
-sharing percentage.
+> https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git tags/fscrypt-for-linus
 
-Upon receipt of your reply on your expression of Interest I will give
-you full details on how the business will be executed I am open for
-negotiation.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/1455c69900c8c6442b182a74087931f4ffb1cac4
 
-Note you might receive this message in your inbox or spam or junk
-folder, depends on your web host or server network.
+Thank you!
 
-Your swift response is highly needed.
-Thanks for your anticipated cooperation.
-Best Regards
-Mr. Akain Karim
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.wiki.kernel.org/userdoc/prtracker
 
 ______________________________________________________
 Linux MTD discussion mailing list
