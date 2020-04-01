@@ -2,78 +2,94 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB9FD19A918
-	for <lists+linux-mtd@lfdr.de>; Wed,  1 Apr 2020 12:03:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3656E19AB15
+	for <lists+linux-mtd@lfdr.de>; Wed,  1 Apr 2020 13:48:51 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rHG9nE5x/pIW+a4w2Q75WoggXrwUsADP7Tr0GoWZnCs=; b=JUwUaeLHgavpI6
-	Yfz66FGTu4a7jU4swdoGibIg9AqlQ0PhHpPDABDVbyZ8AxbzIgWau4VnjVlvTu1HPnr5ZJQJb5Eb4
-	xBk9Fe/l6Nz/mZNZs//D96t1zFcc9cEYpWhlV6W83q6qAQWnBUikg6hkUjt41GFkGEz1NUUZ4JLr5
-	PLi0GT9yNcAViE4S05k2mgjeRDIRqmuQ+Etjm6KmuuBMv5SMXKBZjwZiDNjZ0uSA7hxAnSm0ZSn2W
-	vJH9q2WrTVJHVj5J+SzyLqE6ine/jCKcNcT9pc9oYe2LS98m7glMHi2zdCRvLS31LzCx1L7nQI56N
-	gpp15dzZubstn06+RL9g==;
+	List-Owner; bh=PYwfd6SBEX89aLwrdwLR3HtDh76ZKzfRMW1zoZJcIkI=; b=pyUVZ9vuIlFzDv
+	8I4zHUJdMaV/zgToVvYKyNfThKOzTTQ24LLGRvzonSfskxjRZzrYgBVxeH+uYHKb/XI+GjDJvedxf
+	VwSZUAXDg9IRILrQ8z+CpAEYg9NTqeFmlfq62bS6u6fqNWiVCraPbQ/Gq88gmejN4/Oxy8hqlZFjW
+	fElzB/ru1BMC+efEU37SFiLl4xjyCJtIGDVV6uBgiS5xNg1tZ/EjNhE/nCbtzZNkdiKcdYUjt5opa
+	rWvnHmWkr6NVhKRVFDJ5Z2HjWW+4Pahk1nDJtwoO5ZdjF3wQButlnbct9qWLF7ed4hiCEKyph9kQ8
+	AQ8HSkm5MtfeFt3v+ZEQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJaCy-0004gf-SX; Wed, 01 Apr 2020 10:02:52 +0000
-Received: from mail-wm1-f66.google.com ([209.85.128.66])
+	id 1jJbrO-0002kJ-HQ; Wed, 01 Apr 2020 11:48:42 +0000
+Received: from mail-il1-x143.google.com ([2607:f8b0:4864:20::143])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJaCs-0004gG-54
- for linux-mtd@lists.infradead.org; Wed, 01 Apr 2020 10:02:47 +0000
-Received: by mail-wm1-f66.google.com with SMTP id t8so2515440wmi.2
- for <linux-mtd@lists.infradead.org>; Wed, 01 Apr 2020 03:02:45 -0700 (PDT)
+ id 1jJbrE-0002jS-LB
+ for linux-mtd@lists.infradead.org; Wed, 01 Apr 2020 11:48:34 +0000
+Received: by mail-il1-x143.google.com with SMTP id t11so22706309ils.1
+ for <linux-mtd@lists.infradead.org>; Wed, 01 Apr 2020 04:48:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:reply-to:from:date:message-id:subject:to;
+ bh=Br2Y4bEXOK8iC3+5GjDZeQdunT7SVfJfpMueYZZbNCE=;
+ b=WYxHU9VeQiwfWsewYu8BnssriLXuzbqrVFFd7JzDVdhUXNw5ri4JDuSbuuLJtBRT3Q
+ MaQVdLFsDF9EIM9n8IqOGUDBe+WqIvRsXogFI8WBzUt6NOUnTGJbxRe0mc4rnP9x+BCm
+ 2B3U1TNHw2ZgdErxgQs1ohaUCySfGSk2CaJbBqIxRG5RnU/4tx9jKuTKd3jpodTylDAP
+ 2MljEDvMDrXWl1uMAJ6yHUVLxW+i+dMreG4FMZJ2mgOMLlYfd2HSO+PmUmtiRt0I1U2i
+ HRbLDQyE6cWflEjCI25UkzahCNayxrPgODBx+synYYENNUYM4DchJHg31ST8xxXdtO2f
+ NLCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=l+NuImXGHyqbLPK7qk/fnkfWqM1yyeCrvbhKbbFgkRc=;
- b=XyYN/z++yox7yS2xsdPrIjZdBC1Tm8GHHAr24XTtsq3mTW8VLa75nuOJ5ozBmxTmQb
- zFSYXR0Lc4sSimz4jX7BmUwgcvBBrjOgVN/esFgyfv2l84kM/3Igywss9A+a0N4WehU0
- WtgZRTLfyF5qsJP9Z5dcww1VRYxvJG/rz8nZL9t4K5xqRCkaBZs/Si8VrvHvs+GGerZf
- Ih9p5tqG4SFMz0CAYThLFTwzAPC5zSI5fLyssxJiN2xqQtg4OjWtzf/+ZP7blrK6il8g
- LKMDnshvNiY2v5pnvU+1TbZTJiUeUbHcYCl+K0w+gFX/oLn6I7xYnSay1SxCRg66xJ+o
- ymaw==
-X-Gm-Message-State: AGi0PuanCCLB7y/xIMK5JA0UyK/aVCEJY8JKtdH34XCtSdKx8JdqiTMf
- m3HevdPDoyc07+drnEx2DkI=
-X-Google-Smtp-Source: APiQypIWkniodw9O1D8mDGzIsjhoH6bNEgJBg8D5BpaUzTdYR6XpQEs2xXMX+iFlm/oIBarcX4mQeg==
-X-Received: by 2002:a1c:6505:: with SMTP id z5mr3761401wmb.137.1585735363958; 
- Wed, 01 Apr 2020 03:02:43 -0700 (PDT)
-Received: from piling.lan (80-71-134-83.u.parknet.dk. [80.71.134.83])
- by smtp.gmail.com with ESMTPSA id f62sm1901272wmf.44.2020.04.01.03.02.42
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 01 Apr 2020 03:02:42 -0700 (PDT)
-From: Ricardo Ribalda Delgado <ribalda@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] mtd: Fix mtd not the same name not registered if nvmem
-Date: Wed,  1 Apr 2020 12:02:40 +0200
-Message-Id: <20200401100240.445447-1-ribalda@kernel.org>
-X-Mailer: git-send-email 2.25.1
+ h=x-gm-message-state:mime-version:reply-to:from:date:message-id
+ :subject:to;
+ bh=Br2Y4bEXOK8iC3+5GjDZeQdunT7SVfJfpMueYZZbNCE=;
+ b=A8+HU3fZi2kLTV0ZsTza9GtrJYhphiCAbEX2r0ZH323zqgjwmJrntfYEfG3tzaEbzr
+ OMwvXkAiPgyoVxmHsCJo8ik9SlAvB+QOBK34rld5aMhNxx2q3KSbnhB5Kbt9oLOoB3ak
+ 5V4RA9gyNfrF/6LQsXDJNZ7JO5Jxpf8GZk7pLHUmgJyNrTG2Uq87uHZ+2UWlZt60xu9N
+ +hLxk+9SNrcxVdkC5GyPVsTcBBr8Vvb/u7TpSzDuxryc8ld/gRLR3cWD02XJgc/GKbu9
+ jCPE+bSHiCWWI4YGOe+WmWBUz6KorLAvQh7b06q6iuwWLLceiTVSSw0cK0x6vb3197yB
+ 4zxQ==
+X-Gm-Message-State: ANhLgQ3MG1L6gyzzjySCongAjUBhm88D1IjVW+Zxo3oeje4qbEphy6Wi
+ LPsJfaid863hthmsUo3/sgi+bXqpScz38sgdp9U=
+X-Google-Smtp-Source: ADFU+vs9GgMhPjMwqA1IH6C1U3qo1UVgsCtOr2p6rrsD+pIFSAgqmty75dD6YHdV3BpwgNdoWAq7X43WE+xtjZu+3jU=
+X-Received: by 2002:a92:8f53:: with SMTP id j80mr21672024ild.171.1585741710380; 
+ Wed, 01 Apr 2020 04:48:30 -0700 (PDT)
 MIME-Version: 1.0
+Received: by 2002:a02:770a:0:0:0:0:0 with HTTP;
+ Wed, 1 Apr 2020 04:48:29 -0700 (PDT)
+From: "WORLD BANK /IMF CONSULTANT" <contactcc1000@gmail.com>
+Date: Wed, 1 Apr 2020 12:48:29 +0100
+Message-ID: <CAPWJ1ZvQFv55bUs=0_pLDGD+dHatzh3hA7zcvGCkKjTZisVrPA@mail.gmail.com>
+Subject: (FUND PAYMENT NOTICE)ARE YOU STILL ALIVE
+To: contactcc1000@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200401_030246_191811_2BF3ECFD 
-X-CRM114-Status: GOOD (  16.57  )
-X-Spam-Score: 0.5 (/)
+X-CRM114-CacheID: sfid-20200401_044832_719476_C7EF61EF 
+X-CRM114-Status: UNSURE (  -1.47  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 2.0 (++)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.5 points)
+ Content analysis details:   (2.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.128.66 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ no trust [2607:f8b0:4864:20:0:0:0:143 listed in]
+ [list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [ricardo.ribalda[at]gmail.com]
+ provider [contactcc1000[at]gmail.com]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [contactcc1000[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.5 SUBJ_ALL_CAPS          Subject is all capitals
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.128.66 listed in wl.mailspike.net]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.4 HK_SCAM                No description available.
+ 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
+ different freemails
+ 0.0 T_FILL_THIS_FORM_SHORT Fill in a short form with personal
+ information
+ 0.0 ADVANCE_FEE_4_NEW      Appears to be advance fee fraud (Nigerian 419)
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,125 +101,88 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Ricardo Ribalda Delgado <ribalda@kernel.org>
+Reply-To: wbconsultant@mail2banker.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-When the nvmem framework is enabled, a nvmem device is created per mtd
-device/partition.
+(FUND PAYMENT NOTICE)ARE YOU STILL ALIVE
 
-It is not uncommon that a device can have multiple mtd devices with
-partitions that have the same name. Eg, when there DT overlay is allowed
-and the same device with mtd is attached twice.
 
-Under that circumstances, the mtd fails to register due to a name
-duplication on the nvmem framework.
 
-With this patch we add a _1, _2, _X to the subsequent names if there is
-a collition, and throw a warning, instead of not starting the mtd
-device.
 
-[    8.948991] sysfs: cannot create duplicate filename '/bus/nvmem/devices/Production Data'
-[    8.948992] CPU: 7 PID: 246 Comm: systemd-udevd Not tainted 5.5.0-qtec-standard #13
-[    8.948993] Hardware name: AMD Dibbler/Dibbler, BIOS 05.22.04.0019 10/26/2019
-[    8.948994] Call Trace:
-[    8.948996]  dump_stack+0x50/0x70
-[    8.948998]  sysfs_warn_dup.cold+0x17/0x2d
-[    8.949000]  sysfs_do_create_link_sd.isra.0+0xc2/0xd0
-[    8.949002]  bus_add_device+0x74/0x140
-[    8.949004]  device_add+0x34b/0x850
-[    8.949006]  nvmem_register.part.0+0x1bf/0x640
-...
-[    8.948926] mtd mtd8: Failed to register NVMEM device
+Attn:Sir/Madam.
 
-Signed-off-by: Ricardo Ribalda Delgado <ribalda@kernel.org>
----
- drivers/mtd/mtdcore.c | 36 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/mtdcore.c b/drivers/mtd/mtdcore.c
-index 5fac4355b9c2..7653d45a470a 100644
---- a/drivers/mtd/mtdcore.c
-+++ b/drivers/mtd/mtdcore.c
-@@ -28,6 +28,7 @@
- #include <linux/leds.h>
- #include <linux/debugfs.h>
- #include <linux/nvmem-provider.h>
-+#include <linux/nvmem-consumer.h>
- 
- #include <linux/mtd/mtd.h>
- #include <linux/mtd/partitions.h>
-@@ -545,13 +546,34 @@ static int mtd_nvmem_reg_read(void *priv, unsigned int offset,
- 	return retlen == bytes ? 0 : -EIO;
- }
- 
-+static int nvmem_next_name(const char *init_name, char *name, size_t len)
-+{
-+	unsigned int i = 0;
-+	int ret = 0;
-+	struct nvmem_device *dev = NULL;
-+
-+	strlcpy(name, init_name, len);
-+
-+	while ((ret < len) &&
-+	       !IS_ERR(dev = nvmem_device_find(name, device_match_name))) {
-+		nvmem_device_put(dev);
-+		ret = snprintf(name, len, "%s_%u", init_name, ++i);
-+	}
-+
-+	if (ret >= len)
-+		return -ENOMEM;
-+
-+	return i;
-+}
-+
- static int mtd_nvmem_add(struct mtd_info *mtd)
- {
- 	struct nvmem_config config = {};
-+	char name[128];
-+	int ret = 0;
- 
- 	config.id = -1;
- 	config.dev = &mtd->dev;
--	config.name = mtd->name;
- 	config.owner = THIS_MODULE;
- 	config.reg_read = mtd_nvmem_reg_read;
- 	config.size = mtd->size;
-@@ -562,6 +584,13 @@ static int mtd_nvmem_add(struct mtd_info *mtd)
- 	config.no_of_node = true;
- 	config.priv = mtd;
- 
-+	if (mtd->name) {
-+		ret = nvmem_next_name(mtd->name, name, sizeof(name));
-+		if (ret < 0)
-+			return ret;
-+		config.name = name;
-+	}
-+
- 	mtd->nvmem = nvmem_register(&config);
- 	if (IS_ERR(mtd->nvmem)) {
- 		/* Just ignore if there is no NVMEM support in the kernel */
-@@ -569,10 +598,15 @@ static int mtd_nvmem_add(struct mtd_info *mtd)
- 			mtd->nvmem = NULL;
- 		} else {
- 			dev_err(&mtd->dev, "Failed to register NVMEM device\n");
-+			mtd->nvmem = NULL;
- 			return PTR_ERR(mtd->nvmem);
- 		}
- 	}
- 
-+	if (ret)
-+		dev_warn(&mtd->dev, "mtdev %s renamed to %s due to name collision",
-+				mtd->name, nvmem_dev_name(mtd->nvmem));
-+
- 	return 0;
- }
- 
--- 
-2.25.1
+Firstly, I wish to introduce myself as a sympathizer of your
+situation. I am a consultant/Director of Statutory Department of Inter
+Banks Credit Commission. My Department is affiliated to FSA, UN,WORLD
+BANK, W.A.F. THE BACKGROUND OF THIS MESSAGE, It may interest is that
+due to Account normalization of your banking details has been delayed
+by restrictions imposed by the  International Monetary Fund(IMF) and
+Financial Services Authority (UK) but this has been resolved.
 
+As one of the outcomes of the  annual International Monetary Fund(IMF)
+and World Bank (WB) summit held on 2nd-7th January 2020, it was
+decided that IMF will monitor the payment of funds currently floating
+in the international financial database. Consequently, we write to
+notify you that you are among those that have a huge sum of money
+credited in their names for transfer and is currently floating in the
+international banking community. These funds originated from unpaid
+contractor sum, inheritance/next of kin and lottery/abandoned sums
+/consignments recovered at airports
+for beneficiaries that originated from  Europe, Asia Plus Middle east,
+American and Africa.
+
+
+You are among the list of individuals and companies whose unpaid funds
+have been approved for payment under the supervision of British
+representative office of the International Monetary Fund.
+
+YOUR FUND WAS BEING DIVERTED TO THE BANK ACCOUNT BELOW BEFORE IT WAS
+STOPPED.DO CONFIRM IF YOU GAVE YOUR APPROVAL FOR THIS TRANSFER?
+
+bank name:MONESE
+Adress:85 great portland st. London, W1W 7LT
+Sort code: 23-69-72
+Iban:GB 0477007710 07572740
+BIC/SWIFT:LHVBEE22
+REF:M4122243
+ACCOUNT NO: 07572740
+NAME:SYLVIA ONOS COLE
+
+
+
+You should endevour to indicate your previous  paying bank to make our
+work a little bit easier ,if the above is not yours.
+
+
+Be rest assured that your fund is safe and secure and must be released
+to you with the re-confirmation of the following information below:
+
+
+
+1. Full name
+2. Phone and fax number
+3. Address
+4. Your age and current occupation.
+5. scan and send a copy of your valid id.
+
+
+
+
+You have to stop any further communication with any other person(s) or
+office(s) to avoid any hitches in receiving your payment.
+
+
+
+We anticipate your total compliance to this message immediately.
+
+Yours Sincerely,
+
+
+Abel Whittle.
 
 ______________________________________________________
 Linux MTD discussion mailing list
