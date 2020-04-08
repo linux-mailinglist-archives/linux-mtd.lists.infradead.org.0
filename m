@@ -2,88 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59BB71A1711
-	for <lists+linux-mtd@lfdr.de>; Tue,  7 Apr 2020 22:57:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E36251A2937
+	for <lists+linux-mtd@lfdr.de>; Wed,  8 Apr 2020 21:14:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:To:Subject
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20170209; h=Message-ID:Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Date:From:To:Subject:
+	Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=w4033Lo90Ay1JeCMGx8q/b2hPMRnhMgCf6PN1mBgPDk=; b=gFi5598nOesclC
-	p2I/XGmTWkCJ22SwsMKgzCQockI3jKKFc0O2i4Er/keL+sWhmo4U7X0afV/g/NFMKMUTbz3FKdVtv
-	oe53EuwRm6ibrLcVnDY5UrrKU99RzAFTNj/+W3HbXPLTa9fSiyz+pPsz+lPvfTkt1uwSv1tK5+bpj
-	W2L1+zfHt6YTozfp/Ud9QZGZf9VfdiESkXFPFhBSQOkmRbybijl01wVGxAq288pnKY6bk8DFKnW4H
-	xDxsFgFHG2sqv4V4Eo06kvKxJ8A84QMh7Yfr4BgTbMeQA2mL1G5isnTV1+tMr9efyxdkORzHUxVVV
-	S6meyziPqfUo59Dl0EQw==;
+	List-Owner; bh=EfBgtXR9o/SBkxlugf9bB3IRIiIV1jmIzFSIC4FQyC0=; b=gOeLsjb2cuFm+s
+	RIYcwDpaMPikwOLIxKDFnX+3s+ltTpJZdZc03B31LIDI5qaRYOuczogPOYTCMGFfWMjhY3nzl/L97
+	xMEdknbAw9e56I2qbMlR3Fo0PQHWj9pAfxXOZkOv4x4grIqWHD9noAWgegADKP+gslVQOLx1fErYc
+	li6gOiz07O0J+EFsXmoRagikWjaDYHhoGn2rqJHJwm8lfSdeOM0R2GBJUcPzjHjK4JLSkDaa8u9qf
+	rCldTl/gUdVT0ZOfx8jGY06q8elu85WHBEx7pXQY6RZfhl22CDan/2OUP+7hBavOc5Lutf4z1ROj0
+	fHDfvc7YuiD6wNLytM1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jLvHI-0000mM-67; Tue, 07 Apr 2020 20:57:00 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1jMG97-0002d5-7L; Wed, 08 Apr 2020 19:13:57 +0000
+Received: from newsgw-01.dd24.net ([193.46.215.83])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jLvH9-0000lb-7w
- for linux-mtd@lists.infradead.org; Tue, 07 Apr 2020 20:56:52 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id k21so5350776ljh.2
- for <linux-mtd@lists.infradead.org>; Tue, 07 Apr 2020 13:56:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
- h=from:subject:to:cc:organization:message-id:date:user-agent
- :mime-version:content-language:content-transfer-encoding;
- bh=8E93RqiJT1IY400var7NpMxIbsOq13mEa5fUe2tKz8Q=;
- b=mIDQq153Gmp6hMrzCiAqGZH4sh0kuCClO4pM6pdKeq6bCxpLLXK9tJ/vw9Ua2TZGgH
- v0TSkbyRzPsvv4eN3Dy+7Wo0/pAsItVsJ09TuksydQBiMspJDFVDKKAQWt2/aw6+YBjh
- 032uzwKzQmxgodRrLijDrRU/R/ywQv2/DUACKc80m6Wqnxv7xiiFYw8pCvlV/JZDbL8+
- qGhRBqeP6soe64iWJ6fkdfoOEPLXGY30WGkakc+JjO+u/umEPlrRB4WYLz16t7M5r2N9
- QRh8wlIl036eiPbK1CWWYlLw+yudVVnL3Separ+7uZS1TpN4AQAcF51URhG0SSt6FeMB
- IiMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:subject:to:cc:organization:message-id:date
- :user-agent:mime-version:content-language:content-transfer-encoding;
- bh=8E93RqiJT1IY400var7NpMxIbsOq13mEa5fUe2tKz8Q=;
- b=pKbYNNl2EQPJsSlUvT7sU/hQmGRwNpZt87fTYOe00/Qzlu+usoXP3zHJEhJ0ctkldQ
- 0LTh4JqcdbGR+DJ98XNyoA90r5aBuqYlgAedaHMy5PCDOZpYQL6VSdenn1kXyVsWsmcj
- VP8+RCIGBXEXv5dglhHu/LfwJEqQdH9jLH6hYff2UQM7kRBL4RJVQUHUvl8tPdK83ul7
- LVKw3kNlGm27CFTxDtpTIh/ZJFY+0PvhugaXta1TDWR3TrqxDDHo580qcmwVBhN9bHi6
- odB4vhfxDOfZjp9Ub0n79gKb8L738jdmHVvSC0OT3dUVS/uFjubTdxK9DS+44ExypX0m
- SUEg==
-X-Gm-Message-State: AGi0PuY+2QhDI8k0AZEg+PRHgOxDPU1CBYlSufrpfa9IPJ0erALddqTB
- MXyp+xN1Cn3BvjKpYbNrzJAnNw==
-X-Google-Smtp-Source: APiQypIY7Icxm7M6C768LEBnjwJ6UhkoKdnoF2cESvl03F/BD7+QPJnSCGmRzQEMDQREgguEdTMQLg==
-X-Received: by 2002:a05:651c:200c:: with SMTP id
- s12mr2666235ljo.30.1586293004846; 
- Tue, 07 Apr 2020 13:56:44 -0700 (PDT)
-Received: from wasted.cogentembedded.com
- ([2a00:1fa0:44c8:4ead:6627:2c4b:d1ac:b6e2])
- by smtp.gmail.com with ESMTPSA id u4sm12152339ljj.44.2020.04.07.13.56.43
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 07 Apr 2020 13:56:44 -0700 (PDT)
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Subject: [PATCH v2] mtd: spi-nor: move #define SPINOR_OP_WRDI
-To: Tudor Ambarus <tudor.ambarus@microchip.com>, linux-mtd@lists.infradead.org
-Organization: Cogent Embedded
-Message-ID: <9f654612-54a5-41d1-01dc-8196f334bffd@cogentembedded.com>
-Date: Tue, 7 Apr 2020 23:56:43 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+ id 1jMG8x-0002be-R7
+ for linux-mtd@lists.infradead.org; Wed, 08 Apr 2020 19:13:49 +0000
+Received: from [172.20.10.6] (unknown [105.8.3.116])
+ (using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by newsgw.dd24.net (Postfix) with ESMTPSA id E4F21623DF;
+ Wed,  8 Apr 2020 19:13:28 +0000 (UTC)
 MIME-Version: 1.0
-Content-Language: en-MW
+Content-Description: Mail message body
+Subject: my subject
+To: Recipients <owa@postmaster44.com>
+From: "Harrison" <owa@postmaster44.com>
+Date: Wed, 08 Apr 2020 15:13:21 -0400
+X-Antivirus: Avast (VPS 200408-4, 04/08/2020), Outbound message
+X-Antivirus-Status: Clean
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200407_135651_282160_3BBDD641 
-X-CRM114-Status: GOOD (  15.03  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200408_121348_022294_E704187D 
+X-CRM114-Status: UNSURE (  -2.46  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 3.0 (+++)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (3.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:22a listed in]
- [list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [193.46.215.83 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
+ digit [harrison_leo1967[at]outlook.com]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.1 MISSING_MID            Missing Message-Id: header
+ 0.8 FROM_FMBLA_NEWDOM28    From domain was registered in last 14-28
+ days
+ 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,48 +66,21 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Reply-To: harrison_leo1967@outlook.com
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
+Message-ID: <E1jMG97-0002d5-7L@bombadil.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The write disable (WRDI) opcode is not really specific to the SST flashes
-(anymore?) -- move the #define to the main opcode group, just before WREN.
+Ben=F6tigen Sie ein dringendes Darlehen, wenn ja? Kontaktieren Sie uns sofo=
+rt f=FCr weitere Informationen
 
-Signed-off-by: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+-- =
 
----
-This patch is atop of the 'spi-nor/next' branch of the MTD 'linux.git' repo
-plus 5 kernel-doc fixes posted last week...
+This email has been checked for viruses by Avast antivirus software.
+https://www.avast.com/antivirus
 
-Changes in version 2:
-- Fixed up the patch description to match the code.
-
- include/linux/mtd/spi-nor.h |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Index: linux/include/linux/mtd/spi-nor.h
-===================================================================
---- linux.orig/include/linux/mtd/spi-nor.h
-+++ linux/include/linux/mtd/spi-nor.h
-@@ -20,6 +20,7 @@
-  */
- 
- /* Flash opcodes. */
-+#define SPINOR_OP_WRDI		0x04	/* Write disable */
- #define SPINOR_OP_WREN		0x06	/* Write enable */
- #define SPINOR_OP_RDSR		0x05	/* Read status register */
- #define SPINOR_OP_WRSR		0x01	/* Write status register 1 byte */
-@@ -80,7 +81,6 @@
- 
- /* Used for SST flashes only. */
- #define SPINOR_OP_BP		0x02	/* Byte program */
--#define SPINOR_OP_WRDI		0x04	/* Write disable */
- #define SPINOR_OP_AAI_WP	0xad	/* Auto address increment word program */
- 
- /* Used for S3AN flashes only */
 
 ______________________________________________________
 Linux MTD discussion mailing list
