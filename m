@@ -2,73 +2,72 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7549E1A3B08
-	for <lists+linux-mtd@lfdr.de>; Thu,  9 Apr 2020 22:02:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A77941A3B0E
+	for <lists+linux-mtd@lfdr.de>; Thu,  9 Apr 2020 22:04:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KqZORAjhe7NZISbT/5AbuQfhCi5+wwrWp16yjtgSAY4=; b=tAobkwrETlxh5E
-	eVIvgoTRF8j8FwJH1U0YxTgxHovh2OsjKJa/7ZMbnw5Wv+eQBXOlNvM89zyeKcitNZiAW66rYtXsi
-	IjPa/Cq3X9xz9ER3nj7o3WIfrsxEsvEAR6Oz+2pcq4Ik4L1o3qODJ5bmYB40CeoAQ8at+/ZKbZcae
-	Y7lKOAyefylGiDu35LvKR1uNDxU6MXsrAHeZL+9s6A4odH3dRD5OKA3O8Iu4spf0VphW/3xFGWEf/
-	dj88mh5PAha1P9Kz/bIPC7v0yZlcK79oQZcNrXJs+r0QE0wC6xr0Ut2bAbSRiGTz2g5FD7rPk/50T
-	iZTrmxXpxwZjvwVpjRjw==;
+	List-Owner; bh=KruzpdzDhg27rH0KJ6DzlzDRle032lLZRD4a1xdMxCc=; b=Nt7Cmd4sInB3Kl
+	oSWZnvq3ZGLyRBIKljXO8HHee5PrKaf/i5vCEmz9zjvP/vML0lxA6mp6Pcx2t/SLa4jEa6ggFTJCH
+	Ab13DYO3y093j8yX8l3QxBfaY/h9Nh2GfdVGq8omGqnFlzhrqk6GHjiyF0AkJWzXhQQROX70wmkq3
+	DbasA8eFqT2eDU3psXusDvQB2XAATZAJEIgXtRx1r2h0oEGHl1V+QXDarR70g12cZixpe6oR72dLe
+	d6V6Ylg6jlEL67BzKh0i3GqGdOjaTZ49zQsu0hwRZEgeH/RPXTUi/9QAcwRDf/kaZjVOtaSOj3VnY
+	zEOXB83VKncIkSTtCJSg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jMdN2-0002Jc-RA; Thu, 09 Apr 2020 20:01:52 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1jMdPR-0002cq-Lx; Thu, 09 Apr 2020 20:04:21 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jMdMv-0002IB-CW
- for linux-mtd@lists.infradead.org; Thu, 09 Apr 2020 20:01:46 +0000
-Received: by mail-wm1-x341.google.com with SMTP id d202so43183wmd.1
- for <linux-mtd@lists.infradead.org>; Thu, 09 Apr 2020 13:01:40 -0700 (PDT)
+ id 1jMdPK-0002cO-9r
+ for linux-mtd@lists.infradead.org; Thu, 09 Apr 2020 20:04:15 +0000
+Received: by mail-wm1-x344.google.com with SMTP id x4so43689wmj.1
+ for <linux-mtd@lists.infradead.org>; Thu, 09 Apr 2020 13:04:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=Zt7MfOcPWNwOUhAt+n186GW5j+dN1ZYZolTB9vhBIyM=;
- b=qp5c5RCFhEC9geh2kh5y63GSRe/Fgd+69KGSaMls3dcJltyClI8Y/Ko3uC9gRT/IQ5
- kQJcBYMWPJJDDB6TUfHynVLMH2TtxZjQwYo0eVkwfDCbZiKOvS7kaUe3XqWwCkoV1KPs
- pM7dfcWgv5Zn/224EeWPScW50zZS+PMMZZScybdJwemz2doChs3tDPV0Eh6f6MCgwXaU
- Q4mWVg8SoW6MTVnF0feLcAEvkA6ia7eFFOOONCsUd+7NIXOjqk1uB/5bsXGvFhAnnua5
- W73PKLyEgRT64SjHA35EyZilfNdvNx2+iTg7Yj4wgSwZt0h2BXEu6sC4cnUMDJCPBSGU
- Pfjw==
+ :cc; bh=sDzglqZlZcxrIEiGaCL876u0tJXo/b3LCDiUPke6hM8=;
+ b=kE2dlQbAMbxEph/+OiWhvyA2TElid9qcNZ9MipQGEbkPmNmME0oWP6Qeyy+4+m8DjY
+ Bzl8br1FY05eY895V9BGKO0RGgmtQ0dU3lZjg6dn6zyPs/Dz9un44sS2qR1abZq1bF/4
+ 4/ZkOlf3VMtAy462g4DrAo/3LvWxmEcahtAa2/z6FIGV072KBOOgJIJk1pdX+i7z0jz/
+ AY26jAQRRnv/7PNSWOc4z15UCesUJAC/VrvfCs/PiE5/g34utB0jXuEl9b65MXwXhkao
+ dAYCHj+t4ZqNfz/hQrkiSRyHkyXz/NqmgKFSVgBk86gdEwOOP1hvEIinZxG+zCBOJkbH
+ 6EfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=Zt7MfOcPWNwOUhAt+n186GW5j+dN1ZYZolTB9vhBIyM=;
- b=GqdmHBRfAS73sEzUbnRkGdoZndePoukBWYv+z1MgIS3OmhdEbIvNkALtHe0MidFJdg
- JyZGOcodEn56PqT17ccCDV+A7zrsuHDXm1WawHArceOC/Bnn6rCJN0hhoA21IvLktMQ7
- BS9ajdMTF8tPZAjnSAOF9+nPKi4/XXWAfpJbUSCzewvbQ/C78L8mNpwJNMLQTL4YZnFz
- GfQTxqerDVaXxTe8zMU8kOWNDmyl9El2uN56TEArueMU99Um/bUfka4bG7C7YvDAtYuT
- aNg9utxG4dvdA7hPgiFKqIb2AwZ7JJtzmDLIohHTuMaQwTtrPtrxY7CxKBFBLpaXsZR4
- TAMg==
-X-Gm-Message-State: AGi0PuYztvZKyQJ8jQtByitkoUBXiO+ulYJLNjeeOH6iP60I56QI85nt
- gYD8q2q59AGwAAQ3emXRCqHXFe7EheNND0hVvCs=
-X-Google-Smtp-Source: APiQypIRgDGwy8h9WFgdTO9hlP1j+PLidm5+TENx/qWJg5vT1I418LZLeToHEpHyfxgUQLYkITEbtCrbcijXYloHlFI=
-X-Received: by 2002:a1c:3589:: with SMTP id c131mr1529468wma.116.1586462498843; 
- Thu, 09 Apr 2020 13:01:38 -0700 (PDT)
+ bh=sDzglqZlZcxrIEiGaCL876u0tJXo/b3LCDiUPke6hM8=;
+ b=ldezcaVkm7g+BzUXocjObGHPSUSXn1828KrfDDv74iR6iiD/nj4L2ERnH3f1gq1T4O
+ GxF3gOB7sYt7fAtmMiaPn6WeboexbG+TrxdmIQScorJC6IIsRVxFQ3NSGxf8vK0W6Tz3
+ 062rl61EEhToXS+BA1wMM8PPrWPQYDAMSr2U9t5tVyRHXFiVOFqyIqRvJin642GyY0EG
+ XrfBtA4EpKPB3Sw38uUXWjsuIpPSFH0kMaWnvP9GjJrH9r5JBxQIUhilLwOQITA7VnMM
+ lTZnsXlYyRJwjzYXP2a4rgjP83hS7hTtFlRP6g8Tq9sTntK5h2xN6PQmICsHYrZCal2n
+ CgGA==
+X-Gm-Message-State: AGi0PuZsgrWNly6ipd/sorex7/a9/W4w8m6xVSjUP+Pvr4zHcnVtYfdD
+ LuEibjRO54Ee/d64+O0gewJ6lp/wr8TgvrP16wI=
+X-Google-Smtp-Source: APiQypIcxF55PCob3T7OJxlGddq8VbpK2dOAPx9ekIsXVMhJIBfxd3KBkrxn+QUgv+BxWPQtP+u9KmtE4swbJT8Ouc4=
+X-Received: by 2002:a7b:c050:: with SMTP id u16mr1700238wmc.68.1586462652947; 
+ Thu, 09 Apr 2020 13:04:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20200404153631.103549-1-linux@roeck-us.net>
- <1671412.OU26QM6KFd@192.168.0.120>
-In-Reply-To: <1671412.OU26QM6KFd@192.168.0.120>
+References: <20200409113305.1604965-1-hch@lst.de>
+In-Reply-To: <20200409113305.1604965-1-hch@lst.de>
 From: Richard Weinberger <richard.weinberger@gmail.com>
-Date: Thu, 9 Apr 2020 22:01:27 +0200
-Message-ID: <CAFLxGvwKuYYA8S+J=CgXniPa2cQJ_vp-0Q_APkxKNPJX_TuWaw@mail.gmail.com>
-Subject: Re: [PATCH] mtd: spi-nor: Compile files in controllers/ directory
-To: Tudor Ambarus <Tudor.Ambarus@microchip.com>
+Date: Thu, 9 Apr 2020 22:04:01 +0200
+Message-ID: <CAFLxGvxXxR29R77nQKsYSpxviARk4AhWrzwfMPc1FECDLxh_sg@mail.gmail.com>
+Subject: Re: [PATCH] ubifs: remove broken lazytime support
+To: Christoph Hellwig <hch@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200409_130145_423658_AD2661B5 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20200409_130414_342050_A0B01420 
+X-CRM114-Status: GOOD (  10.24  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:341 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
@@ -92,39 +91,28 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Boris Brezillon <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
- LKML <linux-kernel@vger.kernel.org>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, Guenter Roeck <linux@roeck-us.net>
+Cc: linux-fsdevel <linux-fsdevel@vger.kernel.org>,
+ Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, Apr 6, 2020 at 7:31 AM <Tudor.Ambarus@microchip.com> wrote:
+On Thu, Apr 9, 2020 at 1:33 PM Christoph Hellwig <hch@lst.de> wrote:
 >
-> On Saturday, April 4, 2020 6:36:31 PM EEST Guenter Roeck wrote:
-> > Commit a0900d0195d2 ("mtd: spi-nor: Prepare core / manufacturer code
-> > split") moved various files into a new directory, but did not add the new
-> > directory to its parent directory Makefile. The moved files no longer
-> > build, and affected flash chips no longer instantiate.
-> >
-> > Adding the new directory to the parent directory Makefile fixes the
-> > problem.
-> >
-> > Fixes: a0900d0195d2 ("mtd: spi-nor: Prepare core / manufacturer code split")
-> > Cc: Boris Brezillon <bbrezillon@kernel.org>
-> > Cc: Tudor Ambarus <tudor.ambarus@microchip.com>
-> > Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> > ---
-> >  drivers/mtd/spi-nor/Makefile | 2 ++
-> >  1 file changed, 2 insertions(+)
+> When "ubifs: introduce UBIFS_ATIME_SUPPORT to ubifs" introduced atime
+> support to ubifs, it also added lazytime support.  As far as I can tell
+> the lazytime support is terminally broken, as it causes
+> mark_inode_dirty_sync to be called from __writeback_single_inode, which
+> will then trigger the locking assert in ubifs_dirty_inode.  Just remove
+> the broken lazytime support for now, it can be added back later,
+> especially as some infrastructure changes should make that easier soon.
 >
-> Reviewed-by: Tudor Ambarus <tudor.ambarus@microchip.com>
->
-> I missed that somehow, sorry. Thank you for the fix, Guenter!
+> Fixes: 8c1c5f263833 ("ubifs: introduce UBIFS_ATIME_SUPPORT to ubifs")
+> Signed-off-by: Christoph Hellwig <hch@lst.de>
 
-Applied to mtd/fixes, thanks to everyone for addressing this.
+Thanks for pointing this out.
+Patch applied.
 
 -- 
 Thanks,
