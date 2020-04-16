@@ -2,56 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 887431AB5E6
-	for <lists+linux-mtd@lfdr.de>; Thu, 16 Apr 2020 04:34:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 416481AB9E1
+	for <lists+linux-mtd@lfdr.de>; Thu, 16 Apr 2020 09:28:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:To:
-	Subject:Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=O6UBOoPmzll+jWqvsNPomosDEC33cqJgMpWZZQfsPUQ=; b=kQT
-	MMynQLweiCtz/Za6rNI6q34uDSHlsHZbxlbnUCgqahm6OWHN5F7dRaw8iIL3NoUA0NgUQN+maqAHs
-	X+RVPiHLgMgjoW95+pZVIqXsXvFnbfOVQIL3OVzBdA6XvngvEJvPGWzBmXIgRFiTL5b+/VUpADXEM
-	bjYj7fEy5Uw6C+RelgZmj1rCUjYNTrpb0pnvyr0oaOg3P5roro3Uv+bHKsVUIQDi7roIaiYIPlUpj
-	2kFZnGjBjf+XgHkB8x8FeLJEFHFymITVRramWamgccj/ObxugLVdC6q4rsvlLi12oeE9bqTCVodUN
-	nDFOUYgg0vXqQD6sBr5ef69x0S8KG2A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nOVId1vuifGXoMEiRh3WvsPDTwNOoVjylQ4m91UkXH0=; b=Im+WWKqZ7NaR82d+biG4ma465
+	5EoZZ3wSoDLZvBU65Of2WHvggM+PmfxgOHceVn9RxMV8QH4N/rgI6WLxnaPE0ZA0PPLhkEz2ANlni
+	oLXtbZYwQIu5GqTK6fqvDtwnioF1cCS1a/P1D5bY/ByhUAbDny+P2jwj+sUMwY65GxafRwXvYKNgO
+	L0yyZ9Ptovbdz3/uUl/0H/awrkUtdNhpKvsF0jnfHHoB7140tZI4bwflMonw4pBjKS/kiCJrFesHP
+	6AFCdEOEWKWy/InBg8JwhMGIyjLvtgNoGMqQwOeHv61U2eTZuqihWoHkHwtKbJR4WOMLgv/0BbeYb
+	0zzmnHdug==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jOuMC-0004uY-Nr; Thu, 16 Apr 2020 02:34:24 +0000
-Received: from 88-149-207-70.v4.ngi.it ([88.149.207.70] helo=mx.perteghella.it)
+	id 1jOywD-0002TR-KG; Thu, 16 Apr 2020 07:27:53 +0000
+Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
  by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jOuM5-0004tW-3h
- for linux-mtd@lists.infradead.org; Thu, 16 Apr 2020 02:34:19 +0000
-Received: from [145.239.210.106] (ip106.ip-145-239-210.eu [145.239.210.106])
- by mx.perteghella.it (Postfix) with ESMTPSA id 6C24074B0BB;
- Thu, 16 Apr 2020 01:31:09 +0200 (CEST)
+ id 1jOyvz-0002Sg-Qm; Thu, 16 Apr 2020 07:27:49 +0000
+Received: from localhost (p54B33393.dip0.t-ipconnect.de [84.179.51.147])
+ by pokefinder.org (Postfix) with ESMTPSA id 898972C1F4B;
+ Thu, 16 Apr 2020 09:27:37 +0200 (CEST)
+Date: Thu, 16 Apr 2020 09:27:37 +0200
+From: Wolfram Sang <wsa@the-dreams.de>
+To: Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: Remove cases of 'allOf' containing a
+ '$ref'
+Message-ID: <20200416072737.GA1023@kunai>
+References: <20200416005549.9683-1-robh@kernel.org>
+ <20200416005549.9683-2-robh@kernel.org>
 MIME-Version: 1.0
-Content-Description: Mail message body
-Subject: Low Rates><
-To: Recipients <admin@mx.perteghella.it>
-From: "LisaClaasen" <admin@mx.perteghella.it>
-Date: Thu, 16 Apr 2020 00:27:11 -0700
-Message-Id: <20200415233109.6C24074B0BB@mx.perteghella.it>
+In-Reply-To: <20200416005549.9683-2-robh@kernel.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200415_193417_313998_3313242E 
-X-CRM114-Status: UNSURE (  -1.89  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 4.4 (++++)
+X-CRM114-CacheID: sfid-20200416_002740_160884_028443E6 
+X-CRM114-Status: GOOD (  12.13  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (4.4 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 TVD_RCVD_IP            Message was received from an IP address
- 1.3 RCVD_IN_RP_RNBL        RBL: Relay in RNBL,
- https://senderscore.org/blacklistlookup/
- [88.149.207.70 listed in bl.score.senderscore.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 2.4 DATE_IN_FUTURE_03_06   Date: is 3 to 6 hours after Received: date
- 0.4 RDNS_DYNAMIC           Delivered to internal network by host with
- dynamic-looking rDNS
- 0.3 KHOP_HELO_FCRDNS       Relay HELO differs from its IP's reverse DNS
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [88.99.104.3 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,14 +59,98 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: dcvs@derwentside.org.uk
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-pwm@vger.kernel.org,
+ linux-iio@vger.kernel.org, linux-pci@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
+ linux-i2c@vger.kernel.org, Pavel Machek <pavel@ucw.cz>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ linux-rtc@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ Sam Ravnborg <sam@ravnborg.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@st.com>, alsa-devel@alsa-project.org,
+ Maxime Ripard <mripard@kernel.org>, linux-can@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org,
+ Stephen Boyd <sboyd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Amit Kucheria <amit.kucheria@linaro.org>,
+ linux-spi@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
+ netdev@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
+Content-Type: multipart/mixed; boundary="===============0751482304089413376=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-We Give Business/personal Loans at 2.29%. reply for more
+
+--===============0751482304089413376==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZGiS0Q5IWpPtfppv"
+Content-Disposition: inline
+
+
+--ZGiS0Q5IWpPtfppv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 15, 2020 at 07:55:49PM -0500, Rob Herring wrote:
+> json-schema versions draft7 and earlier have a weird behavior in that
+> any keywords combined with a '$ref' are ignored (silently). The correct
+> form was to put a '$ref' under an 'allOf'. This behavior is now changed
+> in the 2019-09 json-schema spec and '$ref' can be mixed with other
+> keywords. The json-schema library doesn't yet support this, but the
+> tooling now does a fixup for this and either way works.
+>=20
+> This has been a constant source of review comments, so let's change this
+> treewide so everyone copies the simpler syntax.
+>=20
+> Signed-off-by: Rob Herring <robh@kernel.org>
+
+Acked-by: Wolfram Sang <wsa@the-dreams.de> # for I2C
+
+
+--ZGiS0Q5IWpPtfppv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl6YCOQACgkQFA3kzBSg
+KbZcAg/7BNCS6Plzd0nif30LvUASyKL2fqZ54PDaxkVsHFZ6ILioIzHIss7e8ai/
+YkJmKgNKbLtEgg6dNTfoqLN5p52ekU7WvY/r9pDTFJiW0Lllc3aF1LNIC/owey/B
+GVXJCFK5qNr0hkMOsS55AW6rBaHMKA73o4hbAByJkdet+EtP0hMphL/0iC6P3g85
+edXGHYYNs2ZFcKE4mMMGWc6/kEFsokOp/hWh4nxpGZz9Rpe6C2Q97bvwivhJTLs8
++ef1qvMxtLOjAKNsUB6Kx8yjLKw6qMx/4o0l9ybVUc7WIUxG5E8dNenqDTyqUXej
+C1ZQLA8r7cVz6tLihoEeXMNPRBMFXwijjbDA2ai8kVt1nU5eY7/W9MmJfYOdmERQ
+fBc8c9sk7nHQGqzXlLD4uONayWHGecD52lns65PUrrCPgyH3tMK2Ds8NPthfl7A/
+sx9ezOIP+wbAP07OKg2tPI+q6GdCnGgHpIzUVS0UZjbMGawC/yeW7Kszqa8Dhsp/
+xH9sIw5p4Bmwvpct9Y/yFJ7zK0Udyd8Ro4AeF0oeHG7dmWb1RhLGZfg5yfmCJw30
+xOMgjKhuD+Uh7raT2JnX3h2lTbKtoZtHldcjOVBmwRDFd7vo3b9yU73FcuGf6QHC
+zfdSI05xzxbecqL9It624taFNLcWV0SKltTN2XHG/9EeTqfo+gA=
+=vXQq
+-----END PGP SIGNATURE-----
+
+--ZGiS0Q5IWpPtfppv--
+
+
+--===============0751482304089413376==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============0751482304089413376==--
+
