@@ -2,78 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B9A21AD5A2
-	for <lists+linux-mtd@lfdr.de>; Fri, 17 Apr 2020 07:22:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 79E231AD60D
+	for <lists+linux-mtd@lfdr.de>; Fri, 17 Apr 2020 08:28:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=uboVoD86ik+u/FiyP2MkRWXgq1in/rucniN/1pj3Oww=; b=jopBjRYrTDAeRBeOci5NJMF8h
-	+O760GEH9hl01GlRNnQUaM8KwDoj8958AggIsJ1HWJbANbSsaSZOgtLbOBu3DT8VE/IISVR4j1DU5
-	NgqgvoiJ9yTEgQMDYpy7cJ6BwRdKXY+jpDfQAfqfL33N6pclmhiFCS3PNvrDBIYb13Vw9BhqM+NFs
-	TA6u1t2ZwyTFQK8ox6MOVOegJVhXuI4+n5GoY5zDn0XxeMHMIFjLaXUrd0/x1eQdD29jvDB5GDzRA
-	bRPCvUfvdBEyxiVZn+6yQHQmNEk6ihdpUaPA4dBzOHZGeIgP3dS9WQDQmf5mLGCCJEttjsWe/OJPN
-	RFnQhDhIg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:From:To:
+	Subject:Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=m5034UYssmFdGWkoiWquVpwANfLDuEAoGu3HHo4hKdQ=; b=PDg
+	c2/YMAFQwgs9W3ZKQjfjJhtONKlBcLjwx4NFCcQgJhLaGK5xssTN01tPoPOmj1LI812aIONF/l/3w
+	Z2bgzMEARYMPgtWkh2Uv/qqL+gd6ZuaG58ibXbOLxNmmakIdbiQAW/t4jjXiyqPgW6R1yTRswK0aI
+	ipwCG1Ek90RLaVZMMHphVnYOHO+6stO6eYV2kY9cssiBeZF2PWJyvN3lebEui4fYRHxSPgbLQvBtR
+	lYCi5DtF5uv3l+mfCcDn0C11cz8RFBchYnesCVuYFBen8M52v1OrPFSEVkZzif9SvyIroGgV6S1dB
+	BocG40TPcPWuhmfbEncHY8TGJBjDJ6Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPJRo-000214-3U; Fri, 17 Apr 2020 05:21:52 +0000
-Received: from mga05.intel.com ([192.55.52.43])
+	id 1jPKUD-0000X1-LO; Fri, 17 Apr 2020 06:28:25 +0000
+Received: from slot0.linksioapo.ga ([45.86.68.249])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jPJRh-00020k-DA
- for linux-mtd@lists.infradead.org; Fri, 17 Apr 2020 05:21:46 +0000
-IronPort-SDR: /83xJ0nxzKhJ4bLFUDYiHJ72NMWXNL7x4nQ1cZn76v8nPxSo9ckALU4g5UDVwvtjS54j+Fgql/
- Q+k9v27Ew9GQ==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
- by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 16 Apr 2020 22:21:44 -0700
-IronPort-SDR: IWLWq5/I+DZ3obhuAuh5M/w5s7v9CK98H7ehZi2J+M3Y9scL4D61yFNAkGqs9ArSO8PXYVzxFY
- xTXiixFR09cg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.72,393,1580803200"; d="scan'208";a="333086319"
-Received: from linux.intel.com ([10.54.29.200])
- by orsmga001.jf.intel.com with ESMTP; 16 Apr 2020 22:21:44 -0700
-Received: from [10.255.156.142] (vramuthx-mobl1.gar.corp.intel.com
- [10.255.156.142])
- by linux.intel.com (Postfix) with ESMTP id 518AC580661;
- Thu, 16 Apr 2020 22:21:40 -0700 (PDT)
-Subject: Re: [PATCH v1 2/2] mtd: rawnand: Add NAND controller support on Intel
- LGM SoC
-To: Boris Brezillon <boris.brezillon@collabora.com>
-References: <20200414022433.36622-3-vadivel.muruganx.ramuthevar@linux.intel.com>
- <20200415220533.733834-1-martin.blumenstingl@googlemail.com>
- <c33c8653-16a2-5bcd-97a9-511d958b755a@linux.intel.com>
- <20200416113822.2ef326cb@collabora.com>
- <18568cf6-2955-472e-7b68-eb35e654a906@linux.intel.com>
- <20200416122619.2c481792@collabora.com>
- <d3e137fa-54a0-b4ec-eb24-3984eab2a247@linux.intel.com>
- <20200416131725.51259573@collabora.com>
- <de9f50b8-9215-d294-9914-e49701552185@linux.intel.com>
- <20200416135711.039ba85c@collabora.com>
-From: "Ramuthevar, Vadivel MuruganX"
- <vadivel.muruganx.ramuthevar@linux.intel.com>
-Message-ID: <003fa549-08c5-5867-2b02-54b483c16465@linux.intel.com>
-Date: Fri, 17 Apr 2020 13:21:39 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1jPKU5-0000Va-FG
+ for linux-mtd@lists.infradead.org; Fri, 17 Apr 2020 06:28:18 +0000
 MIME-Version: 1.0
-In-Reply-To: <20200416135711.039ba85c@collabora.com>
-Content-Language: en-US
+Content-Description: Mail message body
+Subject: INQUIRY
+To: Recipients <services@leskone.com>
+From: Rej888 Int'l Trading Inc <services@leskone.com>
+Date: Thu, 16 Apr 2020 22:56:50 -0700
+Message-ID: <0.0.5.8BE.1D6147CFF17F724.0@slot0.linksioapo.ga>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200416_222145_457998_68A78F1F 
-X-CRM114-Status: GOOD (  23.29  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200416_232817_514899_0F679027 
+X-CRM114-Status: UNSURE (  -2.56  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.1 (+)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (1.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [192.55.52.43 listed in list.dnswl.org]
+ 0.7 SPF_NEUTRAL            SPF: sender does not match SPF record (neutral)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.4 TO_EQ_FM_DIRECT_MX     To == From and direct-to-MX
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,84 +53,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: cheol.yong.kim@intel.com, devicetree@vger.kernel.org, qi-ming.wu@intel.com,
- anders.roxell@linaro.org, andriy.shevchenko@intel.com, arnd@arndb.de,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, richard@nod.at,
- brendanhiggins@google.com, linux-kernel@vger.kernel.org, vigneshr@ti.com,
- robh+dt@kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- tglx@linutronix.de, masonccyang@mxic.com.tw, piotrs@cadence.com
+Reply-To: sales-rej888-trading1@mail.ua
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Boris,
 
-On 16/4/2020 7:57 pm, Boris Brezillon wrote:
-> On Thu, 16 Apr 2020 19:38:03 +0800
-> "Ramuthevar, Vadivel MuruganX"
-> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
->
->> On 16/4/2020 7:17 pm, Boris Brezillon wrote:
->>> On Thu, 16 Apr 2020 18:40:53 +0800
->>> "Ramuthevar, Vadivel MuruganX"
->>> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
->>>   
->>>>>>> we'll be happy to have one more of the existing driver converted to
->>>>>>> ->exec_op() ;-).
->>>>>> I have completely adapted to ->exec_op() hook up to replace the legacy
->>>>>> call-back.
->>>>> I suspect porting what you've done to the xway driver shouldn't be too
->>>>> complicated.
->>>> Not ported from xway_nand.c driver , we have developed from the scratch
->>>> to make it work on
->>>> Intel LGM SoC , it's new x86 ATOM based SoC, IP itself completely
->>>> different and most of the registers won't match.
->>>> if we port then it would be ugly and also what are the problem may occur
->>>> we do not know.
->>> Sorry but IMO they look similar enough to try to merge them.
->> Thanks! Boris, need suggestion from you since you are maintainer and
->> also expertise on mtd-subsystem.
-> I *was* the maintainer :).
->
->> There are different features involved and lines of code is more, if we
->> add new driver patches over xway-nand driver
-> How about retro-fitting the xway logic into your driver then? I mean,
-> adding a 100 lines of code to your driver to get rid of the 500+ lines
-> we have in xway_nand.c is still a win.
->
->> is completely looks ugly and it may disturb the existing functionality
->> as well since we don't have platform to validate:'(.
-> How ugly? Can you show us? Maybe we can come with a solution to make it
-> less ugly.
->
-> As for the testing part, there are 4 scenarios:
->
-> 1/ Your changes work perfectly fine on older platforms. Yay \o/!
-> 2/ You break the xway driver and existing users notice it before this
->     series gets merged. Now you found someone to validate your changes.
-> 3/ You break the xway driver and none of the existing users notice it
->     before the driver is merged, but they notice it afterwards. Too bad
->     this happened after we've merged the driver, but now you've found
->     someone to help you fix the problem :P.
-> 4/ You break things for old platforms but no one ever complains about
->     it, either because there's no users left or because they never
->     update their kernels. In any case, that's no longer your problem.
->     Someone will remove those old platforms one day and get rid of the
->     unneeded code in the NAND driver.
->
-> What's more likely to happen is #3 or #4, and I think the NAND
-> maintainer would be fine with both.
->
-> Note that the NAND subsystem is full of unmaintained legacy drivers, so
-> every time we see someone who could help us get rid or update one of
-> them we have to take this opportunity.
-Agreed!, Thank you very much for the suggestions and clear inputs.
-To proceed further, can you please share your inputs to dividing the tasks
-and patches to be sent if possible.
+Hello
 
-Regards
-Vadivel
+I am Ms. evangeline mulay from Rej888 Int'l Trading Inc.I am the Commercial Manager. 
+
+We are glad to see that you are a dealer in some of the products we are interested on and we are looking to get a new supplier who can be able to meet up with our current buying demands but first we need answers to the
+questions below if
+
+1.You Can ship to Phillipines 
+2.Product list
+3. Advice on payment terms warranty.
+4. The Minimum Order Quantity (M.O.Q) and Delivery time for F.O.B.
+
+I would appreciate your response about the above questions so we can
+proceed with the items needed.
+
+Expecting your urgent immediate feedback.
+
+Thanks.
+
+contact person :Ms. evangeline mulay
+Commercial Manager of Rej888 Int'l Trading Inc.
+10th st.
+mabalacat
+pampanga
+Zip Code:2010
+Philippines
+T:63-815-6316562
+F:63-8013-802091
 
 ______________________________________________________
 Linux MTD discussion mailing list
