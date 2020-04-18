@@ -2,55 +2,97 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 37AAD1AF465
-	for <lists+linux-mtd@lfdr.de>; Sat, 18 Apr 2020 21:50:28 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 102421AF547
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 00:08:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YhxlfrFEVp4JUIMlS1/uoIfXhZLSa1fxzn/xMSKga1I=; b=tNPqr4ELkOxII5
-	nnLBJMOIO23yP1S2P1dtyZKQB/KG5Pwl7Oj+wNLnyuq0CINnTnvZDowRA3VtfRxZFSKx4YSayKaUO
-	YEDqZK3wXF5wYm0tHYE/wcZS90rQiJT0C/XE52M0p28QWvUy2lsx4H12utAW0lN/UgIqgQMYx74P7
-	cyYuTv94tuh+Qgkv8lWmp8FZhST2DsvPP2PAmv7Z/X/p7MGtvz1Jxkvu8fwXfTKRhj5OU6eOiX3Bm
-	l0iFBAuSwHiIT8lbNprE6fMRsrlblFouYkRFbkSl/NnC8UTbhVu2Gp1EIJb6+QnlIeoY4yYjgU3uj
-	9qkktFaB1ebdp/QnObLw==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=egbJz1VD5zHBRI5z+Y7wwiKCQT2lLKBA8oygJ8GUhF8=; b=KUThrAmHbWkuDp
+	zmOuDHxWQEF7ZF0vfufPxPPmebyuS+nQRo+6Hla6nblFU7e1ns4/BiUEmN9qaPwYBQeZ4E+gLE5kN
+	OZwh5s4CEgca0bOKdiwZjmpnZJ4cIeTZEhNJYjAB9gEZwBgNbJH8UU8e5GFZg+O4n8OSo5KulgN9S
+	brKBP06+JAbuyXob7s3N4GK6SRehWAhPpUWQsC0asUlUwEt+B8MrQk20bGtGmCQIg3tl2FPC449v9
+	IFxM63S/HcgMbqIiKV62iXmqUVTSKuf/++v7RQ0Dvf43Z9LPPpNFY/Gnl3CcJtKEHot7UgnZ8pY6S
+	71U0KAz2M2c87/JRnbog==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jPtTo-0001oT-Ed; Sat, 18 Apr 2020 19:50:20 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jPvd4-0002uM-99; Sat, 18 Apr 2020 22:08:02 +0000
+Received: from mail-qv1-xf41.google.com ([2607:f8b0:4864:20::f41])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jPtTa-0000je-3o
- for linux-mtd@lists.infradead.org; Sat, 18 Apr 2020 19:50:09 +0000
-Received: from localhost.localdomain (unknown
- [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 78B752A13EE;
- Sat, 18 Apr 2020 20:50:04 +0100 (BST)
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	linux-mtd@lists.infradead.org
-Subject: [PATCH 2/2] mtd: rawnand: atmel: Convert the driver to exec_op()
-Date: Sat, 18 Apr 2020 21:49:59 +0200
-Message-Id: <20200418194959.1017197-2-boris.brezillon@collabora.com>
-X-Mailer: git-send-email 2.25.2
-In-Reply-To: <20200418194959.1017197-1-boris.brezillon@collabora.com>
-References: <20200418194959.1017197-1-boris.brezillon@collabora.com>
+ id 1jPvcx-0002sy-4F
+ for linux-mtd@lists.infradead.org; Sat, 18 Apr 2020 22:07:56 +0000
+Received: by mail-qv1-xf41.google.com with SMTP id p13so2828445qvt.12
+ for <linux-mtd@lists.infradead.org>; Sat, 18 Apr 2020 15:07:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:reply-to:sender:from:date:message-id:subject:to;
+ bh=XY8qLZISPOcN//yeyj5gvtwVqNkO/KJremmxQQ/PxhU=;
+ b=uhEjz/JYXlQ5soYgGV+G3UINJQxebSkS/B6BsOvRw45NmtSXTUXyeoU0mma/0XBtdx
+ x9CAjp7js0ak55k0VEI1F1ZJS1CZHRtbObfRq99CovGIoVVtmn428aPVolSOWBa9pK1C
+ vnttJUL84g3TsA03k+bJgeH0gDfaqgdb7MKcpC42leXhI5e+pMQwEwYAaQG7NKYRcXzw
+ Yj3HWKd4bL+OkfcXxVZoXTTOZLzXKimqLpw0ctYIF15TUJNl1OhaUxtNRYbVubnscDvh
+ EBHW7O4bpE+UjK53NViyR68ejeBKj/k2DyetKPNyXtfcxAKl2hkl+74RDTohCKLaGZU1
+ BCCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:reply-to:sender:from:date
+ :message-id:subject:to;
+ bh=XY8qLZISPOcN//yeyj5gvtwVqNkO/KJremmxQQ/PxhU=;
+ b=mxUfkvhW4wc+DuC6XJ7ave9iOHmJZ6S7o2UjVlWNr2q0+mSOC9cnSJ6LIpKyRM4qYE
+ ZbBEzVkwu/t7abUsPKTOa4F81DQswWwvYokZtGX8U1r1u8tph8AhgMEyeLAEA4s8wcXg
+ eNIkj1BYX91q52poiUgnlaf2kRNk8rb4Xq9XjpTu1mShRyF6Iaic7pzJatxV2P+NfrVA
+ h8iaQaTRb4neAaO694OTY5WaoGmv1JqP0Y2m1uj9qpwrKy/fbC7EbzsRNDky5dyfAk0L
+ QOeObD0qEN/JUOMZ5eyYlW342yShgMG0cPKEnglBKk3mKxUdRUTN/YFGn6UZR8KHSYZ/
+ 8ugw==
+X-Gm-Message-State: AGi0PuZhhRVtxjciJoFyY/XWLjwOUKEfkJO6KQJhAivhmqN4oO30xso+
+ m+vGywKE1w/L5O/vHLAwu9iJY4nCTOmR12nJCkw=
+X-Google-Smtp-Source: APiQypKd5HA6RsstviCnhCv4RHqeSdKQtH85hcJtUaWmAxRjhJqXIh062EXRoeqqY1rUiHobNBM7KcawxKeHL0W1gB4=
+X-Received: by 2002:a05:6214:150f:: with SMTP id
+ e15mr8545120qvy.18.1587247673423; 
+ Sat, 18 Apr 2020 15:07:53 -0700 (PDT)
 MIME-Version: 1.0
+Received: by 2002:ac8:f86:0:0:0:0:0 with HTTP;
+ Sat, 18 Apr 2020 15:07:53 -0700 (PDT)
+From: Mr Kabiru Wahid <kabiruwahid111@gmail.com>
+Date: Sat, 18 Apr 2020 22:07:53 +0000
+X-Google-Sender-Auth: KRd8LvkXnhk-K5uoTe4Zl6k8sjA
+Message-ID: <CAM5G+8xiYwGomhViNUoUgJGcwc5Cyws5Fph5qKUhn-qB+=YY1A@mail.gmail.com>
+Subject: Hello Dear Friend!
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200418_125006_443506_EABBE61F 
-X-CRM114-Status: GOOD (  19.44  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200418_150755_192003_F5DDEAC4 
+X-CRM114-Status: UNSURE (  -4.46  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 4.0 (++++)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (4.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ no trust [2607:f8b0:4864:20:0:0:0:f41 listed in]
+ [list.dnswl.org]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [mr.ibrrahim.hassan112[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [mr.ibrrahim.hassan112[at]gmail.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
+ digit [kabiruwahid199[at]gmail.com]
+ 0.9 URG_BIZ                BODY: Contains urgent matter
+ 1.7 DEAR_SOMETHING         BODY: Contains 'Dear (something)'
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.0 T_HK_NAME_FM_MR_MRS    No description available.
+ 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
+ different freemails
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,712 +104,20 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Ludovic Desroches <ludovic.desroches@microchip.com>,
- Boris Brezillon <boris.brezillon@collabora.com>
+Reply-To: kabiruwahid199@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Both SMC and HSMC are converted to exec_op(), meaning that we have one
-less driver using the legacy interface.
-
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
----
-Only compile-tested, having someone to test the changes on real HW
-would be great!
----
- drivers/mtd/nand/raw/atmel/nand-controller.c | 424 +++++++++++++------
- 1 file changed, 286 insertions(+), 138 deletions(-)
-
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 3ba17a98df4d..7736f63f7f2f 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -202,6 +202,8 @@ struct atmel_nand_controller_ops {
- 	int (*ecc_init)(struct nand_chip *chip);
- 	int (*setup_data_interface)(struct atmel_nand *nand, int csline,
- 				    const struct nand_data_interface *conf);
-+	int (*exec_op)(struct atmel_nand *nand,
-+		       const struct nand_operation *op, bool check_only);
- };
- 
- struct atmel_nand_controller_caps {
-@@ -414,29 +416,12 @@ static int atmel_nand_dma_transfer(struct atmel_nand_controller *nc,
- 	return -EIO;
- }
- 
--static u8 atmel_nand_read_byte(struct nand_chip *chip)
-+static void atmel_nand_read_buf(struct atmel_nand *nand, u8 *buf, int len,
-+				bool force_8bit)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
--
--	return ioread8(nand->activecs->io.virt);
--}
--
--static void atmel_nand_write_byte(struct nand_chip *chip, u8 byte)
--{
--	struct atmel_nand *nand = to_atmel_nand(chip);
--
--	if (chip->options & NAND_BUSWIDTH_16)
--		iowrite16(byte | (byte << 8), nand->activecs->io.virt);
--	else
--		iowrite8(byte, nand->activecs->io.virt);
--}
--
--static void atmel_nand_read_buf(struct nand_chip *chip, u8 *buf, int len)
--{
--	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct atmel_nand_controller *nc;
- 
--	nc = to_nand_controller(chip->controller);
-+	nc = to_nand_controller(nand->base.controller);
- 
- 	/*
- 	 * If the controller supports DMA, the buffer address is DMA-able and
-@@ -444,23 +429,23 @@ static void atmel_nand_read_buf(struct nand_chip *chip, u8 *buf, int len)
- 	 * a DMA transfer. If it fails, fallback to PIO mode.
- 	 */
- 	if (nc->dmac && virt_addr_valid(buf) &&
--	    len >= MIN_DMA_LEN &&
-+	    len >= MIN_DMA_LEN && !force_8bit &&
- 	    !atmel_nand_dma_transfer(nc, buf, nand->activecs->io.dma, len,
- 				     DMA_FROM_DEVICE))
- 		return;
- 
--	if (chip->options & NAND_BUSWIDTH_16)
-+	if ((nand->base.options & NAND_BUSWIDTH_16) && !force_8bit)
- 		ioread16_rep(nand->activecs->io.virt, buf, len / 2);
- 	else
- 		ioread8_rep(nand->activecs->io.virt, buf, len);
- }
- 
--static void atmel_nand_write_buf(struct nand_chip *chip, const u8 *buf, int len)
-+static void atmel_nand_write_buf(struct atmel_nand *nand, const u8 *buf,
-+				 int len, bool force_8bit)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct atmel_nand_controller *nc;
- 
--	nc = to_nand_controller(chip->controller);
-+	nc = to_nand_controller(nand->base.controller);
- 
- 	/*
- 	 * If the controller supports DMA, the buffer address is DMA-able and
-@@ -468,72 +453,69 @@ static void atmel_nand_write_buf(struct nand_chip *chip, const u8 *buf, int len)
- 	 * a DMA transfer. If it fails, fallback to PIO mode.
- 	 */
- 	if (nc->dmac && virt_addr_valid(buf) &&
--	    len >= MIN_DMA_LEN &&
-+	    len >= MIN_DMA_LEN && !force_8bit &&
- 	    !atmel_nand_dma_transfer(nc, (void *)buf, nand->activecs->io.dma,
- 				     len, DMA_TO_DEVICE))
- 		return;
- 
--	if (chip->options & NAND_BUSWIDTH_16)
-+	if ((nand->base.options & NAND_BUSWIDTH_16) && !force_8bit)
- 		iowrite16_rep(nand->activecs->io.virt, buf, len / 2);
- 	else
- 		iowrite8_rep(nand->activecs->io.virt, buf, len);
- }
- 
--static int atmel_nand_dev_ready(struct nand_chip *chip)
-+static int atmel_nand_waitrdy(struct atmel_nand *nand, unsigned int timeout_ms)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
-+	if (nand->activecs->rb.type == ATMEL_NAND_NO_RB)
-+		return nand_soft_waitrdy(&nand->base, timeout_ms);
- 
--	return gpiod_get_value(nand->activecs->rb.gpio);
-+	return nand_gpio_waitrdy(&nand->base, nand->activecs->rb.gpio,
-+				 timeout_ms);
- }
- 
--static void atmel_nand_select_chip(struct nand_chip *chip, int cs)
-+static int atmel_hsmc_nand_waitrdy(struct atmel_nand *nand,
-+				   unsigned int timeout_ms)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
-+	struct atmel_hsmc_nand_controller *nc;
-+	u32 status, mask;
- 
--	if (cs < 0 || cs >= nand->numcs) {
--		nand->activecs = NULL;
--		chip->legacy.dev_ready = NULL;
-+	if (nand->activecs->rb.type != ATMEL_NAND_NATIVE_RB)
-+		return atmel_nand_waitrdy(nand, timeout_ms);
-+
-+	nc = to_hsmc_nand_controller(nand->base.controller);
-+	mask = ATMEL_HSMC_NFC_SR_RBEDGE(nand->activecs->rb.id);
-+	return regmap_read_poll_timeout(nc->base.smc, ATMEL_HSMC_NFC_SR,
-+					status, status & mask,
-+					20, timeout_ms * 1000);
-+}
-+
-+static void atmel_nand_select_die(struct atmel_nand *nand,
-+				  unsigned int cs)
-+{
-+	if (WARN_ON(cs >= nand->numcs))
- 		return;
--	}
- 
- 	nand->activecs = &nand->cs[cs];
--
--	if (nand->activecs->rb.type == ATMEL_NAND_GPIO_RB)
--		chip->legacy.dev_ready = atmel_nand_dev_ready;
-+	gpiod_set_value(nand->activecs->csgpio, 0);
- }
- 
--static int atmel_hsmc_nand_dev_ready(struct nand_chip *chip)
-+static void atmel_nand_unselect_die(struct atmel_nand *nand)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
--	struct atmel_hsmc_nand_controller *nc;
--	u32 status;
--
--	nc = to_hsmc_nand_controller(chip->controller);
--
--	regmap_read(nc->base.smc, ATMEL_HSMC_NFC_SR, &status);
--
--	return status & ATMEL_HSMC_NFC_SR_RBEDGE(nand->activecs->rb.id);
-+	gpiod_set_value(nand->activecs->csgpio, 1);
-+	nand->activecs = NULL;
- }
- 
--static void atmel_hsmc_nand_select_chip(struct nand_chip *chip, int cs)
-+static void atmel_hsmc_nand_select_die(struct atmel_nand *nand,
-+				       unsigned int cs)
- {
--	struct mtd_info *mtd = nand_to_mtd(chip);
--	struct atmel_nand *nand = to_atmel_nand(chip);
-+	struct mtd_info *mtd = nand_to_mtd(&nand->base);
- 	struct atmel_hsmc_nand_controller *nc;
- 
--	nc = to_hsmc_nand_controller(chip->controller);
--
--	atmel_nand_select_chip(chip, cs);
--
--	if (!nand->activecs) {
--		regmap_write(nc->base.smc, ATMEL_HSMC_NFC_CTRL,
--			     ATMEL_HSMC_NFC_CTRL_DIS);
-+	if (WARN_ON(cs >= nand->numcs))
- 		return;
--	}
--
--	if (nand->activecs->rb.type == ATMEL_NAND_NATIVE_RB)
--		chip->legacy.dev_ready = atmel_hsmc_nand_dev_ready;
- 
-+	nand->activecs = &nand->cs[cs];
-+	nc = to_hsmc_nand_controller(nand->base.controller);
- 	regmap_update_bits(nc->base.smc, ATMEL_HSMC_NFC_CFG,
- 			   ATMEL_HSMC_NFC_CFG_PAGESIZE_MASK |
- 			   ATMEL_HSMC_NFC_CFG_SPARESIZE_MASK |
-@@ -546,6 +528,66 @@ static void atmel_hsmc_nand_select_chip(struct nand_chip *chip, int cs)
- 		     ATMEL_HSMC_NFC_CTRL_EN);
- }
- 
-+static void atmel_hsmc_nand_unselect_die(struct atmel_nand *nand)
-+{
-+	struct atmel_hsmc_nand_controller *nc;
-+
-+	nc = to_hsmc_nand_controller(nand->base.controller);
-+	regmap_write(nc->base.smc, ATMEL_HSMC_NFC_CTRL,
-+		     ATMEL_HSMC_NFC_CTRL_DIS);
-+	nand->activecs = NULL;
-+}
-+
-+static int atmel_smc_nand_exec_op(struct atmel_nand *nand,
-+				  const struct nand_operation *op,
-+				  bool check_only)
-+{
-+	struct atmel_nand_controller *nc;
-+	unsigned int i, j;
-+
-+	if (check_only)
-+		return 0;
-+
-+	nc = to_nand_controller(nand->base.controller);
-+	atmel_nand_select_die(nand, op->cs);
-+	for (i = 0; i < op->ninstrs; i++) {
-+		const struct nand_op_instr *instr = &op->instrs[i];
-+		int ret;
-+
-+		switch (instr->type) {
-+		case NAND_OP_CMD_INSTR:
-+			writeb(instr->ctx.cmd.opcode,
-+			       nand->activecs->io.virt + nc->caps->cle_offs);
-+			break;
-+		case NAND_OP_ADDR_INSTR:
-+			for (j = 0; j < instr->ctx.addr.naddrs; j++)
-+				writeb(instr->ctx.addr.addrs[j],
-+				       nand->activecs->io.virt +
-+				       nc->caps->ale_offs);
-+			break;
-+		case NAND_OP_DATA_IN_INSTR:
-+			atmel_nand_read_buf(nand, instr->ctx.data.buf.in,
-+					    instr->ctx.data.len,
-+					    instr->ctx.data.force_8bit);
-+			break;
-+		case NAND_OP_DATA_OUT_INSTR:
-+			atmel_nand_write_buf(nand, instr->ctx.data.buf.out,
-+					     instr->ctx.data.len,
-+					     instr->ctx.data.force_8bit);
-+			break;
-+		case NAND_OP_WAITRDY_INSTR:
-+			ret = atmel_nand_waitrdy(nand,
-+						 instr->ctx.waitrdy.timeout_ms);
-+			if (ret)
-+				return ret;
-+			break;
-+		}
-+	}
-+	atmel_nand_unselect_die(nand);
-+
-+	return 0;
-+}
-+
- static int atmel_nfc_exec_op(struct atmel_hsmc_nand_controller *nc, bool poll)
- {
- 	u8 *addrs = nc->op.addrs;
-@@ -596,51 +638,108 @@ static int atmel_nfc_exec_op(struct atmel_hsmc_nand_controller *nc, bool poll)
- 	return ret;
- }
- 
--static void atmel_hsmc_nand_cmd_ctrl(struct nand_chip *chip, int dat,
--				     unsigned int ctrl)
-+static int atmel_hsmc_exec_cmd_addr(struct nand_chip *chip,
-+				    const struct nand_subop *subop)
- {
--	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct atmel_hsmc_nand_controller *nc;
-+	unsigned int i, j;
-+
-+	if (WARN_ON_ONCE(subop->ninstrs > 3))
-+		return -EINVAL;
- 
- 	nc = to_hsmc_nand_controller(chip->controller);
- 
--	if (ctrl & NAND_ALE) {
--		if (nc->op.naddrs == ATMEL_NFC_MAX_ADDR_CYCLES)
--			return;
-+	nc->op.cs = subop->cs;
- 
--		nc->op.addrs[nc->op.naddrs++] = dat;
--	} else if (ctrl & NAND_CLE) {
--		if (nc->op.ncmds > 1)
--			return;
-+	for (i = 0; i < subop->ninstrs; i++) {
-+		const struct nand_op_instr *instr = &subop->instrs[i];
- 
--		nc->op.cmds[nc->op.ncmds++] = dat;
-+		if (instr->type == NAND_OP_CMD_INSTR) {
-+			nc->op.cmds[nc->op.ncmds++] = instr->ctx.cmd.opcode;
-+			continue;
-+		}
-+
-+		if (WARN_ON_ONCE(instr->type != NAND_OP_ADDR_INSTR))
-+			return -EINVAL;
-+
-+		for (j = nand_subop_get_addr_start_off(subop, i);
-+		     j < nand_subop_get_num_addr_cyc(subop, j); j++) {
-+			if (WARN_ON_ONCE(j >= 5))
-+				return -EINVAL;
-+
-+			nc->op.addrs[nc->op.naddrs] = instr->ctx.addr.addrs[j];
-+			nc->op.naddrs++;
-+		}
- 	}
- 
--	if (dat == NAND_CMD_NONE) {
--		nc->op.cs = nand->activecs->id;
--		atmel_nfc_exec_op(nc, true);
--	}
-+	return atmel_nfc_exec_op(nc, true);
- }
- 
--static void atmel_nand_cmd_ctrl(struct nand_chip *chip, int cmd,
--				unsigned int ctrl)
-+static int atmel_hsmc_exec_rw(struct nand_chip *chip,
-+			      const struct nand_subop *subop)
- {
-+	const struct nand_op_instr *instr = subop->instrs;
- 	struct atmel_nand *nand = to_atmel_nand(chip);
--	struct atmel_nand_controller *nc;
- 
--	nc = to_nand_controller(chip->controller);
-+	if (WARN_ON_ONCE(subop->ninstrs != 1 ||
-+			 (instr->type != NAND_OP_DATA_IN_INSTR &&
-+			  instr->type != NAND_OP_DATA_OUT_INSTR)))
-+		return -EINVAL;
- 
--	if ((ctrl & NAND_CTRL_CHANGE) && nand->activecs->csgpio) {
--		if (ctrl & NAND_NCE)
--			gpiod_set_value(nand->activecs->csgpio, 0);
--		else
--			gpiod_set_value(nand->activecs->csgpio, 1);
--	}
-+	if (instr->type == NAND_OP_DATA_IN_INSTR)
-+		atmel_nand_read_buf(nand, instr->ctx.data.buf.in,
-+				    instr->ctx.data.len,
-+				    instr->ctx.data.force_8bit);
-+	else
-+		atmel_nand_write_buf(nand, instr->ctx.data.buf.out,
-+				     instr->ctx.data.len,
-+				     instr->ctx.data.force_8bit);
- 
--	if (ctrl & NAND_ALE)
--		writeb(cmd, nand->activecs->io.virt + nc->caps->ale_offs);
--	else if (ctrl & NAND_CLE)
--		writeb(cmd, nand->activecs->io.virt + nc->caps->cle_offs);
-+	return 0;
-+}
-+
-+static int atmel_hsmc_exec_waitrdy(struct nand_chip *chip,
-+				   const struct nand_subop *subop)
-+{
-+	const struct nand_op_instr *instr = subop->instrs;
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+
-+	if (WARN_ON_ONCE(subop->ninstrs != 1 ||
-+			 instr->type != NAND_OP_WAITRDY_INSTR))
-+		return -EINVAL;
-+
-+	return atmel_hsmc_nand_waitrdy(nand, instr->ctx.waitrdy.timeout_ms);
-+}
-+
-+static const struct nand_op_parser atmel_hsmc_op_parser = NAND_OP_PARSER(
-+	NAND_OP_PARSER_PATTERN(atmel_hsmc_exec_cmd_addr,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(true),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(true, 5),
-+		NAND_OP_PARSER_PAT_CMD_ELEM(true)),
-+	NAND_OP_PARSER_PATTERN(atmel_hsmc_exec_rw,
-+		NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, UINT_MAX)),
-+	NAND_OP_PARSER_PATTERN(atmel_hsmc_exec_rw,
-+		NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, UINT_MAX)),
-+	NAND_OP_PARSER_PATTERN(atmel_hsmc_exec_waitrdy,
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(false)),
-+);
-+
-+static int atmel_hsmc_nand_exec_op(struct atmel_nand *nand,
-+				   const struct nand_operation *op,
-+				   bool check_only)
-+{
-+	int ret;
-+
-+	if (check_only)
-+		return nand_op_parser_exec_op(&nand->base,
-+					      &atmel_hsmc_op_parser, op, true);
-+
-+	atmel_hsmc_nand_select_die(nand, op->cs);
-+	ret = nand_op_parser_exec_op(&nand->base, &atmel_hsmc_op_parser, op,
-+				     false);
-+	atmel_hsmc_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static void atmel_nfc_copy_to_sram(struct nand_chip *chip, const u8 *buf,
-@@ -838,7 +937,7 @@ static int atmel_nand_pmecc_write_pg(struct nand_chip *chip, const u8 *buf,
- 	if (ret)
- 		return ret;
- 
--	atmel_nand_write_buf(chip, buf, mtd->writesize);
-+	atmel_nand_write_buf(nand, buf, mtd->writesize, false);
- 
- 	ret = atmel_nand_pmecc_generate_eccbytes(chip, raw);
- 	if (ret) {
-@@ -848,7 +947,7 @@ static int atmel_nand_pmecc_write_pg(struct nand_chip *chip, const u8 *buf,
- 
- 	atmel_nand_pmecc_disable(chip, raw);
- 
--	atmel_nand_write_buf(chip, chip->oob_poi, mtd->oobsize);
-+	atmel_nand_write_buf(nand, chip->oob_poi, mtd->oobsize, false);
- 
- 	return nand_prog_page_end_op(chip);
- }
-@@ -856,19 +955,34 @@ static int atmel_nand_pmecc_write_pg(struct nand_chip *chip, const u8 *buf,
- static int atmel_nand_pmecc_write_page(struct nand_chip *chip, const u8 *buf,
- 				       int oob_required, int page)
- {
--	return atmel_nand_pmecc_write_pg(chip, buf, oob_required, page, false);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_nand_pmecc_write_pg(chip, buf, oob_required, page, false);
-+	atmel_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_nand_pmecc_write_page_raw(struct nand_chip *chip,
- 					   const u8 *buf, int oob_required,
- 					   int page)
- {
--	return atmel_nand_pmecc_write_pg(chip, buf, oob_required, page, true);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_nand_pmecc_write_pg(chip, buf, oob_required, page, true);
-+	atmel_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_nand_pmecc_read_pg(struct nand_chip *chip, u8 *buf,
- 				    bool oob_required, int page, bool raw)
- {
-+	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 	int ret;
- 
-@@ -878,8 +992,8 @@ static int atmel_nand_pmecc_read_pg(struct nand_chip *chip, u8 *buf,
- 	if (ret)
- 		return ret;
- 
--	atmel_nand_read_buf(chip, buf, mtd->writesize);
--	atmel_nand_read_buf(chip, chip->oob_poi, mtd->oobsize);
-+	atmel_nand_read_buf(nand, buf, mtd->writesize, false);
-+	atmel_nand_read_buf(nand, chip->oob_poi, mtd->oobsize, false);
- 
- 	ret = atmel_nand_pmecc_correct_data(chip, buf, raw);
- 
-@@ -891,13 +1005,27 @@ static int atmel_nand_pmecc_read_pg(struct nand_chip *chip, u8 *buf,
- static int atmel_nand_pmecc_read_page(struct nand_chip *chip, u8 *buf,
- 				      int oob_required, int page)
- {
--	return atmel_nand_pmecc_read_pg(chip, buf, oob_required, page, false);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_nand_pmecc_read_pg(chip, buf, oob_required, page, false);
-+	atmel_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_nand_pmecc_read_page_raw(struct nand_chip *chip, u8 *buf,
- 					  int oob_required, int page)
- {
--	return atmel_nand_pmecc_read_pg(chip, buf, oob_required, page, true);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_nand_pmecc_read_pg(chip, buf, oob_required, page, true);
-+	atmel_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_hsmc_nand_pmecc_write_pg(struct nand_chip *chip,
-@@ -906,8 +1034,9 @@ static int atmel_hsmc_nand_pmecc_write_pg(struct nand_chip *chip,
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 	struct atmel_nand *nand = to_atmel_nand(chip);
-+	const struct nand_sdr_timings *timings;
- 	struct atmel_hsmc_nand_controller *nc;
--	int ret, status;
-+	int ret;
- 
- 	nc = to_hsmc_nand_controller(chip->controller);
- 
-@@ -939,7 +1068,7 @@ static int atmel_hsmc_nand_pmecc_write_pg(struct nand_chip *chip,
- 	if (ret)
- 		return ret;
- 
--	atmel_nand_write_buf(chip, chip->oob_poi, mtd->oobsize);
-+	atmel_nand_write_buf(nand, chip->oob_poi, mtd->oobsize, false);
- 
- 	nc->op.cmds[0] = NAND_CMD_PAGEPROG;
- 	nc->op.ncmds = 1;
-@@ -949,27 +1078,38 @@ static int atmel_hsmc_nand_pmecc_write_pg(struct nand_chip *chip,
- 		dev_err(nc->base.dev, "Failed to program NAND page (err = %d)\n",
- 			ret);
- 
--	status = chip->legacy.waitfunc(chip);
--	if (status & NAND_STATUS_FAIL)
--		return -EIO;
--
--	return ret;
-+	timings = nand_get_sdr_timings(&chip->data_interface);
-+	return atmel_hsmc_nand_waitrdy(nand, PSEC_TO_MSEC(timings->tPROG_max));
- }
- 
- static int atmel_hsmc_nand_pmecc_write_page(struct nand_chip *chip,
- 					    const u8 *buf, int oob_required,
- 					    int page)
- {
--	return atmel_hsmc_nand_pmecc_write_pg(chip, buf, oob_required, page,
--					      false);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_hsmc_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_hsmc_nand_pmecc_write_pg(chip, buf, oob_required, page,
-+					     false);
-+	atmel_hsmc_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_hsmc_nand_pmecc_write_page_raw(struct nand_chip *chip,
- 						const u8 *buf,
- 						int oob_required, int page)
- {
--	return atmel_hsmc_nand_pmecc_write_pg(chip, buf, oob_required, page,
--					      true);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_hsmc_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_hsmc_nand_pmecc_write_pg(chip, buf, oob_required, page,
-+					     true);
-+	atmel_hsmc_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_hsmc_nand_pmecc_read_pg(struct nand_chip *chip, u8 *buf,
-@@ -1029,16 +1169,30 @@ static int atmel_hsmc_nand_pmecc_read_pg(struct nand_chip *chip, u8 *buf,
- static int atmel_hsmc_nand_pmecc_read_page(struct nand_chip *chip, u8 *buf,
- 					   int oob_required, int page)
- {
--	return atmel_hsmc_nand_pmecc_read_pg(chip, buf, oob_required, page,
--					     false);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_hsmc_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_hsmc_nand_pmecc_read_pg(chip, buf, oob_required, page,
-+					    false);
-+	atmel_hsmc_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_hsmc_nand_pmecc_read_page_raw(struct nand_chip *chip,
- 					       u8 *buf, int oob_required,
- 					       int page)
- {
--	return atmel_hsmc_nand_pmecc_read_pg(chip, buf, oob_required, page,
--					     true);
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	int ret;
-+
-+	atmel_hsmc_nand_select_die(nand, chip->cur_cs);
-+	ret = atmel_hsmc_nand_pmecc_read_pg(chip, buf, oob_required, page,
-+					    true);
-+	atmel_hsmc_nand_unselect_die(nand);
-+
-+	return ret;
- }
- 
- static int atmel_nand_pmecc_init(struct nand_chip *chip)
-@@ -1467,6 +1621,18 @@ static int atmel_nand_setup_data_interface(struct nand_chip *chip, int csline,
- 	return nc->caps->ops->setup_data_interface(nand, csline, conf);
- }
- 
-+static int atmel_nand_exec_op(struct nand_chip *chip,
-+			      const struct nand_operation *op,
-+			      bool check_only)
-+{
-+	struct atmel_nand *nand = to_atmel_nand(chip);
-+	struct atmel_nand_controller *nc;
-+
-+	nc = to_nand_controller(nand->base.controller);
-+
-+	return nc->caps->ops->exec_op(nand, op, check_only);
-+}
-+
- static void atmel_nand_init(struct atmel_nand_controller *nc,
- 			    struct atmel_nand *nand)
- {
-@@ -1476,19 +1642,9 @@ static void atmel_nand_init(struct atmel_nand_controller *nc,
- 	mtd->dev.parent = nc->dev;
- 	nand->base.controller = &nc->base;
- 
--	chip->legacy.cmd_ctrl = atmel_nand_cmd_ctrl;
--	chip->legacy.read_byte = atmel_nand_read_byte;
--	chip->legacy.write_byte = atmel_nand_write_byte;
--	chip->legacy.read_buf = atmel_nand_read_buf;
--	chip->legacy.write_buf = atmel_nand_write_buf;
--	chip->legacy.select_chip = atmel_nand_select_chip;
--
- 	if (!nc->mck || !nc->caps->ops->setup_data_interface)
- 		chip->options |= NAND_KEEP_TIMINGS;
- 
--	/* Some NANDs require a longer delay than the default one (20us). */
--	chip->legacy.chip_delay = 40;
--
- 	/*
- 	 * Use a bounce buffer when the buffer passed by the MTD user is not
- 	 * suitable for DMA.
-@@ -1527,18 +1683,6 @@ static void atmel_smc_nand_init(struct atmel_nand_controller *nc,
- 				   smc_nc->ebi_csa->nfd0_on_d16);
- }
- 
--static void atmel_hsmc_nand_init(struct atmel_nand_controller *nc,
--				 struct atmel_nand *nand)
--{
--	struct nand_chip *chip = &nand->base;
--
--	atmel_nand_init(nc, nand);
--
--	/* Overload some methods for the HSMC controller. */
--	chip->legacy.cmd_ctrl = atmel_hsmc_nand_cmd_ctrl;
--	chip->legacy.select_chip = atmel_hsmc_nand_select_chip;
--}
--
- static int atmel_nand_controller_remove_nand(struct atmel_nand *nand)
- {
- 	struct nand_chip *chip = &nand->base;
-@@ -1957,6 +2101,7 @@ static int atmel_nand_attach_chip(struct nand_chip *chip)
- static const struct nand_controller_ops atmel_nand_controller_ops = {
- 	.attach_chip = atmel_nand_attach_chip,
- 	.setup_data_interface = atmel_nand_setup_data_interface,
-+	.exec_op = atmel_nand_exec_op,
- };
- 
- static int atmel_nand_controller_init(struct atmel_nand_controller *nc,
-@@ -2317,8 +2462,9 @@ static const struct atmel_nand_controller_ops atmel_hsmc_nc_ops = {
- 	.probe = atmel_hsmc_nand_controller_probe,
- 	.remove = atmel_hsmc_nand_controller_remove,
- 	.ecc_init = atmel_hsmc_nand_ecc_init,
--	.nand_init = atmel_hsmc_nand_init,
-+	.nand_init = atmel_nand_init,
- 	.setup_data_interface = atmel_hsmc_nand_setup_data_interface,
-+	.exec_op = atmel_hsmc_nand_exec_op,
- };
- 
- static const struct atmel_nand_controller_caps atmel_sama5_nc_caps = {
-@@ -2385,6 +2531,7 @@ static const struct atmel_nand_controller_ops at91rm9200_nc_ops = {
- 	.remove = atmel_smc_nand_controller_remove,
- 	.ecc_init = atmel_nand_ecc_init,
- 	.nand_init = atmel_smc_nand_init,
-+	.exec_op = atmel_smc_nand_exec_op,
- };
- 
- static const struct atmel_nand_controller_caps atmel_rm9200_nc_caps = {
-@@ -2400,6 +2547,7 @@ static const struct atmel_nand_controller_ops atmel_smc_nc_ops = {
- 	.ecc_init = atmel_nand_ecc_init,
- 	.nand_init = atmel_smc_nand_init,
- 	.setup_data_interface = atmel_smc_nand_setup_data_interface,
-+	.exec_op = atmel_smc_nand_exec_op,
- };
- 
- static const struct atmel_nand_controller_caps atmel_sam9260_nc_caps = {
--- 
-2.25.2
-
+Dear Sir,  I came across your e-mail contact prior a private search
+while in need of your assistance, I have investment funds worth
+million of dollars and i need a trusted investment Manager/Partner, If
+you are willing to handle this project on my behalf kindly reply
+urgent to enable me provide you more information please this is not a
+spam, its a real business that will benefit both of us your urgent
+reply will be appreciated i will explain to you on how the business
+will be executed! kabiruwahid111@gmail.com.
 
 ______________________________________________________
 Linux MTD discussion mailing list
