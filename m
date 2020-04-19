@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 053F81AFA33
-	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 14:54:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C8FF31AFA3B
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 14:55:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2DLtcTWo18LFhKscz8GjgTMsDjStwg3tKQW8IstkT5g=; b=hwNdqzCqWfCDai
-	qhtrfgw/Iq1vq9Kj3/m613lQviyKzDuMguMVPLaHIa6t+VIEc3o1Gl1wklnKyG63ezxdKyNc2XBPM
-	5cS8p5YLJLnT8LC7rJHzKknuyKblA4JDvIHno/EkVf5uoo2OBE0ESQfRaaNEpNN9qNOt+qJfDdcva
-	kqYeeamDoYHmHCxuP6dlVuVNi5MShMWSkV6TxQ0/3jNTWRYaCMVk81FamT2pYvCzxUYd4E82fP893
-	txC7jlDPXTwAQb44DEOmMomhKINUGOvRGDQfJ1qwe/xKTgzI17WHYgke9zMo9Kr9KjgB3IarPBBA4
-	31Mj84sRjDtbcHttwCLw==;
+	List-Owner; bh=9PllStRJktC8680tgd39cSpFYN0cIcCxuVQ4942OIrg=; b=mKFRdDgnZ4/KaZ
+	t3fnAf7lNE2lK3TSpi40AyfLTl/mMMUv2SIbfPmQqaOCRwpachTiDv3f5W4gWkeHUFM6ISrQ9CztS
+	TBfG1AxP9YoUl1zLVrF6iSS+XE7k4KCbFMV5z4luhoYrKomTn9fK5FMAEnTHxDqNWOIUdKIRgzEtN
+	0IMnPW5Cftkyt1IUiqlQkS8td54p8XwZyQVLgdePns0/qAtt8H84oMXpPNjSp39Tt7n5O+oRTYZvO
+	kPoFTnIYbZGAV3jdBSdk8SKgaKF88ruPIDImaIMnUUpDiR+8+OTM0tJOtO9kh/wce3nNcDWLPG22T
+	SsaNexSdiJTE88OR3uyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQ9ST-00083V-FP; Sun, 19 Apr 2020 12:54:01 +0000
+	id 1jQ9Ta-0000bY-N1; Sun, 19 Apr 2020 12:55:10 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQ9QJ-0005so-A4
- for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 12:51:52 +0000
+ id 1jQ9QK-0005vT-VN
+ for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 12:51:54 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id CD6A12A0D69;
- Sun, 19 Apr 2020 13:51:45 +0100 (BST)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 43D5A2A0D6C;
+ Sun, 19 Apr 2020 13:51:46 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
  =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Subject: [PATCH 4/9] mtd: rawnand: bcm47xx: Demistify a few more things
-Date: Sun, 19 Apr 2020 14:51:35 +0200
-Message-Id: <20200419125140.1307309-5-boris.brezillon@collabora.com>
+Subject: [PATCH 5/9] mtd: rawnand: bcm47xx: Implement the exec_op() interface
+Date: Sun, 19 Apr 2020 14:51:36 +0200
+Message-Id: <20200419125140.1307309-6-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.2
 In-Reply-To: <20200419125140.1307309-1-boris.brezillon@collabora.com>
 References: <20200419125140.1307309-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200419_055147_606024_E4AD7D17 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20200419_055149_294261_FC8EF319 
+X-CRM114-Status: GOOD (  18.72  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -70,119 +70,200 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-There were a few places were raw hex values were used instead of the
-macro def.
-
-We also add macros to help forming the conf value (note that we still
-have one magic bit whose meaning I couldn't extract from the code), and
-add an extra macro to specify the number of DATA cycles to issue when
-the READ or WRITE flag is set.
+Implement the exec_op() interface so we can get rid of the convoluted
+cmdfunc() implementation.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- .../mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c  | 34 +++++++++++++++----
- 1 file changed, 27 insertions(+), 7 deletions(-)
+This is based on my understanding of how this controller works, and I
+think it covers all the use cases covered by the custom cmdfunc()
+implementation. I might be wrong of course, so it'd be great to have
+someone test on real HW.
+---
+ .../nand/raw/bcm47xxnflash/bcm47xxnflash.h    |   1 +
+ .../mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c  | 150 ++++++++++++++++++
+ 2 files changed, 151 insertions(+)
 
+diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.h b/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.h
+index 201b9baa52a0..00d0974b73cb 100644
+--- a/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.h
++++ b/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.h
+@@ -10,6 +10,7 @@
+ #include <linux/mtd/rawnand.h>
+ 
+ struct bcm47xxnflash {
++	struct nand_controller base;
+ 	struct bcma_drv_cc *cc;
+ 
+ 	struct nand_chip nand_chip;
 diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c b/drivers/mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c
-index 591775173034..fbb7acebc8f7 100644
+index fbb7acebc8f7..184f78b3d45a 100644
 --- a/drivers/mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c
 +++ b/drivers/mtd/nand/raw/bcm47xxnflash/ops_bcm4706.c
-@@ -25,12 +25,29 @@
- #define NCTL_CMD1W			0x00080000
- #define NCTL_READ			0x00100000
- #define NCTL_WRITE			0x00200000
-+/* When the SPECADDR is set CMD1 is interpreted as a single ADDR cycle */
- #define NCTL_SPECADDR			0x01000000
- #define NCTL_READY			0x04000000
- #define NCTL_ERR			0x08000000
-+/*
-+ * Number of DATA cycles to issue when NCTL_{READ,WRITE} is set. The minimum
-+ * value is 1 and the maximum value is 4. Those bytes are then stored in the
-+ * BCMA_CC_NFLASH_DATA register.
-+ */
-+#define NCTL_DATA_CYCLES(x)		((((x) - 1) & 0x3) << 28)
-+/*
-+ * The CS pin seems to be asserted even if NCTL_CSA is not set. All this bit
-+ * seems to encode is whether the CS line should stay asserted after the
-+ * operation has been executed. In other words, you should only set it if if
-+ * you intend to do more operations on the NAND bus.
-+ */
- #define NCTL_CSA			0x40000000
- #define NCTL_START			0x80000000
+@@ -382,6 +382,153 @@ static void bcm47xxnflash_ops_bcm4706_write_buf(struct nand_chip *nand_chip,
+ 	pr_err("Invalid command for buf write: 0x%X\n", b47n->curr_command);
+ }
  
-+#define CONF_MAGIC_BIT			0x00000002
-+#define CONF_COL_BYTES(x)		(((x) - 1) << 4)
-+#define CONF_ROW_BYTES(x)		(((x) - 1) << 6)
++static int
++bcm47xxnflash_ops_bcm4706_exec_cmd_addr(struct nand_chip *chip,
++					const struct nand_subop *subop)
++{
++	struct bcm47xxnflash *b47n = nand_get_controller_data(chip);
++	u32 nctl = 0, col = 0, row = 0, ncols = 0, nrows = 0;
++	unsigned int i, j;
++
++	for (i = 0; i < subop->ninstrs; i++) {
++		const struct nand_op_instr *instr = &subop->instrs[i];
++
++		switch (instr->type) {
++		case NAND_OP_CMD_INSTR:
++			if (WARN_ON_ONCE((nctl & NCTL_CMD0) &&
++					 (nctl & NCTL_CMD1W)))
++				return -EINVAL;
++			else if (nctl & NCTL_CMD0)
++				nctl |= NCTL_CMD1W |
++					((u32)instr->ctx.cmd.opcode << 8);
++			else
++				nctl |= NCTL_CMD0 | instr->ctx.cmd.opcode;
++			break;
++		case NAND_OP_ADDR_INSTR:
++			for (j = 0; j < instr->ctx.addr.naddrs; j++) {
++				u32 addr = instr->ctx.addr.addrs[j];
++
++				if (i < 2) {
++					col |= addr << i * 8;
++					nctl |= NCTL_COL;
++					ncols++;
++				} else {
++					row |= addr << (i - 2) * 8;
++					nctl |= NCTL_ROW;
++					nrows++;
++				}
++			}
++			break;
++		default:
++			WARN_ON_ONCE(1);
++			return -EINVAL;
++		}
++	}
++
++	/* Keep the CS line asserted if there's something else to execute. */
++	if (!subop->is_last)
++		nctl |= NCTL_CSA;
++
++	bcma_cc_write32(b47n->cc, BCMA_CC_NFLASH_CONF,
++			CONF_MAGIC_BIT |
++			CONF_COL_BYTES(ncols) |
++			CONF_ROW_BYTES(nrows));
++	return bcm47xxnflash_ops_bcm4706_ctl_cmd(b47n->cc, nctl);
++}
++
++static int
++bcm47xxnflash_ops_bcm4706_exec_waitrdy(struct nand_chip *chip,
++				       const struct nand_subop *subop)
++{
++	struct bcm47xxnflash *b47n = nand_get_controller_data(chip);
++	const struct nand_op_instr *instr = &subop->instrs[0];
++	unsigned long timeout_jiffies = jiffies;
++
++	if (WARN_ON(subop->ninstrs != 1 ||
++		    instr->type != NAND_OP_DATA_IN_INSTR))
++		return -EINVAL;
++
++	timeout_jiffies += msecs_to_jiffies(instr->ctx.waitrdy.timeout_ms) + 1;
++	do {
++		if (bcma_cc_read32(b47n->cc, BCMA_CC_NFLASH_CTL) & NCTL_READY)
++			return 0;
++
++		usleep_range(10, 100);
++	} while (time_before(jiffies, timeout_jiffies));
++
++	return -ETIMEDOUT;
++}
++
++static int
++bcm47xxnflash_ops_bcm4706_exec_rw(struct nand_chip *chip,
++				  const struct nand_subop *subop)
++{
++	struct bcm47xxnflash *b47n = nand_get_controller_data(chip);
++	const struct nand_op_instr *instr = &subop->instrs[0];
++	unsigned int i;
++	int ret;
++
++	if (WARN_ON(subop->ninstrs != 1 ||
++		    (instr->type != NAND_OP_DATA_IN_INSTR &&
++		     instr->type != NAND_OP_DATA_OUT_INSTR)))
++		return -EINVAL;
++
++	for (i = 0; i < instr->ctx.data.len; i += 4) {
++		unsigned int nbytes = min_t(unsigned int,
++					    instr->ctx.data.len - i, 4);
++		u32 nctl, data;
++
++		nctl = NCTL_CSA | NCTL_DATA_CYCLES(nbytes);
++		if (instr->type == NAND_OP_DATA_IN_INSTR) {
++			nctl |= NCTL_READ;
++		} else {
++			nctl |= NCTL_WRITE;
++			memcpy(&data, instr->ctx.data.buf.in + i, nbytes);
++			bcma_cc_write32(b47n->cc, BCMA_CC_NFLASH_DATA, data);
++		}
++
++		if (i + nbytes < instr->ctx.data.len)
++			nctl |= NCTL_CSA;
++
++		ret = bcm47xxnflash_ops_bcm4706_ctl_cmd(b47n->cc, nctl);
++		if (ret)
++			return ret;
++
++		if (instr->type == NAND_OP_DATA_IN_INSTR) {
++			data = bcma_cc_read32(b47n->cc, BCMA_CC_NFLASH_DATA);
++			memcpy(instr->ctx.data.buf.in + i, &data, nbytes);
++		}
++	}
++
++	return 0;
++}
++
++static const struct nand_op_parser bcm47xxnflash_op_parser = NAND_OP_PARSER(
++	NAND_OP_PARSER_PATTERN(bcm47xxnflash_ops_bcm4706_exec_cmd_addr,
++			       NAND_OP_PARSER_PAT_CMD_ELEM(true),
++			       NAND_OP_PARSER_PAT_ADDR_ELEM(true, 5),
++			       NAND_OP_PARSER_PAT_CMD_ELEM(true)),
++	NAND_OP_PARSER_PATTERN(bcm47xxnflash_ops_bcm4706_exec_waitrdy,
++			       NAND_OP_PARSER_PAT_WAITRDY_ELEM(false)),
++	NAND_OP_PARSER_PATTERN(bcm47xxnflash_ops_bcm4706_exec_rw,
++			       NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, 0x200)),
++	NAND_OP_PARSER_PATTERN(bcm47xxnflash_ops_bcm4706_exec_rw,
++			       NAND_OP_PARSER_PAT_DATA_OUT_ELEM(false, 0x200)),
++);
++
++static int
++bcm47xxnflash_ops_bcm4706_exec_op(struct nand_chip *chip,
++				  const struct nand_operation *op,
++				  bool check_only)
++{
++	return nand_op_parser_exec_op(chip, &bcm47xxnflash_op_parser, op,
++				      check_only);
++}
++
++static const struct nand_controller_ops bcm47xxnflash_ops = {
++	.exec_op = bcm47xxnflash_ops_bcm4706_exec_op,
++};
 +
  /**************************************************
-  * Various helpers
+  * Init
   **************************************************/
-@@ -118,7 +135,7 @@ static void bcm47xxnflash_ops_bcm4706_read(struct mtd_info *mtd, uint8_t *buf,
+@@ -398,6 +545,9 @@ int bcm47xxnflash_ops_bcm4706_init(struct bcm47xxnflash *b47n)
+ 	u8 tbits, col_bits, col_size, row_bits, row_bsize;
+ 	u32 val;
  
- 		/* Eventually read some data :) */
- 		for (i = 0; i < toread; i += 4, dest++) {
--			ctlcode = NCTL_CSA | 0x30000000 | NCTL_READ;
-+			ctlcode = NCTL_CSA | NCTL_DATA_CYCLES(4) | NCTL_READ;
- 			if (i == toread - 4) /* Last read goes without that */
- 				ctlcode &= ~NCTL_CSA;
- 			if (bcm47xxnflash_ops_bcm4706_ctl_cmd(b47n->cc,
-@@ -150,7 +167,7 @@ static void bcm47xxnflash_ops_bcm4706_write(struct mtd_info *mtd,
- 	for (i = 0; i < len; i += 4, data++) {
- 		bcma_cc_write32(cc, BCMA_CC_NFLASH_DATA, *data);
- 
--		ctlcode = NCTL_CSA | 0x30000000 | NCTL_WRITE;
-+		ctlcode = NCTL_CSA | NCTL_DATA_CYCLES(4) | NCTL_WRITE;
- 		if (i == len - 4) /* Last read goes without that */
- 			ctlcode &= ~NCTL_CSA;
- 		if (bcm47xxnflash_ops_bcm4706_ctl_cmd(cc, ctlcode)) {
-@@ -229,7 +246,7 @@ static void bcm47xxnflash_ops_bcm4706_cmdfunc(struct nand_chip *nand_chip,
- 		nand_wait_ready(nand_chip);
- 		break;
- 	case NAND_CMD_READID:
--		ctlcode = NCTL_CSA | 0x01000000 | NCTL_CMD1W | NCTL_CMD0;
-+		ctlcode = NCTL_CSA | NCTL_SPECADDR | NCTL_CMD1W | NCTL_CMD0;
- 		ctlcode |= NAND_CMD_READID;
- 		if (bcm47xxnflash_ops_bcm4706_ctl_cmd(b47n->cc, ctlcode)) {
- 			pr_err("READID error\n");
-@@ -242,7 +259,7 @@ static void bcm47xxnflash_ops_bcm4706_cmdfunc(struct nand_chip *nand_chip,
- 		 * to perform, so cache everything.
- 		 */
- 		for (i = 0; i < ARRAY_SIZE(b47n->id_data); i++) {
--			ctlcode = NCTL_CSA | NCTL_READ;
-+			ctlcode = NCTL_CSA | NCTL_READ | NCTL_DATA_CYCLES(1);
- 			if (i == ARRAY_SIZE(b47n->id_data) - 1)
- 				ctlcode &= ~NCTL_CSA;
- 			if (bcm47xxnflash_ops_bcm4706_ctl_cmd(b47n->cc,
-@@ -285,7 +302,7 @@ static void bcm47xxnflash_ops_bcm4706_cmdfunc(struct nand_chip *nand_chip,
- 				b47n->curr_page_addr);
- 
- 		/* Prepare to write */
--		ctlcode = 0x40000000 | NCTL_ROW | NCTL_COL | NCTL_CMD0;
-+		ctlcode = NCTL_CSA | NCTL_ROW | NCTL_COL | NCTL_CMD0;
- 		ctlcode |= NAND_CMD_SEQIN;
- 		if (bcm47xxnflash_ops_bcm4706_ctl_cmd(cc, ctlcode))
- 			pr_err("SEQIN failed\n");
-@@ -320,7 +337,9 @@ static u8 bcm47xxnflash_ops_bcm4706_read_byte(struct nand_chip *nand_chip)
- 		}
- 		return b47n->id_data[b47n->curr_column++];
- 	case NAND_CMD_STATUS:
--		if (bcm47xxnflash_ops_bcm4706_ctl_cmd(cc, NCTL_READ))
-+		if (bcm47xxnflash_ops_bcm4706_ctl_cmd(cc,
-+						      NCTL_READ |
-+						      NCTL_DATA_CYCLES(1)))
- 			return 0;
- 		return bcma_cc_read32(cc, BCMA_CC_NFLASH_DATA) & 0xff;
- 	case NAND_CMD_READOOB:
-@@ -439,7 +458,8 @@ int bcm47xxnflash_ops_bcm4706_init(struct bcm47xxnflash *b47n)
- 	row_bits = tbits - col_bits + 1;
- 	row_bsize = (row_bits + 7) / 8;
- 
--	val = ((row_bsize - 1) << 6) | ((col_size - 1) << 4) | 2;
-+	val = CONF_ROW_BYTES(row_bsize) | CONF_COL_BYTES(col_size) |
-+	      CONF_MAGIC_BIT;
- 	bcma_cc_write32(b47n->cc, BCMA_CC_NFLASH_CONF, val);
- 
- exit:
++	nand_controller_init(&b47n->base);
++	b47n->base.ops = &bcm47xxnflash_ops;
++	b47n->nand_chip.controller = &b47n->base;
+ 	nand_chip->legacy.select_chip = bcm47xxnflash_ops_bcm4706_select_chip;
+ 	nand_chip->legacy.cmd_ctrl = bcm47xxnflash_ops_bcm4706_cmd_ctrl;
+ 	nand_chip->legacy.dev_ready = bcm47xxnflash_ops_bcm4706_dev_ready;
 -- 
 2.25.2
 
