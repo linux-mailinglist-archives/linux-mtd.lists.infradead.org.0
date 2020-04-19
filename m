@@ -2,56 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5CB701AFA36
-	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 14:54:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EA1BB1AFD1A
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 20:15:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:From:Subject:
+	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x3uusd+PDXEWUCCXN5DixywuBpDJdaHBKLgLK5R+n5s=; b=XJMcDdlP/mTtNW
-	2mL0cUwMQyB42CGdeMWKVFwZrK/zmfWB5oAtI5872qi+9D7VYkJJM/ayLKie4FZE0/9B1NYn1plKR
-	A5e4WYjMYJYJYotoNHsGD4y0b5t8/pK+kywSRAXl591CoSomM4QKXlWFZyh3QHzYUw77biYsz7xpN
-	8ZRrcvf4kfZh2+i96E75Q2K+X1gffmP8bYmmAaPgJ1aRBThd7e1euux4uHT9q5v96JcNTDQXnaiJ3
-	98X8CXCbQyWA2z53AqAEWxj5zllZ0IX+1hlwcvRcDQkAwmvLfGHEkxQhwjO0FA4YC+EJKp8OXRwon
-	ObpA4jcraBgHXVpOLwow==;
+	List-Owner; bh=kKuFaZzOF+LsCcdGtQISoOWTbSLNTf9r/r6pSqhaWz4=; b=Tossztne6ScOa0
+	pbN0gXs8xM4UHdWmxDKLgkXjDVkAZiQMwgdCuO8tAKk/UZbc7uLP9Avtump58nA1r0F7COS+uj7Wl
+	9v145TwPPOlBCPkG20Vef41IHieFFJ3lrfHHZhndpefoteKsZITlyln4nIwaTALpFBY4Z6UfqMQ1F
+	EE1+hXy9TgDSxcjayftlixvC9OphppA9stz8eLwfb1cltL/EhxKUmddkEP8bvzi48I9ncS37wV+go
+	5R2ohvgWGckylpl/9pzFls6eTbuBdUFlXW0qg/ol93oygxRoetBKJMTpprG0Pkfj94iUmSOrT3MhN
+	kOweA38P3i5UJ5I0GCBg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQ9TG-0000LX-31; Sun, 19 Apr 2020 12:54:50 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jQESw-000594-Ov; Sun, 19 Apr 2020 18:14:50 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQ9QM-0005wi-CU
- for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 12:51:54 +0000
-Received: from localhost.localdomain (unknown
- [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ id 1jQESm-00058e-Cu; Sun, 19 Apr 2020 18:14:41 +0000
+Received: from kernel.org (unknown [104.132.0.74])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id B9EDB2A0D95;
- Sun, 19 Apr 2020 13:51:47 +0100 (BST)
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
- =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Subject: [PATCH 9/9] mtd: rawnand: bcm47xx: Move the driver to
- drivers/mtd/nand/raw/
-Date: Sun, 19 Apr 2020 14:51:40 +0200
-Message-Id: <20200419125140.1307309-10-boris.brezillon@collabora.com>
-X-Mailer: git-send-email 2.25.2
-In-Reply-To: <20200419125140.1307309-1-boris.brezillon@collabora.com>
-References: <20200419125140.1307309-1-boris.brezillon@collabora.com>
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 3440920771;
+ Sun, 19 Apr 2020 18:14:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1587320079;
+ bh=bOt9BTn/I9BtpLW6MYPux7kH7zXf1KQ4OwttSbOUgxw=;
+ h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+ b=F96kxGnwb5hbRo2uaveExMkh4pG5tmsfXC/X4f7LcIR9NVVk3+CXqwPimCRGIZsLq
+ 200DZ+NlYkyxPrNFkbuYootDCzDqqWFu0hJkAVPZpKUAgkDDPBPfI6mIZvHi8k+VtM
+ aJNXnDOzYimf/GSU7Z8wIQIZEF7kJxvbDOxdjZqA=
 MIME-Version: 1.0
+In-Reply-To: <20200416005549.9683-2-robh@kernel.org>
+References: <20200416005549.9683-1-robh@kernel.org>
+ <20200416005549.9683-2-robh@kernel.org>
+Subject: Re: [PATCH 2/2] dt-bindings: Remove cases of 'allOf' containing a
+ '$ref'
+From: Stephen Boyd <sboyd@kernel.org>
+To: Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 19 Apr 2020 11:14:38 -0700
+Message-ID: <158732007844.132238.3936257450130949073@swboyd.mtv.corp.google.com>
+User-Agent: alot/0.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200419_055150_584496_FCEDF797 
-X-CRM114-Status: GOOD (  11.89  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200419_111440_457683_E8764D4D 
+X-CRM114-Status: GOOD (  11.58  )
+X-Spam-Score: -4.8 (----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-4.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ 0.1 DKIM_INVALID           DKIM or DK signature exists, but is not valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,55 +72,55 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- bcm-kernel-feedback-list@broadcom.com, openwrt-devel@lists.openwrt.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Heiko Stuebner <heiko@sntech.de>, Sam Ravnborg <sam@ravnborg.org>,
+ linux-iio@vger.kernel.org, linux-pci@vger.kernel.org,
+ Linus Walleij <linus.walleij@linaro.org>, linux-remoteproc@vger.kernel.org,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, Bjorn Andersson <bjorn.andersson@linaro.org>,
+ Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
+ linux-i2c@vger.kernel.org, Pavel Machek <pavel@ucw.cz>,
+ linux-riscv@lists.infradead.org, Lee Jones <lee.jones@linaro.org>,
+ linux-clk@vger.kernel.org, linux-leds@vger.kernel.org,
+ linux-rtc@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ Fabio Estevam <festevam@gmail.com>,
+ Danie l Lezcano <daniel.lezcano@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Bartosz Golaszewski <bgolaszewski@baylibre.com>, linux-serial@vger.kernel.org,
+ linux-input@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
+ linux-media@vger.kernel.org, linux-pwm@vger.kernel.org,
+ Alexandre Torgue <alexandre.torgue@st.com>, alsa-devel@alsa-project.org,
+ Maxime Ripard <mripard@kernel.org>, linux-can@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hwmon@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-mmc@vger.kernel.org,
+ Amit Kucheria <amit.kucheria@linaro.org>, linux-spi@vger.kernel.org,
+ Vinod Koul <vkoul@kernel.org>, netdev@vger.kernel.org,
+ Jonathan Cameron <jic23@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Now that we have a single we can move it to the directory where all
-single source file drivers live.
+Quoting Rob Herring (2020-04-15 17:55:49)
+> json-schema versions draft7 and earlier have a weird behavior in that
+> any keywords combined with a '$ref' are ignored (silently). The correct
+> form was to put a '$ref' under an 'allOf'. This behavior is now changed
+> in the 2019-09 json-schema spec and '$ref' can be mixed with other
+> keywords. The json-schema library doesn't yet support this, but the
+> tooling now does a fixup for this and either way works.
+> 
+> This has been a constant source of review comments, so let's change this
+> treewide so everyone copies the simpler syntax.
+> 
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
+>  .../bindings/clock/fixed-factor-clock.yaml    |   5 +-
 
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
----
- drivers/mtd/nand/raw/Makefile                            | 1 +
- drivers/mtd/nand/raw/{bcm47xxnflash => }/bcm47xxnflash.c | 0
- drivers/mtd/nand/raw/bcm47xxnflash/Makefile              | 2 --
- 3 files changed, 1 insertion(+), 2 deletions(-)
- rename drivers/mtd/nand/raw/{bcm47xxnflash => }/bcm47xxnflash.c (100%)
- delete mode 100644 drivers/mtd/nand/raw/bcm47xxnflash/Makefile
-
-diff --git a/drivers/mtd/nand/raw/Makefile b/drivers/mtd/nand/raw/Makefile
-index 2d136b158fb7..703d696c2d61 100644
---- a/drivers/mtd/nand/raw/Makefile
-+++ b/drivers/mtd/nand/raw/Makefile
-@@ -58,6 +58,7 @@ obj-$(CONFIG_MTD_NAND_TEGRA)		+= tegra_nand.o
- obj-$(CONFIG_MTD_NAND_STM32_FMC2)	+= stm32_fmc2_nand.o
- obj-$(CONFIG_MTD_NAND_MESON)		+= meson_nand.o
- obj-$(CONFIG_MTD_NAND_CADENCE)		+= cadence-nand-controller.o
-+obj-$(CONFIG_MTD_NAND_BCM47XXNFLASH)	+= bcm47xxnflash.o
- 
- nand-objs := nand_base.o nand_legacy.o nand_bbt.o nand_timings.o nand_ids.o
- nand-objs += nand_onfi.o
-diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.c b/drivers/mtd/nand/raw/bcm47xxnflash.c
-similarity index 100%
-rename from drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.c
-rename to drivers/mtd/nand/raw/bcm47xxnflash.c
-diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/Makefile b/drivers/mtd/nand/raw/bcm47xxnflash/Makefile
-deleted file mode 100644
-index 71a953078799..000000000000
---- a/drivers/mtd/nand/raw/bcm47xxnflash/Makefile
-+++ /dev/null
-@@ -1,2 +0,0 @@
--# SPDX-License-Identifier: GPL-2.0-only
--obj-$(CONFIG_MTD_NAND_BCM47XXNFLASH)	+= bcm47xxnflash.o
--- 
-2.25.2
-
+Reviewed-by: Stephen Boyd <sboyd@kernel.org> # clock
 
 ______________________________________________________
 Linux MTD discussion mailing list
