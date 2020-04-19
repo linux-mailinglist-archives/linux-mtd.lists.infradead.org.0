@@ -2,51 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 635801AFA43
-	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 14:56:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CB701AFA36
+	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 14:54:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zQZo+kBxvTMXfH8jWg16pOakCJlhK93nVrD7bPFJmGo=; b=RigRyewVcAy077
-	NWs1rikvcLCOlKMzeh3Mdf30dMf/G+zBYL6QTZnWAMJNW2LYmj1u//5INWzB1CxONuseACaF3wBHw
-	YDbZa3z6kUILWDjdTWg5PZBMCMjHoUt1Ze+7k+bT34n/SrM8erXcxr21jTrPf09Q7fWtVZeFZIh1g
-	LQddqjiJeUEMVf8+OELGtpnH9vuO/eyzg4Ib7h3uujf3cg3AChrAF10/9J33s5p59xAL9/OicSjpo
-	eU2Th8KEuq5TItej9VCOcnE5b7hmTSnlv5DlTseLJ82LSKbMK6VNKV8vBnsV8a2+5QTaGUtzFUvtV
-	+/0+Uy9w1IW6l9zxkhcg==;
+	List-Owner; bh=x3uusd+PDXEWUCCXN5DixywuBpDJdaHBKLgLK5R+n5s=; b=XJMcDdlP/mTtNW
+	2mL0cUwMQyB42CGdeMWKVFwZrK/zmfWB5oAtI5872qi+9D7VYkJJM/ayLKie4FZE0/9B1NYn1plKR
+	A5e4WYjMYJYJYotoNHsGD4y0b5t8/pK+kywSRAXl591CoSomM4QKXlWFZyh3QHzYUw77biYsz7xpN
+	8ZRrcvf4kfZh2+i96E75Q2K+X1gffmP8bYmmAaPgJ1aRBThd7e1euux4uHT9q5v96JcNTDQXnaiJ3
+	98X8CXCbQyWA2z53AqAEWxj5zllZ0IX+1hlwcvRcDQkAwmvLfGHEkxQhwjO0FA4YC+EJKp8OXRwon
+	ObpA4jcraBgHXVpOLwow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQ9UQ-0003n6-Mu; Sun, 19 Apr 2020 12:56:02 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jQ9TG-0000LX-31; Sun, 19 Apr 2020 12:54:50 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQ9QM-0005wg-CV
- for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 12:51:56 +0000
+ id 1jQ9QM-0005wi-CU
+ for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 12:51:54 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 55A312A0D8E;
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id B9EDB2A0D95;
  Sun, 19 Apr 2020 13:51:47 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
  =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Subject: [PATCH 8/9] mtd: rawnand: bcm47xx: Merge all source files
-Date: Sun, 19 Apr 2020 14:51:39 +0200
-Message-Id: <20200419125140.1307309-9-boris.brezillon@collabora.com>
+Subject: [PATCH 9/9] mtd: rawnand: bcm47xx: Move the driver to
+ drivers/mtd/nand/raw/
+Date: Sun, 19 Apr 2020 14:51:40 +0200
+Message-Id: <20200419125140.1307309-10-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.2
 In-Reply-To: <20200419125140.1307309-1-boris.brezillon@collabora.com>
 References: <20200419125140.1307309-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200419_055150_721333_6EF8C499 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20200419_055150_584496_FCEDF797 
+X-CRM114-Status: GOOD (  11.89  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -65,133 +68,51 @@ Cc: Vignesh Raghavendra <vigneshr@ti.com>,
  Richard Weinberger <richard@nod.at>, Boris Brezillon <bbrezillon@kernel.org>,
  Boris Brezillon <boris.brezillon@collabora.com>,
  bcm-kernel-feedback-list@broadcom.com, openwrt-devel@lists.openwrt.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-R2l2ZW4gdGhlIG51bWJlciBvZiBsaW5lcyBpdCBkb2Vzbid0IG1ha2UgdGhlbSB0byBzcGxpdCB0
-aGUgY29kZS4gTGV0J3MKbWVyZ2UgZXZlcnl0aGluZyBpbiBtYWluLmMgYW5kIHJlbmFtZSB0aGUg
-ZmlsZSBpbnRvIGJjbTQ3eHhuZmxhc2guYy4KClNpZ25lZC1vZmYtYnk6IEJvcmlzIEJyZXppbGxv
-biA8Ym9yaXMuYnJlemlsbG9uQGNvbGxhYm9yYS5jb20+Ci0tLQogZHJpdmVycy9tdGQvbmFuZC9y
-YXcvYmNtNDd4eG5mbGFzaC9NYWtlZmlsZSAgIHwgIDMgLQogLi4uL3tvcHNfYmNtNDcwNi5jID0+
-IGJjbTQ3eHhuZmxhc2guY30gICAgICAgIHwgODEgKysrKysrKysrKysrKysrKysrLQogLi4uL25h
-bmQvcmF3L2JjbTQ3eHhuZmxhc2gvYmNtNDd4eG5mbGFzaC5oICAgIHwgMjEgLS0tLS0KIGRyaXZl
-cnMvbXRkL25hbmQvcmF3L2JjbTQ3eHhuZmxhc2gvbWFpbi5jICAgICB8IDc3IC0tLS0tLS0tLS0t
-LS0tLS0tLQogNCBmaWxlcyBjaGFuZ2VkLCA3OCBpbnNlcnRpb25zKCspLCAxMDQgZGVsZXRpb25z
-KC0pCiByZW5hbWUgZHJpdmVycy9tdGQvbmFuZC9yYXcvYmNtNDd4eG5mbGFzaC97b3BzX2JjbTQ3
-MDYuYyA9PiBiY200N3h4bmZsYXNoLmN9ICg4MiUpCiBkZWxldGUgbW9kZSAxMDA2NDQgZHJpdmVy
-cy9tdGQvbmFuZC9yYXcvYmNtNDd4eG5mbGFzaC9iY200N3h4bmZsYXNoLmgKIGRlbGV0ZSBtb2Rl
-IDEwMDY0NCBkcml2ZXJzL210ZC9uYW5kL3Jhdy9iY200N3h4bmZsYXNoL21haW4uYwoKZGlmZiAt
-LWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L2JjbTQ3eHhuZmxhc2gvTWFrZWZpbGUgYi9kcml2
-ZXJzL210ZC9uYW5kL3Jhdy9iY200N3h4bmZsYXNoL01ha2VmaWxlCmluZGV4IGI1MzFhNjMwYzlj
-Zi4uNzFhOTUzMDc4Nzk5IDEwMDY0NAotLS0gYS9kcml2ZXJzL210ZC9uYW5kL3Jhdy9iY200N3h4
-bmZsYXNoL01ha2VmaWxlCisrKyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L2JjbTQ3eHhuZmxhc2gv
-TWFrZWZpbGUKQEAgLTEsNSArMSwyIEBACiAjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwt
-Mi4wLW9ubHkKLWJjbTQ3eHhuZmxhc2gteQkJCQkrPSBtYWluLm8KLWJjbTQ3eHhuZmxhc2gteQkJ
-CQkrPSBvcHNfYmNtNDcwNi5vCi0KIG9iai0kKENPTkZJR19NVERfTkFORF9CQ000N1hYTkZMQVNI
-KQkrPSBiY200N3h4bmZsYXNoLm8KZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L2Jj
-bTQ3eHhuZmxhc2gvb3BzX2JjbTQ3MDYuYyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L2JjbTQ3eHhu
-Zmxhc2gvYmNtNDd4eG5mbGFzaC5jCnNpbWlsYXJpdHkgaW5kZXggODIlCnJlbmFtZSBmcm9tIGRy
-aXZlcnMvbXRkL25hbmQvcmF3L2JjbTQ3eHhuZmxhc2gvb3BzX2JjbTQ3MDYuYwpyZW5hbWUgdG8g
-ZHJpdmVycy9tdGQvbmFuZC9yYXcvYmNtNDd4eG5mbGFzaC9iY200N3h4bmZsYXNoLmMKaW5kZXgg
-YWI5ODlkZTU0Y2ZjLi5hZTAzOTFjMWVlMjggMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvbXRkL25hbmQv
-cmF3L2JjbTQ3eHhuZmxhc2gvb3BzX2JjbTQ3MDYuYworKysgYi9kcml2ZXJzL210ZC9uYW5kL3Jh
-dy9iY200N3h4bmZsYXNoL2JjbTQ3eHhuZmxhc2guYwpAQCAtNSwxMyArNSwxNCBAQAogICogQ29w
-eXJpZ2h0IChDKSAyMDEyIFJhZmHFgiBNacWCZWNraSA8emFqZWM1QGdtYWlsLmNvbT4KICAqLwog
-Ci0jaW5jbHVkZSAiYmNtNDd4eG5mbGFzaC5oIgotCisjaW5jbHVkZSA8bGludXgvZGVsYXkuaD4K
-ICNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KICNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4KICNp
-bmNsdWRlIDxsaW51eC9zbGFiLmg+Ci0jaW5jbHVkZSA8bGludXgvZGVsYXkuaD4KKyNpbmNsdWRl
-IDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4KICNpbmNsdWRlIDxsaW51eC9iY21hL2JjbWEuaD4K
-KyNpbmNsdWRlIDxsaW51eC9tdGQvbXRkLmg+CisjaW5jbHVkZSA8bGludXgvbXRkL3Jhd25hbmQu
-aD4KIAogLyogQnJvYWRjb20gdXNlcyAxJzAwMCcwMDAgYnV0IGl0IHNlZW1zIHRvIGJlIHRvbyBt
-YW55LiBUZXN0cyBvbiBXTkRSNDUwMCBoYXMKICAqIHNob3duIH4xMDAwIHJldHJpZXMgYXMgbWF4
-aXVtdW0uICovCkBAIC00OCw2ICs0OSwxNyBAQAogI2RlZmluZSBDT05GX0NPTF9CWVRFUyh4KQkJ
-KCgoeCkgLSAxKSA8PCA0KQogI2RlZmluZSBDT05GX1JPV19CWVRFUyh4KQkJKCgoeCkgLSAxKSA8
-PCA2KQogCisjaWZuZGVmIHByX2ZtdAorI2RlZmluZSBwcl9mbXQoZm10KQkJS0JVSUxEX01PRE5B
-TUUgIjogIiBmbXQKKyNlbmRpZgorCitzdHJ1Y3QgYmNtNDd4eG5mbGFzaCB7CisJc3RydWN0IG5h
-bmRfY29udHJvbGxlciBiYXNlOworCXN0cnVjdCBiY21hX2Rydl9jYyAqY2M7CisKKwlzdHJ1Y3Qg
-bmFuZF9jaGlwIG5hbmRfY2hpcDsKK307CisKIC8qKioqKioqKioqKioqKioqKioqKioqKioqKioq
-KioqKioqKioqKioqKioqKioqKioqKgogICogVmFyaW91cyBoZWxwZXJzCiAgKioqKioqKioqKioq
-KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovCkBAIC0yNzYsMyArMjg4LDY2
-IEBAIGludCBiY200N3h4bmZsYXNoX29wc19iY200NzA2X2luaXQoc3RydWN0IGJjbTQ3eHhuZmxh
-c2ggKmI0N24pCiAKIAlyZXR1cm4gZXJyOwogfQorCitzdGF0aWMgY29uc3QgY2hhciAqcHJvYmVz
-W10gPSB7ICJiY200N3h4cGFydCIsIE5VTEwgfTsKKworc3RhdGljIGludCBiY200N3h4bmZsYXNo
-X3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCit7CisJc3RydWN0IGJjbWFfbmZs
-YXNoICpuZmxhc2ggPSBkZXZfZ2V0X3BsYXRkYXRhKCZwZGV2LT5kZXYpOworCXN0cnVjdCBiY200
-N3h4bmZsYXNoICpiNDduOworCXN0cnVjdCBtdGRfaW5mbyAqbXRkOworCWludCBlcnIgPSAwOwor
-CisJYjQ3biA9IGRldm1fa3phbGxvYygmcGRldi0+ZGV2LCBzaXplb2YoKmI0N24pLCBHRlBfS0VS
-TkVMKTsKKwlpZiAoIWI0N24pCisJCXJldHVybiAtRU5PTUVNOworCisJbmFuZF9zZXRfY29udHJv
-bGxlcl9kYXRhKCZiNDduLT5uYW5kX2NoaXAsIGI0N24pOworCW10ZCA9IG5hbmRfdG9fbXRkKCZi
-NDduLT5uYW5kX2NoaXApOworCW10ZC0+ZGV2LnBhcmVudCA9ICZwZGV2LT5kZXY7CisJYjQ3bi0+
-Y2MgPSBjb250YWluZXJfb2YobmZsYXNoLCBzdHJ1Y3QgYmNtYV9kcnZfY2MsIG5mbGFzaCk7CisK
-KwlpZiAoYjQ3bi0+Y2MtPmNvcmUtPmJ1cy0+Y2hpcGluZm8uaWQgPT0gQkNNQV9DSElQX0lEX0JD
-TTQ3MDYpIHsKKwkJZXJyID0gYmNtNDd4eG5mbGFzaF9vcHNfYmNtNDcwNl9pbml0KGI0N24pOwor
-CX0gZWxzZSB7CisJCXByX2VycigiRGV2aWNlIG5vdCBzdXBwb3J0ZWRcbiIpOworCQllcnIgPSAt
-RU5PVFNVUFA7CisJfQorCWlmIChlcnIpIHsKKwkJcHJfZXJyKCJJbml0aWFsaXphdGlvbiBmYWls
-ZWQ6ICVkXG4iLCBlcnIpOworCQlyZXR1cm4gZXJyOworCX0KKworCXBsYXRmb3JtX3NldF9kcnZk
-YXRhKHBkZXYsIGI0N24pOworCisJZXJyID0gbXRkX2RldmljZV9wYXJzZV9yZWdpc3RlcihtdGQs
-IHByb2JlcywgTlVMTCwgTlVMTCwgMCk7CisJaWYgKGVycikgeworCQlwcl9lcnIoIkZhaWxlZCB0
-byByZWdpc3RlciBNVEQgZGV2aWNlOiAlZFxuIiwgZXJyKTsKKwkJcmV0dXJuIGVycjsKKwl9CisK
-KwlyZXR1cm4gMDsKK30KKworc3RhdGljIGludCBiY200N3h4bmZsYXNoX3JlbW92ZShzdHJ1Y3Qg
-cGxhdGZvcm1fZGV2aWNlICpwZGV2KQoreworCXN0cnVjdCBiY200N3h4bmZsYXNoICpuZmxhc2gg
-PSBwbGF0Zm9ybV9nZXRfZHJ2ZGF0YShwZGV2KTsKKworCW5hbmRfcmVsZWFzZSgmbmZsYXNoLT5u
-YW5kX2NoaXApOworCisJcmV0dXJuIDA7Cit9CisKK3N0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJp
-dmVyIGJjbTQ3eHhuZmxhc2hfZHJpdmVyID0geworCS5wcm9iZQk9IGJjbTQ3eHhuZmxhc2hfcHJv
-YmUsCisJLnJlbW92ZSA9IGJjbTQ3eHhuZmxhc2hfcmVtb3ZlLAorCS5kcml2ZXIgPSB7CisJCS5u
-YW1lID0gImJjbWFfbmZsYXNoIiwKKwl9LAorfTsKK21vZHVsZV9wbGF0Zm9ybV9kcml2ZXIoYmNt
-NDd4eG5mbGFzaF9kcml2ZXIpOworCitNT0RVTEVfREVTQ1JJUFRJT04oIk5BTkQgZmxhc2ggZHJp
-dmVyIGZvciBCQ01BIGJ1cyIpOworTU9EVUxFX0xJQ0VOU0UoIkdQTCIpOworTU9EVUxFX0FVVEhP
-UigiUmFmYcWCIE1pxYJlY2tpIik7CisKZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3
-L2JjbTQ3eHhuZmxhc2gvYmNtNDd4eG5mbGFzaC5oIGIvZHJpdmVycy9tdGQvbmFuZC9yYXcvYmNt
-NDd4eG5mbGFzaC9iY200N3h4bmZsYXNoLmgKZGVsZXRlZCBmaWxlIG1vZGUgMTAwNjQ0CmluZGV4
-IDhkZTBlN2UwYTNhNC4uMDAwMDAwMDAwMDAwCi0tLSBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L2Jj
-bTQ3eHhuZmxhc2gvYmNtNDd4eG5mbGFzaC5oCisrKyAvZGV2L251bGwKQEAgLTEsMjEgKzAsMCBA
-QAotLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgKi8KLSNpZm5kZWYgX19CQ000
-N1hYTkZMQVNIX0gKLSNkZWZpbmUgX19CQ000N1hYTkZMQVNIX0gKLQotI2lmbmRlZiBwcl9mbXQK
-LSNkZWZpbmUgcHJfZm10KGZtdCkJCUtCVUlMRF9NT0ROQU1FICI6ICIgZm10Ci0jZW5kaWYKLQot
-I2luY2x1ZGUgPGxpbnV4L210ZC9tdGQuaD4KLSNpbmNsdWRlIDxsaW51eC9tdGQvcmF3bmFuZC5o
-PgotCi1zdHJ1Y3QgYmNtNDd4eG5mbGFzaCB7Ci0Jc3RydWN0IG5hbmRfY29udHJvbGxlciBiYXNl
-OwotCXN0cnVjdCBiY21hX2Rydl9jYyAqY2M7Ci0KLQlzdHJ1Y3QgbmFuZF9jaGlwIG5hbmRfY2hp
-cDsKLX07Ci0KLWludCBiY200N3h4bmZsYXNoX29wc19iY200NzA2X2luaXQoc3RydWN0IGJjbTQ3
-eHhuZmxhc2ggKmI0N24pOwotCi0jZW5kaWYgLyogQkNNNDdYWE5GTEFTSCAqLwpkaWZmIC0tZ2l0
-IGEvZHJpdmVycy9tdGQvbmFuZC9yYXcvYmNtNDd4eG5mbGFzaC9tYWluLmMgYi9kcml2ZXJzL210
-ZC9uYW5kL3Jhdy9iY200N3h4bmZsYXNoL21haW4uYwpkZWxldGVkIGZpbGUgbW9kZSAxMDA2NDQK
-aW5kZXggOGRhZTk3YzFkYmU3Li4wMDAwMDAwMDAwMDAKLS0tIGEvZHJpdmVycy9tdGQvbmFuZC9y
-YXcvYmNtNDd4eG5mbGFzaC9tYWluLmMKKysrIC9kZXYvbnVsbApAQCAtMSw3NyArMCwwIEBACi0v
-LyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMC1vbmx5Ci0vKgotICogQkNNNDdYWCBO
-QU5EIGZsYXNoIGRyaXZlcgotICoKLSAqIENvcHlyaWdodCAoQykgMjAxMiBSYWZhxYIgTWnFgmVj
-a2kgPHphamVjNUBnbWFpbC5jb20+Ci0gKi8KLQotI2luY2x1ZGUgImJjbTQ3eHhuZmxhc2guaCIK
-LQotI2luY2x1ZGUgPGxpbnV4L21vZHVsZS5oPgotI2luY2x1ZGUgPGxpbnV4L2tlcm5lbC5oPgot
-I2luY2x1ZGUgPGxpbnV4L3NsYWIuaD4KLSNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2Uu
-aD4KLSNpbmNsdWRlIDxsaW51eC9iY21hL2JjbWEuaD4KLQotTU9EVUxFX0RFU0NSSVBUSU9OKCJO
-QU5EIGZsYXNoIGRyaXZlciBmb3IgQkNNQSBidXMiKTsKLU1PRFVMRV9MSUNFTlNFKCJHUEwiKTsK
-LU1PRFVMRV9BVVRIT1IoIlJhZmHFgiBNacWCZWNraSIpOwotCi1zdGF0aWMgY29uc3QgY2hhciAq
-cHJvYmVzW10gPSB7ICJiY200N3h4cGFydCIsIE5VTEwgfTsKLQotc3RhdGljIGludCBiY200N3h4
-bmZsYXNoX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCi17Ci0Jc3RydWN0IGJj
-bWFfbmZsYXNoICpuZmxhc2ggPSBkZXZfZ2V0X3BsYXRkYXRhKCZwZGV2LT5kZXYpOwotCXN0cnVj
-dCBiY200N3h4bmZsYXNoICpiNDduOwotCXN0cnVjdCBtdGRfaW5mbyAqbXRkOwotCWludCBlcnIg
-PSAwOwotCi0JYjQ3biA9IGRldm1fa3phbGxvYygmcGRldi0+ZGV2LCBzaXplb2YoKmI0N24pLCBH
-RlBfS0VSTkVMKTsKLQlpZiAoIWI0N24pCi0JCXJldHVybiAtRU5PTUVNOwotCi0JbmFuZF9zZXRf
-Y29udHJvbGxlcl9kYXRhKCZiNDduLT5uYW5kX2NoaXAsIGI0N24pOwotCW10ZCA9IG5hbmRfdG9f
-bXRkKCZiNDduLT5uYW5kX2NoaXApOwotCW10ZC0+ZGV2LnBhcmVudCA9ICZwZGV2LT5kZXY7Ci0J
-YjQ3bi0+Y2MgPSBjb250YWluZXJfb2YobmZsYXNoLCBzdHJ1Y3QgYmNtYV9kcnZfY2MsIG5mbGFz
-aCk7Ci0KLQlpZiAoYjQ3bi0+Y2MtPmNvcmUtPmJ1cy0+Y2hpcGluZm8uaWQgPT0gQkNNQV9DSElQ
-X0lEX0JDTTQ3MDYpIHsKLQkJZXJyID0gYmNtNDd4eG5mbGFzaF9vcHNfYmNtNDcwNl9pbml0KGI0
-N24pOwotCX0gZWxzZSB7Ci0JCXByX2VycigiRGV2aWNlIG5vdCBzdXBwb3J0ZWRcbiIpOwotCQll
-cnIgPSAtRU5PVFNVUFA7Ci0JfQotCWlmIChlcnIpIHsKLQkJcHJfZXJyKCJJbml0aWFsaXphdGlv
-biBmYWlsZWQ6ICVkXG4iLCBlcnIpOwotCQlyZXR1cm4gZXJyOwotCX0KLQotCXBsYXRmb3JtX3Nl
-dF9kcnZkYXRhKHBkZXYsIGI0N24pOwotCi0JZXJyID0gbXRkX2RldmljZV9wYXJzZV9yZWdpc3Rl
-cihtdGQsIHByb2JlcywgTlVMTCwgTlVMTCwgMCk7Ci0JaWYgKGVycikgewotCQlwcl9lcnIoIkZh
-aWxlZCB0byByZWdpc3RlciBNVEQgZGV2aWNlOiAlZFxuIiwgZXJyKTsKLQkJcmV0dXJuIGVycjsK
-LQl9Ci0KLQlyZXR1cm4gMDsKLX0KLQotc3RhdGljIGludCBiY200N3h4bmZsYXNoX3JlbW92ZShz
-dHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQotewotCXN0cnVjdCBiY200N3h4bmZsYXNoICpu
-Zmxhc2ggPSBwbGF0Zm9ybV9nZXRfZHJ2ZGF0YShwZGV2KTsKLQotCW5hbmRfcmVsZWFzZSgmbmZs
-YXNoLT5uYW5kX2NoaXApOwotCi0JcmV0dXJuIDA7Ci19Ci0KLXN0YXRpYyBzdHJ1Y3QgcGxhdGZv
-cm1fZHJpdmVyIGJjbTQ3eHhuZmxhc2hfZHJpdmVyID0gewotCS5wcm9iZQk9IGJjbTQ3eHhuZmxh
-c2hfcHJvYmUsCi0JLnJlbW92ZSA9IGJjbTQ3eHhuZmxhc2hfcmVtb3ZlLAotCS5kcml2ZXIgPSB7
-Ci0JCS5uYW1lID0gImJjbWFfbmZsYXNoIiwKLQl9LAotfTsKLQotbW9kdWxlX3BsYXRmb3JtX2Ry
-aXZlcihiY200N3h4bmZsYXNoX2RyaXZlcik7Ci0tIAoyLjI1LjIKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Np
-b24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtbXRkLwo=
+Now that we have a single we can move it to the directory where all
+single source file drivers live.
+
+Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+---
+ drivers/mtd/nand/raw/Makefile                            | 1 +
+ drivers/mtd/nand/raw/{bcm47xxnflash => }/bcm47xxnflash.c | 0
+ drivers/mtd/nand/raw/bcm47xxnflash/Makefile              | 2 --
+ 3 files changed, 1 insertion(+), 2 deletions(-)
+ rename drivers/mtd/nand/raw/{bcm47xxnflash => }/bcm47xxnflash.c (100%)
+ delete mode 100644 drivers/mtd/nand/raw/bcm47xxnflash/Makefile
+
+diff --git a/drivers/mtd/nand/raw/Makefile b/drivers/mtd/nand/raw/Makefile
+index 2d136b158fb7..703d696c2d61 100644
+--- a/drivers/mtd/nand/raw/Makefile
++++ b/drivers/mtd/nand/raw/Makefile
+@@ -58,6 +58,7 @@ obj-$(CONFIG_MTD_NAND_TEGRA)		+= tegra_nand.o
+ obj-$(CONFIG_MTD_NAND_STM32_FMC2)	+= stm32_fmc2_nand.o
+ obj-$(CONFIG_MTD_NAND_MESON)		+= meson_nand.o
+ obj-$(CONFIG_MTD_NAND_CADENCE)		+= cadence-nand-controller.o
++obj-$(CONFIG_MTD_NAND_BCM47XXNFLASH)	+= bcm47xxnflash.o
+ 
+ nand-objs := nand_base.o nand_legacy.o nand_bbt.o nand_timings.o nand_ids.o
+ nand-objs += nand_onfi.o
+diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.c b/drivers/mtd/nand/raw/bcm47xxnflash.c
+similarity index 100%
+rename from drivers/mtd/nand/raw/bcm47xxnflash/bcm47xxnflash.c
+rename to drivers/mtd/nand/raw/bcm47xxnflash.c
+diff --git a/drivers/mtd/nand/raw/bcm47xxnflash/Makefile b/drivers/mtd/nand/raw/bcm47xxnflash/Makefile
+deleted file mode 100644
+index 71a953078799..000000000000
+--- a/drivers/mtd/nand/raw/bcm47xxnflash/Makefile
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# SPDX-License-Identifier: GPL-2.0-only
+-obj-$(CONFIG_MTD_NAND_BCM47XXNFLASH)	+= bcm47xxnflash.o
+-- 
+2.25.2
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
