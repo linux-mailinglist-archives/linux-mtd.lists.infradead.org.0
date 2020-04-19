@@ -2,56 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43DAC1AFD85
-	for <lists+linux-mtd@lfdr.de>; Sun, 19 Apr 2020 21:31:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FDBE1AFE95
+	for <lists+linux-mtd@lfdr.de>; Mon, 20 Apr 2020 00:20:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5beuNTZDg0B8uG7yliCs7mOmC8e6ksz5tGgeEFnM5P8=; b=vBAthYrA8lB/TC
-	qziGaHHmxDtf7iT0tpiP8RcAadvZY8w2L1ER0VqdaO2ZbEDxlYA3KeaKoIx+TA8iQkqxZukYpeYYV
-	+1JxgFoVU727JrNaHSyLqlNG7hY53wYp4qSktxtoRa/Kg6vUDmuHIkVAY2l3bsHPIlo/fM9Qnm8Ny
-	4xcqJD1k/pMmKWdB427UKih1YKNJYRI/1sy2oBoP4NxIxvvGt4NKZkPOBEhvhK83nJdsfJYyFp/sY
-	1Qi6DpIDIq4Zhz737DmENOa4g0RHyQY2sffLILRdzgR4eoNfHv5gxgQN+L1PyD2F9ap+hE8b0gtgg
-	ic7KjpUey8aQXRSQJotg==;
+	List-Owner; bh=2TsCEK4myVqZnsHsAI7xzJeLN5YBqFB+v9eKfoX39wU=; b=MdPCJrXx401HG+
+	p5QJ5LBPFjMZOjq7IQbTNBb4Kjv1jDEekmyqclNkzkLtMSyUvYgGe048PE6kknbjl6S8LZNRBPJxL
+	9l/UIo7sTiBHL9CAyAUdl7EOAif1Dc/cxH0Enirj9YBBTD6JJEu27mYQcp/As/A5DJilL/46cwvYN
+	2NjGozPgVlLzB9LWqfr3MYRwwBAS7PWFh2aIidTJ5jHbrxw0TTFbl0HBN2qq0jBFAagvHe1Ieeoti
+	rBK7OdM+/exQuM96uInFvIpqSyVQpMBiC3rR9x68KdkECXAz0pAs/tNDnW5x6OlyDRPQgdBVWFk7w
+	glbehTIyDaxK7aFQpBYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQFf6-0004fA-DY; Sun, 19 Apr 2020 19:31:28 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jQIJ0-0001Df-94; Sun, 19 Apr 2020 22:20:50 +0000
+Received: from mga17.intel.com ([192.55.52.151])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQFeO-0004Cx-F7
- for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 19:30:46 +0000
-Received: from localhost.localdomain (unknown
- [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 1D0352A05AA;
- Sun, 19 Apr 2020 20:30:43 +0100 (BST)
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	linux-mtd@lists.infradead.org
-Subject: [PATCH 4/4] mtd: rawnand: au1550nd: Patch the read/write buf helper
- prototypes
-Date: Sun, 19 Apr 2020 21:30:37 +0200
-Message-Id: <20200419193037.1544035-5-boris.brezillon@collabora.com>
-X-Mailer: git-send-email 2.25.2
-In-Reply-To: <20200419193037.1544035-1-boris.brezillon@collabora.com>
-References: <20200419193037.1544035-1-boris.brezillon@collabora.com>
+ id 1jQIIt-0001D6-0b
+ for linux-mtd@lists.infradead.org; Sun, 19 Apr 2020 22:20:44 +0000
+IronPort-SDR: PVDzgcb415dyePt6HsOMfVJgZjJhl6qAXuXfowFCUONOUY2s1oMnpLZfhpnyYQ4aHSwDqt0Bfi
+ /b/cVQXs0gkA==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 19 Apr 2020 15:20:42 -0700
+IronPort-SDR: iMyrqd0w9kkDgNJOqMuBhbWjtqKbPncMEvlvXXKhv/G3fplHyqe9BIQAcCQusETU+x7wl+zSaq
+ U4QSkck0WrNA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.72,404,1580803200"; d="scan'208";a="246747551"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+ by fmsmga008.fm.intel.com with ESMTP; 19 Apr 2020 15:20:38 -0700
+Received: from andy by smile with local (Exim 4.93)
+ (envelope-from <andriy.shevchenko@intel.com>)
+ id 1jQIIq-001v70-5G; Mon, 20 Apr 2020 01:20:40 +0300
+Date: Mon, 20 Apr 2020 01:20:40 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 2/2] mtd: rawnand: Add NAND controller support on
+ Intel LGM SoC
+Message-ID: <20200419222040.GJ185537@smile.fi.intel.com>
+References: <20200417082147.43384-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200417082147.43384-3-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200418105533.477ce529@collabora.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200418105533.477ce529@collabora.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200419_123044_628704_EDF57069 
-X-CRM114-Status: GOOD (  12.02  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200419_152043_065926_2F33356C 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [192.55.52.151 listed in list.dnswl.org]
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,108 +76,39 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, linux-mips@vger.kernel.org,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>
+Cc: cheol.yong.kim@intel.com, devicetree@vger.kernel.org, qi-ming.wu@intel.com,
+ anders.roxell@linaro.org, vigneshr@ti.com, arnd@arndb.de,
+ hauke.mehrtens@intel.com, richard@nod.at, brendanhiggins@google.com,
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, "Ramuthevar,
+ Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>,
+ robh+dt@kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
+ tglx@linutronix.de, masonccyang@mxic.com.tw, piotrs@cadence.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-To match the types passed by au1550nd_exec_instr() function.
+On Sat, Apr 18, 2020 at 10:55:33AM +0200, Boris Brezillon wrote:
+> On Fri, 17 Apr 2020 16:21:47 +0800
+> "Ramuthevar,Vadivel MuruganX"
+> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
+> 
+> > From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
 
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
----
- drivers/mtd/nand/raw/au1550nd.c | 30 +++++++++++++++++-------------
- 1 file changed, 17 insertions(+), 13 deletions(-)
+> > +static const struct of_device_id lgm_nand_match[] = {
+> > +	{ .compatible = "intel,lgm-nand", },
+> > +	{}
+> > +};
+> > +MODULE_DEVICE_TABLE(of, lgm_nand_match);
+> 
+> You probably have a missing "depends on OF" in your Kconfig.
 
-diff --git a/drivers/mtd/nand/raw/au1550nd.c b/drivers/mtd/nand/raw/au1550nd.c
-index dbcbc1c8b6ff..7158298119cf 100644
---- a/drivers/mtd/nand/raw/au1550nd.c
-+++ b/drivers/mtd/nand/raw/au1550nd.c
-@@ -37,13 +37,15 @@ static struct au1550nd_ctx *chip_to_au_ctx(struct nand_chip *this)
-  *
-  * write function for 8bit buswidth
-  */
--static void au_write_buf(struct nand_chip *this, const u_char *buf, int len)
-+static void au_write_buf(struct nand_chip *this, const void *buf,
-+			 unsigned int len)
- {
- 	struct au1550nd_ctx *ctx = chip_to_au_ctx(this);
-+	const u8 *p = buf;
- 	int i;
- 
- 	for (i = 0; i < len; i++) {
--		writeb(buf[i], ctx->base + MEM_STNAND_DATA);
-+		writeb(p[i], ctx->base + MEM_STNAND_DATA);
- 		wmb(); /* drain writebuffer */
- 	}
- }
-@@ -56,13 +58,15 @@ static void au_write_buf(struct nand_chip *this, const u_char *buf, int len)
-  *
-  * read function for 8bit buswidth
-  */
--static void au_read_buf(struct nand_chip *this, u_char *buf, int len)
-+static void au_read_buf(struct nand_chip *this, void *buf,
-+			unsigned int len)
- {
- 	struct au1550nd_ctx *ctx = chip_to_au_ctx(this);
-+	u8 *p = buf;
- 	int i;
- 
- 	for (i = 0; i < len; i++) {
--		buf[i] = readb(ctx->base + MEM_STNAND_DATA);
-+		p[i] = readb(ctx->base + MEM_STNAND_DATA);
- 		wmb(); /* drain writebuffer */
- 	}
- }
-@@ -75,18 +79,18 @@ static void au_read_buf(struct nand_chip *this, u_char *buf, int len)
-  *
-  * write function for 16bit buswidth
-  */
--static void au_write_buf16(struct nand_chip *this, const u_char *buf, int len)
-+static void au_write_buf16(struct nand_chip *this, const void *buf,
-+			   unsigned int len)
- {
- 	struct au1550nd_ctx *ctx = chip_to_au_ctx(this);
--	int i;
--	u16 *p = (u16 *) buf;
--	len >>= 1;
-+	const u16 *p = buf;
-+	unsigned int i;
- 
-+	len >>= 1;
- 	for (i = 0; i < len; i++) {
- 		writew(p[i], ctx->base + MEM_STNAND_DATA);
- 		wmb(); /* drain writebuffer */
- 	}
--
- }
- 
- /**
-@@ -97,13 +101,13 @@ static void au_write_buf16(struct nand_chip *this, const u_char *buf, int len)
-  *
-  * read function for 16bit buswidth
-  */
--static void au_read_buf16(struct nand_chip *this, u_char *buf, int len)
-+static void au_read_buf16(struct nand_chip *this, void *buf, unsigned int len)
- {
- 	struct au1550nd_ctx *ctx = chip_to_au_ctx(this);
--	int i;
--	u16 *p = (u16 *) buf;
--	len >>= 1;
-+	unsigned int i;
-+	u16 *p = buf;
- 
-+	len >>= 1;
- 	for (i = 0; i < len; i++) {
- 		p[i] = readw(ctx->base + MEM_STNAND_DATA);
- 		wmb(); /* drain writebuffer */
+Since it's using device property API, dependency is not needed.
+
 -- 
-2.25.2
+With Best Regards,
+Andy Shevchenko
+
 
 
 ______________________________________________________
