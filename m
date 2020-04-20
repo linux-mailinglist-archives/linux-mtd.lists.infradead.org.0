@@ -2,65 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 35A591B0801
-	for <lists+linux-mtd@lfdr.de>; Mon, 20 Apr 2020 13:48:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AA4611B090A
+	for <lists+linux-mtd@lfdr.de>; Mon, 20 Apr 2020 14:14:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Oa+sDNHw4u7/Giwj75+41ZxyNehd5O5hyV8WnZE9jw=; b=K6N97HJoiudwqq
-	xLDvg6HJ2UeZU0JLdU1JfCNrPum/SVk0y9bFiwBIsN3KqTVxjJ7bpvdTXZS8VegGZHyTMJ1A1wH6M
-	dZtXoxqQ9ig+Cn9AQnN6H0oPZaWSjbSNBNLudvAHznmrRbU25XaIw4+Lc4rKusN3hh2h7ZoE344Rm
-	DKnFvrQop3hFox4mSZCohCyErX9/c3J3CV9iGZNc7eRCIBiwQHEandOJ2EP9zGlZteHaC8vq9xDpK
-	j+oEzmc5wA6t8blgSOPyL3V/IhrZXBlX1NPU4wI/eoQyZRFfo8+A7plSlozKZoK9eUlh0uxtq01zh
-	NbnB6u7PYzS6pMiFZJUw==;
+	List-Owner; bh=rpXADp7cjIWxa4D5lxbMvhQArBTh5SiZ/AWc5tAMk+w=; b=VBNOA+DS4kzMKs
+	YIYJ3lMd9vg4RnBdzmtt+HUX1bUtCCtf97MhJXQCIRPzozbrulEbcFGUGjxdl+7CDbN851r7MA2Zl
+	udX3H+swkAJwI/G1vw7LQNoQ4tJ5xwNmb8w6MXi3fxgl8zjcqSPuBNq6cPxD+qMMqBHrk3o64q5yO
+	2W5P5OgkHOPYg/JYtF5vMRBe1xCd+h0qfAckWt3FsP2oP/lBq6EEogb72tbjTimXCMA0dyXsSgdFw
+	gIPoihsOMtN9YMXpnkiTVP+UyJB+67aRYNAj4bKELjk8MfEvr7mrcn0Lft6h1Ton56ctuOqXeIsG+
+	2Upg6kcsmMH71BhRPt/w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQUum-0002BS-Oj; Mon, 20 Apr 2020 11:48:40 +0000
-Received: from esa1.microchip.iphmx.com ([68.232.147.91])
+	id 1jQVJy-00022i-6a; Mon, 20 Apr 2020 12:14:42 +0000
+Received: from esa3.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQUue-0002BB-6g
- for linux-mtd@lists.infradead.org; Mon, 20 Apr 2020 11:48:34 +0000
+ id 1jQVJr-00021j-Lq
+ for linux-mtd@lists.infradead.org; Mon, 20 Apr 2020 12:14:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1587383312; x=1618919312;
+ t=1587384875; x=1618920875;
  h=from:to:cc:subject:date:message-id:references:
  in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=12mtXm1CwhPXrSe9livA0fnH+JMw/ziO65c0PHZX0xQ=;
- b=Cohp0hee6fiygmjF3722BS/MY1cNUjcOFhgsy8gqH96LYxsMeTmRIrsk
- a00l+KaANqiPTwMFUvPOtmdgpHQ0l9QNGHOp1YwJsNeIoRfpLEiQn7OL8
- uUvKMzaNv/NDAYebWJTKNrI4pva8lLHm/q3wREr1Oy/3loJtq9FjKJzY2
- s3kHwskh/Fb7KAUXA1I1KExgNmEiA9rFD62wpKHlVrmFln/93mjW7UZcG
- 4l0A13y0er06u2LAwB6xMqjb+gMcJPk4MiJfSZ/sUS8Z460YvM0wodsvs
- nFBmF2b3LFk3wZ7ItDyxZuDvg+K2pATXo/elVd/RH4mZCyHv9BRSWjfWW w==;
-IronPort-SDR: QHBUax5iBt+WZJE18PUN+HZudzHX+HDlMvx6jXpC34H3PLMvSJ4z5fwpHhnr3v1w8ODei89/RD
- awHmnBBePe/VnaO1q/LVuamZZ28OcsOOjqk45LuzUD/0ImA4IDIL05jo691rXgfM7XH0yW0noR
- 7aQuiic9F8pg+wpLqZH6sBoZ6QtgbmiG6FA7DfYbyJ+mdumEmL7fijyFtXJ2DMgK4CuOfr5m2B
- w1u48bSYyfcw2xOg7yhYSqRohI4oXSOABpepDi87kPwyHLc0B9O6FduAXE9bHMTw22UV0pnxVH
- D5Q=
-X-IronPort-AV: E=Sophos;i="5.72,406,1580799600"; d="scan'208";a="76538874"
+ bh=F5v/uLFYZO5WA9NgUC3siu3JBWvuEHnIKrI6SosES+o=;
+ b=CTfK5kWT8+rc8ARSvY+FwGcqov4GVH89Q3svk/2A3qelmRJoEoUmdFQo
+ nicxSm49NqOj42UkRoIlfPNl6jETzl+UWuxkS13PU+gNKR3zYnJd10j8I
+ Vb4qtyfYeRHbpjYQcNGo0XUWV+sw6qcTwYoPlnRpLpH75h4iTaKhPUS7O
+ L8f8R2b01qx8PohbQsCPb0Tkiv4oux13LJheVwdNOzpCWdj+kT8rtOeCR
+ L+aZsse95iDgxzw/qK04IMKhF7wmIwdadj3WSE/dmETs0sR6ZG8/gRKSb
+ 7ooA3vOJBe/fCNReN+KYopqiwUbsTK+A7C5SRsUYGCewpI7H3q+Qe7Ysr g==;
+IronPort-SDR: SgSkmHq4STMJCu3iwrRgHq5Bei4GiQaoRip1SGZC+pV9zQf+KHoEnamLWYWOuImN3oNAOI9fCs
+ YTvmtRluJ0xsDgXZ8xJVD5xL3tHHk9oJ8vHGToQFPUM5T34xnkCfoPAw1PvPg8kux9F98SwDNm
+ 6DIzvZ5SgGw6CZBA8e3t6w8WdGgLgfUv2eHgFH1Hq+Od12/RbO+hZiPYdOr8wYqX8yW8MAuJHU
+ iLICSSsa/kz9ftOG6/WgN7B1p5j1tWS3HehzEe9NJUa6lAiAahGtJ9vwKo7DwczABznnJWwV8Y
+ pLA=
+X-IronPort-AV: E=Sophos;i="5.72,406,1580799600"; d="scan'208";a="73890738"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 20 Apr 2020 04:48:29 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 20 Apr 2020 05:14:33 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.1713.5; Mon, 20 Apr 2020 04:48:01 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server
- (version=TLS1_2, 
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5 via Frontend
- Transport; Mon, 20 Apr 2020 04:48:35 -0700
+ 15.1.1713.5; Mon, 20 Apr 2020 05:14:33 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
+ via Frontend Transport; Mon, 20 Apr 2020 05:14:33 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TGcr2mmV/ytxvKNQroe6JwCTU6QCCk1YilMjSdHwHnTdsS13nkBZ8cKwtJaa7DHDrsi5cnJ3elUzaB5bMxeTHaADUEV8xSqCJNmlwvwiCRpacXCe+4NyYaZ1hWjW1xzJDpCnQIEbrBKaDCTJ4AW+tSNr1URRvML91BPE7NCB5i444CcscR3qEY7aGmjtRNPwa5iUv7e+l17quWdtyq7XEJrkD+iRKt7PAkOiC/ZBOFJeS8tHiPm6TjZZnywtoG1Y2TWXgWyp8nP0XVkYzd+rmlaE3JMq+eDkw7Lx9+NS2Lu8AcVyAp7GYjvnX608yoxL6n5o7YTEavX4rbjNozlaAA==
+ b=SIufhnjJ2LIZiab6qHRm+hiPkvJ643/telsZJCXz3rc4vLnNrhMnTf3i8cQupcmEOBz69NfFrTbfz+Gw1R2GgFiuLLs9rHpODmaZRBI53DKIOvp+Ii0wtpY6EBBPjXswzcAxpU33b2nFTVH9YGnbvI86TLenDVkzRAyrQmobmOv6g9KdeDwx5JTMn9wkd0TmhiJSJUaIx/tNMiZuBkVw2ORboX5i7NFvUnB/7AMie0/E3Ry+fKCHeFXzVyVLGn4+FMcd4vGJZMvl+1yR5Ukw5S/654+Hy/FRx3stIvopjTBDk2AV4hVRoiaF2r7V3wgEXtkzK6YgoygNDreSaEZNeA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AZERUPpPH9dKbF9PiaNFfiz03knMy7yUKvqyZ/Iacek=;
- b=XQM0wI1EEwdUueOcVhc1CgA/7uVVO5ABtdLULCfOoKU5aYxXo5X+nBXeQ0MeA2SSqrTp4EjCWZPy7eVZ1JT5D0ep8uz9Zx3B2oCYXQ9UlYb8QJ46MR6Ox3+QX6CzsWZrdCfVeAlQAuZQTMa4oMqiStOdjcVUlWmTL8NEmOfs7Oe8aMz4s4cT2m/KCOLfVcmIL0eI3dILdFrzYO9vnk4DhLSxkeCysjbZigRDW81noOZFSKtSmhqIgv55uW7resYxZcw6ueY+z1Pqf9ELtCdMJIq10U6AXNYSrGzk4/TnTfPlogQthUy8hHX+Kjxv+4QbHSygAN5k/KZt7IUQ+Y+jJQ==
+ bh=otuktP0JJ5UxPiwkfed5DRe+ZEl8wMKWk16inPR1z/8=;
+ b=CDHoKyE45W2zeWr/wiDTw6yDtU5v70ubKhdP0bq5TRJKAlX9Eq1rlb0f7ss3ohIpeOw+g21tOnaDRSTAhM45Zm5JxUDjj4b9hHTeaVJEXZs3UcwHUxQ3bYeeWOOuRTYs5YSoIchRJAU7XmDF0WPKkp0zSBzmrmTmoXELS8W/CUFwW5muVEzUyN6TIhphOiypxyiJPNcjZSmZyix5vpUUfCOhcntBBcS9NMQPAhkfWzXXM5sSyboFTDoEPuvobp2csrKcQKw7we0ImVVPLlr/pNKvogRov/k9FPS6QHIq9bSJFE6Iy1MuleU2WjNv/bQjIsxhqOY3IiFNifhArbGn+Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -68,26 +67,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AZERUPpPH9dKbF9PiaNFfiz03knMy7yUKvqyZ/Iacek=;
- b=hRjSL8b6ZKkPLC+so9/T52FlNDMejSHbZ6mlIeh2E0vt6ggbChBxsvCcoQmraTyiTDBu7fSetvkzbJIVZ96Sa93cbUHIZH/TwTBv1Ce1IfeqrTBXJaT+6e6KWcKczVmiPaHX7xnGB28hbSazRd8dn+MMMESnWBHehSV/z3H5vkM=
+ bh=otuktP0JJ5UxPiwkfed5DRe+ZEl8wMKWk16inPR1z/8=;
+ b=L+OP9bfioZH9XcsuLU3tkWpxUrKhTWQE6W2ZkOgx4zx1nmMk7LRz9WYlu3HwvE1CiYBZ5h/e/bkT+KAUTTJ7oqDtceU+KDIUWIudiAPn5DjsS0VYo5onUAg114uNQFFbnPuTl9J0Ta68580gTOQskv5TVWGasojJdSqRQLqJPkQ=
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
- by BY5PR11MB4468.namprd11.prod.outlook.com (2603:10b6:a03:1c9::26)
+ by BY5PR11MB4136.namprd11.prod.outlook.com (2603:10b6:a03:192::30)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2921.29; Mon, 20 Apr
- 2020 11:48:26 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2921.27; Mon, 20 Apr
+ 2020 12:14:31 +0000
 Received: from BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::d847:5d58:5325:c536]) by BY5PR11MB4419.namprd11.prod.outlook.com
  ([fe80::d847:5d58:5325:c536%7]) with mapi id 15.20.2921.027; Mon, 20 Apr 2020
- 11:48:26 +0000
+ 12:14:31 +0000
 From: <Tudor.Ambarus@microchip.com>
-To: <kuwano.takahiro@gmail.com>
-Subject: Re: [PATCH] mtd: spi-nor: Enable dual and quad read for s25fl256s0
-Thread-Topic: [PATCH] mtd: spi-nor: Enable dual and quad read for s25fl256s0
-Thread-Index: AQHWFwmZOAVDCV93B0S2YM0sf4gLnw==
-Date: Mon, 20 Apr 2020 11:48:25 +0000
-Message-ID: <2327187.pN4NURfQ3z@192.168.0.120>
-References: <20200327094434.25924-1-Takahiro.Kuwano@cypress.com>
-In-Reply-To: <20200327094434.25924-1-Takahiro.Kuwano@cypress.com>
+To: <cleger@kalray.eu>
+Subject: Re: [PATCH] mtd: spi-nor: Add support for is25lp01g
+Thread-Topic: [PATCH] mtd: spi-nor: Add support for is25lp01g
+Thread-Index: AQHWFw0/tWJ4ISRUwk6rGADNBybaDA==
+Date: Mon, 20 Apr 2020 12:14:31 +0000
+Message-ID: <1950407.5XCTmqoEVg@192.168.0.120>
+References: <20200417160839.25880-1-cleger@kalray.eu>
+In-Reply-To: <20200417160839.25880-1-cleger@kalray.eu>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -96,44 +95,43 @@ authentication-results: spf=none (sender IP is )
  smtp.mailfrom=Tudor.Ambarus@microchip.com; 
 x-originating-ip: [94.177.32.156]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 38b20457-ff0a-4c57-4430-08d7e520bc8c
-x-ms-traffictypediagnostic: BY5PR11MB4468:
-x-microsoft-antispam-prvs: <BY5PR11MB44682305F2579E3DBA3D1E93F0D40@BY5PR11MB4468.namprd11.prod.outlook.com>
+x-ms-office365-filtering-correlation-id: 17ed8a48-1945-48df-3c31-08d7e52461a4
+x-ms-traffictypediagnostic: BY5PR11MB4136:
+x-microsoft-antispam-prvs: <BY5PR11MB413645A99455209DC2C49514F0D40@BY5PR11MB4136.namprd11.prod.outlook.com>
 x-bypassexternaltag: True
-x-ms-oob-tlc-oobclassifiers: OLM:486;
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
 x-forefront-prvs: 03793408BA
 x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:5; SRV:;
  IPV:NLI; SFV:SPM; H:BY5PR11MB4419.namprd11.prod.outlook.com; PTR:; CAT:OSPM;
  SFTY:;
- SFS:(10009020)(366004)(396003)(136003)(346002)(39860400002)(376002)(8676002)(81156014)(8936002)(86362001)(316002)(478600001)(6506007)(53546011)(71200400001)(186003)(26005)(9686003)(6512007)(66556008)(66446008)(66476007)(64756008)(91956017)(76116006)(5660300002)(4326008)(2906002)(6486002)(4744005)(6916009)(14286002)(66946007)(54906003)(39026012)(138113003);
+ SFS:(10009020)(366004)(39860400002)(136003)(346002)(376002)(396003)(53546011)(4326008)(8936002)(6506007)(91956017)(76116006)(86362001)(66476007)(66556008)(66946007)(5660300002)(64756008)(66446008)(71200400001)(478600001)(186003)(14286002)(26005)(8676002)(6512007)(9686003)(316002)(6486002)(81156014)(2906002)(6916009)(54906003)(39026012)(138113003);
  DIR:OUT; SFP:1501; 
 received-spf: None (protection.outlook.com: microchip.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Prx7PLKQKWy/NDpUyjyDryEwWbuTj+LRESxQ0vw9hO/07abN9YWovG16l1E9ZmMPOVUcsKSr6/GqqaNVHnGmpsd2MBGnjTGw4njkXQCSW8xLGklajBeRUVkIjh3dNq4V4YqJOHfCetO1+YUhohkRhbLR2WX3S4RkIQc57Pe6hBP0dvKF5oSoeeCciSEN/TawzMKZvQ8Le9Tz6L+tLU3PRBHk+ib8AXRmCWgrGhxuIaka4M4S/CMHoNm7huLuqdMcnfB1QO7AEImSIdBfhOP6tegzZM+7t8qPbGNh9yPS84UxWHUfyALfuYA9gPP698XYbWb35uXFWhMzOFDIZsZVUA+D/+y4weJSQQPe+emYFY876KeOBM+4eTn3AARJMgNKbFRDbRiPCFidy8EJsxTTBorWcT4bB5YUbtD1O7TDOxPh49ni8W4whVue/BfOdBEq5I6npZt2rKGNBQeuVj9xYUx0jrB2PSb4T3q6hn7r+ecoPtZ9uhRhMHod+wPp3iwOHJxY2Mgq85yIeUx+Wit6zG6rQCm5ZmCMVNTcd2CAXjaX34PM/+Klm8l0xQbPwHKU17eBxcD1ikXC+miuPXY6sFbWT4wCC+sxbOHN2z3DsFmI16XtEbpJF0LkKaTu1Ii1qoCNi5vJBhDQQxGn7DCXl5iir2c8KBCF5sf7cWLNtVi06UiXaQei7EC77HcdWoFhhjqU6+B8f10iEKVJzLc683tU79viOBfBaJ/dEskiTDIeYTBb3pRX98e0AVsw7y+Qu3XU328ipJcZwJYYm/6ej7hRZDlZLypHko4Ty0ItXJo=
-x-ms-exchange-antispam-messagedata: qRlgEQvn1MQHQy5Va7gt95caKKcSTrcbeWbUc6mLtvi24Z14wPKqKCNx/u9/SX0hVMrifNSjVwhXDKZGofIFEyQeMiL9gzuWONm5ZvqEpnYsr+GgvSOFA8h8PgdYbpS0Gj6oXd2BhYbpZ6CdVlI4aQ==
+x-microsoft-antispam-message-info: j9YthWhseAwglrb1m4ofmiVUaZ7gauG+s1LfRseSbYF4R7+1FITAH4aD2PRv6mrKbn51PItKFDmmnE1eKAnt99AlT23cN7T6Ctc/PE8ed/4xQ1wqf+pxzo4I8RJA9mDcvS71wWKUBp2/vvw5YCqDjNW/udg2cmBgIgE3ThkvkmTyx57GGQ3T23aE6qtzhEwtXeHmgl/DkAZUHiHexJXfkAtyMvyq7einLZ4uLxZBGrZbe3E6/Dt3q0kyV2Q6/eXHXPIi7e2sbb3wlw4jBQvju4iJQbxmKSuLbUcBy0dUiepAAxYYPo+zc3Q+E85vLCtiNllLqAx9dD59Zrx7wkDz8ZaGb5bzHK6zhk8lynw0AViX44AmbXOjIp5PinE8s292sJDniSkxvbNIxBI+bCFe8JWAhKjxRAfCzTr67k44Whbuq90yrjizGqbsnOFZekNj6Ner0Nz5tnPFx4tvnszqfpbttylq6Xsjz0NhVCa7Mrhi66ulVXsQk33dCNBktHa4F29vERJeGs5OrJKD8cDwLs5GI1D+GZyCWgpwYlHt1L31jpbEMjtV7RDVG1vcLARnsgPFu6bu+Hio/dxqKSPtrTsgPQ4v8rM+KraD3qdfWwWRN7N21uyC/WBs50lM8Q8aVbBAx5K84g9ZrHzaepsoYf+mUaW22s40JDokSXCPJWSDhTbmnq8+HyCRkXyuaPxBtqYYfwFOb9Oke3B4Vo8BC94BS3lbcmxm1zYEMBDF69CvJfyVNkxME8c7PSdQ68O0GN9YL+845E2VxKIwcWUCP2IdL6/kMVqAS/w76heeALA=
+x-ms-exchange-antispam-messagedata: LYHPjBWVmODKOStcloFrpHPJuzUduiP6EsKo+dFT624CCvAh0cCzMA34iGKYtPf0MS50JG3vsMwvTFajdEPvSgoX6kyRp8L5R0PNTHiaC2MX8Ch+OSFEztCz2X7AMgc9jDl/HmNkVoahl6RXj4m1ng==
 x-ms-exchange-transport-forked: True
-Content-ID: <7CC003CA56D819438474886CF019B0D8@namprd11.prod.outlook.com>
+Content-ID: <4B2E29904E118641B933F430C110B0ED@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38b20457-ff0a-4c57-4430-08d7e520bc8c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Apr 2020 11:48:25.9648 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17ed8a48-1945-48df-3c31-08d7e52461a4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Apr 2020 12:14:31.4302 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: N7KQNzeMnuvMaZRPRNBsdm2LMJ5S0Js6Akejv0NpF+7UB+JK5GAWmkSw3E+6WET0BCm7EulCWwWXcHMoO1tOONecESZ4WXIxwcWe92DJXeY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4468
+X-MS-Exchange-CrossTenant-userprincipalname: EF89kxBBbgkkheETL+76Tu8QIoOWXfPtXejyVQlUhYLwolEuWhaa1XcvyhnYDy97MTtX5mLcT+npu8g+CQFQ4WRxgb8cFtnqRbylueOjdNg=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200420_044832_355380_07CA6BB5 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20200420_051435_717849_0AB2C12A 
+X-CRM114-Status: GOOD (  10.78  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [68.232.147.91 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [68.232.153.233 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -154,29 +152,46 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, richard@nod.at, Takahiro.Kuwano@cypress.com,
- linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- Bacem.Daassi@cypress.com
+Cc: richard@nod.at, linux-mtd@lists.infradead.org, vigneshr@ti.com,
+ linux-kernel@vger.kernel.org, miquel.raynal@bootlin.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Friday, March 27, 2020 11:44:34 AM EEST kuwano.takahiro@gmail.com wrote:
-> From: Takahiro Kuwano <Takahiro.Kuwano@cypress.com>
-> 
-> The s25fl256s0 supports dual and quad read like s25fl256s1.
-> Enable it by adding SPI_NOR_DUAL_READ and SPI_NOR_QUAD_READ
-> flags to the flash_info entry. Tested with the device and
-> confirmed that is working.
-> 
-> Signed-off-by: Takahiro Kuwano <Takahiro.Kuwano@cypress.com>
-> ---
->  drivers/mtd/spi-nor/spi-nor.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+Hi, Clement,
 
-Rebased and applied, thanks.
+On Friday, April 17, 2020 7:08:39 PM EEST Clement Leger wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> content is safe
+> 
+> Update the issi_parts table for is25lp01g (128MB) device from ISSI.
+> Tested on Kalray K200 board.
+> 
+> Signed-off-by: Clement Leger <cleger@kalray.eu>
+> ---
+>  drivers/mtd/spi-nor/issi.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/mtd/spi-nor/issi.c b/drivers/mtd/spi-nor/issi.c
+> index ffcb60e54a80..c3c3438e3d08 100644
+> --- a/drivers/mtd/spi-nor/issi.c
+> +++ b/drivers/mtd/spi-nor/issi.c
+> @@ -49,6 +49,8 @@ static const struct flash_info issi_parts[] = {
+>                              SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ
+> | SPI_NOR_4B_OPCODES)
+>                 .fixups = &is25lp256_fixups },
+> +       { "is25lp01g",  INFO(0x9d601b, 0, 64 * 1024, 2048,
+
+There is a "K" flavor of this flash which has 512 Byte Page size with 256 KB
+Block size. While the page size can be determined by parsing SFDP, I think we 
+will have some problems with sector_size because as of now, the sector_size is 
+always set to 64KB. An incorrect sector_size will affect erases and locking.
+
+Cheers,
 ta
+
+
 
 
 ______________________________________________________
