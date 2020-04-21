@@ -2,61 +2,164 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C7CD71B25C0
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 14:17:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 649811B2C93
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:24:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3QYgVgFBZUHtuqnNJ9K/NB3/POMWWotOU6obb6yOQQE=; b=TFIPd9G/2LRlrC
-	3c35v3Wd36nz16vsEU/U6uIhmWolBHDpXQQ7YzJ5If4n1ZtvEpPmKqg6SlIrWIDL70Adbuqd7sCRo
-	jH/PLnrELyTHLKqKuJDD5uzQb+5TmVf7JaBtDwZmGYAVa2jnSIS1qnRgnxY+nlOUT0Q142zY65/8l
-	/h/ouKVvuuw7o1jhH29dLGXhRlobk7Z/MLYRoWGRbhDRjhtnMWXfuvZg2Wc5vq6fgyWj8qSiotvGN
-	Sp1zMNNpnfzaIT4Fi7BU2DHZwfczmVfGxrcrvmR2I2+gjcp6Hr4Q9yeh+A929R0jgHgwUKj3vKeZ9
-	ILtJLM26zUs5631D+1ZQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RXIgKgxaFn+EnyjwD8gvtbgf4Xrv3c09qlLKh1BT9zM=; b=GVpFZl878WoZig
+	0TNDV84tZaXt1dtXO+GQbHc3JbEqHIcWQTtP7uhrNF/LK5mFs234S6cv4Ai7AB3uzYWSLLhFKiKC1
+	W/pMgkEi3hIAxwIWr2Yvd2jssfb++QlDP6JRSG4ALr6aE4FgG0/s54rikbr0SqWUTNX9eE4+dgtnY
+	tAgoZsVB7v2ORmNvJxaWyLWwHgEVFY+D1lFenK+/8MhGx/qi2DZQiirMc/7vmdrT9hNbpoP8Ubabl
+	HsN/Ywx6CBpE2T580jgebGmWwLn62RCmJf+mbhSZdtMY2oWH8NvHei201bEPHfuDrHGJFS923IWl0
+	lQxqoVu223Zh98icjlpw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQrq4-0005Ni-4u; Tue, 21 Apr 2020 12:17:20 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
+	id 1jQvhG-0001f9-Pk; Tue, 21 Apr 2020 16:24:30 +0000
+Received: from rcdn-iport-9.cisco.com ([173.37.86.80])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQrps-0005L0-Bk
- for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 12:17:10 +0000
-Received: from DGGEMS408-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id F1BF48B23A1EDA7E5F40;
- Tue, 21 Apr 2020 20:17:02 +0800 (CST)
-Received: from [10.65.58.147] (10.65.58.147) by DGGEMS408-HUB.china.huawei.com
- (10.3.19.208) with Microsoft SMTP Server id 14.3.487.0;
- Tue, 21 Apr 2020 20:16:55 +0800
-Subject: Re: [PATCH] mtd: spi-nor: sfdp: Fix wrong addr length and dummy when
- perform SMPT detection command
-To: Pratyush Yadav <me@yadavpratyush.com>
-References: <1587439812-49387-1-git-send-email-yangyicong@hisilicon.com>
- <20200421114432.px5cq3ajwwq7n2y5@yadavpratyush.com>
-From: Yicong Yang <yangyicong@hisilicon.com>
-Message-ID: <bdb3bb21-7e6f-6902-ec16-1ac482b1bdc9@hisilicon.com>
-Date: Tue, 21 Apr 2020 20:25:44 +0800
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ id 1jQvh5-0001dC-Eg
+ for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:24:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=cisco.com; i=@cisco.com; l=2368; q=dns/txt; s=iport;
+ t=1587486259; x=1588695859;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=ZBTSKn9bYXZQ+KxhsDceNmbJ1HQ/lrzo/MI3kfCBvRc=;
+ b=Q1lcdhwTr4IXTOB0jKOHAg1geEFLzz8qh4kEyaWn8LopFv4f7SKr71it
+ xCRTadw8b0JqA29AMPeLo1REKu7J32wSSQCZ29zZkoae/RmkM0HCLM3ds
+ BeoWBQjSM6xB7qmi7EZjFvdmtyx8QIj+K38l2d2f/6yhrUjMtCwJmoNBf Q=;
+IronPort-PHdr: =?us-ascii?q?9a23=3AGnegnR/TKW1auP9uRHGN82YQeigqvan1NQcJ65?=
+ =?us-ascii?q?0hzqhDabmn44+8ZR7E/fs4iljPUM2b8P9Ch+fM+4HYEW0bqdfk0jgZdYBUER?=
+ =?us-ascii?q?oMiMEYhQslVcKMD0z2KOHjRyc7B89FElRi+iLzPA=3D=3D?=
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: =?us-ascii?q?A0DvAAC9HZ9e/4cNJK1cChwBAQEBAQc?=
+ =?us-ascii?q?BAREBBAQBAYFoBgEBCwGBU1EFbFggBAsqCodaA4pqToIRgQGOJxSIbIEuFIE?=
+ =?us-ascii?q?QA1QKAQEBDAEBJQgCBAEBhEQCghckNQgOAgMBAQsBAQUBAQECAQUEbYVWAQu?=
+ =?us-ascii?q?FcQEBAQECARIoBgEBNwEECwIBCBgeEBQeJwQOBSKDBYJLAw4gAQ6lfgKBOYg?=
+ =?us-ascii?q?tNYIngwABAQWFShcBgg4JFIEkAYJiiVYagUE/gRGCWzU+gmcEgSQKAQcLASE?=
+ =?us-ascii?q?sgxiCLY5AF4IaoRsKgkSIC4VwiWspDoJIiFGRNi2PRolAky8CBAIEBQIOAQE?=
+ =?us-ascii?q?FgVQBNmZwcBWDJAlHGA2KMYcng3OKVnQCAQGBJY0WAYEKBQEB?=
+X-IronPort-AV: E=Sophos;i="5.72,410,1580774400"; d="scan'208";a="667306449"
+Received: from alln-core-2.cisco.com ([173.36.13.135])
+ by rcdn-iport-9.cisco.com with ESMTP/TLS/DHE-RSA-SEED-SHA;
+ 21 Apr 2020 16:24:18 +0000
+Received: from XCH-RCD-005.cisco.com (xch-rcd-005.cisco.com [173.37.102.15])
+ by alln-core-2.cisco.com (8.15.2/8.15.2) with ESMTPS id 03LGOIE7013104
+ (version=TLSv1.2 cipher=AES256-SHA bits=256 verify=FAIL);
+ Tue, 21 Apr 2020 16:24:18 GMT
+Received: from xhs-rcd-003.cisco.com (173.37.227.248) by XCH-RCD-005.cisco.com
+ (173.37.102.15) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+ Tue, 21 Apr 2020 11:24:18 -0500
+Received: from xhs-rcd-001.cisco.com (173.37.227.246) by xhs-rcd-003.cisco.com
+ (173.37.227.248) with Microsoft SMTP Server (TLS) id 15.0.1497.2;
+ Tue, 21 Apr 2020 11:24:17 -0500
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (72.163.14.9) by
+ xhs-rcd-001.cisco.com (173.37.227.246) with Microsoft SMTP Server
+ (TLS) id
+ 15.0.1497.2 via Frontend Transport; Tue, 21 Apr 2020 11:24:17 -0500
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=TESVFLMfLHroAXO5XM+pU8D3vk6FRdXBaNZipgW8MAuMg6DXg7+FeRcPQIFDmVvw7VsoLNv7jKcR594nScR8YVvDGVOU76BjGH+WqPTAn6Oe7zNn+4g2qPHZYduALlzKBi1EnVAzYR0h/g6HvPyWi5tzHQnNuRostjkIUsqyNe7P163p6smogmQ1hzVVL1D7QkHTgT3a+f6KCFP9p7bpQxAzzFFNdDEtXUHEztQc9OX5XBirXFhtoQaJAvzSL70PqfifbUaboXtnoGR+GzVfwDW9QWI8fakCet92u6am+owDHHL3W6pyCSHoM14bQ7ptrOdovWH98h5dJx2ZjQqqEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZBTSKn9bYXZQ+KxhsDceNmbJ1HQ/lrzo/MI3kfCBvRc=;
+ b=Pw5dUSRLaBJ6lbPVNsuKBITGTlJGmih7H7UdoOE2kaXg3Y3yR3+vPGaqQa9mqUvxZPFNLlshkJF1b+XTKszQEMlk+Q0M7tq7M8WPwXMXUFV/cPMrc6EuVIjX5SBrVkfnRX8MlYYN/m/KIDEQ7HEFEyGkiv4g8YuPHuF7ZjpnRYueocBOvCM7/uxx2EDIR0Fd9cHO/V0xNUKx7hc+5Eon7Onb7Dy9nRjK5DxMsebgzpD/ONewiegMJTqd5HRdk6ykgv5o3SRSBVuWjfNswHsysKlHWNrHMVSkWVxl6cvdpzNWRCdkhOqc8CFsKHOqLUckMGdCzvuD9aKhGrnU9FkbAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cisco.com; dmarc=pass action=none header.from=cisco.com;
+ dkim=pass header.d=cisco.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cisco.onmicrosoft.com; 
+ s=selector2-cisco-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZBTSKn9bYXZQ+KxhsDceNmbJ1HQ/lrzo/MI3kfCBvRc=;
+ b=OB2OCWulGSfoHIwsTT1RRRex+iYB2UJQ1b7ZwSVozrwhy37GfKhdPmSiFqIvVidRMLhNh29qxsL+PNVAFjIxhY7fxa4qlyuFBwtnwxcZsBe+3AezYfUBn+7oYuRwq2DeYfA0Xl7uJzDyltDcxlsdWQmYDkc8lIlVR7GlB7C91WI=
+Received: from BYAPR11MB3205.namprd11.prod.outlook.com (2603:10b6:a03:1e::32)
+ by BYAPR11MB3287.namprd11.prod.outlook.com (2603:10b6:a03:1c::28)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2921.27; Tue, 21 Apr
+ 2020 16:24:14 +0000
+Received: from BYAPR11MB3205.namprd11.prod.outlook.com
+ ([fe80::d015:3039:2595:7222]) by BYAPR11MB3205.namprd11.prod.outlook.com
+ ([fe80::d015:3039:2595:7222%7]) with mapi id 15.20.2921.030; Tue, 21 Apr 2020
+ 16:24:14 +0000
+From: "Daniel Walker (danielwa)" <danielwa@cisco.com>
+To: "Tudor.Ambarus@microchip.com" <Tudor.Ambarus@microchip.com>
+Subject: Re: [PATCH] mtd: spi-nor: Add 4B_OPCODES flag to n25q256a
+Thread-Topic: [PATCH] mtd: spi-nor: Add 4B_OPCODES flag to n25q256a
+Thread-Index: AQHWF/lMc3ECMdgUBUCVtkLu7h92/g==
+Date: Tue, 21 Apr 2020 16:24:14 +0000
+Message-ID: <20200421162414.GE9016@zorba>
+References: <20200417174620.16420-1-danielwa@cisco.com>
+ <12178429.kzmL6e4XO6@192.168.0.120> <20200420162550.GZ24466@zorba>
+ <9715610.TpusJ8o3lr@192.168.0.120>
+In-Reply-To: <9715610.TpusJ8o3lr@192.168.0.120>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-TNEF-Correlator: 
+user-agent: Mutt/1.9.4 (2018-02-28)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=danielwa@cisco.com; 
+x-originating-ip: [128.107.241.178]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 53c63e6f-c566-4731-c935-08d7e6106ec9
+x-ms-traffictypediagnostic: BYAPR11MB3287:
+x-ld-processed: 5ae1af62-9505-4097-a69a-c1553ef7840e,ExtAddr
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <BYAPR11MB3287D53930485A49EA1A9753DDD50@BYAPR11MB3287.namprd11.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:7691;
+x-forefront-prvs: 038002787A
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:BYAPR11MB3205.namprd11.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(10009020)(7916004)(4636009)(366004)(396003)(346002)(39860400002)(136003)(376002)(2906002)(33716001)(54906003)(316002)(81156014)(66946007)(966005)(1076003)(6916009)(5660300002)(71200400001)(6486002)(8936002)(8676002)(6512007)(4326008)(33656002)(186003)(76116006)(53546011)(478600001)(26005)(66476007)(6506007)(64756008)(66556008)(9686003)(86362001)(66446008);
+ DIR:OUT; SFP:1101; 
+received-spf: None (protection.outlook.com: cisco.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: mEwUPusPtPzLVlGAiRQ/5nM71huhL8BKuZXGq25KVITPSuw4t842F7ZR+B/5VhuffsRQZFS3XGVC0cJfjYtLbLnQH1SJlWYhioceGo7RIdp+kOZ4zc4ya58AD6N6F+moiNGdhbuA4GxV3GaDGuv3OJRPpz0APk2LGDJMuKMKvoF+B8Q7dzjyWwhdqbA93dpBsyFFS3YVoILz0F+l1uNZuN5Y80btq806CCgXLPh9/+M+8V044ar+IcRNBR+6kltmxgqklgh/a9/Skg5Ikl1i3yv6ETy9KcAzmNwDfZ3b8gyf7sm/Hi81Fq1ddUwTzoE+H7Au7KP5yNhW9eIa7IftUfhXojyMbJ/XoArBNvjNxfcdQOkbN0BChrXTQwx9aEXmpwYOdFaXp6DnYgPbSSbfhXn3LdyeWSzDOws7kW8iLaXvUHv1gp2GudyCRCck8gMpP8caoLuUz2DtCarvNAuemcaNNoXMxGzC8DmM/JBL2xQQJLzWEYkslSZ1ywCOPWFCWkiNaYs3WsirZ0GRPAvLbA==
+x-ms-exchange-antispam-messagedata: tOga0wLXqL9IeWFQBR+9aRKkMDVMMz/o6mWn6rDwmJY7bnDpuXay4Pq3Cso1kuy7v6sUHdd8n4RJzn5dgGh7masNYVLV2G+HlL1fqaxvFEavLHHEbFSUKN9ke3oqLW6AYlbfEwfO6zAe6HUc2/bV5w==
+Content-ID: <29FDC119F0A59D43AFF5BA83E79ED2F4@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20200421114432.px5cq3ajwwq7n2y5@yadavpratyush.com>
-X-Originating-IP: [10.65.58.147]
-X-CFilter-Loop: Reflected
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53c63e6f-c566-4731-c935-08d7e6106ec9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Apr 2020 16:24:14.7478 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 5ae1af62-9505-4097-a69a-c1553ef7840e
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /ZHsy4zJWSxU+koYnG8e4iXcg8JFqXFnGqbOxGTuVDcv3/YDL+SHeY/OnxSq1PKDH8Gq6PRnlnlsfVXW+jxdUA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB3287
+X-OriginatorOrg: cisco.com
+X-Outbound-SMTP-Client: 173.37.102.15, xch-rcd-005.cisco.com
+X-Outbound-Node: alln-core-2.cisco.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_051708_567491_DF9EC74E 
-X-CRM114-Status: GOOD (  23.50  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20200421_092419_598671_EFCE52A9 
+X-CRM114-Status: GOOD (  19.09  )
+X-Spam-Score: -12.7 (------------)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.1 points)
+ Content analysis details:   (-12.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.190 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [173.37.86.80 listed in list.dnswl.org]
+ -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
+ white-list
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [173.37.86.80 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,110 +171,64 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com,
- tudor.ambarus@microchip.com, richard@nod.at, john.garry@huawei.com,
- linuxarm@huawei.com, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- alexander.sverdlin@nokia.com
+Cc: "vigneshr@ti.com" <vigneshr@ti.com>, "richard@nod.at" <richard@nod.at>,
+ "xe-linux-external\(mailer list\)" <xe-linux-external@cisco.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "miquel.raynal@bootlin.com" <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Pratyush,
+On Tue, Apr 21, 2020 at 04:52:01AM +0000, Tudor.Ambarus@microchip.com wrote:
+> On Monday, April 20, 2020 7:25:51 PM EEST Daniel Walker (danielwa) wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> > content is safe
+> > On Mon, Apr 20, 2020 at 03:45:59PM +0000, Tudor.Ambarus@microchip.com wrote:
+> > > Hi, Daniel,
+> > > 
+> > > On Friday, April 17, 2020 8:46:19 PM EEST Daniel Walker wrote:
+> > > > EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> > > > the
+> > > > content is safe
+> > > > 
+> > > > The n25q256a supports 4-byte opcodes so lets add the flag.
+> > > 
+> > > This is not true for all the n25q256a flashes. SPINOR_OP_PP_4B,
+> > > SPINOR_OP_BE_4K_4B and SPINOR_OP_SE_4B are valid just for the part numbers
+> > > N25Q256A83ESF40x, N25Q256A83E1240x, and N25Q256A83ESFA0F.
+> > > 
+> > > You need to differentiate between the aforementioned flashes and the rest
+> > > in the n25q256a, in order to add the 4-byte opcodes flag.
+> > 
+> > How do you suggest I do that ? Can I add a new entry into this table with
+> > more specific information about the chips ?
+> > 
+> 
+> We need to find a differentiator at runtime. If we are lucky, there might be 
+> some SFDP changes between the 4-byte opcodes capable flashes and the rest. 
+> Please dump all the sfdp tables, we can start from there. There's a thread 
+> that might interest you, see http://u-boot.10912.n7.nabble.com/Regressions-in-MTD-SPI-FLASH-td382956.html#a383126.
+ 
+The thread seems to indicate that it's not easy to identify the chips which
+support this.
 
+Inside our device tree we identify that our flash is compatible with,
+compatible = "jedec,spi-nor";
 
-On 2020/4/21 19:44, Pratyush Yadav wrote:
-> On 21/04/20 11:30AM, Yicong Yang wrote:
->> As per SFDP(JESD216D, Section 6.5.3) says of SMPT 1st DWORD, 11b of
->> bit[23:22] and 1111b of bit[19:16] represent variable
->> {address length, read latency}, which means "the {address length,
->> read latency} last set in memory device and this same value is used in the
->> configuration dectection command". Currently we use address length
->> and dummy byte of struct spi_nor in such conditions. But the value
->> are 0 as they are not set at the time, which will lead to
->> wrong perform of the dectection command.
->>
->> As the last command is read SFDP(1S-1S-1S, the only mode we use in kernel),
->> with 3-byte address and 8 dummy cycles, use the same values in
->> variable situations to perform correct dectection command.
->>
->> Fixes: b038e8e3be72 ("mtd: spi-nor: parse SFDP Sector Map Parameter Table")
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> FWIW, I posted a fix for the address width problem here [0], though in a 
-> slightly different way. I'll re-roll the series soon, since it is based 
-> on the code structure before the split.
->
->> ---
->>  drivers/mtd/spi-nor/sfdp.c | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
->> index f6038d3..27a8faa 100644
->> --- a/drivers/mtd/spi-nor/sfdp.c
->> +++ b/drivers/mtd/spi-nor/sfdp.c
->> @@ -624,7 +624,7 @@ static u8 spi_nor_smpt_addr_width(const struct spi_nor *nor, const u32 settings)
->>  		return 4;
->>  	case SMPT_CMD_ADDRESS_LEN_USE_CURRENT:
->>  	default:
->> -		return nor->addr_width;
->> +		return 3;
-> If in the future someone implements SFDP parsing in 8D-8D-8D mode, they 
-> would want to use an address length of 4. Similarly, if someone has a 
-> use-case where they have to configure their flash to a 4-byte addressing 
-> mode in a non-volatile way, they would set nor->addr_width in a 
-> flash-specific hook (like the post-BFPT hook) and would expect that 
-> width to be used here as well.
->
-> So I think instead of setting it in stone like this, we should instead 
-> set the default nor->addr_width to 3 if it is configurable, and then let 
-> flashes fix it up if they need to. This is what my patch [0] does.
+Would it make sense to add further identification of the chips into the device
+tree, or allow some level of control over the SPI_NOR_4B_OPCODES flag into the
+device tree. Since it would seems identification of the chips is not trivial.
 
-As I mentioned in the commit, *currently* we use 1S-1S-1S mode to read SFDP, which is also
-the last operation we did here. So I use the same address byte and dummy cycles here.
-I think we won't meet the exception you mentioned, as it will fail when parsing SFDP
-and won't come here.
+> A more elegant way to solve it, is by parsing the 4bait sfdp table, but I 
+> haven't checked if this flash supports it or not. Anyway, not something that 
+> we can control, the manufacturer should add it.
 
-I agree that currently we don't meet all the conditions. But your patch seems alike the way
-here. AS you set address width when parsing BFPT, but it'll not be changed before parsing SMPT
-here, we parse smpt once bfpt is parsed and don't do specific vendor operations, etc.
+We can investigate, our hardware team is claiming the only way to know if
+physically reading what's on the chip.
 
-
->
->>  	}
->>  }
->>
->> @@ -641,7 +641,7 @@ static u8 spi_nor_smpt_read_dummy(const struct spi_nor *nor, const u32 settings)
->>  	u8 read_dummy = SMPT_CMD_READ_DUMMY(settings);
->>
->>  	if (read_dummy == SMPT_CMD_READ_DUMMY_IS_VARIABLE)
->> -		return nor->read_dummy;
->> +		return 8;
-> Same comment here. Set nor->read_dummy to a sane default (== 8) and then 
-> let flash-specific hooks change it if they need to. This is tricky 
-> though, since BFPT doesn't tell us the dummy cycles needed. Still, I 
-> think if we set it in say spi_nor_parse_smpt(), it would be a bit more 
-> flexible.
-
-As I've mentioned above, it follows the behaviour in the current framework. What do you think of
-introduce new field in spi_nor to provide more flexibility:
-
-    struct spi_nor {
-        ...
-        sfdp_addr_width;
-        sfdp_read_dummy;
-        ...
-    }
-
-we can initialized it in the quite beginning(perhap in spi_nor_scan()) and let others to modify it.
-It will also provide sfdp access and flash access with different parameter if necessary.
-
-
->>  	return read_dummy;
->>  }
-> [0] https://lore.kernel.org/linux-mtd/20200313154645.29293-6-p.yadav@ti.com/
->
-
-
+Daniel
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
