@@ -2,128 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 744031B1ED6
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 08:33:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 829A21B1EE7
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 08:40:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:Message-Id:Date:
-	Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=pYm7PFt+ILL5qlLxsuquzqOVhuoTXLOvRzIvzrBj73A=; b=gOnok+N3CqJMXh
-	F+nSIoqNM9CZP9AQQrQc2nB+6mrhrHLWO/WGRzfIzT7mjExcS8hmCe4vP1pvYSn8T0+jTaXyOn6cZ
-	jfQqKbUjKhPwSe4c89UmtrdRu9KGOXJgZmdJkgOPu2/F0bMICa2HJO6vWVjlwFZqzZcYrKkNWetDT
-	knjYhcSbDLYxOtru3taV4JyRVYtrjpN1XJSUX8ouykpNJ7wBnaUKBV9hs+Nvbib6m/u/Gxjvlb1N3
-	vZN5eTny4PUWgUo7VK9hXmTTgV/HZdX0TYFGHYLoZwGMtA/+MEcax6lVscwADiPUjK0+0PahXAUr4
-	QaqiHRxhdhmUQQAQDgCg==;
+	References:List-Owner; bh=KWdXmxd4TxZmvoR+UyV/0Mf0qNnpxz9LQBaqJqM9iD0=; b=MrB
+	tyQOiEt22Hhbyn5wKy0HPQbdHGK/tM6G+Mta5qgmHW9W4FYVTPnOG2f/jjB5wa6xLfC72lBtQsbfW
+	DudWW3XB1Q19LmrpuIK5xcXnL5zUZhwmoX8YeB8ulWKkYwwJvXmqz3WMYkm8I4x1K7ox+ZRkWjC3f
+	DmqxYIgMamd6lxusZhAywhZanbOzHELTCkCx2T3UvVl10R1Oz9dA21/11OyunTrcb4TZyMe45Ybzm
+	QUTc8xQccEYKOlDvlDmQfxvn+3+7KgAnW7AFjk6oqGiFTTB1bfXGZryl0Qohh2iLcNp+h0sKS0Jyi
+	mXzGo0LaEsGDKr29zeqVHcLQAB303+g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQmTV-0006TE-JU; Tue, 21 Apr 2020 06:33:41 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1jQmaK-0004ua-MW; Tue, 21 Apr 2020 06:40:44 +0000
+Received: from twhmllg3.macronix.com ([122.147.135.201])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQmTD-0006LS-GM
- for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 06:33:26 +0000
-Received: from epcas1p3.samsung.com (unknown [182.195.41.47])
- by mailout1.samsung.com (KnoxPortal) with ESMTP id
- 20200421063320epoutp011ccd3bb84c734b948c04e08bd92928ba~HwheeikUh0698206982epoutp01f
- for <linux-mtd@lists.infradead.org>; Tue, 21 Apr 2020 06:33:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com
- 20200421063320epoutp011ccd3bb84c734b948c04e08bd92928ba~HwheeikUh0698206982epoutp01f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1587450800;
- bh=TRFg0tTawZfs6fQO+5UxhXTPRBFWB9U3SCuDjr2m7XU=;
- h=From:To:Subject:Date:References:From;
- b=O8MsPioS8Lglcj7mXh7DR5PHDUI3kj4g5k/ZIIiCfgtcSmW8U3tBMzv/GcFtrlUeF
- 1RNlCadb0V2vWNcZht7jw6zaE4jlovUvvB8hfXWICQ7JhdzuoPkLH5U0ebnhcEE/T1
- LEuzYGi4wAduVhOMy1n1L6UeKSe/5q6y21fCJp7A=
-Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
- epcas1p1.samsung.com (KnoxPortal) with ESMTP id
- 20200421063319epcas1p192e37bdbe5b65a038d1f0eab1d8e7889~Hwhd8LePp2956529565epcas1p1c;
- Tue, 21 Apr 2020 06:33:19 +0000 (GMT)
-Received: from epsmges1p3.samsung.com (unknown [182.195.40.166]) by
- epsnrtp2.localdomain (Postfix) with ESMTP id 495tzy5t7PzMqYkc; Tue, 21 Apr
- 2020 06:33:18 +0000 (GMT)
-Received: from epcas1p3.samsung.com ( [182.195.41.47]) by
- epsmges1p3.samsung.com (Symantec Messaging Gateway) with SMTP id
- C9.D5.04648.DA39E9E5; Tue, 21 Apr 2020 15:33:17 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
- epcas1p3.samsung.com (KnoxPortal) with ESMTPA id
- 20200421063317epcas1p388256ada10113b38b92dca757cd11e41~Hwhb0w0Z41874418744epcas1p30;
- Tue, 21 Apr 2020 06:33:17 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
- epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
- 20200421063317epsmtrp26b2fb0f3b6f500dc97888ec0deb0114d~Hwhb0BPrY1697116971epsmtrp2D;
- Tue, 21 Apr 2020 06:33:17 +0000 (GMT)
-X-AuditID: b6c32a37-1f3ff70000001228-f3-5e9e93ad419e
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
- epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
- B9.30.04024.DA39E9E5; Tue, 21 Apr 2020 15:33:17 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.88.100.192]) by
- epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
- 20200421063317epsmtip1a517270548ff2da2d4cdbf222b53b809~Hwhboig7K2798927989epsmtip1G;
- Tue, 21 Apr 2020 06:33:17 +0000 (GMT)
-From: Jungseung Lee <js07.lee@samsung.com>
-To: Tudor Ambarus <tudor.ambarus@microchip.com>, Vignesh Raghavendra
- <vigneshr@ti.com>, linux-mtd@lists.infradead.org, js07.lee@samsung.com
-Subject: [PATCH] mtd: spi-nor: Enable locking for n25q00/n25q00a
-Date: Tue, 21 Apr 2020 15:33:13 +0900
-Message-Id: <20200421063313.32655-1-js07.lee@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrHKsWRmVeSWpSXmKPExsWy7bCmvu7ayfPiDFo3Gls8uvmb1WJ30zJ2
- i49LHCz+n/3A7sDisXlJvcedH0sZPfq2rGL0OH5jO1MAS1SOTUZqYkpqkUJqXnJ+SmZeuq2S
- d3C8c7ypmYGhrqGlhbmSQl5ibqqtkotPgK5bZg7QRiWFssScUqBQQGJxsZK+nU1RfmlJqkJG
- fnGJrVJqQUpOgaFBgV5xYm5xaV66XnJ+rpWhgYGRKVBlQk7GjdsbmAu2clVs37GPsYGxlaOL
- kZNDQsBEomH1M+YuRi4OIYEdjBLLr6yHcj4xSrTv3cAG4XxjlLhweRYTTMuMOUugqvYySvQ+
- fcgKkhAS+MwocWobC4jNJqAlceP3JlaQIhGBXkaJKzs3gxUJCzhI9D05xgZiswioSrSuegI2
- lVfAUmLR+gusEBvkJVZvOAC2QULgLqvE2QkHGSESLhKdhx5CnSEs8er4FnYIW0ri87u9bBB2
- scTOlRPZIZpbGCUeLV8CVWQs8e7tWqCpHBzMApoS63fpQ4QVJXb+ngs2n1mAT+Ld1x5WkBIJ
- AV6JjjYhiBIliTcPWlggbAmJC497oe70kJjasQnq+ViJY0t2Mk1glJmFsGABI+MqRrHUguLc
- 9NRiwwJj5KjZxAhOO1rmOxg3nPM5xCjAwajEw7tBbF6cEGtiWXFl7iFGCQ5mJRFeCy2gEG9K
- YmVValF+fFFpTmrxIUZTYOhNZJYSTc4HpsS8knhDUyNjY2MLEzNzM1NjJXHeqddz4oQE0hNL
- UrNTUwtSi2D6mDg4pRoYp6Z9u7vsY1tBmbm1tEng5gvLr/Vzv78pZx73bqrtFzeh6ucxXe2p
- ulo8v1Ru3slVXhKSm3MpVs6kSfLx601ryr/LKLCG3djx9rjpmfa6Ja6bGp2evt+p89CPgUPn
- iEG9YV5w2Iu/vPEGPSe0Z17c+XfptZpv4ZtWvstzLf9446Xr/9eZm/i2KbEUZyQaajEXFScC
- ADn8hUtRAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrFJMWRmVeSWpSXmKPExsWy7bCSnO7ayfPiDCYuk7B4dPM3q8XupmXs
- Fh+XOFj8P/uB3YHFY/OSeo87P5YyevRtWcXocfzGdqYAligum5TUnMyy1CJ9uwSujBu3NzAX
- bOWq2L5jH2MDYytHFyMnh4SAicSMOUuYuxi5OIQEdjNKtE4/xQSRkJB4tPMLSxcjB5AtLHH4
- cDFEzUdGiVO3OthBatgEtCRu/N7ECmKLCExklHg9jRnEFhZwkOh7cowNxGYRUJVoXfUEbCav
- gKXEovUXWCHmy0us3nCAeQIj9wJGhlWMkqkFxbnpucWGBYZ5qeV6xYm5xaV56XrJ+bmbGMEh
- oKW5g/HykvhDjAIcjEo8vBvE5sUJsSaWFVfmHmKU4GBWEuG10AIK8aYkVlalFuXHF5XmpBYf
- YpTmYFES532adyxSSCA9sSQ1OzW1ILUIJsvEwSnVwNi2MPdNbPTxvyfDcnrPcRs2X1y67/lS
- jZKlUzfJnF4h9nZ6ns7rupYzh/LsXbU6Gw4KWwaI2didNkyfa3RNOmjFTrPn2/YvlVi8Jmv3
- xTuTDLqis3QOhsfOTCyUPb/70UKns7YOJ0SWrmZ/57Uk/lvxF5WdqSp6D7h9dtWuS7/lfo59
- iVFIXaISS3FGoqEWc1FxIgBKWuT+/QEAAA==
-X-CMS-MailID: 20200421063317epcas1p388256ada10113b38b92dca757cd11e41
-X-Msg-Generator: CA
-X-Sendblock-Type: SVC_REQ_APPROVE
-CMS-TYPE: 101P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20200421063317epcas1p388256ada10113b38b92dca757cd11e41
-References: <CGME20200421063317epcas1p388256ada10113b38b92dca757cd11e41@epcas1p3.samsung.com>
+ id 1jQmZt-0004gu-1u
+ for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 06:40:18 +0000
+Received: from localhost.localdomain ([172.17.195.96])
+ by TWHMLLG3.macronix.com with ESMTP id 03L6dnMW045498;
+ Tue, 21 Apr 2020 14:39:49 +0800 (GMT-8)
+ (envelope-from masonccyang@mxic.com.tw)
+From: Mason Yang <masonccyang@mxic.com.tw>
+To: broonie@kernel.org, tudor.ambarus@microchip.com, miquel.raynal@bootlin.com,
+ richard@nod.at, vigneshr@ti.com, boris.brezillon@collabora.com
+Subject: [PATCH v2 0/5] mtd: spi-nor: Add support for Octal 8D-8D-8D mode
+Date: Tue, 21 Apr 2020 14:39:42 +0800
+Message-Id: <1587451187-6889-1-git-send-email-masonccyang@mxic.com.tw>
+X-Mailer: git-send-email 1.9.1
+X-MAIL: TWHMLLG3.macronix.com 03L6dnMW045498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200420_233323_792806_D53FBFB0 
-X-CRM114-Status: GOOD (  15.04  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200420_234017_373785_EA993CA7 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [203.254.224.24 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [203.254.224.24 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [122.147.135.201 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -135,45 +59,101 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Cc: juliensu@mxic.com.tw, Mason Yang <masonccyang@mxic.com.tw>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-n25q00 and n25q00a use the 4 bit Block Protection scheme and support
-Top/Bottom protection via the BP and TB bits of the Status Register.
+Hello,
 
-This patch enables the locking for n25q00/n25q00a.
+This is repost of patchset from Boris Brezillon's
+[RFC,00/18] mtd: spi-nor: Proposal for 8-8-8 mode support [1].
 
-Tested on n25q00 with cirrus controller. The other is modified
-according to the datasheet.
+Background from cover letter for RFC[1].
 
-Signed-off-by: Jungseung Lee <js07.lee@samsung.com>
----
- drivers/mtd/spi-nor/micron-st.c | 4 ++++
- 1 file changed, 4 insertions(+)
+The trend has been around Octal NOR Flash lately and the latest mainline
+already supports 1-1-8 and 1-8-8 modes.
 
-diff --git a/drivers/mtd/spi-nor/micron-st.c b/drivers/mtd/spi-nor/micron-st.c
-index 6c034b9718e2..51d677844480 100644
---- a/drivers/mtd/spi-nor/micron-st.c
-+++ b/drivers/mtd/spi-nor/micron-st.c
-@@ -59,9 +59,13 @@ static const struct flash_info st_parts[] = {
- 			      SPI_NOR_4BIT_BP | SPI_NOR_BP3_SR_BIT6) },
- 	{ "n25q00",      INFO(0x20ba21, 0, 64 * 1024, 2048,
- 			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			      SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
-+			      SPI_NOR_4BIT_BP | SPI_NOR_BP3_SR_BIT6 |
- 			      NO_CHIP_ERASE) },
- 	{ "n25q00a",     INFO(0x20bb21, 0, 64 * 1024, 2048,
- 			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
-+			      SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
-+			      SPI_NOR_4BIT_BP | SPI_NOR_BP3_SR_BIT6 |
- 			      NO_CHIP_ERASE) },
- 	{ "mt25ql02g",   INFO(0x20ba22, 0, 64 * 1024, 4096,
- 			      SECT_4K | USE_FSR | SPI_NOR_QUAD_READ |
+Boris opened a discussion on how we should support stateful modes (X-X-X
+and XD-XD-XD, where X is the bus width and D means Double Transfer Rate).
+
+JESD216C has defined specification for Octal 8S-8S-8S and 8D-8D-8D.
+Based on JEDEC216C Basic Flash Parameter Table (BFPT) driver extract:
+DWORD-18: command and command extension type.
+DWORD-19: enable 8S-8S-8S/8D-8D-8D mode sequences by two instructions or
+	  write CFG Reg 2.
+DWORD-20: Maximum operation speed of device in Octal mode.
+
+and xSPI profile 1.0 table:
+DWORD-1: Read Fast command, the number of dummy cycles and address nbytes
+	 for Read Status Register command.
+DWORD-2: Read/Write volatile Register command for CFG Reg2.
+DWORD-4 and DWORD-5: dummy cycles used for various frequencies.
+
+The first set of patches is according to JESD216C adding Double Transfer
+Rate(DTR) fields, extension command and command bytes number to the
+spi_mem_op struct. This is from Boris patchset.
+
+The second set of patches parse the xSPI profile 1.0 table for parameters
+needed in Octal 8D-8D-8D mode. 
+
+The third set of patches extract BFPT DWORD018,19,20 and define the 
+relevant macros and enum in spi-nor layer for Octal 8S-8S-8S and 
+8D-8D-8D mode operation. Parts of these are refer to Boris patchset but
+we enable Octal 8D-8D-8D mode in spi_nor_late_init_params() rather than
+Boris's adding a change_mode() call-back function.
+
+The last set of patches in the series support Macronix mx25uw51245g
+to tweak flash parameters a correct dummy cycles set for various frequency.
+
+Also patched spi-mxic driver for testing on Macronix's Zynq PicoZed board
+with Macronix's SPI controller (spi-mxic.c) and mx25uw51245g Octal flash.
+
+[1] https://patchwork.ozlabs.org/cover/982926/
+
+
+Summary of change log
+---------------------
+v2: 
+Parse BFPT & xSPI table for Octal 8D-8D-8D mode parameters and enable Octal
+mode in spi_nor_late_init_params().
+Using Macros in spi_nor_spimem_read_data, spi_nor_spimem_write_data and
+so on by Vignesh comments.
+
+v1:
+Without parsing BFPT & xSPI profile 1.0 table and enter Octal 8D-8D-8D
+mode directly in spi_nor_fixups hooks.
+
+
+thnaks for your time and review.
+best regards,
+Mason
+
+Mason Yang (5):
+  mtd: spi-nor: Add support for Octal 8D-8D-8D mode
+  mtd: spi-nor: sfdp: Add support for xSPI profile 1.0 table
+  mtd: spi-nor: Parse BFPT DWORD-18,19 and 20 for Octal 8D-8D-8D mode
+  mtd: spi-nor: macronix: Add Octal 8D-8D-8D supports for Macronix
+    mx25uw51245g
+  spi: mxic: Patch for Octal 8D-8D-8D mode support
+
+ drivers/mtd/spi-nor/core.c     | 220 ++++++++++++++++++++++++++++++++++++++--
+ drivers/mtd/spi-nor/core.h     |  31 ++++++
+ drivers/mtd/spi-nor/macronix.c |  41 ++++++++
+ drivers/mtd/spi-nor/sfdp.c     | 222 ++++++++++++++++++++++++++++++++++++++++-
+ drivers/mtd/spi-nor/sfdp.h     |  16 ++-
+ drivers/spi/spi-mem.c          |   8 +-
+ drivers/spi/spi-mxic.c         | 101 +++++++++++++------
+ include/linux/mtd/spi-nor.h    |  51 +++++++++-
+ include/linux/spi/spi-mem.h    |  13 +++
+ 9 files changed, 654 insertions(+), 49 deletions(-)
+
 -- 
-2.17.1
+1.9.1
 
 
 ______________________________________________________
