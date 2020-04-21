@@ -2,46 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6753E1B2D1E
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:49:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 95BB41B2D24
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:50:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yTDzfUkCaeCdr5sKN311Czv821jM5jiLVi15i2gOPwg=; b=SeCVG+XMGYH6V6
-	sA0uJVjp1AGBpAEuy5mp5vcf4COu+oALbFOi8ciYWJosPNeodiTnkknuS8+SC5YRvjG8r0nNfAuKP
-	GiOS18g0yUqp4R2ECSuaXsohMPwXTkygS9rH2jdFc4cR0lNxt/Myw3B+Fezlqg7N3oJQsJ1lzb0Z4
-	DYboYf15gcdKQXjn94+V0ExzgX7VIYL4QqENe160kGktUfj0lWm7cI0Ht5H9Mb9voNlyPUofNEB6s
-	6zWmTUk9JUbJ69Qg6Qg4Tev1pTNK3yyhJImiKka55JBeBEOIKyt/T6+F70NQhNrx3zNVvNt34H7lq
-	TI41PZRhBKGL+6px+Gmw==;
+	List-Owner; bh=r2Gw4TF/osYUSgH1M6suSpsbQbqdfcSwnlqBpKTIL4Q=; b=emAHBIh/3g7tVz
+	jx+kGPxd59YEB8eg8CBxQTnG6HpsG6NSYJXn01B1XagXNRoueRvuTk90LmOH97hWkrP/bpJ+KVQzN
+	cQd+0ZNB0TY0ZapgnIRya9nGNEM71TckbAMe2BU3PdagHmEqbh3MyId1gebESkCtT8J4UUXZrVSwv
+	uuOnRP+mzz6KeFFx4jsiEUcKGZJXARQfA1RImBX8UwtW93I9QOBtO8mF6V0Oik/iPunkxAJLraZlL
+	dlZfO3OIh+0W2QLDNbg8YYllg1yrfCI7SMmCJshce3XZiKt56XnkwudvCr5QQy7nI6hj0X721uaOI
+	Wc2NoyaTewnvlnPNbVUw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQw5p-0006o1-Sh; Tue, 21 Apr 2020 16:49:53 +0000
+	id 1jQw6h-0001PF-FO; Tue, 21 Apr 2020 16:50:47 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQw52-0006FC-Al
+ id 1jQw52-0006Fk-TU
  for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:49:08 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id ABE2CC0014;
- Tue, 21 Apr 2020 16:49:01 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id AD467C000A;
+ Tue, 21 Apr 2020 16:49:02 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 2/6] mtd: rawnand: marvell: Use devm_platform_ioremap_res()
-Date: Tue, 21 Apr 2020 18:48:53 +0200
-Message-Id: <20200421164857.8255-3-miquel.raynal@bootlin.com>
+Subject: [PATCH 3/6] mtd: rawnand: marvell: Use nand_cleanup() when the device
+ is not yet registered
+Date: Tue, 21 Apr 2020 18:48:54 +0200
+Message-Id: <20200421164857.8255-4-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200421164857.8255-1-miquel.raynal@bootlin.com>
 References: <20200421164857.8255-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_094904_653197_06B4F781 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20200421_094905_297041_29A1DFC5 
+X-CRM114-Status: GOOD (  12.94  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -70,35 +71,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Switch from the old platform_get_resource()/devm_ioremap_resource()
-couple to the newer devm_platform_ioremap_resource() helper.
+Do not call nand_release() while the MTD device has not been
+registered, use nand_cleanup() instead.
 
+Fixes: 02f26ecf8c77 ("mtd: nand: add reworked Marvell NAND controller driver")
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/marvell_nand.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/mtd/nand/raw/marvell_nand.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
-index f2bf88336326..7906bd3fc8cb 100644
+index 7906bd3fc8cb..350949b34eee 100644
 --- a/drivers/mtd/nand/raw/marvell_nand.c
 +++ b/drivers/mtd/nand/raw/marvell_nand.c
-@@ -2854,7 +2854,6 @@ static int marvell_nfc_init(struct marvell_nfc *nfc)
- static int marvell_nfc_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
--	struct resource *r;
- 	struct marvell_nfc *nfc;
- 	int ret;
- 	int irq;
-@@ -2869,8 +2868,7 @@ static int marvell_nfc_probe(struct platform_device *pdev)
- 	nfc->controller.ops = &marvell_nand_controller_ops;
- 	INIT_LIST_HEAD(&nfc->chips);
- 
--	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	nfc->regs = devm_ioremap_resource(dev, r);
-+	nfc->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(nfc->regs))
- 		return PTR_ERR(nfc->regs);
+@@ -2664,7 +2664,7 @@ static int marvell_nand_chip_init(struct device *dev, struct marvell_nfc *nfc,
+ 		ret = mtd_device_register(mtd, NULL, 0);
+ 	if (ret) {
+ 		dev_err(dev, "failed to register mtd device: %d\n", ret);
+-		nand_release(chip);
++		nand_cleanup(chip);
+ 		return ret;
+ 	}
  
 -- 
 2.20.1
