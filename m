@@ -2,45 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A354F1B2D0D
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:47:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B3A361B2D0F
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:47:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0H0HtW5w/KDvJp+Zp32FEnSkgE/NPdr+IZ04O83qE8k=; b=nAXqUX6XjG+Ash
-	mUCG8EOhYT01FxBExlttdcn33dnx7mkWk9vqQTPOM5lbdCwXMADxFvBxBSCnYL8uyF0qZeS5IBwpJ
-	HHYhzHfQ6qxLdvLrWbrfnqJRrUgnwwUsXuD8SJPtRAdN/PV1u5y1q+uh1HjwtNr0yi5OdbYZnBpIS
-	Q5xTOdPTGrUiTwY7uidWp4PFX33G04M1EZCRgm43eQv+2N54VergbkiwpwdYKgKUrP5Q4VjNJvc8L
-	fftcBXxUyz9cy1OBTsSy1thBwwGe/vKCSP6lk0/vs83PKwMH3aR1cNMZJggigkR7JNqUQHXeBh7Dw
-	iKamRa6nWWINYh/4+q3w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rbjfY2FkapecS1flojIwo0mlejj1aaitz7cLCT28TxQ=; b=j3Vkx84f9pWDrp
+	5+bhV7BxD6+cE4Bqaa57FpwFDd4GV5Yu1bkaou/Ab+UT85rx75RwYttpQkAozyxgGCZWW1eO5Vf+m
+	4IlFHBI8YgFOmrCwEbQsqXFFiCaPN5GiJi8KuzENfvZwTrm7ICUzEw0Ywk6uNdfnUxB1AbXeU0pug
+	Wx/ftTGNos5TH4IXgzuKhtKB7sdK9tAX72yD0KMRAz3NbVg2/pmeStpEBBwaeXygTCvvccuThB8KJ
+	xiwC51xQhPbKREDhKu1sz6tkbFy21CRNSRmLBydeeafCFAi2ZRc8uAcQIQFdNp2U4cwwblu3nO9Yf
+	+DNgYRs0ebFsvPtveWog==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQw3F-0004Db-44; Tue, 21 Apr 2020 16:47:13 +0000
+	id 1jQw3i-0004hG-NM; Tue, 21 Apr 2020 16:47:42 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQw2l-0003ys-VX
- for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:46:45 +0000
+ id 1jQw2l-0003z1-VZ
+ for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:46:46 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 812462000A;
- Tue, 21 Apr 2020 16:46:38 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id B18E420009;
+ Tue, 21 Apr 2020 16:46:40 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 0/8] Misc timing changes
-Date: Tue, 21 Apr 2020 18:46:29 +0200
-Message-Id: <20200421164637.8086-1-miquel.raynal@bootlin.com>
+Subject: [PATCH 1/8] mtd: rawnand: timings: Add mode information to the
+ timings structure
+Date: Tue, 21 Apr 2020 18:46:30 +0200
+Message-Id: <20200421164637.8086-2-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200421164637.8086-1-miquel.raynal@bootlin.com>
+References: <20200421164637.8086-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_094644_152173_366E9F7C 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200421_094644_152341_2AD277EA 
+X-CRM114-Status: GOOD (  11.52  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -66,33 +68,102 @@ Cc: Michal Simek <monstr@monstr.eu>,
  Naga Sureshkumar Relli <nagasure@xilinx.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGVsbG8sCgpXaGlsZSB3b3JraW5nIG9uIHRoZSBlYXJseSAtPmV4ZWNfb3AoKSBpbml0aWFsaXph
-dGlvbnMsIEkgZmlndXJlZCB0aGUKbG9naWMgbWlnaHQgbmVlZCB0byBiZSB1cGRhdGVkIGEgbGl0
-dGxlIGJpdCBpbiBvcmRlciB0byBzdXBwb3J0CiJwcm9ibGVtYXRpYyIgSVBzIGxpa2UgQXJhc2Fu
-IHdoaWNoIGRvIG5vdCBsZWF2ZSBhIGxvdCBvZiBsYXRpdHVkZSB0bwp0aGUgY29yZS4gV2hpbGUg
-ZG9pbmcgdGhlc2UgY2hhbmdlcyBpbiB0aGUgbG9naWMsIEkgYWxzbyBkZWNpZGVkIHRvCmNsZWFu
-dXAgdGhpcyBwb3J0aW9uIGEgYml0LCB3aGljaCBlbmRlZCB3aXRoIHRoZSB3cml0aW5nIG9mIGEg
-ZmV3CmZpeGVzLgoKQ2hlZXJzLApNaXF1w6hsCgpNaXF1ZWwgUmF5bmFsICg4KToKICBtdGQ6IHJh
-d25hbmQ6IHRpbWluZ3M6IEFkZCBtb2RlIGluZm9ybWF0aW9uIHRvIHRoZSB0aW1pbmdzIHN0cnVj
-dHVyZQogIG10ZDogcmF3bmFuZDogdGltaW5nczogRml4IGRlZmF1bHQgdFJfbWF4IGFuZCB0Q0NT
-X21pbiB0aW1pbmdzCiAgbXRkOiByYXduYW5kOiBvbmZpOiBGaXggcmVkdW5kYW5jeSBkZXRlY3Rp
-b24gY2hlY2sKICBtdGQ6IHJhd25hbmQ6IG9uZmk6IFVzZSBhbiBpbnRlcm1lZGlhdGUgdmFyaWFi
-bGUgdG8gZGVjb21wbGVmaXh5CiAgICBjb25kaXRpb25zCiAgbXRkOiByYXduYW5kOiBvbmZpOiBB
-dm9pZCBkb2luZyBhIGNvcHkgb2YgdGhlIHBhcmFtZXRlciBwYWdlCiAgbXRkOiByYXduYW5kOiBv
-bmZpOiBTaW1wbGlmeSB0aGUgTkFORCBvcGVyYXRpb25zIGR1cmluZyBkZXRlY3Rpb24KICBtdGQ6
-IHJhd25hbmQ6IGplZGVjOiBVc2UgYW4gaW50ZXJtZWRpYXRlIHZhcmlhYmxlIHRvIGRlY29tcGxl
-Zml4eQogICAgY29uZGl0aW9ucwogIG10ZDogcmF3bmFuZDogamVkZWM6IFNpbXBsaWZ5IHRoZSBO
-QU5EIG9wZXJhdGlvbnMgZHVyaW5nIGRldGVjdGlvbgoKIGRyaXZlcnMvbXRkL25hbmQvcmF3L25h
-bmRfamVkZWMuYyAgIHwgMjEgKysrKysrKystLS0tLS0tLS0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
-L25hbmRfb25maS5jICAgIHwgMzYgKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0KIGRyaXZl
-cnMvbXRkL25hbmQvcmF3L25hbmRfdGltaW5ncy5jIHwgMTEgKysrKysrLS0tCiBpbmNsdWRlL2xp
-bnV4L210ZC9yYXduYW5kLmggICAgICAgICB8IDEwICsrKysrLS0tCiA0IGZpbGVzIGNoYW5nZWQs
-IDM5IGluc2VydGlvbnMoKyksIDM5IGRlbGV0aW9ucygtKQoKLS0gCjIuMjAuMQoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQg
-ZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1tdGQvCg==
+Convert the timings union into a structure containing the mode and the
+actual values. The values are still a union in prevision of the
+addition of the NVDDR modes.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ drivers/mtd/nand/raw/nand_timings.c |  6 ++++++
+ include/linux/mtd/rawnand.h         | 10 +++++++---
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/nand_timings.c b/drivers/mtd/nand/raw/nand_timings.c
+index f64b06a71dfa..0061cbaf931d 100644
+--- a/drivers/mtd/nand/raw/nand_timings.c
++++ b/drivers/mtd/nand/raw/nand_timings.c
+@@ -16,6 +16,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 0 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 0,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+@@ -58,6 +59,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 1 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 1,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+@@ -100,6 +102,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 2 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 2,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+@@ -142,6 +145,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 3 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 3,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+@@ -184,6 +188,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 4 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 4,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+@@ -226,6 +231,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+ 	/* Mode 5 */
+ 	{
+ 		.type = NAND_SDR_IFACE,
++		.timings.mode = 5,
+ 		.timings.sdr = {
+ 			.tCCS_min = 500000,
+ 			.tR_max = 200000000,
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 1e76196f9829..d91f914d2e9e 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -491,13 +491,17 @@ enum nand_data_interface_type {
+ /**
+  * struct nand_data_interface - NAND interface timing
+  * @type:	 type of the timing
+- * @timings:	 The timing, type according to @type
++ * @timings:	 The timing
++ * @timings.mode: Timing mode as referred in the specification
+  * @timings.sdr: Use it when @type is %NAND_SDR_IFACE.
+  */
+ struct nand_data_interface {
+ 	enum nand_data_interface_type type;
+-	union {
+-		struct nand_sdr_timings sdr;
++	struct nand_timings {
++		unsigned int mode;
++		union {
++			struct nand_sdr_timings sdr;
++		};
+ 	} timings;
+ };
+ 
+-- 
+2.20.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
