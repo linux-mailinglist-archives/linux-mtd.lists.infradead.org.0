@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A6361B2D21
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:50:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 740401B2D23
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:50:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=050gOd14oex2vjrE4GtZFqu5Qsw67mx1ORcvjTTCqws=; b=SM6wfG2mHH7MqY
-	rJsxCYHAIEQac+X1NwfZGDPodYd5GkzkyFP/i92/1jgXPb5gbj4URcWZVmEdKE4nBOHPVAo8f2Zhv
-	siM5h0Wb2y8uLJ2MNWA04kb7JK9rRPtJbhamGq9kNY7nIBiU3QALr9Q/HCQSnU2yeSPK7s0mf6VE2
-	tDRDk7CT8eXPATTxIYa8rmxvzXXGgJbSt6RXPxe7I4qg9sJRH0PGjDqFk1l0vu3FAEaNC5tfIipqF
-	VRRSYyHymc1QXvHt+ZeN8+0Fi2tsrUoZUy1DxJSdnjwNWuEIj+9OdP3VuxGqINtO1IGIru0QVPmKS
-	OH0ZlsQX/aifHJxdD1IQ==;
+	List-Owner; bh=i4ZdCK4UrPsn4VN8Ofy5RrmrmH7EPIBQuvw7GG8CEkY=; b=oCwdyUyl071pi2
+	fc3ChO7bsV/BEhg/3u9xnc6KdqLnpPLcE0d5eWSYT70onuOU6WD2fiKD7zDA198g+t5dfWt/33LCU
+	flhHGVt8I8YoUzvlMVJhDjg1NYwKDLmQYrEDC2yPmkXf5cqjiNNZILJeAESqee8/3oxo9gwbxK/eA
+	TYj+5C+SE0RXKW+1W+e/wZYEN8UncqeWnTw3/HM8slrfY3VD79QhRO37iYXw01O3s6x3ZawuqVNT5
+	VgmKVfuZa88srURnkSG2k+gLdWj+HryO5XU67cJJMgUku3qjaGUp6HK9clYdTnpza1A8BKY8REJYz
+	cbPl7BLdlAkKocyO4Ocw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQw6G-000737-4y; Tue, 21 Apr 2020 16:50:20 +0000
+	id 1jQw6O-0001ED-Og; Tue, 21 Apr 2020 16:50:28 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQw54-0006Gj-0J
+ id 1jQw54-0006Hw-Pc
  for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:49:08 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 976ABC0016;
- Tue, 21 Apr 2020 16:49:03 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 7EBF8C0009;
+ Tue, 21 Apr 2020 16:49:04 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 4/6] mtd: rawnand: marvell: Fix probe error path
-Date: Tue, 21 Apr 2020 18:48:55 +0200
-Message-Id: <20200421164857.8255-5-miquel.raynal@bootlin.com>
+Subject: [PATCH 5/6] mtd: rawnand: marvell: Rename a function to clarify
+Date: Tue, 21 Apr 2020 18:48:56 +0200
+Message-Id: <20200421164857.8255-6-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200421164857.8255-1-miquel.raynal@bootlin.com>
 References: <20200421164857.8255-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_094906_199112_91FF6816 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20200421_094906_986911_F8A9322C 
+X-CRM114-Status: GOOD (  11.25  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -70,61 +70,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Ensure all chips are deregistered and cleaned in case of error during
-the probe.
+Cosmetic change to clarify the purpose of the function.
 
-Fixes: 02f26ecf8c77 ("mtd: nand: add reworked Marvell NAND controller driver")
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/marvell_nand.c | 21 +++++++++++----------
- 1 file changed, 11 insertions(+), 10 deletions(-)
+ drivers/mtd/nand/raw/marvell_nand.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
-index 350949b34eee..cb1e1a295002 100644
+index cb1e1a295002..2db143a97626 100644
 --- a/drivers/mtd/nand/raw/marvell_nand.c
 +++ b/drivers/mtd/nand/raw/marvell_nand.c
-@@ -2673,6 +2673,16 @@ static int marvell_nand_chip_init(struct device *dev, struct marvell_nfc *nfc,
- 	return 0;
- }
+@@ -2166,8 +2166,8 @@ static const struct mtd_ooblayout_ops marvell_nand_ooblayout_ops = {
+ 	.free = marvell_nand_ooblayout_free,
+ };
  
-+static void marvell_nand_chips_cleanup(struct marvell_nfc *nfc)
-+{
-+	struct marvell_nand_chip *entry, *temp;
-+
-+	list_for_each_entry_safe(entry, temp, &nfc->chips, node) {
-+		nand_release(&entry->chip);
-+		list_del(&entry->node);
-+	}
-+}
-+
- static int marvell_nand_chips_init(struct device *dev, struct marvell_nfc *nfc)
+-static int marvell_nand_hw_ecc_ctrl_init(struct mtd_info *mtd,
+-					 struct nand_ecc_ctrl *ecc)
++static int marvell_nand_hw_ecc_controller_init(struct mtd_info *mtd,
++					       struct nand_ecc_ctrl *ecc)
  {
- 	struct device_node *np = dev->of_node;
-@@ -2707,6 +2717,7 @@ static int marvell_nand_chips_init(struct device *dev, struct marvell_nfc *nfc)
- 		ret = marvell_nand_chip_init(dev, nfc, nand_np);
- 		if (ret) {
- 			of_node_put(nand_np);
-+			marvell_nand_chips_cleanup(nfc);
+ 	struct nand_chip *chip = mtd_to_nand(mtd);
+ 	struct marvell_nfc *nfc = to_marvell_nfc(chip->controller);
+@@ -2261,7 +2261,7 @@ static int marvell_nand_ecc_init(struct mtd_info *mtd,
+ 
+ 	switch (ecc->mode) {
+ 	case NAND_ECC_HW:
+-		ret = marvell_nand_hw_ecc_ctrl_init(mtd, ecc);
++		ret = marvell_nand_hw_ecc_controller_init(mtd, ecc);
+ 		if (ret)
  			return ret;
- 		}
- 	}
-@@ -2714,16 +2725,6 @@ static int marvell_nand_chips_init(struct device *dev, struct marvell_nfc *nfc)
- 	return 0;
- }
- 
--static void marvell_nand_chips_cleanup(struct marvell_nfc *nfc)
--{
--	struct marvell_nand_chip *entry, *temp;
--
--	list_for_each_entry_safe(entry, temp, &nfc->chips, node) {
--		nand_release(&entry->chip);
--		list_del(&entry->node);
--	}
--}
--
- static int marvell_nfc_init_dma(struct marvell_nfc *nfc)
- {
- 	struct platform_device *pdev = container_of(nfc->dev,
+ 		break;
 -- 
 2.20.1
 
