@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EF461B1EE6
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 08:40:38 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 77E431B1EE8
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 08:41:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,36 +11,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=LGqvei5gyYWgE2NnA7LJsRb3gKDWJUSO0WJSBzWSLfQ=; b=C8gigG+iIP430g8O3pvsdOGFzQ
-	TYpIhTnHvLih0L7bscn9xAWR1nenbYUdlTuBqhq8uwK3EkP0Jp5BwKzTZG+TpTHBGabBw59Qh7y/R
-	LOY1Emvpq0698BEkp+m/Mnn+U6474cop+RIXpUc8sqV2A7cqbuEgR47ejFA6MwPMLlWTQhHjFmSmm
-	LJHHltJT1ACfqd/DRV0Ldu40977btKq1YoZliwq+kXGKtKuVbhO7B6YV4Bd8uDUOlFV4RUBAlzmrk
-	n9Rqytfh0IIlv1RKWn2OoiR2+PQ46nN/YN/81+loJlOgxCUVTcy4VuuTyt9yjUT1aGP9xd1DfNNYK
-	AN22nWuQ==;
+	bh=g1MNt6RZu/c2C29I39o+k0cDjlMexF+jLlDPmNkcTp4=; b=qS7YCs8ztFmJttD8MNWWrBIfnp
+	rIgjzJKppefbYxU4553pw+5Jn7iAWgOYnPMm9b753/2lN+HE7+uhRZzm38motqa+YxDG/68WyIMDP
+	vLoPYl3AyTHf1qdx/qu6k3+eIaYVki0wPKJVsX17VWP3ZLRJrUd3aIZkdRgq0puBMCiwbCJUbc2n+
+	oe0TKky4NPeK2jvR+DVeSd9Ezq+x7wsV0ICfINoMC/SLwEqFKnl+gDX7WWCDGFBOXxGKSNcYjMUji
+	q9RT3xG+7KgafZjILlp4u+FfVXVk7wSbijdTXLHKa/7b+CpmV2GjpRUsjkIjfIC+ldLI7V5CN+rf9
+	tmPJ/wDA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQma6-0004iA-3z; Tue, 21 Apr 2020 06:40:30 +0000
+	id 1jQmaV-0005Iq-SH; Tue, 21 Apr 2020 06:40:55 +0000
 Received: from twhmllg3.macronix.com ([122.147.135.201])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQmZt-0004gx-1t
- for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 06:40:18 +0000
+ id 1jQmZt-0004gz-1x
+ for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 06:40:20 +0000
 Received: from localhost.localdomain ([172.17.195.96])
- by TWHMLLG3.macronix.com with ESMTP id 03L6dnMX045498;
- Tue, 21 Apr 2020 14:39:50 +0800 (GMT-8)
+ by TWHMLLG3.macronix.com with ESMTP id 03L6dnMY045498;
+ Tue, 21 Apr 2020 14:39:51 +0800 (GMT-8)
  (envelope-from masonccyang@mxic.com.tw)
 From: Mason Yang <masonccyang@mxic.com.tw>
 To: broonie@kernel.org, tudor.ambarus@microchip.com, miquel.raynal@bootlin.com,
  richard@nod.at, vigneshr@ti.com, boris.brezillon@collabora.com
-Subject: [PATCH v2 1/5] mtd: spi-nor: Add support for Octal 8D-8D-8D mode
-Date: Tue, 21 Apr 2020 14:39:43 +0800
-Message-Id: <1587451187-6889-2-git-send-email-masonccyang@mxic.com.tw>
+Subject: [PATCH v2 2/5] mtd: spi-nor: sfdp: Add support for xSPI profile 1.0
+ table
+Date: Tue, 21 Apr 2020 14:39:44 +0800
+Message-Id: <1587451187-6889-3-git-send-email-masonccyang@mxic.com.tw>
 X-Mailer: git-send-email 1.9.1
 In-Reply-To: <1587451187-6889-1-git-send-email-masonccyang@mxic.com.tw>
 References: <1587451187-6889-1-git-send-email-masonccyang@mxic.com.tw>
-X-MAIL: TWHMLLG3.macronix.com 03L6dnMX045498
+X-MAIL: TWHMLLG3.macronix.com 03L6dnMY045498
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200420_234017_373069_CB968F13 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20200420_234017_373065_8C41F5EB 
+X-CRM114-Status: GOOD (  15.58  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -61,126 +62,216 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: juliensu@mxic.com.tw, linux-kernel@vger.kernel.org,
- linux-spi@vger.kernel.org, Boris Brezillon <boris.brezillon@bootlin.com>,
- linux-mtd@lists.infradead.org, Mason Yang <masonccyang@mxic.com.tw>
+Cc: juliensu@mxic.com.tw, Mason Yang <masonccyang@mxic.com.tw>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-According to JEDEC216C SPI NORs are using 2 bytes opcodes
-when operated in OPI (Octal Peripheral Interface).
+xSPI(eXpanded Serial Peripheral Interface) is for Non Volatile Memory
+ Devices supports Octal DTR mode.
 
-Add extension command, command bytes number and dtr fields to
-the spi_mem_op struct and make sure all DTR operations are
-rejected for now.
+Extract information like:
+Read Fast command, the number of dummy cycles and address bytes
+for Read Status Register command.
 
-Signed-off-by: Boris Brezillon <boris.brezillon@bootlin.com>
+Read/Write volatile Register command for Configuration(CFG) Register 2.
+
+The dummy cycless used for various frequencies.
+
 Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
 ---
- drivers/spi/spi-mem.c       |  8 +++++++-
- include/linux/spi/spi-mem.h | 13 +++++++++++++
- 2 files changed, 20 insertions(+), 1 deletion(-)
+ drivers/mtd/spi-nor/core.h |  14 ++++++
+ drivers/mtd/spi-nor/sfdp.c | 106 ++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 119 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
-index adaa0c4..de682c5 100644
---- a/drivers/spi/spi-mem.c
-+++ b/drivers/spi/spi-mem.c
-@@ -154,6 +154,12 @@ bool spi_mem_default_supports_op(struct spi_mem *mem,
- 				   op->data.dir == SPI_MEM_DATA_OUT))
- 		return false;
+diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
+index 6f2f6b2..2ea11fa 100644
+--- a/drivers/mtd/spi-nor/core.h
++++ b/drivers/mtd/spi-nor/core.h
+@@ -208,6 +208,12 @@ struct spi_nor_locking_ops {
+  *                      e.g. different opcodes, specific address calculation,
+  *                      page size, etc.
+  * @locking_ops:	SPI NOR locking methods.
++ * @dtr_read_cmd:	xSPI Octal DTR Read Fast command.
++ * @rdsr_addr_nbytes:	xSPI Octal address bytes for read status register.
++ * @rdsr_dummy_cycles:	xSPI Octal dummy cycles for read status register.
++ * @rd_reg_cmd:		xSPI Octal read volatile register command.
++ * @wr_reg_cmd:		xSPI Octal write volatile register command.
++ * @dummy_cycles:	xSPI Octal dummy cycles used for various frequencies.
+  */
+ struct spi_nor_flash_parameter {
+ 	u64				size;
+@@ -225,6 +231,14 @@ struct spi_nor_flash_parameter {
+ 	int (*setup)(struct spi_nor *nor, const struct spi_nor_hwcaps *hwcaps);
  
-+	if (op->cmd.dtr || op->addr.dtr || op->dummy.dtr || op->data.dtr)
-+		return false;
+ 	const struct spi_nor_locking_ops *locking_ops;
 +
-+	if (op->cmd.nbytes != 1)
-+		return false;
-+
- 	return true;
- }
- EXPORT_SYMBOL_GPL(spi_mem_default_supports_op);
-@@ -168,7 +174,7 @@ static bool spi_mem_buswidth_is_valid(u8 buswidth)
- 
- static int spi_mem_check_op(const struct spi_mem_op *op)
- {
--	if (!op->cmd.buswidth)
-+	if (!op->cmd.buswidth || op->cmd.nbytes < 1 || op->cmd.nbytes > 2)
- 		return -EINVAL;
- 
- 	if ((op->addr.nbytes && !op->addr.buswidth) ||
-diff --git a/include/linux/spi/spi-mem.h b/include/linux/spi/spi-mem.h
-index af9ff2f..bf54079 100644
---- a/include/linux/spi/spi-mem.h
-+++ b/include/linux/spi/spi-mem.h
-@@ -17,6 +17,7 @@
- 	{							\
- 		.buswidth = __buswidth,				\
- 		.opcode = __opcode,				\
-+		.nbytes = 1,					\
- 	}
- 
- #define SPI_MEM_OP_ADDR(__nbytes, __val, __buswidth)		\
-@@ -69,11 +70,15 @@ enum spi_mem_data_dir {
++	/* xSPI profile 1.0 parameter for Octal 8S-8S-8S/8D-8D-8D */
++	u8 dtr_read_cmd;
++	u8 rdsr_addr_nbytes;
++	u8 rdsr_dummy_cycles;
++	u8 rd_reg_cmd;
++	u8 wr_reg_cmd;
++	u8 dummy_cycles;
+ };
  
  /**
-  * struct spi_mem_op - describes a SPI memory operation
-+ * @cmd.nbytes: number of opcode bytes (only 1 or 2 are valid)
-  * @cmd.buswidth: number of IO lines used to transmit the command
-+ * @cmd.dtr: set true to transfer opcode in double transfer rate mode
-  * @cmd.opcode: operation opcode
-+ * @cmd.ext_opcode: extension operation opcode
-  * @addr.nbytes: number of address bytes to send. Can be zero if the operation
-  *		 does not need to send an address
-  * @addr.buswidth: number of IO lines used to transmit the address cycles
-+ * @addr.dtr: set true to transfer address bytes in double transfer rate mode
-  * @addr.val: address value. This value is always sent MSB first on the bus.
-  *	      Note that only @addr.nbytes are taken into account in this
-  *	      address value, so users should make sure the value fits in the
-@@ -81,34 +86,42 @@ enum spi_mem_data_dir {
-  * @dummy.nbytes: number of dummy bytes to send after an opcode or address. Can
-  *		  be zero if the operation does not require dummy bytes
-  * @dummy.buswidth: number of IO lanes used to transmit the dummy bytes
-+ * @dummy.dtr: set true to transfer dummy bytes in double transfer rate mode
-  * @data.buswidth: number of IO lanes used to send/receive the data
-  * @data.dir: direction of the transfer
-  * @data.nbytes: number of data bytes to send/receive. Can be zero if the
-  *		 operation does not involve transferring data
-+ * @data.dtr: set true to transfer data bytes in double transfer rate mode
-  * @data.buf.in: input buffer (must be DMA-able)
-  * @data.buf.out: output buffer (must be DMA-able)
-  */
- struct spi_mem_op {
- 	struct {
-+		u8 nbytes;
- 		u8 buswidth;
-+		bool dtr;
- 		u8 opcode;
-+		u8 ext_opcode;
- 	} cmd;
+diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
+index f6038d3..26814a1 100644
+--- a/drivers/mtd/spi-nor/sfdp.c
++++ b/drivers/mtd/spi-nor/sfdp.c
+@@ -7,6 +7,7 @@
+ #include <linux/slab.h>
+ #include <linux/sort.h>
+ #include <linux/mtd/spi-nor.h>
++#include <linux/bitfield.h>
  
- 	struct {
- 		u8 nbytes;
- 		u8 buswidth;
-+		bool dtr;
- 		u64 val;
- 	} addr;
+ #include "core.h"
  
- 	struct {
- 		u8 nbytes;
- 		u8 buswidth;
-+		bool dtr;
- 	} dummy;
+@@ -19,6 +20,7 @@
+ #define SFDP_BFPT_ID		0xff00	/* Basic Flash Parameter Table */
+ #define SFDP_SECTOR_MAP_ID	0xff81	/* Sector Map Table */
+ #define SFDP_4BAIT_ID		0xff84  /* 4-byte Address Instruction Table */
++#define SFDP_XSPI_PF1_ID	0xff05	/* xSPI Profile 1.0 table. */
  
- 	struct {
- 		u8 buswidth;
- 		enum spi_mem_data_dir dir;
- 		unsigned int nbytes;
-+		bool dtr;
- 		union {
- 			void *in;
- 			const void *out;
+ #define SFDP_SIGNATURE		0x50444653U
+ #define SFDP_JESD216_MAJOR	1
+@@ -26,6 +28,28 @@
+ #define SFDP_JESD216A_MINOR	5
+ #define SFDP_JESD216B_MINOR	6
+ 
++/* xSPI Profile 1.0 table (from JESD216D.01). */
++#define XSPI_PF1_DWORD1_RD_CMD			GENMASK(15, 8)
++#define XSPI_PF1_DWORD1_RDSR_ADDR_BYTES		BIT(29)
++#define XSPI_PF1_DWORD1_RDSR_DUMMY_CYCLES	BIT(28)
++
++#define XSPI_PF1_DWORD2_RD_REG_CMD		GENMASK(31, 24)
++#define XSPI_PF1_DWORD2_WR_REG_CMD		GENMASK(15, 8)
++
++#define XSPI_DWORD(x)	((x) - 1)
++#define XSPI_DWORD_MAX	5
++
++struct sfdp_xspi {
++	u32	dwords[XSPI_DWORD_MAX];
++};
++
++struct xspi_dummy_cycles {
++	u16 speed_hz;	/* Speed MHz */
++	u8 dwords;	/* Dwords index */
++	u32 mask;	/* Mask */
++	u8 shift;	/* Bit shift */
++};
++
+ struct sfdp_header {
+ 	u32		signature; /* Ox50444653U <=> "SFDP" */
+ 	u8		minor;
+@@ -1081,6 +1105,83 @@ static int spi_nor_parse_4bait(struct spi_nor *nor,
+ }
+ 
+ /**
++ * spi_nor_parse_xspi_pf1() - parse the xSPI Profile 1.0 table
++ * @nor:		pointer to a 'struct spi_nor'
++ * @param_header:	pointer to the 'struct sfdp_parameter_header' describing
++ *			the 4-Byte Address Instruction Table length and version.
++ * @params:		pointer to the 'struct spi_nor_flash_parameter' to be.
++ *
++ * Return: 0 on success, -errno otherwise.
++ */
++static int spi_nor_parse_xspi_pf1(struct spi_nor *nor,
++				  const struct sfdp_parameter_header *header,
++				  struct spi_nor_flash_parameter *params)
++{
++	struct sfdp_xspi pfile1;
++	u32 i, addr;
++	size_t len;
++	int ret;
++	static const struct xspi_dummy_cycles dummy[] = {
++		/* {MHz, Dwords index, Mask, Bit shift} */
++		{ 200, 4, GENMASK(11, 7),   7},
++		{ 166, 5, GENMASK(31, 27), 27},
++		{ 133, 5, GENMASK(21, 17), 17},
++		{ 100, 5, GENMASK(11, 7),   7},
++	};
++
++	if (header->major != SFDP_JESD216_MAJOR ||
++	    header->length < XSPI_DWORD_MAX)
++		return -EINVAL;
++
++	len = min_t(size_t, sizeof(pfile1),
++		    header->length * sizeof(u32));
++
++	memset(&pfile1, 0, sizeof(pfile1));
++
++	addr = SFDP_PARAM_HEADER_PTP(header);
++	ret = spi_nor_read_sfdp(nor, addr, len, &pfile1);
++	if (ret)
++		goto out;
++
++	/* Fix endianness of the xSPI 1.0 DWORDs. */
++	le32_to_cpu_array(pfile1.dwords, XSPI_DWORD_MAX);
++
++	/* Get 8D-8D-8D fast read opcode and dummy cycles. */
++	params->dtr_read_cmd = FIELD_GET(XSPI_PF1_DWORD1_RD_CMD,
++					 pfile1.dwords[XSPI_DWORD(1)]);
++
++	if (pfile1.dwords[XSPI_DWORD(1)] & XSPI_PF1_DWORD1_RDSR_ADDR_BYTES)
++		params->rdsr_addr_nbytes = 4;
++	else
++		params->rdsr_addr_nbytes = 0;
++
++	if (pfile1.dwords[XSPI_DWORD(1)] & XSPI_PF1_DWORD1_RDSR_DUMMY_CYCLES)
++		params->rdsr_dummy_cycles = 8;
++	else
++		params->rdsr_dummy_cycles = 4;
++
++	params->rd_reg_cmd = FIELD_GET(XSPI_PF1_DWORD2_RD_REG_CMD,
++				       pfile1.dwords[XSPI_DWORD(2)]);
++	params->wr_reg_cmd = FIELD_GET(XSPI_PF1_DWORD2_WR_REG_CMD,
++				       pfile1.dwords[XSPI_DWORD(2)]);
++
++	for (i = 0; i < ARRAY_SIZE(dummy); i++) {
++		if (params->octal_max_speed == dummy[i].speed_hz) {
++			params->dummy_cycles =
++				(dummy[i].mask &
++				 pfile1.dwords[XSPI_DWORD(dummy[i].dwords)]) >>
++				 dummy[i].shift;
++			break;
++		}
++	}
++	if (i == ARRAY_SIZE(dummy))
++		params->dummy_cycles = 20;
++
++out:
++	return ret;
++}
++
++/**
+  * spi_nor_parse_sfdp() - parse the Serial Flash Discoverable Parameters.
+  * @nor:		pointer to a 'struct spi_nor'
+  * @params:		pointer to the 'struct spi_nor_flash_parameter' to be
+@@ -1171,7 +1272,6 @@ int spi_nor_parse_sfdp(struct spi_nor *nor,
+ 	/* Parse optional parameter tables. */
+ 	for (i = 0; i < header.nph; i++) {
+ 		param_header = &param_headers[i];
+-
+ 		switch (SFDP_PARAM_HEADER_ID(param_header)) {
+ 		case SFDP_SECTOR_MAP_ID:
+ 			err = spi_nor_parse_smpt(nor, param_header, params);
+@@ -1181,6 +1281,10 @@ int spi_nor_parse_sfdp(struct spi_nor *nor,
+ 			err = spi_nor_parse_4bait(nor, param_header, params);
+ 			break;
+ 
++		case SFDP_XSPI_PF1_ID:
++			err = spi_nor_parse_xspi_pf1(nor, param_header, params);
++			break;
++
+ 		default:
+ 			break;
+ 		}
 -- 
 1.9.1
 
