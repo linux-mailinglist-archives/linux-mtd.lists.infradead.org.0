@@ -2,46 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 34D771B2D0E
-	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:47:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F2F4E1B2D10
+	for <lists+linux-mtd@lfdr.de>; Tue, 21 Apr 2020 18:47:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jU27RAu6R7u1OpPmBjPghUT6SuinQK7bqBLXk5c3a6w=; b=c2T8F8qh96pmOA
-	i1dvjdRjUB/gFJjR9GGFeVTy1idjSjSYUVAxEKoXhBrfbsUhvGMsP3CB4UyP8+mi6S5IikC1vrbSk
-	mXS0An8NI+irGakLCh8M/AbTHljOvO/o8cA70ycPr3BJPd7MeBn2tYfXSbhvgyxyC9OD06tg7huht
-	bhirPAGOUYJTdBJwY9RFqpmHGLCCYy3hsMKdCukD2ntM17Uumaq0DxOzB3OAv14dXQwQMSG8HtPtf
-	c3eBey7LwfU2po7GL8E05THkqCtGTA66HCvnJ/CFzGk8M5LwJXXHz4KI0/FXW2Wu+NjtWfGZDxeQ3
-	LeVCuZQojXT3naSHoqmg==;
+	List-Owner; bh=xHTtpRZfrd0R6K2h0LdSuaCrQ2oym9eTl30G9fjUhZU=; b=tZN8WSUg/nFtc7
+	nuteAvIQ9Z7quc/vqnGOE75qtxlAu004E5jiRRRDlq/qF77Q/Qk7XX4wXToJ44uAEvQEAB6lYz6l3
+	rTeK+IyWtMdmoUKyt7HhkBk/4Dicqf2TF9YY/quk+h4eOoJr9YmvdiKJgM5c6xxt7lt5V+ngH+gnH
+	OxPPSTcsAkjpbBvcYLrIvW9OQ2h00wKBneC8HLOvhK/nyRe0WsKNfpSV106gEVOFpnxOvnrJFQEC4
+	5deA4YSnVEFjbbkF9UB0oMXtvJt3Wcp0Gdjovn5UQ74N0C9DBRn4+H9LmUa36CyGh+NoRnb2hT14g
+	EjWJT/OjcukYcGI/bDSg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jQw3Q-0004SE-VI; Tue, 21 Apr 2020 16:47:24 +0000
+	id 1jQw3t-0004zC-LD; Tue, 21 Apr 2020 16:47:53 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jQw2n-0003zu-BC
- for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:46:46 +0000
+ id 1jQw2o-0003zz-Bc
+ for linux-mtd@lists.infradead.org; Tue, 21 Apr 2020 16:46:47 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id D13E720015;
- Tue, 21 Apr 2020 16:46:42 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 2212A20017;
+ Tue, 21 Apr 2020 16:46:44 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 3/8] mtd: rawnand: onfi: Fix redundancy detection check
-Date: Tue, 21 Apr 2020 18:46:32 +0200
-Message-Id: <20200421164637.8086-4-miquel.raynal@bootlin.com>
+Subject: [PATCH 4/8] mtd: rawnand: onfi: Use an intermediate variable to
+ decomplefixy conditions
+Date: Tue, 21 Apr 2020 18:46:33 +0200
+Message-Id: <20200421164637.8086-5-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200421164637.8086-1-miquel.raynal@bootlin.com>
 References: <20200421164637.8086-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_094645_536786_F9DF9CB0 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20200421_094646_559581_A01A7D69 
+X-CRM114-Status: GOOD (  10.11  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -72,35 +73,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-During ONFI detection, the CRC derived from the parameter page and the
-CRC supposed to be at the end of the parameter page are compared. If
-they do not match, the second then the third copies of the page are
-tried.
-
-The current implementation compares the newly derived CRC with the CRC
-contained in the first page only. So if this particular CRC area has
-been corrupted, then the detection will fail for a wrong reason.
-
-Fix this issue by checking the derived CRC against the right one.
+Before reworking a little bit the ONFI detection code, let's
+decomplefixy the if statements.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_onfi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mtd/nand/raw/nand_onfi.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_onfi.c b/drivers/mtd/nand/raw/nand_onfi.c
-index 0b879bd0a68c..8fe8d7bdd203 100644
+index 8fe8d7bdd203..7d9a3130443a 100644
 --- a/drivers/mtd/nand/raw/nand_onfi.c
 +++ b/drivers/mtd/nand/raw/nand_onfi.c
-@@ -173,7 +173,7 @@ int nand_onfi_detect(struct nand_chip *chip)
+@@ -146,6 +146,7 @@ int nand_onfi_detect(struct nand_chip *chip)
+ 	int onfi_version = 0;
+ 	char id[4];
+ 	int i, ret, val;
++	u16 crc;
+ 
+ 	memorg = nanddev_get_memorg(&chip->base);
+ 
+@@ -172,8 +173,8 @@ int nand_onfi_detect(struct nand_chip *chip)
+ 			goto free_onfi_param_page;
  		}
  
- 		if (onfi_crc16(ONFI_CRC_BASE, (u8 *)&p[i], 254) ==
--				le16_to_cpu(p->crc)) {
-+		    le16_to_cpu(p[i].crc)) {
+-		if (onfi_crc16(ONFI_CRC_BASE, (u8 *)&p[i], 254) ==
+-		    le16_to_cpu(p[i].crc)) {
++		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&p[i], 254);
++		if (crc == le16_to_cpu(p[i].crc)) {
  			if (i)
  				memcpy(p, &p[i], sizeof(*p));
  			break;
+@@ -187,8 +188,8 @@ int nand_onfi_detect(struct nand_chip *chip)
+ 		nand_bit_wise_majority(srcbufs, ARRAY_SIZE(srcbufs), p,
+ 				       sizeof(*p));
+ 
+-		if (onfi_crc16(ONFI_CRC_BASE, (u8 *)p, 254) !=
+-				le16_to_cpu(p->crc)) {
++		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)p, 254);
++		if (crc != le16_to_cpu(p->crc)) {
+ 			pr_err("ONFI parameter recovery failed, aborting\n");
+ 			goto free_onfi_param_page;
+ 		}
 -- 
 2.20.1
 
