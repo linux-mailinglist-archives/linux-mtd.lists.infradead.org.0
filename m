@@ -2,48 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9EF7A1B3814
-	for <lists+linux-mtd@lfdr.de>; Wed, 22 Apr 2020 08:55:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 253DF1B3869
+	for <lists+linux-mtd@lfdr.de>; Wed, 22 Apr 2020 09:01:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m5U/zDw/QNhFPrhbZM0C1qGwcgI8mTcEpKC/dtI0TL0=; b=dw5sBnvFsFS7Ca
-	XmhgPwdY3hp6lY/rzfrpGQ79odGlW8JiPR6UJWmZ1Ah3crtw6s6bhA4yctUdpAMl4fNMEcw0Yhdki
-	Kv4+gAvajTDheBu98W2XJjk5SjqAL46Tpvkyjgc/3HRIb2WYPKyMb3i3fRbaoenyrVM4b/vEt+8j2
-	fy79L5JQcRlhSaBD2gwpqbSNgz/Zb34GlYTYMqImTVfl0t0qx1dqL4//RzTJJQNlnRtfa7cPeAbnm
-	9km1Zh5DWgOk0qof0LBPjiJ/ygMSFrVIQgeU04+NfH3O4lVu8Q4HQ3lwxuw59lwk4SVCANWhetlyE
-	1vCzgnZ5VQj6Z8I87KxA==;
+	List-Owner; bh=0agBogJa4rlEqrbhXksaQXn3yG/T68ThdcpFIiFAuXc=; b=fm1/bmGWmQWa5D
+	HOQQvCxZ7bvvyTxyg7j8WFxCjjBM66kSJ+Y/yIxKX1X+Ti05B5jt9jxmQD8bohPpbfjHH7mZq8mND
+	hIyaNpBAPjytMM14rC5omovQV1HhGkGsa5SPF089NZ4u2ng67dKc3tZeRpOXMDgHzwoSYts1H3lJo
+	H+JQjzaqsUMKKb3L8YWKsZ5BBb16JiorMfvlhpIPxIoHE+/cGu+Mp56liy5KlFxz7DrS1JPVid45C
+	/8XzSnQkf0ropd0gxe5NzWSouanMuyMo1/EX4HttQlFU1rRF34HbErHQIk9/azbqV/tGzNiaQ3B1j
+	9tmmOEvugNy9f7bB265g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jR9Hs-0004xY-FJ; Wed, 22 Apr 2020 06:55:12 +0000
+	id 1jR9Na-0003xv-Dr; Wed, 22 Apr 2020 07:01:06 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jR9HZ-0004vZ-Qy
- for linux-mtd@lists.infradead.org; Wed, 22 Apr 2020 06:54:55 +0000
+ id 1jR9NS-0003wN-In
+ for linux-mtd@lists.infradead.org; Wed, 22 Apr 2020 07:00:59 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 7023D2A1920;
- Wed, 22 Apr 2020 07:54:52 +0100 (BST)
-Date: Wed, 22 Apr 2020 08:54:48 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 2A10F2A191E;
+ Wed, 22 Apr 2020 08:00:57 +0100 (BST)
+Date: Wed, 22 Apr 2020 09:00:52 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH 5/8] mtd: rawnand: onfi: Avoid doing a copy of the
- parameter page
-Message-ID: <20200422085448.7e2fb95f@collabora.com>
-In-Reply-To: <20200421164637.8086-6-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH 6/8] mtd: rawnand: onfi: Simplify the NAND operations
+ during detection
+Message-ID: <20200422090052.5f27a42c@collabora.com>
+In-Reply-To: <20200421164637.8086-7-miquel.raynal@bootlin.com>
 References: <20200421164637.8086-1-miquel.raynal@bootlin.com>
- <20200421164637.8086-6-miquel.raynal@bootlin.com>
+ <20200421164637.8086-7-miquel.raynal@bootlin.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200421_235454_316229_FAB24F2D 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20200422_000058_749579_C58A9554 
+X-CRM114-Status: GOOD (  16.41  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -72,104 +72,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 21 Apr 2020 18:46:34 +0200
+On Tue, 21 Apr 2020 18:46:35 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> There is not need for copying the parameter page, playing with
+> There is no need for separate parameter page reads, the delay penalty
+> is negligible so let's do read the three copies in one go.
 
-	    ^no
+		    ^let's read
 
-> pointers works the same.
+In theory that's correct, but I fear this was done because some
+controllers couldn't read 768 bytes in one go. Could we do that only if
+the controller implements exec_op() and exec_op(check_only) returns true?
 
-	   ^does the trick?
-
-> 
-> There is not functional change.
 > 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-
 > ---
->  drivers/mtd/nand/raw/nand_onfi.c | 29 ++++++++++++++---------------
->  1 file changed, 14 insertions(+), 15 deletions(-)
+>  drivers/mtd/nand/raw/nand_onfi.c | 8 +-------
+>  1 file changed, 1 insertion(+), 7 deletions(-)
 > 
 > diff --git a/drivers/mtd/nand/raw/nand_onfi.c b/drivers/mtd/nand/raw/nand_onfi.c
-> index 7d9a3130443a..d6124180b47b 100644
+> index d6124180b47b..b76772666b82 100644
 > --- a/drivers/mtd/nand/raw/nand_onfi.c
 > +++ b/drivers/mtd/nand/raw/nand_onfi.c
-> @@ -141,7 +141,7 @@ int nand_onfi_detect(struct nand_chip *chip)
->  {
->  	struct mtd_info *mtd = nand_to_mtd(chip);
->  	struct nand_memory_organization *memorg;
-> -	struct nand_onfi_params *p;
-> +	struct nand_onfi_params *p = NULL, *pbuf;
->  	struct onfi_params *onfi;
->  	int onfi_version = 0;
->  	char id[4];
-> @@ -156,8 +156,8 @@ int nand_onfi_detect(struct nand_chip *chip)
->  		return 0;
->  
->  	/* ONFI chip: allocate a buffer to hold its parameter page */
-> -	p = kzalloc((sizeof(*p) * 3), GFP_KERNEL);
-> -	if (!p)
-> +	pbuf = kzalloc((sizeof(*pbuf) * 3), GFP_KERNEL);
-> +	if (!pbuf)
+> @@ -160,19 +160,13 @@ int nand_onfi_detect(struct nand_chip *chip)
+>  	if (!pbuf)
 >  		return -ENOMEM;
 >  
->  	ret = nand_read_param_page_op(chip, 0, NULL, 0);
-> @@ -167,32 +167,31 @@ int nand_onfi_detect(struct nand_chip *chip)
+> -	ret = nand_read_param_page_op(chip, 0, NULL, 0);
+> +	ret = nand_read_param_page_op(chip, 0, pbuf, 3 * sizeof(*pbuf));
+>  	if (ret) {
+>  		ret = 0;
+>  		goto free_onfi_param_page;
 >  	}
 >  
 >  	for (i = 0; i < 3; i++) {
-> -		ret = nand_read_data_op(chip, &p[i], sizeof(*p), true);
-> +		ret = nand_read_data_op(chip, &pbuf[i], sizeof(*pbuf), true);
->  		if (ret) {
->  			ret = 0;
->  			goto free_onfi_param_page;
->  		}
->  
-> -		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&p[i], 254);
-> -		if (crc == le16_to_cpu(p[i].crc)) {
-> -			if (i)
-> -				memcpy(p, &p[i], sizeof(*p));
-> +		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&pbuf[i], 254);
-> +		if (crc == le16_to_cpu(pbuf[i].crc)) {
-> +			p = &pbuf[i];
->  			break;
->  		}
->  	}
->  
->  	if (i == 3) {
-> -		const void *srcbufs[3] = {p, p + 1, p + 2};
+> -		ret = nand_read_data_op(chip, &pbuf[i], sizeof(*pbuf), true);
+> -		if (ret) {
+> -			ret = 0;
+> -			goto free_onfi_param_page;
+> -		}
 > -
-> +		const void *srcbufs[3] = {pbuf, pbuf + 1, pbuf + 2};
->  		pr_warn("Could not find a valid ONFI parameter page, trying bit-wise majority to recover it\n");
-> -		nand_bit_wise_majority(srcbufs, ARRAY_SIZE(srcbufs), p,
-> -				       sizeof(*p));
-> +		nand_bit_wise_majority(srcbufs, ARRAY_SIZE(srcbufs), pbuf,
-> +				       sizeof(*pbuf));
->  
-> -		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)p, 254);
-> -		if (crc != le16_to_cpu(p->crc)) {
-> +		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)pbuf, 254);
-> +		if (crc != le16_to_cpu(pbuf->crc)) {
->  			pr_err("ONFI parameter recovery failed, aborting\n");
->  			goto free_onfi_param_page;
->  		}
-> +		p = pbuf;
->  	}
->  
->  	if (chip->manufacturer.desc && chip->manufacturer.desc->ops &&
-> @@ -300,7 +299,7 @@ int nand_onfi_detect(struct nand_chip *chip)
->  	chip->parameters.onfi = onfi;
->  
->  	/* Identification done, free the full ONFI parameter page and exit */
-> -	kfree(p);
-> +	kfree(pbuf);
->  
->  	return 1;
->  
+>  		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&pbuf[i], 254);
+>  		if (crc == le16_to_cpu(pbuf[i].crc)) {
+>  			p = &pbuf[i];
 
 
 ______________________________________________________
