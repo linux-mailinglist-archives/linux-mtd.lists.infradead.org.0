@@ -2,45 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF92E1B7D0D
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 19:38:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3EBAB1B7D12
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 19:39:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2UqkaMJGzqn6ZKElMwUj2dMkVBCnEqpbeD3xByRNTbY=; b=tjYvWR5wAKtixf
-	kKNsc+Kcuhkyua959iotLuOYHcewbUjihZd4TYBHV3X6gl3GBETTe31hISTtWaNQ8tXzfVDilJoii
-	1uReB2NRaizBVJzoOEKaUIk4J5AU3Iu9yvxEXgq5rg89pLUiYOUxUWKeJKzuA3FKb5JuAOjPocug2
-	XhmhiP45fYoQwOA5er2bMq0vLciek79AoAdu6Tn/SvsChz3msOyjBsUUpiUrFxfLi8pmU4yvPD15Q
-	j6NqFkwqmtDj9ypojAAEbVDzKhtlBFe043/yeAQABhomi71TdtD8xmVtFWkBJCUP/Nr9wWyaYXeZv
-	PCgkk5SeRKxD/hb7t2Yw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bD+TyGnXFyyJ3SFypAi2fZ3zskudhtYkUWrWZwBu7LQ=; b=nwFA+NQwGy444w
+	SyE0ivJZXPTOU3KeiT08aM8c0xt4i3aaKEztZksV8KSPEPDKpY2ldql0mMk0aU5nxdOxq0XT7QPZ/
+	yqkoRK2IopR4S3T/iE2HIHtcJnYVJ9LFcHmBVjKFNwy49rhd8y5xErt1YpEpGQJQnAdPF6s+E8BHN
+	Fg2s1YtM0t7B5Cc8O9PjH9HF9myg5vC94HjQ8B+X1HyUHHOOcv7/Ju+8AbFjxpcCw57AT2kx2lO8Z
+	Pd2F+k1V3MWEmS9Jw4+LIoCgL+8yl5bPzqhaSf8//yHDHxMgyjIGgqRpNNCXr+0RhHt9mCGDRBeV1
+	Z7XgKIcBkfn6gnw1xogw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jS2HG-0007EA-IH; Fri, 24 Apr 2020 17:38:14 +0000
+	id 1jS2I1-00085V-SU; Fri, 24 Apr 2020 17:39:01 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jS2Fg-0005yP-2D
- for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 17:36:37 +0000
+ id 1jS2Fh-0005zS-0s
+ for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 17:36:38 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id C884920003;
- Fri, 24 Apr 2020 17:36:32 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 91A9D20009;
+ Fri, 24 Apr 2020 17:36:34 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 00/10] Supporting restricted NAND controllers
-Date: Fri, 24 Apr 2020 19:36:21 +0200
-Message-Id: <20200424173631.14311-1-miquel.raynal@bootlin.com>
+Subject: [PATCH 01/10] mtd: rawnand: Translate obscure bitfields into readable
+ macros
+Date: Fri, 24 Apr 2020 19:36:22 +0200
+Message-Id: <20200424173631.14311-2-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200424173631.14311-1-miquel.raynal@bootlin.com>
+References: <20200424173631.14311-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_103636_414055_A54ECFB6 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200424_103637_342223_0890BC89 
+X-CRM114-Status: GOOD (  11.54  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -66,50 +68,135 @@ Cc: Michal Simek <monstr@monstr.eu>,
  Naga Sureshkumar Relli <nagasure@xilinx.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGVsbG8sCgpUaGUgZmlyc3QgNiBwYXRjaGVzIGFyZSBqdXN0IG1pc2NlbGxhbmVvdXMgY2hhbmdl
-cywgdGhhdCBkbyBub3QgYnJpbmcKZnVuY3Rpb25hbCBjaGFuZ2VzIGJ1dCBjbGFyaWZ5IGEgZmV3
-IGNvcmUgYXJlYXMuCgpQYXRoIDcgYWRkcyBhIHdheSB0byB0ZXN0IHdoYXQgdGhlIGNvbnRyb2xs
-ZXIgLT5leGVjX29wKCkKaW1wbGVtZW50YXRpb24gYWN0dWFsbHkgc3VwcG9ydHMgYW5kIGRlY2lk
-ZSB0byBlaXRoZXIgInBhY2siIHRoZSBOQU5ECm9wZXJhdGlvbnMgYXMgbXVjaCBhcyBwb3NzaWJs
-ZSwgb3RoZXJ3aXNlIGNvbnRpbnVlIHRvIHNwbGl0IG9wZXJhdGlvbnMKYXMgdXN1YWwuCgpQYXRj
-aGVzIDggYW5kIDkgdXNlIHRoaXMgZmxhZyB0byBmYWxsYmFjayBvbiBwYWNrZWQgb3BlcmF0aW9u
-cyBkdXJpbmcKT05GSS9KRURFQyBwYXJhbWV0ZXIgcGFnZSByZWFkcyAodGhlIGlkZWEgb2YgdGhl
-c2UgdHdvIHBhdGNoZXMgaXMKaW1wb3J0ZWQgZnJvbSBhIHByZXZpb3VzIHNlcmllcykuCgpGaW5h
-bGx5LCBwYXRjaCAxMCBkb2VzIHRoZSBzYW1lIGluIHRoZSBjb3JlLCBpbiB0aGUgcmVhZC93cml0
-ZV9wYWdlCmhlbHBlcnMuCgpUaGlzIHNlcmllcyBpcyBuZWVkZWQgaW4gb3JkZXIgdG8gc3VwcG9y
-dCBjb250cm9sbGVycyBsaWtlIEFyYXNhbidzLgoKVGhhbmtzLApNaXF1w6hsCgpNaXF1ZWwgUmF5
-bmFsICgxMCk6CiAgbXRkOiByYXduYW5kOiBUcmFuc2xhdGUgb2JzY3VyZSBiaXRmaWVsZHMgaW50
-byByZWFkYWJsZSBtYWNyb3MKICBtdGQ6IHJhd25hbmQ6IFJlb3JkZXIgdGhlIG5hbmRfY2hpcC0+
-b3B0aW9ucyBmbGFncwogIG10ZDogcmF3bmFuZDogUmVuYW1lIGEgTkFORCBjaGlwIG9wdGlvbgog
-IG10ZDogcmF3bmFuZDogRml4IGNvbW1lbnRzIGFib3V0IHRoZSB1c2Ugb2YgYnVmcG9pCiAgbXRk
-OiByYXduYW5kOiBSZW5hbWUgdGhlIHVzZV9idWZwb2kgdmFyaWFibGVzCiAgbXRkOiByYXduYW5k
-OiBBdm9pZCBpbmRpcmVjdCBhY2Nlc3MgdG8gLT5kYXRhX2J1ZigpCiAgbXRkOiByYXduYW5kOiBI
-ZWxwIHN1cHBvcnRpbmcgY29udHJvbGxlcnMgdGhhdCBhcmUgbm90IGFibGUgdG8gc3BsaXQKICAg
-IG9wZXJhdGlvbnMKICBtdGQ6IHJhd25hbmQ6IG9uZmk6IEFkZCBhbiBhbHRlcm5hdGl2ZSBwYXJh
-bWV0ZXIgcGFnZSByZWFkCiAgbXRkOiByYXduYW5kOiBqZWRlYzogQWRkIGFuIGFsdGVybmF0aXZl
-IHBhcmFtZXRlciBwYWdlIHJlYWQKICBtdGQ6IHJhd25hbmQ6IEZhbGxiYWNrIG9uIGVhc2llciBv
-cGVyYXRpb25zIHdoZW4gbmVlZGVkCgogZHJpdmVycy9tdGQvbmFuZC9yYXcvYXRtZWwvbmFuZC1j
-b250cm9sbGVyLmMgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L2JyY21uYW5kL2JyY21u
-YW5kLmMgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9kZW5hbGkuYyAgICAgICAg
-ICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvaW50ZXJuYWxzLmggICAgICAg
-ICAgICAgfCAgIDUgKwogZHJpdmVycy9tdGQvbmFuZC9yYXcvbWVzb25fbmFuZC5jICAgICAgICAg
-ICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L210a19uYW5kLmMgICAgICAgICAgICAg
-IHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9uYW5kX2Jhc2UuYyAgICAgICAgICAgICB8
-IDExMCArKysrKysrKysrKysrKystLS0tCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9uYW5kX2plZGVj
-LmMgICAgICAgICAgICB8ICAzMSArKysrLS0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRfb25m
-aS5jICAgICAgICAgICAgIHwgIDE3ICsrLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvcWNvbV9uYW5k
-Yy5jICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3N0bTMyX2ZtYzJf
-bmFuZC5jICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9zdW54aV9uYW5kLmMg
-ICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvdGFuZ29fbmFuZC5jICAg
-ICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3RlZ3JhX25hbmQuYyAgICAg
-ICAgICAgIHwgICAyICstCiBpbmNsdWRlL2xpbnV4L210ZC9yYXduYW5kLmggICAgICAgICAgICAg
-ICAgICB8IDEwNSArKysrKysrKysrLS0tLS0tLS0KIDE1IGZpbGVzIGNoYW5nZWQsIDE5MSBpbnNl
-cnRpb25zKCspLCA5NyBkZWxldGlvbnMoLSkKCi0tIAoyLjIwLjEKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Np
-b24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
-Zm8vbGludXgtbXRkLwo=
+Use the BIT() macro instead of defining a 8-digit value.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+ include/linux/mtd/rawnand.h | 38 ++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 21873168ba4d..c92e7ecebdea 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -129,36 +129,36 @@ enum nand_ecc_algo {
+  * features.
+  */
+ /* Buswidth is 16 bit */
+-#define NAND_BUSWIDTH_16	0x00000002
++#define NAND_BUSWIDTH_16	BIT(1)
+ /* Chip has cache program function */
+-#define NAND_CACHEPRG		0x00000008
++#define NAND_CACHEPRG		BIT(3)
+ /*
+  * Chip requires ready check on read (for auto-incremented sequential read).
+  * True only for small page devices; large page devices do not support
+  * autoincrement.
+  */
+-#define NAND_NEED_READRDY	0x00000100
++#define NAND_NEED_READRDY	BIT(8)
+ 
+ /* Chip does not allow subpage writes */
+-#define NAND_NO_SUBPAGE_WRITE	0x00000200
++#define NAND_NO_SUBPAGE_WRITE	BIT(9)
+ 
+ /* Device is one of 'new' xD cards that expose fake nand command set */
+-#define NAND_BROKEN_XD		0x00000400
++#define NAND_BROKEN_XD		BIT(10)
+ 
+ /* Device behaves just like nand, but is readonly */
+-#define NAND_ROM		0x00000800
++#define NAND_ROM		BIT(11)
+ 
+ /* Device supports subpage reads */
+-#define NAND_SUBPAGE_READ	0x00001000
++#define NAND_SUBPAGE_READ	BIT(12)
+ 
+ /*
+  * Some MLC NANDs need data scrambling to limit bitflips caused by repeated
+  * patterns.
+  */
+-#define NAND_NEED_SCRAMBLING	0x00002000
++#define NAND_NEED_SCRAMBLING	BIT(13)
+ 
+ /* Device needs 3rd row address cycle */
+-#define NAND_ROW_ADDR_3		0x00004000
++#define NAND_ROW_ADDR_3		BIT(14)
+ 
+ /* Options valid for Samsung large page devices */
+ #define NAND_SAMSUNG_LP_OPTIONS NAND_CACHEPRG
+@@ -173,9 +173,9 @@ enum nand_ecc_algo {
+  * Position within the block: Each of these pages needs to be checked for a
+  * bad block marking pattern.
+  */
+-#define NAND_BBM_FIRSTPAGE		0x01000000
+-#define NAND_BBM_SECONDPAGE		0x02000000
+-#define NAND_BBM_LASTPAGE		0x04000000
++#define NAND_BBM_FIRSTPAGE	BIT(24)
++#define NAND_BBM_SECONDPAGE	BIT(25)
++#define NAND_BBM_LASTPAGE	BIT(26)
+ 
+ /* Position within the OOB data of the page */
+ #define NAND_BBM_POS_SMALL		5
+@@ -183,21 +183,21 @@ enum nand_ecc_algo {
+ 
+ /* Non chip related options */
+ /* This option skips the bbt scan during initialization. */
+-#define NAND_SKIP_BBTSCAN	0x00010000
++#define NAND_SKIP_BBTSCAN	BIT(16)
+ /* Chip may not exist, so silence any errors in scan */
+-#define NAND_SCAN_SILENT_NODEV	0x00040000
++#define NAND_SCAN_SILENT_NODEV	BIT(18)
+ /*
+  * Autodetect nand buswidth with readid/onfi.
+  * This suppose the driver will configure the hardware in 8 bits mode
+  * when calling nand_scan_ident, and update its configuration
+  * before calling nand_scan_tail.
+  */
+-#define NAND_BUSWIDTH_AUTO      0x00080000
++#define NAND_BUSWIDTH_AUTO      BIT(19)
+ /*
+  * This option could be defined by controller drivers to protect against
+  * kmap'ed, vmalloc'ed highmem buffers being passed from upper layers
+  */
+-#define NAND_USE_BOUNCE_BUFFER	0x00100000
++#define NAND_USE_BOUNCE_BUFFER	BIT(22)
+ 
+ /*
+  * In case your controller is implementing ->legacy.cmd_ctrl() and is relying
+@@ -207,20 +207,20 @@ enum nand_ecc_algo {
+  * If your controller already takes care of this delay, you don't need to set
+  * this flag.
+  */
+-#define NAND_WAIT_TCCS		0x00200000
++#define NAND_WAIT_TCCS		BIT(21)
+ 
+ /*
+  * Whether the NAND chip is a boot medium. Drivers might use this information
+  * to select ECC algorithms supported by the boot ROM or similar restrictions.
+  */
+-#define NAND_IS_BOOT_MEDIUM	0x00400000
++#define NAND_IS_BOOT_MEDIUM	BIT(20)
+ 
+ /*
+  * Do not try to tweak the timings at runtime. This is needed when the
+  * controller initializes the timings on itself or when it relies on
+  * configuration done by the bootloader.
+  */
+-#define NAND_KEEP_TIMINGS	0x00800000
++#define NAND_KEEP_TIMINGS	BIT(23)
+ 
+ /* Cell info constants */
+ #define NAND_CI_CHIPNR_MSK	0x03
+-- 
+2.20.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
