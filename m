@@ -2,60 +2,90 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 20EF41B70B4
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 11:21:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C81D1B717B
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 12:05:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hUZeNaUMBnTK8bHtWT6xS0SHDsAaRzPLw0v06FpyeRc=; b=acDxtc0ooG/3Dm
-	wdEUyNNdPs15YlfAuv9BW3RvXkiMw3LPtdylCGME7JcSZm6jLMtoNFAYtT6yYoLYxQ1ZJG9AB+Wv7
-	nEo53YaZVfavYo2+p6wVVRe5miR7HOUkFLcQOy+1+7N28nnQCquZZ71qQ451yURG3fl5X6s86FQsG
-	T7RfMKiPECL9X85yRL6fp7tL2Mxt2/7D4YZQYGMMOyFGIboIC53Z1luho5yx05OBK9YJYrMlxRWcH
-	TLxj27eS3Hu8HwlH2rjhDQ9YiINsZUzRVEn2G+25uCWgvDxPQfrNRtV5P0lkyZljFWwa15JFs/9VV
-	zufL3IEue4qsayQhO5RQ==;
+	List-Owner; bh=bozYYnsc6WE+wOYvce0zGmM/xFm/zfB/GxKB9xivYPY=; b=tlUoULYO1iKxEw
+	WzZoYPwLZByVWJ8i1h/4Di9ePoqskCGGvIll3NyWNGdL7aL9Xmq++cOsheE99ox+MenBonlSKII/T
+	qHfmoaKV2ID/Ef4iYxJCkRWnl9dUhan7albIy9/nSGCR0s2TrsB/SnlJWwLZsZlH/BP0BVpVYRBBd
+	IksNfJhAS7kU/8OXT3EMBjNDAKylro/+pStMrk/VhM8won1jPczaBWAaEm7XD4C2IP0W0TqfUNgre
+	l6KyiBdp4abUVPww+a5/c3oeR4Ydex0r3+T0hJp9oQGNlEmqyAa1cNqRZAbfK1KgqO0tRgXxiEAAn
+	YtEmTRiFXkjtl8axGlzw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jRuWe-0008E3-Fz; Fri, 24 Apr 2020 09:21:36 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1jRvDT-00086P-9V; Fri, 24 Apr 2020 10:05:51 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jRuWJ-000866-39
- for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 09:21:16 +0000
-Received: from DGGEMS413-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 1561CEDCD912C6DC6367;
- Fri, 24 Apr 2020 17:21:08 +0800 (CST)
-Received: from localhost.localdomain (10.67.165.24) by
- DGGEMS413-HUB.china.huawei.com (10.3.19.213) with Microsoft SMTP Server id
- 14.3.487.0; Fri, 24 Apr 2020 17:20:48 +0800
-From: Yicong Yang <yangyicong@hisilicon.com>
-To: <tudor.ambarus@microchip.com>, <linux-mtd@lists.infradead.org>
-Subject: [RFC PATCH 2/2] mtd: spi-nor: Disable the flash quad mode in
- spi_nor_restore()
-Date: Fri, 24 Apr 2020 17:20:44 +0800
-Message-ID: <1587720044-49172-3-git-send-email-yangyicong@hisilicon.com>
-X-Mailer: git-send-email 2.8.1
-In-Reply-To: <1587720044-49172-1-git-send-email-yangyicong@hisilicon.com>
-References: <1587720044-49172-1-git-send-email-yangyicong@hisilicon.com>
+ id 1jRvDB-00082g-KL
+ for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 10:05:38 +0000
+Received: by mail-wm1-x344.google.com with SMTP id x25so9794360wmc.0
+ for <linux-mtd@lists.infradead.org>; Fri, 24 Apr 2020 03:05:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:content-transfer-encoding:in-reply-to;
+ bh=9sjFX/xOuzJ1ma+dRdm2U+QjBqHkdZ65sP7ssS65XRA=;
+ b=xAChQZOcypsVjlU+KN7lBfFG4SyTb5KqpLWyOQk/HBgA4pxxYLt4W8HT40QHNHXuND
+ SswVB8FxgipX++pkVkNaR8M0DfByM4uDfkV53KNc4F5e6gJFsB9XHfb1TFm/2mDjj8Uc
+ uHh8BI5lk8qcPlr5pEMiFvBX+jXNaT02cBtzNzPBJPh69OEV+jpcyTHpr4SdOghEoZIU
+ v1OlHZN+G+JW/diBuCUtuB14n/P3lLlrOBJwuE9o3XWMMpSmq0ECmhNQ7aW/nWTD5grS
+ DligmM3LZkudrG+F/7/ksSB/84dWjDY/jqXCwlo/6VXVr/o9HaXAqcqRhGuBlatN+3ph
+ 7fIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:content-transfer-encoding
+ :in-reply-to;
+ bh=9sjFX/xOuzJ1ma+dRdm2U+QjBqHkdZ65sP7ssS65XRA=;
+ b=Mc2m73twY8ejSJ+KkMUe/b3BvJhFa+Y0OzUlWlfJoEkUWdyQ66wAtWzM4TYB1WxYh4
+ uoCmVEEqCfNyZoIYwkWMcYuPiJA48Av/C6w45Q1oy98Tv1nGfsxL1JDYLVffdsXmrziW
+ Cy9OGZjUcVDnI6oxFnxnfAYpXffQ5Vnl2lRm84C4BPiJgtSXHtgBBOsOYG2Y3OBI9gAG
+ 7asbfkCsEEqXU3TuCvrEb5QX7vEJbG+en0hRZzZ4cQhmVbM7zq21KgXXFnSf8EMDPRwQ
+ B4T3IoKLacb70yGKMVmMCaOLz49ssbJRQg1gqvLhAFbrvuEUEF98tngwGR8OtaMDVWGS
+ Gh2Q==
+X-Gm-Message-State: AGi0Puahzvd4FCrEuwL42gfXC6779WhQY+YELYrhpUfYgzx4RVThgXfZ
+ sjnkRd5YJFPfkso6H52VoIGWEw==
+X-Google-Smtp-Source: APiQypJHsUUKYVh/i2dCkEYnnU0IrFg+4nLc/ppXSv5rQqfX7rU+7H/vSQrP81Cv7/oKIMPtXmJABQ==
+X-Received: by 2002:a1c:9a81:: with SMTP id c123mr8759385wme.115.1587722730639; 
+ Fri, 24 Apr 2020 03:05:30 -0700 (PDT)
+Received: from dell ([2.31.163.63])
+ by smtp.gmail.com with ESMTPSA id o129sm2310857wme.16.2020.04.24.03.05.27
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 24 Apr 2020 03:05:29 -0700 (PDT)
+Date: Fri, 24 Apr 2020 11:05:26 +0100
+From: Lee Jones <lee.jones@linaro.org>
+To: Hadar Gat <hadar.gat@arm.com>
+Subject: Re: [PATCH v3] of_device: removed #include that caused a recursion
+ in included headers
+Message-ID: <20200424100526.GA8414@dell>
+References: <1587395080-15722-1-git-send-email-hadar.gat@arm.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.165.24]
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <1587395080-15722-1-git-send-email-hadar.gat@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_022115_329168_353804E1 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20200424_030534_582716_CD5FF787 
+X-CRM114-Status: GOOD (  13.96  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.1 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.191 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,47 +97,103 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com, richard@nod.at,
- john.garry@huawei.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
- alexander.sverdlin@nokia.com, miquel.raynal@bootlin.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jose Abreu <joabreu@synopsys.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>, devicetree@vger.kernel.org,
+ David Airlie <airlied@linux.ie>, Michael Turquette <mturquette@baylibre.com>,
+ Liviu Dudau <liviu.dudau@arm.com>, Stefan Agner <stefan@agner.ch>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, linux-tegra@vger.kernel.org,
+ Thierry Reding <thierry.reding@gmail.com>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>, sparclinux@vger.kernel.org,
+ netdev@vger.kernel.org, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>, linux-samsung-soc@vger.kernel.org,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Frank Rowand <frowand.list@gmail.com>, linux-rockchip@lists.infradead.org,
+ Richard Weinberger <richard@nod.at>, Joerg Roedel <joro@8bytes.org>,
+ Vinod Koul <vkoul@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Tony Lindgren <tony@atomide.com>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Andy Gross <agross@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-media@vger.kernel.org,
+ Kishon Vijay Abraham I <kishon@ti.com>,
+ Alexandre Torgue <alexandre.torgue@st.com>, linux-omap@vger.kernel.org,
+ iommu@lists.linux-foundation.org, linux-arm-msm@vger.kernel.org,
+ Sascha Hauer <s.hauer@pengutronix.de>, freedreno@lists.freedesktop.org,
+ Maxime Ripard <mripard@kernel.org>, Gilad Ben-Yossef <gilad@benyossef.com>,
+ Rob Herring <robh+dt@kernel.org>, linux-mediatek@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ Daniel Vetter <daniel@ffwll.ch>, Chen-Yu Tsai <wens@csie.org>,
+ Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+ Ofir Drang <ofir.drang@arm.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+ linux-gpio@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ linux-stm32@st-md-mailman.stormreply.com, Sandy Huang <hjc@rock-chips.com>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ JC Kuo <jckuo@nvidia.com>, Rob Clark <robdclark@gmail.com>,
+ Bjorn Andersson <bjorn.andersson@linaro.org>, Kukjin Kim <kgene@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, dmaengine@vger.kernel.org,
+ Shawn Guo <shawnguo@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Jonathan Cameron <jic23@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-If the flash's quad mode is enabled, it'll remain in the quad mode when
-it's removed. If we drive the flash next time in SPI/Dual mode, then
-problem occurs as the flash's quad enable bit is not cleared.
-
-Disable the quad mode in spi_nor_restore(), the flash will leave
-quad mode when remove. This will make sure the flash always enter the
-correct mode when loaded.
-
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- drivers/mtd/spi-nor/core.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index d0516e8..611c0b7 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -3001,6 +3001,11 @@ void spi_nor_restore(struct spi_nor *nor)
- 	if (nor->addr_width == 4 && !(nor->flags & SNOR_F_4B_OPCODES) &&
- 	    nor->flags & SNOR_F_BROKEN_RESET)
- 		nor->params->set_4byte_addr_mode(nor, false);
-+
-+	/* disable quad mode */
-+	if (spi_nor_get_protocol_width(nor->read_proto) == 4 ||
-+	    spi_nor_get_protocol_width(nor->write_proto) == 4)
-+		nor->params->quad_enable(nor, false);
- }
- EXPORT_SYMBOL_GPL(spi_nor_restore);
-
---
-2.8.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gTW9uLCAyMCBBcHIgMjAyMCwgSGFkYXIgR2F0IHdyb3RlOgoKPiBCb3RoIG9mX3BsYXRmb3Jt
+LmggYW5kIG9mX2RldmljZS5oIHdlcmUgaW5jbHVkZWQgZWFjaCBvdGhlci4KPiBJbiBvZl9kZXZp
+Y2UuaCwgcmVtb3ZlZCB1bm5lZWRlZCAjaW5jbHVkZSB0byBvZl9wbGF0Zm9ybS5oCj4gYW5kIGFk
+ZGVkIGluY2x1ZGUgdG8gb2ZfcGxhdGZvcm0uaCBpbiB0aGUgZmlsZXMgdGhhdCBuZWVkcyBpdC4K
+PiAKPiBTaWduZWQtb2ZmLWJ5OiBIYWRhciBHYXQgPGhhZGFyLmdhdEBhcm0uY29tPgo+IFJlcG9y
+dGVkLWJ5OiBrYnVpbGQgdGVzdCByb2JvdCA8bGtwQGludGVsLmNvbT4KPiBBY2tlZC1ieTogSm9u
+YXRoYW4gQ2FtZXJvbiA8Sm9uYXRoYW4uQ2FtZXJvbkBodWF3ZWkuY29tPiAjZm9yLWlpbwo+IEFj
+a2VkLWJ5OiBTdGVwaGVuIEJveWQgPHNib3lkQGtlcm5lbC5vcmc+ICMgY2xrCj4gLS0tCj4gdjM6
+IGFkZCBpbmNsdWRlIHRvIG9mX3BsYXRmb3JtLmggaW4gbW9yZSBmaWxlcy4gKHJlcG9ydGVkIGR1
+ZSBvdGhlciBidWlsZHMpCj4gdjI6IGFkZCBpbmNsdWRlIHRvIG9mX3BsYXRmb3JtLmggaW4gbW9y
+ZSBmaWxlcy4gKHJlcG9ydGVkIGR1ZSBvdGhlciBidWlsZHMpCj4gCj4gIGFyY2gvc3BhcmMva2Vy
+bmVsL3BjaS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAgYXJjaC9zcGFyYy9r
+ZXJuZWwvcGNpX3NhYnJlLmMgICAgICAgICAgICAgICAgICAgICB8IDEgKwo+ICBhcmNoL3NwYXJj
+L2tlcm5lbC9wY2lfc2NoaXpvLmMgICAgICAgICAgICAgICAgICAgIHwgMSArCj4gIGFyY2gvc3Bh
+cmMva2VybmVsL3NidXMuYyAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAgYXJjaC9z
+cGFyYy9tbS9pby11bml0LmMgICAgICAgICAgICAgICAgICAgICAgICAgICB8IDEgKwo+ICBhcmNo
+L3NwYXJjL21tL2lvbW11LmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgMSArCj4gIGRy
+aXZlcnMvYmFzZS9wbGF0Zm9ybS5jICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAg
+ZHJpdmVycy9idXMvaW14LXdlaW0uYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IDEgKwo+
+ICBkcml2ZXJzL2J1cy92ZXhwcmVzcy1jb25maWcuYyAgICAgICAgICAgICAgICAgICAgIHwgMSAr
+Cj4gIGRyaXZlcnMvY2xrL21lZGlhdGVrL2Nsay1tdDc2MjItYXVkLmMgICAgICAgICAgICAgfCAx
+ICsKPiAgZHJpdmVycy9kbWEvYXRfaGRtYWMuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICB8
+IDEgKwo+ICBkcml2ZXJzL2RtYS9zdG0zMi1kbWFtdXguYyAgICAgICAgICAgICAgICAgICAgICAg
+IHwgMSArCj4gIGRyaXZlcnMvZG1hL3RpL2RtYS1jcm9zc2Jhci5jICAgICAgICAgICAgICAgICAg
+ICAgfCAxICsKPiAgZHJpdmVycy9ncHUvZHJtL21zbS9hZHJlbm8vYTZ4eF9nbXUuYyAgICAgICAg
+ICAgICB8IDEgKwo+ICBkcml2ZXJzL2dwdS9kcm0vbXNtL2hkbWkvaGRtaS5jICAgICAgICAgICAg
+ICAgICAgIHwgMSArCj4gIGRyaXZlcnMvZ3B1L2RybS9tc20vbXNtX2Rydi5jICAgICAgICAgICAg
+ICAgICAgICAgfCAxICsKPiAgZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL2R3LW1pcGktZHNpLXJv
+Y2tjaGlwLmMgICB8IDEgKwo+ICBkcml2ZXJzL2dwdS9kcm0vc3VuNGkvc3VuNGlfdGNvbi5jICAg
+ICAgICAgICAgICAgIHwgMSArCj4gIGRyaXZlcnMvaWlvL2FkYy9zdG0zMi1hZGMtY29yZS5jICAg
+ICAgICAgICAgICAgICAgfCAxICsKPiAgZHJpdmVycy9paW8vYWRjL3N0bTMyLWRmc2RtLWFkYy5j
+ICAgICAgICAgICAgICAgICB8IDEgKwo+ICBkcml2ZXJzL2lpby9hZGMvc3RtMzItZGZzZG0tY29y
+ZS5jICAgICAgICAgICAgICAgIHwgMSArCj4gIGRyaXZlcnMvaW9tbXUvdGVncmEtc21tdS5jICAg
+ICAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAgZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9jb2Rh
+L2NvZGEtY29tbW9uLmMgICAgICAgICB8IDEgKwo+ICBkcml2ZXJzL21lbW9yeS9hdG1lbC1lYmku
+YyAgICAgICAgICAgICAgICAgICAgICAgIHwgMSArCgo+ICBkcml2ZXJzL21mZC9wYWxtYXMuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgMSArCj4gIGRyaXZlcnMvbWZkL3NzYmkuYyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxICsKCkFja2VkLWJ5OiBMZWUgSm9uZXMg
+PGxlZS5qb25lc0BsaW5hcm8ub3JnPgoKPiAgZHJpdmVycy9tdGQvbmFuZC9yYXcvb21hcDIuYyAg
+ICAgICAgICAgICAgICAgICAgICB8IDEgKwo+ICBkcml2ZXJzL25ldC9ldGhlcm5ldC9zdG1pY3Jv
+L3N0bW1hYy9kd21hYy1zdW44aS5jIHwgMSArCj4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L3RpL2Nw
+c3cuYyAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAgZHJpdmVycy9waHkvdGVncmEveHVzYi5j
+ICAgICAgICAgICAgICAgICAgICAgICAgICB8IDEgKwo+ICBkcml2ZXJzL3BpbmN0cmwvZnJlZXNj
+YWxlL3BpbmN0cmwtaW14MS1jb3JlLmMgICAgIHwgMSArCj4gIGRyaXZlcnMvcGluY3RybC9ub21h
+ZGlrL3BpbmN0cmwtbm9tYWRpay5jICAgICAgICAgfCAxICsKPiAgZHJpdmVycy9zb2Mvc2Ftc3Vu
+Zy9leHlub3MtcG11LmMgICAgICAgICAgICAgICAgICB8IDEgKwo+ICBkcml2ZXJzL3NvYy9zdW54
+aS9zdW54aV9zcmFtLmMgICAgICAgICAgICAgICAgICAgIHwgMSArCj4gIGluY2x1ZGUvbGludXgv
+b2ZfZGV2aWNlLmggICAgICAgICAgICAgICAgICAgICAgICAgfCAyIC0tCj4gIGxpYi9nZW5hbGxv
+Yy5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAxICsKPiAgMzYgZmlsZXMg
+Y2hhbmdlZCwgMzUgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKCi0tIApMZWUgSm9uZXMg
+W+adjueQvOaWr10KTGluYXJvIFNlcnZpY2VzIFRlY2huaWNhbCBMZWFkCkxpbmFyby5vcmcg4pSC
+IE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwpGb2xsb3cgTGluYXJvOiBGYWNlYm9v
+ayB8IFR3aXR0ZXIgfCBCbG9nCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
