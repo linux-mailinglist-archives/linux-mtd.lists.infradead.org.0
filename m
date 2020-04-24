@@ -2,56 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51BD71B7BFF
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 18:46:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id AFEA91B7BFC
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 18:45:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WJJ43JGRChklO/Fu0PD8YvLDkMAh/kr7vogv7ayesOc=; b=NkB6qZVGFdr+5/
-	fWszPecHxMtzJeLj2i8P5PxoUAas7Vti9TWLQURSiL2oOn0ypNBbc9aCizpQ8Y1JbGT83RgQigwfF
-	IdO52xTiU0ARYrO4glnQynJr6uBzpNJnIB7e1tpATuCB4OXTUQ1EDMlNMmmOznF2T9EgKVYLolsgH
-	DMEiQ1IEiO1fM77QIAfpFYipGx1ZaJtCVHR4q/cjM0Ogk+BG3Qwnimov/30a3fkoCakbzXIPZAR/o
-	cnsOQdl0u4yV9MMb3JlSxBuuYFD4cm5gzhJmWPuGQHefZnbJVYyuuHiphATcE/q9PEjD+eRCcfPcy
-	eFCZ6THzKLq4ItiU8PFg==;
+	List-Owner; bh=6lvRiOuy85MydYTbjvhY3vftbZ2r0x/1b4VSN+RFvWQ=; b=gH/ToNvJW0nkQL
+	PFnbhWdZZ8JXIvzmfRbcOrwSTTTZwBQXJOABoJ0ANr8rt3aPzLN1CLlXeLh2Frw4hxFRluDIZJb9g
+	emaenvqGFcsZMjf7gy5IDUJlH05ZMgG20jnrQ8J4HAyvZRbgQlQBOh14ocdLoVqqJrK06qqQRAUSF
+	/eJicqxIR8cHPD0J4gSsIoBD/NUbxttj3vWOHYp/IXjz79Y8b0a12f+PYecPQQIfxeeObU+LukoY2
+	UI+c98R2UwYMXhFK4XjukqaBdke1GHVrG4tpJ55i84/pzueLJ/RfdyU8bc2SLaz/G/6AowaqelnTq
+	u60YTkp5UdJU+A4fnjWQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jS1Si-0002BA-E0; Fri, 24 Apr 2020 16:46:00 +0000
+	id 1jS1SQ-0001uu-En; Fri, 24 Apr 2020 16:45:42 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jS1Rs-00006n-Hv
+ id 1jS1Rs-0000Hf-QP
  for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 16:45:10 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id D55D1240002;
- Fri, 24 Apr 2020 16:45:05 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id BD95624000E;
+ Fri, 24 Apr 2020 16:45:06 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 1/6] mtd: rawnand: marvell: Fix the condition on a return
- code
-Date: Fri, 24 Apr 2020 18:44:56 +0200
-Message-Id: <20200424164501.26719-2-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 2/6] mtd: rawnand: marvell: Use devm_platform_ioremap_res()
+Date: Fri, 24 Apr 2020 18:44:57 +0200
+Message-Id: <20200424164501.26719-3-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200424164501.26719-1-miquel.raynal@bootlin.com>
 References: <20200424164501.26719-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_094508_744656_7C556A23 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20200424_094509_020391_B9F61D84 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.193 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
  [217.70.183.193 listed in wl.mailspike.net]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.193 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
@@ -74,47 +74,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-In a previous fix, I changed the condition on which the timeout of an
-IRQ is reached from:
+Switch from the old platform_get_resource()/devm_ioremap_resource()
+couple to the newer devm_platform_ioremap_resource() helper.
 
-    if (!ret)
-
-into:
-
-    if (ret && !pending)
-
-While having a non-zero return code is usual in the Linux kernel, here
-ret comes from a wait_for_completion_timeout() which returns 0 when
-the waiting period is too long.
-
-Hence, the revised condition should be:
-
-    if (!ret && !pending)
-
-The faulty patch did not produce any error because of the !pending
-condition so this change is finally purely cosmetic and does not
-change the actual driver behavior.
-
-Fixes: cafb56dd741e ("mtd: rawnand: marvell: prevent timeouts on a loaded machine")
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/marvell_nand.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mtd/nand/raw/marvell_nand.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
-index 179f0ca585f8..f2bf88336326 100644
+index f2bf88336326..7906bd3fc8cb 100644
 --- a/drivers/mtd/nand/raw/marvell_nand.c
 +++ b/drivers/mtd/nand/raw/marvell_nand.c
-@@ -707,7 +707,7 @@ static int marvell_nfc_wait_op(struct nand_chip *chip, unsigned int timeout_ms)
- 	 * In case the interrupt was not served in the required time frame,
- 	 * check if the ISR was not served or if something went actually wrong.
- 	 */
--	if (ret && !pending) {
-+	if (!ret && !pending) {
- 		dev_err(nfc->dev, "Timeout waiting for RB signal\n");
- 		return -ETIMEDOUT;
- 	}
+@@ -2854,7 +2854,6 @@ static int marvell_nfc_init(struct marvell_nfc *nfc)
+ static int marvell_nfc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+-	struct resource *r;
+ 	struct marvell_nfc *nfc;
+ 	int ret;
+ 	int irq;
+@@ -2869,8 +2868,7 @@ static int marvell_nfc_probe(struct platform_device *pdev)
+ 	nfc->controller.ops = &marvell_nand_controller_ops;
+ 	INIT_LIST_HEAD(&nfc->chips);
+ 
+-	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	nfc->regs = devm_ioremap_resource(dev, r);
++	nfc->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(nfc->regs))
+ 		return PTR_ERR(nfc->regs);
+ 
 -- 
 2.20.1
 
