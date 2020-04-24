@@ -2,47 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E15A21B7BE2
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 18:42:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E9C891B7BEB
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 18:43:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IQlc6VYJYeuXm4NXTHkwJ2hcAO8ewOqA5KpBeET4pvM=; b=PBn8aEtssfkSAr
-	/x9kLCCh3Y8inSXYxFXUPs0rO+TvwsoxJLEYvy6c7Gkrb1XlmwQRMCyHUrv7zSNjir5YNJGSenJ0T
-	CPqF16pLQwjwEBx+EtX+8Y0kGhK04PADkvwLIDGXAWXhRTXhe+2pABpriOVAH9cqot72rgHTiGs0s
-	Lg8815i1dIaC7ZwjWVJgW4LCWG5JJ4c4I7/yxdiwGpkHjGm1Z5F/5GE6sOzOM+Jfam630XLgd6whC
-	WKLEh+TA+/NHAyd4W0LB14aAO+zUTFUHXW5UE6NQ7vNlAf7AfhAaIMW5ITSRpM4dB41TZ0SqkijbK
-	H0Mi4Dg7ppHWa5nD+8rQ==;
+	List-Owner; bh=PyLrsJmSipFEReLUVtuYR26bQ2pg9l4auCvzLDWkUiE=; b=p39lx9D1m3hzpn
+	d5iI3JI0RODap++mVzeaw7K1nOqu5ihZ2PMX8410vcX4LaRMheJfUSLv6me6rSmhqckdSxDoDDpL5
+	GFNHdIKKLUtimz1VV53GcyYTu9II1FAPipiLbKerEzSUNyaVCjPSJ7CjYbbGtvSaOCniLBljzhvgZ
+	ioY6FKoPUO0rXfX4C1IfV1ZH7LBMiy9uVLttpj0oitITs0ficO4vhTyMMz72mqNDHNyNFMrF7twtB
+	NajrHmc3W/l4pmHtVqS/N6xQ5mq6J/dEHN1cqoRoeWuYI328mTtQdpQmnZeNcYbwvfNrFa+Rf0sEL
+	c1x2IcF6B4yVz2j0zB4A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jS1PQ-0005IA-BS; Fri, 24 Apr 2020 16:42:36 +0000
+	id 1jS1QS-0006Fn-0h; Fri, 24 Apr 2020 16:43:40 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jS1Nk-0003xD-Id
+ id 1jS1Nl-0003yI-AJ
  for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 16:40:56 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 4FDD22000E;
- Fri, 24 Apr 2020 16:40:50 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 2769220007;
+ Fri, 24 Apr 2020 16:40:51 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 6/9] mtd: rawnand: onfi: Avoid doing a copy of the
- parameter page
-Date: Fri, 24 Apr 2020 18:40:39 +0200
-Message-Id: <20200424164042.26572-7-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 7/9] mtd: rawnand: onfi: Drop a useless parameter page read
+Date: Fri, 24 Apr 2020 18:40:40 +0200
+Message-Id: <20200424164042.26572-8-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200424164042.26572-1-miquel.raynal@bootlin.com>
 References: <20200424164042.26572-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_094054_376245_F78650E9 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20200424_094054_340622_870494FC 
+X-CRM114-Status: GOOD (  10.96  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -71,101 +70,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-There is no need for copying the parameter page, playing with
-pointers does the trick.
+During detection the logic on the NAND bus is:
 
-There is not functional change.
+    /* Regular ONFI detection */
+    1/ read the three NAND parameter pages
+
+    /* Extended parameter page detection */
+    2/ send "read the NAND parameter page" commands without reading
+       actual data
+    3/ move the column pointer to the extended page and read it
+
+If fact, as long as there is nothing happening on the NAND bus between
+1/ and 3/, the operation 2/ is redundant so remove it.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/nand_onfi.c | 31 +++++++++++++++----------------
- 1 file changed, 15 insertions(+), 16 deletions(-)
+ drivers/mtd/nand/raw/nand_onfi.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_onfi.c b/drivers/mtd/nand/raw/nand_onfi.c
-index 9fe39adbde4c..6576b841bc56 100644
+index 6576b841bc56..2fc71b7c361f 100644
 --- a/drivers/mtd/nand/raw/nand_onfi.c
 +++ b/drivers/mtd/nand/raw/nand_onfi.c
-@@ -143,7 +143,7 @@ int nand_onfi_detect(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 	struct nand_memory_organization *memorg;
--	struct nand_onfi_params *p;
-+	struct nand_onfi_params *p = NULL, *pbuf;
- 	struct onfi_params *onfi;
- 	int onfi_version = 0;
- 	char id[4];
-@@ -158,8 +158,8 @@ int nand_onfi_detect(struct nand_chip *chip)
- 		return 0;
- 
- 	/* ONFI chip: allocate a buffer to hold its parameter page */
--	p = kzalloc((sizeof(*p) * ONFI_PARAM_PAGES), GFP_KERNEL);
--	if (!p)
-+	pbuf = kzalloc((sizeof(*pbuf) * ONFI_PARAM_PAGES), GFP_KERNEL);
-+	if (!pbuf)
+@@ -47,12 +47,10 @@ static int nand_flash_detect_ext_param_page(struct nand_chip *chip,
+ 	if (!ep)
  		return -ENOMEM;
  
- 	ret = nand_read_param_page_op(chip, 0, NULL, 0);
-@@ -169,32 +169,31 @@ int nand_onfi_detect(struct nand_chip *chip)
- 	}
- 
- 	for (i = 0; i < ONFI_PARAM_PAGES; i++) {
--		ret = nand_read_data_op(chip, &p[i], sizeof(*p), true);
-+		ret = nand_read_data_op(chip, &pbuf[i], sizeof(*pbuf), true);
- 		if (ret) {
- 			ret = 0;
- 			goto free_onfi_param_page;
- 		}
- 
--		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&p[i], 254);
--		if (crc == le16_to_cpu(p[i].crc)) {
--			if (i)
--				memcpy(p, &p[i], sizeof(*p));
-+		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)&pbuf[i], 254);
-+		if (crc == le16_to_cpu(pbuf[i].crc)) {
-+			p = &pbuf[i];
- 			break;
- 		}
- 	}
- 
- 	if (i == ONFI_PARAM_PAGES) {
--		const void *srcbufs[ONFI_PARAM_PAGES] = {p, p + 1, p + 2};
+-	/* Send our own NAND_CMD_PARAM. */
+-	ret = nand_read_param_page_op(chip, 0, NULL, 0);
+-	if (ret)
+-		goto ext_out;
 -
-+		const void *srcbufs[ONFI_PARAM_PAGES] = {pbuf, pbuf + 1, pbuf + 2};
- 		pr_warn("Could not find a valid ONFI parameter page, trying bit-wise majority to recover it\n");
--		nand_bit_wise_majority(srcbufs, ARRAY_SIZE(srcbufs), p,
--				       sizeof(*p));
-+		nand_bit_wise_majority(srcbufs, ARRAY_SIZE(srcbufs), pbuf,
-+				       sizeof(*pbuf));
- 
--		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)p, 254);
--		if (crc != le16_to_cpu(p->crc)) {
-+		crc = onfi_crc16(ONFI_CRC_BASE, (u8 *)pbuf, 254);
-+		if (crc != le16_to_cpu(pbuf->crc)) {
- 			pr_err("ONFI parameter recovery failed, aborting\n");
- 			goto free_onfi_param_page;
- 		}
-+		p = pbuf;
- 	}
- 
- 	if (chip->manufacturer.desc && chip->manufacturer.desc->ops &&
-@@ -302,14 +301,14 @@ int nand_onfi_detect(struct nand_chip *chip)
- 	chip->parameters.onfi = onfi;
- 
- 	/* Identification done, free the full ONFI parameter page and exit */
--	kfree(p);
-+	kfree(pbuf);
- 
- 	return 1;
- 
- free_model:
- 	kfree(chip->parameters.model);
- free_onfi_param_page:
--	kfree(p);
-+	kfree(pbuf);
- 
- 	return ret;
- }
+-	/* Use the Change Read Column command to skip the ONFI param pages. */
++	/*
++	 * Use the Change Read Column command to skip the ONFI param pages and
++	 * ensure we read at the right location.
++	 */
+ 	ret = nand_change_read_column_op(chip,
+ 					 sizeof(*p) * p->num_of_param_pages,
+ 					 ep, len, true);
 -- 
 2.20.1
 
