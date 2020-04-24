@@ -2,55 +2,87 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0665C1B7D42
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 19:48:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E199D1B7E2F
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 20:47:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eICVIlVqAyTlbKef5K+Tv24EtfrFBIGOOrp3ZrtrmAg=; b=dC0JleRLMzenR9
-	pOnWfrwykkhF7ThrYk9R1eQTZ0hfZy82waXxGIC4Z0xAweNdqBOChqLQRVLUM7lqW5DqMlvMiO6FC
-	H7e0tmghdNQ/Egov4xt3u/Zq9eZzWfiYER+oxbeuLcqxd+5u84CBpTI9TJEeDx9Q3JYWPRlXIVLYC
-	jkKH9ykq7OrOR3s6M5t2XN3BjvU58+LHReFZjVXLQeZXcLcvL6+gCk0DH8k8wEMYMzwBXxX2XeIJW
-	rQUqyjntmgahIEEw0YUiMALgg07UfP+Pjwav6q/GLuSuLVUOJQHBRYWP7NaLIxDF8xHdEL8VBbY2G
-	oitJ6LSRVlK1hsWplVoQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4bHOq0vyPykHxm1KdAk64eVV/PU73+O4rUVQlNfD0AU=; b=fPpFcq8V8kgO43
+	pDj+cpB65Dc5CZ1oec1BeBKKmgUMMG8WTcUcHTzTuHCWqHFLwVsgcuARogTIQSHTKPgDn6HY2JWjg
+	civOracttilI80/cz+CPUDrokjv0sFwXdU/B4ThPwC/I5JI1+cMfh+HrTr9FG8DRVviQmW4lne4o/
+	0aI+mImVW4tNsT0FFWh0LC/wGkzE1+LCnR1vHKi+Iu1XciPD86uF8cI6R1kJE8zQtLLILzU35OUWX
+	ZKFEXyR94Xh1P8Y/SRkh9jwLj/TF5ZqMddxVTTeFcNuPjJF0c1gDRSA65GMl/nfIiChCI/DVDxZZW
+	JeG20auZF1C32j3Bo4GA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jS2R9-0000UY-FW; Fri, 24 Apr 2020 17:48:27 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jS3Lp-0002y1-6y; Fri, 24 Apr 2020 18:47:01 +0000
+Received: from lelv0142.ext.ti.com ([198.47.23.249])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jS2QT-0008Qj-1o
- for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 17:47:48 +0000
-X-Originating-IP: 91.224.148.103
-Received: from localhost.localdomain (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id A12D5FF803;
- Fri, 24 Apr 2020 17:47:42 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 2/2] mtd: rawnand: Support Arasan NAND controller
-Date: Fri, 24 Apr 2020 19:47:38 +0200
-Message-Id: <20200424174738.22304-3-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200424174738.22304-1-miquel.raynal@bootlin.com>
-References: <20200424174738.22304-1-miquel.raynal@bootlin.com>
+ id 1jS3JO-0007E1-J1; Fri, 24 Apr 2020 18:44:32 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+ by lelv0142.ext.ti.com (8.15.2/8.15.2) with ESMTP id 03OIiFtv095101;
+ Fri, 24 Apr 2020 13:44:15 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1587753855;
+ bh=VFINcID+LXtLDi1Q4myGuoi09lumoqP3uswm+yiXGGk=;
+ h=From:To:CC:Subject:Date;
+ b=EBbpK+Gz2vE9Dkt/3Kl348P4P8+bLO/B1RpOT2j+xDs2UmvDJENAHgTsk42scS4GY
+ HzuaHq1Y6g35dBxw9yw2Z3zgbPE9KgNUsyBY0JBMQQL2K/FpjD01W2dakdFGPDwjm4
+ JxfFownApX0161jaak10xFGy+WLDXVLPtrDdCrE4=
+Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
+ by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 03OIiFgk020650
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Fri, 24 Apr 2020 13:44:15 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Fri, 24
+ Apr 2020 13:44:15 -0500
+Received: from lelv0327.itg.ti.com (10.180.67.183) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
+ Frontend Transport; Fri, 24 Apr 2020 13:44:15 -0500
+Received: from pratyush-OptiPlex-790.dhcp.ti.com (ileax41-snat.itg.ti.com
+ [10.172.224.153])
+ by lelv0327.itg.ti.com (8.15.2/8.15.2) with ESMTP id 03OIiAa6047967;
+ Fri, 24 Apr 2020 13:44:11 -0500
+From: Pratyush Yadav <p.yadav@ti.com>
+To: Tudor Ambarus <tudor.ambarus@microchip.com>, Miquel Raynal
+ <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, Vignesh
+ Raghavendra <vigneshr@ti.com>, Mark Brown <broonie@kernel.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
+ <alexandre.belloni@bootlin.com>, Ludovic Desroches
+ <ludovic.desroches@microchip.com>,
+ <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 00/16] mtd: spi-nor: add xSPI Octal DTR support
+Date: Sat, 25 Apr 2020 00:13:54 +0530
+Message-ID: <20200424184410.8578-1-p.yadav@ti.com>
+X-Mailer: git-send-email 2.25.0
 MIME-Version: 1.0
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_104745_368916_9F16F7C9 
-X-CRM114-Status: GOOD (  21.21  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200424_114430_799032_AFA38641 
+X-CRM114-Status: GOOD (  17.62  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.23.249 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,975 +94,140 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Michal Simek <monstr@monstr.eu>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Naga Sureshkumar Relli <nagasure@xilinx.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Sekhar Nori <nsekhar@ti.com>, Pratyush Yadav <p.yadav@ti.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Add the Arasan NAND controller driver. This brings only NAND
-controller support, the ECC engine being a bit subtle. Hardware ECC
-will be added in a second time.
+Hi,
 
-This work is based on contributions from Naga Sureshkumar Relli.
+This series adds support for octal DTR flashes in the spi-nor framework,
+and then adds hooks for the Cypress Semper and Mircom Xcella flashes to
+allow running them in octal DTR mode. This series assumes that the flash is handed to the kernel in Legacy SPI
+mode.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/nand/raw/Kconfig                  |   7 +
- drivers/mtd/nand/raw/Makefile                 |   1 +
- drivers/mtd/nand/raw/arasan-nand-controller.c | 907 ++++++++++++++++++
- 3 files changed, 915 insertions(+)
- create mode 100644 drivers/mtd/nand/raw/arasan-nand-controller.c
+Tested on TI J721e EVM with 1-bit ECC on the Cypress flash.
 
-diff --git a/drivers/mtd/nand/raw/Kconfig b/drivers/mtd/nand/raw/Kconfig
-index a80a46bb5b8b..579474baa75d 100644
---- a/drivers/mtd/nand/raw/Kconfig
-+++ b/drivers/mtd/nand/raw/Kconfig
-@@ -457,6 +457,13 @@ config MTD_NAND_CADENCE
- 	  Enable the driver for NAND flash on platforms using a Cadence NAND
- 	  controller.
- 
-+config MTD_NAND_ARASAN
-+	tristate "Support for Arasan NAND flash controller"
-+	depends on HAS_IOMEM && HAS_DMA
-+	help
-+	  Enables the driver for the Arasan NAND flash controller on
-+	  Zynq Ultrascale+ MPSoC.
-+
- comment "Misc"
- 
- config MTD_SM_COMMON
-diff --git a/drivers/mtd/nand/raw/Makefile b/drivers/mtd/nand/raw/Makefile
-index 2d136b158fb7..6f80a205e940 100644
---- a/drivers/mtd/nand/raw/Makefile
-+++ b/drivers/mtd/nand/raw/Makefile
-@@ -58,6 +58,7 @@ obj-$(CONFIG_MTD_NAND_TEGRA)		+= tegra_nand.o
- obj-$(CONFIG_MTD_NAND_STM32_FMC2)	+= stm32_fmc2_nand.o
- obj-$(CONFIG_MTD_NAND_MESON)		+= meson_nand.o
- obj-$(CONFIG_MTD_NAND_CADENCE)		+= cadence-nand-controller.o
-+obj-$(CONFIG_MTD_NAND_ARASAN)		+= arasan-nand-controller.o
- 
- nand-objs := nand_base.o nand_legacy.o nand_bbt.o nand_timings.o nand_ids.o
- nand-objs += nand_onfi.o
-diff --git a/drivers/mtd/nand/raw/arasan-nand-controller.c b/drivers/mtd/nand/raw/arasan-nand-controller.c
-new file mode 100644
-index 000000000000..8f9b97fbca66
---- /dev/null
-+++ b/drivers/mtd/nand/raw/arasan-nand-controller.c
-@@ -0,0 +1,907 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Arasan NAND Flash Controller Driver
-+ *
-+ * Copyright (C) 2014 - 2020 Xilinx, Inc.
-+ * Author:
-+ *   Miquel Raynal <miquel.raynal@bootlin.com>
-+ * Original work (fully rewritten):
-+ *   Punnaiah Choudary Kalluri <punnaia@xilinx.com>
-+ *   Naga Sureshkumar Relli <nagasure@xilinx.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/dma-mapping.h>
-+#include <linux/interrupt.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/mtd/mtd.h>
-+#include <linux/mtd/nand_bch.h>
-+#include <linux/mtd/partitions.h>
-+#include <linux/mtd/rawnand.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+#define PKT_REG			0x00
-+#define   PKT_SIZE(x)		((x) & GENMASK(10, 0))
-+#define   PKT_STEPS(x)		(((x) << 12) & GENMASK(23, 12))
-+
-+#define MEM_ADDR1_REG		0x04
-+
-+#define MEM_ADDR2_REG		0x08
-+#define   ADDR2_STRENGTH(x)	(((x) << 25) & GENMASK(27, 25))
-+#define   ADDR2_CS(x)		(((x) << 30) & GENMASK(31, 30))
-+
-+#define CMD_REG			0x0C
-+#define   CMD_1(x)		(x)
-+#define   CMD_2(x)		((x) << 8)
-+#define   CMD_PAGE_SIZE(x)	(((x) << 23) & GENMASK(25, 23))
-+#define   CMD_DMA_ENABLE	BIT(27)
-+#define   CMD_NADDRS(x)		(((x) << 28) & GENMASK(30, 28))
-+#define   CMD_ECC_ENABLE	BIT(31)
-+
-+#define PROG_REG		0x10
-+#define   PROG_PGRD		BIT(0)
-+#define   PROG_ERASE		BIT(2)
-+#define   PROG_STATUS		BIT(3)
-+#define   PROG_PGPROG		BIT(4)
-+#define   PROG_RDID		BIT(6)
-+#define   PROG_RDPARAM		BIT(7)
-+#define   PROG_RST		BIT(8)
-+#define   PROG_GET_FEATURE	BIT(9)
-+#define   PROG_SET_FEATURE	BIT(10)
-+
-+#define INTR_STS_EN_REG		0x14
-+#define INTR_SIG_EN_REG		0x18
-+#define INTR_STS_REG		0x1C
-+#define   WRITE_READY		BIT(0)
-+#define   READ_READY		BIT(1)
-+#define   XFER_COMPLETE		BIT(2)
-+#define   DMA_BOUNDARY		BIT(6)
-+#define   EVENT_MASK		GENMASK(7, 0)
-+
-+#define READY_STS_REG		0x20
-+
-+#define DMA_ADDR0_REG		0x50
-+#define DMA_ADDR1_REG		0x24
-+
-+#define FLASH_STS_REG		0x28
-+
-+#define DATA_PORT_REG		0x30
-+
-+#define ECC_REG			0x34
-+#define   ECC_BCH_EN		BIT(27)
-+#define   ECC_SIZE_SHIFT	16
-+
-+#define ECC_ERR_CNT_REG		0x38
-+#define   PAGE_ERR_CNT(x)	(((x) & GENMASK(16, 8)) >> 8)
-+#define   PKT_ERR_CNT_MASK(x)	((x) & GENMASK(7, 0))
-+
-+#define DATA_INTERFACE_REG	0x6C
-+#define   DIFACE_SDR_MODE(x)	((x) & GENMASK(2, 0))
-+#define   DIFACE_DDR_MODE(x)	(((x) << 3) & GENMASK(5, 3))
-+#define   DIFACE_SDR		0
-+#define   DIFACE_NVDDR		BIT(9)
-+
-+#define ANFC_MAX_CS		2
-+#define ANFC_DFLT_TIMEOUT_MS	1000
-+#define ANFC_MAX_CHUNK_SIZE	SZ_1M
-+#define ANFC_MAX_PARAM_SIZE	SZ_4K
-+#define ANFC_MAX_PKT_SIZE	(SZ_2K - 1)
-+#define ANFC_MAX_ADDR_CYC	5U
-+
-+#define ANFC_SDR_LS_CORE_CLK	100000000
-+#define ANFC_SDR_HS_CORE_CLK	80000000
-+
-+/**
-+ * struct anfc_op - Defines how to execute an operation
-+ * @pkt_reg: Packet register
-+ * @addr1_reg: Memory address 1 register
-+ * @addr2_reg: Memory address 2 register
-+ * @cmd_reg: Command register
-+ * @prog_reg: Program register
-+ * @rdy_timeout_ms: Timeout for waits on Ready/Busy pin
-+ * @steps: Number of "packets" to read/write
-+ * @len: Data transfer length
-+ * @read: Data transfer direction from the controller point of view
-+ */
-+struct anfc_op {
-+	u32 pkt_reg;
-+	u32 addr1_reg;
-+	u32 addr2_reg;
-+	u32 cmd_reg;
-+	u32 prog_reg;
-+	unsigned int rdy_timeout_ms;
-+	unsigned int steps;
-+	unsigned int len;
-+	bool read;
-+	u8 *buf;
-+};
-+
-+/**
-+ * struct arasan_nand - Defines the NAND chip related information
-+ * @node:		Used to store NAND chips into a list
-+ * @chip:		NAND chip information structure
-+ * @cs:			Chip select line
-+ * @rb:			Ready-busy line
-+ * @page_sz:		Register value of the page_sz field to use
-+ * @clk:		Expected clock frequency to use
-+ * @timing_mode:	Data interface timing mode to use
-+ * @ecc_conf:		Hardware ECC configuration value
-+ * @strength:		Register value of the ECC strength
-+ * @raddr_cycles:	Row address cycle information
-+ * @caddr_cycles:	Column address cycle information
-+ */
-+struct arasan_nand {
-+	struct list_head node;
-+	struct nand_chip chip;
-+	unsigned int cs;
-+	unsigned int rb;
-+	unsigned int page_sz;
-+	unsigned long clk;
-+	u32 timing_mode;
-+	u32 ecc_conf;
-+	u32 strength;
-+	u16 raddr_cycles;
-+	u16 caddr_cycles;
-+};
-+
-+/**
-+ * struct arasan_nfc - Defines the Arasan NAND flash controller driver instance
-+ * @dev:		Pointer to the device structure
-+ * @base:		Remapped register area
-+ * @controller_clk:		Pointer to the system clock
-+ * @bus_clk:		Pointer to the flash clock.
-+ * @controller:		Base controller structure
-+ * @chips:		List of all NAND chips attached to the controller
-+ * @assigned_cs:	Bitmask describing already assigned CS lines
-+ * @cur_cs:		Currently selected chip
-+ * @cur_clk:		Current clock rate
-+ * @event:		Completion event for nand status events.
-+ */
-+struct arasan_nfc {
-+	struct device *dev;
-+	void __iomem *base;
-+	struct clk *controller_clk;
-+	struct clk *bus_clk;
-+	struct nand_controller controller;
-+	struct list_head chips;
-+	unsigned long assigned_cs;
-+	unsigned int cur_cs;
-+	unsigned int cur_clk;
-+	struct completion event;
-+};
-+
-+static struct arasan_nand *to_arasan_nand(struct nand_chip *nand)
-+{
-+	return container_of(nand, struct arasan_nand, chip);
-+}
-+
-+static struct arasan_nfc *to_anfc(struct nand_controller *ctrl)
-+{
-+	return container_of(ctrl, struct arasan_nfc, controller);
-+}
-+
-+static void anfc_enable_int(struct arasan_nfc *nfc, u32 mask)
-+{
-+	mask &= EVENT_MASK;
-+	writel(mask, nfc->base + INTR_SIG_EN_REG);
-+}
-+
-+static void anfc_disable_int(struct arasan_nfc *nfc, u32 mask)
-+{
-+	mask &= ~EVENT_MASK;
-+	mask &= EVENT_MASK;
-+	writel(mask, nfc->base + INTR_SIG_EN_REG);
-+}
-+
-+static int anfc_wait_for_event(struct arasan_nfc *nfc, unsigned int event,
-+			       unsigned int timeout)
-+{
-+	int ret;
-+
-+	if (!timeout)
-+		timeout = ANFC_DFLT_TIMEOUT_MS;
-+
-+	reinit_completion(&nfc->event);
-+	anfc_enable_int(nfc, event);
-+	ret = wait_for_completion_timeout(&nfc->event,
-+					  msecs_to_jiffies(timeout));
-+	anfc_disable_int(nfc, event);
-+	if (!ret) {
-+		dev_err(nfc->dev, "Timeout waiting event 0x%x\n", event);
-+		return -ETIMEDOUT;
-+	}
-+
-+	return 0;
-+}
-+
-+static int anfc_wait_for_rb(struct arasan_nfc *nfc, struct nand_chip *chip,
-+			    unsigned int timeout)
-+{
-+	struct arasan_nand *arasan_nand = to_arasan_nand(chip);
-+	u32 val;
-+	int ret;
-+
-+	ret = readl_relaxed_poll_timeout(nfc->base + READY_STS_REG, val,
-+					 val & BIT(arasan_nand->rb),
-+					 0, ANFC_DFLT_TIMEOUT_MS);
-+	if (ret) {
-+		dev_err(nfc->dev, "Timeout waiting for R/B 0x%x\n",
-+			readl(nfc->base + READY_STS_REG));
-+		return -ETIMEDOUT;
-+	}
-+
-+	return 0;
-+}
-+
-+static void anfc_trigger_op(struct arasan_nfc *nfc, struct anfc_op *nfc_op)
-+{
-+	writel(nfc_op->pkt_reg, nfc->base + PKT_REG);
-+	writel(nfc_op->addr1_reg, nfc->base + MEM_ADDR1_REG);
-+	writel(nfc_op->addr2_reg, nfc->base + MEM_ADDR2_REG);
-+	writel(nfc_op->cmd_reg, nfc->base + CMD_REG);
-+	writel(nfc_op->prog_reg, nfc->base + PROG_REG);
-+}
-+
-+static int anfc_len_to_steps(struct nand_chip *chip, unsigned int len)
-+{
-+	unsigned int steps = 1, pktsize = len;
-+
-+	while (pktsize > ANFC_MAX_PKT_SIZE) {
-+		steps *= 2;
-+		pktsize = DIV_ROUND_UP(len, steps);
-+	}
-+
-+	return steps;
-+}
-+
-+/* NAND framework ->exec_op() hooks and related helpers */
-+static void anfc_parse_instructions(struct nand_chip *chip,
-+				    const struct nand_subop *subop,
-+				    struct anfc_op *nfc_op)
-+{
-+	struct arasan_nand *arasan_nand = to_arasan_nand(chip);
-+	const struct nand_op_instr *instr = NULL;
-+	bool first_cmd = true;
-+	unsigned int op_id;
-+	int i;
-+
-+	memset(nfc_op, 0, sizeof(*nfc_op));
-+	nfc_op->addr2_reg = ADDR2_CS(arasan_nand->cs);
-+	nfc_op->cmd_reg = CMD_PAGE_SIZE(arasan_nand->page_sz);
-+
-+	for (op_id = 0; op_id < subop->ninstrs; op_id++) {
-+		unsigned int offset, naddrs, pktsize;
-+		const u8 *addrs;
-+		u8 *buf;
-+
-+		instr = &subop->instrs[op_id];
-+
-+		switch (instr->type) {
-+		case NAND_OP_CMD_INSTR:
-+			if (first_cmd)
-+				nfc_op->cmd_reg |= CMD_1(instr->ctx.cmd.opcode);
-+			else
-+				nfc_op->cmd_reg |= CMD_2(instr->ctx.cmd.opcode);
-+
-+			first_cmd = false;
-+			break;
-+
-+		case NAND_OP_ADDR_INSTR:
-+			offset = nand_subop_get_addr_start_off(subop, op_id);
-+			naddrs = nand_subop_get_num_addr_cyc(subop, op_id);
-+			addrs = &instr->ctx.addr.addrs[offset];
-+			nfc_op->cmd_reg |= CMD_NADDRS(naddrs);
-+
-+			for (i = 0; i < min(ANFC_MAX_ADDR_CYC, naddrs); i++) {
-+				if (i < 4)
-+					nfc_op->addr1_reg |= addrs[i] << i * 8;
-+				else
-+					nfc_op->addr2_reg |= addrs[i];
-+			}
-+
-+			break;
-+		case NAND_OP_DATA_IN_INSTR:
-+			nfc_op->read = true;
-+			fallthrough;
-+		case NAND_OP_DATA_OUT_INSTR:
-+			offset = nand_subop_get_data_start_off(subop, op_id);
-+			buf = instr->ctx.data.buf.in;
-+			nfc_op->buf = &buf[offset];
-+			nfc_op->len = nand_subop_get_data_len(subop, op_id);
-+			nfc_op->steps = anfc_len_to_steps(chip, nfc_op->len);
-+			pktsize = DIV_ROUND_UP(nfc_op->len, nfc_op->steps);
-+			nfc_op->pkt_reg |= PKT_SIZE(round_up(pktsize, 4)) |
-+					   PKT_STEPS(nfc_op->steps);
-+			break;
-+		case NAND_OP_WAITRDY_INSTR:
-+			nfc_op->rdy_timeout_ms = instr->ctx.waitrdy.timeout_ms;
-+			break;
-+		}
-+	}
-+}
-+
-+static int anfc_rw_pio_op(struct arasan_nfc *nfc, struct anfc_op *nfc_op)
-+{
-+	unsigned int dwords = (nfc_op->len / 4) / nfc_op->steps;
-+	unsigned int last_len = nfc_op->len % 4;
-+	unsigned int offset, dir;
-+	u8 *buf = nfc_op->buf;
-+	int ret, i;
-+
-+	for (i = 0; i < nfc_op->steps; i++) {
-+		dir = nfc_op->read ? READ_READY : WRITE_READY;
-+		ret = anfc_wait_for_event(nfc, dir, 0);
-+		if (ret) {
-+			dev_err(nfc->dev, "PIO %s ready signal not received\n",
-+				nfc_op->read ? "Read" : "Write");
-+			return ret;
-+		}
-+
-+		offset = i * (dwords * 4);
-+		if (nfc_op->read)
-+			ioread32_rep(nfc->base + DATA_PORT_REG, &buf[offset],
-+				     dwords);
-+		else
-+			iowrite32_rep(nfc->base + DATA_PORT_REG, &buf[offset],
-+				      dwords);
-+	}
-+
-+	if (last_len) {
-+		u32 remainder;
-+
-+		offset = nfc_op->len - last_len;
-+
-+		if (nfc_op->read) {
-+			remainder = readl(nfc->base + DATA_PORT_REG);
-+			memcpy(&buf[offset], &remainder, last_len);
-+		} else {
-+			memcpy(&remainder, &buf[offset], last_len);
-+			writel(remainder, nfc->base + DATA_PORT_REG);
-+		}
-+	}
-+
-+	return anfc_wait_for_event(nfc, XFER_COMPLETE, 0);
-+}
-+
-+static int anfc_misc_data_type_exec(struct nand_chip *chip,
-+				    const struct nand_subop *subop,
-+				    u32 prog_reg)
-+{
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	struct anfc_op nfc_op = {};
-+	int ret;
-+
-+	anfc_parse_instructions(chip, subop, &nfc_op);
-+	nfc_op.prog_reg = prog_reg;
-+	anfc_trigger_op(nfc, &nfc_op);
-+
-+	if (nfc_op.rdy_timeout_ms) {
-+		ret = anfc_wait_for_rb(nfc, chip, nfc_op.rdy_timeout_ms);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return anfc_rw_pio_op(nfc, &nfc_op);
-+}
-+
-+static int anfc_param_read_type_exec(struct nand_chip *chip,
-+				     const struct nand_subop *subop)
-+{
-+	return anfc_misc_data_type_exec(chip, subop, PROG_RDPARAM);
-+}
-+
-+static int anfc_data_read_type_exec(struct nand_chip *chip,
-+				    const struct nand_subop *subop)
-+{
-+	return anfc_misc_data_type_exec(chip, subop, PROG_PGRD);
-+}
-+
-+static int anfc_param_write_type_exec(struct nand_chip *chip,
-+				      const struct nand_subop *subop)
-+{
-+	return anfc_misc_data_type_exec(chip, subop, PROG_SET_FEATURE);
-+}
-+
-+static int anfc_data_write_type_exec(struct nand_chip *chip,
-+				     const struct nand_subop *subop)
-+{
-+	return anfc_misc_data_type_exec(chip, subop, PROG_PGPROG);
-+}
-+
-+static int anfc_misc_zerolen_type_exec(struct nand_chip *chip,
-+				       const struct nand_subop *subop,
-+				       u32 prog_reg)
-+{
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	struct anfc_op nfc_op = {};
-+	int ret;
-+
-+	anfc_parse_instructions(chip, subop, &nfc_op);
-+	nfc_op.prog_reg = prog_reg;
-+	anfc_trigger_op(nfc, &nfc_op);
-+
-+	ret = anfc_wait_for_event(nfc, XFER_COMPLETE, 0);
-+	if (ret)
-+		return ret;
-+
-+	if (nfc_op.rdy_timeout_ms)
-+		ret = anfc_wait_for_rb(nfc, chip, nfc_op.rdy_timeout_ms);
-+
-+	return ret;
-+}
-+
-+static int anfc_status_type_exec(struct nand_chip *chip,
-+				 const struct nand_subop *subop)
-+{
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	u32 tmp;
-+	int ret;
-+
-+	/*
-+	 * This controller does not allow to proceed with a CMD+DATA_IN cycle
-+	 * manually on the bus by reading data from the data register. Instead,
-+	 * the controller abstract the status read operation with its own status
-+	 * register after ordering a read status operation. Hence, the following
-+	 * hack.
-+	 */
-+	if (subop->instrs[0].ctx.cmd.opcode != NAND_CMD_STATUS)
-+		return -ENOTSUPP;
-+
-+	ret = anfc_misc_zerolen_type_exec(chip, subop, PROG_STATUS);
-+	if (ret)
-+		return ret;
-+
-+	tmp = readl(nfc->base + FLASH_STS_REG);
-+	memcpy(subop->instrs[1].ctx.data.buf.in, &tmp, 1);
-+
-+	return 0;
-+}
-+
-+static int anfc_reset_type_exec(struct nand_chip *chip,
-+				const struct nand_subop *subop)
-+{
-+	return anfc_misc_zerolen_type_exec(chip, subop, PROG_RST);
-+}
-+
-+static int anfc_erase_type_exec(struct nand_chip *chip,
-+				const struct nand_subop *subop)
-+{
-+	return anfc_misc_zerolen_type_exec(chip, subop, PROG_ERASE);
-+}
-+
-+static int anfc_wait_type_exec(struct nand_chip *chip,
-+			       const struct nand_subop *subop)
-+{
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	struct anfc_op nfc_op = {};
-+
-+	anfc_parse_instructions(chip, subop, &nfc_op);
-+
-+	return anfc_wait_for_rb(nfc, chip, nfc_op.rdy_timeout_ms);
-+}
-+
-+static const struct nand_op_parser anfc_op_parser = NAND_OP_PARSER(
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_param_read_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(false, ANFC_MAX_ADDR_CYC),
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(true),
-+		NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, ANFC_MAX_CHUNK_SIZE)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_param_write_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(false, ANFC_MAX_ADDR_CYC),
-+		NAND_OP_PARSER_PAT_DATA_OUT_ELEM(false, ANFC_MAX_PARAM_SIZE)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_data_read_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(false, ANFC_MAX_ADDR_CYC),
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(true),
-+		NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, ANFC_MAX_CHUNK_SIZE)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_data_write_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(false, ANFC_MAX_ADDR_CYC),
-+		NAND_OP_PARSER_PAT_DATA_OUT_ELEM(false, ANFC_MAX_CHUNK_SIZE),
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_reset_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(false)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_erase_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_ADDR_ELEM(false, ANFC_MAX_ADDR_CYC),
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(false)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_status_type_exec,
-+		NAND_OP_PARSER_PAT_CMD_ELEM(false),
-+		NAND_OP_PARSER_PAT_DATA_IN_ELEM(false, ANFC_MAX_CHUNK_SIZE)),
-+	NAND_OP_PARSER_PATTERN(
-+		anfc_wait_type_exec,
-+		NAND_OP_PARSER_PAT_WAITRDY_ELEM(false)),
-+	);
-+
-+static int anfc_select_target(struct nand_chip *chip, int target)
-+{
-+	struct arasan_nand *arasan_nand = to_arasan_nand(chip);
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	int ret;
-+
-+	if (target < 0) {
-+		nfc->cur_cs = target;
-+		return 0;
-+	}
-+
-+	if (nfc->cur_cs == arasan_nand->cs)
-+		return 0;
-+
-+	nfc->cur_cs = target;
-+
-+	/* Update clock frequency */
-+	if (nfc->cur_clk != arasan_nand->clk) {
-+		clk_disable_unprepare(nfc->controller_clk);
-+		ret = clk_set_rate(nfc->controller_clk, arasan_nand->clk);
-+		if (ret) {
-+			dev_err(nfc->dev, "Failed to change clock rate\n");
-+			return ret;
-+		}
-+
-+		ret = clk_prepare_enable(nfc->controller_clk);
-+		if (ret) {
-+			dev_err(nfc->dev,
-+				"Failed to re-enable the controller clock\n");
-+			return ret;
-+		}
-+
-+		nfc->cur_clk = arasan_nand->clk;
-+	}
-+
-+	/* Update the controller timings and the potential ECC configuration */
-+	writel(arasan_nand->timing_mode, nfc->base + DATA_INTERFACE_REG);
-+	writel(arasan_nand->ecc_conf, nfc->base + ECC_REG);
-+
-+	return 0;
-+}
-+
-+static int anfc_exec_op(struct nand_chip *chip,
-+			const struct nand_operation *op,
-+			bool check_only)
-+{
-+	int ret;
-+
-+	if (!check_only) {
-+		ret = anfc_select_target(chip, op->cs);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return nand_op_parser_exec_op(chip, &anfc_op_parser,
-+				      op, check_only);
-+}
-+
-+static int anfc_setup_data_interface(struct nand_chip *chip, int target,
-+				     const struct nand_data_interface *conf)
-+{
-+	struct arasan_nand *arasan_nand = to_arasan_nand(chip);
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	struct device_node *np = nfc->dev->of_node;
-+
-+	if (target < 0)
-+		return 0;
-+
-+	arasan_nand->timing_mode = DIFACE_SDR |
-+				   DIFACE_SDR_MODE(conf->timings.mode);
-+	arasan_nand->clk = ANFC_SDR_HS_CORE_CLK;
-+
-+	/*
-+	 * Due to a hardware bug in the ZynqMP SoC, SDR timing modes 0-1 work
-+	 * with f > 90MHz (default clock is 100MHz) but signals are unstable
-+	 * with higher modes. Hence we decrease a little bit the clock rate to
-+	 * 80MHz when using modes 2-5 with this SoC.
-+	 */
-+	if (of_device_is_compatible(np, "xlnx,zynqmp-nand-controller") &&
-+	    arasan_nand->timing_mode >= 2)
-+		arasan_nand->clk = ANFC_SDR_LS_CORE_CLK;
-+
-+	return 0;
-+}
-+
-+static int anfc_nand_attach_chip(struct nand_chip *chip)
-+{
-+	struct arasan_nand *arasan_nand = to_arasan_nand(chip);
-+	struct arasan_nfc *nfc = to_anfc(chip->controller);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	int ret = 0;
-+
-+	if (mtd->writesize <= SZ_512)
-+		arasan_nand->caddr_cycles = 1;
-+	else
-+		arasan_nand->caddr_cycles = 2;
-+
-+	if (chip->options & NAND_ROW_ADDR_3)
-+		arasan_nand->raddr_cycles = 3;
-+	else
-+		arasan_nand->raddr_cycles = 2;
-+
-+	switch (mtd->writesize) {
-+	case 512:
-+		arasan_nand->page_sz = 0;
-+		break;
-+	case 1024:
-+		arasan_nand->page_sz = 5;
-+		break;
-+	case 2048:
-+		arasan_nand->page_sz = 1;
-+		break;
-+	case 4096:
-+		arasan_nand->page_sz = 2;
-+		break;
-+	case 8192:
-+		arasan_nand->page_sz = 3;
-+		break;
-+	case 16384:
-+		arasan_nand->page_sz = 4;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	switch (chip->ecc.mode) {
-+	case NAND_ECC_NONE:
-+	case NAND_ECC_SOFT:
-+	case NAND_ECC_ON_DIE:
-+		break;
-+	case NAND_ECC_HW:
-+	default:
-+		dev_err(nfc->dev, "Unsupported ECC mode: %d\n",
-+			chip->ecc.mode);
-+		return -EINVAL;
-+	}
-+
-+	return ret;
-+}
-+
-+static const struct nand_controller_ops anfc_ops = {
-+	.exec_op = anfc_exec_op,
-+	.setup_data_interface = anfc_setup_data_interface,
-+	.attach_chip = anfc_nand_attach_chip,
-+};
-+
-+static int arasan_nand_chip_init(struct arasan_nfc *nfc,
-+				 struct device_node *np)
-+{
-+	struct arasan_nand *arasan_nand;
-+	struct nand_chip *chip;
-+	struct mtd_info *mtd;
-+	int cs, rb, ret;
-+
-+	arasan_nand = devm_kzalloc(nfc->dev, sizeof(*arasan_nand), GFP_KERNEL);
-+	if (!arasan_nand)
-+		return -ENOMEM;
-+
-+	/* Only one CS can be asserted at a time */
-+	if (of_property_count_elems_of_size(np, "reg", sizeof(u32)) != 1) {
-+		dev_err(nfc->dev, "Invalid reg property\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = of_property_read_u32(np, "reg", &cs);
-+	if (ret)
-+		return ret;
-+
-+	ret = of_property_read_u32(np, "nand-rb", &rb);
-+	if (ret)
-+		return ret;
-+
-+	if (cs >= ANFC_MAX_CS || rb >= ANFC_MAX_CS) {
-+		dev_err(nfc->dev, "Wrong CS %d or RB %d\n", cs, rb);
-+		return -EINVAL;
-+	}
-+
-+	if (test_and_set_bit(cs, &nfc->assigned_cs)) {
-+		dev_err(nfc->dev, "Already assigned CS %d\n", cs);
-+		return -EINVAL;
-+	}
-+
-+	arasan_nand->cs = cs;
-+	arasan_nand->rb = rb;
-+
-+	chip = &arasan_nand->chip;
-+	mtd = nand_to_mtd(chip);
-+	mtd->dev.parent = nfc->dev;
-+	chip->controller = &nfc->controller;
-+	chip->options = NAND_BUSWIDTH_AUTO | NAND_NO_SUBPAGE_WRITE |
-+			NAND_USE_DMA_BUFFER;
-+
-+	nand_set_flash_node(chip, np);
-+	if (!mtd->name) {
-+		dev_err(nfc->dev, "NAND label property is mandatory\n");
-+		return -EINVAL;
-+	}
-+
-+	ret = nand_scan(chip, 1);
-+	if (ret) {
-+		dev_err(nfc->dev, "Scan operation failed\n");
-+		return ret;
-+	}
-+
-+	ret = mtd_device_register(mtd, NULL, 0);
-+	if (ret) {
-+		nand_release(chip);
-+		return ret;
-+	}
-+
-+	list_add_tail(&arasan_nand->node, &nfc->chips);
-+
-+	return 0;
-+}
-+
-+static void arasan_nand_chips_cleanup(struct arasan_nfc *nfc)
-+{
-+	struct arasan_nand *arasan_nand, *tmp;
-+
-+	list_for_each_entry_safe(arasan_nand, tmp, &nfc->chips, node) {
-+		nand_release(&arasan_nand->chip);
-+		list_del(&arasan_nand->node);
-+	}
-+}
-+
-+static int arasan_nand_chips_init(struct arasan_nfc *nfc)
-+{
-+	struct device_node *np = nfc->dev->of_node, *nand_np;
-+	int nchips = of_get_child_count(np);
-+	int ret;
-+
-+	if (!nchips || nchips > ANFC_MAX_CS) {
-+		dev_err(nfc->dev, "Incorrect number of NAND chips (%d)\n",
-+			nchips);
-+		return -EINVAL;
-+	}
-+
-+	for_each_child_of_node(np, nand_np) {
-+		ret = arasan_nand_chip_init(nfc, nand_np);
-+		if (ret) {
-+			of_node_put(nand_np);
-+			arasan_nand_chips_cleanup(nfc);
-+			break;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+static void anfc_reset(struct arasan_nfc *nfc)
-+{
-+	anfc_disable_int(nfc, EVENT_MASK);
-+
-+	/* Enable all interrupt status */
-+	writel(EVENT_MASK, nfc->base + INTR_STS_EN_REG);
-+}
-+
-+static irqreturn_t anfc_irq_handler(int irq, void *dev_id)
-+{
-+	struct arasan_nfc *nfc = dev_id;
-+	u32 st = readl_relaxed(nfc->base + INTR_STS_REG);
-+	u32 ien = readl_relaxed(nfc->base + INTR_SIG_EN_REG) & EVENT_MASK;
-+	u32 active = st & ien;
-+
-+	if (!active)
-+		return IRQ_NONE;
-+
-+	anfc_disable_int(nfc, active);
-+	writel(st, nfc->base + INTR_STS_REG);
-+	complete(&nfc->event);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int anfc_probe(struct platform_device *pdev)
-+{
-+	struct arasan_nfc *nfc;
-+	int irq;
-+	int ret;
-+
-+	nfc = devm_kzalloc(&pdev->dev, sizeof(*nfc), GFP_KERNEL);
-+	if (!nfc)
-+		return -ENOMEM;
-+
-+	nfc->dev = &pdev->dev;
-+	nand_controller_init(&nfc->controller);
-+	nfc->controller.ops = &anfc_ops;
-+	INIT_LIST_HEAD(&nfc->chips);
-+
-+	init_completion(&nfc->event);
-+
-+	nfc->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(nfc->base))
-+		return PTR_ERR(nfc->base);
-+
-+	anfc_reset(nfc);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_request_irq(&pdev->dev, irq, anfc_irq_handler,
-+			       0, "arasan-nfc", nfc);
-+	if (ret)
-+		return ret;
-+
-+	nfc->controller_clk = devm_clk_get(&pdev->dev, "controller");
-+	if (IS_ERR(nfc->controller_clk))
-+		return PTR_ERR(nfc->controller_clk);
-+
-+	nfc->bus_clk = devm_clk_get(&pdev->dev, "bus");
-+	if (IS_ERR(nfc->bus_clk))
-+		return PTR_ERR(nfc->bus_clk);
-+
-+	ret = clk_prepare_enable(nfc->controller_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(nfc->bus_clk);
-+	if (ret)
-+		goto disable_controller_clk;
-+
-+	ret = arasan_nand_chips_init(nfc);
-+	if (ret)
-+		goto disable_bus_clk;
-+
-+	platform_set_drvdata(pdev, nfc);
-+
-+	return 0;
-+
-+disable_bus_clk:
-+	clk_disable_unprepare(nfc->bus_clk);
-+
-+disable_controller_clk:
-+	clk_disable_unprepare(nfc->controller_clk);
-+
-+	return ret;
-+}
-+
-+static int anfc_remove(struct platform_device *pdev)
-+{
-+	struct arasan_nfc *nfc = platform_get_drvdata(pdev);
-+
-+	arasan_nand_chips_cleanup(nfc);
-+
-+	clk_disable_unprepare(nfc->bus_clk);
-+	clk_disable_unprepare(nfc->controller_clk);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id anfc_ids[] = {
-+	{
-+		.compatible = "xlnx,zynqmp-nand-controller",
-+	},
-+	{
-+		.compatible = "arasan,nfc-v3p10",
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, anfc_ids);
-+
-+static struct platform_driver anfc_driver = {
-+	.driver = {
-+		.name = "arasan-nand-controller",
-+		.of_match_table = anfc_ids,
-+	},
-+	.probe = anfc_probe,
-+	.remove = anfc_remove,
-+};
-+module_platform_driver(anfc_driver);
-+
-+MODULE_LICENSE("GPL v2");
-+MODULE_AUTHOR("Punnaiah Choudary Kalluri <punnaia@xilinx.com>");
-+MODULE_AUTHOR("Naga Sureshkumar Relli <nagasure@xilinx.com>");
-+MODULE_AUTHOR("Miquel Raynal <miquel.raynal@bootlin.com>");
-+MODULE_DESCRIPTION("Arasan NAND Flash Controller Driver");
--- 
-2.20.1
+Changes in v4:
+- Refactor the series to use the new spi-nor framework with the
+  manufacturer-specific bits separated from the core.
+
+- Add support for Micron MT35XU512ABA.
+
+- Use cmd.nbytes as the criteria of whether the data phase exists or not
+  instead of cmd.buf.in || cmd.buf.out in spi_nor_spimem_setup_op().
+
+- Update Read FSR to use the same dummy cycles and address width as Read
+  SR.
+
+- Fix BFPT parsing stopping too early for JESD216 rev B flashes.
+
+- Use 2 byte reads for Read SR and FSR commands in DTR mode.
+
+Changes in v3:
+- Drop the DT properties "spi-rx-dtr" and "spi-tx-dtr". Instead, if
+  later a need is felt to disable DTR in case someone has a board with
+  Octal DTR capable flash but does not support DTR transactions for some
+  reason, a property like "spi-no-dtr" can be added.
+
+- Remove mode bits SPI_RX_DTR and SPI_TX_DTR.
+
+- Remove the Cadence Quadspi controller patch to un-block this series. I
+  will submit it as a separate patch.
+
+- Rebase on latest 'master' and fix merge conflicts.
+
+- Update read and write dirmap templates to use DTR.
+
+- Rename 'is_dtr' to 'dtr'.
+
+- Make 'dtr' a bitfield.
+
+- Reject DTR ops in spi_mem_default_supports_op().
+
+- Update atmel-quadspi to reject DTR ops. All other controller drivers
+  call spi_mem_default_supports_op() so they will automatically reject
+  DTR ops.
+
+- Add support for both enabling and disabling DTR modes.
+
+- Perform a Software Reset on flashes that support it when shutting
+  down.
+
+- Disable Octal DTR mode on suspend, and re-enable it on resume.
+
+- Drop enum 'spi_mem_cmd_ext' and make command opcode u16 instead.
+  Update spi-nor to use the 2-byte command instead of the command
+  extension. Since we still need a "extension type", mode that enum to
+  spi-nor and name it 'spi_nor_cmd_ext'.
+
+- Default variable address width to 3 to fix SMPT parsing.
+
+- Drop non-volatile change to uniform sector mode and rely on parsing
+  SMPT.
+
+Changes in v2:
+- Add DT properties "spi-rx-dtr" and "spi-tx-dtr" to allow expressing
+  DTR capabilities.
+
+- Set the mode bits SPI_RX_DTR and SPI_TX_DTR when we discover the DT
+  properties "spi-rx-dtr" and spi-tx-dtr".
+
+- spi_nor_cypress_octal_enable() was updating nor->params.read[] with
+  the intention of setting the correct number of dummy cycles. But this
+  function is called _after_ selecting the read so setting
+  nor->params.read[] will have no effect. So, update nor->read_dummy
+  directly.
+
+- Fix spi_nor_spimem_check_readop() and spi_nor_spimem_check_pp()
+  passing nor->read_proto and nor->write_proto to
+  spi_nor_spimem_setup_op() instead of read->proto and pp->proto
+  respectively.
+
+- Move the call to cqspi_setup_opcode_ext() inside cqspi_enable_dtr().
+  This avoids repeating the 'if (f_pdata->is_dtr)
+  cqspi_setup_opcode_ext()...` snippet multiple times.
+
+- Call the default 'supports_op()' from cqspi_supports_mem_op(). This
+  makes sure the buswidth requirements are also enforced along with the
+  DTR requirements.
+
+- Drop the 'is_dtr' argument from spi_check_dtr_req(). We only call it
+  when a phase is DTR so it is redundant.
+
+Pratyush Yadav (16):
+  spi: spi-mem: allow specifying whether an op is DTR or not
+  spi: atmel-quadspi: reject DTR ops
+  spi: spi-mem: allow specifying a command's extension
+  mtd: spi-nor: add support for DTR protocol
+  mtd: spi-nor: default to address width of 3 for configurable widths
+  mtd: spi-nor: prepare BFPT parsing for JESD216 rev D
+  mtd: spi-nor: get command opcode extension type from BFPT
+  mtd: spi-nor: parse xSPI Profile 1.0 table
+  mtd: spi-nor: use dummy cycle and address width info from SFDP
+  mtd: spi-nor: do 2 byte reads for SR and FSR in DTR mode
+  mtd: spi-nor: enable octal DTR mode when possible
+  mtd: spi-nor: perform a Soft Reset on shutdown
+  mtd: spi-nor: Disable Octal DTR mode on suspend.
+  mtd: spi-nor: expose spi_nor_default_setup() in core.h
+  mtd: spi-nor: add support for Cypress Semper flash
+  mtd: spi-nor: allow using MT35XU512ABA in Octal DTR mode
+
+ drivers/mtd/spi-nor/core.c      | 439 +++++++++++++++++++++++++++-----
+ drivers/mtd/spi-nor/core.h      |  23 ++
+ drivers/mtd/spi-nor/micron-st.c | 113 +++++++-
+ drivers/mtd/spi-nor/sfdp.c      | 114 ++++++++-
+ drivers/mtd/spi-nor/sfdp.h      |  11 +-
+ drivers/mtd/spi-nor/spansion.c  | 167 ++++++++++++
+ drivers/spi/atmel-quadspi.c     |   4 +
+ drivers/spi/spi-mem.c           |   3 +
+ include/linux/mtd/spi-nor.h     |  50 +++-
+ include/linux/spi/spi-mem.h     |  13 +-
+ 10 files changed, 848 insertions(+), 89 deletions(-)
+
+--
+2.25.0
 
 
 ______________________________________________________
