@@ -2,90 +2,57 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E1CD1B6F40
-	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 09:45:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DE0101B70AA
+	for <lists+linux-mtd@lfdr.de>; Fri, 24 Apr 2020 11:21:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=20mIWdQ3oYxhpaZLBURi/wKMx82HniU2FkGqVIhWrqE=; b=VcIkjaKRfJxzNS
-	2SzDOuHhDnzA69mSCmoE2y/ecnO8hN819nysOIkBCqXmtfRPIJ42JUHp6jY/F43KuclSjnAmBVISR
-	PLIPIbpVHTyOxlRH5Wlrc2tNkVL2FtRwf8Wd+ukGPUNy46MBvR54+QcZfevxOyiIac5EFWnV3OQ7P
-	aPkawBjxo/vAL11/qwC9SRMy6Zfc6k1VzoMMPfz5NuKbZjjsGoQep1zjOKE2Jij14t2gIIgpJXA8B
-	qo1TFUEgJpgFAme3J09Rl8LZPyWN2J2WA+5jYSIaBwBwXBPzNqJIegle/0zEi3Vi07xJD8PdLLjAL
-	oEhuwffsLgt+3OrNIRmA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Igmoo4lxHMHtljv8bq+A/aaUUswfXHTNquXm5OGAAgk=; b=HMgS0TIusg5Y0P
+	X+PZQgkcvcieuUtWC3U4cNAhRxkIa3h7V+8JwpzE1C91L8DO0SQcOxJir8MO+LLBWJ7wnxDF3qpy8
+	GPEqKExJevTvTQ5HHORQ19DtHn02M8cwgqM3I+vjwSsrDelO41kTMfZ0bNIUOCL+GZ99FrD+SgDrW
+	QowqlbhQ7hRZgq2aOaabyHAnL8iv5x+ZIddsUuOtEt02881zaJQ9HDu6HR7a3T84KRqO1Y3S/391p
+	VdfhyZXW2FH1kKU3WnXqrOdS1QekxHtsTzCbq/zvJBToKewrYXfCLrxL9rs0cFrVYC8DfqnjjogJ2
+	J8Jt/azeq6QAlfK+h7XA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jRt1q-0007f3-0q; Fri, 24 Apr 2020 07:45:42 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1jRuWR-00087D-PG; Fri, 24 Apr 2020 09:21:23 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jRt1W-0007XN-21
- for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 07:45:24 +0000
-Received: by mail-wr1-x441.google.com with SMTP id j1so9564452wrt.1
- for <linux-mtd@lists.infradead.org>; Fri, 24 Apr 2020 00:45:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:content-transfer-encoding:in-reply-to;
- bh=SG53LOGVaYSrSbMxtiTrlXAzhLKqp75bh+EmCNg5dN0=;
- b=a+DsWnfI8BxEYpw24cMf1ubciUzpfQylo8DC8e2EEMjIGJAT5XO0tgJRc4zm/7UKFj
- yP+UatvpM1GtMmXPpD5t6YQ4MasDgMtoYBWExtSpG/3qslXrxpKJuKOxPK6aDwnRbbNW
- 6yJkklIByWlX/orJ1QKHiLb1RV9hXPUxXRysqlf+BZvjvB7SyZ++FH1taB7SxqUTSMKd
- Mj7oXh41AlY1haAGy3/VSB+UViganSyx20+MVCqJlMMbYhZ1eBZnDu7arB/dsxjdJR9g
- cMWMghusSfqfUS/ZTQ+cVhwDE8raguIokO5x2X3TnwoyGJPxoQ5N3TuXUvUMUuXGQXsL
- 2u6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:content-transfer-encoding
- :in-reply-to;
- bh=SG53LOGVaYSrSbMxtiTrlXAzhLKqp75bh+EmCNg5dN0=;
- b=lLPlNngHoRe9zXsYaSGH3xJL0RekLjABdRDtEhkA0yvmHnfayFfb9bGduucQipAPC1
- uzEpelTVTEPxvc7atRK9Wb6Vl6vxb64Ty7mzJbTS0mn9HVu4umpCR0f+3DA2fvoP2rWV
- FMnVt+YB/I3gq76JNZh615np8/CN4nQu09EAj0JaYnePr28jVKsY9xZNlIVq4yqPJUjx
- gf/E9GU87WkrEaLngvbL78v2MrfJQIYcTsrrxdq1OlVClByzxLg5BXKM8IOGivWGlfRl
- 0QWj9dg5NkSG2X2AgkkngGC3Ft6XTP6EYf2mit20BctesWj+dZxDJJ6mDL6R1hcbJyOs
- IM9Q==
-X-Gm-Message-State: AGi0PuZMNuKI5q0XfniSCf6toCHjJPKAq6DOC/yfLIgWrh8vVZGYVQ7A
- /sDOf7IuR/GkdXbNAnouL+Q4tA==
-X-Google-Smtp-Source: APiQypJQnsAmYnrESuH25hDMC1DnFFclkWGp9gSfFlUxWpilxTxaT5ID13BjavkGNKAVWmlFxdLMmw==
-X-Received: by 2002:adf:82f5:: with SMTP id 108mr9200402wrc.43.1587714320260; 
- Fri, 24 Apr 2020 00:45:20 -0700 (PDT)
-Received: from dell ([2.31.163.63])
- by smtp.gmail.com with ESMTPSA id o3sm7034174wru.68.2020.04.24.00.45.18
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 24 Apr 2020 00:45:18 -0700 (PDT)
-Date: Fri, 24 Apr 2020 08:45:17 +0100
-From: Lee Jones <lee.jones@linaro.org>
-To: Christophe Kerello <christophe.kerello@st.com>
-Subject: Re: [PATCH v2 02/12] mfd: stm32-fmc2: add STM32 FMC2 controller driver
-Message-ID: <20200424074517.GN3612@dell>
-References: <1586966256-29548-1-git-send-email-christophe.kerello@st.com>
- <1586966256-29548-3-git-send-email-christophe.kerello@st.com>
+ id 1jRuWJ-000865-39
+ for linux-mtd@lists.infradead.org; Fri, 24 Apr 2020 09:21:16 +0000
+Received: from DGGEMS413-HUB.china.huawei.com (unknown [172.30.72.60])
+ by Forcepoint Email with ESMTP id 0A8F5BCBE27B7F30B578;
+ Fri, 24 Apr 2020 17:21:08 +0800 (CST)
+Received: from localhost.localdomain (10.67.165.24) by
+ DGGEMS413-HUB.china.huawei.com (10.3.19.213) with Microsoft SMTP Server id
+ 14.3.487.0; Fri, 24 Apr 2020 17:20:48 +0800
+From: Yicong Yang <yangyicong@hisilicon.com>
+To: <tudor.ambarus@microchip.com>, <linux-mtd@lists.infradead.org>
+Subject: [RFC PATCH 0/2] Add support to Disable the flash quad mode
+Date: Fri, 24 Apr 2020 17:20:42 +0800
+Message-ID: <1587720044-49172-1-git-send-email-yangyicong@hisilicon.com>
+X-Mailer: git-send-email 2.8.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1586966256-29548-3-git-send-email-christophe.kerello@st.com>
+X-Originating-IP: [10.67.165.24]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200424_004522_650865_3C0E6FEE 
-X-CRM114-Status: GOOD (  16.24  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200424_022115_318832_A224D0DA 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.1 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:441 listed in]
- [list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [45.249.212.191 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,55 +64,42 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, marex@denx.de,
- vigneshr@ti.com, tony@atomide.com, richard@nod.at,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com, richard@nod.at,
+ john.garry@huawei.com, linuxarm@huawei.com, yangyicong@hisilicon.com,
+ alexander.sverdlin@nokia.com, miquel.raynal@bootlin.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gV2VkLCAxNSBBcHIgMjAyMCwgQ2hyaXN0b3BoZSBLZXJlbGxvIHdyb3RlOgoKPiBUaGUgZHJp
-dmVyIGFkZHMgdGhlIHN1cHBvcnQgZm9yIHRoZSBTVE1pY3JvZWxlY3Ryb25pY3MgRk1DMiBjb250
-cm9sbGVyCj4gZm91bmQgb24gU1RNMzJNUCBTT0NzLgo+IAo+IFRoZSBGTUMyIGZ1bmN0aW9uYWwg
-YmxvY2sgbWFrZXMgdGhlIGludGVyZmFjZSB3aXRoOiBzeW5jaHJvbm91cyBhbmQKPiBhc3luY2hy
-b25vdXMgc3RhdGljIG1lbW9yaWVzIChzdWNoIGFzIFBTTk9SLCBQU1JBTSBvciBvdGhlcgo+IG1l
-bW9yeS1tYXBwZWQgcGVyaXBoZXJhbHMpIGFuZCBOQU5EIGZsYXNoIG1lbW9yaWVzLgo+IAo+IFNp
-Z25lZC1vZmYtYnk6IENocmlzdG9waGUgS2VyZWxsbyA8Y2hyaXN0b3BoZS5rZXJlbGxvQHN0LmNv
-bT4KPiAtLS0KPiBDaGFuZ2VzIGluIHYyOgo+ICAtIHJlbW92ZSBvcHMgZnJvbSBzdG0zMl9mbWMy
-IHN0cnVjdHVyZQo+ICAtIGFkZCAyIEFQSXMgdG8gbWFuYWdlIEZNQzIgZW5hYmxlL2Rpc2FibGUK
-PiAgLSBhZGQgMiBBUElzIHRvIG1hbmFnZSBGTUMyIE5XQUlUIHNoYXJlZCBzaWduYWwKPiAKPiAg
-ZHJpdmVycy9tZmQvS2NvbmZpZyAgICAgICAgICAgIHwgIDEyICsrKwo+ICBkcml2ZXJzL21mZC9N
-YWtlZmlsZSAgICAgICAgICAgfCAgIDEgKwo+ICBkcml2ZXJzL21mZC9zdG0zMi1mbWMyLmMgICAg
-ICAgfCAxMzYgKysrKysrKysrKysrKysrKysrKysrKysrKwo+ICBpbmNsdWRlL2xpbnV4L21mZC9z
-dG0zMi1mbWMyLmggfCAyMjUgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
-KysKPiAgNCBmaWxlcyBjaGFuZ2VkLCAzNzQgaW5zZXJ0aW9ucygrKQo+ICBjcmVhdGUgbW9kZSAx
-MDA2NDQgZHJpdmVycy9tZmQvc3RtMzItZm1jMi5jCj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBpbmNs
-dWRlL2xpbnV4L21mZC9zdG0zMi1mbWMyLmgKPiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tZmQv
-S2NvbmZpZyBiL2RyaXZlcnMvbWZkL0tjb25maWcKPiBpbmRleCAyYjIwMzI5Li41MjYwNTgyIDEw
-MDY0NAo+IC0tLSBhL2RyaXZlcnMvbWZkL0tjb25maWcKPiArKysgYi9kcml2ZXJzL21mZC9LY29u
-ZmlnCj4gQEAgLTE5MjIsNiArMTkyMiwxOCBAQCBjb25maWcgTUZEX1JPSE1fQkQ3MTgyOAo+ICAJ
-ICBBbHNvIGluY2x1ZGVkIGlzIGEgQ291bG9tYiBjb3VudGVyLCBhIHJlYWwtdGltZSBjbG9jayAo
-UlRDKSwgYW5kCj4gIAkgIGEgMzIuNzY4IGtIeiBjbG9jayBnYXRlLgo+ICAKPiArY29uZmlnIE1G
-RF9TVE0zMl9GTUMyCj4gKwl0cmlzdGF0ZSAiU3VwcG9ydCBmb3IgRk1DMiBjb250cm9sbGVycyBv
-biBTVE0zMk1QIFNvQ3MiCj4gKwlkZXBlbmRzIG9uIE1BQ0hfU1RNMzJNUDE1NyB8fCBDT01QSUxF
-X1RFU1QKPiArCXNlbGVjdCBNRkRfQ09SRQo+ICsJc2VsZWN0IFJFR01BUAo+ICsJc2VsZWN0IFJF
-R01BUF9NTUlPCj4gKwloZWxwCj4gKwkgIFNlbGVjdCB0aGlzIG9wdGlvbiB0byBlbmFibGUgU1RN
-MzIgRk1DMiBkcml2ZXIgdXNlZCBmb3IgRk1DMiBFeHRlcm5hbAo+ICsJICBCdXMgSW50ZXJmYWNl
-IGNvbnRyb2xsZXIgYW5kIEZNQzIgTkFORCBmbGFzaCBjb250cm9sbGVyLiBUaGlzIGRyaXZlcgo+
-ICsJICBwcm92aWRlcyBjb3JlIHN1cHBvcnQgZm9yIHRoZSBTVE0zMiBGTUMyIGNvbnRyb2xsZXJz
-LCBpbiBvcmRlciB0byB1c2UKPiArCSAgdGhlIGFjdHVhbCBmdW5jdGlvbmFsaXR5IG9mIHRoZSBk
-ZXZpY2Ugb3RoZXIgZHJpdmVycyBtdXN0IGJlIGVuYWJsZWQuCgpOb3Qgc3VyZSBob3cgbWFueSB0
-aW1lcyBJIGhhdmUgdG8gc2F5IHRoaXMgYmVmb3JlIHBlb3BsZSBzdG9wCmF0dGVtcHRpbmcgdG8g
-cGFzcyB0aGVzZSBraW5kcyBvZiByZWxhdGlvbnNoaXBzIG9mZiBhcyBNRkRzOgoKQSBtZW1vcnkg
-ZGV2aWNlIGFuZCBpdHMgYnVzIGlzIG5vdCBhbiBNRkQuICBJbiBhIHNpbWlsYXIgdmFpbiB0byB0
-aGUKdGhvdXNhbmRzIG9mIFVTQiwgSTJDLCBTUEksIFBDSSBhbmQgdGhlIGxpa2UgZGV2aWNlcyB0
-aGF0IGFyZW4ndCBNRkRzCmVpdGhlci4KClBsZWFzZSBmaW5kIGFub3RoZXIgd2F5IHRvIGFzc29j
-aWF0ZSB5b3VyIGRldmljZSB3aXRoIGl0cyBidXMuCgotLSAKTGVlIEpvbmVzIFvmnY7nkLzmlq9d
-CkxpbmFybyBTZXJ2aWNlcyBUZWNobmljYWwgTGVhZApMaW5hcm8ub3JnIOKUgiBPcGVuIHNvdXJj
-ZSBzb2Z0d2FyZSBmb3IgQVJNIFNvQ3MKRm9sbG93IExpbmFybzogRmFjZWJvb2sgfCBUd2l0dGVy
-IHwgQmxvZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
+Previously we didn't disable the flash's quad mode when it's removed
+Then comes the problem that if we next time load the flash
+in SPI/Dual mode, it will not be correctly enabled as the quad enable
+bits has not been cleared. I validated the condition on Cypress s25fs128s1.
+
+This series adds the capability to disable the flash's quad mode. And
+restore the flash when it's removed in spi_nor_restore().
+
+RFC:
+- I cleared quad mode bit in spi_nor_restore() when flash removed or
+shutdown, follow what reset 4byte address does. But I don't know if
+there is a situation that the flash is in quad mode by default, then
+we should disable it in probe stage.
+- The issue occurs when the user switch the spi mode of the flash.
+Not sure whether a situation exists.
+
+Yicong Yang (2):
+  mtd: spi-nor: Add capability to disable flash quad mode
+  mtd: spi-nor: Disable the flash quad mode in spi_nor_restore()
+
+ drivers/mtd/spi-nor/core.c | 43 +++++++++++++++++++++++++++++++++----------
+ drivers/mtd/spi-nor/core.h |  8 ++++----
+ 2 files changed, 37 insertions(+), 14 deletions(-)
+
+--
+2.8.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
