@@ -2,47 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B13681B9A19
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 10:26:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 47D4C1B9A0E
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 10:25:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7QJBE4EE+mtf5LmmHNojx+9XJpsAS2vTAw68y+UPBGA=; b=S9BgCN2cKm0Ab3
-	mVTjcDSWoor5a+F4fqoGlLd9t/gE6T+Xy03GPPdawnYki5rImKJt8YWBkY2yG2AWkm1ZNbnbdW9e5
-	ANX767ulFdaWNEpYm6lzVlG1XmwdlB/K8C9fO5rx5aACCkWya0bJNA420SvDfl29/jV/xMP0ZluM9
-	NfQNnbWdmX898mQmBUAGdTDCNOWiOLWmr+qfzilXhUaq5/aHz8z/9zC/Xl2sZOPU71AnYa7/1kEW6
-	OqQVI0A707xOCzYzM0XPJD6hpl3JydRoCqYmszrMRnQa2sW1p+k0P2ynSzuhDWBILPO9UOgxmadFb
-	Tyxx8ryDxgM0xiAOBpyA==;
+	List-Owner; bh=UvppYe4jM+nSp1/PCrxPToRHji3++Jf3Dx8skhVh+V4=; b=UTnvsItcTGiI50
+	Kla4scCPgYc0iwaaMibq4Sybt4Xyy0hmVOQyAE9skkNuVl+Vt09I+SU+yCEMlNJ1jE1dTwTJJp4U+
+	4pVZ1ERFZGXSohUR2B7n4JAU1Gr9ctgaarRkPOjMScArjYoZCKeoGgJT/VeyoZYLlfM2DS0MVKbQq
+	2Zm8mbUZeWy6fUodLY29T6psnvs7kW1Rb8gAh9pX+R+GJKVGUV/HrItHyFwDBJsleaC60FZ0npxfr
+	GTb/becETZBL/gvtv7MhyVSC7OkpbD/oOkJ4SaDCM91Sl7v35QqTjINkzxy7xLz5KQ5HpcT/2nvu0
+	n5obQCIL2tLx2pCITyRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jSz6C-00054f-0N; Mon, 27 Apr 2020 08:26:44 +0000
+	id 1jSz4l-0001SL-7J; Mon, 27 Apr 2020 08:25:15 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jSz0K-000681-0Y
- for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 08:20:43 +0000
+ id 1jSz0J-00068G-RO
+ for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 08:20:44 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 222792A09B1;
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id D40E52A09D3;
  Mon, 27 Apr 2020 09:20:37 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: David Woodhouse <dwmw2@infradead.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH 06/17] mtd: rawnand: cafe: Factor out the controller
- initialization logic
-Date: Mon, 27 Apr 2020 10:20:16 +0200
-Message-Id: <20200427082028.394719-7-boris.brezillon@collabora.com>
+Subject: [PATCH 07/17] mtd: rawnand: cafe: Get rid of the debug module param
+Date: Mon, 27 Apr 2020 10:20:17 +0200
+Message-Id: <20200427082028.394719-8-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.3
 In-Reply-To: <20200427082028.394719-1-boris.brezillon@collabora.com>
 References: <20200427082028.394719-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_012040_332615_68A2E416 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20200427_012040_172084_F6EDDF03 
+X-CRM114-Status: GOOD (  15.01  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -70,245 +69,206 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The same code is present in the probe and resume path. Let's create
-an init helper to factor that out.
+Dynamic prink already offers conditional debug traces enablement, let's
+not define a new way to do the same thing.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/cafe_nand.c | 189 +++++++++++--------------------
- 1 file changed, 67 insertions(+), 122 deletions(-)
+ drivers/mtd/nand/raw/cafe_nand.c | 59 ++++++++++++++------------------
+ 1 file changed, 25 insertions(+), 34 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/cafe_nand.c b/drivers/mtd/nand/raw/cafe_nand.c
-index fbc18bc3d46b..863dd4a8dd42 100644
+index 863dd4a8dd42..55fa0bf2806a 100644
 --- a/drivers/mtd/nand/raw/cafe_nand.c
 +++ b/drivers/mtd/nand/raw/cafe_nand.c
-@@ -774,12 +774,76 @@ static const struct nand_controller_ops cafe_nand_controller_ops = {
- 	.detach_chip = cafe_nand_detach_chip,
- };
+@@ -10,10 +10,7 @@
+  */
  
-+static void cafe_nand_init(struct cafe_priv *cafe)
-+{
-+	u32 ctrl;
-+
-+	/* Start off by resetting the NAND controller completely */
-+	cafe_writel(cafe, CAFE_GLOBAL_RESET_NAND, GLOBAL_RESET);
-+	cafe_writel(cafe, 0, GLOBAL_RESET);
-+	cafe_writel(cafe, 0xffffffff, NAND_IRQ_MASK);
-+
-+	/* Restore timing configuration */
-+	cafe_writel(cafe, timing[0], NAND_TIMING1);
-+	cafe_writel(cafe, timing[1], NAND_TIMING2);
-+	cafe_writel(cafe, timing[2], NAND_TIMING3);
-+
-+	/* Disable master reset, enable NAND clock */
-+	ctrl = cafe_readl(cafe, GLOBAL_CTRL);
-+	ctrl &= ~(CAFE_GLOBAL_SW_RESET_SET |
-+		  CAFE_GLOBAL_SW_RESET_CLEAR |
-+		  CAFE_GLOBAL_MASTER_RESET_SET |
-+		  CAFE_GLOBAL_MASTER_RESET_CLEAR |
-+		  CAFE_GLOBAL_NAND_CLK_ENABLE);
-+	ctrl |= CAFE_GLOBAL_NAND_CLK_ENABLE |
-+		CAFE_GLOBAL_SDH_CLK_ENABLE |
-+		CAFE_GLOBAL_CCIC_CLK_ENABLE;
-+	cafe_writel(cafe,
-+		    ctrl |
-+		    CAFE_GLOBAL_MASTER_RESET_SET |
-+		    CAFE_GLOBAL_SW_RESET_SET,
-+		    GLOBAL_CTRL);
-+	cafe_writel(cafe,
-+		    ctrl |
-+		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
-+		    CAFE_GLOBAL_SW_RESET_CLEAR,
-+		    GLOBAL_CTRL);
-+
-+	cafe_writel(cafe, 0, NAND_DMA_CTRL);
-+
-+	cafe_writel(cafe,
-+		    CAFE_GLOBAL_NAND_CLK_ENABLE |
-+		    CAFE_GLOBAL_SDH_CLK_ENABLE |
-+		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
-+		    CAFE_GLOBAL_MASTER_RESET_SET |
-+		    CAFE_GLOBAL_SW_RESET_CLEAR,
-+		    GLOBAL_CTRL);
-+	cafe_writel(cafe,
-+		    CAFE_GLOBAL_NAND_CLK_ENABLE |
-+		    CAFE_GLOBAL_SDH_CLK_ENABLE |
-+		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
-+		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
-+		    CAFE_GLOBAL_SW_RESET_CLEAR,
-+		    GLOBAL_CTRL);
-+
-+	/* Set up DMA address */
-+	cafe_writel(cafe, lower_32_bits(cafe->dmaaddr), NAND_DMA_ADDR0);
-+	cafe_writel(cafe, upper_32_bits(cafe->dmaaddr), NAND_DMA_ADDR1);
-+
-+	/* Enable NAND IRQ in global IRQ mask register */
-+	cafe_writel(cafe,
-+		    CAFE_GLOBAL_IRQ_PCI_ERROR |
-+		    CAFE_GLOBAL_IRQ_CCIC |
-+		    CAFE_GLOBAL_IRQ_SDH |
-+		    CAFE_GLOBAL_IRQ_NAND,
-+		    GLOBAL_IRQ_MASK);
-+}
-+
- static int cafe_nand_probe(struct pci_dev *pdev,
- 				     const struct pci_device_id *ent)
- {
- 	struct mtd_info *mtd;
- 	struct cafe_priv *cafe;
--	uint32_t ctrl;
- 	int err = 0;
+ #include <linux/bitfield.h>
+-#define DEBUG
+-
+ #include <linux/device.h>
+-#undef DEBUG
+ #include <linux/mtd/mtd.h>
+ #include <linux/mtd/rawnand.h>
+ #include <linux/mtd/partitions.h>
+@@ -170,9 +167,6 @@ module_param(usedma, int, 0644);
+ static int skipbbt = 0;
+ module_param(skipbbt, int, 0644);
  
- 	/* Very old versions shared the same PCI ident for all three
-@@ -853,15 +917,8 @@ static int cafe_nand_probe(struct pci_dev *pdev,
- 		}
- 	}
+-static int debug = 0;
+-module_param(debug, int, 0644);
+-
+ static int regdebug = 0;
+ module_param(regdebug, int, 0644);
  
--	/* Start off by resetting the NAND controller completely */
--	cafe_writel(cafe, CAFE_GLOBAL_RESET_NAND, GLOBAL_RESET);
--	cafe_writel(cafe, 0, GLOBAL_RESET);
-+	cafe_nand_init(cafe);
+@@ -185,9 +179,6 @@ module_param_array(timing, int, &numtimings, 0644);
  
--	cafe_writel(cafe, timing[0], NAND_TIMING1);
--	cafe_writel(cafe, timing[1], NAND_TIMING2);
--	cafe_writel(cafe, timing[2], NAND_TIMING3);
--
--	cafe_writel(cafe, 0xffffffff, NAND_IRQ_MASK);
- 	err = request_irq(pdev->irq, &cafe_nand_interrupt, IRQF_SHARED,
- 			  "CAFE NAND", mtd);
- 	if (err) {
-@@ -869,55 +926,6 @@ static int cafe_nand_probe(struct pci_dev *pdev,
- 		goto out_ior;
- 	}
+ static const char *part_probes[] = { "cmdlinepart", "RedBoot", NULL };
  
--	/* Disable master reset, enable NAND clock */
--	ctrl = cafe_readl(cafe, GLOBAL_CTRL);
--	ctrl &= ~(CAFE_GLOBAL_SW_RESET_SET |
--		  CAFE_GLOBAL_SW_RESET_CLEAR |
--		  CAFE_GLOBAL_MASTER_RESET_SET |
--		  CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		  CAFE_GLOBAL_NAND_CLK_ENABLE);
--	ctrl |= CAFE_GLOBAL_NAND_CLK_ENABLE |
--		CAFE_GLOBAL_SDH_CLK_ENABLE |
--		CAFE_GLOBAL_CCIC_CLK_ENABLE;
--	cafe_writel(cafe,
--		    ctrl |
--		    CAFE_GLOBAL_MASTER_RESET_SET |
--		    CAFE_GLOBAL_SW_RESET_SET,
--		    GLOBAL_CTRL);
--	cafe_writel(cafe,
--		    ctrl |
--		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
+-/* Hrm. Why isn't this already conditional on something in the struct device? */
+-#define cafe_dev_dbg(dev, args...) do { if (debug) dev_dbg(dev, ##args); } while(0)
 -
--	cafe_writel(cafe, 0, NAND_DMA_CTRL);
--
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_NAND_CLK_ENABLE |
--		    CAFE_GLOBAL_SDH_CLK_ENABLE |
--		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
--		    CAFE_GLOBAL_MASTER_RESET_SET |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_NAND_CLK_ENABLE |
--		    CAFE_GLOBAL_SDH_CLK_ENABLE |
--		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
--		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
--
--	/* Enable NAND IRQ in global IRQ mask register */
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_IRQ_PCI_ERROR |
--		    CAFE_GLOBAL_IRQ_CCIC |
--		    CAFE_GLOBAL_IRQ_SDH |
--		    CAFE_GLOBAL_IRQ_NAND,
--		    GLOBAL_IRQ_MASK);
--	cafe_dev_dbg(&cafe->pdev->dev, "Control %x, IRQ mask %x\n",
--		cafe_readl(cafe, GLOBAL_CTRL),
--		cafe_readl(cafe, GLOBAL_IRQ_MASK));
--
- 	/* Do not use the DMA during the NAND identification */
- 	cafe->usedma = 0;
+ /* Make it easier to switch to PIO if we need to */
+ #define cafe_readl(cafe, addr)			readl((cafe)->mmio + CAFE_##addr)
+ #define cafe_writel(cafe, datum, addr)		writel(datum, (cafe)->mmio + CAFE_##addr)
+@@ -201,7 +192,7 @@ static int cafe_device_ready(struct nand_chip *chip)
  
-@@ -980,74 +988,11 @@ MODULE_DEVICE_TABLE(pci, cafe_nand_tbl);
+ 	cafe_writel(cafe, irqs, NAND_IRQ);
  
- static int cafe_nand_resume(struct pci_dev *pdev)
- {
--	uint32_t ctrl;
- 	struct mtd_info *mtd = pci_get_drvdata(pdev);
- 	struct nand_chip *chip = mtd_to_nand(mtd);
- 	struct cafe_priv *cafe = nand_get_controller_data(chip);
+-	cafe_dev_dbg(&cafe->pdev->dev, "NAND device is%s ready, IRQ %x (%x) (%x,%x)\n",
++	dev_dbg(&cafe->pdev->dev, "NAND device is%s ready, IRQ %x (%x) (%x,%x)\n",
+ 		result?"":" not", irqs, cafe_readl(cafe, NAND_IRQ),
+ 		cafe_readl(cafe, GLOBAL_IRQ), cafe_readl(cafe, GLOBAL_IRQ_MASK));
  
--       /* Start off by resetting the NAND controller completely */
--	cafe_writel(cafe, CAFE_GLOBAL_RESET_NAND, GLOBAL_RESET);
--	cafe_writel(cafe, 0, GLOBAL_RESET);
--	cafe_writel(cafe, 0xffffffff, NAND_IRQ_MASK);
--
--	/* Restore timing configuration */
--	cafe_writel(cafe, timing[0], NAND_TIMING1);
--	cafe_writel(cafe, timing[1], NAND_TIMING2);
--	cafe_writel(cafe, timing[2], NAND_TIMING3);
--
--        /* Disable master reset, enable NAND clock */
--	ctrl = cafe_readl(cafe, GLOBAL_CTRL);
--	ctrl &= ~(CAFE_GLOBAL_SW_RESET_SET |
--		  CAFE_GLOBAL_SW_RESET_CLEAR |
--		  CAFE_GLOBAL_MASTER_RESET_SET |
--		  CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		  CAFE_GLOBAL_NAND_CLK_ENABLE);
--	ctrl |= CAFE_GLOBAL_NAND_CLK_ENABLE |
--		CAFE_GLOBAL_SDH_CLK_ENABLE |
--		CAFE_GLOBAL_CCIC_CLK_ENABLE;
--	cafe_writel(cafe,
--		    ctrl |
--		    CAFE_GLOBAL_MASTER_RESET_SET |
--		    CAFE_GLOBAL_SW_RESET_SET,
--		    GLOBAL_CTRL);
--	cafe_writel(cafe,
--		    ctrl |
--		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
--
--	cafe_writel(cafe, 0, NAND_DMA_CTRL);
--
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_NAND_CLK_ENABLE |
--		    CAFE_GLOBAL_SDH_CLK_ENABLE |
--		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
--		    CAFE_GLOBAL_MASTER_RESET_SET |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_NAND_CLK_ENABLE |
--		    CAFE_GLOBAL_SDH_CLK_ENABLE |
--		    CAFE_GLOBAL_CCIC_CLK_ENABLE |
--		    CAFE_GLOBAL_MASTER_RESET_CLEAR |
--		    CAFE_GLOBAL_SW_RESET_CLEAR,
--		    GLOBAL_CTRL);
--
--	/* Set up DMA address */
--	cafe_writel(cafe, cafe->dmaaddr & 0xffffffff, NAND_DMA_ADDR0);
--	if (sizeof(cafe->dmaaddr) > 4)
--	/* Shift in two parts to shut the compiler up */
--		cafe_writel(cafe, (cafe->dmaaddr >> 16) >> 16, NAND_DMA_ADDR1);
--	else
--		cafe_writel(cafe, 0, NAND_DMA_ADDR1);
--
--	/* Enable NAND IRQ in global IRQ mask register */
--	cafe_writel(cafe,
--		    CAFE_GLOBAL_IRQ_PCI_ERROR |
--		    CAFE_GLOBAL_IRQ_CCIC |
--		    CAFE_GLOBAL_IRQ_SDH |
--		    CAFE_GLOBAL_IRQ_NAND,
--		    GLOBAL_IRQ_MASK);
-+	cafe_nand_init(cafe);
- 	return 0;
+@@ -220,7 +211,7 @@ static void cafe_write_buf(struct nand_chip *chip, const uint8_t *buf, int len)
+ 
+ 	cafe->datalen += len;
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes to write buffer. datalen 0x%x\n",
++	dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes to write buffer. datalen 0x%x\n",
+ 		len, cafe->datalen);
  }
  
+@@ -233,8 +224,8 @@ static void cafe_read_buf(struct nand_chip *chip, uint8_t *buf, int len)
+ 	else
+ 		memcpy_fromio(buf, cafe->mmio + CAFE_NAND_READ_DATA + cafe->datalen, len);
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes from position 0x%x in read buffer.\n",
+-		  len, cafe->datalen);
++	dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes from position 0x%x in read buffer.\n",
++		len, cafe->datalen);
+ 	cafe->datalen += len;
+ }
+ 
+@@ -244,7 +235,7 @@ static uint8_t cafe_read_byte(struct nand_chip *chip)
+ 	uint8_t d;
+ 
+ 	cafe_read_buf(chip, &d, 1);
+-	cafe_dev_dbg(&cafe->pdev->dev, "Read %02x\n", d);
++	dev_dbg(&cafe->pdev->dev, "Read %02x\n", d);
+ 
+ 	return d;
+ }
+@@ -258,7 +249,7 @@ static void cafe_nand_cmdfunc(struct nand_chip *chip, unsigned command,
+ 	uint32_t ctl1;
+ 	uint32_t doneint = CAFE_NAND_IRQ_CMD_DONE;
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "cmdfunc %02x, 0x%x, 0x%x\n",
++	dev_dbg(&cafe->pdev->dev, "cmdfunc %02x, 0x%x, 0x%x\n",
+ 		command, column, page_addr);
+ 
+ 	if (command == NAND_CMD_ERASE2 || command == NAND_CMD_PAGEPROG) {
+@@ -270,8 +261,8 @@ static void cafe_nand_cmdfunc(struct nand_chip *chip, unsigned command,
+ 			    NAND_CTRL2);
+ 		ctl1 = cafe->ctl1;
+ 		cafe->ctl2 &= ~CAFE_NAND_CTRL2_AUTO_WRITE_ECC;
+-		cafe_dev_dbg(&cafe->pdev->dev, "Continue command, ctl1 %08x, #data %d\n",
+-			  cafe->ctl1, cafe->nr_data);
++		dev_dbg(&cafe->pdev->dev, "Continue command, ctl1 %08x, #data %d\n",
++			cafe->ctl1, cafe->nr_data);
+ 		goto do_command;
+ 	}
+ 	/* Reset ECC engine */
+@@ -333,8 +324,8 @@ static void cafe_nand_cmdfunc(struct nand_chip *chip, unsigned command,
+ 		/* Ignore the first command of a pair; the hardware
+ 		   deals with them both at once, later */
+ 		cafe->ctl1 = ctl1;
+-		cafe_dev_dbg(&cafe->pdev->dev, "Setup for delayed command, ctl1 %08x, dlen %x\n",
+-			  cafe->ctl1, cafe->datalen);
++		dev_dbg(&cafe->pdev->dev, "Setup for delayed command, ctl1 %08x, dlen %x\n",
++			cafe->ctl1, cafe->datalen);
+ 		return;
+ 	}
+ 	/* RNDOUT and READ0 commands need a following byte */
+@@ -350,7 +341,7 @@ static void cafe_nand_cmdfunc(struct nand_chip *chip, unsigned command,
+ 			    NAND_CTRL2);
+ 
+  do_command:
+-	cafe_dev_dbg(&cafe->pdev->dev, "dlen %x, ctl1 %x, ctl2 %x\n",
++	dev_dbg(&cafe->pdev->dev, "dlen %x, ctl1 %x, ctl2 %x\n",
+ 		cafe->datalen, ctl1, cafe_readl(cafe, NAND_CTRL2));
+ 
+ 	/* NB: The datasheet lies -- we really should be subtracting 1 here */
+@@ -399,12 +390,12 @@ static void cafe_nand_cmdfunc(struct nand_chip *chip, unsigned command,
+ 				break;
+ 			udelay(1);
+ 			if (!(c % 100000))
+-				cafe_dev_dbg(&cafe->pdev->dev, "Wait for ready, IRQ %x\n", irqs);
++				dev_dbg(&cafe->pdev->dev, "Wait for ready, IRQ %x\n", irqs);
+ 			cpu_relax();
+ 		}
+ 		cafe_writel(cafe, doneint, NAND_IRQ);
+-		cafe_dev_dbg(&cafe->pdev->dev, "Command %x completed after %d usec, irqs %x (%x)\n",
+-			     command, 500000-c, irqs, cafe_readl(cafe, NAND_IRQ));
++		dev_dbg(&cafe->pdev->dev, "Command %x completed after %d usec, irqs %x (%x)\n",
++			command, 500000-c, irqs, cafe_readl(cafe, NAND_IRQ));
+ 	}
+ 
+ 	WARN_ON(cafe->ctl2 & CAFE_NAND_CTRL2_AUTO_WRITE_ECC);
+@@ -433,7 +424,7 @@ static void cafe_select_chip(struct nand_chip *chip, int chipnr)
+ 	if (chipnr < 0 || chipnr > 1)
+ 		return;
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "select_chip %d\n", chipnr);
++	dev_dbg(&cafe->pdev->dev, "select_chip %d\n", chipnr);
+ 
+ 	/* Mask the appropriate bit into the stored value of ctl1
+ 	   which will be used by cafe_nand_cmdfunc() */
+@@ -452,7 +443,7 @@ static irqreturn_t cafe_nand_interrupt(int irq, void *id)
+ 	if (!irqs)
+ 		return IRQ_NONE;
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "irq, bits %x (%x)\n", irqs, cafe_readl(cafe, NAND_IRQ));
++	dev_dbg(&cafe->pdev->dev, "irq, bits %x (%x)\n", irqs, cafe_readl(cafe, NAND_IRQ));
+ 	return IRQ_HANDLED;
+ }
+ 
+@@ -484,9 +475,9 @@ static int cafe_nand_read_page(struct nand_chip *chip, uint8_t *buf,
+ 	unsigned int max_bitflips = 0;
+ 	u32 ecc_result, status;
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "ECC result %08x SYN1,2 %08x\n",
+-		     cafe_readl(cafe, NAND_ECC_RESULT),
+-		     cafe_readl(cafe, NAND_ECC_SYN_REG(0)));
++	dev_dbg(&cafe->pdev->dev, "ECC result %08x SYN1,2 %08x\n",
++		cafe_readl(cafe, NAND_ECC_RESULT),
++		cafe_readl(cafe, NAND_ECC_SYN_REG(0)));
+ 
+ 	nand_read_page_op(chip, page, 0, buf, mtd->writesize);
+ 	chip->legacy.read_buf(chip, chip->oob_poi, mtd->oobsize);
+@@ -718,8 +709,8 @@ static int cafe_nand_attach_chip(struct nand_chip *chip)
+ 	cafe_writel(cafe, lower_32_bits(cafe->dmaaddr), NAND_DMA_ADDR0);
+ 	cafe_writel(cafe, upper_32_bits(cafe->dmaaddr), NAND_DMA_ADDR1);
+ 
+-	cafe_dev_dbg(&cafe->pdev->dev, "Set DMA address to %x (virt %p)\n",
+-		     cafe_readl(cafe, NAND_DMA_ADDR0), cafe->dmabuf);
++	dev_dbg(&cafe->pdev->dev, "Set DMA address to %x (virt %p)\n",
++		cafe_readl(cafe, NAND_DMA_ADDR0), cafe->dmabuf);
+ 
+ 	/* Restore the DMA flag */
+ 	cafe->usedma = usedma;
+@@ -901,16 +892,16 @@ static int cafe_nand_probe(struct pci_dev *pdev,
+ 	}
+ 
+ 	if (numtimings == 3) {
+-		cafe_dev_dbg(&cafe->pdev->dev, "Using provided timings (%08x %08x %08x)\n",
+-			     timing[0], timing[1], timing[2]);
++		dev_dbg(&cafe->pdev->dev, "Using provided timings (%08x %08x %08x)\n",
++			timing[0], timing[1], timing[2]);
+ 	} else {
+ 		timing[0] = cafe_readl(cafe, NAND_TIMING1);
+ 		timing[1] = cafe_readl(cafe, NAND_TIMING2);
+ 		timing[2] = cafe_readl(cafe, NAND_TIMING3);
+ 
+ 		if (timing[0] | timing[1] | timing[2]) {
+-			cafe_dev_dbg(&cafe->pdev->dev, "Timing registers already set (%08x %08x %08x)\n",
+-				     timing[0], timing[1], timing[2]);
++			dev_dbg(&cafe->pdev->dev, "Timing registers already set (%08x %08x %08x)\n",
++				timing[0], timing[1], timing[2]);
+ 		} else {
+ 			dev_warn(&cafe->pdev->dev, "Timing registers unset; using most conservative defaults\n");
+ 			timing[0] = timing[1] = timing[2] = 0xffffffff;
 -- 
 2.25.3
 
