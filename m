@@ -2,97 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B4761BAE61
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 21:46:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F4DA1BAE7B
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 21:51:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YOG5w8jHGL4t3Xdv79Z3Y25pm4tfHyCd9InnHIuv8as=; b=gbgUTnkDsVKFSs
-	d2V5Cyj+TGKotfVeuReO8DpVBzJBwwnaWd9gUzcPIyV8hQKUYgtHEeOlj3jloiN5PS9NNVQEIRfaP
-	JwntjLUoUIzXC/6SaLsDD0Yzu3D3TQZLgeDRN8NnGHu0vUgWhxQ6IluLVTtCjNRjBDVUC5jYtbvzy
-	r0TmRsPK0N7nccTA+i+YyZTjY1Zl8t3YEBu/ad483LwbKTBkZZOYEcUptOfUsTPNhl0NxK52YBCgY
-	Ez4yCkS80ddh6xS/z8X1U4V5xN+5lzRYD8c4q7roFGmKNGMfXbsEcV7h8Dy1DNQ7xdfTNbj/F05Nu
-	PZOvtd0qZVRvKX7NBsCg==;
+	List-Owner; bh=hFON4P69qU6MUG/BJm402PV3w5wat8eXvetHvLWr7Gk=; b=rYVd5LynGGyvIM
+	WT+acn4JtH6GyyLUCSsZM1fuwtuX1kyiiBQG9YaSROaNW7diT0AKzfyjtV4i3Icw2DM7so/sG11xX
+	veYUTS2x2XmGMYF089dn9pdZGjDQqLjlXPDz+TNn4ZbE1J8u+tTCaY/UNAVvMFRNQRduC2eXDjKQS
+	9MKnq+a/AyHShiJ0gp5KGyYEC8vKGSAU6pX+ihhaN0IyQZoV70VvSAwtkyFDWxPbkYhJ1o+6YE5lM
+	OkmhWV2QZ868Fk0Cien95n8tdFrk8gldVwx5YMnGcKPu2Olbo73RpfKJKh1VRjTPVh2jEUehybNWy
+	psS+xXiPl7AvvhuuMdUw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jT9iL-0000aE-8f; Mon, 27 Apr 2020 19:46:49 +0000
-Received: from gateway20.websitewelcome.com ([192.185.65.13])
+	id 1jT9n7-0005j6-81; Mon, 27 Apr 2020 19:51:45 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jT9hu-0000PS-7y
- for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 19:46:24 +0000
-Received: from cm13.websitewelcome.com (cm13.websitewelcome.com [100.42.49.6])
- by gateway20.websitewelcome.com (Postfix) with ESMTP id 34F5F400C732C
- for <linux-mtd@lists.infradead.org>; Mon, 27 Apr 2020 13:28:51 -0500 (CDT)
-Received: from gator4166.hostgator.com ([108.167.133.22]) by cmsmtp with SMTP
- id T9hrjNKEjVQh0T9hrjVDaC; Mon, 27 Apr 2020 14:46:20 -0500
-X-Authority-Reason: nr=8
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=embeddedor.com; s=default; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=2PhqAadEanGA6zu3GS0dpv53aeSLftBKlQlVVXlea+k=; b=gVoeX18XHnlGe6CLXThXRH9LZ
- aKlnSZSAL85rDI3H7sG2EkU+BG476MeXYVRILj1dM5eEci4Cj+82kYaxvwwGvZbmT6SXbBLYmHK9r
- ynot9tkadfyLT2v4IgFRnZRVcCRGXVT5NmmXa7/kaLlpuJrFYO4DFXpVVw6ZTmQ2ebDXXGUOVfgsp
- kpXstOcY0WWLGIWxT02+ujQAZCbYJ7XEc/2PgIKbPkTkYMUYCWq+EmjQS2OndBXdoq4WjL3AFGFMF
- wUE5UJ7ge6+FYBUYPM1w8V+rM39+DfgyXXoXDrLz7dyFPhkPssOW96105KNnNrNjIjFyopVj3vm9A
- Sgk1HzloQ==;
-Received: from [201.162.241.110] (port=25072 helo=embeddedor)
- by gator4166.hostgator.com with esmtpa (Exim 4.92)
- (envelope-from <gustavo@embeddedor.com>)
- id 1jT9hr-000yI5-F7; Mon, 27 Apr 2020 14:46:19 -0500
-Date: Mon, 27 Apr 2020 14:50:37 -0500
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] mtd: lpddr: Fix bad logic in print_drs_error
-Message-ID: <3fb0e29f5b601db8be2938a01d974b00c8788501.1588016644.git.gustavo@embeddedor.com>
-References: <cover.1588016644.git.gustavo@embeddedor.com>
+ id 1jT9my-0005iK-EW
+ for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 19:51:37 +0000
+X-Originating-IP: 91.224.148.103
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 58C2520002;
+ Mon, 27 Apr 2020 19:51:33 +0000 (UTC)
+Date: Mon, 27 Apr 2020 21:51:32 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH 11/17] mtd: rawnand: cafe: Don't leave ECC enabled in
+ the write path
+Message-ID: <20200427215132.1331d4f5@xps13>
+In-Reply-To: <20200427082028.394719-12-boris.brezillon@collabora.com>
+References: <20200427082028.394719-1-boris.brezillon@collabora.com>
+ <20200427082028.394719-12-boris.brezillon@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1588016644.git.gustavo@embeddedor.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-AntiAbuse: This header was added to track abuse,
- please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 201.162.241.110
-X-Source-L: No
-X-Exim-ID: 1jT9hr-000yI5-F7
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: (embeddedor) [201.162.241.110]:25072
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 29
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_124622_383180_1EC22B80 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200427_125136_622884_A9FACD1D 
+X-CRM114-Status: GOOD (  15.22  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [192.185.65.13 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.200 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,61 +63,53 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
- Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, Joe Perches <joe@perches.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd@lists.infradead.org, Tudor Ambarus <tudor.ambarus@microchip.com>,
+ David Woodhouse <dwmw2@infradead.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Richard Weinberger <richard@nod.at>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Update logic for broken test. Use a more common logging style.
-
-It appears the logic in this function is broken for the
-consecutive tests of
-
-        if (prog_status & 0x3)
-                ...
-        else if (prog_status & 0x2)
-                ...
-        else (prog_status & 0x1)
-                ...
-
-Likely the first test should be
-
-        if ((prog_status & 0x3) == 0x3)
-
-Found by inspection of include files using printk.
-
-Fixes: eb3db27507f7 ("[MTD] LPDDR PFOW definition")
-Cc: stable@vger.kernel.org
-Reported-by: Joe Perches <joe@perches.com>
-Signed-off-by: Gustavo A. R. Silva <gustavo@embeddedor.com>
----
-Changes in v2:
- - None.
-
- include/linux/mtd/pfow.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/include/linux/mtd/pfow.h b/include/linux/mtd/pfow.h
-index 122f3439e1af..c65d7a3be3c6 100644
---- a/include/linux/mtd/pfow.h
-+++ b/include/linux/mtd/pfow.h
-@@ -128,7 +128,7 @@ static inline void print_drs_error(unsigned dsr)
- 
- 	if (!(dsr & DSR_AVAILABLE))
- 		printk(KERN_NOTICE"DSR.15: (0) Device not Available\n");
--	if (prog_status & 0x03)
-+	if ((prog_status & 0x03) == 0x03)
- 		printk(KERN_NOTICE"DSR.9,8: (11) Attempt to program invalid "
- 						"half with 41h command\n");
- 	else if (prog_status & 0x02)
--- 
-2.26.0
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgQm9yaXMsCgpCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29t
+PiB3cm90ZSBvbiBNb24sIDI3IEFwcgoyMDIwIDEwOjIwOjIxICswMjAwOgoKPiBjYWZlX25hbmRf
+d3JpdGVfcGFnZV9sb3dsZXZlbCgpIHNldHMgdGhlIEVDQyBhdXRvLWdlbmVyYXRpb24gZmxhZyBi
+dXQKCklJUkMgeW91IHJlbmFtZWQgdGhpcyBmdW5jdGlvbiBpbiBwYXRjaCAxIHNvIG5vdyBpdCBp
+cyBuYW1lZAoiX3dyaXRlX3BhZ2UoKSIuCgo+IG5ldmVyIGNsZWFycyBpdCwgdGh1cyBmb3JjaW5n
+IHRoZSBjYWZlX25hbmRfY21kZnVuYygpIHRvIGNsZWFyIGl0Cj4gaW4gY2VydGFpbiBjaXJjdW1z
+dGFuY2VzLiBMZXQncyBqdXN0IGNsZWFyIHRoaXMgZmxhZyBpbgo+IGNhZmVfbmFuZF93cml0ZV9w
+YWdlX2xvd2xldmVsKCkgaW5zdGVhZC4KClNhbWUgaGVyZSAgICAgICAgICAgICAgXgoKPiAKPiBT
+aWduZWQtb2ZmLWJ5OiBCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEu
+Y29tPgo+IC0tLQo+ICBkcml2ZXJzL210ZC9uYW5kL3Jhdy9jYWZlX25hbmQuYyB8IDExICsrKysr
+KysrKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCA5IGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0p
+Cj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L2NhZmVfbmFuZC5jIGIvZHJp
+dmVycy9tdGQvbmFuZC9yYXcvY2FmZV9uYW5kLmMKPiBpbmRleCAyODI1NDg5YTcxYjguLjMxNDkz
+YTIwMWEwMiAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL210ZC9uYW5kL3Jhdy9jYWZlX25hbmQuYwo+
+ICsrKyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L2NhZmVfbmFuZC5jCj4gQEAgLTI2MSw3ICsyNjEs
+NiBAQCBzdGF0aWMgdm9pZCBjYWZlX25hbmRfY21kZnVuYyhzdHJ1Y3QgbmFuZF9jaGlwICpjaGlw
+LCB1bnNpZ25lZCBjb21tYW5kLAo+ICAJCQkgICAgQ0FGRV9GSUVMRF9QUkVQKE5BTkRfQ1RSTDIs
+IENNRDIsIGNvbW1hbmQpLAo+ICAJCQkgICAgTkFORF9DVFJMMik7Cj4gIAkJY3RsMSA9IGNhZmUt
+PmN0bDE7Cj4gLQkJY2FmZS0+Y3RsMiAmPSB+Q0FGRV9OQU5EX0NUUkwyX0FVVE9fV1JJVEVfRUND
+Owo+ICAJCWRldl9kYmcoJmNhZmUtPnBkZXYtPmRldiwgIkNvbnRpbnVlIGNvbW1hbmQsIGN0bDEg
+JTA4eCwgI2RhdGEgJWRcbiIsCj4gIAkJCWNhZmUtPmN0bDEsIGNhZmUtPm5yX2RhdGEpOwo+ICAJ
+CWdvdG8gZG9fY29tbWFuZDsKPiBAQCAtNjQzLDYgKzY0Miw3IEBAIHN0YXRpYyBpbnQgY2FmZV9u
+YW5kX3dyaXRlX3BhZ2Uoc3RydWN0IG5hbmRfY2hpcCAqY2hpcCwKPiAgewo+ICAJc3RydWN0IG10
+ZF9pbmZvICptdGQgPSBuYW5kX3RvX210ZChjaGlwKTsKPiAgCXN0cnVjdCBjYWZlX3ByaXYgKmNh
+ZmUgPSBuYW5kX2dldF9jb250cm9sbGVyX2RhdGEoY2hpcCk7Cj4gKwlpbnQgcmV0Owo+ICAKPiAg
+CW5hbmRfcHJvZ19wYWdlX2JlZ2luX29wKGNoaXAsIHBhZ2UsIDAsIGJ1ZiwgbXRkLT53cml0ZXNp
+emUpOwo+ICAJY2hpcC0+bGVnYWN5LndyaXRlX2J1ZihjaGlwLCBjaGlwLT5vb2JfcG9pLCBtdGQt
+Pm9vYnNpemUpOwo+IEBAIC02NTAsNyArNjUwLDE0IEBAIHN0YXRpYyBpbnQgY2FmZV9uYW5kX3dy
+aXRlX3BhZ2Uoc3RydWN0IG5hbmRfY2hpcCAqY2hpcCwKPiAgCS8qIFNldCB1cCBFQ0MgYXV0b2dl
+bmVyYXRpb24gKi8KPiAgCWNhZmUtPmN0bDIgfD0gQ0FGRV9OQU5EX0NUUkwyX0FVVE9fV1JJVEVf
+RUNDOwo+ICAKPiAtCXJldHVybiBuYW5kX3Byb2dfcGFnZV9lbmRfb3AoY2hpcCk7Cj4gKwlyZXQg
+PSBuYW5kX3Byb2dfcGFnZV9lbmRfb3AoY2hpcCk7Cj4gKwo+ICsJLyoKPiArCSAqIEFuZCBjbGVh
+ciBpdCBiZWZvcmUgcmV0dXJuaW5nIHNvIHRoYXQgZm9sbG93aW5nIHdyaXRlIG9wZXJhdGlvbnMK
+PiArCSAqIHRoYXQgZG8gbm90IGludm9sdmUgRUNDIGRvbid0IGdlbmVyYXRlIEVDQyBieXRlcy4K
+PiArCSAqLwo+ICsJY2FmZS0+Y3RsMiAmPSB+Q0FGRV9OQU5EX0NUUkwyX0FVVE9fV1JJVEVfRUND
+OwoKSSBsaWtlIHNwYWNlcyBiZWZvcmUgcmV0dXJuaW5nLCBidXQgYWdhaW4gaXQncyByZWFsbHkg
+YSBuaXRwaWNrLCB5b3UKY2FuIGlnbm9yZSB0aGF0IDopCgo+ICsJcmV0dXJuIHJldDsKPiAgfQo+
+ICAKPiAgLyogRl8yW1hdLyhYKio2K1grMSkgICovCgoKV2l0aCB0aGUgY29tbWl0IGxvZyB1cGRh
+dGVkCgpSZXZpZXdlZC1ieTogTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNv
+bT4KClRoYW5rcywKTWlxdcOobAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRw
+Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
