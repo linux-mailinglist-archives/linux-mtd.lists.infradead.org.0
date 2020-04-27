@@ -2,52 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 44E671B9A27
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 10:28:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C80C41B9A32
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 10:29:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sCY+rGi/V3Zl32rxbGubuZTfjrSHQHdmb6EkM6+2Dc8=; b=negIzHliug/KyI
-	iOWe6DDcwHtzFEYz/omu5jlpTQbdIIWgPBgxMgouH7VxwRzqzTOWdw/CUXzdjZPCwB5VcSId6yTuL
-	vfTvxdsjxKAIyODspDqUHEwQgNrFDdYu6LaG/tI5didU3NW5L+ZYyYxPGwdtqk7FdigslfoEwE7o+
-	/4uizWtO4S8L2spoPuMcUNCYVS7s76cs9dt90b7X3ZrPQXZp3XERqZkJFNJuh1cMa4yTBUR/GRWw1
-	1mcEjxT2/GQir0k+p4LdUUVHbVPRjYHc85M9SA1eEGJUV+JVTsxxUDt0SuKgLPXZuLmc0FpjY96KV
-	pjEFxyT7Os6JZjgUqX/A==;
+	List-Owner; bh=1SHTrjblSHBsFePcdqZ0CoNWGCepx/AOYK/YlOZ9rrE=; b=hB4VOlV/BDFMjB
+	k96w8Zv/O1st6Fgp/QnaOtjZ+DQ0Rld4F/QUevPb+VzfAG58aE8kNuapRBz1xGTkUCvhUQSCc7tLF
+	kmNIQcD7HjL8uhcCpEoMuMqJwSJIbkRTudciiGQ1A+Veyu9wle5I7rb/DH/uDUNX5y6ysnWYyVntU
+	BhzFM1BM8eKSxz9jdwWNcf9KOKv03F9C1Cen/f9tPSVu/npDurNHJ5LOCP66AVtUWYjQ+gEKshQ6e
+	B3M/57QCf+4WxWbfuGAyv7vD5yxBrLTkg8XQuZeCbexpC9qxse7VVBLQUvF33oXHC+0qQUplcxy96
+	jfIGF2tlL1QaGCvPKo5w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jSz7b-0006Go-07; Mon, 27 Apr 2020 08:28:11 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jSz8L-0006xP-0y; Mon, 27 Apr 2020 08:28:57 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jSz0N-0006E4-US
- for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 08:20:48 +0000
+ id 1jSz0P-0006Es-5K
+ for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 08:20:50 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id ED0192A08E5;
- Mon, 27 Apr 2020 09:20:40 +0100 (BST)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 3B4F32A08B4;
+ Mon, 27 Apr 2020 09:20:41 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: David Woodhouse <dwmw2@infradead.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH 16/17] mtd: rawnand: cafe: Handle non-32bit aligned
- reads/writes
-Date: Mon, 27 Apr 2020 10:20:26 +0200
-Message-Id: <20200427082028.394719-17-boris.brezillon@collabora.com>
+Subject: [PATCH 17/17] mtd: rawnand: cafe: s/uint{8,16,32}_t/u{8,16,32}/
+Date: Mon, 27 Apr 2020 10:20:27 +0200
+Message-Id: <20200427082028.394719-18-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.3
 In-Reply-To: <20200427082028.394719-1-boris.brezillon@collabora.com>
 References: <20200427082028.394719-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_012044_238553_8E3CDF89 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20200427_012045_364761_F6BFDDF1 
+X-CRM114-Status: GOOD (  14.17  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -70,63 +71,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The spec says the write/read buffers should be filled/read 32bits at a
-time. While most of the time the reads/writes are aligned on 4 bytes,
-we should make the implementation more robust to non-usual NAND
-operations.
+Replace uint{8,16,32}_t by u{8,16,32} to make checkpatch happy.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/cafe_nand.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+ drivers/mtd/nand/raw/cafe_nand.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/cafe_nand.c b/drivers/mtd/nand/raw/cafe_nand.c
-index 26495085f285..955dc78c57be 100644
+index 955dc78c57be..658c95804297 100644
 --- a/drivers/mtd/nand/raw/cafe_nand.c
 +++ b/drivers/mtd/nand/raw/cafe_nand.c
-@@ -184,10 +184,18 @@ static void cafe_write_buf(struct nand_chip *chip, const void *buf,
- {
+@@ -151,7 +151,7 @@ struct cafe_priv {
+ 	struct pci_dev *pdev;
+ 	void __iomem *mmio;
+ 	struct rs_control *rs;
+-	uint32_t ctl2;
++	u32 ctl2;
+ 	bool usedma;
+ 	dma_addr_t dmaaddr;
+ 	unsigned char *dmabuf;
+@@ -224,7 +224,7 @@ static irqreturn_t cafe_nand_interrupt(int irq, void *id)
+ 	struct mtd_info *mtd = id;
+ 	struct nand_chip *chip = mtd_to_nand(mtd);
  	struct cafe_priv *cafe = nand_get_controller_data(chip);
- 
--	if (cafe->usedma)
-+	if (cafe->usedma) {
- 		memcpy(cafe->dmabuf, buf, len);
--	else
--		memcpy_toio(cafe->mmio + CAFE_NAND_WRITE_DATA, buf, len);
-+	} else {
-+		memcpy_toio(cafe->mmio + CAFE_NAND_WRITE_DATA, buf,
-+			    len & ~0x3);
-+		if (len & 0x3) {
-+			u32 tmp = 0;
-+
-+			memcpy(&tmp, buf + (len & ~0x3), len & 0x3);
-+			cafe_writel(cafe, tmp, NAND_WRITE_DATA);
-+		}
-+	}
- 
- 	dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes to write buffer.\n",	len);
- }
-@@ -196,10 +204,17 @@ static void cafe_read_buf(struct nand_chip *chip, void *buf, unsigned int len)
+-	uint32_t irqs = cafe_readl(cafe, NAND_IRQ);
++	u32 irqs = cafe_readl(cafe, NAND_IRQ);
+ 	cafe_writel(cafe,
+ 		    irqs & ~(CAFE_NAND_IRQ_CMD_DONE | CAFE_NAND_IRQ_DMA_DONE),
+ 		    NAND_IRQ);
+@@ -255,7 +255,7 @@ static int cafe_nand_read_oob(struct nand_chip *chip, int page)
+  * The hw generator calculates the error syndrome automatically. Therefore
+  * we need a special oob layout and handling.
+  */
+-static int cafe_nand_read_page(struct nand_chip *chip, uint8_t *buf,
++static int cafe_nand_read_page(struct nand_chip *chip, u8 *buf,
+ 			       int oob_required, int page)
  {
- 	struct cafe_priv *cafe = nand_get_controller_data(chip);
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+@@ -283,8 +283,8 @@ static int cafe_nand_read_page(struct nand_chip *chip, uint8_t *buf,
+ 		int i, n;
  
--	if (cafe->usedma)
-+	if (cafe->usedma) {
- 		memcpy(buf, cafe->dmabuf, len);
--	else
--		memcpy_fromio(buf, cafe->mmio + CAFE_NAND_READ_DATA, len);
-+	} else {
-+		memcpy_fromio(buf, cafe->mmio + CAFE_NAND_READ_DATA,
-+			      len & ~0x3);
-+		if (len & 0x3) {
-+			u32 tmp = cafe_readl(cafe, NAND_READ_DATA);
-+
-+			memcpy(buf + (len & ~0x3), &tmp, len & 0x3);
-+		}
-+	}
+ 		for (i=0; i<8; i+=2) {
+-			uint32_t tmp = cafe_readl(cafe, NAND_ECC_SYN_REG(i));
+-			uint16_t idx;
++			u32 tmp = cafe_readl(cafe, NAND_ECC_SYN_REG(i));
++			u16 idx;
  
- 	dev_dbg(&cafe->pdev->dev, "Copy 0x%x bytes from read buffer.\n", len);
- }
+ 			idx = FIELD_GET(CAFE_NAND_ECC_SYN_FIELD(i), tmp);
+ 			syn[i] = cafe->rs->codec->index_of[idx];
+@@ -380,11 +380,11 @@ static const struct mtd_ooblayout_ops cafe_ooblayout_ops = {
+ 
+ /* Ick. The BBT code really ought to be able to work this bit out
+    for itself from the above, at least for the 2KiB case */
+-static uint8_t cafe_bbt_pattern_2048[] = { 'B', 'b', 't', '0' };
+-static uint8_t cafe_mirror_pattern_2048[] = { '1', 't', 'b', 'B' };
++static u8 cafe_bbt_pattern_2048[] = { 'B', 'b', 't', '0' };
++static u8 cafe_mirror_pattern_2048[] = { '1', 't', 'b', 'B' };
+ 
+-static uint8_t cafe_bbt_pattern_512[] = { 0xBB };
+-static uint8_t cafe_mirror_pattern_512[] = { 0xBC };
++static u8 cafe_bbt_pattern_512[] = { 0xBB };
++static u8 cafe_mirror_pattern_512[] = { 0xBC };
+ 
+ 
+ static struct nand_bbt_descr cafe_bbt_main_descr_2048 = {
+@@ -429,7 +429,7 @@ static struct nand_bbt_descr cafe_bbt_mirror_descr_512 = {
+ 
+ 
+ static int cafe_nand_write_page(struct nand_chip *chip,
+-				const uint8_t *buf, int oob_required,
++				const u8 *buf, int oob_required,
+ 				int page)
+ {
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
 -- 
 2.25.3
 
