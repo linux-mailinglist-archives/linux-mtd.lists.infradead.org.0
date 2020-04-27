@@ -2,98 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 240E31BAE7F
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 21:52:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 39AF01BAE94
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 22:00:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xh4lyXbBSDubsL/KqiCIQxXWmFjSJOj3nFK+LSNE/9M=; b=sVemT0zldnOi4k
-	ne5m/gN1cbxrlFDwuHYP9PIqDfNdNTo3PYMtcVRfC2S/JHX6zweWyFIse9QcAo13xe8GQns1EuV2p
-	kNLo5TLPFvPbe6u4IaZEPs+mmFgISakhTGaypU0YcMlZi6a9NYJrZurdnXSgMdPtULbtarzdovK3t
-	MCOR20xCpT2FTRS4QJFu4yy7rN+JxuaSP0WcWXLbAHpOXZ5Q0qcatJm9B+yBbQcOxLeru1YTsZWCr
-	WjzCVTD547REMjhqeEz/55u5VNz41V+MD5tj7fl3HlhpiSaRCjVfTkCxUeprjmsE0oRjoqaZXrIS1
-	WfpAuoorwtPItmQfhpdw==;
+	List-Owner; bh=d7LqQQeLgsMfYdQGPO22DYFvtqHbaEWVwu2M8XkhKjk=; b=Fmb9Nk7AIjaG9S
+	UNRIxuogxT/5Lk9Mz4lKz64xymgziHKz36D+CgW03xKqMVMfu9sTxgQ8ewstP0wRyFg3FETdwCPzZ
+	nIE9LWMml9RCCBKD2pgl5g1JKo7AUo82XCtYnHcp9QDMuSE4dX0TDH2lDyefghQPxqCKjdw0exSQ3
+	DjK9vhTbNj1SGcxoH2nDcEfpS2DUoQmHjn+cVvOUWz6j/bACNHVEULs9STga7a2UESOtyjRudqT0n
+	uuqJcr59Qh33KE3TwQ5eL/ZdHgKK1BADPoYRu9KRx3P5WV7KL9lukdsZvNE/ZPlnDEscEyeLGG0ok
+	h3IwvRz0Jk5+CGyNAR0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jT9nR-0005yD-Hy; Mon, 27 Apr 2020 19:52:05 +0000
-Received: from gateway21.websitewelcome.com ([192.185.46.113])
+	id 1jT9uv-0001ws-KH; Mon, 27 Apr 2020 19:59:49 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jT9nE-0005wT-Ub
- for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 19:51:54 +0000
-Received: from cm12.websitewelcome.com (cm12.websitewelcome.com [100.42.49.8])
- by gateway21.websitewelcome.com (Postfix) with ESMTP id 091FC400C5585
- for <linux-mtd@lists.infradead.org>; Mon, 27 Apr 2020 14:51:51 -0500 (CDT)
-Received: from gator4166.hostgator.com ([108.167.133.22]) by cmsmtp with SMTP
- id T9nCjvAVy1s2xT9nDjWRsx; Mon, 27 Apr 2020 14:51:51 -0500
-X-Authority-Reason: nr=8
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=embeddedor.com; s=default; h=In-Reply-To:Content-Type:MIME-Version:
- References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=K9rvz993rEWHpe/slLaIwcj7PEadMPRISWvrM6xG1ck=; b=wTy3d/O7cdoVmcBoX6lglAqtY
- gBlWxjqxg3ErcWOZMHQ2/W+Jt80HE9vyc4nYFmKHxr5D4mYrzPqi4TJOVNYfJyYJi8lBLvn6WY07x
- AASyNkLQRsqFsQJjnEjJMK0tBuBgj3AxZZt01PORlNcS2Z8yvPTWP2EBAshYNFacFaJJlUslLlRYU
- XdF18eTQ0l4McGHjHesU6opY5oOintds+lKmA4t7/dCFhPVxfpSbH6MH3OPCScG1qv8iEEDMaShSU
- 1cwOA7qqnKuenZHvYy6eRWrXZNx9QZYsJKY/oQPjucKKGTLcSxQsqj8IdDfSwo+zjlQT+LK0Sfcy5
- 11HUTQi6A==;
-Received: from [201.162.241.110] (port=6995 helo=embeddedor)
- by gator4166.hostgator.com with esmtpa (Exim 4.92)
- (envelope-from <gustavo@embeddedor.com>)
- id 1jT9nC-00113q-GQ; Mon, 27 Apr 2020 14:51:50 -0500
-Date: Mon, 27 Apr 2020 14:56:08 -0500
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] mtd: lpddr: Move function print_drs_error to
- lpddr_cmds.c
-Message-ID: <e0063cbd65f3b47be1db34efc494ea3047634d88.1588016644.git.gustavo@embeddedor.com>
-References: <cover.1588016644.git.gustavo@embeddedor.com>
+ id 1jT9uj-0001w6-Ui
+ for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 19:59:39 +0000
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 04664200005;
+ Mon, 27 Apr 2020 19:59:34 +0000 (UTC)
+Date: Mon, 27 Apr 2020 21:59:33 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH 13/17] mtd: rawnand: cafe: Add exec_op() support
+Message-ID: <20200427215933.13fb1bbc@xps13>
+In-Reply-To: <20200427082028.394719-14-boris.brezillon@collabora.com>
+References: <20200427082028.394719-1-boris.brezillon@collabora.com>
+ <20200427082028.394719-14-boris.brezillon@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <cover.1588016644.git.gustavo@embeddedor.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-AntiAbuse: This header was added to track abuse,
- please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 201.162.241.110
-X-Source-L: No
-X-Exim-ID: 1jT9nC-00113q-GQ
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: (embeddedor) [201.162.241.110]:6995
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 41
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_125153_072387_2DB7BC05 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200427_125938_261539_6D66F418 
+X-CRM114-Status: GOOD (  21.07  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [192.185.46.113 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.178.232 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -105,115 +61,120 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
- Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, Joe Perches <joe@perches.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-mtd@lists.infradead.org, Tudor Ambarus <tudor.ambarus@microchip.com>,
+ David Woodhouse <dwmw2@infradead.org>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Richard Weinberger <richard@nod.at>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Function print_drs_error is only used in drivers/mtd/lpddr/lpddr_cmds.c
-so, better to move it there.
-
-Also, notice that there's no need for inline as the function is used
-once.  Lastly, fix the following checkpatch warning:
-
-WARNING: Prefer 'unsigned int' to bare use of 'unsigned'
-+static void print_drs_error(unsigned dsr)
-
-Suggested-by: Joe Perches <joe@perches.com>
-Signed-off-by: Gustavo A. R. Silva <gustavo@embeddedor.com>
----
-Changes in v2:
- - Remove inline from print_drs_error and update changelog text,
-   accordingly.
-
- drivers/mtd/lpddr/lpddr_cmds.c | 28 ++++++++++++++++++++++++++++
- include/linux/mtd/pfow.h       | 28 ----------------------------
- 2 files changed, 28 insertions(+), 28 deletions(-)
-
-diff --git a/drivers/mtd/lpddr/lpddr_cmds.c b/drivers/mtd/lpddr/lpddr_cmds.c
-index fb1cbc9a2870..ee063baed136 100644
---- a/drivers/mtd/lpddr/lpddr_cmds.c
-+++ b/drivers/mtd/lpddr/lpddr_cmds.c
-@@ -94,6 +94,34 @@ struct mtd_info *lpddr_cmdset(struct map_info *map)
- }
- EXPORT_SYMBOL(lpddr_cmdset);
- 
-+static void print_drs_error(unsigned int dsr)
-+{
-+	int prog_status = (dsr & DSR_RPS) >> 8;
-+
-+	if (!(dsr & DSR_AVAILABLE))
-+		pr_notice("DSR.15: (0) Device not Available\n");
-+	if ((prog_status & 0x03) == 0x03)
-+		pr_notice("DSR.9,8: (11) Attempt to program invalid half with 41h command\n");
-+	else if (prog_status & 0x02)
-+		pr_notice("DSR.9,8: (10) Object Mode Program attempt in region with Control Mode data\n");
-+	else if (prog_status &  0x01)
-+		pr_notice("DSR.9,8: (01) Program attempt in region with Object Mode data\n");
-+	if (!(dsr & DSR_READY_STATUS))
-+		pr_notice("DSR.7: (0) Device is Busy\n");
-+	if (dsr & DSR_ESS)
-+		pr_notice("DSR.6: (1) Erase Suspended\n");
-+	if (dsr & DSR_ERASE_STATUS)
-+		pr_notice("DSR.5: (1) Erase/Blank check error\n");
-+	if (dsr & DSR_PROGRAM_STATUS)
-+		pr_notice("DSR.4: (1) Program Error\n");
-+	if (dsr & DSR_VPPS)
-+		pr_notice("DSR.3: (1) Vpp low detect, operation aborted\n");
-+	if (dsr & DSR_PSS)
-+		pr_notice("DSR.2: (1) Program suspended\n");
-+	if (dsr & DSR_DPS)
-+		pr_notice("DSR.1: (1) Aborted Erase/Program attempt on locked block\n");
-+}
-+
- static int wait_for_ready(struct map_info *map, struct flchip *chip,
- 		unsigned int chip_op_time)
- {
-diff --git a/include/linux/mtd/pfow.h b/include/linux/mtd/pfow.h
-index cd21c6768065..b3eae82eb03c 100644
---- a/include/linux/mtd/pfow.h
-+++ b/include/linux/mtd/pfow.h
-@@ -121,32 +121,4 @@ static inline void send_pfow_command(struct map_info *map,
- 	map_write(map, CMD(LPDDR_START_EXECUTION),
- 			map->pfow_base + PFOW_COMMAND_EXECUTE);
- }
--
--static inline void print_drs_error(unsigned dsr)
--{
--	int prog_status = (dsr & DSR_RPS) >> 8;
--
--	if (!(dsr & DSR_AVAILABLE))
--		pr_notice("DSR.15: (0) Device not Available\n");
--	if ((prog_status & 0x03) == 0x03)
--		pr_notice("DSR.9,8: (11) Attempt to program invalid half with 41h command\n");
--	else if (prog_status & 0x02)
--		pr_notice("DSR.9,8: (10) Object Mode Program attempt in region with Control Mode data\n");
--	else if (prog_status &  0x01)
--		pr_notice("DSR.9,8: (01) Program attempt in region with Object Mode data\n");
--	if (!(dsr & DSR_READY_STATUS))
--		pr_notice("DSR.7: (0) Device is Busy\n");
--	if (dsr & DSR_ESS)
--		pr_notice("DSR.6: (1) Erase Suspended\n");
--	if (dsr & DSR_ERASE_STATUS)
--		pr_notice("DSR.5: (1) Erase/Blank check error\n");
--	if (dsr & DSR_PROGRAM_STATUS)
--		pr_notice("DSR.4: (1) Program Error\n");
--	if (dsr & DSR_VPPS)
--		pr_notice("DSR.3: (1) Vpp low detect, operation aborted\n");
--	if (dsr & DSR_PSS)
--		pr_notice("DSR.2: (1) Program suspended\n");
--	if (dsr & DSR_DPS)
--		pr_notice("DSR.1: (1) Aborted Erase/Program attempt on locked block\n");
--}
- #endif /* __LINUX_MTD_PFOW_H */
--- 
-2.26.0
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgQm9yaXMsCgpCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29t
+PiB3cm90ZSBvbiBNb24sIDI3IEFwcgoyMDIwIDEwOjIwOjIzICswMjAwOgoKPiBJbXBsZW1lbnRp
+bmcgZXhlY19vcCgpIHdpbGwgaGVscCB1cyBnZXQgcmlkIG9mIHRoZSBsZWdhY3kgaW50ZXJmYWNl
+IGFuZAo+IHNob3VsZCBtYWtlIGRyaXZlcnMgbXVjaCBjbGVhbmVyIHRvby4KPiAKPiBTaWduZWQt
+b2ZmLWJ5OiBCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29tPgo+
+IC0tLQo+ICBkcml2ZXJzL210ZC9uYW5kL3Jhdy9jYWZlX25hbmQuYyB8IDEzNyArKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKystCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMzYgaW5zZXJ0aW9ucygr
+KSwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL210ZC9uYW5kL3Jhdy9j
+YWZlX25hbmQuYyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L2NhZmVfbmFuZC5jCj4gaW5kZXggZWRm
+NjUxOTc2MDRiLi5hZGE5YzhiMDZhNDEgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9tdGQvbmFuZC9y
+YXcvY2FmZV9uYW5kLmMKPiArKysgYi9kcml2ZXJzL210ZC9uYW5kL3Jhdy9jYWZlX25hbmQuYwo+
+IEBAIC0yMSw3ICsyMSw3IEBACj4gICNpbmNsdWRlIDxsaW51eC9kbWEtbWFwcGluZy5oPgo+ICAj
+aW5jbHVkZSA8bGludXgvc2xhYi5oPgo+ICAjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4gLSNp
+bmNsdWRlIDxsaW51eC9pby5oPgo+ICsjaW5jbHVkZSA8bGludXgvaW9wb2xsLmg+Cj4gIAo+ICAj
+ZGVmaW5lIENBRkVfTkFORF9DVFJMMQkJCQkweDAwCj4gICNkZWZpbmUgQ0FGRV9OQU5EX0NUUkwx
+X0hBU19DTUQJCQlCSVQoMzEpCj4gQEAgLTc3NCw5ICs3NzQsMTQ0IEBAIHN0YXRpYyB2b2lkIGNh
+ZmVfbmFuZF9kZXRhY2hfY2hpcChzdHJ1Y3QgbmFuZF9jaGlwICpjaGlwKQo+ICAJZG1hX2ZyZWVf
+Y29oZXJlbnQoJmNhZmUtPnBkZXYtPmRldiwgMjExMiwgY2FmZS0+ZG1hYnVmLCBjYWZlLT5kbWFh
+ZGRyKTsKPiAgfQo+ICAKPiArc3RhdGljIGludCBjYWZlX25hbmRfZXhlY19zdWJvcChzdHJ1Y3Qg
+bmFuZF9jaGlwICpjaGlwLAo+ICsJCQkJY29uc3Qgc3RydWN0IG5hbmRfc3Vib3AgKnN1Ym9wKQo+
+ICt7Cj4gKwlzdHJ1Y3QgY2FmZV9wcml2ICpjYWZlID0gbmFuZF9nZXRfY29udHJvbGxlcl9kYXRh
+KGNoaXApOwo+ICsJdTMyIGN0cmwxID0gMCwgY3RybDIgPSBjYWZlLT5jdGwyLCBhZGRyMSA9IDAs
+IGFkZHIyID0gMDsKPiArCWNvbnN0IHN0cnVjdCBuYW5kX29wX2luc3RyICpkYXRhX2luc3RyID0g
+TlVMTDsKPiArCXUzMiBzdGF0dXMsIHdhaXQgPSBDQUZFX05BTkRfSVJRX0NNRF9ET05FOwo+ICsJ
+Ym9vbCB3YWl0cmR5ID0gZmFsc2U7Cj4gKwl1bnNpZ25lZCBpbnQgaSwgajsKPiArCWludCByZXQ7
+Cj4gKwo+ICsJaWYgKFdBUk5fT04oc3Vib3AtPmNzID4gMSkpCj4gKwkJcmV0dXJuIC1FSU5WQUw7
+Cj4gKwo+ICsJY2FmZS0+ZGF0YWxlbiA9IDA7Cj4gKwljdHJsMSB8PSBDQUZFX0ZJRUxEX1BSRVAo
+TkFORF9DVFJMMSwgQ0UsIHN1Ym9wLT5jcyk7Cj4gKwo+ICsJZm9yIChpID0gMDsgaSA8IHN1Ym9w
+LT5uaW5zdHJzOyBpKyspIHsKPiArCQljb25zdCBzdHJ1Y3QgbmFuZF9vcF9pbnN0ciAqaW5zdHIg
+PSAmc3Vib3AtPmluc3Ryc1tpXTsKPiArCj4gKwkJc3dpdGNoIChpbnN0ci0+dHlwZSkgewo+ICsJ
+CWNhc2UgTkFORF9PUF9DTURfSU5TVFI6Cj4gKwkJCWlmIChXQVJOX09OKChjdHJsMSAmIENBRkVf
+TkFORF9DVFJMMV9IQVNfQ01EKSAmJgo+ICsJCQkJICAgIChjdHJsMiAmIENBRkVfTkFORF9DVFJM
+Ml9IQVNfQ01EMikpKQo+ICsJCQkJcmV0dXJuIC1FSU5WQUw7CgpTYW1lIGNvbW1lbnQgYXMgaW4g
+dGhlIHByZXZpb3VzIGRyaXZlcnMsIGp1c3Qgc2hvd2luZyBpdCB0byBkbyBub3QKZm9nZXQuCgo+
+ICsKPiArCQkJaWYgKCEoY3RybDEgJiBDQUZFX05BTkRfQ1RSTDFfSEFTX0NNRCkpCj4gKwkJCQlj
+dHJsMSB8PSBDQUZFX05BTkRfQ1RSTDFfSEFTX0NNRCB8Cj4gKwkJCQkJIENBRkVfRklFTERfUFJF
+UChOQU5EX0NUUkwxLCBDTUQsCj4gKwkJCQkJCQkgaW5zdHItPmN0eC5jbWQub3Bjb2RlKTsKPiAr
+CQkJZWxzZQo+ICsJCQkJY3RybDIgfD0gQ0FGRV9OQU5EX0NUUkwyX0hBU19DTUQyIHwKPiArCQkJ
+CQkgQ0FGRV9GSUVMRF9QUkVQKE5BTkRfQ1RSTDIsIENNRDIsCj4gKwkJCQkJCQkgaW5zdHItPmN0
+eC5jbWQub3Bjb2RlKTsKPiArCQkJYnJlYWs7Cj4gKwo+ICsJCWNhc2UgTkFORF9PUF9BRERSX0lO
+U1RSOgo+ICsJCQlpZiAoV0FSTl9PTihpbnN0ci0+Y3R4LmFkZHIubmFkZHJzID4gNSB8fAo+ICsJ
+CQkJICAgICFpbnN0ci0+Y3R4LmFkZHIubmFkZHJzKSkKPiArCQkJCXJldHVybiAtRUlOVkFMOwo+
+ICsKPiArCQkJZm9yIChqID0gMDsgaiA8IGluc3RyLT5jdHguYWRkci5uYWRkcnM7IGorKykgewo+
+ICsJCQkJdTMyIGFkZHIgPSBpbnN0ci0+Y3R4LmFkZHIuYWRkcnNbal07Cj4gKwo+ICsJCQkJaWYg
+KGogPCAyKQo+ICsJCQkJCWFkZHIxIHw9IGFkZHIgPDwgKDggKiBqKTsKPiArCQkJCWVsc2UKPiAr
+CQkJCQlhZGRyMiB8PSBhZGRyIDw8ICg4ICogKGogLSAyKSk7Cj4gKwkJCX0KPiArCj4gKwkJCWN0
+cmwxIHw9IENBRkVfTkFORF9DVFJMMV9IQVNfQUREUiB8Cj4gKwkJCQkgQ0FGRV9GSUVMRF9QUkVQ
+KE5BTkRfQ1RSTDEsIE5VTV9BRERSX0NZQywKPiArCQkJCQkJIGluc3RyLT5jdHguYWRkci5uYWRk
+cnMgLSAxKTsKPiArCQkJY2FmZV93cml0ZWwoY2FmZSwgYWRkcjEsIE5BTkRfQUREUjEpOwo+ICsJ
+CQlpZiAoaW5zdHItPmN0eC5hZGRyLm5hZGRycyA+IDIpCj4gKwkJCQljYWZlX3dyaXRlbChjYWZl
+LCBhZGRyMiwgTkFORF9BRERSMik7CgpNYXliZSBpdCBpcyBzYWZlciB0byBhbHdheXMgd3JpdGUg
+dGhpcyByZWdpc3Rlciwgbm8/IEkgZG9uJ3Qga25vdyBpZgp0aGUgSVAgY2xlYXJzIHJlZ2lzdGVy
+cyBiZXR3ZWVuIG9wZXJhdGlvbnMuIElmIGl0IGRvZXMgbm90LCB5b3UgbWlnaHQKZW5kIHVwIHNl
+bmRpbmcgZXh0cmEgY29tbWFuZCBjeWNsZXMuCgo+ICsJCQlicmVhazsKPiArCj4gKwkJY2FzZSBO
+QU5EX09QX0RBVEFfSU5fSU5TVFI6Cj4gKwkJCWRhdGFfaW5zdHIgPSBpbnN0cjsKPiArCQkJY3Ry
+bDEgfD0gQ0FGRV9OQU5EX0NUUkwxX0hBU19EQVRBX0lOOwo+ICsJCQlicmVhazsKPiArCj4gKwkJ
+Y2FzZSBOQU5EX09QX0RBVEFfT1VUX0lOU1RSOgo+ICsJCQlkYXRhX2luc3RyID0gaW5zdHI7Cj4g
+KwkJCWN0cmwxIHw9IENBRkVfTkFORF9DVFJMMV9IQVNfREFUQV9PVVQ7Cj4gKwkJCWNhZmVfd3Jp
+dGVfYnVmKGNoaXAsIGluc3RyLT5jdHguZGF0YS5idWYub3V0LAo+ICsJCQkJICAgICAgIGluc3Ry
+LT5jdHguZGF0YS5sZW4pOwo+ICsJCQlicmVhazsKPiArCj4gKwkJY2FzZSBOQU5EX09QX1dBSVRS
+RFlfSU5TVFI6Cj4gKwkJCXdhaXQgfD0gQ0FGRV9OQU5EX0lSUV9GTEFTSF9SRFk7Cj4gKwkJCXdh
+aXRyZHkgPSB0cnVlOwo+ICsJCQlicmVhazsKPiArCQl9Cj4gKwl9Cj4gKwo+ICsJaWYgKGRhdGFf
+aW5zdHIpCj4gKwkJY2FmZV93cml0ZWwoY2FmZSwgZGF0YV9pbnN0ci0+Y3R4LmRhdGEubGVuLCBO
+QU5EX0RBVEFfTEVOKTsKPiArCj4gKwlpZiAoY2FmZS0+dXNlZG1hICYmIGRhdGFfaW5zdHIpIHsK
+PiArCQl1MzIgZG1hY3RybCA9IENBRkVfTkFORF9ETUFfQ1RSTF9FTkFCTEUgfAo+ICsJCQkgICAg
+ICBDQUZFX05BTkRfRE1BX0NUUkxfUkVTRVJWRUQ7Cj4gKwo+ICsJCXdhaXQgfD0gQ0FGRV9OQU5E
+X0lSUV9ETUFfRE9ORTsKPiArCQlkbWFjdHJsIHw9IENBRkVfRklFTERfUFJFUChOQU5EX0RNQV9D
+VFJMLCBEQVRBX0xFTiwKPiArCQkJCQkgICBkYXRhX2luc3RyLT5jdHguZGF0YS5sZW4pOwo+ICsJ
+CWlmIChjdHJsMSAmIENBRkVfTkFORF9DVFJMMV9IQVNfREFUQV9JTikKPiArCQkJZG1hY3RybCB8
+PSBDQUZFX05BTkRfRE1BX0NUUkxfREFUQV9JTjsKPiArCj4gKwkJY2FmZV93cml0ZWwoY2FmZSwg
+ZG1hY3RybCwgTkFORF9ETUFfQ1RSTCk7Cj4gKwl9Cj4gKwo+ICsJLyogQ2xlYXIgdGhlIHBlbmRp
+bmcgaW50ZXJydXB0cyBiZWZvcmUgc3RhcnRpbmcgdGhlIG9wZXJhdGlvbi4gKi8KPiArCWNhZmVf
+d3JpdGVsKGNhZmUsIHdhaXQsIE5BTkRfSVJRKTsKPiArCj4gKwljYWZlX3dyaXRlbChjYWZlLCBj
+dHJsMiwgTkFORF9DVFJMMik7Cj4gKwljYWZlX3dyaXRlbChjYWZlLCBjdHJsMSwgTkFORF9DVFJM
+MSk7Cj4gKwo+ICsJcmV0ID0gcmVhZGxfcG9sbF90aW1lb3V0KGNhZmUtPm1taW8gKyBDQUZFX05B
+TkRfSVJRLCBzdGF0dXMsCj4gKwkJCQkgKHN0YXR1cyAmIHdhaXQpID09IHdhaXQsIDEsIFVTRUNf
+UEVSX1NFQyk7Cj4gKwlpZiAocmV0KQo+ICsJCXJldHVybiByZXQ7Cj4gKwo+ICsJaWYgKGN0cmwx
+ICYgQ0FGRV9OQU5EX0RNQV9DVFJMX0RBVEFfSU4pCj4gKwkJY2FmZV9yZWFkX2J1ZihjaGlwLCBk
+YXRhX2luc3RyLT5jdHguZGF0YS5idWYuaW4sCj4gKwkJCSAgICAgIGRhdGFfaW5zdHItPmN0eC5k
+YXRhLmxlbik7CgpBcyB5b3UgYXJlIGxpbWl0aW5nIHRoZSBhbW91bnQgb2YgZGF0YSB0byAyMTEy
+QiBhbmQgdGhlIG51bWJlciBvZgphZGRyZXNzIGN5Y2xlcyB0byA1LCB5b3Ugc2hvdWxkIHByb2Jh
+Ymx5IHVzZSB0aGUgY29yZSdzIGhlbHBlcgpuYW5kX3N1Ym9wX2RhdGFfbGVuLCBuYW5kX3N1Ym9i
+X2RhdGFfYnVmIGFuZCBuYW5kX3N1Ym9wX2FkZHJfbGVuIGluCnRoaXMgZnVuY3Rpb24uCgo+ICsK
+PiArCXJldHVybiAwOwo+ICt9Cj4gKwo+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG5hbmRfb3BfcGFy
+c2VyIGNhZmVfbmFuZF9vcF9wYXJzZXIgPSBOQU5EX09QX1BBUlNFUigKPiArCU5BTkRfT1BfUEFS
+U0VSX1BBVFRFUk4oY2FmZV9uYW5kX2V4ZWNfc3Vib3AsCj4gKwkJCSAgICAgICBOQU5EX09QX1BB
+UlNFUl9QQVRfQ01EX0VMRU0odHJ1ZSksCj4gKwkJCSAgICAgICBOQU5EX09QX1BBUlNFUl9QQVRf
+QUREUl9FTEVNKHRydWUsIDUpLAo+ICsJCQkgICAgICAgTkFORF9PUF9QQVJTRVJfUEFUX0NNRF9F
+TEVNKHRydWUpLAo+ICsJCQkgICAgICAgTkFORF9PUF9QQVJTRVJfUEFUX1dBSVRSRFlfRUxFTSh0
+cnVlKSwKPiArCQkJICAgICAgIE5BTkRfT1BfUEFSU0VSX1BBVF9EQVRBX0lOX0VMRU0odHJ1ZSwg
+MjExMikpLAo+ICsJTkFORF9PUF9QQVJTRVJfUEFUVEVSTihjYWZlX25hbmRfZXhlY19zdWJvcCwK
+PiArCQkJICAgICAgIE5BTkRfT1BfUEFSU0VSX1BBVF9DTURfRUxFTSh0cnVlKSwKPiArCQkJICAg
+ICAgIE5BTkRfT1BfUEFSU0VSX1BBVF9BRERSX0VMRU0odHJ1ZSwgNSksCj4gKwkJCSAgICAgICBO
+QU5EX09QX1BBUlNFUl9QQVRfQ01EX0VMRU0odHJ1ZSksCj4gKwkJCSAgICAgICBOQU5EX09QX1BB
+UlNFUl9QQVRfREFUQV9JTl9FTEVNKHRydWUsIDIxMTIpLAo+ICsJCQkgICAgICAgTkFORF9PUF9Q
+QVJTRVJfUEFUX1dBSVRSRFlfRUxFTSh0cnVlKSkKPiArKTsKPiArCj4gK3N0YXRpYyBpbnQgY2Fm
+ZV9uYW5kX2V4ZWNfb3Aoc3RydWN0IG5hbmRfY2hpcCAqY2hpcCwKPiArCQkJICAgICBjb25zdCBz
+dHJ1Y3QgbmFuZF9vcGVyYXRpb24gKm9wLAo+ICsJCQkgICAgIGJvb2wgY2hlY2tfb25seSkKPiAr
+ewoKSSBkaWRuJ3QgY2hlY2sgYnV0IGFyZSB5b3Ugc3VyZSB0aGVyZSBpcyBubyBjaGlwLXNlbGVj
+dC90aW1pbmdzCmhhbmRsaW5nIHRvIGRvIGhlcmU/Cgo+ICsJcmV0dXJuIG5hbmRfb3BfcGFyc2Vy
+X2V4ZWNfb3AoY2hpcCwgJmNhZmVfbmFuZF9vcF9wYXJzZXIsIG9wLAo+ICsJCQkJICAgICAgY2hl
+Y2tfb25seSk7Cj4gK30KPiArCj4gIHN0YXRpYyBjb25zdCBzdHJ1Y3QgbmFuZF9jb250cm9sbGVy
+X29wcyBjYWZlX25hbmRfY29udHJvbGxlcl9vcHMgPSB7Cj4gIAkuYXR0YWNoX2NoaXAgPSBjYWZl
+X25hbmRfYXR0YWNoX2NoaXAsCj4gIAkuZGV0YWNoX2NoaXAgPSBjYWZlX25hbmRfZGV0YWNoX2No
+aXAsCj4gKwkuZXhlY19vcCA9IGNhZmVfbmFuZF9leGVjX29wLAo+ICB9Owo+ICAKPiAgc3RhdGlj
+IHZvaWQgY2FmZV9uYW5kX2luaXQoc3RydWN0IGNhZmVfcHJpdiAqY2FmZSkKClRoYW5rcywKTWlx
+dcOobAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
