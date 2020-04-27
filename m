@@ -2,53 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B6821B9886
-	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 09:26:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EFABE1B9896
+	for <lists+linux-mtd@lfdr.de>; Mon, 27 Apr 2020 09:29:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5BLco8hqozg85rQdJe4MBG0j3EMQB77y1pQiV+ZKmCE=; b=eGQFLDDvbhCbOC
-	SHtztVkdeOQb2KknTMJwWFlFwbtbEF8WXOUuDt1oGg4CVs3oaBsFqHFwHRulobsVlywsIEyEI/d8d
-	CNLJCW1j1cuTxk3A0/YiQ4gz90bAup226V4olUWO+JK9xgrmGHlB8fljnhGrSgVPsfBqXOiCQsHAc
-	NjxOxx6DsfHJrP+Un31T1ygFQERV6+r8h4XFvmbBr8S4svLpCCplSodTqp9XjvEzv+xnCC6OjxKqh
-	R55f1CWsOOZ9ugVGGULqONKrh1XsvBXVyze/7HZgHXrrW1glTv1Xpfy8+jkiC/14gNWZHdWqIRsNU
-	vi78y/OV+GF6NNLKLUnQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=zWjtbq0qme2zLJDagT3LP4gUaTyvMAgKMIWSzPJ1A+s=; b=FBJivBMn5eoO+Q2LpviVgq+zK
+	tt44Q9w/6pWt8GVKOBHnqsnIIteSm5IDEEW2wq6x4ViFY//Z00JsQ3UMZKtLL28qGscMmdsM7nXP7
+	mJ6owlH+aBieQl4vaZGuNEE1tZg/VHKRLKfwNFQvaazXSJ9vu1/3Mnfxgm6PiqkaFpNFzEpNzKFeb
+	vxmhWKWGlvT7XRTg1zjunHfcJ0+fMwxxBfFy9HreF4S2TemJOQ8R7AYqx/kGUEF1sgetGeFWCmQAU
+	FQVqSA2mKko1arp5wrIDiZT/L5czIJl+AiRLHVDfzvtP5UQWS4SRtOpDlpGnrrO2U2maCr8YK+r8t
+	qpmyACnyA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jSy9H-0003gF-MX; Mon, 27 Apr 2020 07:25:51 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jSyCT-0004ah-Qb; Mon, 27 Apr 2020 07:29:09 +0000
+Received: from lhrrgout.huawei.com ([185.176.76.210] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jSy8S-0000oI-5Q
- for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 07:25:03 +0000
-Received: from localhost.localdomain (unknown
- [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 6A6FD2A0E93;
- Mon, 27 Apr 2020 08:24:57 +0100 (BST)
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	linux-mtd@lists.infradead.org
-Subject: [PATCH 3/3] mtd: rawnand: diskonchip: Set the NAND_NO_BBM_QUIRK flag
-Date: Mon, 27 Apr 2020 09:24:53 +0200
-Message-Id: <20200427072453.375642-3-boris.brezillon@collabora.com>
-X-Mailer: git-send-email 2.25.3
-In-Reply-To: <20200427072453.375642-1-boris.brezillon@collabora.com>
-References: <20200427072453.375642-1-boris.brezillon@collabora.com>
+ id 1jSyC6-0004N1-Ln
+ for linux-mtd@lists.infradead.org; Mon, 27 Apr 2020 07:28:48 +0000
+Received: from lhreml724-chm.china.huawei.com (unknown [172.18.7.107])
+ by Forcepoint Email with ESMTP id B17F92C1F12FA90CB4CA;
+ Mon, 27 Apr 2020 08:28:30 +0100 (IST)
+Received: from [127.0.0.1] (10.210.170.137) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1913.5; Mon, 27 Apr
+ 2020 08:28:29 +0100
+Subject: Re: [PATCH] mtd: spi-nor: Fixup page size and map selection for
+ S25FS-S
+To: <Tudor.Ambarus@microchip.com>
+References: <20200227123657.26030-1-alexander.sverdlin@nokia.com>
+ <60b272c1-ab6a-7a7a-6f56-03d7c7daf8bc@nokia.com>
+ <43ae2554-06c8-59f9-153e-094a326166c2@huawei.com>
+ <2955278.kW1ZWP0GTs@192.168.0.120>
+From: John Garry <john.garry@huawei.com>
+Message-ID: <d42386c8-9c31-ed9c-d8e7-8d09e43b46fb@huawei.com>
+Date: Mon, 27 Apr 2020 08:27:52 +0100
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
 MIME-Version: 1.0
+In-Reply-To: <2955278.kW1ZWP0GTs@192.168.0.120>
+Content-Language: en-US
+X-Originating-IP: [10.210.170.137]
+X-ClientProxiedBy: lhreml722-chm.china.huawei.com (10.201.108.73) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_002500_331576_8A4BC36A 
-X-CRM114-Status: GOOD (  12.91  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200427_002846_934218_D9E165F7 
+X-CRM114-Status: GOOD (  21.21  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [185.176.76.210 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -62,60 +72,94 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
-Content-Type: text/plain; charset="us-ascii"
+Cc: chenxiang66@hisilicon.com, richard@nod.at, bbrezillon@kernel.org,
+ stable@vger.kernel.org, Yicong Yang <yangyicong@hisilicon.com>,
+ marek.vasut@gmail.com, linux-mtd@lists.infradead.org,
+ alexander.sverdlin@nokia.com, computersforpeace@gmail.com, dwmw2@infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-We have a dummy block_bad() implementation returning 0. Let's set the
-NAND_NO_BBM_QUIRK flag and let the core take care of that.
++ Yicong Yang
 
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
----
- drivers/mtd/nand/raw/diskonchip.c | 10 +---------
- 1 file changed, 1 insertion(+), 9 deletions(-)
+Hi Tudor,
 
-diff --git a/drivers/mtd/nand/raw/diskonchip.c b/drivers/mtd/nand/raw/diskonchip.c
-index c2a391ad2c35..4c3d04da4cee 100644
---- a/drivers/mtd/nand/raw/diskonchip.c
-+++ b/drivers/mtd/nand/raw/diskonchip.c
-@@ -776,13 +776,6 @@ static int doc200x_dev_ready(struct nand_chip *this)
- 	}
- }
- 
--static int doc200x_block_bad(struct nand_chip *this, loff_t ofs)
--{
--	/* This is our last resort if we couldn't find or create a BBT.  Just
--	   pretend all blocks are good. */
--	return 0;
--}
--
- static void doc200x_enable_hwecc(struct nand_chip *this, int mode)
- {
- 	struct doc_priv *doc = nand_get_controller_data(this);
-@@ -1578,7 +1571,6 @@ static int __init doc_probe(unsigned long physadr)
- 	nand->legacy.cmd_ctrl		= doc200x_hwcontrol;
- 	nand->legacy.dev_ready	= doc200x_dev_ready;
- 	nand->legacy.waitfunc	= doc200x_wait;
--	nand->legacy.block_bad	= doc200x_block_bad;
- 	nand->ecc.hwctl		= doc200x_enable_hwecc;
- 	nand->ecc.calculate	= doc200x_calculate_ecc;
- 	nand->ecc.correct	= doc200x_correct_data;
-@@ -1590,7 +1582,7 @@ static int __init doc_probe(unsigned long physadr)
- 	nand->ecc.options	= NAND_ECC_GENERIC_ERASED_CHECK;
- 	nand->bbt_options	= NAND_BBT_USE_FLASH;
- 	/* Skip the automatic BBT scan so we can run it manually */
--	nand->options		|= NAND_SKIP_BBTSCAN;
-+	nand->options		|= NAND_SKIP_BBTSCAN | NAND_NO_BBM_QUIRK;
- 
- 	doc->physadr		= physadr;
- 	doc->virtadr		= virtadr;
--- 
-2.25.3
+> 
+> On Monday, March 2, 2020 8:25:48 PM EEST John Garry wrote:
+>> So do you know how we can tell if the part is s25fl129p1 or S25FS128S?
+>> Is it based on family id? For the part of my board, it has the same id
+>> according to "s25fl129p1" entry in the spi-nor driver, yet the SFDP
+>> signature is not present (signature reads as 0x4d182001 vs expected
+> 
+>   0x4d182001 looks like the flash id, but in reversed order.
+> 
+>> 0x50444653). I printed the family id, and it is 81h, which seems to
+>> align with S25FS (which should support SFDP). Confused.
+>>
+> 
+> We can differentiate between flashes by the family id:  80h for FL-S and 81h
+> for FS-S. If I understood correctly your flash id is 0x01, 0x20, 0x18, 0x4d,
+> 0x01, 0x81. According to the spansion datasheets, this should identify with a
+> s25fs128s1 entry. Please check the patch from below, let me know if it's ok.
+> 
+>> What's more, the spi-nor probe is failing for this part since I enabled
+>> quad spi. So I am interested to know if there is some differences
+>> between these part families for that.
+> 
+> In which conditions is it failing? Please open a separate thread.
+
+So my colleague Yicon debugged this, and it seems to be an issue with 
+our controller. The background is that we can blacklist certain commands 
+in firmware, and some relevant commands were blacklisted such that quad 
+enable failed.
+
+But we have it working now, I think. Yicon can confirm (or start a 
+thread please for outstanding issues).
+
+> 
+> Cheers,
+> ta
+
+Thanks,
+John
+
+> 
+> Author: Tudor Ambarus <tudor.ambarus@microchip.com>
+> Date:   Sun Apr 26 17:59:23 2020 +0300
+> 
+>      mtd: spi-nor: spansion: Add support for s25fs128s1
+>      
+>      The old s25fl129p1 flash uses just five bytes for manufacturer and
+>      device identification, while newer spansion flashes use six bytes.
+>      s25fs128s1 was incorrectly identified as s25fl129p1. Use INFO6
+>      to differentiate between them.
+>      
+>      Signed-off-by: Tudor Ambarus <tudor.ambarus@microchip.com>
+> 
+> diff --git a/drivers/mtd/spi-nor/spansion.c b/drivers/mtd/spi-nor/spansion.c
+> index 88183eba8ac1..ea72f0e5be73 100644
+> --- a/drivers/mtd/spi-nor/spansion.c
+> +++ b/drivers/mtd/spi-nor/spansion.c
+> @@ -22,6 +22,9 @@ static const struct flash_info spansion_parts[] = {
+>          { "s25fl128s1", INFO6(0x012018, 0x4d0180, 64 * 1024, 256,
+>                                SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+>                                USE_CLSR) },
+> +       { "s25fs128s1", INFO6(0x012018, 0x4d0181,  64 * 1024, 256,
+> +                             SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+> +                             USE_CLSR) },
+
+I wasn't sure if you wanted to add a separate entry if it has same 
+properties as other part, due to extra maintenance. It is nice to know 
+the exact part, though.
+
+>          { "s25fl256s0", INFO(0x010219, 0x4d00, 256 * 1024, 128,
+>                               SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ |
+>                               USE_CLSR) },
+> 
+> 
+> .
+> 
 
 
 ______________________________________________________
