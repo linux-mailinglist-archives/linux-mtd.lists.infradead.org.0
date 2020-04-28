@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6E1B41BC3AD
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 17:29:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B483B1BC407
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 17:49:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
@@ -18,26 +18,26 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	ExNQHJ2zdkPzo5TbwNtg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTSAI-0000NW-He; Tue, 28 Apr 2020 15:28:54 +0000
-Received: from mail-ot1-f68.google.com ([209.85.210.68])
+	id 1jTSTg-0005Wj-Rd; Tue, 28 Apr 2020 15:48:56 +0000
+Received: from mail-yb1-f194.google.com ([209.85.219.194])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTSA9-0000MN-Se
- for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 15:28:48 +0000
-Received: by mail-ot1-f68.google.com with SMTP id e26so33332476otr.2
- for <linux-mtd@lists.infradead.org>; Tue, 28 Apr 2020 08:28:45 -0700 (PDT)
+ id 1jTSTY-0005Vy-W5
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 15:48:51 +0000
+Received: by mail-yb1-f194.google.com with SMTP id t18so2613497ybp.2
+ for <linux-mtd@lists.infradead.org>; Tue, 28 Apr 2020 08:48:46 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
  bh=PDx5jSzTsCF689zZbvPvqEwU7yEVo/oW97Fw3UfxxAY=;
- b=SYZ1hVdIF0JnrlVWxsdCv4JN9+D49JCAXPrA34mnn1NwK//0UzGfYd8Y9NHUsbRD5O
- U9KPynQdzRuumGKkhUF4JN25f//q6cnwZNOjwe1wDambDc9ZV9/E2S5K7UZvU3L42mTh
- yZbZuHLAVT+NpJaovWfHt/1tGZPtQcUYOz+44UzPSasK4MF0wEN3xPCnzJwd5zHyE1z/
- j0KKPB2dPr5ZGER/7NontaZAyntiPhBf/fWf41ogU1tzyp+paLwtwffbZzTcHMYpYPLm
- SciErzSCat3JHrI5IbBKVpNrFpoB86MUFJypRAnFAYMJ/+GYY18REoCPRWUnrwTazn5g
- b7cA==
-X-Gm-Message-State: AGi0PuY9LZbbN/OdhCKWyxvrfEG+H+4rEqNCzQEfcXfgEz3mt+Rx+2LX
- WPai5Z6KLP3hw9y0aMZVjA==
+ b=rR1Z/tvuTj16bYxtraXdo0ABfZo4bRbmdKxVR90hME5F7kSQQ7Ci3B8xOcLToDDQad
+ MyARPU4MbHYs8rI+WukfsrSEB7ywcgdOsRhaklHy9KOdyX1+fbqnnv/A7CIERXCwGdmx
+ 3K21l6BYNwITKPJWOGS1Et8MVn6kEPP55UmqFsZC5tgFz5g1PsZsxhViUP+hvsKbhpt0
+ l7nPyU5kpa5jTw7Uwp+lqEBpgtryRTcoYSCQKk5aMtCjxElLXOUgRpyxxEK2SETEnX8D
+ Wt7J05Tz4mpDd22V1objpC+VWDOs/nQHYjoiskHuvp8B5udM9FdtK7pUx7Mkz13dTjcc
+ WSDg==
+X-Gm-Message-State: AGi0PuZbDTZKAgRJemUlj/oLhzkrBor1YEidXnKwtZ5Pgh8muLCoCvC7
+ bsz3k4VcdkJvW20sqReYG1H6lzc=
 X-Google-Smtp-Source: APiQypI1+V6ijrabaoJRFCeP9BSkzW0+lnNg3NiBmQRtiFLKcMQ63saeVwoR/e6u9BLbebXsQEUExA==
 X-Received: by 2002:a9d:2dc1:: with SMTP id g59mr4199552otb.288.1588087724813; 
  Tue, 28 Apr 2020 08:28:44 -0700 (PDT)
@@ -61,7 +61,7 @@ Content-Disposition: inline
 In-Reply-To: <1586966256-29548-2-git-send-email-christophe.kerello@st.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200428_082845_922668_D4DF51F9 
+X-CRM114-CacheID: sfid-20200428_084849_032389_AC05A3A9 
 X-CRM114-Status: GOOD (  26.24  )
 X-Spam-Score: 0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -69,7 +69,7 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.68 listed in list.dnswl.org]
+ no trust [209.85.219.194 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [robherring2[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -78,11 +78,10 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.68 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.219.194 listed in wl.mailspike.net]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
