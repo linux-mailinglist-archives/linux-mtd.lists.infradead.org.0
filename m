@@ -2,46 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D0B521BBA2C
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:45:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B3AEF1BBA2E
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:45:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5MJxoxpTNzbl+mn8q9NFNJK4REwGr06JfoA2tPYlcj4=; b=Q5spJVJ8L++4li
-	iaBdoMCrejsOswrFiypx1NaDzPhImzsApmrZa3KEgyqZTLKH1mq+krDR7VpsQL/nKM6yR1hijyZxu
-	dyGnVEI1MF3o2nof7IdskBOYGmTD8VSyD98NnLM1Xgd417Z/mdFniVHficfxXlWTLlq4asewH2BRz
-	MoJPnObCPLxQyMlPlDnVao6GM9hL25pzWmKHOqcvO6zWGhzbJvLId/5fhPUB5Iv69bW6DtlDu+CbO
-	Fyd5mqrqtWNGhT3TMzh7GGYr/G6mM26XfGYTDQYZfYdCkMj9A8bR1f71pHRaTiieFv1axlpPd+dC+
-	zYRU4Qag//whamfvawlQ==;
+	List-Owner; bh=67WtPHtAWeOxE7SWqJSDIOImI0oTkao8UO/fDCH1Aq0=; b=iG2e/q+gYYKdjb
+	GP3FAVDzhFSxkbHCxMRzH7fkkXdUUPlR0+Lt6ocr46/AM2OqfCqcQFn2oDBQ0bJKgDBUup6XiDaJY
+	v0b2AvnYQw6vfDBPRGXrtRAuep8kozuwUUdxs+PSKMNpXlWFlzSVema7LvqmVOGaOsxqzzP3AHL1R
+	0dy71Qf3R8zJgYULsvSt/o3brpttGATPyNa3xkWdSvXKP+OFDxxG9w6mCDcVB7mqS/3XWUlFw35XB
+	0LGwT/glXizelcX2MTRCsadgvVkkYvXwJ0v8TB5N/qjwqO9rk24aHFg3iiox8AR1V3oja8qrilSTj
+	Zm2vARCDKWPq6vQ/Ipvw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTMna-0001Ag-0q; Tue, 28 Apr 2020 09:45:06 +0000
+	id 1jTMo1-0001hU-Os; Tue, 28 Apr 2020 09:45:33 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTMlm-00083s-Dy
- for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:43:15 +0000
+ id 1jTMln-00085A-DD
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:43:16 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id DF082C0006;
- Tue, 28 Apr 2020 09:43:11 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id EB179C000C;
+ Tue, 28 Apr 2020 09:43:12 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v3 7/9] mtd: rawnand: onfi: Drop a useless parameter page read
-Date: Tue, 28 Apr 2020 11:43:00 +0200
-Message-Id: <20200428094302.14624-8-miquel.raynal@bootlin.com>
+Subject: [PATCH v3 8/9] mtd: rawnand: jedec: Define the number of parameter
+ pages
+Date: Tue, 28 Apr 2020 11:43:01 +0200
+Message-Id: <20200428094302.14624-9-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200428094302.14624-1-miquel.raynal@bootlin.com>
 References: <20200428094302.14624-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200428_024314_643814_22DCC8F6 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20200428_024315_592910_6F427640 
+X-CRM114-Status: GOOD (  12.41  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -70,46 +71,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-During detection the logic on the NAND bus is:
-
-    /* Regular ONFI detection */
-    1/ read the three NAND parameter pages
-
-    /* Extended parameter page detection */
-    2/ send "read the NAND parameter page" commands without reading
-       actual data
-    3/ move the column pointer to the extended page and read it
-
-If fact, as long as there is nothing happening on the NAND bus between
-1/ and 3/, the operation 2/ is redundant so remove it.
+Use a macro to define the number of parameter page instead of
+hardcoding it everywhere.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/nand_onfi.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ drivers/mtd/nand/raw/nand_jedec.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/nand_onfi.c b/drivers/mtd/nand/raw/nand_onfi.c
-index 0f3fb9fe4d1d..ee0f2c2549c1 100644
---- a/drivers/mtd/nand/raw/nand_onfi.c
-+++ b/drivers/mtd/nand/raw/nand_onfi.c
-@@ -47,12 +47,10 @@ static int nand_flash_detect_ext_param_page(struct nand_chip *chip,
- 	if (!ep)
- 		return -ENOMEM;
+diff --git a/drivers/mtd/nand/raw/nand_jedec.c b/drivers/mtd/nand/raw/nand_jedec.c
+index 9b540e76f84f..0cd322a8be24 100644
+--- a/drivers/mtd/nand/raw/nand_jedec.c
++++ b/drivers/mtd/nand/raw/nand_jedec.c
+@@ -16,6 +16,8 @@
  
--	/* Send our own NAND_CMD_PARAM. */
--	ret = nand_read_param_page_op(chip, 0, NULL, 0);
--	if (ret)
--		goto ext_out;
--
--	/* Use the Change Read Column command to skip the ONFI param pages. */
-+	/*
-+	 * Use the Change Read Column command to skip the ONFI param pages and
-+	 * ensure we read at the right location.
-+	 */
- 	ret = nand_change_read_column_op(chip,
- 					 sizeof(*p) * p->num_of_param_pages,
- 					 ep, len, true);
+ #include "internals.h"
+ 
++#define JEDEC_PARAM_PAGES 3
++
+ /*
+  * Check if the NAND chip is JEDEC compliant, returns 1 if it is, 0 otherwise.
+  */
+@@ -47,7 +49,7 @@ int nand_jedec_detect(struct nand_chip *chip)
+ 		goto free_jedec_param_page;
+ 	}
+ 
+-	for (i = 0; i < 3; i++) {
++	for (i = 0; i < JEDEC_PARAM_PAGES; i++) {
+ 		ret = nand_read_data_op(chip, p, sizeof(*p), true);
+ 		if (ret) {
+ 			ret = 0;
+@@ -59,7 +61,7 @@ int nand_jedec_detect(struct nand_chip *chip)
+ 			break;
+ 	}
+ 
+-	if (i == 3) {
++	if (i == JEDEC_PARAM_PAGES) {
+ 		pr_err("Could not find valid JEDEC parameter page; aborting\n");
+ 		goto free_jedec_param_page;
+ 	}
 -- 
 2.20.1
 
