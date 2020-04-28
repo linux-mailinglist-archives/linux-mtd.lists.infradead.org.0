@@ -2,47 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3E6F1BBA1C
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:43:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 000AA1BBA1E
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:43:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uQugcUwARznSEkX2TQhunUasGZLHfRVwYmFqzvKPD30=; b=MyhvjRifthiyr/
-	qWhQK7IskbyQINLP78sbkQ4Ix6NFmGxq9Y6y/tCnTm8K+DY4tzZ+BF0zn7d0USdGUz0rKdwfuxC9h
-	vLls8U0eF1zD6dnxq8KgspyBSzzLdHzpp1434gtRMqSNl6rgog9Acz7ij0xdcMQAcEdOstvJ0DCp8
-	cb+8uxnM2Id6Kjgom2BTwK6glIpjQoFZ94vu8lzXY2ems2nBGv2XthgN+U3rfWDPExGLiGLvL7MPU
-	/lu01aTkcU++3ECN6CTy76CVg+/CG5zqPff1ZaDTEo4jK3VrodefPcpjTYqnd9KmLAqVafBAdzRCU
-	XIPH4FfnqHkaTrTJjwog==;
+	List-Owner; bh=koPNZx7HtTsyKdULVoJeczrDE9W8JZkL/a83j4BzyhA=; b=XvFQkKraWhAgbf
+	E7PTVgCwlCJfeSMW8jI3oG12XwhbKlWG4FEkETwYBj+2yY+0WAo18LuY3FHCdu7jZCFFR2pmIhAsZ
+	oAeGmlB7aUyK7u55/oRSou6S0YJlxqbHKv/j0/qL41CZrdBVZPM7gt7wuwiLg71rEaIxizzfCwbZ2
+	P5s87hjxQgPcCAwdyv6mi8X/N46v2l2Q1kZaWSzsKhhV793ZaDe34S1Q3Knp4LTno4QGTmBAWom8V
+	BVe8dmAHf26TUZAxE+L5M4h5xmGVqj/8s0QsjZChdOUOwa/hAgjEqVJ8xk51QbZg3Ci2H2fAEhgn8
+	5nGUjC10wZoWASwcvkyg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTMlv-00081A-E6; Tue, 28 Apr 2020 09:43:23 +0000
+	id 1jTMmL-0008RH-VL; Tue, 28 Apr 2020 09:43:49 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTMlg-000801-7n
- for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:43:09 +0000
+ id 1jTMlh-000804-0i
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:43:10 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id ACF5BC0003;
- Tue, 28 Apr 2020 09:43:05 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id D7BE9C0006;
+ Tue, 28 Apr 2020 09:43:06 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v3 1/9] mtd: rawnand: timings: Add mode information to the
- timings structure
-Date: Tue, 28 Apr 2020 11:42:54 +0200
-Message-Id: <20200428094302.14624-2-miquel.raynal@bootlin.com>
+Subject: [PATCH v3 2/9] mtd: rawnand: timings: Fix default tR_max and tCCS_min
+ timings
+Date: Tue, 28 Apr 2020 11:42:55 +0200
+Message-Id: <20200428094302.14624-3-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200428094302.14624-1-miquel.raynal@bootlin.com>
 References: <20200428094302.14624-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200428_024308_414991_FCEE0FBB 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20200428_024309_191550_75AD0030 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -71,94 +72,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Convert the timings union into a structure containing the mode and the
-actual values. The values are still a union in prevision of the
-addition of the NVDDR modes.
+tR and tCCS are currently wrongly expressed in femtoseconds, while we
+expect these values to be expressed in picoseconds. Set right
+hardcoded values.
 
+Fixes: 6a943386ee36 mtd: rawnand: add default values for dynamic timings
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/nand_timings.c |  6 ++++++
- include/linux/mtd/rawnand.h         | 10 +++++++---
- 2 files changed, 13 insertions(+), 3 deletions(-)
+ drivers/mtd/nand/raw/nand_timings.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_timings.c b/drivers/mtd/nand/raw/nand_timings.c
-index f64b06a71dfa..0061cbaf931d 100644
+index 0061cbaf931d..36d21be3dfe5 100644
 --- a/drivers/mtd/nand/raw/nand_timings.c
 +++ b/drivers/mtd/nand/raw/nand_timings.c
-@@ -16,6 +16,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 0 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 0,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-@@ -58,6 +59,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 1 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 1,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-@@ -100,6 +102,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 2 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 2,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-@@ -142,6 +145,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 3 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 3,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-@@ -184,6 +188,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 4 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 4,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-@@ -226,6 +231,7 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	/* Mode 5 */
- 	{
- 		.type = NAND_SDR_IFACE,
-+		.timings.mode = 5,
- 		.timings.sdr = {
- 			.tCCS_min = 500000,
- 			.tR_max = 200000000,
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 1e76196f9829..21873168ba4d 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -491,13 +491,17 @@ enum nand_data_interface_type {
- /**
-  * struct nand_data_interface - NAND interface timing
-  * @type:	 type of the timing
-- * @timings:	 The timing, type according to @type
-+ * @timings:	 The timing information
-+ * @timings.mode: Timing mode as defined in the specification
-  * @timings.sdr: Use it when @type is %NAND_SDR_IFACE.
-  */
- struct nand_data_interface {
- 	enum nand_data_interface_type type;
--	union {
--		struct nand_sdr_timings sdr;
-+	struct nand_timings {
-+		unsigned int mode;
-+		union {
-+			struct nand_sdr_timings sdr;
-+		};
- 	} timings;
- };
+@@ -320,10 +320,9 @@ int onfi_fill_data_interface(struct nand_chip *chip,
+ 		/* microseconds -> picoseconds */
+ 		timings->tPROG_max = 1000000ULL * ONFI_DYN_TIMING_MAX;
+ 		timings->tBERS_max = 1000000ULL * ONFI_DYN_TIMING_MAX;
+-		timings->tR_max = 1000000ULL * 200000000ULL;
  
+-		/* nanoseconds -> picoseconds */
+-		timings->tCCS_min = 1000UL * 500000;
++		timings->tR_max = 200000000;
++		timings->tCCS_min = 500000;
+ 	}
+ 
+ 	return 0;
 -- 
 2.20.1
 
