@@ -2,63 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2061F1BDBF8
-	for <lists+linux-mtd@lfdr.de>; Wed, 29 Apr 2020 14:22:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 15E651BC0FE
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 16:17:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:Message-Id:To:
-	Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gpX5BjYrZNBUWKZDu2LuGnRyP5SGcOc2fP5c19YD6ls=; b=Dh51QvQXbmaBxqGYnWf7iavJe
-	4Vz0jn/3dEIgPoq3R7nmPFEX7fQury5GSsdLNrFqeUhzss53S/bhy6J8Csig8To7N68QuqqzVUism
-	hSxN1czp1R+2bpgIIsgCEIAtZyeEjU6YbNp9/bz8W/MgLEMC40E7fQEXJlDKo5DNG2AHRbRDLM44u
-	KDeYQYfbPjvVOErsArcEaPyYdqTRP82wqZWnBRAUbllBGVYAVE3qZaFVHsnpRz6Az9YCaYsG9K8Pm
-	Yv0fViXJuKldCwDwFOZxh20cv28jbG+QtSgjDGpClXK/8HUSZdADvg1Ro5KtJAHQrkeY/OdlwTL6A
-	WS1rNzyOQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=icbrxuuRqQIxd3j0j2GnIf1uk888b7RrbkaQ2xn0OfA=; b=FJvEo26M2jnvQq
+	z/LWr1qVBokutP/+bGp9wVwSaoyOX/iw8s8GFNiuX0XZtGaaOjW4jI3b8PM5kA96/3F+A0tzcFm+F
+	A4gZ7wkHaCjaSH871djTyGVg9TcXQRqUVHwrflZqBw6QHyAb4nnxtHSvxdEfyJJZPZ8hLznZEb2Ij
+	63f3mk5sWDgWzylp6x0M/DM5ty+8r1h8TAqv2k164krVcqbbUatkbQVUaqWSW4fh5Olx7UeyiaBB1
+	CynwjZHcW+vQfyJKbYs0LSgacyr2E91jpSFrKYqjtdt54iRxAmO8isEhkMi+/t64Ogb848vep/woV
+	ZBaZ3oBTHnKk912IkG8A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTlis-00085G-Kj; Wed, 29 Apr 2020 12:21:54 +0000
-Received: from outils.crapouillou.net ([89.234.176.41] helo=crapouillou.net)
+	id 1jTR31-0001kY-Q6; Tue, 28 Apr 2020 14:17:19 +0000
+Received: from mail-lj1-x241.google.com ([2a00:1450:4864:20::241])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTlig-000841-Lw
- for linux-mtd@lists.infradead.org; Wed, 29 Apr 2020 12:21:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
- s=mail; t=1588162894; h=from:from:sender:reply-to:subject:subject:date:date:
- message-id:message-id:to:to:cc:cc:mime-version:mime-version:
- content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=FKkgFmxpN+MKyPoHJp2q8jKr/zPjuo5QgcSt5/FFYlM=;
- b=BJYD6VCvJr5NwVsS7cOFPVRIp+PL1rfh/JKRMIwhc70MxSxy6RmNeVJyTjDxI2otmwhfoF
- 5QbtopHXuozSQsDjZN9F9OWwYTZd5UwfXQ0K+IvDlG+ysvlppxwmEpMfsvZG77b8cbJhN1
- I+8+e8MCoetpBc/ro4H5h+TdvwLBKYA=
-Date: Tue, 28 Apr 2020 16:12:21 +0200
-From: Paul Cercueil <paul@crapouillou.net>
-Subject: Re: [PATCH 8/8] dt-bindings: display: Convert ingenic, lcd.txt to YAML
-To: Rob Herring <robh+dt@kernel.org>
-Message-Id: <LS4I9Q.A1ZGRSEVADNN1@crapouillou.net>
-In-Reply-To: <20200426185856.38826-8-paul@crapouillou.net>
-References: <20200426185856.38826-1-paul@crapouillou.net>
- <20200426185856.38826-8-paul@crapouillou.net>
+ id 1jTR2s-0001jj-FG
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 14:17:11 +0000
+Received: by mail-lj1-x241.google.com with SMTP id y4so21670972ljn.7
+ for <linux-mtd@lists.infradead.org>; Tue, 28 Apr 2020 07:17:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=tMguRcMyYXq1NjFYCEi3+OHxr9n8bP8JQQATfonpxco=;
+ b=gz96JQOf4s34uWBWWEx66ON1NvS1zeyPO97L8iMcu30zWig9UEKyfT+iZpIoawZo5v
+ +Q9zQydHcTF+4Bjmt1w8bSdPnFjrEznv+UEYg23Nd4Wg+4QY6BdOsA3X4WtutdCNSsjm
+ 4zcfGbBsG1u2lxxDNPUM/QxejKPagDKjpfMiPE/iH1dnDzhqOAgpWBE9thAO4KjggJRh
+ SxGwQedF+7abnMPtOdaEYqmdBUH4TzR6oyNnIifesEIcRySb2X1rm9xmBtdT/y0Fp/0g
+ Df1oPNwcZwDDwgs2uDpENspIgUCozDV85dqdKCYa5iHFRQhX2GC3ElmH0bRntSeb2Wxf
+ aNGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=tMguRcMyYXq1NjFYCEi3+OHxr9n8bP8JQQATfonpxco=;
+ b=Ub7tqd0FAXscBGFkivXV7i1eP5ISlTUHwkpr3VyqtIMQBnuD0XHIOe6jVtb9GMNPs5
+ zJgNIcQba/TWj9MHq7mopwexvboXL6m54JpWIWE4O2YnEWCmH9p/HK106E1aSmekqyG7
+ AtZ11tBGYB8UTpE9OGD+1lHORVCPkAO/6gruuJgMtyGLXWnDER/qsDXnofyvRfyXoQdX
+ bLmBOLKBMm8vSeZnK06xKzdhOoVUs/Q+3P3RJ7D9+XiBW6GqVgJm1R+IqawI5vJa4r29
+ f7zJjLZhPU2tNymWu7Va9GHFZWHlsGWytOwkqGlEHeokMcczerNFt66P79qJ4QKZGkHb
+ TQww==
+X-Gm-Message-State: AGi0PuZBVGfPb5QeHVC+VL/l9AIcK23JIaPKzPpBgTfyWJ0ddShr4Pi1
+ vVLdrGickht6x/PfFDAquFuOUoU4gPZay5/etyh0hA==
+X-Google-Smtp-Source: APiQypKAwCXRu1gnsqkOPY2GeDtvM+ZMj5mATAuXVIgovirMH7+T2nAtX2o1FjY9kICtbzahxGEcRHj+wVTJXhz0Rmo=
+X-Received: by 2002:a05:651c:1058:: with SMTP id
+ x24mr18437689ljm.39.1588083427969; 
+ Tue, 28 Apr 2020 07:17:07 -0700 (PDT)
 MIME-Version: 1.0
+References: <20200403081544.37061-1-yanaijie@huawei.com>
+ <20200427155313.43847da8@xps13>
+In-Reply-To: <20200427155313.43847da8@xps13>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 28 Apr 2020 16:16:55 +0200
+Message-ID: <CACRpkdY06GvLRcfD0pjhJ6woHUY8rxi5hqKPmyS7nrhJ_BXrQA@mail.gmail.com>
+Subject: Re: [PATCH] mtd: physmap_of_gemini: remove defined but not used
+ symbol 'syscon_match'
+To: Miquel Raynal <miquel.raynal@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200429_052143_114721_DC57859A 
-X-CRM114-Status: GOOD (  13.06  )
-X-Spam-Score: 0.6 (/)
+X-CRM114-CacheID: sfid-20200428_071710_523654_C7775FEE 
+X-CRM114-Status: GOOD (  12.37  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.6 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:241 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.8 DATE_IN_PAST_12_24     Date: is 12 to 24 hours before Received: date
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -71,234 +93,33 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org,
- =?UTF-8?b?5ZGo55Cw5p2w?= <zhouyanjie@wanyeetech.com>,
- linux-gpio@vger.kernel.org, od@zcrc.me, linux-mtd@lists.infradead.org,
- linux-i2c@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-clk@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; Format="flowed"
+Cc: Richard Weinberger <richard@nod.at>, Thomas Gleixner <tglx@linutronix.de>,
+ linux-mtd@lists.infradead.org, Vignesh R <vigneshr@ti.com>,
+ Jason Yan <yanaijie@huawei.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This one patch will need a V2, I messed up with the clocks.
-
--Paul
-
-
-Le dim. 26 avril 2020 =E0 20:58, Paul Cercueil <paul@crapouillou.net> a =
-
-=E9crit :
-> Convert the ingenic,lcd.txt to a new ingenic,lcd.yaml file.
-> =
-
-> In the process, the new ingenic,jz4780-lcd compatible string has been
-> added.
-> =
-
-> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
-> ---
->  .../bindings/display/ingenic,lcd.txt          |  45 -------
->  .../bindings/display/ingenic,lcd.yaml         | 113 =
-
-> ++++++++++++++++++
->  2 files changed, 113 insertions(+), 45 deletions(-)
->  delete mode 100644 =
-
-> Documentation/devicetree/bindings/display/ingenic,lcd.txt
->  create mode 100644 =
-
-> Documentation/devicetree/bindings/display/ingenic,lcd.yaml
-> =
-
-> diff --git =
-
-> a/Documentation/devicetree/bindings/display/ingenic,lcd.txt =
-
-> b/Documentation/devicetree/bindings/display/ingenic,lcd.txt
-> deleted file mode 100644
-> index 01e3261defb6..000000000000
-> --- a/Documentation/devicetree/bindings/display/ingenic,lcd.txt
-> +++ /dev/null
-> @@ -1,45 +0,0 @@
-> -Ingenic JZ47xx LCD driver
-> -
-> -Required properties:
-> -- compatible: one of:
-> -  * ingenic,jz4740-lcd
-> -  * ingenic,jz4725b-lcd
-> -  * ingenic,jz4770-lcd
-> -- reg: LCD registers location and length
-> -- clocks: LCD pixclock and device clock specifiers.
-> -	   The device clock is only required on the JZ4740.
-> -- clock-names: "lcd_pclk" and "lcd"
-> -- interrupts: Specifies the interrupt line the LCD controller is =
-
-> connected to.
-> -
-> -Example:
-> -
-> -panel {
-> -	compatible =3D "sharp,ls020b1dd01d";
-> -
-> -	backlight =3D <&backlight>;
-> -	power-supply =3D <&vcc>;
-> -
-> -	port {
-> -		panel_input: endpoint {
-> -			remote-endpoint =3D <&panel_output>;
-> -		};
-> -	};
-> -};
-> -
-> -
-> -lcd: lcd-controller@13050000 {
-> -	compatible =3D "ingenic,jz4725b-lcd";
-> -	reg =3D <0x13050000 0x1000>;
-> -
-> -	interrupt-parent =3D <&intc>;
-> -	interrupts =3D <31>;
-> -
-> -	clocks =3D <&cgu JZ4725B_CLK_LCD>;
-> -	clock-names =3D "lcd";
-> -
-> -	port {
-> -		panel_output: endpoint {
-> -			remote-endpoint =3D <&panel_input>;
-> -		};
-> -	};
-> -};
-> diff --git =
-
-> a/Documentation/devicetree/bindings/display/ingenic,lcd.yaml =
-
-> b/Documentation/devicetree/bindings/display/ingenic,lcd.yaml
-> new file mode 100644
-> index 000000000000..8e9c851dc7c5
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/ingenic,lcd.yaml
-> @@ -0,0 +1,113 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/ingenic,lcd.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Ingenic SoCs LCD controller devicetree bindings
-> +
-> +maintainers:
-> +  - Paul Cercueil <paul@crapouillou.net>
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: "^lcd-controller@[0-9a-f]+$"
-> +
-> +  compatible:
-> +    enum:
-> +      - ingenic,jz4740-lcd
-> +      - ingenic,jz4725b-lcd
-> +      - ingenic,jz4770-lcd
-> +      - ingenic,jz4780-lcd
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: Module clock
-> +      - description: Pixel clock
-> +    minItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: lcd
-> +      - const: lcd_pclk
-> +    minItems: 1
-> +
-> +  port:
-> +    type: object
-> +    description:
-> +      A port node with endpoint definitions as defined in
-> +      Documentation/devicetree/bindings/media/video-interfaces.txt
-> +
-> +required:
-> +    - compatible
-> +    - reg
-> +    - interrupts
-> +    - clocks
-> +    - clock-names
-> +
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - ingenic,jz4740-lcd
-> +          - ingenic,jz4780-lcd
-> +then:
-> +  properties:
-> +    clocks:
-> +      minItems: 2
-> +    clock-names:
-> +      minItems: 2
-> +else:
-> +  properties:
-> +    clocks:
-> +      maxItems: 1
-> +    clock-names:
-> +      maxItems: 1
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/jz4740-cgu.h>
-> +    lcd-controller@13050000 {
-> +      compatible =3D "ingenic,jz4740-lcd";
-> +      reg =3D <0x13050000 0x1000>;
-> +
-> +      interrupt-parent =3D <&intc>;
-> +      interrupts =3D <30>;
-> +
-> +      clocks =3D <&cgu JZ4740_CLK_LCD>, <&cgu JZ4740_CLK_LCD_PCLK>;
-> +      clock-names =3D "lcd", "lcd_pclk";
-> +
-> +      port {
-> +        endpoint {
-> +          remote-endpoint =3D <&panel_input>;
-> +        };
-> +      };
-> +    };
-> +
-> +  - |
-> +    #include <dt-bindings/clock/jz4725b-cgu.h>
-> +    lcd-controller@13050000 {
-> +      compatible =3D "ingenic,jz4725b-lcd";
-> +      reg =3D <0x13050000 0x1000>;
-> +
-> +      interrupt-parent =3D <&intc>;
-> +      interrupts =3D <31>;
-> +
-> +      clocks =3D <&cgu JZ4725B_CLK_LCD>;
-> +      clock-names =3D "lcd";
-> +
-> +      port {
-> +        endpoint {
-> +          remote-endpoint =3D <&panel_input>;
-> +        };
-> +      };
-> +    };
-> --
-> 2.26.2
-> =
-
-
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gTW9uLCBBcHIgMjcsIDIwMjAgYXQgMzo1MyBQTSBNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwucmF5
+bmFsQGJvb3RsaW4uY29tPiB3cm90ZToKPiBKYXNvbiBZYW4gPHlhbmFpamllQGh1YXdlaS5jb20+
+IHdyb3RlIG9uIEZyaSwgMyBBcHIgMjAyMCAxNjoxNTo0NCArMDgwMDoKPgo+ID4gSXQncyBub3Qg
+dXNlZCBieSBhbnlvbmUgbm93LCByZW1vdmUgaXQuIEZpeCB0aGUgZm9sbG93aW5nIGdjYyB3YXJu
+aW5nOgo+ID4KPiA+IGRyaXZlcnMvbXRkL21hcHMvcGh5c21hcC1nZW1pbmkuYzo0OTozNDogd2Fy
+bmluZzog4oCYc3lzY29uX21hdGNo4oCZIGRlZmluZWQKPiA+IGJ1dCBub3QgdXNlZCBbLVd1bnVz
+ZWQtY29uc3QtdmFyaWFibGU9XQo+ID4gIHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lk
+IHN5c2Nvbl9tYXRjaFtdID0gewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IF5+fn5+fn5+fn5+fgo+ID4KPiA+IFJlcG9ydGVkLWJ5OiBIdWxrIFJvYm90IDxodWxrY2lAaHVh
+d2VpLmNvbT4KPiA+IFNpZ25lZC1vZmYtYnk6IEphc29uIFlhbiA8eWFuYWlqaWVAaHVhd2VpLmNv
+bT4KPiA+IC0tLQo+Cj4gSSBhbSBub3Qgc3VyZSB0aGlzIGlzIHRoZSByaWdodCBzb2x1dGlvbi4g
+VGhpcyBjb21wYXRpYmxlIGhhcyBiZWVuCj4gYWRkZWQgaW4gdGhpcyBkcml2ZXIgYnkgTGludXMg
+aW4gOWQzYjUwODZmNmQ0ICgibXRkOiBwaHlzbWFwX29mX2dlbWluaToKPiBIYW5kbGUgcGluIGNv
+bnRyb2wiKS4gSSBiZWxpZXZlIGhlIGhhZCBhIGdvb2QgcmVhc29uIHRvIGRvIHNvIGJ1dCB5b3UK
+PiBhcmUgcmlnaHQgdGhhdCBpdCBpcyBub3QgdXNlZC4gTGludXMsIGFueSBpbnB1dD8KClJldmll
+d2VkLWJ5OiBMaW51cyBXYWxsZWlqIDxsaW51cy53YWxsZWlqQGxpbmFyby5vcmc+CgpJdCdzIHBy
+b2JhYmx5IGp1c3QgYSByZW1uYW50IG9mIGVhcmxpZXIgZGV2ZWxvcG1lbnQsIHNvcnJ5IGZvciB0
+aGF0LgpXZSBub3cgbG9jYXRlIHRoZSBzeXNjb24gYnkgcGhhbmRsZToKcm1hcCA9IHN5c2Nvbl9y
+ZWdtYXBfbG9va3VwX2J5X3BoYW5kbGUobnAsICJzeXNjb24iKTsKCllvdXJzLApMaW51cyBXYWxs
+ZWlqCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
