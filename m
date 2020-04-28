@@ -2,55 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DDDEE1BB680
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 08:24:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 261DA1BB681
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 08:25:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Km/tNzX4SEYQAXyRJqrgUlIFKtHM6vODaZCNmN9c5sQ=; b=CLDgvp/YSlVTDs
-	5jVGaCGOSo3j9Ckf4oBre9+iCj8Z/eNRfD7CAYhfNjTcGcBf4vQav+/zBwF4U4WCiLiexbJzkLgjv
-	v9eAGwtEzS9hisOeYLuS4mUY8/w8cR+ZNR7Q29JCgpSgPQTwWmYXuQA6u/obfYsgdfmz7ib3Rz+x5
-	RM9BCCFDacmRrfvgZObP4Ec3Nr6g7gCUt/h9FzEeaUsXX6t7VRrdAl8HvFK/unZLYBSgBbO11xQTk
-	4By+Xh+GJggh722ZSHBCviHXlRczZ1gL9iaiym8aYD0JY73UnV3prLVBdoduKVxR9EFFARf53/7Hv
-	yTftpH9sdxnfpbnc8oRg==;
+	List-Owner; bh=Vun0J76vAYdBj7UGYAYvTmGio2jC2cB3i4azsWe6ddU=; b=q4LyA+hs8CXVr5
+	h6ZPz2v/dJRIcJ4scwXmjWUIxLjZhxtu2JLXd0CkPOdYaF2kOUeQgXh+qkQq81IZKtKEH+yJOR1od
+	JPrpRSCCI/4Bcz6y5evKDNtulAH+DXuOoZGsk6x49MNSbnlBZg9AvElH65UY6k/qwrt/TFzlcuFy2
+	iZW6GDQVkS+JI4mj444mmHYLVgq6Z1BDFw26ast+fVTOvR6BLfoOs0ZGqkVsW1Yb3MgBIUJasWkl6
+	rKBt2w6fBAbEc3E1xG5r9shpo3z7gPDrB3IYoDFb8l3j3ZBPZn/YyOf7IvzC7yxhm58KiiX3g9QKE
+	0SbRJyq5s18AFhLOHHag==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTJfQ-0006BG-Ad; Tue, 28 Apr 2020 06:24:28 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jTJgC-0006VP-Rb; Tue, 28 Apr 2020 06:25:16 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTJfH-0006AM-N3
- for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 06:24:21 +0000
+ id 1jTJfs-0006U9-VD
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 06:24:58 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 638442A0BA2;
- Tue, 28 Apr 2020 07:24:18 +0100 (BST)
-Date: Tue, 28 Apr 2020 08:24:15 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 1063126D046;
+ Tue, 28 Apr 2020 07:24:55 +0100 (BST)
+Date: Tue, 28 Apr 2020 08:24:51 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH 13/17] mtd: rawnand: cafe: Add exec_op() support
-Message-ID: <20200428082415.3c6e2db1@collabora.com>
-In-Reply-To: <20200427215933.13fb1bbc@xps13>
+Subject: Re: [PATCH 15/17] mtd: rawnand: cafe: Adjust the
+ cafe_{read,write}_buf() prototypes
+Message-ID: <20200428082451.01e8cd98@collabora.com>
+In-Reply-To: <20200427220055.723a4de6@xps13>
 References: <20200427082028.394719-1-boris.brezillon@collabora.com>
- <20200427082028.394719-14-boris.brezillon@collabora.com>
- <20200427215933.13fb1bbc@xps13>
+ <20200427082028.394719-16-boris.brezillon@collabora.com>
+ <20200427220055.723a4de6@xps13>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200427_232420_017003_29F73B5A 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20200427_232457_130790_6E3767D1 
+X-CRM114-Status: GOOD (  11.02  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -72,162 +71,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, 27 Apr 2020 21:59:33 +0200
+On Mon, 27 Apr 2020 22:00:55 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> > +	if (WARN_ON(subop->cs > 1))
-> > +		return -EINVAL;
-> > +
-> > +	cafe->datalen = 0;
-> > +	ctrl1 |= CAFE_FIELD_PREP(NAND_CTRL1, CE, subop->cs);
-> > +
-> > +	for (i = 0; i < subop->ninstrs; i++) {
-> > +		const struct nand_op_instr *instr = &subop->instrs[i];
-> > +
-> > +		switch (instr->type) {
-> > +		case NAND_OP_CMD_INSTR:
-> > +			if (WARN_ON((ctrl1 & CAFE_NAND_CTRL1_HAS_CMD) &&
-> > +				    (ctrl2 & CAFE_NAND_CTRL2_HAS_CMD2)))
-> > +				return -EINVAL;  
+> Hi Boris,
 > 
-> Same comment as in the previous drivers, just showing it to do not
-> foget.
-
-Will remove those WARN_ON()s.
-
+> Boris Brezillon <boris.brezillon@collabora.com> wrote on Mon, 27 Apr
+> 2020 10:20:25 +0200:
 > 
-> > +
-> > +			if (!(ctrl1 & CAFE_NAND_CTRL1_HAS_CMD))
-> > +				ctrl1 |= CAFE_NAND_CTRL1_HAS_CMD |
-> > +					 CAFE_FIELD_PREP(NAND_CTRL1, CMD,
-> > +							 instr->ctx.cmd.opcode);
-> > +			else
-> > +				ctrl2 |= CAFE_NAND_CTRL2_HAS_CMD2 |
-> > +					 CAFE_FIELD_PREP(NAND_CTRL2, CMD2,
-> > +							 instr->ctx.cmd.opcode);
-> > +			break;
-> > +
-> > +		case NAND_OP_ADDR_INSTR:
-> > +			if (WARN_ON(instr->ctx.addr.naddrs > 5 ||
-> > +				    !instr->ctx.addr.naddrs))
-> > +				return -EINVAL;
-> > +
-> > +			for (j = 0; j < instr->ctx.addr.naddrs; j++) {
-> > +				u32 addr = instr->ctx.addr.addrs[j];
-> > +
-> > +				if (j < 2)
-> > +					addr1 |= addr << (8 * j);
-> > +				else
-> > +					addr2 |= addr << (8 * (j - 2));
-> > +			}
-> > +
-> > +			ctrl1 |= CAFE_NAND_CTRL1_HAS_ADDR |
-> > +				 CAFE_FIELD_PREP(NAND_CTRL1, NUM_ADDR_CYC,
-> > +						 instr->ctx.addr.naddrs - 1);
-> > +			cafe_writel(cafe, addr1, NAND_ADDR1);
-> > +			if (instr->ctx.addr.naddrs > 2)
-> > +				cafe_writel(cafe, addr2, NAND_ADDR2);  
+> > Replace the uint8_t pointer by a void pointer and make the length
+> > unsigned so it matches what's passed through the nand instructions.
+> >   
 > 
-> Maybe it is safer to always write this register, no? I don't know if
-> the IP clears registers between operations. If it does not, you might
-> end up sending extra command cycles.
+> Nit: I prefer NAND than nand in plain English.
 
-The number of cycles is controller by NUM_ADDR_CYC so that shouldn't be
-a problem, but you're right, writing ADDR2 unconditionally shouldn't
-hurt.
-
-> 
-> > +			break;
-> > +
-> > +		case NAND_OP_DATA_IN_INSTR:
-> > +			data_instr = instr;
-> > +			ctrl1 |= CAFE_NAND_CTRL1_HAS_DATA_IN;
-> > +			break;
-> > +
-> > +		case NAND_OP_DATA_OUT_INSTR:
-> > +			data_instr = instr;
-> > +			ctrl1 |= CAFE_NAND_CTRL1_HAS_DATA_OUT;
-> > +			cafe_write_buf(chip, instr->ctx.data.buf.out,
-> > +				       instr->ctx.data.len);
-> > +			break;
-> > +
-> > +		case NAND_OP_WAITRDY_INSTR:
-> > +			wait |= CAFE_NAND_IRQ_FLASH_RDY;
-> > +			waitrdy = true;
-> > +			break;
-> > +		}
-> > +	}
-> > +
-> > +	if (data_instr)
-> > +		cafe_writel(cafe, data_instr->ctx.data.len, NAND_DATA_LEN);
-> > +
-> > +	if (cafe->usedma && data_instr) {
-> > +		u32 dmactrl = CAFE_NAND_DMA_CTRL_ENABLE |
-> > +			      CAFE_NAND_DMA_CTRL_RESERVED;
-> > +
-> > +		wait |= CAFE_NAND_IRQ_DMA_DONE;
-> > +		dmactrl |= CAFE_FIELD_PREP(NAND_DMA_CTRL, DATA_LEN,
-> > +					   data_instr->ctx.data.len);
-> > +		if (ctrl1 & CAFE_NAND_CTRL1_HAS_DATA_IN)
-> > +			dmactrl |= CAFE_NAND_DMA_CTRL_DATA_IN;
-> > +
-> > +		cafe_writel(cafe, dmactrl, NAND_DMA_CTRL);
-> > +	}
-> > +
-> > +	/* Clear the pending interrupts before starting the operation. */
-> > +	cafe_writel(cafe, wait, NAND_IRQ);
-> > +
-> > +	cafe_writel(cafe, ctrl2, NAND_CTRL2);
-> > +	cafe_writel(cafe, ctrl1, NAND_CTRL1);
-> > +
-> > +	ret = readl_poll_timeout(cafe->mmio + CAFE_NAND_IRQ, status,
-> > +				 (status & wait) == wait, 1, USEC_PER_SEC);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (ctrl1 & CAFE_NAND_DMA_CTRL_DATA_IN)
-> > +		cafe_read_buf(chip, data_instr->ctx.data.buf.in,
-> > +			      data_instr->ctx.data.len);  
-> 
-> As you are limiting the amount of data to 2112B and the number of
-> address cycles to 5, you should probably use the core's helper
-> nand_subop_data_len, nand_subob_data_buf and nand_subop_addr_len in
-> this function.
-
-Indeed. I'll fix that.
-
-> 
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct nand_op_parser cafe_nand_op_parser = NAND_OP_PARSER(
-> > +	NAND_OP_PARSER_PATTERN(cafe_nand_exec_subop,
-> > +			       NAND_OP_PARSER_PAT_CMD_ELEM(true),
-> > +			       NAND_OP_PARSER_PAT_ADDR_ELEM(true, 5),
-> > +			       NAND_OP_PARSER_PAT_CMD_ELEM(true),
-> > +			       NAND_OP_PARSER_PAT_WAITRDY_ELEM(true),
-> > +			       NAND_OP_PARSER_PAT_DATA_IN_ELEM(true, 2112)),
-> > +	NAND_OP_PARSER_PATTERN(cafe_nand_exec_subop,
-> > +			       NAND_OP_PARSER_PAT_CMD_ELEM(true),
-> > +			       NAND_OP_PARSER_PAT_ADDR_ELEM(true, 5),
-> > +			       NAND_OP_PARSER_PAT_CMD_ELEM(true),
-> > +			       NAND_OP_PARSER_PAT_DATA_IN_ELEM(true, 2112),
-> > +			       NAND_OP_PARSER_PAT_WAITRDY_ELEM(true))
-> > +);
-> > +
-> > +static int cafe_nand_exec_op(struct nand_chip *chip,
-> > +			     const struct nand_operation *op,
-> > +			     bool check_only)
-> > +{  
-> 
-> I didn't check but are you sure there is no chip-select/timings
-> handling to do here?
-
-Apparently no. Having the CS propagated to subops is enough here (CS
-selection is done in the subop handler).
-
-
+Will fix that.
 
 ______________________________________________________
 Linux MTD discussion mailing list
