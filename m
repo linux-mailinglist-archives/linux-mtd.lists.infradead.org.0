@@ -2,49 +2,49 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D112F1BB98B
-	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:11:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7BD31BB995
+	for <lists+linux-mtd@lfdr.de>; Tue, 28 Apr 2020 11:12:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LhpIaW4NonIRwPEQkh35VKddqHj+P0z++alFxS1FWNM=; b=FSojnzunXnnPXK
-	Rw3+GwxxdLvAMe1jyOmQ4ci+4R4o61Wc8+y8sphT85eD+TjwkfcNAjE2rh8GfwENhg7Arp1lEAyBK
-	KObd+Cb8Dg6TUilwTyuNrDcbS/nVlIjMCPGPDeqqR+NxeADSpCh19KOh/fmbRro3dBC7LmT/NqVgl
-	Loy+qIrZ3/I2MrDCyNM3F87csQK3e5Or3oj2cyF5VHXcxC4m0HHyg57cW7jjm8sWjdrTbCwCaM8Zi
-	jSQ00Md2ZDNKZmQHx6+OrjuoSAcfk+PolwryR+GNl9bpD3p+Qtf2pGPbOuchTC95T4h8I6zCo1K4K
-	3IOSMBBfcvIKB9oaLVbQ==;
+	List-Owner; bh=q+RjGmeCxy7uwxE3M4H87I8PSS0bKHBZknkZ5+Cial8=; b=UKnlXsahQTzGkv
+	1tPWpC2mejowT2VVwXT94XWDvZ2vp4gpa611jSagQQEvCq8sLK3UFqcDKMVC56ye397SjAAJWO6Ls
+	eY/XYS9m6h1eX/ljHOTuAba++YROpcUJ9zokwidSfPX2dwc1tO4iATRSBc5SsBvnQdx/381Dq5ru6
+	0D9P8Mco1rMY+rg5kWsxix7K+qi+f6rVodDrwNC/lgCLBgLLJGyR6/8Cxh491EpqTm36RoRudeaN7
+	iJb5w40MzvVWHcI/ik3C9IjObZQ0nMjc/CGOcos5rjSq+RkGNaYfognnJgsAijB/5jEx2oznd6DYH
+	1MYDu+Au8f3lShJ2YfOg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTMGm-00019V-MM; Tue, 28 Apr 2020 09:11:12 +0000
+	id 1jTMHi-0001l9-Ku; Tue, 28 Apr 2020 09:12:10 +0000
 Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTMGb-00018k-H6
- for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:11:04 +0000
+ id 1jTMHX-0001jn-Eg
+ for linux-mtd@lists.infradead.org; Tue, 28 Apr 2020 09:12:00 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 18FF42A13F1;
- Tue, 28 Apr 2020 10:10:58 +0100 (BST)
-Date: Tue, 28 Apr 2020 11:10:54 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 207EA2A13F1;
+ Tue, 28 Apr 2020 10:11:58 +0100 (BST)
+Date: Tue, 28 Apr 2020 11:11:55 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v2 3/9] mtd: rawnand: onfi: Fix redundancy detection check
-Message-ID: <20200428111054.4a8cfd26@collabora.com>
-In-Reply-To: <20200428105444.0778d750@xps13>
-References: <20200424164042.26572-1-miquel.raynal@bootlin.com>
- <20200424164042.26572-4-miquel.raynal@bootlin.com>
- <20200425102225.002e740e@collabora.com>
- <20200428105444.0778d750@xps13>
+Subject: Re: [PATCH 05/10] mtd: rawnand: Rename the use_bufpoi variables
+Message-ID: <20200428111155.57b6c43d@collabora.com>
+In-Reply-To: <20200428110501.2caafbd9@xps13>
+References: <20200424173631.14311-1-miquel.raynal@bootlin.com>
+ <20200424173631.14311-6-miquel.raynal@bootlin.com>
+ <20200425104440.5a3144fe@collabora.com>
+ <20200428110501.2caafbd9@xps13>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200428_021101_696354_E20133C5 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20200428_021159_663723_E8876986 
+X-CRM114-Status: GOOD (  18.52  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -65,53 +65,55 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, Vignesh Raghavendra <vigneshr@ti.com>,
+Cc: Michal Simek <monstr@monstr.eu>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ Naga Sureshkumar Relli <nagasure@xilinx.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gVHVlLCAyOCBBcHIgMjAyMCAxMDo1NDo0NCArMDIwMApNaXF1ZWwgUmF5bmFsIDxtaXF1ZWwu
-cmF5bmFsQGJvb3RsaW4uY29tPiB3cm90ZToKCj4gSGkgQm9yaXMsCj4gCj4gQm9yaXMgQnJlemls
-bG9uIDxib3Jpcy5icmV6aWxsb25AY29sbGFib3JhLmNvbT4gd3JvdGUgb24gU2F0LCAyNSBBcHIK
-PiAyMDIwIDEwOjIyOjI1ICswMjAwOgo+IAo+ID4gT24gRnJpLCAyNCBBcHIgMjAyMCAxODo0MDoz
-NiArMDIwMAo+ID4gTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4gd3Jv
-dGU6Cj4gPiAgIAo+ID4gPiBEdXJpbmcgT05GSSBkZXRlY3Rpb24sIHRoZSBDUkMgZGVyaXZlZCBm
-cm9tIHRoZSBwYXJhbWV0ZXIgcGFnZSBhbmQgdGhlCj4gPiA+IENSQyBzdXBwb3NlZCB0byBiZSBh
-dCB0aGUgZW5kIG9mIHRoZSBwYXJhbWV0ZXIgcGFnZSBhcmUgY29tcGFyZWQuIElmCj4gPiA+IHRo
-ZXkgZG8gbm90IG1hdGNoLCB0aGUgc2Vjb25kIHRoZW4gdGhlIHRoaXJkIGNvcGllcyBvZiB0aGUg
-cGFnZSBhcmUKPiA+ID4gdHJpZWQuCj4gPiA+IAo+ID4gPiBUaGUgY3VycmVudCBpbXBsZW1lbnRh
-dGlvbiBjb21wYXJlcyB0aGUgbmV3bHkgZGVyaXZlZCBDUkMgd2l0aCB0aGUgQ1JDCj4gPiA+IGNv
-bnRhaW5lZCBpbiB0aGUgZmlyc3QgcGFnZSBvbmx5LiBTbyBpZiB0aGlzIHBhcnRpY3VsYXIgQ1JD
-IGFyZWEgaGFzCj4gPiA+IGJlZW4gY29ycnVwdGVkLCB0aGVuIHRoZSBkZXRlY3Rpb24gd2lsbCBm
-YWlsIGZvciBhIHdyb25nIHJlYXNvbi4KPiA+ID4gCj4gPiA+IEZpeCB0aGlzIGlzc3VlIGJ5IGNo
-ZWNraW5nIHRoZSBkZXJpdmVkIENSQyBhZ2FpbnN0IHRoZSByaWdodCBvbmUuCj4gPiA+ICAgICAK
-PiA+ICAgCj4gCj4gWWVzLCBidXQgZ2l2ZW4gdGhlIGZhY3QgdGhhdCB3ZSBtb3ZlZCB0aGlzIGNv
-ZGUgb3V0IG9mIG5hbmRfYmFzZS5jCj4gc2VuZGluZyBpdCB0byBzdGFibGUgd291bGQgbm90IGFw
-cGx5LCBJIGRvbid0IGtub3cgd2hhdCdzIGJlc3QgaW4gdGhpcwo+IGNhc2U/CgpJdCB3b3VsZCBh
-dCBsZWFzdCBiZSBiYWNrcG9ydGVkIHRvIGEgZmV3IHJlbGVhc2VzLCBhbmQgeW91IGNhbiBhbHdh
-eXMKcHJvdmlkZSBhIHJlcGxhY2VtZW50IHdoZW4gR3JlZyBzZW5kcyB5b3UgdGhlICdwYXRjaCBk
-aWQgbm90IGFwcGx5Jwpub3RpY2UuIFNvIHllcywgSSB0aGluayBpdCdzIHdvcnRoIGFkZGluZyBh
-IGNjLXN0YWJsZSB0YWcgaGVyZS4KCj4gCj4gVGhlIGZhdWx0eSBjb21taXQgYmVpbmcKPiAzOTEz
-OGMxZjRhMzEgbXRkOiByYXduYW5kOiB1c2UgYml0LXdpc2UgbWFqb3JpdHkgdG8gcmVjb3ZlciB0
-aGUgT05GSSBwYXJhbSBwYWdlCj4gCj4gPiBUaGlzIG9uZSBwcm9iYWJseSBkZXNlcnZlcyBGaXhl
-cyBhbmQgQ2Mtc3RhYmxlIHRhZ3MuCj4gPiAgIAo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBNaXF1ZWwg
-UmF5bmFsIDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4uY29tPgo+ID4gPiBSZXZpZXdlZC1ieTogQm9y
-aXMgQnJlemlsbG9uIDxib3Jpcy5icmV6aWxsb25AY29sbGFib3JhLmNvbT4KPiA+ID4gLS0tCj4g
-PiA+ICBkcml2ZXJzL210ZC9uYW5kL3Jhdy9uYW5kX29uZmkuYyB8IDIgKy0KPiA+ID4gIDEgZmls
-ZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+ID4gPiAKPiA+ID4gZGlm
-ZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRfb25maS5jIGIvZHJpdmVycy9tdGQv
-bmFuZC9yYXcvbmFuZF9vbmZpLmMKPiA+ID4gaW5kZXggMGI4NzliZDBhNjhjLi44ZmU4ZDdiZGQy
-MDMgMTAwNjQ0Cj4gPiA+IC0tLSBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRfb25maS5jCj4g
-PiA+ICsrKyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRfb25maS5jCj4gPiA+IEBAIC0xNzMs
-NyArMTczLDcgQEAgaW50IG5hbmRfb25maV9kZXRlY3Qoc3RydWN0IG5hbmRfY2hpcCAqY2hpcCkK
-PiA+ID4gIAkJfQo+ID4gPiAgCj4gPiA+ICAJCWlmIChvbmZpX2NyYzE2KE9ORklfQ1JDX0JBU0Us
-ICh1OCAqKSZwW2ldLCAyNTQpID09Cj4gPiA+IC0JCQkJbGUxNl90b19jcHUocC0+Y3JjKSkgewo+
-ID4gPiArCQkgICAgbGUxNl90b19jcHUocFtpXS5jcmMpKSB7Cj4gPiA+ICAJCQlpZiAoaSkKPiA+
-ID4gIAkJCQltZW1jcHkocCwgJnBbaV0sIHNpemVvZigqcCkpOwo+ID4gPiAgCQkJYnJlYWs7ICAg
-IAo+ID4gICAKPiAKPiBUaGFua3MsCj4gTWlxdcOobAoKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWls
-aW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1tdGQvCg==
+On Tue, 28 Apr 2020 11:05:01 +0200
+Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+
+> Hi Boris,
+> 
+> Boris Brezillon <boris.brezillon@collabora.com> wrote on Sat, 25 Apr
+> 2020 10:44:40 +0200:
+> 
+> > On Fri, 24 Apr 2020 19:36:26 +0200
+> > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+> >   
+> > > Both in nand_do_read_ops() and nand_do_write_ops() there is a boolean
+> > > called use_bufpoi which is set to true in case of unaligned request or
+> > > when there is a need for a DMA-able buffer. It basically means "use a
+> > > bounce buffer".
+> > > 
+> > > Depending on the value of use_bufpoi, the bufpoi variable is always
+> > > used and will either point to the original buffer or to the nand_chip
+> > > structure "internal data buffer" (this buffer is allocated with
+> > > kmalloc() on purpose so that it will be DMA-compliant).
+> > > 
+> > > In all cases bufpoi is used so the boolean name is misleading. Rename
+> > > use_bufpoi to be use_bouce_buf to be more accurate.
+> > > 
+> > > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>    
+> > 
+> > Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+> > 
+> > I wonder if we shouldn't find a better name for bufpoi too. Not sure
+> > what the poi means here (pointer?). So maybe just rename those into
+> > read_buf, write_buf (since buf seems to be declared already).  
+> 
+> My first patch also renamed bufpoi.
+> 
+> Actually I read it like "buf pointer" and it makes sense and is used
+> all across nand_base.c so I decided to let it as-is for now.
+
+Fair enough.
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
