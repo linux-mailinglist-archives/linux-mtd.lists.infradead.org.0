@@ -2,44 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 188CE1BE32D
-	for <lists+linux-mtd@lfdr.de>; Wed, 29 Apr 2020 17:56:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 448CC1BE33F
+	for <lists+linux-mtd@lfdr.de>; Wed, 29 Apr 2020 17:59:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kg/sIS6H0fgifFK6v9cqTWCBal6bHBOAWF1MNpVEOso=; b=HDKDnpIGEyuUeW
-	58I5LGDDcjACj7R8am2UV2efIyt2ESXznRKWjdYopoV3yhw7XZsT+llnIfBYp7gbtMIwVAbg7tMJ5
-	b5dUaETWvWMORauJUhvB4fQppvbpNjLcn2IL0KgVBQQfeUYC0+iv2chr43b6XG7AhSt+tBpy3P3p6
-	hWUt8eqWY8GdqNm+GJl1OJ+M2tOm7jaARWzAWNDub33hnVaQMGxRxBlhSyRBzYuECgDwYakmKKlDF
-	Hnu2s5YNFYncbf8xOpWfTjIMg4v2a1Am6vpnfpVVhcmlwH51ZeGrKHtlVuUIacMo3+1Dxqpd1ftrp
-	RQiYSJ5/sAwHoEAGDJfw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/VRKQFucUNfRSgEDmL4YiCoY658BuWBnUwAKdRXUoj0=; b=S/eM4pAnPU7nUd
+	uwWKcHT1gswitL1/IfBEeHPFIPkpsiUhWv7gWyo5HSxxdD+TD6iTtf7G4yxP3Q0LHFZmWXs90+04m
+	ZtzH9aCdD5LXwM2Weo+rZmAvtmm9kGnbq1DOLsOsiRiYO84erWpfnDzIua5b6ofi0qtx+meZwxt23
+	/kyQXVOt7FzfY8fX54gciazuGMV07Qlfxpbkw3mHdpdUdnW4gJxe1xsXkIfoyWfY/YiRX3zh77ik8
+	QDZo1/pxWtwlJphayBWXG28IsWCqVGvX0sL8+rTerwIvqoM3DZJq3MRckHVY+kAZ0FbRieHYI0aa8
+	0OpykSzb5PZIRaw2sthg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTp4B-0003wl-88; Wed, 29 Apr 2020 15:56:07 +0000
+	id 1jTp77-0006bb-Nk; Wed, 29 Apr 2020 15:59:09 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTp3v-0003ue-8l
- for linux-mtd@lists.infradead.org; Wed, 29 Apr 2020 15:55:52 +0000
+ id 1jTp46-0003uf-GT
+ for linux-mtd@lists.infradead.org; Wed, 29 Apr 2020 15:56:04 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id AAD5020005;
- Wed, 29 Apr 2020 15:55:41 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 1936820013;
+ Wed, 29 Apr 2020 15:55:44 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 00/11] Supporting restricted NAND controllers
-Date: Wed, 29 Apr 2020 17:55:29 +0200
-Message-Id: <20200429155540.22048-1-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 01/11] mtd: rawnand: Translate obscure bitfields into
+ readable macros
+Date: Wed, 29 Apr 2020 17:55:30 +0200
+Message-Id: <20200429155540.22048-2-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200429155540.22048-1-miquel.raynal@bootlin.com>
+References: <20200429155540.22048-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200429_085551_444931_374ACA74 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20200429_085602_856454_33E36442 
+X-CRM114-Status: GOOD (  11.86  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -65,59 +68,136 @@ Cc: Michal Simek <monstr@monstr.eu>,
  Naga Sureshkumar Relli <nagasure@xilinx.com>,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGVsbG8sCgpUaGUgZmlyc3QgNiBwYXRjaGVzIGFyZSBqdXN0IG1pc2NlbGxhbmVvdXMgY2hhbmdl
-cywgdGhhdCBkbyBub3QgYnJpbmcKZnVuY3Rpb25hbCBjaGFuZ2VzIGJ1dCBjbGFyaWZ5IGEgZmV3
-IGNvcmUgYXJlYXMuCgpQYXRjaGVzIDcgYW5kIDggY2hhbmdlIHRoZSBOQU5EIG9wZXJhdGlvbiB1
-c2VkIHRvIHJlYWQgT05GSS9KRURFQwpwYXJhbWV0ZXIgcGFnZXMuIEkgZXhwZWN0IGFsbCBjb250
-cm9sbGVycyB0byBzdXBwb3J0IGl0LgoKUGF0Y2ggOSBhZGQgbmV3IG5hbmRfbW9ub2xpdGhpY19y
-ZWFkL3dyaXRlX3BhZ2VfcmF3KCkgaGVscGVycywgdGhhdApjb3VsZCBiZSB1c2VkIGJ5IGRyaXZl
-cnMgd2hpY2ggYXJlICJjb25zdHJhaW5lZCIuCgpGaW5hbGx5LCBwYXRjaGVzIDEwIGFuZCAxMSBz
-b2Z0ZW4gdGhlIHJ1bGVzIHNvIHRoYXQgdGhlIGhvb2tzIGxpbmtlZAp0byB0aGUgYWJvdmUgaGVs
-cGVycyBhcmUgbm90IG92ZXJ3cml0dGVuIGJ5IHRoZSBjb3JlIG9yIE5BTkQgY2hpcApkcml2ZXJz
-LgoKVGhpcyBzZXJpZXMgaXMgbmVlZGVkIGluIG9yZGVyIHRvIHN1cHBvcnQgY29udHJvbGxlcnMg
-bGlrZSBBcmFzYW4ncy4KClRoYW5rcywKTWlxdcOobAoKQ2hhbmdlcyBpbiB2MjoKKiBGaXhlZCB0
-aGUgdHdvIHdyb25nIGNvbnZlcnNpb25zIG9mIGZsYWcgdmFsdWVzIGZyb20gOC1iaXQgZGlnaXRz
-CiAgaW50byBCSVQoKSBtYWNyb3MuCiogRHJvcHBlZCAiSGVscCBzdXBwb3J0aW5nIGNvbnRyb2xs
-ZXJzIHRoYXQgYXJlIG5vdCBhYmxlIHRvIHNwbGl0CiAgb3BlcmF0aW9ucyIuIEluc3RlYWQsIGRl
-Y2lkZWQgb24gdGhlIGZseSBmb3IgdGhlIHJlYWRfcGFyYW1fcGFnZSgpCiAgdXNlcyAoT05GSSBh
-bmQgSkVERUMgZGlzY292ZXJ5KSBhbmQgd3JvdGUgc2VwYXJhdGUgaGVscGVycyBmb3IKICByZWFk
-L3dyaXRlX3BhZ2VfcmF3KCkgKHRoZSBBcmFzYW4gZHJpdmVyIHdpbGwgdXNlIHRoZW0pLgoqIFBy
-ZXZlbnQgdGhlIGNvcmUgYW5kIE5BTkQgY2hpcCBkcml2ZXJzIHRvIG92ZXJsb2FkIHRoZQogIGVj
-Yy0+cmVhZC93cml0ZV9wYWdlX3JhdygpIGhvb2tzLgoqIEFkZGVkIFJldmlld2VkLWJ5IHRhZ3Mu
-CgpNaXF1ZWwgUmF5bmFsICgxMSk6CiAgbXRkOiByYXduYW5kOiBUcmFuc2xhdGUgb2JzY3VyZSBi
-aXRmaWVsZHMgaW50byByZWFkYWJsZSBtYWNyb3MKICBtdGQ6IHJhd25hbmQ6IFJlb3JkZXIgdGhl
-IG5hbmRfY2hpcC0+b3B0aW9ucyBmbGFncwogIG10ZDogcmF3bmFuZDogUmVuYW1lIGEgTkFORCBj
-aGlwIG9wdGlvbgogIG10ZDogcmF3bmFuZDogRml4IGNvbW1lbnRzIGFib3V0IHRoZSB1c2Ugb2Yg
-YnVmcG9pCiAgbXRkOiByYXduYW5kOiBSZW5hbWUgdGhlIHVzZV9idWZwb2kgdmFyaWFibGVzCiAg
-bXRkOiByYXduYW5kOiBBdm9pZCBpbmRpcmVjdCBhY2Nlc3MgdG8gLT5kYXRhX2J1ZigpCiAgbXRk
-OiByYXduYW5kOiBvbmZpOiBBZGFwdCB0aGUgcGFyYW1ldGVyIHBhZ2UgcmVhZCB0byBjb25zdHJh
-aW50CiAgICBjb250cm9sbGVycwogIG10ZDogcmF3bmFuZDogamVkZWM6IEFkYXB0IHRoZSBwYXJh
-bWV0ZXIgcGFnZSByZWFkIHRvIGNvbnN0cmFpbnQKICAgIGNvbnRyb2xsZXJzCiAgbXRkOiByYXdu
-YW5kOiBFeHBvc2UgbW9ub2xpdGhpYyByZWFkL3dyaXRlX3BhZ2VfcmF3KCkgaGVscGVycwogIG10
-ZDogcmF3bmFuZDogQWxsb3cgY29udHJvbGxlcnMgdG8gb3ZlcmxvYWQgc29mdCBFQ0MgaG9va3MK
-ICBtdGQ6IHJhd25hbmQ6IG1pY3JvbjogQWxsb3cgY29udHJvbGxlcnMgdG8gb3ZlcmxvYWQgcmF3
-IGFjY2Vzc29ycwoKIGRyaXZlcnMvbXRkL25hbmQvcmF3L2F0bWVsL25hbmQtY29udHJvbGxlci5j
-IHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9icmNtbmFuZC9icmNtbmFuZC5jICAgICB8
-ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvZGVuYWxpLmMgICAgICAgICAgICAgICAgfCAg
-IDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L21lc29uX25hbmQuYyAgICAgICAgICAgIHwgICAy
-ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9tdGtfbmFuZC5jICAgICAgICAgICAgICB8ICAgMiAr
-LQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9iYXNlLmMgICAgICAgICAgICAgfCAxMjIgKysr
-KysrKysrKysrKysrLS0tLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9qZWRlYy5jICAgICAg
-ICAgICAgfCAgMjggKysrLS0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRfbWljcm9uLmMgICAg
-ICAgICAgIHwgICA2ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9uYW5kX29uZmkuYyAgICAgICAg
-ICAgICB8ICAxNCArLS0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3Fjb21fbmFuZGMuYyAgICAgICAg
-ICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9zdG0zMl9mbWMyX25hbmQuYyAgICAg
-ICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvc3VueGlfbmFuZC5jICAgICAgICAgICAg
-fCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3RhbmdvX25hbmQuYyAgICAgICAgICAgIHwg
-ICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy90ZWdyYV9uYW5kLmMgICAgICAgICAgICB8ICAg
-MiArLQogaW5jbHVkZS9saW51eC9tdGQvcmF3bmFuZC5oICAgICAgICAgICAgICAgICAgfCAgOTcg
-KysrKysrKystLS0tLS0tCiAxNSBmaWxlcyBjaGFuZ2VkLCAxODQgaW5zZXJ0aW9ucygrKSwgMTAz
-IGRlbGV0aW9ucygtKQoKLS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxp
-c3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQv
-Cg==
+Use the BIT() macro instead of defining a 8-digit value.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+---
+ include/linux/mtd/rawnand.h | 38 ++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 21873168ba4d..4b58de842340 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -129,36 +129,36 @@ enum nand_ecc_algo {
+  * features.
+  */
+ /* Buswidth is 16 bit */
+-#define NAND_BUSWIDTH_16	0x00000002
++#define NAND_BUSWIDTH_16	BIT(1)
+ /* Chip has cache program function */
+-#define NAND_CACHEPRG		0x00000008
++#define NAND_CACHEPRG		BIT(3)
+ /*
+  * Chip requires ready check on read (for auto-incremented sequential read).
+  * True only for small page devices; large page devices do not support
+  * autoincrement.
+  */
+-#define NAND_NEED_READRDY	0x00000100
++#define NAND_NEED_READRDY	BIT(8)
+ 
+ /* Chip does not allow subpage writes */
+-#define NAND_NO_SUBPAGE_WRITE	0x00000200
++#define NAND_NO_SUBPAGE_WRITE	BIT(9)
+ 
+ /* Device is one of 'new' xD cards that expose fake nand command set */
+-#define NAND_BROKEN_XD		0x00000400
++#define NAND_BROKEN_XD		BIT(10)
+ 
+ /* Device behaves just like nand, but is readonly */
+-#define NAND_ROM		0x00000800
++#define NAND_ROM		BIT(11)
+ 
+ /* Device supports subpage reads */
+-#define NAND_SUBPAGE_READ	0x00001000
++#define NAND_SUBPAGE_READ	BIT(12)
+ 
+ /*
+  * Some MLC NANDs need data scrambling to limit bitflips caused by repeated
+  * patterns.
+  */
+-#define NAND_NEED_SCRAMBLING	0x00002000
++#define NAND_NEED_SCRAMBLING	BIT(13)
+ 
+ /* Device needs 3rd row address cycle */
+-#define NAND_ROW_ADDR_3		0x00004000
++#define NAND_ROW_ADDR_3		BIT(14)
+ 
+ /* Options valid for Samsung large page devices */
+ #define NAND_SAMSUNG_LP_OPTIONS NAND_CACHEPRG
+@@ -173,9 +173,9 @@ enum nand_ecc_algo {
+  * Position within the block: Each of these pages needs to be checked for a
+  * bad block marking pattern.
+  */
+-#define NAND_BBM_FIRSTPAGE		0x01000000
+-#define NAND_BBM_SECONDPAGE		0x02000000
+-#define NAND_BBM_LASTPAGE		0x04000000
++#define NAND_BBM_FIRSTPAGE	BIT(24)
++#define NAND_BBM_SECONDPAGE	BIT(25)
++#define NAND_BBM_LASTPAGE	BIT(26)
+ 
+ /* Position within the OOB data of the page */
+ #define NAND_BBM_POS_SMALL		5
+@@ -183,21 +183,21 @@ enum nand_ecc_algo {
+ 
+ /* Non chip related options */
+ /* This option skips the bbt scan during initialization. */
+-#define NAND_SKIP_BBTSCAN	0x00010000
++#define NAND_SKIP_BBTSCAN	BIT(16)
+ /* Chip may not exist, so silence any errors in scan */
+-#define NAND_SCAN_SILENT_NODEV	0x00040000
++#define NAND_SCAN_SILENT_NODEV	BIT(18)
+ /*
+  * Autodetect nand buswidth with readid/onfi.
+  * This suppose the driver will configure the hardware in 8 bits mode
+  * when calling nand_scan_ident, and update its configuration
+  * before calling nand_scan_tail.
+  */
+-#define NAND_BUSWIDTH_AUTO      0x00080000
++#define NAND_BUSWIDTH_AUTO      BIT(19)
+ /*
+  * This option could be defined by controller drivers to protect against
+  * kmap'ed, vmalloc'ed highmem buffers being passed from upper layers
+  */
+-#define NAND_USE_BOUNCE_BUFFER	0x00100000
++#define NAND_USE_BOUNCE_BUFFER	BIT(20)
+ 
+ /*
+  * In case your controller is implementing ->legacy.cmd_ctrl() and is relying
+@@ -207,20 +207,20 @@ enum nand_ecc_algo {
+  * If your controller already takes care of this delay, you don't need to set
+  * this flag.
+  */
+-#define NAND_WAIT_TCCS		0x00200000
++#define NAND_WAIT_TCCS		BIT(21)
+ 
+ /*
+  * Whether the NAND chip is a boot medium. Drivers might use this information
+  * to select ECC algorithms supported by the boot ROM or similar restrictions.
+  */
+-#define NAND_IS_BOOT_MEDIUM	0x00400000
++#define NAND_IS_BOOT_MEDIUM	BIT(22)
+ 
+ /*
+  * Do not try to tweak the timings at runtime. This is needed when the
+  * controller initializes the timings on itself or when it relies on
+  * configuration done by the bootloader.
+  */
+-#define NAND_KEEP_TIMINGS	0x00800000
++#define NAND_KEEP_TIMINGS	BIT(23)
+ 
+ /* Cell info constants */
+ #define NAND_CI_CHIPNR_MSK	0x03
+-- 
+2.20.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
