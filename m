@@ -2,57 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9BD261BE3FB
-	for <lists+linux-mtd@lfdr.de>; Wed, 29 Apr 2020 18:37:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E1B1C1BE45A
+	for <lists+linux-mtd@lfdr.de>; Wed, 29 Apr 2020 18:53:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0ZT50Xhq1oP2Y3iInFKjL1sxmFM9EkX4B1d++6pl8Jg=; b=HDGb+oLI1YaDgg
-	INSRtAdjAPCyShJCLfGO9Db7Yod3jFVG8D2G+bUFHhFhexTt24LIEZ79h3GM8t+2N+JYEP8XyhF8c
-	73gGwQT0K9x1sBekNlF7rE50itVk43pxTemDN36Ok4ElzD/E4OB9qG/4/YfKWpauyDGECedFV/inq
-	6uy8F3s3SR5/73xpTV363H16M2S7XVIS6jXYo+3gy6/3SgKCdqvgc7+tJN2tg0AQIonkJBkNHtGAD
-	MeGv5e+HxiPZh44cXiU+NJMUe+W3qzd24hTv9Z4PA2p+RRTH+r7aDIarvhCNUzXzQjtG4SyCo6dwd
-	uhYpFP0AWPRYC51lXOXA==;
+	List-Owner; bh=qCYXV7chEvZtSF2CGn3ndKvW4rqn3efTUW7ET8Tmx1A=; b=Nv4vmyxr2G9acV
+	UXvpEHp/7L38LfbGvH6zetM2H1fgbj0qxSEw4fVkE0Zi4Eb6ULq9ZZQu6SnGkKvLRVoBbJFfAb6hP
+	kZwjscmztC/qnOD1W3hhk2QBqejMBC3Vw3uyeMJYWpu9883VmP/Uk6b/EI/EK4zLs98GkOv+aXvlh
+	15WKdt2+1EcLYMye8u4goE39Q63TkV3xytzUuJxYd7VMA7/q7g3DGvURuVTXGl9aTuNrIk24tX2s8
+	5CS9dsjHr7oRC9u7wITX0RnALZspPoXRUFekq3iMxOyWOLuXTYV2L8JrrkY/93P6filvDCiwNT1+v
+	SmevnLeNxlCVLIn6eQ1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jTphf-0005Ea-6h; Wed, 29 Apr 2020 16:36:55 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jTpxI-0002zw-TI; Wed, 29 Apr 2020 16:53:04 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jTphX-0005DZ-6K
- for linux-mtd@lists.infradead.org; Wed, 29 Apr 2020 16:36:48 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 8382F2A1B17;
- Wed, 29 Apr 2020 17:36:45 +0100 (BST)
-Date: Wed, 29 Apr 2020 18:36:42 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v2 03/11] mtd: rawnand: Rename a NAND chip option
-Message-ID: <20200429183642.15e62ae5@collabora.com>
-In-Reply-To: <20200429183231.1a3607c1@collabora.com>
+ id 1jTpxB-0002za-V1
+ for linux-mtd@lists.infradead.org; Wed, 29 Apr 2020 16:52:59 +0000
+X-Originating-IP: 91.224.148.103
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 0A33CC0007;
+ Wed, 29 Apr 2020 16:52:53 +0000 (UTC)
+Date: Wed, 29 Apr 2020 18:52:52 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 09/11] mtd: rawnand: Expose monolithic
+ read/write_page_raw() helpers
+Message-ID: <20200429185252.1b81a3ea@xps13>
+In-Reply-To: <20200429183137.026eb5f9@collabora.com>
 References: <20200429155540.22048-1-miquel.raynal@bootlin.com>
- <20200429155540.22048-4-miquel.raynal@bootlin.com>
- <20200429180816.14f16be0@collabora.com>
- <20200429182200.4240303d@xps13>
- <20200429183231.1a3607c1@collabora.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ <20200429155540.22048-10-miquel.raynal@bootlin.com>
+ <20200429181509.657aa2e5@collabora.com>
+ <20200429182631.71cafee4@xps13>
+ <20200429183137.026eb5f9@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200429_093647_360663_DFAB577D 
-X-CRM114-Status: GOOD (  19.92  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200429_095258_134869_EDB72B38 
+X-CRM114-Status: GOOD (  19.96  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.198 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,41 +76,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, 29 Apr 2020 18:32:31 +0200
-Boris Brezillon <boris.brezillon@collabora.com> wrote:
+Hi Boris,
 
-> On Wed, 29 Apr 2020 18:22:00 +0200
+Boris Brezillon <boris.brezillon@collabora.com> wrote on Wed, 29 Apr
+2020 18:31:37 +0200:
+
+> On Wed, 29 Apr 2020 18:26:31 +0200
 > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 > 
 > > Hi Boris,
 > > 
 > > Boris Brezillon <boris.brezillon@collabora.com> wrote on Wed, 29 Apr
-> > 2020 18:08:16 +0200:
+> > 2020 18:15:09 +0200:
 > >   
-> > > On Wed, 29 Apr 2020 17:55:32 +0200
+> > > On Wed, 29 Apr 2020 17:55:38 +0200
 > > > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 > > >     
-> > > > NAND controller drivers can set the NAND_USE_BOUNCE_BUFFER flag to a
-> > > > chip 'option' field. With this flag, the core is responsible of
-> > > > providing DMA-able buffers.
+> > > > The current nand_read/write_page_raw() helpers are already widely used
+> > > > but do not fit the purpose of "constrained" controllers which cannot,
+> > > > for instance, separate command/address cycles with data cycles.
 > > > > 
-> > > > The current behavior is to not force the use of a bounce buffer when
-> > > > the core thinks this is not needed. So in the end the name is a bit
-> > > > misleading, because in theory we will always have a DMA buffer but in
-> > > > practice it will not always be a bounce buffer.
+> > > > Workaround this issue by proposing alternative helpers that cannot be
+> > > > used by controller drivers instead.
 > > > > 
-> > > > Rename this flag NAND_USE_DMA_BUFFER to be more accurate.      
+> > > > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> > > > ---
+> > > >  drivers/mtd/nand/raw/nand_base.c | 60 ++++++++++++++++++++++++++++++++
+> > > >  include/linux/mtd/rawnand.h      |  8 +++--
+> > > >  2 files changed, 66 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+> > > > index 15a9189b2307..2e525cb5a4e4 100644
+> > > > --- a/drivers/mtd/nand/raw/nand_base.c
+> > > > +++ b/drivers/mtd/nand/raw/nand_base.c
+> > > > @@ -2629,6 +2629,39 @@ int nand_read_page_raw(struct nand_chip *chip, uint8_t *buf, int oob_required,
+> > > >  }
+> > > >  EXPORT_SYMBOL(nand_read_page_raw);
+> > > >  
+> > > > +/**
+> > > > + * nand_monolithic_read_page_raw - Read raw page data without ECC in one go      
 > > > 
-> > > I still think this one should be named NAND_CONTROLLER_USES_DMA.    
+> > > Maybe
+> > > 
+> > > "Read the full page (data + OOB) with ECC engine disabled"
+> > > 
+> > > ?    
 > > 
-> > Actually I want to rework all the flags and prefix them with
-> > NAND_CONTROLLER, that's why I am keeping the NAND_ prefix. I can change
-> > the _USE_DMA_BUFFER into _USES_DMA though.  
+> > This is not accurate as we don't enforce OOB read.  
 > 
-> Ack on NAND_USES_DMA.
+> Right
+> 
+> > 
+> > Don't you find "in one go" explicit enough?  
+> 
+> Well, "raw" and "without ECC" is redundant, that's the part I wanted to
+> see addressed. And the 'in one go' refers to the data/OOB split, which
+> is not clear here.
+> 
 
-But then I wonder if it's really worth renaming this field now if you
-plan to rename it again later :-).
+
+What about
+
+    "Send a single request to the controller driver to read raw data"
+
+the end of the sentence might also be
+
+    "...to read a page plus eventually the OOB area"
 
 ______________________________________________________
 Linux MTD discussion mailing list
