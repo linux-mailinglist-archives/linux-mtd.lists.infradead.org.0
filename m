@@ -2,50 +2,53 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B09341C102E
-	for <lists+linux-mtd@lfdr.de>; Fri,  1 May 2020 11:08:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B39BE1C102A
+	for <lists+linux-mtd@lfdr.de>; Fri,  1 May 2020 11:08:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tb+7vmIOWVeYS0KdqMJYx3uK6qb5GFFoZebRislO+bk=; b=KZvu/aQTlAsGE6
-	9T/ZZyWDbEQ8mH2N1Pf+j0bpyN0rvUJHBL8/oXokLnWsTtdRrumOj8CBzZMY1IDLfS920hp6FEg0W
-	Rc+Biy+QBRj0Z9RQx2q6Rcu6FphB5a39byPndXueh420M0R0ocJ+/pP3W2lRoKD4r2P+BPqeW9njz
-	PSCBZgeKjfEcNOWlJYygY/ScKXn7bFyoODH2OOmXJWuC7TxwT0rgxd2dgLB4rW30mbMH5v1fPc1xC
-	Jae4qXG5c3oGD+1PUjA1UA3WhOlVlEIUjy9ILCsQz5EWZN1ngFJusobiEePNz3PN0lGamdoueK8LR
-	HoRrJyJEuq+T4kSS9xsA==;
+	List-Owner; bh=oZnyE5jq6/wQRLmJD5i63a1MoPAv1srgeP7LWI0XT+c=; b=DNm3hJ/SxG8G3k
+	LCzjBs462VuBBsIg74EPFK/f4zIkOnA/3bwQglEXTwQ7A+IC7egOVhbkLgx3jMrFr6H3JRKhueGib
+	0IqEMP2mus++JPlr72+PKw8yMsloKDnEbooL++k4bNgsLfAeoORkt2W4P+reJjXqrscbvMPhlEfEi
+	COPr9VcDn9KPyfMA+alz3BTm/I0SXxlh8yJItuwX7X5TbyyuEZ061DK6BuLHz6//knzI1M+9V9HzO
+	80LmCflAPYKzyLzIg6JZwzGq74eN0eIhV/bAqWVI2u/UlgDN19zhS0xkUjIjzMlKDNrnF1A9YeY8D
+	ldmPK+6qB+mdbnQIFiNw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jURex-000282-Sb; Fri, 01 May 2020 09:08:39 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jUReI-0001bF-Hp; Fri, 01 May 2020 09:07:58 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jURdO-00019F-P2; Fri, 01 May 2020 09:07:05 +0000
+ id 1jURdP-00019Q-6R; Fri, 01 May 2020 09:07:05 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 7286F2A2D50;
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id BE4432A2D51;
  Fri,  1 May 2020 10:07:01 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	linux-mtd@lists.infradead.org
-Subject: [PATCH 3/4] mtd: rawnand: cs553x: Implement exec_op()
-Date: Fri,  1 May 2020 11:06:49 +0200
-Message-Id: <20200501090650.1138200-4-boris.brezillon@collabora.com>
+Subject: [PATCH 4/4] mtd: rawnand: cs553x: Get rid of the legacy interface
+ implementation
+Date: Fri,  1 May 2020 11:06:50 +0200
+Message-Id: <20200501090650.1138200-5-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.3
 In-Reply-To: <20200501090650.1138200-1-boris.brezillon@collabora.com>
 References: <20200501090650.1138200-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200501_020703_069083_EF9599FA 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20200501_020703_362720_163B9C0B 
+X-CRM114-Status: GOOD (  11.38  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -69,173 +72,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-So we can later get rid of the legacy hooks.
+Now that exec_op() is implemented we no longer need to implement the
+legacy hooks.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/cs553x_nand.c | 126 ++++++++++++++++++++++++++++-
- 1 file changed, 125 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/cs553x_nand.c | 72 ------------------------------
+ 1 file changed, 72 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/cs553x_nand.c b/drivers/mtd/nand/raw/cs553x_nand.c
-index 84cf87f02bd3..3596edc6b777 100644
+index 3596edc6b777..df5e24a2bbd7 100644
 --- a/drivers/mtd/nand/raw/cs553x_nand.c
 +++ b/drivers/mtd/nand/raw/cs553x_nand.c
-@@ -21,9 +21,9 @@
- #include <linux/mtd/rawnand.h>
- #include <linux/mtd/nand_ecc.h>
- #include <linux/mtd/partitions.h>
-+#include <linux/iopoll.h>
- 
- #include <asm/msr.h>
--#include <asm/io.h>
- 
- #define NR_CS553X_CONTROLLERS	4
- 
-@@ -165,6 +165,125 @@ static int cs553x_device_ready(struct nand_chip *this)
- 	return (foo & CS_NAND_STS_FLASH_RDY) && !(foo & CS_NAND_CTLR_BUSY);
+@@ -101,70 +101,6 @@ to_cs553x(struct nand_controller *controller)
+ 	return container_of(controller, struct cs553x_nand_controller, base);
  }
  
-+static int cs553x_write_ctrl_byte(struct cs553x_nand_controller *cs553x,
-+				  u32 ctl, u8 data)
-+{
-+	u8 status;
-+	int ret;
-+
-+	writeb(ctl, cs553x->mmio + MM_NAND_CTL);
-+	writeb(data, cs553x->mmio + MM_NAND_IO);
-+	ret = readb_poll_timeout_atomic(cs553x->mmio + MM_NAND_STS, status,
-+					!(status & CS_NAND_CTLR_BUSY), 1,
-+					100000);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void cs553x_data_in(struct cs553x_nand_controller *cs553x, void *buf,
-+			   unsigned int len)
-+{
-+	writeb(0, cs553x->mmio + MM_NAND_CTL);
-+	while (unlikely(len > 0x800)) {
-+		memcpy_fromio(buf, cs553x->mmio, 0x800);
-+		buf += 0x800;
-+		len -= 0x800;
-+	}
-+	memcpy_fromio(buf, cs553x->mmio, len);
-+}
-+
-+static void cs553x_data_out(struct cs553x_nand_controller *cs553x,
-+			    const void *buf, unsigned int len)
-+{
-+	writeb(0, cs553x->mmio + MM_NAND_CTL);
-+	while (unlikely(len > 0x800)) {
-+		memcpy_toio(cs553x->mmio, buf, 0x800);
-+		buf += 0x800;
-+		len -= 0x800;
-+	}
-+	memcpy_toio(cs553x->mmio, buf, len);
-+}
-+
-+static int cs553x_wait_ready(struct cs553x_nand_controller *cs553x,
-+			     unsigned int timeout_ms)
-+{
-+	u8 mask = CS_NAND_CTLR_BUSY | CS_NAND_STS_FLASH_RDY;
-+	u8 status;
-+
-+	return readb_poll_timeout(cs553x->mmio + MM_NAND_STS, status,
-+				  (status & mask) == CS_NAND_STS_FLASH_RDY, 100,
-+				  timeout_ms * 1000);
-+}
-+
-+static int cs553x_exec_instr(struct cs553x_nand_controller *cs553x,
-+			     const struct nand_op_instr *instr)
-+{
-+	unsigned int i;
-+	int ret = 0;
-+
-+	switch (instr->type) {
-+	case NAND_OP_CMD_INSTR:
-+		ret = cs553x_write_ctrl_byte(cs553x, CS_NAND_CTL_CLE,
-+					     instr->ctx.cmd.opcode);
-+		break;
-+
-+	case NAND_OP_ADDR_INSTR:
-+		for (i = 0; i < instr->ctx.addr.naddrs; i++) {
-+			ret = cs553x_write_ctrl_byte(cs553x, CS_NAND_CTL_ALE,
-+						     instr->ctx.addr.addrs[i]);
-+			if (ret)
-+				break;
-+		}
-+		break;
-+
-+	case NAND_OP_DATA_IN_INSTR:
-+		cs553x_data_in(cs553x, instr->ctx.data.buf.in,
-+			       instr->ctx.data.len);
-+		break;
-+
-+	case NAND_OP_DATA_OUT_INSTR:
-+		cs553x_data_out(cs553x, instr->ctx.data.buf.out,
-+				instr->ctx.data.len);
-+		break;
-+
-+	case NAND_OP_WAITRDY_INSTR:
-+		ret = cs553x_wait_ready(cs553x, instr->ctx.waitrdy.timeout_ms);
-+		break;
-+	}
-+
-+	if (instr->delay_ns)
-+		ndelay(instr->delay_ns);
-+
-+	return ret;
-+}
-+
-+static int cs553x_exec_op(struct nand_chip *this,
-+			  const struct nand_operation *op,
-+			  bool check_only)
-+{
-+	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
-+	unsigned int i;
-+	int ret;
-+
-+	if (check_only)
-+		return true;
-+
-+	/* De-assert the CE pin */
-+	writeb(0, cs553x->mmio + MM_NAND_CTL);
-+	for (i = 0; i < op->ninstrs; i++) {
-+		ret = cs553x_exec_instr(cs553x, &op->instrs[i]);
-+		if (ret)
-+			break;
-+	}
-+
-+	/* Re-assert the CE pin. */
-+	writeb(CS_NAND_CTL_CE, cs553x->mmio + MM_NAND_CTL);
-+
-+	return ret;
-+}
-+
- static void cs_enable_hwecc(struct nand_chip *this, int mode)
+-static void cs553x_read_buf(struct nand_chip *this, u_char *buf, int len)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-
+-	while (unlikely(len > 0x800)) {
+-		memcpy_fromio(buf, cs553x->mmio, 0x800);
+-		buf += 0x800;
+-		len -= 0x800;
+-	}
+-	memcpy_fromio(buf, cs553x->mmio, len);
+-}
+-
+-static void cs553x_write_buf(struct nand_chip *this, const u_char *buf, int len)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-
+-	while (unlikely(len > 0x800)) {
+-		memcpy_toio(cs553x->mmio, buf, 0x800);
+-		buf += 0x800;
+-		len -= 0x800;
+-	}
+-	memcpy_toio(cs553x->mmio, buf, len);
+-}
+-
+-static unsigned char cs553x_read_byte(struct nand_chip *this)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-
+-	return readb(cs553x->mmio);
+-}
+-
+-static void cs553x_write_byte(struct nand_chip *this, u_char byte)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-	int i = 100000;
+-
+-	while (i && readb(cs553x->mmio + MM_NAND_STS) & CS_NAND_CTLR_BUSY) {
+-		udelay(1);
+-		i--;
+-	}
+-	writeb(byte, cs553x->mmio + 0x801);
+-}
+-
+-static void cs553x_hwcontrol(struct nand_chip *this, int cmd,
+-			     unsigned int ctrl)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-
+-	if (ctrl & NAND_CTRL_CHANGE) {
+-		unsigned char ctl = (ctrl & ~NAND_CTRL_CHANGE ) ^ 0x01;
+-		writeb(ctl, cs553x->mmio + MM_NAND_CTL);
+-	}
+-	if (cmd != NAND_CMD_NONE)
+-		cs553x_write_byte(this, cmd);
+-}
+-
+-static int cs553x_device_ready(struct nand_chip *this)
+-{
+-	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
+-	unsigned char foo = readb(cs553x->mmio + MM_NAND_STS);
+-
+-	return (foo & CS_NAND_STS_FLASH_RDY) && !(foo & CS_NAND_CTLR_BUSY);
+-}
+-
+ static int cs553x_write_ctrl_byte(struct cs553x_nand_controller *cs553x,
+ 				  u32 ctl, u8 data)
  {
- 	struct cs553x_nand_controller *cs553x = to_cs553x(this->controller);
-@@ -188,6 +307,10 @@ static int cs_calculate_ecc(struct nand_chip *this, const u_char *dat,
+@@ -350,14 +286,6 @@ static int __init cs553x_init_one(int cs, int mmio, unsigned long adr)
+ 		goto out_mtd;
+ 	}
  
- static struct cs553x_nand_controller *controllers[4];
- 
-+static const struct nand_controller_ops cs553x_nand_controller_ops = {
-+	.exec_op = cs553x_exec_op,
-+};
-+
- static int __init cs553x_init_one(int cs, int mmio, unsigned long adr)
- {
- 	struct cs553x_nand_controller *controller;
-@@ -212,6 +335,7 @@ static int __init cs553x_init_one(int cs, int mmio, unsigned long adr)
- 
- 	this = &controller->chip;
- 	nand_controller_init(&controller->base);
-+	controller->base.ops = &cs553x_nand_controller_ops;
- 	this->controller = &controller->base;
- 	new_mtd = nand_to_mtd(this);
- 
+-	this->legacy.cmd_ctrl = cs553x_hwcontrol;
+-	this->legacy.dev_ready = cs553x_device_ready;
+-	this->legacy.read_byte = cs553x_read_byte;
+-	this->legacy.read_buf = cs553x_read_buf;
+-	this->legacy.write_buf = cs553x_write_buf;
+-
+-	this->legacy.chip_delay = 0;
+-
+ 	this->ecc.mode = NAND_ECC_HW;
+ 	this->ecc.size = 256;
+ 	this->ecc.bytes = 3;
 -- 
 2.25.3
 
