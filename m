@@ -2,52 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4DC441C2701
-	for <lists+linux-mtd@lfdr.de>; Sat,  2 May 2020 18:35:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A72D31C2703
+	for <lists+linux-mtd@lfdr.de>; Sat,  2 May 2020 18:35:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FW3I/Cdr4nmYVP2UW6VThFZO+2VPxAnK+URpr7xcIj4=; b=cYfJB43xOilqTD
-	laA3GM1bg6nfNTI2b2U97ehQE+jH30M3vS/Cc9e257NwYEhZDvWFQLUj4qDH4rqvQ6HMomsRMFe2p
-	qDnilAV7Emwubxnzo+QA8hdJShIRXYTDte1q4WRFGFpLRryM/xwbzQZ2GaOG/aYAzxwbzHz0lFleK
-	Os1tpj6fILUMyjo3Rtc460gJ94b/Ui+JGed66bTyScQOY1/rJKCKlcdbW8XqGu2emJwBqqcB8JqQf
-	7JSAvWmPGODJo6qRl9S4EfPCMoRhsCeguFFE6lhMHUlMEwLxBNInjctMC0Myj6+bmfMDxKyCJ+Xor
-	ejAuA1GQUhXFY5rciRaA==;
+	List-Owner; bh=jyUCTFyAPSQdZmCxQObs8WDNZyr9XhHYAH/OZwvMxFg=; b=ZQuLYAwiZ/zPMr
+	/6Jxs665gA1D8lRCa2hl0MbCiwWInhK5mcHjqC5ztJm1jdDqBH05X1qbkXsGGgOVu4qrmOUTys5gP
+	uZyl/IfOenqCXLZsu8r+dSx+8rlQsI8k2OiaYBPOLrgkUVi4267EINIQ7dZ5qSkYc8C2InAQT9+yG
+	3sYbGolD7nQdLlVuh2ufuXGpJY013wS8KnUh3Yhvdqg9mmW4kdrYVaxNqEF2A5JPJ1yUFYfRzOO5s
+	GbSeHOSlWcjvpC1KnEtQ/QQag1GAdXJmzhGgN9Zz19cM7229G0Ma4fSEfAK3T6xIiQHP1NKvXZQum
+	eM8R5I/I4pR5kKVfl8wA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jUv6m-0000vG-EW; Sat, 02 May 2020 16:35:20 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jUv7H-0003uD-Tq; Sat, 02 May 2020 16:35:51 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jUv68-0000kS-4I; Sat, 02 May 2020 16:34:41 +0000
+ id 1jUv68-0000kj-C3; Sat, 02 May 2020 16:34:43 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 29BB72A0C07;
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 98F762A0C47;
  Sat,  2 May 2020 17:34:37 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Kamal Dasu <kdasu.kdev@gmail.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH 2/3] mtd: rawnand: bcrmnand: Add exec_op() support
-Date: Sat,  2 May 2020 18:34:31 +0200
-Message-Id: <20200502163432.1543243-3-boris.brezillon@collabora.com>
+Subject: [PATCH 3/3] mtd: rawnand: brcmnand: Get rid of the legacy interface
+ implementation
+Date: Sat,  2 May 2020 18:34:32 +0200
+Message-Id: <20200502163432.1543243-4-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.3
 In-Reply-To: <20200502163432.1543243-1-boris.brezillon@collabora.com>
 References: <20200502163432.1543243-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200502_093440_302271_62328D34 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20200502_093440_674153_F3DE0783 
+X-CRM114-Status: GOOD (  16.96  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -74,106 +73,256 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This implementation of exec_op() relies on low-level operations only. We
-could add support for high-level operations too through an op parser,
-but the gain is likely to be negligible since read/write page operations
-already have a fast path ({readwrite}_page[raw]() implementations).
+Now that exec_op() is implemented, we can get rid of the legacy
+interface implementation.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/brcmnand/brcmnand.c | 72 ++++++++++++++++++++++++
- 1 file changed, 72 insertions(+)
+ drivers/mtd/nand/raw/brcmnand/brcmnand.c | 210 -----------------------
+ 1 file changed, 210 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/brcmnand/brcmnand.c b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-index e4e3ceeac38f..e70117146755 100644
+index e70117146755..f7f75e98ed21 100644
 --- a/drivers/mtd/nand/raw/brcmnand/brcmnand.c
 +++ b/drivers/mtd/nand/raw/brcmnand/brcmnand.c
-@@ -1599,6 +1599,77 @@ static int brcmnand_low_level_op(struct brcmnand_host *host,
- 	return brcmnand_waitfunc(chip);
+@@ -919,19 +919,6 @@ static inline int brcmnand_sector_1k_shift(struct brcmnand_controller *ctrl)
+ 		return -1;
  }
  
-+static void brcmnand_exec_instr(struct brcmnand_host *host,
-+				const struct nand_op_instr *instr,
-+				bool last_op)
-+{
-+	unsigned int i;
-+	const u8 *out;
-+	u8 *in;
-+
-+	switch (instr->type) {
-+	case NAND_OP_CMD_INSTR:
-+		brcmnand_low_level_op(host, LL_OP_CMD,
-+				      instr->ctx.cmd.opcode, last_op);
-+		break;
-+
-+	case NAND_OP_ADDR_INSTR:
-+		for (i = 0; i < instr->ctx.addr.naddrs; i++)
-+			brcmnand_low_level_op(host, LL_OP_ADDR,
-+					      instr->ctx.addr.addrs[i],
-+					      last_op);
-+		break;
-+
-+	case NAND_OP_DATA_IN_INSTR:
-+		in = instr->ctx.data.buf.in;
-+		for (i = 0; i < instr->ctx.data.len; i++) {
-+			brcmnand_low_level_op(host, LL_OP_RD, 0, last_op);
-+			in[i] = brcmnand_read_reg(host->ctrl,
-+						  BRCMNAND_LL_RDATA);
-+		}
-+		break;
-+
-+	case NAND_OP_DATA_OUT_INSTR:
-+		out = instr->ctx.data.buf.out;
-+		for (i = 0; i < instr->ctx.data.len; i++)
-+			brcmnand_low_level_op(host, LL_OP_WR, out[i], last_op);
-+		break;
-+
-+	case NAND_OP_WAITRDY_INSTR:
-+		/*
-+		 * Nothing to do here, brcmnand_low_level_op() already waits on
-+		 * FLASH_READY every time it's called.
-+		 */
-+		break;
-+
-+	default:
-+		break;
-+	}
-+}
-+
-+static int brcmnand_exec_op(struct nand_chip *chip,
-+			    const struct nand_operation *op,
-+			    bool check_only)
-+{
-+	struct brcmnand_host *host = nand_get_controller_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	unsigned int i;
-+
-+	if (check_only)
-+		return 0;
-+
-+	if (op->deassert_wp)
-+		brcmnand_wp(mtd, 0);
-+
-+	for (i = 0; i < op->ninstrs; i++)
-+		brcmnand_exec_instr(host, &op->instrs[i], i == op->ninstrs - 1);
-+
-+	if (op->deassert_wp)
-+		brcmnand_wp(mtd, 1);
-+
-+	return 0;
-+}
-+
- static void brcmnand_cmdfunc(struct nand_chip *chip, unsigned command,
- 			     int column, int page_addr)
+-static int brcmnand_get_sector_size_1k(struct brcmnand_host *host)
+-{
+-	struct brcmnand_controller *ctrl = host->ctrl;
+-	int shift = brcmnand_sector_1k_shift(ctrl);
+-	u16 acc_control_offs = brcmnand_cs_offset(ctrl, host->cs,
+-						  BRCMNAND_CS_ACC_CONTROL);
+-
+-	if (shift < 0)
+-		return 0;
+-
+-	return (nand_readreg(ctrl, acc_control_offs) >> shift) & 0x1;
+-}
+-
+ static void brcmnand_set_sector_size_1k(struct brcmnand_host *host, int val)
  {
-@@ -2597,6 +2668,7 @@ static int brcmnand_attach_chip(struct nand_chip *chip)
+ 	struct brcmnand_controller *ctrl = host->ctrl;
+@@ -1495,12 +1482,6 @@ static void brcmnand_send_cmd(struct brcmnand_host *host, int cmd)
+  * NAND MTD API: read/program/erase
+  ***********************************************************************/
  
- static const struct nand_controller_ops brcmnand_controller_ops = {
- 	.attach_chip = brcmnand_attach_chip,
-+	.exec_op = brcmnand_exec_op,
- };
+-static void brcmnand_cmd_ctrl(struct nand_chip *chip, int dat,
+-			      unsigned int ctrl)
+-{
+-	/* intentionally left blank */
+-}
+-
+ static bool brcmstb_nand_wait_for_completion(struct nand_chip *chip)
+ {
+ 	struct brcmnand_host *host = nand_get_controller_data(chip);
+@@ -1670,190 +1651,6 @@ static int brcmnand_exec_op(struct nand_chip *chip,
+ 	return 0;
+ }
  
- static int brcmnand_init_cs(struct brcmnand_host *host, struct device_node *dn)
+-static void brcmnand_cmdfunc(struct nand_chip *chip, unsigned command,
+-			     int column, int page_addr)
+-{
+-	struct mtd_info *mtd = nand_to_mtd(chip);
+-	struct brcmnand_host *host = nand_get_controller_data(chip);
+-	struct brcmnand_controller *ctrl = host->ctrl;
+-	u64 addr = (u64)page_addr << chip->page_shift;
+-	int native_cmd = 0;
+-
+-	if (command == NAND_CMD_READID || command == NAND_CMD_PARAM ||
+-			command == NAND_CMD_RNDOUT)
+-		addr = (u64)column;
+-	/* Avoid propagating a negative, don't-care address */
+-	else if (page_addr < 0)
+-		addr = 0;
+-
+-	dev_dbg(ctrl->dev, "cmd 0x%x addr 0x%llx\n", command,
+-		(unsigned long long)addr);
+-
+-	host->last_cmd = command;
+-	host->last_byte = 0;
+-	host->last_addr = addr;
+-
+-	switch (command) {
+-	case NAND_CMD_RESET:
+-		native_cmd = CMD_FLASH_RESET;
+-		break;
+-	case NAND_CMD_STATUS:
+-		native_cmd = CMD_STATUS_READ;
+-		break;
+-	case NAND_CMD_READID:
+-		native_cmd = CMD_DEVICE_ID_READ;
+-		break;
+-	case NAND_CMD_READOOB:
+-		native_cmd = CMD_SPARE_AREA_READ;
+-		break;
+-	case NAND_CMD_ERASE1:
+-		native_cmd = CMD_BLOCK_ERASE;
+-		brcmnand_wp(mtd, 0);
+-		break;
+-	case NAND_CMD_PARAM:
+-		native_cmd = CMD_PARAMETER_READ;
+-		break;
+-	case NAND_CMD_SET_FEATURES:
+-	case NAND_CMD_GET_FEATURES:
+-		brcmnand_low_level_op(host, LL_OP_CMD, command, false);
+-		brcmnand_low_level_op(host, LL_OP_ADDR, column, false);
+-		break;
+-	case NAND_CMD_RNDOUT:
+-		native_cmd = CMD_PARAMETER_CHANGE_COL;
+-		addr &= ~((u64)(FC_BYTES - 1));
+-		/*
+-		 * HW quirk: PARAMETER_CHANGE_COL requires SECTOR_SIZE_1K=0
+-		 * NB: hwcfg.sector_size_1k may not be initialized yet
+-		 */
+-		if (brcmnand_get_sector_size_1k(host)) {
+-			host->hwcfg.sector_size_1k =
+-				brcmnand_get_sector_size_1k(host);
+-			brcmnand_set_sector_size_1k(host, 0);
+-		}
+-		break;
+-	}
+-
+-	if (!native_cmd)
+-		return;
+-
+-	brcmnand_set_cmd_addr(mtd, addr);
+-	brcmnand_send_cmd(host, native_cmd);
+-	brcmnand_waitfunc(chip);
+-
+-	if (native_cmd == CMD_PARAMETER_READ ||
+-			native_cmd == CMD_PARAMETER_CHANGE_COL) {
+-		/* Copy flash cache word-wise */
+-		u32 *flash_cache = (u32 *)ctrl->flash_cache;
+-		int i;
+-
+-		brcmnand_soc_data_bus_prepare(ctrl->soc, true);
+-
+-		/*
+-		 * Must cache the FLASH_CACHE now, since changes in
+-		 * SECTOR_SIZE_1K may invalidate it
+-		 */
+-		for (i = 0; i < FC_WORDS; i++)
+-			/*
+-			 * Flash cache is big endian for parameter pages, at
+-			 * least on STB SoCs
+-			 */
+-			flash_cache[i] = be32_to_cpu(brcmnand_read_fc(ctrl, i));
+-
+-		brcmnand_soc_data_bus_unprepare(ctrl->soc, true);
+-
+-		/* Cleanup from HW quirk: restore SECTOR_SIZE_1K */
+-		if (host->hwcfg.sector_size_1k)
+-			brcmnand_set_sector_size_1k(host,
+-						    host->hwcfg.sector_size_1k);
+-	}
+-
+-	/* Re-enable protection is necessary only after erase */
+-	if (command == NAND_CMD_ERASE1)
+-		brcmnand_wp(mtd, 1);
+-}
+-
+-static uint8_t brcmnand_read_byte(struct nand_chip *chip)
+-{
+-	struct brcmnand_host *host = nand_get_controller_data(chip);
+-	struct brcmnand_controller *ctrl = host->ctrl;
+-	uint8_t ret = 0;
+-	int addr, offs;
+-
+-	switch (host->last_cmd) {
+-	case NAND_CMD_READID:
+-		if (host->last_byte < 4)
+-			ret = brcmnand_read_reg(ctrl, BRCMNAND_ID) >>
+-				(24 - (host->last_byte << 3));
+-		else if (host->last_byte < 8)
+-			ret = brcmnand_read_reg(ctrl, BRCMNAND_ID_EXT) >>
+-				(56 - (host->last_byte << 3));
+-		break;
+-
+-	case NAND_CMD_READOOB:
+-		ret = oob_reg_read(ctrl, host->last_byte);
+-		break;
+-
+-	case NAND_CMD_STATUS:
+-		ret = brcmnand_read_reg(ctrl, BRCMNAND_INTFC_STATUS) &
+-					INTFC_FLASH_STATUS;
+-		if (wp_on) /* hide WP status */
+-			ret |= NAND_STATUS_WP;
+-		break;
+-
+-	case NAND_CMD_PARAM:
+-	case NAND_CMD_RNDOUT:
+-		addr = host->last_addr + host->last_byte;
+-		offs = addr & (FC_BYTES - 1);
+-
+-		/* At FC_BYTES boundary, switch to next column */
+-		if (host->last_byte > 0 && offs == 0)
+-			nand_change_read_column_op(chip, addr, NULL, 0, false);
+-
+-		ret = ctrl->flash_cache[offs];
+-		break;
+-	case NAND_CMD_GET_FEATURES:
+-		if (host->last_byte >= ONFI_SUBFEATURE_PARAM_LEN) {
+-			ret = 0;
+-		} else {
+-			bool last = host->last_byte ==
+-				ONFI_SUBFEATURE_PARAM_LEN - 1;
+-			brcmnand_low_level_op(host, LL_OP_RD, 0, last);
+-			ret = brcmnand_read_reg(ctrl, BRCMNAND_LL_RDATA) & 0xff;
+-		}
+-	}
+-
+-	dev_dbg(ctrl->dev, "read byte = 0x%02x\n", ret);
+-	host->last_byte++;
+-
+-	return ret;
+-}
+-
+-static void brcmnand_read_buf(struct nand_chip *chip, uint8_t *buf, int len)
+-{
+-	int i;
+-
+-	for (i = 0; i < len; i++, buf++)
+-		*buf = brcmnand_read_byte(chip);
+-}
+-
+-static void brcmnand_write_buf(struct nand_chip *chip, const uint8_t *buf,
+-			       int len)
+-{
+-	int i;
+-	struct brcmnand_host *host = nand_get_controller_data(chip);
+-
+-	switch (host->last_cmd) {
+-	case NAND_CMD_SET_FEATURES:
+-		for (i = 0; i < len; i++)
+-			brcmnand_low_level_op(host, LL_OP_WR, buf[i],
+-						  (i + 1) == len);
+-		break;
+-	default:
+-		BUG();
+-		break;
+-	}
+-}
+-
+ /**
+  *  Kick EDU engine
+  */
+@@ -2699,13 +2496,6 @@ static int brcmnand_init_cs(struct brcmnand_host *host, struct device_node *dn)
+ 	mtd->owner = THIS_MODULE;
+ 	mtd->dev.parent = &pdev->dev;
+ 
+-	chip->legacy.cmd_ctrl = brcmnand_cmd_ctrl;
+-	chip->legacy.cmdfunc = brcmnand_cmdfunc;
+-	chip->legacy.waitfunc = brcmnand_waitfunc;
+-	chip->legacy.read_byte = brcmnand_read_byte;
+-	chip->legacy.read_buf = brcmnand_read_buf;
+-	chip->legacy.write_buf = brcmnand_write_buf;
+-
+ 	chip->ecc.mode = NAND_ECC_HW;
+ 	chip->ecc.read_page = brcmnand_read_page;
+ 	chip->ecc.write_page = brcmnand_write_page;
 -- 
 2.25.3
 
