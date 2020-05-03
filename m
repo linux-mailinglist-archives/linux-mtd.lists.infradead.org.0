@@ -2,54 +2,57 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7E7C81C2D3D
-	for <lists+linux-mtd@lfdr.de>; Sun,  3 May 2020 17:09:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EEC8E1C2DAF
+	for <lists+linux-mtd@lfdr.de>; Sun,  3 May 2020 17:54:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CGAbPqFKuY/o54FbuTbomjwi6M0Lsb3U+6AJlhuHukY=; b=BWcB1eI3I9uuPK
-	AjqWQkEb4IgGO1FQT+rAOlBwhBDW3JkiD8ZW54KmGasIE0whsi2wY+bXAluhaGLoULeRgtraWm+iU
-	c/dUVL6Z4Ni5lhGpunubksmiVKdtpjqVQMAF4ZgZSyJeY6OEiG27fXQFGif7ZdhhbaLoxyfhmaWsB
-	aUECPukdYR3qAfw167YiaZdJxZu5KeT4v/p5y9/iPv68vQZiWiL9B01o7a8efle3XLjZ4cTx35RkB
-	SOcClDz8TS/x9u8uY46LiOv8roppTg2jBHvXn2Cax4LqaFpbRnO9dO1Lt+RrssJte+xbqv8CPjxBX
-	n6DyCPO//nulflNCfMKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KYxPgGhnk55cQtOmCMpzCW/FqMKUlqMEPW8tRZs6nAs=; b=TrLrdAuhnNkKo1
+	xB7B6mHHJEmVjFr5kKlN7QtiVlZs1gr4rEmEt1yCJbixP1CrIDQfKsaRUKRrep4iyloZOGbb5jtha
+	8M/JV7WoXIuhPgJH/0s4bCpA8xwaXbVlx0hEq2L6rwerSWWjFdCDI/fLmGpy8nSIPaDjktsA0NGpy
+	Z/WQ3jog8GK6stJ5jecW5WX1TvbT8LkXQxzlPPiZQUhdHJpgH2EiBsy0GnTzvKxkrw7vtkrb4ASxd
+	m8WGGuwa75z57nRlEoIIPYPQyAeFoQikxglpfjZq5RftjUbC+k6lI2sOXxpewditpFEgoB+xSZfUM
+	KSaYaIBZkfVuCihXTRKw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jVGFO-000690-HE; Sun, 03 May 2020 15:09:38 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jVGwU-0002qC-Q0; Sun, 03 May 2020 15:54:10 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jVGFF-00068c-3l
- for linux-mtd@lists.infradead.org; Sun, 03 May 2020 15:09:30 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id AADC62A0677;
- Sun,  3 May 2020 16:09:27 +0100 (BST)
-Date: Sun, 3 May 2020 17:09:24 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v2 2/3] mtd: rawnand: Add the nand_chip->write_oob hook
-Message-ID: <20200503170924.52f9d9d6@collabora.com>
-In-Reply-To: <20200503114029.30257-3-miquel.raynal@bootlin.com>
-References: <20200503114029.30257-1-miquel.raynal@bootlin.com>
- <20200503114029.30257-3-miquel.raynal@bootlin.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1jVGw8-0002dA-Dv
+ for linux-mtd@lists.infradead.org; Sun, 03 May 2020 15:53:49 +0000
+X-Originating-IP: 91.224.148.103
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id A6E83240007;
+ Sun,  3 May 2020 15:53:42 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>
+Subject: [PATCH v2 0/8] MLC in SLC mode
+Date: Sun,  3 May 2020 17:53:33 +0200
+Message-Id: <20200503155341.16712-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200503_080929_283794_389E644C 
-X-CRM114-Status: GOOD (  21.24  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200503_085348_607879_03EC3A0F 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.193 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [217.70.183.193 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,115 +64,48 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>,
- Zoltan Szubbocsev <zszubbocsev@micron.com>, linux-mtd@lists.infradead.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, tglx@linutronix.de,
- Piotr Wojtaszczyk <WojtaszczykP@cumminsallison.com>,
- Bean Huo <beanhuo@micron.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Maxime Ripard <maxime@cerno.tech>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sun,  3 May 2020 13:40:28 +0200
-Miquel Raynal <miquel.raynal@bootlin.com> wrote:
-
-> With the same approach as for the ->erase hook, in order to solve an
-> issue with Micron NANDs, we must be able to overload the write
-> operation. With this in mind, we create a ->write_oob hook in the
-> nand_chip structure which points by default to the
-> currently in use nand_write_oob() helper, renamed
-> nand_write_oob_nand() for the parallel with the nand_erase_nand()
-> one.
-
-First of all, I must say I hate the hook name. Having mtd->_write_oob()
-that writes both OOB and data is confusing, and you're pulling this
-confusing name to the raw NAND layer.
-
-> 
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> ---
->  drivers/mtd/nand/raw/internals.h | 2 ++
->  drivers/mtd/nand/raw/nand_base.c | 8 ++++++++
->  include/linux/mtd/rawnand.h      | 3 +++
->  3 files changed, 13 insertions(+)
-> 
-> diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
-> index 9d0caadf940e..caf534a6586a 100644
-> --- a/drivers/mtd/nand/raw/internals.h
-> +++ b/drivers/mtd/nand/raw/internals.h
-> @@ -81,6 +81,8 @@ int nand_bbm_get_next_page(struct nand_chip *chip, int page);
->  int nand_markbad_bbm(struct nand_chip *chip, loff_t ofs);
->  int nand_erase_nand(struct nand_chip *chip, struct erase_info *instr,
->  		    int allowbbt);
-> +int nand_write_oob_nand(struct nand_chip *chip, loff_t to,
-> +			struct mtd_oob_ops *ops);
->  int onfi_fill_data_interface(struct nand_chip *chip,
->  			     enum nand_data_interface_type type,
->  			     int timing_mode);
-> diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-> index 7c7ac722d88b..f9cf30949f49 100644
-> --- a/drivers/mtd/nand/raw/nand_base.c
-> +++ b/drivers/mtd/nand/raw/nand_base.c
-> @@ -4121,6 +4121,13 @@ static int nand_write_oob(struct mtd_info *mtd, loff_t to,
->  			  struct mtd_oob_ops *ops)
->  {
->  	struct nand_chip *chip = mtd_to_nand(mtd);
-> +
-> +	return chip->write_oob(chip, to, ops);
-> +}
-> +
-> +int nand_write_oob_nand(struct nand_chip *chip, loff_t to,
-> +			struct mtd_oob_ops *ops)
-
-Hm, what happens next time we have a similar name, do we suffix it with
-_nand_nand? :P
-
-> +{
->  	int ret;
->  
->  	ops->retlen = 0;
-> @@ -4423,6 +4430,7 @@ static void nand_set_defaults(struct nand_chip *chip)
->  		chip->buf_align = 1;
->  
->  	chip->erase = nand_erase_nand;
-> +	chip->write_oob = nand_write_oob_nand;
->  }
->  
->  /* Sanitize ONFI strings so we can safely print them */
-> diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-> index 505c13f7a2ba..7fbbd5d7088f 100644
-> --- a/include/linux/mtd/rawnand.h
-> +++ b/include/linux/mtd/rawnand.h
-> @@ -1021,6 +1021,7 @@ struct nand_legacy {
->   * @setup_read_retry:	[FLASHSPECIFIC] flash (vendor) specific function for
->   *			setting the read-retry mode. Mostly needed for MLC NAND.
->   * @erase:		Raw NAND erase operation.
-> + * @write_oob:		Raw NAND write operation.
->   * @ecc:		[BOARDSPECIFIC] ECC control structure
->   * @buf_align:		minimum buffer alignment required by a platform
->   * @oob_poi:		"poison value buffer," used for laying out OOB data
-> @@ -1092,6 +1093,8 @@ struct nand_chip {
->  	int (*setup_read_retry)(struct nand_chip *chip, int retry_mode);
->  	int (*erase)(struct nand_chip *chip, struct erase_info *instr,
->  		     int allowbbt);
-> +	int (*write_oob)(struct nand_chip *chip, loff_t to,
-> +			 struct mtd_oob_ops *ops);
->  
-
-Okay, so I'm not sure duplicating the nand_write_oob() logic is the
-best option here. I'd rather go for a post write_page() hook.
-
-Note that we probably want a post read_page() hook so we can flag
-pages as written by analyzing what's returned to the caller. That would
-saves us unneeded writes when the page has been read.
-
->  	unsigned int options;
->  	unsigned int bbt_options;
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGVsbG8sCgpUaGlzIHNlcmllcyBoYXMgYmVlbiBseWluZyBmb3IgYSBsb25nIHRpbWUgaW4gQm9y
+aXMnIHRyZWUsIGl0IGlzCmNsZWFuIGVub3VnaCB0byBiZSB1cHN0cmVhbWVkIG5vdy4KCkl0IGJh
+c2ljYWxseSBhbGxvd3MgdG8gd29yayAic2FmZWx5IiB3aXRoIE1MQyBOQU5EcywgZGV0YWlscyBp
+bnNpZGUuCgpJIHRlc3RlZCBpdCB3aXRoIGEgQy5ILkkuUCBhbmQgaXQgbG9va3Mgc3RhYmxlLiBN
+b3JlIGV4dGVuc2l2ZSB0ZXN0aW5nCmlzIHdlbGNvbWUuCgpDaGVlcnMsCk1pcXXDqGwKCkNoYW5n
+ZXMgaW4gdjI6CiogUmVtb3ZlZCB1bndhbnRlZCBmaWxlcyBzcG90dGVkIGJ5IEZsb3JpYW4uCiog
+QWRkIFJpY2hhcmQncyBBY2sgb24gdGhlICJyZWxheCB0aGUgbm8gTUxDIHJ1bGUiIHBhdGNoLgoq
+IFJlbmFtZSBNVERfTUxDX0lOX1NMQ19NT0RFIGludG8gTVREX1NMQ19PTl9NTENfRU1VTEFUSU9O
+LgoqIFJlbmFtZSB0aGUgaGVscGVyIG10ZF9vb2JfaW9fc2xjKCkgaW50byBtdGRfaW9fZW11bGF0
+ZWRfc2xjKCkuCiogQ2hhbmdlZCBib3VuY2luZyBlLW1haWwgYWRkcmVzcyBmcm9tIEJvcmlzIHRv
+IGhpcyBrZXJuZWwub3JnLgoKQm9yaXMgQnJlemlsbG9uICg4KToKICBtdGQ6IHJhd25hbmQ6IHRv
+c2hpYmE6IEFkZCBhIHNwZWNpZmljIGluaXQgZm9yIFRDNThURUc1RENMVEEwMAogIG10ZDogcmF3
+bmFuZDogRGVmaW5lIHRoZSAiZGlzdGFuY2UgMyIgTUxDIHBhaXJpbmcgc2NoZW1lCiAgbXRkOiBy
+YXduYW5kOiB0b3NoaWJhOiBTZXQgdGhlIHBhaXJpbmcgc2NoZW1lIGZvciBUQzU4VEVHNURDTFRB
+MDAKICBtdGQ6IEFkZCBzdXBwb3J0IGZvciBlbXVsYXRlZCBTTEMgbW9kZSBvbiBNTEMgTkFORHMK
+ICBkdC1iaW5kaW5nczogbXRkOiBwYXJ0aXRpb246IERvY3VtZW50IHRoZSBzbGMtbW9kZSBwcm9w
+ZXJ0eQogIG10ZDogcGFydGl0aW9uczogb2ZwYXJ0OiBQYXJzZSB0aGUgc2xjLW1vZGUgcHJvcGVy
+dHkKICBtdGQ6IGNtZGxpbmVwYXJ0OiBBZGQgYW4gc2xjIG9wdGlvbiB0byB1c2UgU0xDIG1vZGUg
+b24gYSBwYXJ0CiAgdWJpOiBSZWxheCB0aGUgJ25vIE1MQycgcnVsZSBhbmQgYWxsb3cgTUxDcyBv
+cGVyYXRpbmcgaW4gU0xDIG1vZGUKCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9tdGQvcGFydGl0
+aW9uLnR4dCAgICAgfCAgIDMgKwogZHJpdmVycy9tdGQvbXRkY29yZS5jICAgICAgICAgICAgICAg
+ICAgICAgICAgIHwgMTg5ICsrKysrKysrKysrKysrKystLQogZHJpdmVycy9tdGQvbXRkcGFydC5j
+ICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDU0ICsrLS0tCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9pbnRlcm5hbHMuaCAgICAgICAgICAgICAgfCAgIDMgKwogZHJpdmVycy9tdGQvbmFuZC9yYXcv
+bmFuZF9iYXNlLmMgICAgICAgICAgICAgIHwgIDUwICsrKysrCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9uYW5kX3Rvc2hpYmEuYyAgICAgICAgICAgfCAgMTQgKysKIGRyaXZlcnMvbXRkL3BhcnNlcnMv
+Y21kbGluZXBhcnQuYyAgICAgICAgICAgICB8ICAxMiArLQogZHJpdmVycy9tdGQvcGFyc2Vycy9v
+ZnBhcnQuYyAgICAgICAgICAgICAgICAgIHwgICAzICsKIGRyaXZlcnMvbXRkL3ViaS9idWlsZC5j
+ICAgICAgICAgICAgICAgICAgICAgICB8ICAgNSArLQogaW5jbHVkZS9saW51eC9tdGQvbXRkLmgg
+ICAgICAgICAgICAgICAgICAgICAgIHwgICA3ICstCiBpbmNsdWRlL2xpbnV4L210ZC9wYXJ0aXRp
+b25zLmggICAgICAgICAgICAgICAgfCAgIDIgKwogaW5jbHVkZS91YXBpL210ZC9tdGQtYWJpLmgg
+ICAgICAgICAgICAgICAgICAgIHwgICAxICsKIDEyIGZpbGVzIGNoYW5nZWQsIDMwMCBpbnNlcnRp
+b25zKCspLCA0MyBkZWxldGlvbnMoLSkKCi0tIAoyLjIwLjEKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24g
+bWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtbXRkLwo=
