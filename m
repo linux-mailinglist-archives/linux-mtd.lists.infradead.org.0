@@ -2,53 +2,73 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3C461C52E1
-	for <lists+linux-mtd@lfdr.de>; Tue,  5 May 2020 12:17:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A6D2A1C57BF
+	for <lists+linux-mtd@lfdr.de>; Tue,  5 May 2020 16:02:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SfSMBFrezOMTFQWOgTX6pw4HpRCxjrJy5qhknu0/8wU=; b=DhHOs9dMA6Q3Je
-	0LsPFyhrZAj40Jon3k5jz5A2JsFYj9+A4GWcmTWxEvZ7nQQ9j9mhq5LmnlibhODl8ybEuXy58YhSW
-	3Rg0l7dYNGWrALBdkwbataZMLG1xVzmwDg4xQwAr5/3N7sDnYBk+75mTrNKQHxJYZ8MARpxxV1Xaf
-	hrxrECGSMoDU1QFcrJgNyNzlCuzRV9yjGRxKanE2v7bBadBf/ddgLsXSvoG+9f8gsO0DOmfSpgfVc
-	2oymj0vEX9yHkZ7jLQCY0aAUE6b76Ytg1ppRK15Zj/cB4B3J9n97aOO6UMd6HJFnJ5HFwlBagA7+l
-	SBIbuo1S29iKcYkU9z+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vxnd+L2MuIpg1qgZB+NXM49U8VEtqKJlegRoAQcTuIc=; b=kJKOq9Ue+LnKZU
+	svcSFH4WMvVJoFoOv+xzCeXbUo9GtP6dNZV3sEZ1FuNgnuuPJ4yoT2WhNoZHQC7fdfruTYG3f6jhU
+	4agmxjzrJPAkgQ27wbIdu6xPurVn09Ia+wTc3eY0zlRm7UG28tB57Qgy24GB1PuLmA5xVMgmoXPGv
+	nMjCPzfynA9qwiVzeqXOB4sCOp3bjfeqEy0mY3wrrkauvJWnmhjy0RrPsRgHUm//ChGk8TKCok3bE
+	3Gy6jX7qxFMwDaGY3jMJLNrLPEvqIVWwUm90eWjxF/4SlAThOlkYgnvC/tJiZDf1lfdbfss2oACLq
+	xGErUyMgcZRcC+udz22A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jVudQ-0003it-AN; Tue, 05 May 2020 10:17:08 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jVy93-0001g3-Es; Tue, 05 May 2020 14:02:01 +0000
+Received: from mout.kundenserver.de ([212.227.17.24])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jVuaV-0007Ct-EA
- for linux-mtd@lists.infradead.org; Tue, 05 May 2020 10:14:09 +0000
-Received: from localhost.localdomain (unknown
- [IPv6:2a01:e0a:2c:6930:d3ea:1c7:41fd:3038])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 661622A1CFA;
- Tue,  5 May 2020 11:14:03 +0100 (BST)
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
- Lubomir Rintel <lkundrak@v3.sk>
-Subject: [PATCH v2 19/19] mtd: rawnand: cafe: Get rid of the last printk()
-Date: Tue,  5 May 2020 12:13:53 +0200
-Message-Id: <20200505101353.1776394-20-boris.brezillon@collabora.com>
-X-Mailer: git-send-email 2.25.3
-In-Reply-To: <20200505101353.1776394-1-boris.brezillon@collabora.com>
-References: <20200505101353.1776394-1-boris.brezillon@collabora.com>
+ id 1jVy8v-0001eT-SJ
+ for linux-mtd@lists.infradead.org; Tue, 05 May 2020 14:01:55 +0000
+Received: from localhost.localdomain ([149.172.19.189]) by
+ mrelayeu.kundenserver.de (mreue106 [212.227.15.145]) with ESMTPA (Nemesis) id
+ 1MuDsZ-1jHTUl1QxZ-00uWRX; Tue, 05 May 2020 16:01:38 +0200
+From: Arnd Bergmann <arnd@arndb.de>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Vincenzo Aliberti <vincenzo.aliberti@gmail.com>,
+ Brian Norris <computersforpeace@gmail.com>
+Subject: [PATCH] mtd: lpddr: fix excessive stack usage with clang
+Date: Tue,  5 May 2020 16:01:16 +0200
+Message-Id: <20200505140136.263461-1-arnd@arndb.de>
+X-Mailer: git-send-email 2.26.0
 MIME-Version: 1.0
+X-Provags-ID: V03:K1:iaIPMXhwT+Ozi6/EpaDCzPQ6tOZ0YRFJlPmWlpkMXIOGy4GtadE
+ 2Z+LvOLt48OWBL8tlphxtGjgLmEv5xt9TTGL54IbLKq9dBjrTyohtYUyJgkuQXyGFBJuxzc
+ 6osWPaVYP906+AjTqqJo7C8bulY+GI4nc8qQYAYy/TF4rtBahP77hmt5uWz15rbdppHrlZ1
+ d2CaYJdcLUkSTeHBRS/3Q==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:ZKEdyWcVvbU=:zYkDpW+KkqOFvxVL4/YtNm
+ 9RlRgywDUlI6jWeDBe9CgT6v4zfsrTYQx9nUJBpcgMa1WwlbhNH+MYM8vGwR6zecGtm/xoqH2
+ GsLnyQytBgbIyv6dibT0Un4WucwiF1kgU2Dw2cCbkBmHF2tjhxBI1lsyZZcEiBD09JW539gOy
+ B2DwwiGt1ARK+9SXIGsEAEh/R4IhX9XWgvR3/35YJc0+0NiOXuEevJPbDmMS8WNwc0iKCO9C5
+ 6QhAnXFNVGfRuDv5FZGzYGq1d8Yf1MgAJpylYydDSflY3PSaUuIBavOTvq+0YJ+4Uhj/SO49J
+ UBhgVHGa/th64j4rCrhZ2puCZZRSXmLFg1gurJYVTVUbMWxbdPeywDtaNPLrkjcuNRPCPbGDs
+ vahrHJP9tGpIZDhp3cTatj9www2/VrSG9bezmcdCY3Y6Gjra81B5tzJi+z2tAejKO1bdoA3eI
+ e1kEvWTFqJEkgRbRM3yBGP/J8iEEZH65eUbaVpoZk+AGWV4nGA6/ZWhMSlWD7yqcsssVz2ptK
+ B7gazvUT31WlAJwYWPU9u7mwAGttdJvPMtZF7g0bblT46ydiDoBAVjVhqi7sZa7slRw+3fZsC
+ WRAE6KxqjAB8rH2pGfvGJnmF7UWlfIQdNI1mjjmhWNhm7ICV+BONcVnpj9zM6Xc1kYGTTGl7x
+ sJAk9yh9Fs1AaW+O1fOfFjnW2ApxftOdLkAAFVc8y0JbZUhaNykwjJcIwTo/dL10KVPoOT+pO
+ shuX5bITpPs9W9S0y3YkJIJTkHW4N90ZNkF2DuTyr5DP1JtiKLCL85NbGDKIEN+S/a35DRqdA
+ T2TdfwELWOQHqK+OeflGC5Bo4P0y9AgaidrVeSz5sZp+KV3yWk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200505_031407_637601_3063B981 
-X-CRM114-Status: GOOD (  10.71  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200505_070154_211081_28F71512 
+X-CRM114-Status: GOOD (  15.19  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [212.227.17.24 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
+ [212.227.17.24 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -60,40 +80,95 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
+Cc: Richard Fontana <rfontana@redhat.com>, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Replace the last printk() by a dev_dbg().
+Building lpddr2_nvm with clang can result in a giant stack usage
+in one function:
 
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+drivers/mtd/lpddr/lpddr2_nvm.c:399:12: error: stack frame size of 1144 bytes in function 'lpddr2_nvm_probe' [-Werror,-Wframe-larger-than=]
+
+The problem is that clang decides to build a copy of the mtd_info
+structure on the stack and then do a memcpy() into the actual version. It
+shouldn't really do it that way, but it's not strictly a bug either.
+
+As a workaround, use a static const version of the structure to assign
+most of the members upfront and then only set the few members that
+require runtime knowledge at probe time.
+
+Fixes: 96ba9dd65788 ("mtd: lpddr: add driver for LPDDR2-NVM PCM memories")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/mtd/nand/raw/cafe_nand.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/mtd/lpddr/lpddr2_nvm.c | 35 ++++++++++++++++++----------------
+ 1 file changed, 19 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/cafe_nand.c b/drivers/mtd/nand/raw/cafe_nand.c
-index 2f20032b4df7..9df02ad951d8 100644
---- a/drivers/mtd/nand/raw/cafe_nand.c
-+++ b/drivers/mtd/nand/raw/cafe_nand.c
-@@ -315,8 +315,9 @@ static int cafe_nand_read_page(struct nand_chip *chip, u8 *buf,
- 				"Failed to correct ECC at %08x\n",
- 				readl(cafe->mmio + CAFE_NAND_ADDR2) * 2048);
- 			for (i = 0; i < 0x5c; i += 4)
--				printk("Register %x: %08x\n", i,
--				       readl(cafe->mmio + i));
-+				dev_dbg(&cafe->pdev->dev,
-+					"Register %x: %08x\n", i,
-+					readl(cafe->mmio + i));
- 			mtd->ecc_stats.failed++;
- 		} else {
- 			dev_dbg(&cafe->pdev->dev, "Corrected %d symbol errors\n", n);
+diff --git a/drivers/mtd/lpddr/lpddr2_nvm.c b/drivers/mtd/lpddr/lpddr2_nvm.c
+index 0f1547f09d08..72f5c7b30079 100644
+--- a/drivers/mtd/lpddr/lpddr2_nvm.c
++++ b/drivers/mtd/lpddr/lpddr2_nvm.c
+@@ -393,6 +393,17 @@ static int lpddr2_nvm_lock(struct mtd_info *mtd, loff_t start_add,
+ 	return lpddr2_nvm_do_block_op(mtd, start_add, len, LPDDR2_NVM_LOCK);
+ }
+ 
++static const struct mtd_info lpddr2_nvm_mtd_info = {
++	.type		= MTD_RAM,
++	.writesize	= 1,
++	.flags		= (MTD_CAP_NVRAM | MTD_POWERUP_LOCK),
++	._read		= lpddr2_nvm_read,
++	._write		= lpddr2_nvm_write,
++	._erase		= lpddr2_nvm_erase,
++	._unlock	= lpddr2_nvm_unlock,
++	._lock		= lpddr2_nvm_lock,
++};
++
+ /*
+  * lpddr2_nvm driver probe method
+  */
+@@ -433,6 +444,7 @@ static int lpddr2_nvm_probe(struct platform_device *pdev)
+ 		.pfow_base	= OW_BASE_ADDRESS,
+ 		.fldrv_priv	= pcm_data,
+ 	};
++
+ 	if (IS_ERR(map->virt))
+ 		return PTR_ERR(map->virt);
+ 
+@@ -444,22 +456,13 @@ static int lpddr2_nvm_probe(struct platform_device *pdev)
+ 		return PTR_ERR(pcm_data->ctl_regs);
+ 
+ 	/* Populate mtd_info data structure */
+-	*mtd = (struct mtd_info) {
+-		.dev		= { .parent = &pdev->dev },
+-		.name		= pdev->dev.init_name,
+-		.type		= MTD_RAM,
+-		.priv		= map,
+-		.size		= resource_size(add_range),
+-		.erasesize	= ERASE_BLOCKSIZE * pcm_data->bus_width,
+-		.writesize	= 1,
+-		.writebufsize	= WRITE_BUFFSIZE * pcm_data->bus_width,
+-		.flags		= (MTD_CAP_NVRAM | MTD_POWERUP_LOCK),
+-		._read		= lpddr2_nvm_read,
+-		._write		= lpddr2_nvm_write,
+-		._erase		= lpddr2_nvm_erase,
+-		._unlock	= lpddr2_nvm_unlock,
+-		._lock		= lpddr2_nvm_lock,
+-	};
++	*mtd = lpddr2_nvm_mtd_info;
++	mtd->dev.parent		= &pdev->dev;
++	mtd->name		= pdev->dev.init_name;
++	mtd->priv		= map;
++	mtd->size		= resource_size(add_range);
++	mtd->erasesize		= ERASE_BLOCKSIZE * pcm_data->bus_width;
++	mtd->writebufsize	= WRITE_BUFFSIZE * pcm_data->bus_width;
+ 
+ 	/* Verify the presence of the device looking for PFOW string */
+ 	if (!lpddr2_nvm_pfow_present(map)) {
 -- 
-2.25.3
+2.26.0
 
 
 ______________________________________________________
