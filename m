@@ -2,47 +2,40 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 60ED81C7BC4
-	for <lists+linux-mtd@lfdr.de>; Wed,  6 May 2020 23:00:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 65D1C1C7C0B
+	for <lists+linux-mtd@lfdr.de>; Wed,  6 May 2020 23:11:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WHfYEmP5UTWNJvkg3DYIxJ0LBDFCMqTaSyfYY1UEZr8=; b=qzTK8VzT/6p7Mu
-	WfoF/LDV3DBp1Er7DCpb+DqQNL+hSNwnS0QZoJfeBzQs5rzkYxqPSosmUaDfBJuh5+8Y4zIYVzk02
-	eGeJB70VbCxo8GCQbzhZ6wQwSzuBEg6dj9DG1kaAs1+OUmrI52ppjIFh1JMmNRzV4lW/54j+Nro/e
-	5yQdxI2ah6dmb9zyeqpdHQmFtw/PUsJadCe+EihHJ4gMioENHdaNTJ+K13C735XWNc21q6q8SflRI
-	HpzFg3nBpYYOHvAMGLBcm0617AY7BWWEtRFjanbMMnyXFQmp9DluO2MC46a3PRDvn9I3RCikr5w8p
-	6tqm7DdwoJdJ/r7xVidg==;
+	List-Owner; bh=IOKAWshT7mEFi3EWkY4qI+2LZvesMFyfX3rPcGZHAA4=; b=heSluaXU+/n5mR
+	EWpQd7skaz35wxozpxDWu8TLttde/h2WF+1ywPLgdPuRMw0OELspHPwSs5D2BlKzgH7hhRKSbOkej
+	o/0wLjPElxhKCFBWJkzjzb0duSq4TvuSIUdO9DW6ae0+wLfSs0cPMFktUAmtrbr/pQ2XfT9UZpES8
+	ZWR+giJUpd8ccUL004TZmt/LtP/X2hgqmKZcILq0MD231mIGc01+vbahAoeVm16AgrVYuyvZ4X/+m
+	J8bt0woQAHhqeWgPu4p2/PFt3N/ZUp/s39IyIc7KZgUT9NS/GAkLWpQFSEVokdNWLJV7/qBoOnSdp
+	sPdiuyOld4963uClS+tw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWR9Q-0000hQ-Uc; Wed, 06 May 2020 21:00:20 +0000
-Received: from lithops.sigma-star.at ([195.201.40.130])
+	id 1jWRKB-0002so-Nc; Wed, 06 May 2020 21:11:27 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWR8p-0000Ou-Rm
- for linux-mtd@lists.infradead.org; Wed, 06 May 2020 20:59:45 +0000
-Received: from localhost (localhost [127.0.0.1])
- by lithops.sigma-star.at (Postfix) with ESMTP id 7E7BF609D2CC;
- Wed,  6 May 2020 22:59:40 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
- by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10032)
- with ESMTP id kRHseWuFZAyF; Wed,  6 May 2020 22:59:40 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
- by lithops.sigma-star.at (Postfix) with ESMTP id 267A8609D2FA;
- Wed,  6 May 2020 22:59:40 +0200 (CEST)
-Received: from lithops.sigma-star.at ([127.0.0.1])
- by localhost (lithops.sigma-star.at [127.0.0.1]) (amavisd-new, port 10026)
- with ESMTP id ZzbVuXZbVJWV; Wed,  6 May 2020 22:59:40 +0200 (CEST)
-Received: from lithops.sigma-star.at (lithops.sigma-star.at [195.201.40.130])
- by lithops.sigma-star.at (Postfix) with ESMTP id F12F6609D2CC;
- Wed,  6 May 2020 22:59:39 +0200 (CEST)
-Date: Wed, 6 May 2020 22:59:39 +0200 (CEST)
-From: Richard Weinberger <richard@nod.at>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Message-ID: <130342272.192940.1588798779898.JavaMail.zimbra@nod.at>
-In-Reply-To: <20200506224016.2d48d0b4@collabora.com>
+ id 1jWRK5-0002sH-At
+ for linux-mtd@lists.infradead.org; Wed, 06 May 2020 21:11:22 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 869602A23D7;
+ Wed,  6 May 2020 22:11:19 +0100 (BST)
+Date: Wed, 6 May 2020 23:11:16 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Richard Weinberger <richard@nod.at>
+Subject: Re: [EXT] [PATCH v2 3/3] mtd: rawnand: micron: Address the shallow
+ erase issue
+Message-ID: <20200506231116.2d16b747@collabora.com>
+In-Reply-To: <130342272.192940.1588798779898.JavaMail.zimbra@nod.at>
 References: <20200503114029.30257-1-miquel.raynal@bootlin.com>
  <BN7PR08MB5684D8DFC50CB93B53705619DBA40@BN7PR08MB5684.namprd08.prod.outlook.com>
  <20200506180420.13996633@collabora.com>
@@ -51,24 +44,20 @@ References: <20200503114029.30257-1-miquel.raynal@bootlin.com>
  <20200506210158.7fe33cec@collabora.com>
  <662469728.192614.1588792998746.JavaMail.zimbra@nod.at>
  <20200506224016.2d48d0b4@collabora.com>
-Subject: Re: [EXT] [PATCH v2 3/3] mtd: rawnand: micron: Address the shallow
- erase issue
+ <130342272.192940.1588798779898.JavaMail.zimbra@nod.at>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-Originating-IP: [195.201.40.130]
-X-Mailer: Zimbra 8.8.12_GA_3807 (ZimbraWebClient - FF68 (Linux)/8.8.12_GA_3809)
-Thread-Topic: rawnand: micron: Address the shallow erase issue
-Thread-Index: vfLlf5cskDdYdM8NOQWP5QHfvrq9Mg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200506_135944_044496_830FB2F8 
-X-CRM114-Status: UNSURE (   5.45  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200506_141121_503671_1B84057F 
+X-CRM114-Status: GOOD (  13.71  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,16 +83,34 @@ Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-LS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAtLS0tLQo+PiBVQkkgc2NhbnMgb25seSBoZWFkZXJz
-IGR1cmluZyBhdHRhY2guIElmIHlvdSBkb24ndCB0b3VjaCB0aGVzZSwgbm8gd2F5Lgo+IAo+IFNv
-cnJ5LCBJIG1pc3VuZGVyc3Rvb2Qgd2hhdCB5b3UgbWVhbnQgYnkgcGF5bG9hZC4gVUJJIHNob3Vs
-ZCBzY2hlZHVsZQo+IHRoZSBQRUIgZm9yIGVyYXNlIGlmIHRoZSBFQy9WSUQgaGVhZGVyIGlzIGNv
-cnJ1cHRlZC4KClVCSSBldmVuIHRyaWVzIHRvIHJlY292ZXIgZnJvbSBzdWNoIGEgc2l0dWF0aW9u
-LiBJZiBvbmx5IHRoZSBFQyBoZWFkZXIgaXMgYmFkLAppdCB3aWxsIGNyZWF0ZSBhIG5ldyBvbmUu
-IE9ubHkgb2YgdGhlIFZJRCBoZWFkZXIgaXMgYmFkL21pc3NpbmcgYW5kIHRoZSBwYXlsb2FkCmlz
-IGNvcnJ1cHRlZCAoRUNDIGVycm9ycyBvciBiaXQtZmxpcHMpIGl0IHdpbGwgZXJhc2UgaXQuCgpB
-IG1pc3NpbmcgVklEIGhlYWRlciBwbHVzIGdvb2QgcGF5bG9hZCB3aWxsIGNhdXNlIFVCSSB0byBz
-dG9wIGF0dGFjaGluZyBzaW5jZSBpdAp2aW9sYXRlcyB0aGUgSU8gbW9kZWwuCgpUaGFua3MsCi8v
-cmljaGFyZAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
+T24gV2VkLCA2IE1heSAyMDIwIDIyOjU5OjM5ICswMjAwIChDRVNUKQpSaWNoYXJkIFdlaW5iZXJn
+ZXIgPHJpY2hhcmRAbm9kLmF0PiB3cm90ZToKCj4gLS0tLS0gVXJzcHLDvG5nbGljaGUgTWFpbCAt
+LS0tLQo+ID4+IFVCSSBzY2FucyBvbmx5IGhlYWRlcnMgZHVyaW5nIGF0dGFjaC4gSWYgeW91IGRv
+bid0IHRvdWNoIHRoZXNlLCBubyB3YXkuICAKPiA+IAo+ID4gU29ycnksIEkgbWlzdW5kZXJzdG9v
+ZCB3aGF0IHlvdSBtZWFudCBieSBwYXlsb2FkLiBVQkkgc2hvdWxkIHNjaGVkdWxlCj4gPiB0aGUg
+UEVCIGZvciBlcmFzZSBpZiB0aGUgRUMvVklEIGhlYWRlciBpcyBjb3JydXB0ZWQuICAKPiAKPiBV
+QkkgZXZlbiB0cmllcyB0byByZWNvdmVyIGZyb20gc3VjaCBhIHNpdHVhdGlvbi4gSWYgb25seSB0
+aGUgRUMgaGVhZGVyIGlzIGJhZCwKPiBpdCB3aWxsIGNyZWF0ZSBhIG5ldyBvbmUuIE9ubHkgb2Yg
+dGhlIFZJRCBoZWFkZXIgaXMgYmFkL21pc3NpbmcgYW5kIHRoZSBwYXlsb2FkCj4gaXMgY29ycnVw
+dGVkIChFQ0MgZXJyb3JzIG9yIGJpdC1mbGlwcykgaXQgd2lsbCBlcmFzZSBpdC4KClllcCwgSSBy
+ZW1lbWJlciB0aGF0LCB0aG91Z2ggaW4gdGhlIGNhc2Ugb2YgYSBjb3JydXB0ZWQgRUMsIFVCSSB3
+aWxsCnNjaGVkdWxlIGEgUEVCIHJlY292ZXJ5LCBhbmQgaWYgdGhlIHBheWxvYWQgaXMgY29ycnVw
+dGVkLCB0aGUgcmVhZApzaG91bGQgZmFpbCB3aGVuIGNvcHlpbmcgdGhlIExFQiBjb250ZW50IHRv
+IGFub3RoZXIgYmxvY2suCgo+IAo+IEEgbWlzc2luZyBWSUQgaGVhZGVyIHBsdXMgZ29vZCBwYXls
+b2FkIHdpbGwgY2F1c2UgVUJJIHRvIHN0b3AgYXR0YWNoaW5nIHNpbmNlIGl0Cj4gdmlvbGF0ZXMg
+dGhlIElPIG1vZGVsLgoKU3VyZSwgYW5kIHRoYXQncyBub3Qgd2hhdCB3ZSB3YW50IHRvIGRvIGFu
+eXdheS4gV2UgYmFzaWNhbGx5IGhhdmUgMgpjaG9pY2VzIGhlcmU6CgoxLyBvdmVyd3JpdGUgYWxs
+IHBhZ2VzIHN0YXJ0aW5nIGZyb20gcGFnZSAwIGFuZCBlbmRpbmcgYXQgcGFnZSAxNS4gVGhpcwp3
+aWxsIGxlYWQgdG8gRUNDIGVycm9ycyBvbiBhbHJlYWR5IHdyaXR0ZW4gcGFnZXMsIGFuZCAwLWZp
+bGxlZCBwYWdlcwpmb3Igb3RoZXJzICh1bmxlc3Mgd2UgZ28gZm9yIGEgcmF3IHdyaXRlLCBpbiB3
+aGljaCBjYXNlIGl0IG1pZ2h0CmFjdHVhbGx5IGxlYWQgdG8gRUNDIGVycm9ycyBkZXBlbmRpbmcg
+b24gdGhlIGVuZ2luZSkuCjIvIHRyYWNrIGFscmVhZHkgd3JpdHRlbiBwYWdlcyAoYnkgcmVhZGlu
+ZyB0aGVtIGZpcnN0KSwgYW5kIG9ubHkgd3JpdGVzCnRob3NlIHRoYXQgaGF2ZSBub3QgYmVlbiB3
+cml0dGVuIHlldC4gVGhhdCBtZWFucyBubyBFQ0MgZXJyb3IgaW4gdGhhdApjYXNlLCBhbmQgbm8g
+Y29ycnVwdGVkIEVDL1ZJRCBoZWFkZXIgYXMgd2VsbC4KCkNsZWFybHksICMyIHdvdWxkIGhlbHAg
+bWl0aWdhdGUgdGhlIHBlcmYgcGVuYWx0eSBpbmN1cnJlZCBieSB0aGUgTWljcm9uCndvcmthcm91
+bmQsIGJ1dCBpZiBpdCdzIG5vdCBhbiBvcHRpb24sIG1heWJlIHdlIGNhbiBqdXN0IHN0YXJ0IHdp
+dGgKIzEgKHdoaWNoIGlzIGJhc2ljYWxseSB3aGF0IE1pcXVlbCBpbXBsZW1lbnRlZCkuCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXgg
+TVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
