@@ -2,50 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEBE21C99DE
-	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 20:51:46 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 098581C9A15
+	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 20:56:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
 	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Y4wViwuaOlIzGpHKFQJBoV9Mi4oT0t4Gjxd6Jz9rr2c=; b=b6hTTVRwUn4WPA
-	dgRxkNr6pLWLjP4h2QvgadObbQfHYZOG4NgwgrRxwyI5+2lQwsur42hq/rF6cP3UomaCBTTYR8XzB
-	1okmnpRK1+D1V2eSTQXuxSOh5A68/JPk5fQj2NImr6ZJzaswL7N4k7BG93KQl/z/dm+pyg8VIERqo
-	mu7J03o4RxMFOFfI1XAOppw0stCrKVhPb/pOqbKvTRRRuEEHATVovXBQxydmt7QwTAITzsn2NSIQi
-	Jq7Q8EuH4wVHpi72k8BmGAm6k3pulxG/xJc7HEdgFfpHtCCbBykG39bMikgXP5TDGB3DzvOyFJwfF
-	X7sNib7wUxXGzD2x/fIA==;
+	List-Owner; bh=i2pxnw3Uf5RTogvlHK1o4eYdsV0D1FzuobqYn2PkMA0=; b=uR5B5OdKjBRWb4
+	CGV0fyj53bhE1BbsDCqOHQF2fj5lDmFBGy+ImS+sv931sNYX6W4Akr3SLwues65JQo4VijJlsq4gF
+	e44r8eL0rATbJSxGGtE6E0g95Hyix+g1w9inr94keZXBwYM1emP4lGaEoA6p+NP3QNTB/Al7AL/ZE
+	cFSmDdV9InRdeWOLMUOqnZr2pDvh0QwD7vdgSR4zr0j/ZzQqTxkGsKvCcLqsEG2VD49XcDUgwqiC/
+	9EsN52Cpolol73J100FnEi/+inXJrwvVyBhRQ4GDFU6chqMTi09LAoaBJLMvQSpY6GpTXWjclnEq+
+	5o6WgH7/eZza25sbVBwg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWlcS-0007Sp-Jf; Thu, 07 May 2020 18:51:40 +0000
+	id 1jWlgv-0002QB-B1; Thu, 07 May 2020 18:56:17 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWlcH-0007S6-O5
- for linux-mtd@lists.infradead.org; Thu, 07 May 2020 18:51:32 +0000
+ id 1jWlgm-0002PL-AW
+ for linux-mtd@lists.infradead.org; Thu, 07 May 2020 18:56:09 +0000
 Received: from embeddedor (unknown [189.207.59.248])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 09BEA24957;
- Thu,  7 May 2020 18:51:28 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 59D6D20575;
+ Thu,  7 May 2020 18:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1588877489;
- bh=jpe2+TjrMnwu2H2dyg8faPNc4w8u0PpZiuofrEf/xT4=;
+ s=default; t=1588877766;
+ bh=zfyJqFsl52hg8MspTQ7ZLvYaM+kZM5XIzKGPNp9tS0M=;
  h=Date:From:To:Cc:Subject:From;
- b=hz8cQChXh4vf4srecpx8AKf9ARB4tro3ux3p9bC04rzou9lBEqxu5pkbcV3YwAtr2
- XUwYFhyS8iTI6CUN6Q+S9Uc74jYWdfW+65avnCLWTDVyt3HsikQ5A5dw0XkdBBQl+x
- oPrZRUZlVP/L2sy9TBxninEpu8ywVfKmb8NKsai0=
-Date: Thu, 7 May 2020 13:55:55 -0500
+ b=lUIjDc43mnN3s1tQ3rk7rBVGyC4MQITWAKNnSvlP9Os25A3B2tkhR7fBcPW0JBvHk
+ NRIC3bHkeU4TjjB/eGKYGj9P8FFvdPIyHfZUg03GQZIDfJGEAomxShu/5ZWSu5uPvf
+ 0wXiAARkdO4CTdsE34effG0LjFiwQxu12v4CmONc=
+Date: Thu, 7 May 2020 14:00:33 -0500
 From: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>, Richard Weinberger <richard@nod.at>
-Subject: [PATCH] jffs2: Replace zero-length array with flexible-array
-Message-ID: <20200507185555.GA14739@embeddedor>
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: [PATCH] mtd: Replace zero-length array with flexible-array
+Message-ID: <20200507190033.GA15215@embeddedor>
 MIME-Version: 1.0
 Content-Disposition: inline
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_115130_933953_2066C63C 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20200507_115608_406966_FCA24B8B 
+X-CRM114-Status: GOOD (  14.32  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -117,45 +118,54 @@ This issue was found with the help of Coccinelle.
 
 Signed-off-by: Gustavo A. R. Silva <gustavoars@kernel.org>
 ---
- fs/jffs2/nodelist.h |    2 +-
- fs/jffs2/summary.h  |    4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ include/linux/mtd/cfi.h   |    6 +++---
+ include/linux/mtd/qinfo.h |    2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/fs/jffs2/nodelist.h b/fs/jffs2/nodelist.h
-index 0637271f3770..8ff4d1a1e774 100644
---- a/fs/jffs2/nodelist.h
-+++ b/fs/jffs2/nodelist.h
-@@ -259,7 +259,7 @@ struct jffs2_full_dirent
- 	uint32_t ino; /* == zero for unlink */
- 	unsigned int nhash;
- 	unsigned char type;
--	unsigned char name[0];
-+	unsigned char name[];
+diff --git a/include/linux/mtd/cfi.h b/include/linux/mtd/cfi.h
+index c98a21108688..fd1ecb821106 100644
+--- a/include/linux/mtd/cfi.h
++++ b/include/linux/mtd/cfi.h
+@@ -138,7 +138,7 @@ struct cfi_ident {
+ 	uint16_t InterfaceDesc;
+ 	uint16_t MaxBufWriteSize;
+ 	uint8_t  NumEraseRegions;
+-	uint32_t EraseRegionInfo[0]; /* Not host ordered */
++	uint32_t EraseRegionInfo[]; /* Not host ordered */
+ } __packed;
+ 
+ /* Extended Query Structure for both PRI and ALT */
+@@ -165,7 +165,7 @@ struct cfi_pri_intelext {
+ 	uint16_t ProtRegAddr;
+ 	uint8_t  FactProtRegSize;
+ 	uint8_t  UserProtRegSize;
+-	uint8_t  extra[0];
++	uint8_t  extra[];
+ } __packed;
+ 
+ struct cfi_intelext_otpinfo {
+@@ -286,7 +286,7 @@ struct cfi_private {
+ 	map_word sector_erase_cmd;
+ 	unsigned long chipshift; /* Because they're of the same type */
+ 	const char *im_name;	 /* inter_module name for cmdset_setup */
+-	struct flchip chips[0];  /* per-chip data structure for each chip */
++	struct flchip chips[];  /* per-chip data structure for each chip */
  };
  
- /*
-diff --git a/fs/jffs2/summary.h b/fs/jffs2/summary.h
-index 60207a2ae952..e4131cb1f1d4 100644
---- a/fs/jffs2/summary.h
-+++ b/fs/jffs2/summary.h
-@@ -61,7 +61,7 @@ struct jffs2_sum_dirent_flash
- 	jint32_t ino; 		/* == zero for unlink */
- 	uint8_t nsize;		/* dirent name size */
- 	uint8_t type;		/* dirent type */
--	uint8_t name[0];	/* dirent name */
-+	uint8_t name[];	/* dirent name */
- } __attribute__((packed));
+ uint32_t cfi_build_cmd_addr(uint32_t cmd_ofs,
+diff --git a/include/linux/mtd/qinfo.h b/include/linux/mtd/qinfo.h
+index df5b9fddea16..2e3f43788d48 100644
+--- a/include/linux/mtd/qinfo.h
++++ b/include/linux/mtd/qinfo.h
+@@ -24,7 +24,7 @@ struct lpddr_private {
+ 	struct qinfo_chip *qinfo;
+ 	int numchips;
+ 	unsigned long chipshift;
+-	struct flchip chips[0];
++	struct flchip chips[];
+ };
  
- struct jffs2_sum_xattr_flash
-@@ -117,7 +117,7 @@ struct jffs2_sum_dirent_mem
- 	jint32_t ino; 		/* == zero for unlink */
- 	uint8_t nsize;		/* dirent name size */
- 	uint8_t type;		/* dirent type */
--	uint8_t name[0];	/* dirent name */
-+	uint8_t name[];	/* dirent name */
- } __attribute__((packed));
- 
- struct jffs2_sum_xattr_mem
+ /* qinfo_query_info structure contains request information for
 
 
 ______________________________________________________
