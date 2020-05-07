@@ -2,62 +2,60 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 493821C82D7
-	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 08:48:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0CC161C83DD
+	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 09:54:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0RfsJF6sgtD/BdHehdz1OKg92sHmXXFO/cMwY5+X7ss=; b=e5OtwceuoDZYkC
-	nMoquuy8b6uYKrXRoSzJLHhDRxOApkSwFRMh5C6vLkWBWZeFA+AphQbsttBq4DxQmDDRvItNTK+wk
-	NzQIkfH5/cbeigChu7XsWYncCKZdFDQ0pW87soYRVD33pLzucqDffaEjMjjQtzEhlaI85gJddUxfZ
-	KsOaEODdRv/o7haGIjM+OUW2IBO90nLE+Zmvz2KrOu/GiJObLk1Nmi/mFpSpT1TjyytUI0N08AdJW
-	oZ6/4Eg49MioqzTtQmGcKNiYsRerQKttfBTyXwE+MH7sL95RBinOZ+KWEqBNvCsBg7xFI4EiH5rTE
-	Mt2kD/poDdt8wHAe4hbw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=J6kU1bJFmAOWSm0TIiMc/Z+BOhlc+PHAiGNanRVcexc=; b=tPxSKz4gNIHa8IOpvsqDf1FKw
+	8eKjYcGoQsEnJiijxpv5pGiLDGbZAWqVPHO5BQ5tZV8GEr0SCG9SQ+IxkNGtbcEN0+G398iPf+5ZO
+	O2iExcbsYN9FnpeK+kil9U1aZhVBw0Es1tEqBcGZil3xRaj7lQIXEtCi8RvLJCrbySr8LYg57xGnF
+	BWvTZP9WHZGhd75UTHUS/IhmuKQQ1llOkFK43B5i+UBOahFNr0Tp4DKP7+1xLTxhu6eWQc5LB23tY
+	Kbs+2dl/QWfxnfUzwLf99e2oT3VsXVn2O7cA4Q+L1IBntzdz0ROEPVz7HogFwnzn3cyoYFikDtxhy
+	sWflLGUaA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWaKr-000101-JU; Thu, 07 May 2020 06:48:45 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jWbM5-0007dM-WC; Thu, 07 May 2020 07:54:06 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWaKj-0000z8-QI
- for linux-mtd@lists.infradead.org; Thu, 07 May 2020 06:48:39 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 4FF7D2A27B2;
- Thu,  7 May 2020 07:48:34 +0100 (BST)
-Date: Thu, 7 May 2020 08:48:31 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: "Ramuthevar, Vadivel MuruganX"
- <vadivel.muruganx.ramuthevar@linux.intel.com>
-Subject: Re: [PATCH v5 2/2] mtd: rawnand: Add NAND controller support on
- Intel LGM SoC
-Message-ID: <20200507084831.1483b19a@collabora.com>
-In-Reply-To: <69a06362-1f9d-bf65-4a9b-98fc6b63a391@linux.intel.com>
-References: <20200507001537.4034-1-vadivel.muruganx.ramuthevar@linux.intel.com>
- <20200507001537.4034-3-vadivel.muruganx.ramuthevar@linux.intel.com>
- <20200507072831.1bf7f784@collabora.com>
- <440c0002-e572-7b8b-ba08-773932370eb0@linux.intel.com>
- <20200507082730.6425cd96@collabora.com>
- <69a06362-1f9d-bf65-4a9b-98fc6b63a391@linux.intel.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1jWbLw-0007cj-JA
+ for linux-mtd@lists.infradead.org; Thu, 07 May 2020 07:53:58 +0000
+Received: from DGGEMS401-HUB.china.huawei.com (unknown [172.30.72.58])
+ by Forcepoint Email with ESMTP id 1481E6579506A334BFF2;
+ Thu,  7 May 2020 15:53:44 +0800 (CST)
+Received: from [127.0.0.1] (10.67.102.197) by DGGEMS401-HUB.china.huawei.com
+ (10.3.19.201) with Microsoft SMTP Server id 14.3.487.0; Thu, 7 May 2020
+ 15:53:38 +0800
+Subject: ping; [PATCH v4] mtd: clear cache_state to avoid writing to bad
+ blocks repeatedly
+To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>
+References: <1585618319-119741-1-git-send-email-nixiaoming@huawei.com>
+From: Xiaoming Ni <nixiaoming@huawei.com>
+Message-ID: <528b61f3-bddb-d508-8f18-37cebec9e5eb@huawei.com>
+Date: Thu, 7 May 2020 15:53:32 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
 MIME-Version: 1.0
+In-Reply-To: <1585618319-119741-1-git-send-email-nixiaoming@huawei.com>
+X-Originating-IP: [10.67.102.197]
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200506_234837_982836_9428EC42 
-X-CRM114-Status: GOOD (  22.39  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200507_005356_797993_77F2DD77 
+X-CRM114-Status: GOOD (  18.59  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [45.249.212.191 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [45.249.212.191 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,95 +67,85 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: cheol.yong.kim@intel.com, devicetree@vger.kernel.org, qi-ming.wu@intel.com,
- anders.roxell@linaro.org, vigneshr@ti.com, arnd@arndb.de,
- hauke.mehrtens@intel.com, richard@nod.at, brendanhiggins@google.com,
- linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, robh+dt@kernel.org,
- linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com, tglx@linutronix.de,
- masonccyang@mxic.com.tw, andriy.shevchenko@intel.com
-Content-Type: text/plain; charset="us-ascii"
+Cc: wangle6@huawei.com, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, zhangweimin12@huawei.com, houtao1@huawei.com,
+ yebin10@huawei.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, 7 May 2020 14:38:52 +0800
-"Ramuthevar, Vadivel MuruganX"
-<vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
+ping
 
-> Hi Boris,
+On 2020/3/31 9:31, Xiaoming Ni wrote:
+> The function call process is as follows:
+> 	mtd_blktrans_work()
+> 	  while (1)
+> 	    do_blktrans_request()
+> 	      mtdblock_writesect()
+> 	        do_cached_write()
+> 	          write_cached_data() /*if cache_state is STATE_DIRTY*/
+> 	            erase_write()
 > 
->    Thank you very much for the review comments and your time...
+> write_cached_data() returns failure without modifying cache_state
+> and cache_offset. So when do_cached_write() is called again,
+> write_cached_data() will be called again to perform erase_write()
+> on the same cache_offset.
 > 
-> On 7/5/2020 2:27 pm, Boris Brezillon wrote:
-> > On Thu, 7 May 2020 14:13:42 +0800
-> > "Ramuthevar, Vadivel MuruganX"
-> > <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
-> >   
-> >> Hi Boris,
-> >>
-> >>      Thank you very much for the review comments and your time...
-> >>
-> >> On 7/5/2020 1:28 pm, Boris Brezillon wrote:  
-> >>> On Thu,  7 May 2020 08:15:37 +0800
-> >>> "Ramuthevar,Vadivel MuruganX"
-> >>> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
-> >>>      
-> >>>> +	reg = readl(ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));
-> >>>> +	writel(reg | EBU_ADDR_MASK(5) | EBU_ADDR_SEL_REGEN,
-> >>>> +	       ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));  
-> >>>
-> >>> Seriously, did you really think I would not notice what you're doing
-> >>> here?  
-> >> Yes , I know that you have very good understanding about this.
-> >>    You're reading the previous value which either contains a default  
-> >>> mapping or has the mapping set by the bootloader, and write it back to
-> >>> the register along with a new mask and the REGEN bit set (which
-> >>> BTW is wrong since you don't mask out other fields before updating
-> >>> them).  
-> >> There is no other field get overwritten
-> >>    This confirms that this Core -> FPI address translation exists  
-> >>> and has to be set properly, so please stop lying about that.  
-> >>
-> >> Sorry, there is no SW translation, as I have mentioned that it's
-> >> optional only, for safer side , reading and writing the default values.  
-> > 
-> > Then write EBU_ADDR_SEL_REGEN and we'll if see that works. I suspect it
-> > won't.  
+> But if this cache_offset points to a bad block, erase_write() will
+> always return -EIO. Writing to this mtdblk is equivalent to losing
+> the current data, and repeatedly writing to the bad block.
 > 
-> You mean, without reading just writing EBU_ADDR_SEL_REGEN bit alone in 
-> EBU_ADDR_SELx , as you said it won't work because it overwrites 0x174 
-> with 0x0 values so BASE is lost.
-
-Which confirms that this mapping has to be defined.
-
-> either we can leave it or read & write with ORed | EBU_ADDR_SEL_REGEN
-
-None of this is acceptable IMO. You have to build the value based on the
-address translation described in the DT. Why are you so reluctant to
-this approach?
-
+> Repeatedly writing a bad block has no real benefits,
+> but brings some negative effects:
+> 1 Lost subsequent data
+> 2 Loss of flash device life
+> 3 erase_write() bad blocks are very time-consuming. For example:
+> 	the function do_erase_oneblock() in chips/cfi_cmdset_0020.c or
+> 	chips/cfi_cmdset_0002.c may take more than 20 seconds to return
 > 
-> Please correct me if anything is wrong, Thanks!
-> >   
-> >> The memory region to enabled that's my concern so written the same
-> >> register values.  
-> > 
-> > I don't buy that, sorry.
-> >   
-> >>
-> >> This will not be impact other fields, so please see below for reference
-> >>
-> >> The EBU Address Select Registers EBU_ADDR_SEL_0 to EBU_ADDSEL3 establish
-> >> and control memory regions for external accesses.
-> >>
-> >> Reset Value: 17400001H  
-> > 
-> > See, as suspected the reset value is exactly what you expect.  
+> Therefore, when erase_write() returns -EIO in write_cached_data(),
+> clear cache_state to avoid writing to bad blocks repeatedly.
 > 
-> Yes , that's the reason said being optional.
+> Signed-off-by: Xiaoming Ni <nixiaoming@huawei.com>
+> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>   drivers/mtd/mtdblock.c | 11 +++++++----
+>   1 file changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/mtd/mtdblock.c b/drivers/mtd/mtdblock.c
+> index 078e0f6..32e52d8 100644
+> --- a/drivers/mtd/mtdblock.c
+> +++ b/drivers/mtd/mtdblock.c
+> @@ -89,8 +89,6 @@ static int write_cached_data (struct mtdblk_dev *mtdblk)
+>   
+>   	ret = erase_write (mtd, mtdblk->cache_offset,
+>   			   mtdblk->cache_size, mtdblk->cache_data);
+> -	if (ret)
+> -		return ret;
+>   
+>   	/*
+>   	 * Here we could arguably set the cache state to STATE_CLEAN.
+> @@ -98,9 +96,14 @@ static int write_cached_data (struct mtdblk_dev *mtdblk)
+>   	 * be notified if this content is altered on the flash by other
+>   	 * means.  Let's declare it empty and leave buffering tasks to
+>   	 * the buffer cache instead.
+> +	 *
+> +	 * If this cache_offset points to a bad block, data cannot be
+> +	 * written to the device. Clear cache_state to avoid writing to
+> +	 * bad blocks repeatedly.
+>   	 */
+> -	mtdblk->cache_state = STATE_EMPTY;
+> -	return 0;
+> +	if (ret == 0 || ret == -EIO)
+> +		mtdblk->cache_state = STATE_EMPTY;
+> +	return ret;
+>   }
+>   
+>   
+> 
 
-Then it's not optional. It just works because you use the default
-value.
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
