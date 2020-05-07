@@ -2,52 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 513E91C88D2
-	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 13:50:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 04D9E1C88D8
+	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 13:51:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lFbG1xxmg8Kdb885JGWbm9K+sNo87jFR2e9eXaPGr94=; b=XSkzhf6sQh//M3
-	rFGpLlBivt2ucIirZimJJyggVSwsy3QBx5zLU/0Id6FNPenh/ieORDnit3rMqb/UjW+KyFfn8d64X
-	7vtnWX4L68BKKTHRpe5RbozyngWoOmoh7zsLOxpMzOR2pHLWxWeM/2m9oZjRWVQRbf9rpelF5Spnk
-	od9fZq+eBkYWrYoN//yR+DPHdhymeUgx5mWX6up//WsqBTtcd5ZfpWpmIbY/fp/+Bk4l1/oNmYcm8
-	8j803kR/4NkU429sqHLgWzDccOTJI8OgvHK5hHWybCOc/ixf1S0ffH/q9B4OsrggUGddwVIyeGf08
-	DBm1JDq8jnrrgUIP4j5w==;
+	List-Owner; bh=fU8TqBIkcBPIEdbi0wIjTnkCOzhvpfHXrKg9ngMlI58=; b=ahZWMgnQoFwfwC
+	x9eYG6NOVipESvZ9DTJ4jm5ufWdqPQLfGbNFNmc4ebSSTYpCh5odMKOh35HKngD850YtVlyv+xi/s
+	Mjk5ZLozYrNeXkTTXKLtvw5V0T7LhQqFgbDVJtmu/qX9nyFinZH8uqP6stqpRL5PR3Yon7DwQUA5u
+	y3RwqsMNRMp5WqyM8BcjyoQidy6Bp23wkaDOx3OERWNZHEjvnMtfM5zZfSGvNX4mec/nWmOwEnmiS
+	Oh+K+1OsYfe5W7cKoUgr7aYwVm57TKtaOq2v1ztA5m8W9xljYinl+p5CA61p3zcOqBOw2wRikEmm5
+	9CpiS/qeLG1QD13O+O7Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWf2h-0006iu-FM; Thu, 07 May 2020 11:50:19 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jWf3H-0008JM-JA; Thu, 07 May 2020 11:50:55 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWf2R-0005kz-UU
- for linux-mtd@lists.infradead.org; Thu, 07 May 2020 11:50:05 +0000
+ id 1jWf37-0008Ij-2j
+ for linux-mtd@lists.infradead.org; Thu, 07 May 2020 11:50:46 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 8139C2A01F7;
- Thu,  7 May 2020 12:50:02 +0100 (BST)
-Date: Thu, 7 May 2020 13:49:59 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id AABF42A29AB;
+ Thu,  7 May 2020 12:50:43 +0100 (BST)
+Date: Thu, 7 May 2020 13:50:41 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v3 4/8] mtd: rawnand: Add nand_extract_bits()
-Message-ID: <20200507134959.38bbcdc4@collabora.com>
-In-Reply-To: <20200507110034.14736-5-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v3 5/8] MAINTAINERS: Add Arasan NAND controller and
+ bindings
+Message-ID: <20200507135041.7438ad63@collabora.com>
+In-Reply-To: <20200507110034.14736-6-miquel.raynal@bootlin.com>
 References: <20200507110034.14736-1-miquel.raynal@bootlin.com>
- <20200507110034.14736-5-miquel.raynal@bootlin.com>
+ <20200507110034.14736-6-miquel.raynal@bootlin.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_045004_147817_E7BC9DF6 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20200507_045045_259328_3C5C6F9D 
+X-CRM114-Status: GOOD (  12.87  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -72,80 +75,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu,  7 May 2020 13:00:30 +0200
+On Thu,  7 May 2020 13:00:31 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> There are cases where ECC bytes are not byte-aligned. Indeed, BCH
-> implies using a number of ECC bits, which are not always a multiple of
-> 8. We then need a helper like nand_extract_bits() to extract these
-> syndromes from a buffer.
+Missing commit message here.
 
-Do you plan to send a patch to make the GPMI driver use this helper?
-
-> 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 > ---
->  drivers/mtd/nand/raw/nand_base.c | 31 +++++++++++++++++++++++++++++++
->  include/linux/mtd/rawnand.h      |  4 ++++
->  2 files changed, 35 insertions(+)
+>  MAINTAINERS | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
-> diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-> index 25d298938aa9..b236e1bdddaf 100644
-> --- a/drivers/mtd/nand/raw/nand_base.c
-> +++ b/drivers/mtd/nand/raw/nand_base.c
-> @@ -224,6 +224,37 @@ static int check_offs_len(struct nand_chip *chip, loff_t ofs, uint64_t len)
->  	return ret;
->  }
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index b816a453b10e..1f2c83ead00b 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -1285,6 +1285,13 @@ S:	Supported
+>  W:	http://www.aquantia.com
+>  F:	drivers/net/ethernet/aquantia/atlantic/aq_ptp*
 >  
-> +/* Copy unaligned bits from one buffer to another one (no overlap) */
-> +void nand_extract_bits(u8 *dst, const u8 *src, unsigned int src_off,
-> +		       unsigned int nbits)
-> +{
-> +	unsigned int dst_off = 0, tmp, n;
+> +ARASAN NAND CONTROLLER DRIVER
+> +M:	Naga Sureshkumar Relli <nagasure@xilinx.com>
+> +L:	linux-mtd@lists.infradead.org
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/mtd/arasan,nand-controller.yaml
+> +F:	drivers/mtd/nand/raw/arasan-nand-controller.c
 > +
-> +	src += src_off / 8;
-> +	src_off %= 8;
-> +
-> +	while (nbits) {
-> +		n = min3(8 - dst_off, 8 - src_off, nbits);
-> +
-> +		tmp = (*src >> src_off) & GENMASK(n - 1, 0);
-> +		*dst |= tmp << dst_off;
-> +
-> +		dst_off += n;
-> +		if (dst_off >= 8) {
-> +			dst++;
-> +			dst_off -= 8;
-> +		}
-> +
-> +		src_off += n;
-> +		if (src_off >= 8) {
-> +			src++;
-> +			src_off -= 8;
-> +		}
-> +
-> +		nbits -= n;
-> +	}
-> +}
-> +
->  /**
->   * nand_select_target() - Select a NAND target (A.K.A. die)
->   * @chip: NAND chip object
-> diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-> index 406e9ff0f45c..734564232545 100644
-> --- a/include/linux/mtd/rawnand.h
-> +++ b/include/linux/mtd/rawnand.h
-> @@ -1404,6 +1404,10 @@ int nand_gpio_waitrdy(struct nand_chip *chip, struct gpio_desc *gpiod,
->  void nand_select_target(struct nand_chip *chip, unsigned int cs);
->  void nand_deselect_target(struct nand_chip *chip);
->  
-> +/* Bitops */
-> +void nand_extract_bits(u8 *dst, const u8 *src, unsigned int src_off,
-> +		       unsigned int nbits);
-> +
->  /**
->   * nand_get_data_buf() - Get the internal page buffer
->   * @chip: NAND chip object
+>  ARC FRAMEBUFFER DRIVER
+>  M:	Jaya Kumar <jayalk@intworks.biz>
+>  S:	Maintained
 
 
 ______________________________________________________
