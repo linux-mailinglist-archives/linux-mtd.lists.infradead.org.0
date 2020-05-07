@@ -2,71 +2,58 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2949B1C824C
-	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 08:14:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0AABA1C8281
+	for <lists+linux-mtd@lfdr.de>; Thu,  7 May 2020 08:27:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=r7sdVEKoCfMCjZfYmrFR0eGW4dI0eInqGqfgUX9crZo=; b=mjTp217lOkPRgR
-	KIfQZ1j+hdJNNQ2ITJwqQPxu1ro2WYGX7kF7J6pnP1vKfh8lYYhXJQHz6YUUc47zDKjFva7930REp
-	ukf1WOCtuM3XD1NYFV5GzABmnJVt1bfQaxXKlEx2ppZn4TaGYXS9I7UA5yBTs5EVHPTqn8+LCTxM7
-	8WgzeMJ+FuVdaAxRej42zYglPB2aLkRt2Flddd7M1ys7xV5f/+w4ABQANDWsyTJmIlU2rLwNesI8k
-	Fc1cxD87ohaP6A7B+8f+9a3qtws1eJV76ssTIle4htnEBY/OtsFsyXIvdhII1M9nrPQjXp35jIA6N
-	/B+iwf/1MsKnnOsfx1CQ==;
+	List-Owner; bh=dnjt+GzOX+Q+S2u8bXJ+BMgIeenG8X3nMWpvuveYZ+8=; b=uAQ7tc8do3cGvQ
+	NkA5IS4EwK3n3ZelQvQCah21EWlZlmNtWrPQ9st1UOYUPOybKUlTR1PElIB0SJZb9sgj/IBnX4zs+
+	y2oNSMGzy/CAg20Qigwj5DImRGMXaan6sOOUxpmOWbUXk3EkJkBhP1lvKYE77YC7qk0EUKzOQyIjj
+	xwWhLtHi/TWlZOjD8HN4KK0KOzYlragtXVszC8yXpx+dp90JNpsME3oEk7VbyaFwqIW3gUBKgOYW6
+	YOYcGKAgrKc3/DZBTWsQtP2P2S1ytJFqurOqz/DkvloVDB1sbV7wIEcOq81GVFqlDNqJm+qc2AQeN
+	SRlMrWupUJltUbivvzmg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWZnC-0002Le-Fm; Thu, 07 May 2020 06:13:58 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1jWa0V-0004oj-N2; Thu, 07 May 2020 06:27:43 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWZn4-0002LC-6M
- for linux-mtd@lists.infradead.org; Thu, 07 May 2020 06:13:51 +0000
-IronPort-SDR: 6A48zbZNtMR3rPJ5uz8QMLI4yqQ8Q6jaZv2n6EUIdbN0AYx7dXuOxzYGABENBhLWotpjqUrhv/
- tfiXf6lv+7gw==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 06 May 2020 23:13:49 -0700
-IronPort-SDR: 3pDNn0r5IGGk0SnSXaAW1JDk8AxJKKpW3Zm5csAz/Jifn4GP0vN9jsiLVbHHZTvsyxe4CTgvya
- EI8JlTgeEQPw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,362,1583222400"; d="scan'208";a="260423999"
-Received: from linux.intel.com ([10.54.29.200])
- by orsmga003.jf.intel.com with ESMTP; 06 May 2020 23:13:47 -0700
-Received: from [10.213.151.174] (vramuthx-MOBL1.gar.corp.intel.com
- [10.213.151.174])
- by linux.intel.com (Postfix) with ESMTP id 695D9580378;
- Wed,  6 May 2020 23:13:43 -0700 (PDT)
-Subject: Re: [PATCH v5 2/2] mtd: rawnand: Add NAND controller support on Intel
- LGM SoC
-To: Boris Brezillon <boris.brezillon@collabora.com>
+ id 1jWa0P-0004o5-OR
+ for linux-mtd@lists.infradead.org; Thu, 07 May 2020 06:27:39 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 6BD222A2798;
+ Thu,  7 May 2020 07:27:33 +0100 (BST)
+Date: Thu, 7 May 2020 08:27:30 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>
+Subject: Re: [PATCH v5 2/2] mtd: rawnand: Add NAND controller support on
+ Intel LGM SoC
+Message-ID: <20200507082730.6425cd96@collabora.com>
+In-Reply-To: <440c0002-e572-7b8b-ba08-773932370eb0@linux.intel.com>
 References: <20200507001537.4034-1-vadivel.muruganx.ramuthevar@linux.intel.com>
  <20200507001537.4034-3-vadivel.muruganx.ramuthevar@linux.intel.com>
  <20200507072831.1bf7f784@collabora.com>
-From: "Ramuthevar, Vadivel MuruganX"
- <vadivel.muruganx.ramuthevar@linux.intel.com>
-Message-ID: <440c0002-e572-7b8b-ba08-773932370eb0@linux.intel.com>
-Date: Thu, 7 May 2020 14:13:42 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+ <440c0002-e572-7b8b-ba08-773932370eb0@linux.intel.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-In-Reply-To: <20200507072831.1bf7f784@collabora.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200506_231350_243110_7ADA1CE9 
-X-CRM114-Status: GOOD (  14.72  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20200506_232737_925225_DEBC1E7B 
+X-CRM114-Status: GOOD (  18.37  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [192.55.52.93 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,60 +65,67 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
 Cc: cheol.yong.kim@intel.com, devicetree@vger.kernel.org, qi-ming.wu@intel.com,
  anders.roxell@linaro.org, vigneshr@ti.com, arnd@arndb.de,
  hauke.mehrtens@intel.com, richard@nod.at, brendanhiggins@google.com,
  linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, robh+dt@kernel.org,
  linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com, tglx@linutronix.de,
  masonccyang@mxic.com.tw, andriy.shevchenko@intel.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Boris,
+On Thu, 7 May 2020 14:13:42 +0800
+"Ramuthevar, Vadivel MuruganX"
+<vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
 
-    Thank you very much for the review comments and your time...
-
-On 7/5/2020 1:28 pm, Boris Brezillon wrote:
-> On Thu,  7 May 2020 08:15:37 +0800
-> "Ramuthevar,Vadivel MuruganX"
-> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
+> Hi Boris,
 > 
->> +	reg = readl(ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));
->> +	writel(reg | EBU_ADDR_MASK(5) | EBU_ADDR_SEL_REGEN,
->> +	       ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));
+>     Thank you very much for the review comments and your time...
 > 
-> Seriously, did you really think I would not notice what you're doing
-> here?
-Yes , I know that you have very good understanding about this.
-  You're reading the previous value which either contains a default
-> mapping or has the mapping set by the bootloader, and write it back to
-> the register along with a new mask and the REGEN bit set (which
-> BTW is wrong since you don't mask out other fields before updating
-> them).
-There is no other field get overwritten
-  This confirms that this Core -> FPI address translation exists
-> and has to be set properly, so please stop lying about that.
+> On 7/5/2020 1:28 pm, Boris Brezillon wrote:
+> > On Thu,  7 May 2020 08:15:37 +0800
+> > "Ramuthevar,Vadivel MuruganX"
+> > <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
+> >   
+> >> +	reg = readl(ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));
+> >> +	writel(reg | EBU_ADDR_MASK(5) | EBU_ADDR_SEL_REGEN,
+> >> +	       ebu_host->ebu + EBU_ADDR_SEL(ebu_host->cs_num));  
+> > 
+> > Seriously, did you really think I would not notice what you're doing
+> > here?  
+> Yes , I know that you have very good understanding about this.
+>   You're reading the previous value which either contains a default
+> > mapping or has the mapping set by the bootloader, and write it back to
+> > the register along with a new mask and the REGEN bit set (which
+> > BTW is wrong since you don't mask out other fields before updating
+> > them).  
+> There is no other field get overwritten
+>   This confirms that this Core -> FPI address translation exists
+> > and has to be set properly, so please stop lying about that.  
+> 
+> Sorry, there is no SW translation, as I have mentioned that it's 
+> optional only, for safer side , reading and writing the default values.
 
-Sorry, there is no SW translation, as I have mentioned that it's 
-optional only, for safer side , reading and writing the default values.
-The memory region to enabled that's my concern so written the same 
-register values.
+Then write EBU_ADDR_SEL_REGEN and we'll if see that works. I suspect it
+won't.
 
-This will not be impact other fields, so please see below for reference
+> The memory region to enabled that's my concern so written the same 
+> register values.
 
-The EBU Address Select Registers EBU_ADDR_SEL_0 to EBU_ADDSEL3 establish 
-and control memory regions for external accesses.
-
-Reset Value: 17400001H
-
-
-Regards
-Vadivel
+I don't buy that, sorry.
 
 > 
+> This will not be impact other fields, so please see below for reference
+> 
+> The EBU Address Select Registers EBU_ADDR_SEL_0 to EBU_ADDSEL3 establish 
+> and control memory regions for external accesses.
+> 
+> Reset Value: 17400001H
+
+See, as suspected the reset value is exactly what you expect.
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
