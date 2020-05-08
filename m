@@ -2,76 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E83521CA399
-	for <lists+linux-mtd@lfdr.de>; Fri,  8 May 2020 08:07:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9FA251CA436
+	for <lists+linux-mtd@lfdr.de>; Fri,  8 May 2020 08:40:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VUOeAPl/KrmnMBJwXSnqLMl6v25ZE7nuTLyv349fbs4=; b=Pr4FYESQdgKYqG
-	4XkGp81/2zaifN2gfl4b52Ei9s5JCEkchLP3GK54p9MeeVNSfhscl5uLxa1alJNcPNvnOpbwQDmKd
-	yTteSIyrE490AcyyoXAcsjFweMxhK0gjh7T5Xmi6JIAzsyfBAGqn+QsDLPpQ/z67+FRsFFVNVbxW4
-	OkGU1SGuWfrrnuaUs10hru504vosL85feYeidUXvycK5gGF2bQKvuJ/4z+KZiYM2RHKrvMNJLP6xy
-	LDgHLYC49JHbZAForjpNZjdcF9O/DPs4gFpJI28QJ119N/uhT3lRB6dc7bWJSYGkVaMzcLvulCFgP
-	E3Qfja0mJLuSVE3oQLnA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=a/Q83nqwoi2anorYQYXrxGo3Ynml2ZNZvBowWmQ2wPQ=; b=gUj5VlyAe+Y5Ah
+	a3o5ziPx63cfh2VOQD8WafCUkHnxpvI4CuZhGviVlPWMRtLxLYi37ohkDVWxri2+eeQrwlMt8yart
+	CdjHrFlozydyAFZGsQanKc9ebTsl2sKp0Ebjc2HLiB1+5lnLWAJ7kf/dpoiMzRzpsiDO66Rdsuc0o
+	TG9ZURSS2zBTJy7Xbe9miR6cjhXamm/vBwwphaqzHnZsPqQdkO9AiYKfHFfdXbuXvD/cdmHmvx6dL
+	STe6t+KRLRP0lFEXV0gXyd19fGQmkE5c3r/Zm07W6UCBHDqDcIoUSNx18HNqSoyqo6Gi+Rcqmzagd
+	pXjpZtGVyvIUyf1gtG9Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWwAQ-0003ny-Hm; Fri, 08 May 2020 06:07:26 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1jWwgO-0008DV-SY; Fri, 08 May 2020 06:40:28 +0000
+Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWwAJ-0003nW-Au
- for linux-mtd@lists.infradead.org; Fri, 08 May 2020 06:07:21 +0000
-Received: by mail-pg1-x543.google.com with SMTP id b8so379023pgi.11
- for <linux-mtd@lists.infradead.org>; Thu, 07 May 2020 23:07:19 -0700 (PDT)
+ id 1jWwgA-0008Cd-GZ
+ for linux-mtd@lists.infradead.org; Fri, 08 May 2020 06:40:16 +0000
+Received: by mail-pg1-x544.google.com with SMTP id d22so432575pgk.3
+ for <linux-mtd@lists.infradead.org>; Thu, 07 May 2020 23:40:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=YVeRZZUHFH3YFPDWCfBx69wZVfQpp/EEA0nPL773ZGE=;
- b=GXE6bm+/eihbO9FZYZXzo33Q8p58K1PLmCmbx2lnDEo9heJ/5wAFgtMibiLz6h1vpu
- 4T+jy2i+uzoxFA9Cl8FgGS9eLkFU7xccdPORN9aqQVlcqtrQbvmlBdw0C/H4GtGx1xp5
- ljPagTm2rOZoZONqjaS14h5GGGYY/M0XUp5lY=
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qiQcUnaOsTuYIdMr9pQhA9E0vZ/bgcYyUJ6NKwIoiA8=;
+ b=AGitAEjAmIYuKXy+lG43wJaRD8vsDY21A7oS+DPw/WXhdya0M2b77Hp2SjGy4IDeA7
+ 0mXKCAbk5gyUBklW+6pHdkHCR05KcSgPpdfyhoVoNan7SFIeqEK/VVjckLgwFwrYPTDZ
+ OpOCzvcEaiQZBjlPAHAPh8sFU5hMWxw/60ScM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=YVeRZZUHFH3YFPDWCfBx69wZVfQpp/EEA0nPL773ZGE=;
- b=Dft1rNr50cHRcEbxDpjyTtMGq17Jb43k+ElpJ5nYkUyLxyZAOW+Mz/fZSec8czDNq1
- oo9+VZhMpqLUyI4Q2XRfpbjKdF43o7AJG0RPdNi+WJiYx3oX518/ma1C1CEk0jIl2PoN
- cyagFEKIL+LpyT34legw8s+W0AXn9FI0y80y4OUN1rUdCKsT0VeB3xVFf0YIcrj6JVP5
- /phYdpkodiqPV8iR5U6ESgTDmbeS3teuHMwdoChSIc8lvOmnB4/feJ+V4OqHguIkfVgV
- fW53SKNvCRVUG7y4CrjN97XNP+X7o4FODdShBmzM4jeD6SBjKEkev2w00Lb7YTlLzeIN
- cQNA==
-X-Gm-Message-State: AGi0PuYUXXvZDVNPpmp4T6SpfmifLVfAANR5AUVUxxFdQrSusJ9h8PVm
- gTvEfIXJjNbOz6D4gtfIzZ1mtQ==
-X-Google-Smtp-Source: APiQypL6/ve1p+CULUBjLX95ozq6LKlzyLNOdsl6iqGHnULRpNmN3haFOkySOgtz84GqfZP6rf89qg==
-X-Received: by 2002:a62:a106:: with SMTP id b6mr1119513pff.23.1588918038521;
- Thu, 07 May 2020 23:07:18 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=qiQcUnaOsTuYIdMr9pQhA9E0vZ/bgcYyUJ6NKwIoiA8=;
+ b=Cb0QP4wKOAlSlMcQ8TcgLik8T8/0LySbFFLIlY94T3vSEV6tS7M+nSPPjCk1uSHdU9
+ 9/3N3g/EBDXiwKtJE6yj1hUYhcWKTPxdG9CVYGZUUinqA5EpOZwH5QLlT2TwnoQWFCyi
+ BJ5iqUV+G/1Fj9roNrVCeLYeQSqP1+wQ9Sy8lpQQiGwSyA65mb6AE6uMVgv1vZnw9t7Z
+ zY3fvODa/F4gbMmSOgoutS5RoPyO9wNRd4whG58qyofZSAYZV8XpLZN78ELkgAVxYb+b
+ 7wWGwhXBXJcb0z4SQr03sBZ4Qe5cxV/Ik/6XuhaX11yyZPwConcmFbov8CY20yDq154w
+ thsA==
+X-Gm-Message-State: AGi0PuZzMctZ77RUi9BXoMPcM9BPUZgvUeGW0CMbrG/rIRRR4wsROGuB
+ B8I5Rg3fw6PViWMSvfF2cVwWTw==
+X-Google-Smtp-Source: APiQypLhC9jPG3VyD0chnEVvbTzcUfM6EnXrvWXuM3nZ1Jmch+lbDR8507FGYLZRkZnFAwwsLzJRtg==
+X-Received: by 2002:a63:b649:: with SMTP id v9mr832219pgt.402.1588920013880;
+ Thu, 07 May 2020 23:40:13 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id k6sm1456658pju.44.2020.05.07.23.07.17
+ by smtp.gmail.com with ESMTPSA id 140sm757265pfw.96.2020.05.07.23.40.12
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 07 May 2020 23:07:17 -0700 (PDT)
-Date: Thu, 7 May 2020 23:07:16 -0700
+ Thu, 07 May 2020 23:40:12 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
-Subject: Re: [PATCH v3 02/11] pstore/blk: new support logger for block devices
-Message-ID: <202005072301.57F73B61CC@keescook>
-References: <1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com>
- <1585126506-18635-3-git-send-email-liaoweixiong@allwinnertech.com>
+Subject: [PATCH v4 00/12] pstore: mtd: support crash log to block and mtd
+ device
+Date: Thu,  7 May 2020 23:39:52 -0700
+Message-Id: <20200508064004.57898-1-keescook@chromium.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1585126506-18635-3-git-send-email-liaoweixiong@allwinnertech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_230719_397751_0A67C8AF 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20200507_234014_579344_607EF21A 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:543 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:544 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -94,92 +93,109 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Tony Luck <tony.luck@intel.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Jonathan Corbet <corbet@lwn.net>,
- Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
- linux-doc@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org, Colin Cross <ccross@android.com>,
- linux-mtd@lists.infradead.org, Jonathan Cameron <Jonathan.Cameron@huawei.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
- "David S. Miller" <davem@davemloft.net>
+Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
+ Kees Cook <keescook@chromium.org>, linux-doc@vger.kernel.org,
+ Anton Vorontsov <anton@enomsg.org>, linux-kernel@vger.kernel.org,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ linux-mtd@lists.infradead.org, Colin Cross <ccross@android.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, Mar 25, 2020 at 04:54:57PM +0800, WeiXiong Liao wrote:
-> pstore/blk is similar to pstore/ram, but dump log to block device
-> rather than persistent ram.
-> [...]
-> +int psblk_register_blkdev(unsigned int major, psblk_panic_write_op panic_write)
-> +{
-> +	struct block_device *bdev;
-> +	struct psblk_device dev = {0};
-> +	struct bdev_info *binfo;
-> +	int ret = -ENODEV;
-> +	void *holder = blkdev;
-> +
-> +	binfo = psblk_get_bdev_info();
-> +	if (IS_ERR(binfo))
-> +		return PTR_ERR(binfo);
-> +
-> +	/* only allow driver matching the @blkdev */
-> +	if (!binfo->devt || MAJOR(binfo->devt) != major) {
-> +		pr_debug("invalid major %u (expect %u)\n",
-> +				major, MAJOR(binfo->devt));
-> +		return -ENODEV;
-> +	}
-> +
-> +	/* hold bdev exclusively */
-> +	bdev = psblk_get_bdev(holder);
-> +	if (IS_ERR(bdev)) {
-> +		pr_err("failed to open '%s'!\n", blkdev);
-> +		return PTR_ERR(bdev);
-> +	}
-> +
-> +	/* psblk_bdev must be assigned before register to pstore/blk */
-> +	psblk_bdev = bdev;
-> +	blkdev_panic_write = panic_write;
-> +
-> +	dev.total_size = psblk_bdev_size(bdev);
-> +	dev.panic_write = panic_write ? psblk_blk_panic_write : NULL;
-> +	dev.read = psblk_generic_blk_read;
-> +	dev.write = psblk_generic_blk_write;
-> +
-> +	ret = psblk_register_do(&dev);
-> +	if (ret)
-> +		goto err_put_bdev;
-> +
-> +	pr_info("using '%s'\n", blkdev);
-> +	return 0;
-> +
-> +err_put_bdev:
-> +	psblk_bdev = NULL;
-> +	blkdev_panic_write = NULL;
-> +	psblk_put_bdev(bdev, holder);
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(psblk_register_blkdev);
+Hi!
 
-I've gotten this series refactored on top of current pstore, and I've
-been making various bikeshed changes to names, etc, and as I went to go
-start testing, I realized that nothing actually uses
-psblk_register_blkdev().
+This is a v4 of WeiXiong Liao's series. I spent time porting this on top
+of the latest pstore (mainly to support max_reason), and I started making
+various other changes, mostly just bikeshed stuff.
 
-It seems like it should be possible to just start using this on any
-block device of the user's choosing. I assume the idea is to allow for
-drivers to register panic_write handlers, but even without that, it'd be
-nice to just be able to test this with something like /dev/loop0.
+Changes since v3:
+	fixing up various typos, alternate phrases, and language. For
+	example:
+	        recorder -> frontend
+	        Pstore -> pstore
 
-What's your thinking on how this would happen? It seems like if
-pstore/blk uses pstore/zone, and mtdpstore uses pstore/blk, there should
-be a blkoops that uses pstore/blk too? I guess I need to learn a bit
-more about how block device probing works so pstore/blk can notice
-devices as they're brought online, etc.
+	filenames:
+	        rename pstore_*.c -> *.c and adjust Makefile
+		(I decided fs/pstore/pstore_zone.c repeated "pstore" one too many time. ;)
+		pstore-block.rst -> pstore_blk.rst
+
+	conversion of dump_oops -> max_reason
+
+	refactor/rename get_reason_str() and move to kernel/printk/printk.c
+
+	psz* -> pstore_zone* renamings:
+	        psblk_usr_info() ->... pstore_blk_usr_info()
+	        psz_zone -> pstore_zone
+	        pszinfo -> pstore_zone_info
+
+	register_pstore_zone():
+	        registration reporting via pr_cont(), with max_reason
+	        remove needless get/put_module()
+
+	public API renamings: VERB_NOUN()
+	        psz_*register() -> *register_pstore_zone()
+
+v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
+v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
+v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
+
+So far, I've identified the following stuff left to do:
+        - settle on various function/struct renamings
+        - review locking
+        - implement ramoops-like probe feature for pstore/blk
+	- spend time seeing how ramoops might use pstore/zone
+
+But I wanted to get this update published just to show what I've done
+so far in my bikeshed review. :)
+
+Thanks!
+
+-Kees
+
+
+Kees Cook (1):
+  printk: Introduce kmsg_dump_reason_str()
+
+WeiXiong Liao (11):
+  pstore/zone: Introduce common layer to manage storage zones
+  pstore/blk: Introduce backend for block devices
+  pstore/blk: Provide way to choose pstore frontend support
+  pstore/blk: Add support for pmsg frontend
+  pstore/blk: Add console frontend support
+  pstore/blk: Add ftrace frontend support
+  Documentation: Add details for pstore/blk
+  pstore/zone: Provide way to skip "broken" zone for MTD devices
+  pstore/blk: Provide way to query pstore configuration
+  pstore/blk: Support non-block storage devices
+  mtd: Support kmsg dumper based on pstore/blk
+
+ Documentation/admin-guide/pstore-blk.rst |  243 ++++
+ MAINTAINERS                              |    1 +
+ drivers/mtd/Kconfig                      |   10 +
+ drivers/mtd/Makefile                     |    1 +
+ drivers/mtd/mtdpstore.c                  |  564 ++++++++
+ fs/pstore/Kconfig                        |  109 ++
+ fs/pstore/Makefile                       |    6 +
+ fs/pstore/blk.c                          |  481 +++++++
+ fs/pstore/platform.c                     |   22 +-
+ fs/pstore/zone.c                         | 1498 ++++++++++++++++++++++
+ include/linux/kmsg_dump.h                |    7 +
+ include/linux/pstore_blk.h               |   77 ++
+ include/linux/pstore_zone.h              |   60 +
+ kernel/printk/printk.c                   |   21 +
+ 14 files changed, 3079 insertions(+), 21 deletions(-)
+ create mode 100644 Documentation/admin-guide/pstore-blk.rst
+ create mode 100644 drivers/mtd/mtdpstore.c
+ create mode 100644 fs/pstore/blk.c
+ create mode 100644 fs/pstore/zone.c
+ create mode 100644 include/linux/pstore_blk.h
+ create mode 100644 include/linux/pstore_zone.h
 
 -- 
-Kees Cook
+2.20.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
