@@ -2,75 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9FA251CA436
-	for <lists+linux-mtd@lfdr.de>; Fri,  8 May 2020 08:40:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DF2AD1CA439
+	for <lists+linux-mtd@lfdr.de>; Fri,  8 May 2020 08:41:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a/Q83nqwoi2anorYQYXrxGo3Ynml2ZNZvBowWmQ2wPQ=; b=gUj5VlyAe+Y5Ah
-	a3o5ziPx63cfh2VOQD8WafCUkHnxpvI4CuZhGviVlPWMRtLxLYi37ohkDVWxri2+eeQrwlMt8yart
-	CdjHrFlozydyAFZGsQanKc9ebTsl2sKp0Ebjc2HLiB1+5lnLWAJ7kf/dpoiMzRzpsiDO66Rdsuc0o
-	TG9ZURSS2zBTJy7Xbe9miR6cjhXamm/vBwwphaqzHnZsPqQdkO9AiYKfHFfdXbuXvD/cdmHmvx6dL
-	STe6t+KRLRP0lFEXV0gXyd19fGQmkE5c3r/Zm07W6UCBHDqDcIoUSNx18HNqSoyqo6Gi+Rcqmzagd
-	pXjpZtGVyvIUyf1gtG9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1O7wOgCBjqMRJZGAYK/lmZuRL0sRUXDTwHN4sv+OvHY=; b=p9o3KDTlAZjbvr
+	XxfHBjYerkf+5XjyYAy9hVbwEd0DRuJxM1lBOlaUzz1HMtLgjO5IlLLqM3gov2JbVy2kC7UsktwBP
+	T4e0o2Qdm0G4tcTfxxHGBchwbLAlX8ySZXYVT+c9Y1b1Qa2+2KWOViQUxz/xUhGGfkbk6ow1y6B02
+	kUxdhQb/W4jaRyzgFuc7+z0txkwcEJ7eGX74wU3/FfxLqm2noNNB4OVMDF7Gy6YKJ9csnWYGg7b9Y
+	VwtybTSp2tdhWZv1LcP5DHICJeJXvF4kv/GtLZ7yG+Pt7dBaurw/ez9gxwYAJfVUTvYXVAC6nvoF4
+	90fPlF7dP3rTHvMmqaGA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jWwgO-0008DV-SY; Fri, 08 May 2020 06:40:28 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1jWwgw-0000Gq-OV; Fri, 08 May 2020 06:41:02 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jWwgA-0008Cd-GZ
- for linux-mtd@lists.infradead.org; Fri, 08 May 2020 06:40:16 +0000
-Received: by mail-pg1-x544.google.com with SMTP id d22so432575pgk.3
- for <linux-mtd@lists.infradead.org>; Thu, 07 May 2020 23:40:14 -0700 (PDT)
+ id 1jWwgB-0008CY-6n
+ for linux-mtd@lists.infradead.org; Fri, 08 May 2020 06:40:17 +0000
+Received: by mail-pf1-x443.google.com with SMTP id r14so449309pfg.2
+ for <linux-mtd@lists.infradead.org>; Thu, 07 May 2020 23:40:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=qiQcUnaOsTuYIdMr9pQhA9E0vZ/bgcYyUJ6NKwIoiA8=;
- b=AGitAEjAmIYuKXy+lG43wJaRD8vsDY21A7oS+DPw/WXhdya0M2b77Hp2SjGy4IDeA7
- 0mXKCAbk5gyUBklW+6pHdkHCR05KcSgPpdfyhoVoNan7SFIeqEK/VVjckLgwFwrYPTDZ
- OpOCzvcEaiQZBjlPAHAPh8sFU5hMWxw/60ScM=
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=JdXyPOJQpTSYz0o6bZPVoAxc8JEprJkuWJfRQIr5NY0=;
+ b=e0qe+uKWWnpDhziM3t5spYTSuMsXq6+AF6XiOPyF18/SyRwTmD2rMyHRwnZQ1TbbS8
+ VdEO2Fd5TlezSYNnMKE39oUlruBGWCuyvhWKMhKxLGejW8SCWK4wmwDrg+wCYy64Fz1y
+ /UeOocRS+gtjS0zSHRSlgVN4sWu2kAUvRnjjg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=qiQcUnaOsTuYIdMr9pQhA9E0vZ/bgcYyUJ6NKwIoiA8=;
- b=Cb0QP4wKOAlSlMcQ8TcgLik8T8/0LySbFFLIlY94T3vSEV6tS7M+nSPPjCk1uSHdU9
- 9/3N3g/EBDXiwKtJE6yj1hUYhcWKTPxdG9CVYGZUUinqA5EpOZwH5QLlT2TwnoQWFCyi
- BJ5iqUV+G/1Fj9roNrVCeLYeQSqP1+wQ9Sy8lpQQiGwSyA65mb6AE6uMVgv1vZnw9t7Z
- zY3fvODa/F4gbMmSOgoutS5RoPyO9wNRd4whG58qyofZSAYZV8XpLZN78ELkgAVxYb+b
- 7wWGwhXBXJcb0z4SQr03sBZ4Qe5cxV/Ik/6XuhaX11yyZPwConcmFbov8CY20yDq154w
- thsA==
-X-Gm-Message-State: AGi0PuZzMctZ77RUi9BXoMPcM9BPUZgvUeGW0CMbrG/rIRRR4wsROGuB
- B8I5Rg3fw6PViWMSvfF2cVwWTw==
-X-Google-Smtp-Source: APiQypLhC9jPG3VyD0chnEVvbTzcUfM6EnXrvWXuM3nZ1Jmch+lbDR8507FGYLZRkZnFAwwsLzJRtg==
-X-Received: by 2002:a63:b649:: with SMTP id v9mr832219pgt.402.1588920013880;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=JdXyPOJQpTSYz0o6bZPVoAxc8JEprJkuWJfRQIr5NY0=;
+ b=rsb5RavkLrg3urhqPr54opedyjshOjq/h+7vW/YBGlUuD9VTx/joGrnkvSowgPpzE2
+ 56AzDgi9R2MdVEmulwnHuYrT1Qo8ypBITa6k/PW5O5xtlW8gadCp4FkNA9e7T+43nA3z
+ xFjRnYV4gE1m68l630Ol1rXI8uxOYXKLjnLLwws96T9PnDTPktqqJp1f257dIQHThMFJ
+ MiXZv8shTq0kGFooDzx18MYQUKpjPd6HRbQ7LM/UIjt5rHuMKC1xZhCipfXOvR6jjQ3s
+ A4pC7hYnhNUAs5LVSjSoBE62MCwTlVG6uTzHP/ucy6ss5gzLXRf5YZfN8B1ETlzcQ6xx
+ fNAA==
+X-Gm-Message-State: AGi0PuYconTpFHuSSl7jwSpgyMzpPWwvn0gm+hv9qMM9W93aIGm3CTbN
+ BphMTSIekhiBm24NZH5vbcVtBLr4lAo=
+X-Google-Smtp-Source: APiQypI90odZV2jsIE8Wx5fA87oydWTMxAfk81N4Wxn/Fp0elZ5/LCbsNYCT0YzR2lHvefT80T8TSQ==
+X-Received: by 2002:a63:f30a:: with SMTP id l10mr931307pgh.372.1588920013293; 
  Thu, 07 May 2020 23:40:13 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id 140sm757265pfw.96.2020.05.07.23.40.12
+ by smtp.gmail.com with ESMTPSA id p10sm720661pff.210.2020.05.07.23.40.12
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
  Thu, 07 May 2020 23:40:12 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
-Subject: [PATCH v4 00/12] pstore: mtd: support crash log to block and mtd
- device
-Date: Thu,  7 May 2020 23:39:52 -0700
-Message-Id: <20200508064004.57898-1-keescook@chromium.org>
+Subject: [PATCH v4 01/12] printk: Introduce kmsg_dump_reason_str()
+Date: Thu,  7 May 2020 23:39:53 -0700
+Message-Id: <20200508064004.57898-2-keescook@chromium.org>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200508064004.57898-1-keescook@chromium.org>
+References: <20200508064004.57898-1-keescook@chromium.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200507_234014_579344_607EF21A 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200507_234015_252392_05F9BECE 
+X-CRM114-Status: GOOD (  10.19  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:544 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:443 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -104,95 +104,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi!
+The pstore subsystem already had a private version of this function.
+With the coming addition of the pstore/zone driver, this needs to be
+shared. As it really should live with printk, move it there instead.
 
-This is a v4 of WeiXiong Liao's series. I spent time porting this on top
-of the latest pstore (mainly to support max_reason), and I started making
-various other changes, mostly just bikeshed stuff.
+Signed-off-by: Kees Cook <keescook@chromium.org>
+---
+ include/linux/kmsg_dump.h |  7 +++++++
+ kernel/printk/printk.c    | 21 +++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
 
-Changes since v3:
-	fixing up various typos, alternate phrases, and language. For
-	example:
-	        recorder -> frontend
-	        Pstore -> pstore
-
-	filenames:
-	        rename pstore_*.c -> *.c and adjust Makefile
-		(I decided fs/pstore/pstore_zone.c repeated "pstore" one too many time. ;)
-		pstore-block.rst -> pstore_blk.rst
-
-	conversion of dump_oops -> max_reason
-
-	refactor/rename get_reason_str() and move to kernel/printk/printk.c
-
-	psz* -> pstore_zone* renamings:
-	        psblk_usr_info() ->... pstore_blk_usr_info()
-	        psz_zone -> pstore_zone
-	        pszinfo -> pstore_zone_info
-
-	register_pstore_zone():
-	        registration reporting via pr_cont(), with max_reason
-	        remove needless get/put_module()
-
-	public API renamings: VERB_NOUN()
-	        psz_*register() -> *register_pstore_zone()
-
-v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
-v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
-v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
-
-So far, I've identified the following stuff left to do:
-        - settle on various function/struct renamings
-        - review locking
-        - implement ramoops-like probe feature for pstore/blk
-	- spend time seeing how ramoops might use pstore/zone
-
-But I wanted to get this update published just to show what I've done
-so far in my bikeshed review. :)
-
-Thanks!
-
--Kees
-
-
-Kees Cook (1):
-  printk: Introduce kmsg_dump_reason_str()
-
-WeiXiong Liao (11):
-  pstore/zone: Introduce common layer to manage storage zones
-  pstore/blk: Introduce backend for block devices
-  pstore/blk: Provide way to choose pstore frontend support
-  pstore/blk: Add support for pmsg frontend
-  pstore/blk: Add console frontend support
-  pstore/blk: Add ftrace frontend support
-  Documentation: Add details for pstore/blk
-  pstore/zone: Provide way to skip "broken" zone for MTD devices
-  pstore/blk: Provide way to query pstore configuration
-  pstore/blk: Support non-block storage devices
-  mtd: Support kmsg dumper based on pstore/blk
-
- Documentation/admin-guide/pstore-blk.rst |  243 ++++
- MAINTAINERS                              |    1 +
- drivers/mtd/Kconfig                      |   10 +
- drivers/mtd/Makefile                     |    1 +
- drivers/mtd/mtdpstore.c                  |  564 ++++++++
- fs/pstore/Kconfig                        |  109 ++
- fs/pstore/Makefile                       |    6 +
- fs/pstore/blk.c                          |  481 +++++++
- fs/pstore/platform.c                     |   22 +-
- fs/pstore/zone.c                         | 1498 ++++++++++++++++++++++
- include/linux/kmsg_dump.h                |    7 +
- include/linux/pstore_blk.h               |   77 ++
- include/linux/pstore_zone.h              |   60 +
- kernel/printk/printk.c                   |   21 +
- 14 files changed, 3079 insertions(+), 21 deletions(-)
- create mode 100644 Documentation/admin-guide/pstore-blk.rst
- create mode 100644 drivers/mtd/mtdpstore.c
- create mode 100644 fs/pstore/blk.c
- create mode 100644 fs/pstore/zone.c
- create mode 100644 include/linux/pstore_blk.h
- create mode 100644 include/linux/pstore_zone.h
-
+diff --git a/include/linux/kmsg_dump.h b/include/linux/kmsg_dump.h
+index cfc042066be7..b3ddb0b2ee40 100644
+--- a/include/linux/kmsg_dump.h
++++ b/include/linux/kmsg_dump.h
+@@ -72,6 +72,8 @@ void kmsg_dump_rewind(struct kmsg_dumper *dumper);
+ int kmsg_dump_register(struct kmsg_dumper *dumper);
+ 
+ int kmsg_dump_unregister(struct kmsg_dumper *dumper);
++
++const char *kmsg_dump_reason_str(enum kmsg_dump_reason reason);
+ #else
+ static inline void kmsg_dump(enum kmsg_dump_reason reason)
+ {
+@@ -113,6 +115,11 @@ static inline int kmsg_dump_unregister(struct kmsg_dumper *dumper)
+ {
+ 	return -EINVAL;
+ }
++
++static inline const char *kmsg_dump_reason_str(enum kmsg_dump_reason reason)
++{
++	return "Disabled";
++}
+ #endif
+ 
+ #endif /* _LINUX_KMSG_DUMP_H */
+diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+index 1aab69a8a2bf..67a284830d74 100644
+--- a/kernel/printk/printk.c
++++ b/kernel/printk/printk.c
+@@ -3144,6 +3144,27 @@ EXPORT_SYMBOL_GPL(kmsg_dump_unregister);
+ static bool always_kmsg_dump;
+ module_param_named(always_kmsg_dump, always_kmsg_dump, bool, S_IRUGO | S_IWUSR);
+ 
++const char *kmsg_dump_reason_str(enum kmsg_dump_reason reason)
++{
++	switch (reason) {
++	case KMSG_DUMP_PANIC:
++		return "Panic";
++	case KMSG_DUMP_OOPS:
++		return "Oops";
++	case KMSG_DUMP_EMERG:
++		return "Emergency";
++	case KMSG_DUMP_RESTART:
++		return "Restart";
++	case KMSG_DUMP_HALT:
++		return "Halt";
++	case KMSG_DUMP_POWEROFF:
++		return "Poweroff";
++	default:
++		return "Unknown";
++	}
++}
++EXPORT_SYMBOL_GPL(kmsg_dump_reason_str);
++
+ /**
+  * kmsg_dump - dump kernel log to kernel message dumpers.
+  * @reason: the reason (oops, panic etc) for dumping
 -- 
 2.20.1
 
