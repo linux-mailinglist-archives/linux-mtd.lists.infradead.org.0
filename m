@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7CE561CC40C
-	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 21:18:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A9EF51CC40E
+	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 21:19:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=csyRT9JrgCsEKmDAaIYI/+ocxQ30ry1kVukKtd5GT3U=; b=n+8GTPkWkfwaay
-	pUokCJkKfVvSpR69jf61L91SLf7XjhtLB6yJoUS8wuCFVRxyJiJceU/9AjLFw+tndkdmOePgZHVNp
-	tpO3B/Ialc2do2/9M+EBUjz7YoAWqKkMVMYJNafYAxUj8EbtGXWovYx8oDk0qGaq7EDbRO2OhGakt
-	hKtOtEPJP3OH79pdRSprMpYF7PkDXsTr6qRE20qqK1nfPKd8Aod6GKf0lwiiOVhAntr50cFOh7f07
-	EBxK3XSOb8uWHhlf0V2DTd17dbjqJpdqAOL9jzO2bdnqv8mHUOPgvNqIznWsd1KeDKvj4CQUENgGi
-	oWjzRd54eVhSIYjQZZtg==;
+	List-Owner; bh=KgvZtkWYLV45dUMD0p0gHbA6jsZN9vuh8X5fVExU/1E=; b=VbOvD/L8D2Nezm
+	hSFu449sTITffivq50OliLO5HFGaSel/7RD5xQeweoS7fB0Qpv1/wWLCWI6Qd0VVHguIyyClnk+y0
+	Wg58/PBHoU68u0AlOoA+txXJoYf3f0DuwHMTWBjwwZmUX+/FP7F0WN67KYWZJQ7Zc4ZnkDqpimY8k
+	vvmXJTZrQMKk/R3s6Esne4CZzRYDNy+kuJcEuIADIwfoqW0dIVri4gi917gh8Kor16MqZJQjlLVOX
+	n68i8eCQ/O/pN5HAczY3gaUvkYlkUat36lbV1QcSwUUVpmoAoWyepcld5Qv3iIFPuPRXpU2sew9tE
+	w6LLJVATlRzddF1u+b/w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXUzg-0007UB-5w; Sat, 09 May 2020 19:18:40 +0000
+	id 1jXV0C-000848-CU; Sat, 09 May 2020 19:19:12 +0000
 Received: from relay11.mail.gandi.net ([217.70.178.231])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXUvv-0001ty-KA
+ id 1jXUvw-0001v3-Bt
  for linux-mtd@lists.infradead.org; Sat, 09 May 2020 19:14:49 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay11.mail.gandi.net (Postfix) with ESMTPSA id 34D8110000A;
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id 14572100008;
  Sat,  9 May 2020 19:14:45 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 14/17] mtd: rawnand: nandsim: Fix the label pointing on
- nand_cleanup()
-Date: Sat,  9 May 2020 21:14:27 +0200
-Message-Id: <20200509191431.15862-15-miquel.raynal@bootlin.com>
+Subject: [PATCH 15/17] mtd: rawnand: nandsim: Manage lists on error in
+ ns_init_module()
+Date: Sat,  9 May 2020 21:14:28 +0200
+Message-Id: <20200509191431.15862-16-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200509191431.15862-1-miquel.raynal@bootlin.com>
 References: <20200509191431.15862-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_121447_803858_C769AB72 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20200509_121448_551643_DAEE0600 
+X-CRM114-Status: GOOD (  11.39  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -71,51 +71,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Drop the generic err_exit.
-
-The remaining operation to do from this goto statement is to cleanup
-the NAND allocations, so rename it.
+Lists are filled with calls to ns_parse_weakblocks(),
+ns_parse_weakpages() and ns_parse_gravepages(). Handle them in the
+error path, all at the same time.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nandsim.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/mtd/nand/raw/nandsim.c | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nandsim.c b/drivers/mtd/nand/raw/nandsim.c
-index c5ebcf667641..e41866e49206 100644
+index e41866e49206..26d23ab5b794 100644
 --- a/drivers/mtd/nand/raw/nandsim.c
 +++ b/drivers/mtd/nand/raw/nandsim.c
-@@ -2366,7 +2366,7 @@ static int __init ns_init_module(void)
- 		if (new_size >> overridesize != nsmtd->erasesize) {
- 			NS_ERR("overridesize is too big\n");
- 			ret = -EINVAL;
--			goto err_exit;
-+			goto cleanup_nand;
- 		}
+@@ -2273,6 +2273,7 @@ static const struct nand_controller_ops ns_controller_ops = {
+  */
+ static int __init ns_init_module(void)
+ {
++	struct list_head *pos, *n;
+ 	struct nand_chip *chip;
+ 	struct nandsim *ns;
+ 	int ret;
+@@ -2340,11 +2341,11 @@ static int __init ns_init_module(void)
  
- 		/* N.B. This relies on nand_scan not doing anything with the size before we change it */
-@@ -2379,7 +2379,7 @@ static int __init ns_init_module(void)
- 
- 	ret = ns_setup_wear_reporting(nsmtd);
+ 	ret = ns_parse_weakpages();
  	if (ret)
--		goto err_exit;
-+		goto cleanup_nand;
+-		goto error;
++		goto free_wb_list;
  
- 	ret = ns_init(nsmtd);
+ 	ret = ns_parse_gravepages();
  	if (ret)
-@@ -2406,11 +2406,11 @@ static int __init ns_init_module(void)
+-		goto error;
++		goto free_wp_list;
  
- unregister_mtd:
- 	WARN_ON(mtd_device_unregister(nsmtd));
--err_exit:
- free_ns_object:
- 	ns_free(ns);
- free_ebw:
+ 	nand_controller_init(&ns->base);
+ 	ns->base.ops = &ns_controller_ops;
+@@ -2353,7 +2354,7 @@ static int __init ns_init_module(void)
+ 	ret = nand_scan(chip, 1);
+ 	if (ret) {
+ 		NS_ERR("Could not scan NAND Simulator device\n");
+-		goto error;
++		goto free_gp_list;
+ 	}
+ 
+ 	if (overridesize) {
+@@ -2412,9 +2413,23 @@ static int __init ns_init_module(void)
  	kfree(erase_block_wear);
-+cleanup_nand:
+ cleanup_nand:
  	nand_cleanup(chip);
++free_gp_list:
++	list_for_each_safe(pos, n, &grave_pages) {
++		kfree(list_entry(pos, struct grave_page, list));
++		list_del(pos);
++	}
++free_wp_list:
++	list_for_each_safe(pos, n, &weak_pages) {
++		kfree(list_entry(pos, struct weak_page, list));
++		list_del(pos);
++	}
++free_wb_list:
++	list_for_each_safe(pos, n, &weak_blocks) {
++		kfree(list_entry(pos, struct weak_block, list));
++		list_del(pos);
++	}
  error:
  	kfree(ns);
+-	ns_free_lists();
+ 
+ 	return ret;
+ }
 -- 
 2.20.1
 
