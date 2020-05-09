@@ -2,52 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C415A1CC05E
-	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 12:32:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 549B61CC0BE
+	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 13:15:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Iw9bxq5rS+ZWQ64qJEEx2D7SY2ZpgtDavoOFtIl64aw=; b=J4hFKoRnEkhhDH
-	pIAsnlyfniaQqty+agTlu+lI729KMFp7C6o1z2o9+HLMgLfBRZTwQ9vRP+o1BA7MJHcS3hGMNflSQ
-	JUwEEcVdU63VIxO4o4G10V+orvpj92jheuliDDMgVx1ciZ8tWIL2XVIXp2N31DGZCqExcMwTEc/RB
-	cOmQXR3gGiqxE/1IMDaCRA3q+XcFYjfuk+CcJczg1UqHWhbJB15SEh06Ur4igD8AexeBIic0h9B5Z
-	O1ke2EcCdymY8NhQZTRqVFsxGXkM36gtkGxtcnUO4tLR/GUYV3aUkCQnvIR9cK5DgV8FFLVTkaz8r
-	YjRx/zKPLYd5IMwFEUmQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=nHikjzXapMWLuJNaOuSUQfWMKTYRFmh79BxEwdkxG8I=; b=erP
+	TRXOsfKlScBTrV4HLrYR7Sx4HdXnXtGxUS70s6PYMTVP2jnI0ctKp/sD3TwcnrocDnlisd7PNJyNd
+	3gJLIsDYlLcGJk4wyKJnNJHNVpiedndsiOKyaujdL2N6Fy/zmLKOCGkrHJy+mbtyGFQrjweDLZ9e+
+	vTYcjeLvkmGrB70KgXnKHQ6UL67J+27wQDZeD4zpl7b+OK/xekfXc5ciBORHaF5H7R1r9OIE6/b58
+	uQf73ukfVt8Pq5yUOPGipdzExECWBT+kQX5IqPisI2kqv1NlZaBpQrYnE1uF0n2wC3gDP7Pj7qBtz
+	h2Y5xYtqRALegoS9icMNviCahNPXTkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXMmc-00069A-Ex; Sat, 09 May 2020 10:32:38 +0000
+	id 1jXNS7-0007Cv-4w; Sat, 09 May 2020 11:15:31 +0000
 Received: from smtp2207-205.mail.aliyun.com ([121.197.207.205])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXMmS-000683-0w
- for linux-mtd@lists.infradead.org; Sat, 09 May 2020 10:32:29 +0000
-X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436712|-1; CH=green;
+ id 1jXNRO-0005ha-QZ
+ for linux-mtd@lists.infradead.org; Sat, 09 May 2020 11:14:49 +0000
+X-Alimail-AntiSpam: AC=CONTINUE; BC=0.07436625|-1; CH=green;
  DM=|CONTINUE|false|;
- DS=CONTINUE|ham_system_inform|0.0310074-0.00171468-0.967278;
- FP=0|0|0|0|0|-1|-1|-1; HT=e01a16367; MF=liaoweixiong@allwinnertech.com; NM=1;
- PH=DS; RN=10; RT=10; SR=0; TI=SMTPD_---.HVnmYjV_1589020342; 
-Received: from 172.16.10.102(mailfrom:liaoweixiong@allwinnertech.com
- fp:SMTPD_---.HVnmYjV_1589020342)
- by smtp.aliyun-inc.com(10.147.41.143);
- Sat, 09 May 2020 18:32:22 +0800
-Subject: Re: [PATCH v4 00/12] pstore: mtd: support crash log to block and mtd
- device
-To: Kees Cook <keescook@chromium.org>
-References: <20200508064004.57898-1-keescook@chromium.org>
- <202005080020.41C33738@keescook>
+ DS=CONTINUE|ham_system_inform|0.0365396-0.00253994-0.96092;
+ FP=0|0|0|0|0|-1|-1|-1; HT=e02c03297; MF=liaoweixiong@allwinnertech.com; NM=1;
+ PH=DS; RN=20; RT=20; SR=0; TI=SMTPD_---.HVopGr-_1589022874; 
+Received: from
+ PC-liaoweixiong.allwinnertech.com(mailfrom:liaoweixiong@allwinnertech.com
+ fp:SMTPD_---.HVopGr-_1589022874)
+ by smtp.aliyun-inc.com(10.147.44.129);
+ Sat, 09 May 2020 19:14:39 +0800
 From: WeiXiong Liao <liaoweixiong@allwinnertech.com>
-Message-ID: <c1583001-bf03-d198-ad57-3d2a0baf93ca@allwinnertech.com>
-Date: Sat, 9 May 2020 18:32:28 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
-MIME-Version: 1.0
-In-Reply-To: <202005080020.41C33738@keescook>
-Content-Language: en-US
+To: Kees Cook <keescook@chromium.org>, Anton Vorontsov <anton@enomsg.org>,
+ Colin Cross <ccross@android.com>, Tony Luck <tony.luck@intel.com>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Petr Mladek <pmladek@suse.com>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Rob Herring <robh@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Pavel Tatashin <pasha.tatashin@soleen.com>
+Subject: [PATCH v5 00/12] pstore: mtd: support crash log to block and mtd
+ device
+Date: Sat,  9 May 2020 19:14:02 +0800
+Message-Id: <1589022854-19821-1-git-send-email-liaoweixiong@allwinnertech.com>
+X-Mailer: git-send-email 1.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_033228_235814_27DE43E5 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20200509_041447_015441_4AECCD33 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -70,120 +77,75 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
- linux-doc@vger.kernel.org, Anton Vorontsov <anton@enomsg.org>,
- linux-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- linux-mtd@lists.infradead.org, Colin Cross <ccross@android.com>
+Cc: WeiXiong Liao <liaoweixiong@allwinnertech.com>,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-hi Kees Cook,
+This is a series to support crash log to block and mtd device,
+base on v4 of Kees Cook's.
 
-On 2020/5/8 PM 3:27, Kees Cook wrote:
-> On Thu, May 07, 2020 at 11:39:52PM -0700, Kees Cook wrote:
->> So far, I've identified the following stuff left to do:
->> [...]
->>         - implement ramoops-like probe feature for pstore/blk
-> 
-> With the following hack, I'm able to start testing the series:
-> 
-> diff --git a/fs/pstore/blk.c b/fs/pstore/blk.c
-> index a736555e1ed3..7145da079267 100644
-> --- a/fs/pstore/blk.c
-> +++ b/fs/pstore/blk.c
-> @@ -373,12 +373,14 @@ int psblk_register_blkdev(unsigned int major, unsigned int flags,
->  	if (IS_ERR(binfo))
->  		return PTR_ERR(binfo);
->  
-> +#if 0
->  	/* only allow driver matching the @blkdev */
->  	if (!binfo->devt || MAJOR(binfo->devt) != major) {
->  		pr_debug("invalid major %u (expect %u)\n",
->  				major, MAJOR(binfo->devt));
->  		return -ENODEV;
->  	}
-> +#endif
->  
->  	/* hold bdev exclusively */
->  	bdev = psblk_get_bdev(holder);
-> @@ -423,7 +425,7 @@ void psblk_unregister_blkdev(unsigned int major)
->  	struct psblk_device dev = {.read = psblk_generic_blk_read};
->  	void *holder = blkdev;
->  
-> -	if (psblk_bdev && MAJOR(psblk_bdev->bd_dev) == major) {
-> +	if (psblk_bdev/* && MAJOR(psblk_bdev->bd_dev) == major*/) {
->  		psblk_unregister_device(&dev);
->  		psblk_put_bdev(psblk_bdev, holder);
->  		blkdev_panic_write = NULL;
-> @@ -476,6 +478,24 @@ int pstore_blk_usr_info(struct pstore_blk_info *info)
->  }
->  EXPORT_SYMBOL_GPL(pstore_blk_usr_info);
->  
-> +static int __init pstore_blk_init(void)
-> +{
-> +	int ret = 0;
-> +
-> +	if (blkdev[0])
-> +		ret = psblk_register_blkdev(0, 0, NULL);
-> +
-> +	return ret;
-> +}
-> +postcore_initcall(pstore_blk_init);
-> +
-> +static void __exit pstore_blk_exit(void)
-> +{
-> +	psblk_unregister_blkdev(0);
-> +}
-> +module_exit(pstore_blk_exit);
-> +
-> +
->  MODULE_LICENSE("GPL");
->  MODULE_AUTHOR("WeiXiong Liao <liaoweixiong@allwinnertech.com>");
->  MODULE_DESCRIPTION("pstore backend for block devices");
-> 
-> 
-> Then I can get things up and running with:
-> 
-> # insmod pstore.ko compress=off
-> # insmod pstore_zone.ko
-> # truncate pstore-blk.raw --size 100M
-> # losetup -f --show pstore-blk.raw
-> /dev/loop0
-> # insmod pstore_blk.ko blkdev=/dev/loop0 kmsg_size=16 console_size=64
-> 
-> So far, I've hit a few bugs. The most obvious is that "rmmod" causes a
-> fault, so I think locking and other things need to be fixed up further.
-> After that, it looked like all the compressed files were failing to
-> decompress, which implies some kind of buffer offset problem. When I
-> loaded with pstore.compress=off I got readable logs, but there is a span
-> of garbage between the header and the body in
-> /sys/fs/pstore/dmesg-pstore-zone-1 etc.
-> 
+Changes since v4:
+	patch 1: adapt pstore to kmsg_dump_reason_str().
+	patch 2: fix bugs that decompress failed and rmmod failed.
+			 use atomic_xchg() on psz_flush_dirty_zone() in case of reload.
+	patch 3: fix build error
+	patch 5: flush pmsg zone if it's dirty.
+	patch 6: use delayed work to cache more data and reduce calling
+			 dirty-flusher times
+	patch 12: change dev_err() to pr_err() when initialize because it get
+			  no pointer to mtd at that time.
 
-Both of the above two bugs have been fix on series v6.
+v4: https://lore.kernel.org/lkml/20200508064004.57898-1-keescook@chromium.org/
+v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
+v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
+v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
 
-The following diff is to fix "rmmod" bug.
+Kees Cook (1):
+  printk: pstore: Introduce kmsg_dump_reason_str()
 
-@@ -1273,8 +1273,8 @@ static void psz_free_zones(struct pstore_zone
-***pszones, unsigned int *cnt)
-                return;
+WeiXiong Liao (11):
+  pstore/zone: Introduce common layer to manage storage zones
+  pstore/blk: Introduce backend for block devices
+  pstore/blk: Provide way to choose pstore frontend support
+  pstore/blk: Add support for pmsg frontend
+  pstore/blk: Add console frontend support
+  pstore/blk: Add ftrace frontend support
+  Documentation: Add details for pstore/blk
+  pstore/zone: Provide way to skip "broken" zone for MTD devices
+  pstore/blk: Provide way to query pstore configuration
+  pstore/blk: Support non-block storage devices
+  mtd: Support kmsg dumper based on pstore/blk
 
-        while (*cnt > 0) {
--               psz_free_zone(&zones[*cnt]);
-                (*cnt)--;
-+               psz_free_zone(&zones[*cnt]);
-        }
-        kfree(zones);
-        *pszones = NULL;
-
-> Cool so far! It just needs a bit more testing a polish. :)
-> 
+ Documentation/admin-guide/pstore-blk.rst |  243 +++++
+ MAINTAINERS                              |    1 +
+ drivers/mtd/Kconfig                      |   10 +
+ drivers/mtd/Makefile                     |    1 +
+ drivers/mtd/mtdpstore.c                  |  563 +++++++++++
+ fs/pstore/Kconfig                        |  109 +++
+ fs/pstore/Makefile                       |    6 +
+ fs/pstore/blk.c                          |  481 ++++++++++
+ fs/pstore/platform.c                     |   22 +-
+ fs/pstore/zone.c                         | 1508 ++++++++++++++++++++++++++++++
+ include/linux/kmsg_dump.h                |    7 +
+ include/linux/pstore_blk.h               |   77 ++
+ include/linux/pstore_zone.h              |   60 ++
+ kernel/printk/printk.c                   |   21 +
+ 14 files changed, 3088 insertions(+), 21 deletions(-)
+ create mode 100644 Documentation/admin-guide/pstore-blk.rst
+ create mode 100644 drivers/mtd/mtdpstore.c
+ create mode 100644 fs/pstore/blk.c
+ create mode 100644 fs/pstore/zone.c
+ create mode 100644 include/linux/pstore_blk.h
+ create mode 100644 include/linux/pstore_zone.h
 
 -- 
-WeiXiong Liao
+1.9.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
