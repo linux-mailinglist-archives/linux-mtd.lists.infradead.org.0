@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 515271CC403
-	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 21:17:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A7D31CC3FE
+	for <lists+linux-mtd@lfdr.de>; Sat,  9 May 2020 21:17:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cib+3KYyc2ehmx45W0RnAHoXBGPdZs6RTD8Yv9JCbQk=; b=vDIto7h1ngC8PL
-	oINaeP47gY6vmbfUB7+UU2scsLlFDPk/6q8DdRa+QPoiMbxAOhxS/LCFLNLMblyWooloT83g1OZIp
-	bP1BB6c7yq9FPSwbCdAeroiI+ntuBpny7A8D/6dwTY/S/ir3YyTPfbNjKhAkcegOoT8A52ZvsKzvD
-	kbQ3QIrGx7z+G5F9YR9xKErMsae1F2HazfuxMUFKo3vp2gqjMz5APNLp4rw0Ccrl4aP/3qYkwEwPm
-	2z8xehwpdaB2+D0vTpR7qeEF+DaE9EHGivPuDv7ERcTz+S7CGPWmEYKiThhqEOD/eqH3NStwu+1Fg
-	n2DuOUDCkcfGLVt+uC/Q==;
+	List-Owner; bh=ysIvjkqmqLfwRy8mkAbsAYkIGng9i/S4dENWydZ8ej8=; b=YtLVkuWHLkyg5F
+	AL7YVIydVTHMOsprrCf3VVxXwqOHnqSWTezdftkt2jFKXarY3itxxJSjMGirINOMPxnDanle3aBJ7
+	ylvyhp6Kp4t04PM+jBss5Za/OpQBhmtoZ4tvRHczxtvckB5R9vDqXmW23DVm9PRlEFfA/tc2M+WWN
+	s0FAf/C9yYhOGrjNMCKe2J7bcoCVcgxEJg/k+ADks6qwsZHUeBhGBJyobI9Z/ZscPLzzH7mesEMDI
+	/pS7Vs/DY9QDTs3vEIBipMi9htcvInBOYlYIAIWDAwiqbWuVSMnRMfeWYb2klSOTU1Ie7LQslwT0U
+	fF7q6hoEGvJqRJU3zB8g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXUyV-0006LI-U3; Sat, 09 May 2020 19:17:27 +0000
+	id 1jXUxy-0005sc-Tt; Sat, 09 May 2020 19:16:54 +0000
 Received: from relay11.mail.gandi.net ([217.70.178.231])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXUvp-0001nh-4b
+ id 1jXUvq-0001o3-8K
  for linux-mtd@lists.infradead.org; Sat, 09 May 2020 19:14:43 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay11.mail.gandi.net (Postfix) with ESMTPSA id 112C510000B;
- Sat,  9 May 2020 19:14:38 +0000 (UTC)
+ by relay11.mail.gandi.net (Postfix) with ESMTPSA id EACED10000D;
+ Sat,  9 May 2020 19:14:39 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 07/17] mtd: rawnand: nandsim: Fix the two ns_alloc_device()
- error paths
-Date: Sat,  9 May 2020 21:14:20 +0200
-Message-Id: <20200509191431.15862-8-miquel.raynal@bootlin.com>
+Subject: [PATCH 08/17] mtd: rawnand: nandsim: Free partition names on error in
+ ns_init()
+Date: Sat,  9 May 2020 21:14:21 +0200
+Message-Id: <20200509191431.15862-9-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200509191431.15862-1-miquel.raynal@bootlin.com>
 References: <20200509191431.15862-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_121441_325358_F2A22C69 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20200509_121442_434837_A3BE6B05 
+X-CRM114-Status: GOOD (  10.50  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -71,81 +71,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The ns_alloc_device() helper has actually two distinct path. Handle
-errors in both of them.
+The ns_init() function shall free the partition names allocated by
+ns_get_partition_name() on error.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nandsim.c | 26 +++++++++++++++++---------
- 1 file changed, 17 insertions(+), 9 deletions(-)
+ drivers/mtd/nand/raw/nandsim.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nandsim.c b/drivers/mtd/nand/raw/nandsim.c
-index 7862c65e32ad..7ffb46b01380 100644
+index 7ffb46b01380..a50ffa04cc04 100644
 --- a/drivers/mtd/nand/raw/nandsim.c
 +++ b/drivers/mtd/nand/raw/nandsim.c
-@@ -543,12 +543,12 @@ static int __init ns_alloc_device(struct nandsim *ns)
- 		if (!(cfile->f_mode & FMODE_CAN_READ)) {
- 			NS_ERR("alloc_device: cache file not readable\n");
- 			err = -EINVAL;
--			goto err_close;
-+			goto err_close_filp;
+@@ -722,12 +722,14 @@ static int __init ns_init(struct mtd_info *mtd)
+ 	if (remains) {
+ 		if (parts_num + 1 > ARRAY_SIZE(ns->partitions)) {
+ 			NS_ERR("too many partitions.\n");
+-			return -EINVAL;
++			ret = -EINVAL;
++			goto free_partition_names;
  		}
- 		if (!(cfile->f_mode & FMODE_CAN_WRITE)) {
- 			NS_ERR("alloc_device: cache file not writeable\n");
- 			err = -EINVAL;
--			goto err_close;
-+			goto err_close_filp;
+ 		ns->partitions[i].name = ns_get_partition_name(i);
+ 		if (!ns->partitions[i].name) {
+ 			NS_ERR("unable to allocate memory.\n");
+-			return -ENOMEM;
++			ret = -ENOMEM;
++			goto free_partition_names;
  		}
- 		ns->pages_written =
- 			vzalloc(array_size(sizeof(unsigned long),
-@@ -556,16 +556,24 @@ static int __init ns_alloc_device(struct nandsim *ns)
- 		if (!ns->pages_written) {
- 			NS_ERR("alloc_device: unable to allocate pages written array\n");
- 			err = -ENOMEM;
--			goto err_close;
-+			goto err_close_filp;
- 		}
- 		ns->file_buf = kmalloc(ns->geom.pgszoob, GFP_KERNEL);
- 		if (!ns->file_buf) {
- 			NS_ERR("alloc_device: unable to allocate file buf\n");
- 			err = -ENOMEM;
--			goto err_free;
-+			goto err_free_pw;
- 		}
- 		ns->cfile = cfile;
-+
- 		return 0;
-+
-+err_free_pw:
-+		vfree(ns->pages_written);
-+err_close_filp:
-+		filp_close(cfile, NULL);
-+
-+		return err;
- 	}
+ 		ns->partitions[i].offset = next_offset;
+ 		ns->partitions[i].size   = remains;
+@@ -756,18 +758,25 @@ static int __init ns_init(struct mtd_info *mtd)
  
- 	ns->pages = vmalloc(array_size(sizeof(union ns_mem), ns->geom.pgnum));
-@@ -580,15 +588,15 @@ static int __init ns_alloc_device(struct nandsim *ns)
- 						ns->geom.pgszoob, 0, 0, NULL);
- 	if (!ns->nand_pages_slab) {
- 		NS_ERR("cache_create: unable to create kmem_cache\n");
+ 	ret = ns_alloc_device(ns);
+ 	if (ret)
+-		return ret;
++		goto free_partition_names;
+ 
+ 	/* Allocate / initialize the internal buffer */
+ 	ns->buf.byte = kmalloc(ns->geom.pgszoob, GFP_KERNEL);
+ 	if (!ns->buf.byte) {
+ 		NS_ERR("init_nandsim: unable to allocate %u bytes for the internal buffer\n",
+ 			ns->geom.pgszoob);
 -		return -ENOMEM;
-+		err = -ENOMEM;
-+		goto err_free_pg;
++		ret = -ENOMEM;
++		goto free_partition_names;
  	}
+ 	memset(ns->buf.byte, 0xFF, ns->geom.pgszoob);
  
  	return 0;
- 
--err_free:
--	vfree(ns->pages_written);
--err_close:
--	filp_close(cfile, NULL);
-+err_free_pg:
-+	vfree(ns->pages);
 +
- 	return err;
++free_partition_names:
++	for (i = 0; i < ARRAY_SIZE(ns->partitions); ++i)
++		kfree(ns->partitions[i].name);
++
++	return ret;
  }
  
+ /*
 -- 
 2.20.1
 
