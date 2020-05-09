@@ -2,59 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CA5C1CC4EE
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 00:30:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 557091CC54C
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 01:42:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XtLjb+DkHu/LDrSIDSLLGTA8jpzSwHHE69ovcG2F05I=; b=jTPCTW+ICbGlNV
-	3euVFSbHGWDj/T+W0SZCkoWJoG2OFcqtj4BbQWel31cAebeadKAeRgCWcdL68zl8Tg9YgGUH30jcP
-	6XN5c+9VHNuaHO9GxMcxnkpWgyP5gVZPLrEIilv3G0QdKSuzhh0ueu5JQ4jToqm/Kyv02Wv/dPACt
-	V/SxgUiMoZdSAe+37czvmlgpG5IfTbU0WbLB7xb9j9kQsBLNTtM/U+mYr3BBTsnlBbenm7xc52oIH
-	SgnfIf+b7wIDnFpO6BiBHREIgfVd/lqxCMrmrkSjw1LOf0aqtqR9gRumwC7DUbX642bdP2cX+kpXT
-	4qXem8iQMMoNX57++LoQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0FxlY+vds14e0hF0DFbNeT1++ROvZAb2gEO6A9+ITF0=; b=kpBOd/MKmDMrsx
+	EetnAsgZps2vZ5hDF/8OBd/GktML1QzFI69e2xT58nw4v0FK12MwcsIEYuhibR3yGz+HF5YikUL+Z
+	LWwCiVHQ3AoPzrrI4G1II29NwWNRv+Doa1oDl80TqogjxhkFU0bpfegdDuW8BW1p3uqG0IiC8uiCl
+	w7xnTHD9TMxqVEOf1kpWBNNAaSdmgYUL1sy6b7s850mbq6fWVbC1S+1cV9j/Q4WZ2KxpJdPiQr80l
+	4Q53WiCTleRo7caicKm7ZyTl7+4mAJyh3cdi4aH+tX5Psle6vA8/+Vsqb+bVcNlmoBJxFTHqA8s5w
+	QAxeHsWBAv1X0DE5Fknw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXXyu-0003r7-CF; Sat, 09 May 2020 22:30:04 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jXZ6x-0002Bl-VX; Sat, 09 May 2020 23:42:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXXyl-0003qB-EX
- for linux-mtd@lists.infradead.org; Sat, 09 May 2020 22:29:57 +0000
-X-Originating-IP: 91.224.148.103
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 0BCC9FF803;
- Sat,  9 May 2020 22:29:50 +0000 (UTC)
-Date: Sun, 10 May 2020 00:29:49 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>
-Subject: Re: [PATCH 06/17] mtd: rawnand: nandsim: Remove debugfs entries at
- unload time
-Message-ID: <20200510002949.6ef593ba@xps13>
-In-Reply-To: <1221365235.202803.1589056980096.JavaMail.zimbra@nod.at>
-References: <20200509191431.15862-1-miquel.raynal@bootlin.com>
- <20200509191431.15862-7-miquel.raynal@bootlin.com>
- <1221365235.202803.1589056980096.JavaMail.zimbra@nod.at>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jXZ5j-0001AW-Mc
+ for linux-mtd@lists.infradead.org; Sat, 09 May 2020 23:41:13 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id f7so2885653pfa.9
+ for <linux-mtd@lists.infradead.org>; Sat, 09 May 2020 16:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=LN02kQGLgElFDT6YhRYkfrDyShhneRM4gygOe7piDXw=;
+ b=a2OffO+4m00dWKoHHUMauc+9jzQitgt4pi5ica/PG9O+dw/0wGtT6L+v2xUTv9XT1e
+ iNdEQJVHXZOZW0hpuyCL4cSKScaWt/EWbnysgj0OTX9SwhZiWxil5wqslLkSp25G6e3m
+ JEcY8KRnfLgY67mjWFvFRdcLvho/YQqSPY/WI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=LN02kQGLgElFDT6YhRYkfrDyShhneRM4gygOe7piDXw=;
+ b=k+7YTMpVqMSdkWz+6lFXmc7uLR3CgXT5GjXAJBASRuKzBMo+0ezUYrvBXGLBaBBayU
+ 0bfi3TLW1lqwoq8K/RbZFa9c/IcdfErlwGBxdZb8rVm18szwaL0Ndd/bHEFQToW4jbF7
+ bvtfQbN1UJyRXwQphvZi8/wmThkvvNaeqbhsI+BDStNwWKQCM3DwJxmwcTK8KZPi454B
+ MQKERvflZQEgxVWICAxz+ALlJ/1fzPSQhabZ7AGMACz5DMyE//TO/G3bDZEZAaa5uuwc
+ oGldVkPfhsaqzIop2P8dq/QcItfZr3BgKz5Gnf+MnkiMiwpKQhkA+yN06Fg1s3pynijP
+ /ngA==
+X-Gm-Message-State: AGi0PuYqe4D5grnf9R8pgcqJjtSaILJxABaa9k4uMvhVvDrtDYTyiBVu
+ D48mEl1ukRzJh28DGcrqlmUsGSaQFh4=
+X-Google-Smtp-Source: APiQypIkzVjEFHa2Lrg3QC1KeNRQ6+ilOe2KWxjDWNTEq5yVdbPKmnUsIO6mBJKyCEQYBRh4Q1LiuA==
+X-Received: by 2002:a63:9e53:: with SMTP id r19mr8385908pgo.5.1589067670765;
+ Sat, 09 May 2020 16:41:10 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id b16sm5448636pfp.89.2020.05.09.16.41.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 09 May 2020 16:41:06 -0700 (PDT)
+From: Kees Cook <keescook@chromium.org>
+To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
+Subject: [PATCH v6 00/18] pstore: mtd: support crash log to block and mtd
+ device
+Date: Sat,  9 May 2020 16:40:45 -0700
+Message-Id: <20200509234103.46544-1-keescook@chromium.org>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_152955_627603_CCD9317F 
-X-CRM114-Status: GOOD (  14.23  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200509_164111_750783_408D64E4 
+X-CRM114-Status: GOOD (  16.76  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.199 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:42a listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,49 +92,116 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: dedekind@infradead.org, Boris Brezillon <boris.brezillon@collabora.com>,
- linux-mtd <linux-mtd@lists.infradead.org>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
+ Kees Cook <keescook@chromium.org>, Jonathan Corbet <corbet@lwn.net>,
+ Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Colin Cross <ccross@android.com>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Pavel Tatashin <pasha.tatashin@soleen.com>, Rob Herring <robh@kernel.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgUmljaGFyZCwKClJpY2hhcmQgV2VpbmJlcmdlciA8cmljaGFyZEBub2QuYXQ+IHdyb3RlIG9u
-IFNhdCwgOSBNYXkgMjAyMCAyMjo0MzowMAorMDIwMCAoQ0VTVCk6Cgo+IC0tLS0tIFVyc3Byw7xu
-Z2xpY2hlIE1haWwgLS0tLS0KPiA+IFZvbjogIk1pcXVlbCBSYXluYWwiIDxtaXF1ZWwucmF5bmFs
-QGJvb3RsaW4uY29tPgo+ID4gQW46ICJyaWNoYXJkIiA8cmljaGFyZEBub2QuYXQ+LCAiVmlnbmVz
-aCBSYWdoYXZlbmRyYSIgPHZpZ25lc2hyQHRpLmNvbT4sICJUdWRvciBBbWJhcnVzIiA8VHVkb3Iu
-QW1iYXJ1c0BtaWNyb2NoaXAuY29tPiwKPiA+ICJsaW51eC1tdGQiIDxsaW51eC1tdGRAbGlzdHMu
-aW5mcmFkZWFkLm9yZz4KPiA+IENDOiAiQm9yaXMgQnJlemlsbG9uIiA8Ym9yaXMuYnJlemlsbG9u
-QGNvbGxhYm9yYS5jb20+LCBkZWRla2luZEBpbmZyYWRlYWQub3JnLCAiTWlxdWVsIFJheW5hbCIK
-PiA+IDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4uY29tPgo+ID4gR2VzZW5kZXQ6IFNhbXN0YWcsIDku
-IE1haSAyMDIwIDIxOjE0OjE5Cj4gPiBCZXRyZWZmOiBbUEFUQ0ggMDYvMTddIG10ZDogcmF3bmFu
-ZDogbmFuZHNpbTogUmVtb3ZlIGRlYnVnZnMgZW50cmllcyBhdCB1bmxvYWQgdGltZSAgCj4gCj4g
-PiBDcmVhdGUgYSBuc19kZWJ1Z2ZzX3JlbW92ZSgpIGhlbHBlciBmb3IgdGhhdCBhbmQgY2FsbCBp
-dCBpbgo+ID4gbnNfY2xlYW51cF9tb2R1bGUoKS4KPiA+IAo+ID4gU2lnbmVkLW9mZi1ieTogTWlx
-dWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4KPiA+IC0tLQo+ID4gZHJpdmVy
-cy9tdGQvbmFuZC9yYXcvbmFuZHNpbS5jIHwgNiArKysrKysKPiA+IDEgZmlsZSBjaGFuZ2VkLCA2
-IGluc2VydGlvbnMoKykKPiA+IAo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbXRkL25hbmQvcmF3
-L25hbmRzaW0uYyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRzaW0uYwo+ID4gaW5kZXggYzhl
-OWM3MGE2NjQxLi43ODYyYzY1ZTMyYWQgMTAwNjQ0Cj4gPiAtLS0gYS9kcml2ZXJzL210ZC9uYW5k
-L3Jhdy9uYW5kc2ltLmMKPiA+ICsrKyBiL2RyaXZlcnMvbXRkL25hbmQvcmF3L25hbmRzaW0uYwo+
-ID4gQEAgLTUyMCw2ICs1MjAsMTEgQEAgc3RhdGljIGludCBuc19kZWJ1Z2ZzX2NyZWF0ZShzdHJ1
-Y3QgbmFuZHNpbSAqbnMpCj4gPiAJcmV0dXJuIDA7Cj4gPiB9Cj4gPiAKPiA+ICtzdGF0aWMgdm9p
-ZCBuc19kZWJ1Z2ZzX3JlbW92ZShzdHJ1Y3QgbmFuZHNpbSAqbnMpCj4gPiArewo+ID4gKwlkZWJ1
-Z2ZzX3JlbW92ZShucy0+ZGVudCk7Cj4gPiArfQo+ID4gKwo+ID4gLyoKPiA+ICAqIEFsbG9jYXRl
-IGFycmF5IG9mIHBhZ2UgcG9pbnRlcnMsIGNyZWF0ZSBzbGFiIGFsbG9jYXRpb24gZm9yIGFuIGFy
-cmF5Cj4gPiAgKiBhbmQgaW5pdGlhbGl6ZSB0aGUgYXJyYXkgYnkgTlVMTCBwb2ludGVycy4KPiA+
-IEBAIC0yMzk4LDYgKzI0MDMsNyBAQCBzdGF0aWMgdm9pZCBfX2V4aXQgbnNfY2xlYW51cF9tb2R1
-bGUodm9pZCkKPiA+IAlzdHJ1Y3QgbmFuZHNpbSAqbnMgPSBuYW5kX2dldF9jb250cm9sbGVyX2Rh
-dGEoY2hpcCk7Cj4gPiAJaW50IGk7Cj4gPiAKPiA+ICsJbnNfZGVidWdmc19yZW1vdmUobnMpOwo+
-ID4gCW5zX2ZyZWUobnMpOyAgICAvKiBGcmVlIG5hbmRzaW0gcHJpdmF0ZSByZXNvdXJjZXMgKi8g
-IAo+IAo+IFdoeSBpcyB0aGlzIHNwZWNpYWwgYW5kIGNhbm5vdCBkb25lIGluIG5zX2ZyZWUoKT8K
-PiAKCm5zX2RlYnVnZnNfY3JlYXRlKCkgaXMgY2FsbGVkIGluIG5zX2luaXRfbW9kdWxlKCksIHNv
-IGZvciBtZSBpdCBpcwpuYXR1cmFsIHRvIGNhbGwgbnNfZGVidWdmc19yZW1vdmUgaW4gbnNfY2xl
-YW51cF9tb2R1bGUoKS4gTW9yZSB0aGFuCmNhbGxpbmcgaXQgZnJvbSBuc19mcmVlKCkgd2hpY2gg
-aXMgdGhlIHN5bW1ldHJ5IG9mIG5zX2luaXQoKS4gTm8/CgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1h
-aWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LW10ZC8K
+Hi,
+
+Okay, I'm happy enough with this series to get it landed so we can start
+doing incremental changes, etc. Here's the v6 I'll land in for-next/pstore
+unless there's some objection.
+
+Thank you again for all your patience! As you can see, I had a lot of
+things I needed to fix up in the core pstore code, and I had a lot of
+opinions about names. ;) I'm glad to have a block device backend for
+this -- it makes testing the core much easier.
+
+After spending so much time looking at pstore/zone, I've got some ideas
+about how to merge it with pstore/ram's way of doing things. For example,
+I'd like to get ECC support into pstore/zone, and once it's generalized
+enough, I think other storage systems (EFI?) could use it to solve
+some problems there (growing without bounds, not supporting the other
+frontends, etc).
+
+One last thought I had on naming would be to have mtdpstore be named
+pstore_mtd.c, etc. That'd make it more like pstore/zone,blk,ram,
+etc. (I'd really like to get pstore/ram renamed and keep the "ramoops"
+name for backward compat.) What do you think about that?
+
+Thanks!
+
+-Kees
+
+
+v6:
+- more renamings, typo fixes, rewordings
+- reset pstore_zone global counters/state on unregister
+- add best_effort param to allow easy block device testing
+- extract ftrace merging code from ram.c to avoid duplication
+- use backend name for console name
+- rearrange module parameters
+
+v5: https://lore.kernel.org/lkml/1589022854-19821-1-git-send-email-liaoweixiong@allwinnertech.com/
+v4: https://lore.kernel.org/lkml/20200508064004.57898-1-keescook@chromium.org/
+v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
+v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
+v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
+
+
+Kees Cook (8):
+  pstore/ram: Move dump_oops to end of module_param list
+  pstore/platform: Switch pstore_info::name to const
+  pstore/platform: Move module params after declarations
+  pstore/platform: Use backend name for console registration
+  pstore/ram: Refactor ftrace buffer merging
+  pstore/ftrace: Provide ftrace log merging routine
+  printk: Introduce kmsg_dump_reason_str()
+  pstore/blk: Introduce "best_effort" mode
+
+WeiXiong Liao (10):
+  pstore/zone: Introduce common layer to manage storage zones
+  pstore/blk: Introduce backend for block devices
+  pstore/zone,blk: Add support for pmsg frontend
+  pstore/zone,blk: Add console frontend support
+  pstore/zone,blk: Add ftrace frontend support
+  Documentation: Add details for pstore/blk
+  pstore/zone: Provide way to skip "broken" zone for MTD devices
+  pstore/blk: Provide way to query pstore configuration
+  pstore/blk: Support non-block storage devices
+  mtd: Support kmsg dumper based on pstore/blk
+
+ Documentation/admin-guide/pstore-blk.rst |  243 ++++
+ MAINTAINERS                              |    1 +
+ drivers/mtd/Kconfig                      |   10 +
+ drivers/mtd/Makefile                     |    1 +
+ drivers/mtd/mtdpstore.c                  |  564 +++++++++
+ fs/pstore/Kconfig                        |  109 ++
+ fs/pstore/Makefile                       |    6 +
+ fs/pstore/blk.c                          |  571 +++++++++
+ fs/pstore/ftrace.c                       |   54 +
+ fs/pstore/internal.h                     |    9 +
+ fs/pstore/platform.c                     |   40 +-
+ fs/pstore/ram.c                          |   70 +-
+ fs/pstore/zone.c                         | 1463 ++++++++++++++++++++++
+ include/linux/kmsg_dump.h                |    7 +
+ include/linux/pstore.h                   |    2 +-
+ include/linux/pstore_blk.h               |   77 ++
+ include/linux/pstore_zone.h              |   60 +
+ kernel/printk/printk.c                   |   21 +
+ 18 files changed, 3220 insertions(+), 88 deletions(-)
+ create mode 100644 Documentation/admin-guide/pstore-blk.rst
+ create mode 100644 drivers/mtd/mtdpstore.c
+ create mode 100644 fs/pstore/blk.c
+ create mode 100644 fs/pstore/zone.c
+ create mode 100644 include/linux/pstore_blk.h
+ create mode 100644 include/linux/pstore_zone.h
+
+-- 
+2.20.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
