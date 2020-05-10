@@ -2,59 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A54B21CCDA5
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:15:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5590C1CCDA6
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:15:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6gdBesS9FYlqz6J0f2ucrdslgx4WxlzRSJKVPn9LBFs=; b=mHwel2oGyBwqAh
-	7zK6Fy01oy5cS2t3OZQrHulTcovPeW27wKkvrvFR2I5u5vAuSoKYZrSFFq73wAYEJMugPPl9TXV+S
-	/W9mlblLFw+cIAQlHlo+zoSLSGzNXW6OXcrsu4NhaaEEbJpJxDm84ovMySOxlPPosKM6ZSl5HsJ6S
-	LVA3zka7vNl3s1FoSKOWbu5I0gNNEuU50GW4BmAYICOEvMiwLNbu+Ux7G8GEJD2cIGZmY7f62QH0A
-	mFJH2eYuLS3z06iluYCmhsXOAd4chcxTTVdpLIhDPWlKhAi2zC2TngXPlLfaATRxlCKNWq6s4JfcW
-	lwOhJ4SRht95FbCnzHNg==;
+	List-Owner; bh=rPJ1DulxnWkxpwxDCYFDDB2IUyx7F2GaPldEcTE3POQ=; b=NnivhPHtAo1j3z
+	NPJob93nt1+TR/oYsDzjPbOwCMElEGgsC1B7+n9kewqEa1A7ETi49c7ChG7vPGJ02iEm9U7thOKxf
+	dMpEPdR5qq0NNut/w9yYQBW6S/WalbFlbHH9G5lNmSJ4WFvM/3S/WRw9tBkgrQA3vV6dgRMlLrYB+
+	7Y7Ns9Sp2JPm1kfs3CYVCsBIJYvTD45YNvxeR6voKPD9uh6v6sRQ0WmaGYmvjvQ/dpjYRPJefuxT+
+	4grvLPlKaeJHg2KJLBgM1U37OrGDxQ5xeImOXy+tpxt2Dkq5m/+59iPVOU0OcncMiE3aX9enXL3/L
+	E4f+o74kBGG/B1SgR1Sg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXsM5-0003e0-PF; Sun, 10 May 2020 20:15:21 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1jXsMK-0006Iv-L6; Sun, 10 May 2020 20:15:36 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXsDm-0002Bt-GE
- for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:06:48 +0000
-X-Originating-IP: 91.224.148.103
+ id 1jXsDr-0002IO-Th
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:06:53 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id D1B98C0004;
- Sun, 10 May 2020 20:06:41 +0000 (UTC)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 82FB1200007;
+ Sun, 10 May 2020 20:06:49 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>,
- Boris Brezillon <bbrezillon@kernel.org>,
- Richard Weinberger <richard@nod.at>,
- Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH] mtd: rawnand: Take check_only into account
-Date: Sun, 10 May 2020 22:06:41 +0200
-Message-Id: <20200510200641.3144-1-miquel.raynal@bootlin.com>
+To: YueHaibing <yuehaibing@huawei.com>, computersforpeace@gmail.com,
+ kdasu.kdev@gmail.com, miquel.raynal@bootlin.com, richard@nod.at,
+ vigneshr@ti.com
+Subject: Re: [PATCH -next] mtd: rawnand: brcmnand: Remove unused including
+ <linux/version.h>
+Date: Sun, 10 May 2020 22:06:48 +0200
+Message-Id: <20200510200648.3206-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200418194217.1016060-1-boris.brezillon@collabora.com>
+In-Reply-To: <20200417101129.35556-1-yuehaibing@huawei.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: ce446b4b2d803cf62de2e74b1fbda8758e4835bd
+X-linux-mtd-patch-commit: 4ba246d7a365b8049892d852ab00d8bd707dc0e6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200510_130646_691737_77DF77ED 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20200510_130652_151095_1477D349 
+X-CRM114-Status: UNSURE (   4.93  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.198 listed in wl.mailspike.net]
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.198 listed in list.dnswl.org]
+ low trust [217.70.178.232 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -68,24 +65,20 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Lucas Stach <dev@lynxeye.de>, Vignesh Raghavendra <vigneshr@ti.com>,
- Stefan Agner <stefan@agner.ch>, Marek Vasut <marek.vasut@gmail.com>,
- Liang Yang <liang.yang@amlogic.com>, Han Xu <han.xu@nxp.com>,
- Brian Norris <computersforpeace@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
+Cc: linux-mtd@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sat, 2020-04-18 at 19:42:17 UTC, Boris Brezillon wrote:
-> ->exec_op() is passed a check_only argument that encodes when the
-> controller should just check whether the operation is supported or not
-> without executing it. Some controllers simply ignore this arguments,
-> others don't but keep modifying some of the registers before returning.
-> Let's fix all those drivers.
+On Fri, 2020-04-17 at 10:11:29 UTC, YueHaibing wrote:
+> Remove including <linux/version.h> that don't need it.
 > 
-> Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+> Signed-off-by: YueHaibing <yuehaibing@huawei.com>
+> Acked-by: Florian Fainelli <f.fainelli@gmail.com>
+> Signed-off-by: Kamal Dasu <kdasu.kdev@gmail.com>
+> Reviewed-by: Kamal Dasu <kdasu.kdev@gmail.com>
 
 Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
 
