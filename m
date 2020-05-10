@@ -2,87 +2,64 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3C6C1CC584
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 01:47:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D0EBE1CC750
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 08:31:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=grwJ7cPafiy0lVZ1nD/r76+LXFEu86AOYmOTzgs5/EI=; b=Iq/i8/Hh/oKT/8
-	WytbdgPe0/V3dPm1KbUEimDRFwfJOqJiIrWnUvSuaEQicRn8O+IfCnNLBKCSXOrdIv6oQcn9PPNec
-	8p25e2WW2M7hiyWsGj5JMy7F4N5/9dMEn4yVCLAZhtXulY+pv4yduAVO05I2jsF5LrrVQjcY6KgI1
-	CsrHriIaKVb0Vs7hSuUMKCvdAyzGDZKvPEqIpH7e83tYTlXQkXJG+vgipeUkc458bV+gcCgv2L+KV
-	5PiBSnkZrLIxF9YpwhpebwH75P47NRc89iEDnFVgj05Zoy+fiLbvjs5fsclxj8G9vih7vHkIVP48a
-	Xj9KYP1aTm2mhZZWSRsQ==;
+	List-Owner; bh=Jc88V03pjQQGYrXhZAnS6aWi5SW/2bTzFOYI3Vo+LN8=; b=qbrSiG4Zaow9gL
+	Z6KYupLqbUJpF6+NGkNIM5v3PNoXEeZKvx2rHUfU9hMDKclPfsLGMQdGHVJjdo+maUP8xJRs9mD5e
+	n6B/FMliLWVj075pNV4Wz39Vd98oD8/vDTDUWAOJWCyNT6Ah1y66qJu7sszeAMVo7Gd8PE5mUmBFt
+	m92P3+NAkFP7zJ3ZWrtuKJfiyoDoTXEdemtcLgpGKu3mpFjTVJWQIJWaJLbKgshE0AGoIhGAAzHRX
+	vcZ/2rCA9RzlRNRH9ZbiZYj6u/Nmp7ddyjRSxUpV79wZuhgIdjLjuiw9jkrNegP1r5PKaQCB1U6ge
+	y2cXa5evpRI/IeMncjTg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXZBL-0007uf-Qb; Sat, 09 May 2020 23:46:59 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1jXfUe-0006ne-UM; Sun, 10 May 2020 06:31:21 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXZBC-0007tk-7R
- for linux-mtd@lists.infradead.org; Sat, 09 May 2020 23:46:51 +0000
-Received: by mail-pl1-x643.google.com with SMTP id s10so2311172plr.1
- for <linux-mtd@lists.infradead.org>; Sat, 09 May 2020 16:46:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=W/OyM5xWMsCxGKhpd57n8B6pYDT/bbNCXahzUEHyQHM=;
- b=hEl6rWsgGI5gElw0aUE/odwxzL2ZvqGO33b/PnrzxDJf5pz8m4nE6cMvPg9O3eZw4v
- kWwXWbwTpba7DXwtb3X8PVyVu/ms5Pc5MB7DdYKfPzYZ+cqI4rSynBUUaRpok34yeHug
- /OTMMd3FIF38Pv/p/ZggrIcEarV7883a3JO38=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=W/OyM5xWMsCxGKhpd57n8B6pYDT/bbNCXahzUEHyQHM=;
- b=iiamrG6bmL00UJjBPAy5IjrNimlH7M+A2dqfqp0BGtDqZxrb4wnjLfpbhSKbrl9NQ0
- C8PGH5l6ie6/EdEMUUy/ze+M89R5WdIEuwEDnjKlUkc55lHmgD8Lq96OaepIe4ZpPjp9
- MblDrs71x6PaUFnY9mzN+urX/dRq+zFYj7YoAbUJcC/pb4YztpyEEvX1bCsmpeiFkpce
- xbdQ0Zz1D5a5S30XlPebq/tX7i8w2zEnInjBW3cI6phyLTUQIRAiFHT/Usl1JUXp91LN
- OSqMJN8nS8cYksFWNFrBNEkTT+eVTEt7lcGlKFu9Inay23b3BDDy6kuZiwzFjkLo4zzj
- AZMQ==
-X-Gm-Message-State: AGi0PubxM2MhVAZyH8PIKx2+cBEhNSrxjJZz1rORhNLjsN2tu8N7dhJo
- sl00flY2ngu9BzlVZ6hNknDnwQ==
-X-Google-Smtp-Source: APiQypKMTk+Db8R/TljPB2LFy2Oe3CFdrjNzI1wijISitcrWhwLAUAgNunD98TF1maMmXEhKS0COGw==
-X-Received: by 2002:a17:90b:246:: with SMTP id
- fz6mr14475254pjb.138.1589068009793; 
- Sat, 09 May 2020 16:46:49 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id 13sm5534768pfv.95.2020.05.09.16.46.48
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Sat, 09 May 2020 16:46:49 -0700 (PDT)
-From: Kees Cook <keescook@chromium.org>
-To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
-Subject: [PATCH v6 18/18] pstore/blk: Introduce "best_effort" mode
-Date: Sat,  9 May 2020 16:41:03 -0700
-Message-Id: <20200509234103.46544-19-keescook@chromium.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200509234103.46544-1-keescook@chromium.org>
-References: <20200509234103.46544-1-keescook@chromium.org>
+ id 1jXfUV-0006n9-7e
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 06:31:13 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 669E32A0825;
+ Sun, 10 May 2020 07:31:09 +0100 (BST)
+Date: Sun, 10 May 2020 08:31:05 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Lubomir Rintel <lkundrak@v3.sk>
+Subject: Re: [PATCH v2 00/19] mtd: rawnand: cafe: Convert to exec_op() (and
+ more)
+Message-ID: <20200510083105.4bcfa71b@collabora.com>
+In-Reply-To: <20200509202855.GB524772@furthur.local>
+References: <20200505220152.GA157445@furthur.local>
+ <20200506083209.57c85ad9@collabora.com>
+ <20200506155359.GA183666@furthur.local>
+ <20200506181153.4643fbe1@collabora.com>
+ <20200506203635.GA207924@furthur.local>
+ <20200506233552.0ef6a865@collabora.com>
+ <20200507134708.GA303404@furthur.local>
+ <20200507221257.75e400a8@collabora.com>
+ <20200509193440.GA524772@furthur.local>
+ <20200509220102.59f36689@collabora.com>
+ <20200509202855.GB524772@furthur.local>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_164650_288297_F77AD8D0 
-X-CRM114-Status: GOOD (  13.34  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200509_233111_539773_2BF08EE9 
+X-CRM114-Status: GOOD (  34.87  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:643 listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -94,77 +71,133 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
- Kees Cook <keescook@chromium.org>, Jonathan Corbet <corbet@lwn.net>,
- Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Steven Rostedt <rostedt@goodmis.org>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Colin Cross <ccross@android.com>, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Pavel Tatashin <pasha.tatashin@soleen.com>, Rob Herring <robh@kernel.org>,
- Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Richard Weinberger <richard@nod.at>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>, linux-mtd@lists.infradead.org,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-In order to use arbitrary block devices as a pstore backend, provide a
-new module param named "best_effort", which will allow using any block
-device, even if it has not provided a panic_write callback.
+On Sat, 9 May 2020 22:28:55 +0200
+Lubomir Rintel <lkundrak@v3.sk> wrote:
 
-Signed-off-by: Kees Cook <keescook@chromium.org>
----
- fs/pstore/blk.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+> On Sat, May 09, 2020 at 10:01:02PM +0200, Boris Brezillon wrote:
+> > On Sat, 9 May 2020 21:34:40 +0200
+> > Lubomir Rintel <lkundrak@v3.sk> wrote:
+> >   
+> > > On Thu, May 07, 2020 at 10:12:57PM +0200, Boris Brezillon wrote:  
+> > > > On Thu, 7 May 2020 15:47:08 +0200
+> > > > Lubomir Rintel <lkundrak@v3.sk> wrote:
+> > > >     
+> > > > > On Wed, May 06, 2020 at 11:35:52PM +0200, Boris Brezillon wrote:    
+> > > > > > On Wed, 6 May 2020 22:36:35 +0200
+> > > > > > Lubomir Rintel <lkundrak@v3.sk> wrote:
+> > > > > >       
+> > > > > > > > We really should mask IRQs (AKA disable IRQs in my naming convention
+> > > > > > > > :-)) here, unless we want to switch to interrupt-based waits (which
+> > > > > > > > would be a good thing when we have DMA or WAIT_RDY involved). Having an
+> > > > > > > > interrupt handler in the current implementation doesn't make any sense
+> > > > > > > > (that's assuming the IRQ_STATUS bits are updated even if the interrupts
+> > > > > > > > are disabled, which am not sure is a valid assumption in this case).        
+> > > > > > > 
+> > > > > > > I have no idea why the interrupt handler is there. Perhaps some
+> > > > > > > interrupts can't be masked and need an ack or something.      
+> > > > > > 
+> > > > > > Can you try to set NAND_IRQ_MASK to 0x0 and see if that still works.
+> > > > > > Can you also check the number of NAND interrupts when set to 0x0? It's
+> > > > > > hard to tell exactly what caused the interrupt handler to be called
+> > > > > > since this is a shared interrupt.      
+> > > > > 
+> > > > > When it's set to 0, I get an interrupt with CAFE_NAND_IRQ=0x40000000
+> > > > > (CAFE_NAND_IRQ_FLASH_RDY) right off the bat. That doesn't happen with
+> > > > > a mask of 0xffffffff.
+> > > > > 
+> > > > > When changing the handler to always ack CAFE_NAND_IRQ_FLASH_RDY I've
+> > > > > also seen CAFE_NAND_IRQ=0x80000000 (CAFE_NAND_IRQ_CMD_DONE) suggesting
+> > > > > that other interrupts aren't masked either.
+> > > > > 
+> > > > > It seems to be that ones indeed mask interrupts but just can't be
+> > > > > masked (CAFE_NAND_IRQ_CMD_DONE or CAFE_NAND_IRQ_DMA_DONE), perhaps
+> > > > > due to hardware bugs.
+> > > > >     
+> > > > 
+> > > > I pushed a new version with some interrupt-related changes [1].
+> > > > 
+> > > > [1]https://github.com/bbrezillon/linux/commits/nand/cafe-nand-exec-op-debug    
+> > > 
+> > > Works with one fix:
+> > > 
+> > > diff --git a/drivers/mtd/nand/raw/cafe_nand.c b/drivers/mtd/nand/raw/cafe_nand.c
+> > > index 591d79730961..e37737b7b089 100644
+> > > --- a/drivers/mtd/nand/raw/cafe_nand.c
+> > > +++ b/drivers/mtd/nand/raw/cafe_nand.c
+> > > @@ -801,6 +801,7 @@ static int cafe_nand_probe(struct pci_dev *pdev,
+> > >         if (!cafe)
+> > >                 return  -ENOMEM;
+> > >  
+> > > +       init_completion(&cafe->complete);  
+> > 
+> > Oops, indeed.
+> >   
+> > >         mtd = nand_to_mtd(&cafe->nand);
+> > >         mtd->dev.parent = &pdev->dev;
+> > >         nand_set_controller_data(&cafe->nand, cafe);
+> > > 
+> > > However, the mount JFFS2 mount takes about twice as long as it did with
+> > > the polling version:  
+> > 
+> > Yes, that's not surprising. At the same time, using atomic-polling for
+> > something that's expected to take hundreds of microseconds is not that
+> > great. That means your CPU is not doing anything useful while you wait
+> > for the read/write/erase operation to finish.  
+> 
+> Yes. But this really is too much of a slowdown:
+> 
+>   bash-5.0# time dd count=65536 bs=2k if=/dev/mtd0 of=/dev/null
+>   65536+0 records in
+>   65536+0 records out
+>   
+>   real    0m20.191s
+>   user    0m0.346s
+>   sys     0m10.366s
+> 
+> vs (previously):
+>   
+>   bash-5.0# time dd count=65536 bs=2k if=/dev/mtd0 of=/dev/null
+>   65536+0 records in
+>   65536+0 records out
+>   
+>   real    0m7.629s
+>   user    0m0.010s
+>   sys     0m7.500s
+>   bash-5.0#
 
-diff --git a/fs/pstore/blk.c b/fs/pstore/blk.c
-index 3e67bd4557ea..b7c33ef4c646 100644
---- a/fs/pstore/blk.c
-+++ b/fs/pstore/blk.c
-@@ -51,6 +51,10 @@ static long ftrace_size = -1;
- module_param(ftrace_size, long, 0400);
- MODULE_PARM_DESC(ftrace_size, "ftrace size in kbytes");
- 
-+static bool best_effort;
-+module_param(best_effort, bool, 0400);
-+MODULE_PARM_DESC(best_effort, "use best effort to write (i.e. do not require storage driver pstore support, default: off)");
-+
- /*
-  * blkdev - the block device to use for pstore storage
-  *
-@@ -388,7 +392,7 @@ static int __register_pstore_blk(unsigned int major, unsigned int flags,
- 		return PTR_ERR(binfo);
- 
- 	/* only allow driver matching the @blkdev */
--	if (!binfo->devt || MAJOR(binfo->devt) != major) {
-+	if (!binfo->devt || (!best_effort && MAJOR(binfo->devt) != major)) {
- 		pr_debug("invalid major %u (expect %u)\n",
- 				major, MAJOR(binfo->devt));
- 		return -ENODEV;
-@@ -532,6 +536,19 @@ int pstore_blk_usr_info(struct pstore_blk_info *info)
- }
- EXPORT_SYMBOL_GPL(pstore_blk_usr_info);
- 
-+static int __init pstore_blk_init(void)
-+{
-+	int ret = 0;
-+
-+	mutex_lock(&pstore_blk_lock);
-+	if (!pstore_zone_info && best_effort && blkdev[0])
-+		ret = __register_pstore_blk(0, 0, NULL);
-+	mutex_unlock(&pstore_blk_lock);
-+
-+	return ret;
-+}
-+late_initcall(pstore_blk_init);
-+
- static void __exit pstore_blk_exit(void)
- {
- 	mutex_lock(&pstore_blk_lock);
--- 
-2.20.1
+Almost a factor 3. I was definitely not expecting interrupt-based waits
+to have such a huge impact on the perfs.
 
+> 
+> Note that your CPU can't be doing anything useful before the program and
+> its data is loaded from the storage :)
+
+Well, that's only true at mount time (and if you delay the mount after
+the boot, your CPU might already have other things to do), but any
+erase/write operations are likely to monopolize your CPU for no good
+reason.
+
+> 
+> I suppose that if someone really prefers to avoid hogging the CPU at
+> this cost, then it makes sense to add a knob (a module parameter or
+> something) that would enable the interrupt-driven operation, but
+> keep polling as a default.
+
+Let's not add more module params than we already have, it just
+confuses users and deciding how to wait on HW events doesn't sounds
+like something they should be able to choose anyway (just like passing
+the timing params, this should be calculated by the driver). Oh well,
+I'll drop the patch adding interrupt-based waits. Having the driver
+converted to exec_op() is more than enough :-).
 
 ______________________________________________________
 Linux MTD discussion mailing list
