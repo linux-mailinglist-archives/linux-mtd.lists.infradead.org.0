@@ -2,46 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2C7A1CCAC8
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 14:16:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E1A1C1CCAC6
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 14:15:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GG5CRY+cXB7l8V3wwt+BblGiidqWpTl7GaC64NJEzfM=; b=iLQNmcwimBqk31
-	oygn0JVZymZMqJNrBI48wXh2t/ONHbTgC6VfNho+qZbD+TFmlG3jZv7BUanUCBLyO7M0e2Awqey+G
-	XUqyn5OEUbOvdIAYKnYn+a6i7ib1AhJBm+TEa6R9UdU2dkKVFonntYf7r8KEE2q+pMcfksjnWEutO
-	qiBo/HIpXQu1AxrTo4FqlYLm491UoJ3AYcgJFdLFrcH3xa40MLF1r1dhBhoHYfYnsJpSIpEIa8ywr
-	I18OgwyKqzrCNggXAxWwifMUEf0hTI50NzjoeRT1AfoX1xYYw1LmvTWQ07O36hI/U/+v3xqqDp/qk
-	CA3eVILgLgU62wtfJU6w==;
+	List-Owner; bh=NPayY9Ut3RDZC4QQkIEak5MsKMIHmXV/L5YESns63/s=; b=ibuB09pwGVW2jT
+	DyrruJO33v5DHoojdO/CmQoPsvKQuN1vQpx0BuShuhEP68otiCEGdOjGgZOB91p1MJLDIbgrjWu3M
+	SQLw/bVyK61EtrAysc+bFolHf+j67icxqAFNzB85XRfjjMPejrFT0SGjuh9bVp3pi+TUkmFmT7XLM
+	+eXn1tojHHExsuJZkTiIMfSK2VRV2VH1j0mMLoOqE0z5nSFH3kxb1WHiAva6HzjmSccRt1k6VINhB
+	oKVha5AHCtNVpJ65XqhpPiMwxFblW8X+mpIrMjZo8B+abXywDaWTfIKlKxdc1JxBKreMb6nzI1tWi
+	D9IUfxsoGzzamfkFUP6g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXksE-0001uk-UP; Sun, 10 May 2020 12:16:02 +0000
+	id 1jXkrx-0001bQ-4I; Sun, 10 May 2020 12:15:45 +0000
 Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXkow-00055H-FZ
- for linux-mtd@lists.infradead.org; Sun, 10 May 2020 12:12:39 +0000
+ id 1jXkox-00056F-Gf
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 12:12:41 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 7152F2000F;
- Sun, 10 May 2020 12:12:36 +0000 (UTC)
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 3D6AD20004;
+ Sun, 10 May 2020 12:12:37 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH 09/62] mtd: rawnand: davinci: Stop using nand_release()
-Date: Sun, 10 May 2020 14:11:27 +0200
-Message-Id: <20200510121220.18042-10-miquel.raynal@bootlin.com>
+Subject: [PATCH 10/62] mtd: rawnand: denali: Delete items from the list in the
+ _remove() path
+Date: Sun, 10 May 2020 14:11:28 +0200
+Message-Id: <20200510121220.18042-11-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200510121220.18042-1-miquel.raynal@bootlin.com>
 References: <20200510121220.18042-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200510_051238_674003_4739DCD7 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20200510_051239_711805_1C77DEFC 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -62,46 +64,41 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This helper is not very useful and very often people get confused:
-they use nand_release() instead of nand_cleanup().
-
-Let's stop using nand_release() by calling mtd_device_unregister() and
-nand_cleanup() directly.
+Denali driver keeps track of devices with a list. Delete items of this
+list as long as they are not in use anymore.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Masahiro Yamada <yamada.masahiro@socionext.com>
 ---
- drivers/mtd/nand/raw/davinci_nand.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/denali.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/davinci_nand.c b/drivers/mtd/nand/raw/davinci_nand.c
-index 25c185bea50c..322f9009a01b 100644
---- a/drivers/mtd/nand/raw/davinci_nand.c
-+++ b/drivers/mtd/nand/raw/davinci_nand.c
-@@ -817,13 +817,17 @@ static int nand_davinci_probe(struct platform_device *pdev)
- static int nand_davinci_remove(struct platform_device *pdev)
+diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
+index d40f9c8e2241..227474ca7743 100644
+--- a/drivers/mtd/nand/raw/denali.c
++++ b/drivers/mtd/nand/raw/denali.c
+@@ -1336,10 +1336,12 @@ EXPORT_SYMBOL(denali_init);
+ 
+ void denali_remove(struct denali_controller *denali)
  {
- 	struct davinci_nand_info *info = platform_get_drvdata(pdev);
-+	struct nand_chip *chip = &info->chip;
-+	int ret;
+-	struct denali_chip *dchip;
++	struct denali_chip *dchip, *tmp;
  
- 	spin_lock_irq(&davinci_nand_lock);
- 	if (info->chip.ecc.mode == NAND_ECC_HW_SYNDROME)
- 		ecc4_busy = false;
- 	spin_unlock_irq(&davinci_nand_lock);
+-	list_for_each_entry(dchip, &denali->chips, node)
++	list_for_each_entry_safe(dchip, tmp, &denali->chips, node) {
+ 		nand_release(&dchip->chip);
++		list_del(&dchip->node);
++	}
  
--	nand_release(&info->chip);
-+	ret = mtd_device_unregister(nand_to_mtd(chip));
-+	WARN_ON(ret);
-+	nand_cleanup(chip);
- 
- 	return 0;
+ 	denali_disable_irq(denali);
  }
 -- 
 2.20.1
