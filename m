@@ -2,75 +2,77 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C822D1CCDD4
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:26:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DED571CCDB6
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:25:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aQ/Eb/TJXXFaWbstzfZN1o8U6Pb1ZlNTR2jn6DfXIFY=; b=kZEdIITSdOz1mG
-	PhVAUX7RKJ1urphU2ONhTrd4odlxFb1lQgIRounComI1fZI/a5FPDrcVCUYpXG+xKyPS4mB1tEE2x
-	xNzHxI6YJCk3YO9QhFqIztCKx/jOeysLbrfFLReirg1QhTs6MTAmDutyLrmBwB1EAd06JsXzLp+Hy
-	4xLptMTcaPRHzaKzCMVIJoKq90N6SZhJ5c33/pObFkJWsqlgXEjGklc7Kh5tjYkdyMwVJHC5c/grU
-	TRNO1ixVrjIbeAyhf5zIg9cvrcGsW/rEBFZOs52CVaATYPE3iSLrDny+skxZs2YAlLpJYDS/jDFBh
-	Ne7ZgPRXlwkP9JkNkvNg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XUQY01ZiH4gJzLSY+DwvlRdEqTNKsop2eaE8g+nh1Ts=; b=r+CmPx947n6lg8
+	KX/5EDQ+8cuNYiF7C2pOXXHUDwxEKNFsYpUJ5i0QyX+dAWYzxR7RhFE5HcsJmi0ZdSn1FAQyYODjo
+	5iol5+pWoS4qEnWIDZzUg5toE6ek+0At4nwPv5qiWsfCamXhMo+Gx4AX9z7Rjvk268dvUx2TfBsU3
+	24ZDhmNKbxNB2S1Anoth3VnyOcitX6zuM2ys3P5JEYrC+0sJHvUMVfvgJMkis/pKosWuLJS+a31qX
+	WsgimXehnMazH5DU11ilgka3uJxj/oCnNdxa2TaIXL708rbetgxHUvU/35X31fymSxtssOFdfafff
+	Sh50O+MGmInoZfowPuiA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXsWa-0005tU-PG; Sun, 10 May 2020 20:26:12 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1jXsVT-0002Rt-O3; Sun, 10 May 2020 20:25:03 +0000
+Received: from mail-pj1-x1041.google.com ([2607:f8b0:4864:20::1041])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXsVB-0002RQ-W8
- for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:24:47 +0000
-Received: by mail-pl1-x643.google.com with SMTP id k19so3018981pll.9
- for <linux-mtd@lists.infradead.org>; Sun, 10 May 2020 13:24:45 -0700 (PDT)
+ id 1jXsV9-0002QA-Uj
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:24:45 +0000
+Received: by mail-pj1-x1041.google.com with SMTP id fu13so6723714pjb.5
+ for <linux-mtd@lists.infradead.org>; Sun, 10 May 2020 13:24:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=jMnvmwdf0lD4TWDxpQeCiDqgUg/BNY/6yd0J6c0RUaw=;
- b=jxnIlVzjg4LuX0x4ZxxB1JEkhMutYk9n+d2bj8maSEKQYCpP8QW0AvSZM2+MydWo17
- hFg6spS4Y8qyZldiFLK7H6lD7DqCwh+ptn93hbbWPLowJU5q3HpQS2XQ7NI8YXkdrfmC
- XKExDDq/gQbLg5YH+GX/v6KMd7og+GDHK5M8k=
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=BH7oPYzXzVGddb2eusJn7dvCiiIlEUY0aB5rJA7D8Lo=;
+ b=Knmx1HZJZicNN2kyPSHXezy3IlidaxBgWVCKCEjmfFjqIIogaiilJAI6UQevUw+SzJ
+ uxC1dHSDC2qeSRqPIKDp1GL2b47FC87gSdWL1tQCvqNJT+ecQn4XXHgGL5d4Ik6FXWoG
+ Joq2ga7Uv9c5LsCL30Z7U4ze5fpY94V4y9JSI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=jMnvmwdf0lD4TWDxpQeCiDqgUg/BNY/6yd0J6c0RUaw=;
- b=Ja6zfYpsNM0ZoLhPCU61G+dp7zYYlShrSNEKoYaqWOkGkiCy+fjlOZUyQK0FiGgtXL
- jUcsfNEUck3uf9+BxwjDXyo7+Qg2FA3LCShx/tTDd2GyPa8oCsoiz3RjAUuYm2Xo3srF
- RjA+F6k4h9m5r2KdXyAazrDw3S9BQ64dOj2o9rufNONFxonv/nqp14oexEs2CSKMSzCn
- BdfTqGxIljL4dpSdSLXQHAQhL0RtQJjoFxFl2tKVV+rqDlzLIgWYoJqHPD5g2HooQpQG
- YvQGaaMZEYnVbNrhWz0vLFdYVFQV8kWwf4s+WTQcxhrnWpT9mjnXADeFDUlqmB5NNjp+
- BBPg==
-X-Gm-Message-State: AGi0PubWzfm1mu9tWDU1hmK6A00dYHkbdI8QYOIznlD2vM7U4TwuXdOu
- YxF5hywieToQ3wzyG7fg1zcjDw==
-X-Google-Smtp-Source: APiQypLvN7WjM+iFu647e6o7NyvuJP0SZANsYUCqdd2Q7tf4QMuUe/X50yR6CDzAlEROB6zdXlLglg==
-X-Received: by 2002:a17:902:9b8e:: with SMTP id
- y14mr12182467plp.109.1589142285531; 
- Sun, 10 May 2020 13:24:45 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=BH7oPYzXzVGddb2eusJn7dvCiiIlEUY0aB5rJA7D8Lo=;
+ b=klYshOefYKZWESMDrOJPqsHZlvC+vSfdUzpuF0hr1jlepBbBdYvMCRjdh/rg9b8n22
+ NKe/zr4JsGLXR/S6eI+6YTus4Y7h62+7Cp5y7vNLbRrD2BrMICxUqBY0j7F/zCoUTf1M
+ JBmFuWQmuz6lcugEVGpsNgAeCkYLQH/1I3EGnEa+YH2p/LHO0yo9sqEWvPcIZjFd+PAt
+ eRYyR/VaNaG4y2FHuhVuTRwjSLiadDi3+cKZQj7sewzziWovGqp3FklpkE8e9loLoVWQ
+ f5kYl2tUTbeHe0vhDDD0hfYK9u9bj88mgXd8ZXjAN+enkkxYjy3p128Se0ZuwgIQgWFk
+ qgfA==
+X-Gm-Message-State: AGi0PuZ3TXdCGjLz7DxQwUrjA2POVe5ggVNdFqgCHwc06u1ng4J7ZSGr
+ Wm90MzH360Qebq2DNtYXnM+sRA==
+X-Google-Smtp-Source: APiQypLOl1TXjmfLr/xQcK1xr2OabtzKZy6naN7IKAuzLaAUHxg4zhucy0rFHWqKNS4VPSsObsMKkw==
+X-Received: by 2002:a17:902:c194:: with SMTP id
+ d20mr12212723pld.256.1589142282837; 
+ Sun, 10 May 2020 13:24:42 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
- by smtp.gmail.com with ESMTPSA id gm3sm7871240pjb.49.2020.05.10.13.24.41
+ by smtp.gmail.com with ESMTPSA id h12sm6246248pgi.5.2020.05.10.13.24.41
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
  Sun, 10 May 2020 13:24:41 -0700 (PDT)
 From: Kees Cook <keescook@chromium.org>
 To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
-Subject: [PATCH v7 00/18] pstore: mtd: support crash log to block and mtd
- device
-Date: Sun, 10 May 2020 13:24:18 -0700
-Message-Id: <20200510202436.63222-1-keescook@chromium.org>
+Subject: [PATCH v7 01/18] pstore/ram: Move dump_oops to end of module_param
+ list
+Date: Sun, 10 May 2020 13:24:19 -0700
+Message-Id: <20200510202436.63222-2-keescook@chromium.org>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200510202436.63222-1-keescook@chromium.org>
+References: <20200510202436.63222-1-keescook@chromium.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200510_132446_027744_CBF16A26 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20200510_132444_017308_F74296A6 
+X-CRM114-Status: GOOD (  11.62  )
 X-Spam-Score: -0.4 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.4 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:643 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:1041 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -108,82 +110,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi!
+When reading "modinfo" details, dump_oops was before max_reason, which
+seems odd given dump_oops is now considered deprecated. Move it to the
+very end instead.
 
-Well, I guess I spoke too soon. :) Here is v7. Hopefully this is
-it. WeiXiong, can you test this and make sure you're happy with the
-results?
+Signed-off-by: Kees Cook <keescook@chromium.org>
+---
+ fs/pstore/ram.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-Take care!
-
--Kees
-
-v7:
-- more renamings in the exported APIs and structs
-- fix mtd build
-- replace psblk_blkdev_info with passing in a struct to fill
-- consolidate bdev opening/checking
-- rename psblk_device -> pstore_device_info
-- kerndoc for pstore_blk_get_config
-- fix hunks in wrong patch
-- add missing "static"s for local functions (0day)
-
-v6: https://lore.kernel.org/lkml/20200509234103.46544-1-keescook@chromium.org/
-v5: https://lore.kernel.org/lkml/1589022854-19821-1-git-send-email-liaoweixiong@allwinnertech.com/
-v4: https://lore.kernel.org/lkml/20200508064004.57898-1-keescook@chromium.org/
-v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
-v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
-v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
-
-
-Kees Cook (8):
-  pstore/ram: Move dump_oops to end of module_param list
-  pstore/platform: Switch pstore_info::name to const
-  pstore/platform: Move module params after declarations
-  pstore/platform: Use backend name for console registration
-  pstore/ram: Refactor ftrace buffer merging
-  pstore/ftrace: Provide ftrace log merging routine
-  printk: Introduce kmsg_dump_reason_str()
-  pstore/blk: Introduce "best_effort" mode
-
-WeiXiong Liao (10):
-  pstore/zone: Introduce common layer to manage storage zones
-  pstore/blk: Introduce backend for block devices
-  pstore/zone,blk: Add support for pmsg frontend
-  pstore/zone,blk: Add console frontend support
-  pstore/zone,blk: Add ftrace frontend support
-  Documentation: Add details for pstore/blk
-  pstore/zone: Provide way to skip "broken" zone for MTD devices
-  pstore/blk: Provide way to query pstore configuration
-  pstore/blk: Support non-block storage devices
-  mtd: Support kmsg dumper based on pstore/blk
-
- Documentation/admin-guide/pstore-blk.rst |  243 ++++
- MAINTAINERS                              |    1 +
- drivers/mtd/Kconfig                      |   10 +
- drivers/mtd/Makefile                     |    1 +
- drivers/mtd/mtdpstore.c                  |  564 +++++++++
- fs/pstore/Kconfig                        |  109 ++
- fs/pstore/Makefile                       |    6 +
- fs/pstore/blk.c                          |  520 ++++++++
- fs/pstore/ftrace.c                       |   54 +
- fs/pstore/internal.h                     |    9 +
- fs/pstore/platform.c                     |   40 +-
- fs/pstore/ram.c                          |   70 +-
- fs/pstore/zone.c                         | 1463 ++++++++++++++++++++++
- include/linux/kmsg_dump.h                |    7 +
- include/linux/pstore.h                   |    2 +-
- include/linux/pstore_blk.h               |  118 ++
- include/linux/pstore_zone.h              |   60 +
- kernel/printk/printk.c                   |   21 +
- 18 files changed, 3210 insertions(+), 88 deletions(-)
- create mode 100644 Documentation/admin-guide/pstore-blk.rst
- create mode 100644 drivers/mtd/mtdpstore.c
- create mode 100644 fs/pstore/blk.c
- create mode 100644 fs/pstore/zone.c
- create mode 100644 include/linux/pstore_blk.h
- create mode 100644 include/linux/pstore_zone.h
-
+diff --git a/fs/pstore/ram.c b/fs/pstore/ram.c
+index 198d04cceb3e..7f956053f4e5 100644
+--- a/fs/pstore/ram.c
++++ b/fs/pstore/ram.c
+@@ -57,11 +57,6 @@ module_param(mem_type, uint, 0400);
+ MODULE_PARM_DESC(mem_type,
+ 		"set to 1 to try to use unbuffered memory (default 0)");
+ 
+-static int ramoops_dump_oops = -1;
+-module_param_named(dump_oops, ramoops_dump_oops, int, 0400);
+-MODULE_PARM_DESC(dump_oops,
+-		 "set to 1 to dump oopses & panics, 0 to only dump panics (deprecated: use max_reason instead)");
+-
+ static int ramoops_max_reason = KMSG_DUMP_OOPS;
+ module_param_named(max_reason, ramoops_max_reason, int, 0400);
+ MODULE_PARM_DESC(max_reason,
+@@ -74,6 +69,11 @@ MODULE_PARM_DESC(ramoops_ecc,
+ 		"ECC buffer size in bytes (1 is a special value, means 16 "
+ 		"bytes ECC)");
+ 
++static int ramoops_dump_oops = -1;
++module_param_named(dump_oops, ramoops_dump_oops, int, 0400);
++MODULE_PARM_DESC(dump_oops,
++		 "(deprecated: use max_reason instead) set to 1 to dump oopses & panics, 0 to only dump panics");
++
+ struct ramoops_context {
+ 	struct persistent_ram_zone **dprzs;	/* Oops dump zones */
+ 	struct persistent_ram_zone *cprz;	/* Console zone */
 -- 
 2.20.1
 
