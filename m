@@ -2,60 +2,86 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2A271CCDAA
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:16:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C822D1CCDD4
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:26:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RXEzdFeUBW9hJm4CP5BrSsTeJyq8Rz9x/ToUQVJCDFc=; b=KNDKsnMda/agDg
-	WYZ9DoTpqAkAshJFzwXupX40nFQUG24hsrrAWnm/LPjlWQ56XdKeWS/427tr5rUwq1ZRr+ZoAK3SD
-	s2TMEOHNqEXT45GWD3WR7r34i3RBFBlCdfLY6wLfsqVd6KIXbl6bgi+E2IWOGH94mrpHTgoMsEigz
-	N4tLekGbsZLNlGwjEQ2P1QMKhsZgSk5hdr4FujExDvq6ctPC2cAe23bJHwVQIUQmgsOHW70MVfxWj
-	djuBINaDrT5sCESVS3eiWXVO6ClKk4Ap2sbBOsNvn6bZC9assgDTdhPEE2fMk5vyNS2gJvyeC91TK
-	+ow4TV4TFWQp0CWYduPQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aQ/Eb/TJXXFaWbstzfZN1o8U6Pb1ZlNTR2jn6DfXIFY=; b=kZEdIITSdOz1mG
+	PhVAUX7RKJ1urphU2ONhTrd4odlxFb1lQgIRounComI1fZI/a5FPDrcVCUYpXG+xKyPS4mB1tEE2x
+	xNzHxI6YJCk3YO9QhFqIztCKx/jOeysLbrfFLReirg1QhTs6MTAmDutyLrmBwB1EAd06JsXzLp+Hy
+	4xLptMTcaPRHzaKzCMVIJoKq90N6SZhJ5c33/pObFkJWsqlgXEjGklc7Kh5tjYkdyMwVJHC5c/grU
+	TRNO1ixVrjIbeAyhf5zIg9cvrcGsW/rEBFZOs52CVaATYPE3iSLrDny+skxZs2YAlLpJYDS/jDFBh
+	Ne7ZgPRXlwkP9JkNkvNg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXsN8-00079z-P2; Sun, 10 May 2020 20:16:26 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1jXsWa-0005tU-PG; Sun, 10 May 2020 20:26:12 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXsE9-0002Xi-EC
- for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:07:13 +0000
-Received: from localhost.localdomain (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 74CC4240002;
- Sun, 10 May 2020 20:07:05 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Fenghua Yu <fenghua.yu@intel.com>, "David Woodhouse" <dwmw2@infradead.org>,
- "Brian Norris" <computersforpeace@gmail.com>,
- "Boris Brezillon" <bbrezillon@kernel.org>,
- "linux-mtd" <linux-mtd@lists.infradead.org>
-Subject: Re: [PATCH] mtd: rawnand: fsmc: Change to non-atomic bit operations
-Date: Sun, 10 May 2020 22:07:04 +0200
-Message-Id: <20200510200704.3392-1-miquel.raynal@bootlin.com>
+ id 1jXsVB-0002RQ-W8
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:24:47 +0000
+Received: by mail-pl1-x643.google.com with SMTP id k19so3018981pll.9
+ for <linux-mtd@lists.infradead.org>; Sun, 10 May 2020 13:24:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chromium.org; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=jMnvmwdf0lD4TWDxpQeCiDqgUg/BNY/6yd0J6c0RUaw=;
+ b=jxnIlVzjg4LuX0x4ZxxB1JEkhMutYk9n+d2bj8maSEKQYCpP8QW0AvSZM2+MydWo17
+ hFg6spS4Y8qyZldiFLK7H6lD7DqCwh+ptn93hbbWPLowJU5q3HpQS2XQ7NI8YXkdrfmC
+ XKExDDq/gQbLg5YH+GX/v6KMd7og+GDHK5M8k=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=jMnvmwdf0lD4TWDxpQeCiDqgUg/BNY/6yd0J6c0RUaw=;
+ b=Ja6zfYpsNM0ZoLhPCU61G+dp7zYYlShrSNEKoYaqWOkGkiCy+fjlOZUyQK0FiGgtXL
+ jUcsfNEUck3uf9+BxwjDXyo7+Qg2FA3LCShx/tTDd2GyPa8oCsoiz3RjAUuYm2Xo3srF
+ RjA+F6k4h9m5r2KdXyAazrDw3S9BQ64dOj2o9rufNONFxonv/nqp14oexEs2CSKMSzCn
+ BdfTqGxIljL4dpSdSLXQHAQhL0RtQJjoFxFl2tKVV+rqDlzLIgWYoJqHPD5g2HooQpQG
+ YvQGaaMZEYnVbNrhWz0vLFdYVFQV8kWwf4s+WTQcxhrnWpT9mjnXADeFDUlqmB5NNjp+
+ BBPg==
+X-Gm-Message-State: AGi0PubWzfm1mu9tWDU1hmK6A00dYHkbdI8QYOIznlD2vM7U4TwuXdOu
+ YxF5hywieToQ3wzyG7fg1zcjDw==
+X-Google-Smtp-Source: APiQypLvN7WjM+iFu647e6o7NyvuJP0SZANsYUCqdd2Q7tf4QMuUe/X50yR6CDzAlEROB6zdXlLglg==
+X-Received: by 2002:a17:902:9b8e:: with SMTP id
+ y14mr12182467plp.109.1589142285531; 
+ Sun, 10 May 2020 13:24:45 -0700 (PDT)
+Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
+ by smtp.gmail.com with ESMTPSA id gm3sm7871240pjb.49.2020.05.10.13.24.41
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 10 May 2020 13:24:41 -0700 (PDT)
+From: Kees Cook <keescook@chromium.org>
+To: WeiXiong Liao <liaoweixiong@allwinnertech.com>
+Subject: [PATCH v7 00/18] pstore: mtd: support crash log to block and mtd
+ device
+Date: Sun, 10 May 2020 13:24:18 -0700
+Message-Id: <20200510202436.63222-1-keescook@chromium.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <1576886755-9788-1-git-send-email-fenghua.yu@intel.com>
-References: 
 MIME-Version: 1.0
-X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 7c26e6ef96c95105d6b1dc828902067df9b0f076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200510_130709_628634_8F48039E 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200510_132446_027744_CBF16A26 
+X-CRM114-Status: GOOD (  10.80  )
+X-Spam-Score: -0.4 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-0.4 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.178.230 listed in wl.mailspike.net]
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.230 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:643 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.2 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,31 +93,100 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Ravi V Shankar <ravi.v.shankar@intel.com>, Tony Luck <tony.luck@intel.com>,
- Peter Zijlstra <peterz@infradead.org>, David Laight <David.Laight@ACULAB.COM>,
- Andy Lutomirski <luto@kernel.org>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Thomas Gleixner <tglx@linutronix.de>
+Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
+ Kees Cook <keescook@chromium.org>, Jonathan Corbet <corbet@lwn.net>,
+ Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Steven Rostedt <rostedt@goodmis.org>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Colin Cross <ccross@android.com>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Pavel Tatashin <pasha.tatashin@soleen.com>, Rob Herring <robh@kernel.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Sat, 2019-12-21 at 00:05:55 UTC, Fenghua Yu wrote:
-> No need to use expensive atomic change_bit() on dat[] and err_idx[]:
-> 1. fsmc_bch8_correct_data() is called while mutex chip->lock is held
-> 2. err_idx[] is a local variable.
-> 
-> To avoid big endian concern due to type cast to unsigned long, directly
-> change the bit in the specified byte instead of using non-atomic
-> __change_bit().
-> 
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Fenghua Yu <fenghua.yu@intel.com>
-> Reviewed-by: Tony Luck <tony.luck@intel.com>
+Hi!
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
+Well, I guess I spoke too soon. :) Here is v7. Hopefully this is
+it. WeiXiong, can you test this and make sure you're happy with the
+results?
 
-Miquel
+Take care!
+
+-Kees
+
+v7:
+- more renamings in the exported APIs and structs
+- fix mtd build
+- replace psblk_blkdev_info with passing in a struct to fill
+- consolidate bdev opening/checking
+- rename psblk_device -> pstore_device_info
+- kerndoc for pstore_blk_get_config
+- fix hunks in wrong patch
+- add missing "static"s for local functions (0day)
+
+v6: https://lore.kernel.org/lkml/20200509234103.46544-1-keescook@chromium.org/
+v5: https://lore.kernel.org/lkml/1589022854-19821-1-git-send-email-liaoweixiong@allwinnertech.com/
+v4: https://lore.kernel.org/lkml/20200508064004.57898-1-keescook@chromium.org/
+v3: https://lore.kernel.org/lkml/1585126506-18635-1-git-send-email-liaoweixiong@allwinnertech.com/
+v2: https://lore.kernel.org/lkml/1581078355-19647-1-git-send-email-liaoweixiong@allwinnertech.com/
+v1: https://lore.kernel.org/lkml/1579482233-2672-1-git-send-email-liaoweixiong@allwinnertech.com/
+
+
+Kees Cook (8):
+  pstore/ram: Move dump_oops to end of module_param list
+  pstore/platform: Switch pstore_info::name to const
+  pstore/platform: Move module params after declarations
+  pstore/platform: Use backend name for console registration
+  pstore/ram: Refactor ftrace buffer merging
+  pstore/ftrace: Provide ftrace log merging routine
+  printk: Introduce kmsg_dump_reason_str()
+  pstore/blk: Introduce "best_effort" mode
+
+WeiXiong Liao (10):
+  pstore/zone: Introduce common layer to manage storage zones
+  pstore/blk: Introduce backend for block devices
+  pstore/zone,blk: Add support for pmsg frontend
+  pstore/zone,blk: Add console frontend support
+  pstore/zone,blk: Add ftrace frontend support
+  Documentation: Add details for pstore/blk
+  pstore/zone: Provide way to skip "broken" zone for MTD devices
+  pstore/blk: Provide way to query pstore configuration
+  pstore/blk: Support non-block storage devices
+  mtd: Support kmsg dumper based on pstore/blk
+
+ Documentation/admin-guide/pstore-blk.rst |  243 ++++
+ MAINTAINERS                              |    1 +
+ drivers/mtd/Kconfig                      |   10 +
+ drivers/mtd/Makefile                     |    1 +
+ drivers/mtd/mtdpstore.c                  |  564 +++++++++
+ fs/pstore/Kconfig                        |  109 ++
+ fs/pstore/Makefile                       |    6 +
+ fs/pstore/blk.c                          |  520 ++++++++
+ fs/pstore/ftrace.c                       |   54 +
+ fs/pstore/internal.h                     |    9 +
+ fs/pstore/platform.c                     |   40 +-
+ fs/pstore/ram.c                          |   70 +-
+ fs/pstore/zone.c                         | 1463 ++++++++++++++++++++++
+ include/linux/kmsg_dump.h                |    7 +
+ include/linux/pstore.h                   |    2 +-
+ include/linux/pstore_blk.h               |  118 ++
+ include/linux/pstore_zone.h              |   60 +
+ kernel/printk/printk.c                   |   21 +
+ 18 files changed, 3210 insertions(+), 88 deletions(-)
+ create mode 100644 Documentation/admin-guide/pstore-blk.rst
+ create mode 100644 drivers/mtd/mtdpstore.c
+ create mode 100644 fs/pstore/blk.c
+ create mode 100644 fs/pstore/zone.c
+ create mode 100644 include/linux/pstore_blk.h
+ create mode 100644 include/linux/pstore_zone.h
+
+-- 
+2.20.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
