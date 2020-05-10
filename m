@@ -2,59 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 19DA91CCD92
-	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:10:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E22011CCD93
+	for <lists+linux-mtd@lfdr.de>; Sun, 10 May 2020 22:10:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EpPPg6UVpoSfgmBhyqB31R8bDOGi+jnZE7ULCyj1FRs=; b=AXAQxcw4QfNcHV
-	/TH5JjRautCFcmEHOVrx7CIrHIjvyvzk2cejYRSoI4dBEwKpp9rpDhPURyzJdbUjS1gesck8HS3OM
-	Im1SBRHzqxD8Cpr/f2ROnYckuthkRqgl41LwNrdjBjJf7xZyWR6i4vCPvLyguceHSqiV+vCNmAe4s
-	G/SHWJzfvAEiTZ/eZd7pvCwKI/OQjy6LdPEnD8rbrbWfcahoMERsV9UapfFCL6+at01y39EP3DcsO
-	37g1eTpDAiRRKzuxPQjEDnjcwvzvKgOU9GamENLmDIWGSgxfUVn47Yd+/VgOsycFep5wZzNSfOSji
-	g9oVfyeaww+CrfAPijig==;
+	List-Owner; bh=dqKTnMeMu1/eFR3QwgnlXhH5C300Tw6iD01ODtnn86A=; b=mn1p4WQx0cYTz9
+	/PMzFQZN+ItGWKTOydsDwq7/kt34TxPys1hUMyRoQst77ML04XlZIF1csu8fndVLTstwfov4drJie
+	vcx0gHClQv/i4reKc8tdvwgDMGQbrKmUHk/bHnnT+ir8lhhykCxUflH6FuQz1Bcb11wXqqwzqkg0i
+	J18YZjzfVvkCr7gL0gZUQZERS1UVW8/EJWbSvvrVR/KecatUnx6l0WjXXH0l4wuvVSU09KIsfZzzX
+	QGGIBjRFyTHHcKYy89ep+89G3+pIdI9LKqKPqvZi4+EgC7kDEfivyRPlcyM/EQH1/GltURsNckUPe
+	g4IOwRne8wUlo7wbiTLg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXsH5-00059t-6T; Sun, 10 May 2020 20:10:11 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1jXsHN-0006sK-B8; Sun, 10 May 2020 20:10:29 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXsCD-0007Es-76
- for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:05:15 +0000
-X-Originating-IP: 91.224.148.103
+ id 1jXsCI-000804-7f
+ for linux-mtd@lists.infradead.org; Sun, 10 May 2020 20:05:16 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id AF45BC0003;
- Sun, 10 May 2020 20:05:06 +0000 (UTC)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id BF8AF200006;
+ Sun, 10 May 2020 20:05:11 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH v3 7/9] mtd: rawnand: onfi: Drop a useless parameter page
- read
-Date: Sun, 10 May 2020 22:05:05 +0200
-Message-Id: <20200510200505.1640-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v3 6/9] mtd: rawnand: onfi: Avoid doing a copy of the
+ parameter page
+Date: Sun, 10 May 2020 22:05:11 +0200
+Message-Id: <20200510200511.1706-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200428094302.14624-8-miquel.raynal@bootlin.com>
+In-Reply-To: <20200428094302.14624-7-miquel.raynal@bootlin.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: c68518db7e518b121a41e42e67ea69cbd5cf15b0
+X-linux-mtd-patch-commit: b3e5f18b49bd7a786b6c32bbc48172ad350fde49
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200510_130509_444907_F946BAF2 
-X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-CacheID: sfid-20200510_130514_440123_D7F54669 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.198 listed in wl.mailspike.net]
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.198 listed in list.dnswl.org]
+ low trust [217.70.178.232 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -75,19 +72,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 2020-04-28 at 09:43:00 UTC, Miquel Raynal wrote:
-> During detection the logic on the NAND bus is:
+On Tue, 2020-04-28 at 09:42:59 UTC, Miquel Raynal wrote:
+> There is no need for copying the parameter page, playing with
+> pointers does the trick.
 > 
->     /* Regular ONFI detection */
->     1/ read the three NAND parameter pages
-> 
->     /* Extended parameter page detection */
->     2/ send "read the NAND parameter page" commands without reading
->        actual data
->     3/ move the column pointer to the extended page and read it
-> 
-> If fact, as long as there is nothing happening on the NAND bus between
-> 1/ and 3/, the operation 2/ is redundant so remove it.
+> There is not functional change.
 > 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 > Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
