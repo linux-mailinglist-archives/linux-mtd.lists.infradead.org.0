@@ -2,84 +2,63 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 720F81CE28D
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 May 2020 20:25:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 726381CE57A
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 May 2020 22:28:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YsQle0F4HnZKa5sEei4tygK3wEkdte+pDThGiA1At50=; b=D7KAVSYqL0f5/+
-	vWmy+Aqi3ldDPmNO6n8vVdeOIFsjQvLW0UiJuC14Apt/x2eFeorSbJ+FHwKLgtaouoEIz3+kV4iSP
-	QaDPTBPTyrzx7YsvedcbTP8Z0reajK3+IZ7+ZVj9h4RKMV6BDEQQoCemhye4BH7DYIcZlGzpkpZHV
-	ogUiw9OWfjXhe7ncx5kvR6jB0Z0ymVZXHOUrZWCO/TaO0sj3D5LJcQjMvpqlpcjmKIdHVt0CNum5j
-	EYe4i9mn/WgtR31qdKpyTLHVFKAV6QveHCQPs2Bz/eNHylkEtTPmFM5Bl0oTHcKZA7ppK0VzIHHNi
-	are6X6cYCXdexJLQz3MA==;
+	List-Owner; bh=nXJf0hJHySX7Ce1UVKmqpNgzYfNwssxSNBoJgQej9gU=; b=r7t3UrNhpMdg6d
+	MHwewFn0DfaDCTRwBT1+wSVcugnax4HB79ZqMf2CPsvohBt1DuBMyR3Ss6TJ577hYwQNQ8fvZ9uEL
+	k0a+d4sSHsXYk3h+5zDfax+vV8YLmCpGolB27GQfM42+xYbFwd0yLTaKh9ij5/pZC2uMrWZku2bJR
+	FYt/Xnnm1y0xeNldQONtketSQKWNPtsjBshLSQJBY2S2xdHu3uOlhbk+bNfUEpIMabfJ6gzlFivSd
+	n+lNcv5t+O5UwWhUKDr7mfKZEMc5ipSUZ3nrLPr1hTGyjJz33SJiO6gaG2vOF4iYUZq58NvfHwwCM
+	Syh1jp4jTYTv9ib8gxKA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYD7M-0006RR-W0; Mon, 11 May 2020 18:25:33 +0000
-Received: from fllv0015.ext.ti.com ([198.47.19.141])
+	id 1jYF2U-0000F4-Dd; Mon, 11 May 2020 20:28:38 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYD6t-00042m-LO; Mon, 11 May 2020 18:25:05 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
- by fllv0015.ext.ti.com (8.15.2/8.15.2) with ESMTP id 04BIOvqo080948;
- Mon, 11 May 2020 13:24:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1589221497;
- bh=hJLYMptzNWCT2nBGzqtwtRbCzj89zOemjfUVGWWmvq8=;
- h=Date:From:To:CC:Subject:References:In-Reply-To;
- b=kRBX/UYTIJPvURcW2quJqeY9dWna9Z8FokWumJAkr2O9TfPJKXW1C/WVCGnL8sF46
- fAGKfo4rrchhj/nm5pJiZpZ/f9uMxBBFO55qGa3sYNaa2nExrfhe9FfR8ppHTAtBgt
- w3DXFEbQpRVcW3TH80+XA37ROsdVgCekZS+Vfxd8=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
- by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 04BIOvSX024459
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Mon, 11 May 2020 13:24:57 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Mon, 11
- May 2020 13:24:56 -0500
-Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
- Frontend Transport; Mon, 11 May 2020 13:24:56 -0500
-Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
- by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 04BIOu9u096276;
- Mon, 11 May 2020 13:24:56 -0500
-Date: Mon, 11 May 2020 23:54:55 +0530
-From: Pratyush Yadav <p.yadav@ti.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v4 00/16] mtd: spi-nor: add xSPI Octal DTR support
-Message-ID: <20200511182453.ivfwu4wlfn2ta5ag@ti.com>
-References: <20200424184410.8578-1-p.yadav@ti.com>
- <3649933.zuh8VGJVCz@192.168.0.120>
- <20200511112712.466f7246@collabora.com>
+ id 1jYF2J-0000Do-Sy
+ for linux-mtd@lists.infradead.org; Mon, 11 May 2020 20:28:30 +0000
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 4084D200002;
+ Mon, 11 May 2020 20:28:19 +0000 (UTC)
+Date: Mon, 11 May 2020 22:28:17 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Christophe Kerello <christophe.kerello@st.com>
+Subject: Re: [PATCH v4 10/10] mtd: rawnand: stm32_fmc2: get resources from
+ parent node
+Message-ID: <20200511222817.003f5aff@xps13>
+In-Reply-To: <f09690bf-f985-d60d-7805-6dad00b19b66@st.com>
+References: <1588756279-17289-1-git-send-email-christophe.kerello@st.com>
+ <1588756279-17289-11-git-send-email-christophe.kerello@st.com>
+ <20200511111855.48216940@xps13>
+ <3377adc6-3e5e-b9b7-12be-c7aa44bfac82@st.com>
+ <20200511135926.3e5c622d@xps13>
+ <0c704fea-f2a6-2cec-8741-d322acf6afd5@st.com>
+ <20200511145855.35c6abfb@xps13>
+ <6f822f79-18f1-5308-16cc-b31f0be80d5a@st.com>
+ <20200511164524.3f94ba31@xps13>
+ <f09690bf-f985-d60d-7805-6dad00b19b66@st.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200511112712.466f7246@collabora.com>
-User-Agent: NeoMutt/20171215
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200511_112503_871837_1A0D9A2B 
-X-CRM114-Status: GOOD (  29.99  )
-X-Spam-Score: -2.7 (--)
+X-CRM114-CacheID: sfid-20200511_132828_208319_E5CED150 
+X-CRM114-Status: GOOD (  28.20  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.7 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.19.141 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.178.232 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.2 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,106 +70,158 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: alexandre.belloni@bootlin.com, vigneshr@ti.com, Tudor.Ambarus@microchip.com,
- richard@nod.at, nsekhar@ti.com, Nicolas.Ferre@microchip.com,
- linux-kernel@vger.kernel.org, Ludovic.Desroches@microchip.com,
- broonie@kernel.org, linux-mtd@lists.infradead.org, miquel.raynal@bootlin.com,
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, marex@denx.de,
+ vigneshr@ti.com, gregkh@linuxfoundation.org, richard@nod.at,
+ linux-kernel@vger.kernel.org, robh+dt@kernel.org,
+ linux-mtd@lists.infradead.org, boris.brezillon@collabora.com,
+ linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 11/05/20 11:27AM, Boris Brezillon wrote:
-> On Mon, 11 May 2020 09:00:35 +0000
-> <Tudor.Ambarus@microchip.com> wrote:
-> 
-> > Hi, Pratyush, Boris,
-> > 
-> > On Friday, April 24, 2020 9:43:54 PM EEST Pratyush Yadav wrote:
-> > > This series adds support for octal DTR flashes in the spi-nor framework,  
-> > 
-> > I'm still learning about this, but I can give you my 2 cents as of now, to 
-> > open the discussion. Enabling 2-2-2, 4-4-4, and 8-8-8 modes is dangerous 
-> > because the flash may not recover from unexpected resets. Entering one of 
-> > these modes can be:
-> > 1/ volatile selectable, the device return to the 1-1-1 protocol after the next 
-> > power-on. I guess this is conditioned by the optional RESET pin, but I'll have 
-> > to check. Also the flash can return to the 1-1-1 mode using the software reset 
-> > or through writing to its Configuration Register, without power-on or power-
-> > off.
-> 
-> My understanding is that there's no standard software reset procedure
-> that guarantees no conflict with existing 1S commands, so even the
-> software reset approach doesn't work here.
-> 
-> > 2/ non-volatile selectable in which RESET# and software reset are useless, the 
-> > flash defaults to the mode selected in the non volatile Configuration Register 
-> > bits. The only way to get back to 1-1-1 is to write to the Configuration 
-> > Register.
-> 
-> I'm less worried about this case though, since I'd expect the ROM
-> code and bootloaders to be able to deal with xD-xD-xD modes when the
-> flash is set in this mode by default. That implies letting Linux know
-> about this default mode of course, maybe through an extra DT
-> property/cmdline param.
-> 
-> > 
-> > Not recovering from unexpected resets is unacceptable. One should always 
-> > prefer option 1/ and condition the entering in 2-2-2, 4-4-4 and 8-8-8 with the 
-> > presence of the optional RESET pin.
-> 
-> Totally agree with you on that one, but we know what happens in
-> practice...
-> 
-> > 
-> > For the unfortunate flashes that support just option 2/, we should not enter 
-> > these modes on our own, just by discovering the capabilities from the SFDP 
-> > tables or by the flags in the flash_info struct. The best we can do for them 
-> > is to move the responsibility to the user. Maybe to add a Kconfig option that 
-> > is disabled by default with which we condition the entering in 2-2-2, 4-4-4 or 
-> > 8-8-8 modes.
-> 
-> Hm, a Kconfig option doesn't sound like the right solution to the
-> problem, since it should be a per-flash decision, not something you set
-> system-wise.
-
-Agreed.
-
-Is there any such flash in use today? The two flashes the series adds 
-support for both have volatile configuration for 8D mode. Unless we have 
-to support a flash like this in practice, I think such a change is out 
-of the scope of this series.
- 
-> > Once entered in one of these modes, if an unexpected reset comes, 
-> > you most likely are doomed, because early stage bootloaders may not work in 
-> > these modes and you'll not be able to boot the board. Assuming that one uses 
-> > other environment to boot the board, we should at least make sure that the 
-> > flash works in linux after an unexpected reset. We should try to determine in 
-> > which mode we are at init, so maybe an extension of the default_init hook is 
-> > needed. But all this looks like a BIG compromise, I'm not yet sure if we 
-> > should adress 2/. Thoughts?
-> 
-> We should definitely not write non-volatile regs on our own, but
-> instead use the mode that's been chosen there. I doubt anyone
-> setting the non-volative conf to 8D-8D-8D will ever want to go back to
-> 1S-1S-1S anyway, so 8D -> 1S transitions are not really an issue, right?
-> 
-> Of course, that still leaves us with the 'mode detection' issue, and I
-> have no solution other than flagging it through the DT/cmdline for that
-> one...
-
-Correct. I tried doing it, and the best way I could figure out was to 
-try reading the SFDP signature in 1S and 8D mode, and see where we get 
-the correct value. But unfortunately, because the Read ID command is 
-different in 8D mode for different flashes, we can't then figure out 
-which flash it actually is.
-
--- 
-Regards,
-Pratyush Yadav
-Texas Instruments India
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgQ2hyaXN0b3BoZSwKCkNocmlzdG9waGUgS2VyZWxsbyA8Y2hyaXN0b3BoZS5rZXJlbGxvQHN0
+LmNvbT4gd3JvdGUgb24gTW9uLCAxMSBNYXkKMjAyMCAxOTowMjo1MSArMDIwMDoKCj4gSGkgTWlx
+dWVsLAo+IAo+IE9uIDUvMTEvMjAgNDo0NSBQTSwgTWlxdWVsIFJheW5hbCB3cm90ZToKPiA+IEhp
+IENocmlzdG9waGUsCj4gPiAKPiA+IENocmlzdG9waGUgS2VyZWxsbyA8Y2hyaXN0b3BoZS5rZXJl
+bGxvQHN0LmNvbT4gd3JvdGUgb24gTW9uLCAxMSBNYXkKPiA+IDIwMjAgMTY6MTk6NDcgKzAyMDA6
+Cj4gPiAgIAo+ID4+IEhpIE1pcXVlbCwKPiA+Pgo+ID4+IE9uIDUvMTEvMjAgMjo1OCBQTSwgTWlx
+dWVsIFJheW5hbCB3cm90ZTogIAo+ID4+PiBIaSBDaHJpc3RvcGhlLAo+ID4+Pgo+ID4+PiBDaHJp
+c3RvcGhlIEtlcmVsbG8gPGNocmlzdG9waGUua2VyZWxsb0BzdC5jb20+IHdyb3RlIG9uIE1vbiwg
+MTEgTWF5Cj4gPj4+IDIwMjAgMTQ6NDc6MDkgKzAyMDA6ICAKPiA+Pj4gICAgPj4+PiBIaSBNaXF1
+ZWwsICAKPiA+Pj4+Cj4gPj4+PiBPbiA1LzExLzIwIDE6NTkgUE0sIE1pcXVlbCBSYXluYWwgd3Jv
+dGU6ICAKPiA+Pj4+PiBIaSBDaHJpc3RvcGhlLAo+ID4+Pj4+Cj4gPj4+Pj4gQ2hyaXN0b3BoZSBL
+ZXJlbGxvIDxjaHJpc3RvcGhlLmtlcmVsbG9Ac3QuY29tPiB3cm90ZSBvbiBNb24sIDExIE1heQo+
+ID4+Pj4+IDIwMjAgMTI6MjE6MDMgKzAyMDA6ICAKPiA+Pj4+PiAgICAgPj4+PiBIaSBNaXF1ZWws
+ICAKPiA+Pj4+Pj4KPiA+Pj4+Pj4gT24gNS8xMS8yMCAxMToxOCBBTSwgTWlxdWVsIFJheW5hbCB3
+cm90ZTogIAo+ID4+Pj4+Pj4gSGkgQ2hyaXN0b3BoZSwKPiA+Pj4+Pj4+Cj4gPj4+Pj4+PiBDaHJp
+c3RvcGhlIEtlcmVsbG8gPGNocmlzdG9waGUua2VyZWxsb0BzdC5jb20+IHdyb3RlIG9uIFdlZCwg
+NiBNYXkgMjAyMAo+ID4+Pj4+Pj4gMTE6MTE6MTkgKzAyMDA6ICAKPiA+Pj4+Pj4+ICAgICAgPj4+
+PiBGTUMyIEVCSSBzdXBwb3J0IGhhcyBiZWVuIGFkZGVkLiBDb21tb24gcmVzb3VyY2VzIChyZWdp
+c3RlcnMgYmFzZSAgCj4gPj4+Pj4+Pj4gYW5kIGNsb2NrKSBhcmUgbm93IHNoYXJlZCBiZXR3ZWVu
+IHRoZSAyIGRyaXZlcnMuIEl0IG1lYW5zIHRoYXQgdGhlCj4gPj4+Pj4+Pj4gY29tbW9uIHJlc291
+cmNlcyBzaG91bGQgbm93IGJlIGZvdW5kIGluIHRoZSBwYXJlbnQgZGV2aWNlIHdoZW4gRUJJCj4g
+Pj4+Pj4+Pj4gbm9kZSBpcyBhdmFpbGFibGUuCj4gPj4+Pj4+Pj4KPiA+Pj4+Pj4+PiBTaWduZWQt
+b2ZmLWJ5OiBDaHJpc3RvcGhlIEtlcmVsbG8gPGNocmlzdG9waGUua2VyZWxsb0BzdC5jb20+Cj4g
+Pj4+Pj4+Pj4gLS0tICAKPiA+Pj4+Pj4+Cj4gPj4+Pj4+PiBbLi4uXSAgCj4gPj4+Pj4+PiAgICAg
+ID4+Pj4gKyAgCj4gPj4+Pj4+Pj4gK3N0YXRpYyBib29sIHN0bTMyX2ZtYzJfbmZjX2NoZWNrX2Zv
+cl9wYXJlbnQoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+Pj4+Pj4+PiArewo+ID4+
+Pj4+Pj4+ICsJdTMyIGk7Cj4gPj4+Pj4+Pj4gKwlpbnQgbmJfcmVzb3VyY2VzID0gMDsKPiA+Pj4+
+Pj4+PiArCj4gPj4+Pj4+Pj4gKwkvKiBDb3VudCB0aGUgbnVtYmVyIG9mIHJlc291cmNlcyBpbiBy
+ZWcgcHJvcGVydHkgKi8KPiA+Pj4+Pj4+PiArCWZvciAoaSA9IDA7IGkgPCBwZGV2LT5udW1fcmVz
+b3VyY2VzOyBpKyspIHsKPiA+Pj4+Pj4+PiArCQlzdHJ1Y3QgcmVzb3VyY2UgKnJlcyA9ICZwZGV2
+LT5yZXNvdXJjZVtpXTsKPiA+Pj4+Pj4+PiArCj4gPj4+Pj4+Pj4gKwkJaWYgKHJlc291cmNlX3R5
+cGUocmVzKSA9PSBJT1JFU09VUkNFX01FTSkKPiA+Pj4+Pj4+PiArCQkJbmJfcmVzb3VyY2VzKys7
+Cj4gPj4+Pj4+Pj4gKwl9Cj4gPj4+Pj4+Pj4gKwo+ID4+Pj4+Pj4+ICsJLyogRWFjaCBDUyBuZWVk
+cyAzIHJlc291cmNlcyBkZWZpbmVkIChkYXRhLCBjbWQgYW5kIGFkZHIpICovCj4gPj4+Pj4+Pj4g
+KwlpZiAobmJfcmVzb3VyY2VzICUgMykKPiA+Pj4+Pj4+PiArCQlyZXR1cm4gZmFsc2U7Cj4gPj4+
+Pj4+Pj4gKwo+ID4+Pj4+Pj4+ICsJcmV0dXJuIHRydWU7Cj4gPj4+Pj4+Pj4gK30gIAo+ID4+Pj4+
+Pj4KPiA+Pj4+Pj4+IFRoaXMgZnVuY3Rpb24gbG9va3MgZnJhZ2lsZS4gV2h5IG5vdCBqdXN0IGNo
+ZWNraW5nIHRoZSBjb21wYXRpYmxlCj4gPj4+Pj4+PiBzdHJpbmcgb2YgdGhlIHBhcmVudCBub2Rl
+PyAgCj4gPj4+Pj4+PiAgICAgID4+ICAKPiA+Pj4+Pj4gWWVzLCBpdCBpcyBhbm90aGVyIHdheSB0
+byBjaGVjayB0aGF0IHdlIGhhdmUgYW4gRUJJIHBhcmVudCBub2RlLgo+ID4+Pj4+Pgo+ID4+Pj4+
+PiBJbiB0aGlzIGltcGxlbWVudGF0aW9uLCBJIHdhcyBjaGVja2luZyB0aGUgbnVtYmVyIG9mIHJl
+ZyB0dXBsZXMuCj4gPj4+Pj4+IEluIGNhc2Ugd2UgaGF2ZSA2LCBpdCBtZWFucyB0aGF0IHRoZSBy
+ZWdpc3RlciBiYXNlIGFkZHJlc3MgaXMgZGVmaW5lZCBpbiB0aGUgcGFyZW50IG5vZGUgKEVCSSBu
+b2RlKS4KPiA+Pj4+Pj4gSW4gY2FzZSB3ZSBoYXZlIDcsIGl0IG1lYW5zIHRoYXQgdGhlIHJlZ2lz
+dGVyIGJhc2UgYWRkcmVzcyBpcyBkZWZpbmVkIGluIHRoZSBjdXJyZW50IG5vZGUgKE5GQyBub2Rl
+KS4gIAo+ID4+Pj4+Cj4gPj4+Pj4gWWVzLCBJIHVuZGVyc3RhbmQgd2hhdCB5b3UgYXJlIGRvaW5n
+LCBidXQgSSBraW5kIG9mIGRpc2xpa2UgdGhlIGxvZ2ljLgo+ID4+Pj4+IFJlbHlpbmcgb24gdGhl
+IG51bWJlciBvZiByZWcgdHVwbGVzIGlzIHNvbWV0aGluZyB0aGF0IGNhbiBiZSBkb25lIChJCj4g
+Pj4+Pj4gdXNlZCBpdCBteXNlbGYgb25lIHRpbWUpLCBidXQgSSB0aGluayB0aGlzIGlzIG1vcmUg
+YSBoYWNrIHRoYXQgeW91IGRvCj4gPj4+Pj4gd2hlbiB5b3UgaGF2ZSBubyBvdGhlciB3YXkgdG8g
+ZGlmZmVyZW50aWF0ZS4gSSBndWVzcyB0aGUgcHJvcGVyIHdheQo+ID4+Pj4+IHdvdWxkIGJlIHRv
+IGxvb2sgYXQgdGhlIHBhcmVudCdzIGNvbXBhdGlibGUuIElmIGl0IG1hdGNoZXMgd2hhdCB5b3UK
+PiA+Pj4+PiBleHBlY3QsIHRoZW4geW91IGNhbiBzdG9yZSB0aGUgZGV2LT5vZl9ub2RlLT5wYXJl
+bnQtPmRldiBzb21ld2hlcmUgaW4KPiA+Pj4+PiB5b3VyIGNvbnRyb2xsZXIncyBzdHJ1Y3R1cmUg
+YW5kIHRoZW4gdXNlIGl0IHRvIGluaXRpYWxpemUgdGhlIGNsb2NrIGFuZAo+ID4+Pj4+IHJlZ21h
+cC4gVGhpcyB3YXkgeW91IGRvbid0IGhhdmUgdG8gbW92ZSBhbnl0aGluZyBlbHNlIGluIHRoZSBw
+cm9iZSBwYXRoLiAgCj4gPj4+Pj4gICAgID4+ICAKPiA+Pj4+IE9LLCBJIHdpbGwgY2hlY2sgdGhl
+IGNvbXBhdGlibGUgc3RyaW5nIG9mIHRoZSBwYXJlbnQgZGV2aWNlIHVzaW5nIG9mX2RldmljZV9p
+c19jb21wYXRpYmxlIEFQSSBpbiB2NS4KPiA+Pj4+IEluIGNhc2Ugb2YgdGhlIHBhcmVudCBpcyBm
+b3VuZCwgSSB3aWxsIGFkZCBpdCBpbiB0aGUgc3RydWN0dXJlIG9mIHRoZSBjb250cm9sbGVyIChk
+ZXZfcGFyZW50KS4KPiA+Pj4+IEkgd2lsbCByZWx5IG9uIHRoaXMgZmllbGQgb25seSB0byBnZXQg
+dGhlIGNvbW1vbiByZXNvdXJjZXMgKHRoZSByZWdpc3RlciBiYXNlIGFkZHJlc3MgYW5kIHRoZSBj
+bG9jaykgaW4gdGhlIE5GQyBub2RlIG9yIGluIHRoZSBFQkkgbm9kZS4gIAo+ID4+Pgo+ID4+PiBJ
+IGhhZCBzb21ldGhpbmcgc2xpZ2h0bHkgZGlmZmVyZW50IGluIG1pbmQ6IHdoYXQgYWJvdXQgc2V0
+dGluZyBhCj4gPj4+IGRlZmF1bHQgdmFsdWUgdG8gdGhpcyBmaWVsZCBhcyBiZWluZyB0aGUgY29u
+dHJvbGxlcidzIGRldmljZSBpdHNlbGYuCj4gPj4+IFRoaXMgd2F5LCBvbmNlIGl0IGlzIHNldCB0
+byBlaXRoZXIgdGhlIHBhcmVudCBkZXZpY2Ugb3IgdGhlIGRldmljZQo+ID4+PiBpdHNlbGYsIHlv
+dSBjYW4gdXNlIGl0ICJibGluZGx5IiBpbiB5b3VyIGRldm1fY2xrX2dldC9yZWdtYXBfaW5pdCBj
+YWxscz8gIAo+ID4+PiAgICA+PiAgCj4gPj4gSSB3aWxsIHRyeSB0byBleHBsYWluIHdoYXQgSSBo
+YXZlIGluIG1pbmQuCj4gPj4KPiA+PiBJIHdpbGwgYWRkIGEgbmV3IGZpZWxkIGluIHRoZSBzdHJ1
+Y3R1cmUgb2YgdGhlIGNvbnRyb2xsZXIgKG5vdCBjYWxsZWQgZGV2X3BhcmVudCBidXQgY2RldikK
+PiA+PiBzdHJ1Y3QgZGV2aWNlICpjZGV2Owo+ID4+Cj4gPj4gVGhlbiwgYXQgcHJvYmUgdGltZSwg
+dGhpcyBmaWVsZCB3aWxsIGJlIGFzc2lnbmVkOgo+ID4+IG5mYy0+Y2RldiA9IG9mX2RldmljZV9p
+c19jb21wYXRpYmxlKGRldi0+cGFyZW50LT5vZl9ub2RlLCAiYmxhIGJsYSIpIDogZGV2LT5wYXJl
+bnQgPyBkZXY7ICAKPiA+IAo+ID4gVGhhdCdzIHdoYXQgSSBoYWQgaW4gbWluZC4gTWF5YmUgeW91
+J2xsIGhhdmUgdG8gdXNlCj4gPiBkZXYtPm9mX25vZGUtPnBhcmVudCB0aG91Z2gsIEkgdGhpbmsg
+dGhleSBhcmUgbm90IGVxdWl2YWxlbnQuCj4gPiAgIAo+ID4+Cj4gPj4gRm9yIHRoZSBjbG9jaywg
+aXQgd2lsbCBiZQo+ID4+IG5mYy0+Y2xrID0gZGV2bV9jbGtfZ2V0KG5mYy0+Y2RldiwgTlVMTCk7
+Cj4gPj4KPiA+PiBGb3IgdGhlIHJlZ2lzdGVyIGJhc2UsIEkgbmVlZCB0byByZXBsYWNlOgo+ID4+
+IHJlcyA9IHBsYXRmb3JtX2dldF9yZXNvdXJjZShwZGV2LCBJT1JFU09VUkNFX01FTSwgMCk7Cj4g
+Pj4gbW1pbyA9IGRldm1faW9yZW1hcF9yZXNvdXJjZShkZXYsIHJlcyk7Cj4gPj4gaWYgKElTX0VS
+UihtbWlvKSkKPiA+PiAJcmV0dXJuIFBUUl9FUlIobW1pbyk7Cj4gPj4KPiA+PiBuZmMtPnJlZ21h
+cCA9IGRldm1fcmVnbWFwX2luaXRfbW1pbyhkZXYsIG1taW8sICZzdG0zMl9mbWMyX3JlZ21hcF9j
+ZmcpOwo+ID4+IGlmIChJU19FUlIobmZjLT5yZWdtYXApKQo+ID4+IAlyZXR1cm4gUFRSX0VSUihu
+ZmMtPnJlZ21hcCk7Cj4gPj4KPiA+PiBuZmMtPmlvX3BoeXNfYWRkciA9IHJlcy0+c3RhcnQ7Cj4g
+Pj4KPiA+PiBXaXRoOgo+ID4+Cj4gPj4gcmV0ID0gb2ZfYWRkcmVzc190b19yZXNvdXJjZShuZmMt
+PmNkZXYtPm9mX25vZGUsIDAsICZyZXMpOwo+ID4+IGlmIChyZXQpCj4gPj4gCXJldHVybiByZXQ7
+Cj4gPj4KPiA+PiBuZmMtPmlvX3BoeXNfYWRkciA9IHJlcy5zdGFydDsKPiA+Pgo+ID4+IG5mYy0+
+cmVnbWFwID0gZGV2aWNlX25vZGVfdG9fcmVnbWFwKG5mYy0+Y2Rldi0+b2Zfbm9kZSk7Cj4gPj4g
+aWYgKElTX0VSUihuZmMtPnJlZ21hcCkpCj4gPj4gCXJldHVybiBQVFJfRVJSKG5mYy0+cmVnbWFw
+KTsKPiA+Pgo+ID4+IEkgZXhwZWN0IHRoYXQgeW91IHdlcmUgdGhpbmtpbmcgYWJvdXQgc29tZXRo
+aW5nIGxpa2UgdGhpcyBwcm9wb3NhbC4gIAo+ID4gCj4gPiBUaGlzIG1lYW5zIHRoZSByZWdtYXAg
+aGFzIGFscmVhZHkgYmVlbiBpbml0aWFsaXplZCwgY2FuIHlvdSBtYWtlIHN1cmUKPiA+IGl0IGlz
+IGFjdHVhbGx5IHRoZSBjYXNlPyBXaGF0IGlmIHRoZSBwcm9iZSBvZiB0aGUgRUJJIGJsb2NrIGhh
+cHBlbnMKPiA+IG5leHQsIG9yIGlzIGRlZmVycmVkPyAobWF5YmUgeW91J2xsIGdldCBhIC1FUFJP
+QkVfREVGRVIsIHdoaWNoIGlzIGZpbmUKPiA+IHRoZW4pLiBQbGVhc2UgdHJ5IGJvb3Rpbmcgd2l0
+aCB0aGUgRUJJIG5vZGUgYnV0IHdpdGhvdXQgdGhlIEVCSSBkcml2ZXIKPiA+IGFuZCBzZWUgaWYg
+dGhpcyBpcyBoYW5kbGVkIGdyYWNlZnVsbHkuCj4gPiAgIAo+IAo+IEluIGNhc2Ugd2UgaGF2ZSBh
+biBFQkkgbm9kZSwgdGhlIE5GQyBub2RlIHdpbGwgYmUgYSBjaGlsZCBub2RlIG9mIHRoZSBFQkkg
+bm9kZS4KPiBUaGUgRUJJIGRyaXZlciB3aWxsIGZpcnN0IGJlIHByb2JlZCwgZ2V0dGluZyBhbGwg
+aXRzIHJlc291cmNlcyBhbmQgdGhlbiBpdCB3aWxsIHBvcHVsYXRlIGFsbCBpdHMgY2hpbGRyZW4g
+bm9kZSAoaW5jbHVkaW5nIHRoZSBORkMgbm9kZSBpZiB0aGlzIG9uZSBpcyBlbmFibGVkKS4gSWYg
+dGhlIEVCSSBkcml2ZXIgaXMgZGVmZXJyZWQgYmVjYXVzZSBvZiBnZXR0aW5nIG9uZSBvZiBpdHMg
+cmVzb3VyY2VzIGhhcyBmYWlsZWQsIG5vbmUgb2YgaXRzIGNoaWxkcmVuIHdpbGwgYmUgcHJvYmVk
+LiBUaGV5IHdpbGwgYmUgcHJvYmVkIGxhdGVyIHdoZW4gdGhlIEVCSSBkcml2ZXIgd2lsbCBzdWNj
+ZWVkIHRvIGdldCBhbGwgaXRzIHJlc291cmNlcyBhbmQgd2lsbCB0aGVuIHBvcHVsYXRlIGFsbCBv
+ZiBpdHMgY2hpbGRyZW4uCj4gCgpPaywgSSBqdXN0IHJldmlld2VkIGl0IG1vcmUgaW4gZGVwdGgg
+YW5kIEkgZ2V0IGl0IG5vdywgc2hvdWxkIGJlIGZpbmUuCgo+IEluIGNhc2Ugd2UgaGF2ZSB0aGUg
+RUJJIG5vZGUgd2l0aG91dCBpdHMgZHJpdmVyLCBub25lIG9mIGl0cyBjaGlsZHJlbiB3aWxsIGJl
+IHBvcHVsYXRlZCwgc28gdGhlIE5GQyBub2RlIHdpbGwgbm90IGJlIHByb2JlZC4KPiAKPiBIZXJl
+IGlzIGFuIGV4ZW1wbGUgb2YgdGhlIGJpbmRpbmdzIHByb3Bvc2FsOgo+ICAgICAgZm1jOiBtZW1v
+cnktY29udHJvbGxlckA1ODAwMjAwMCB7Cj4gICAgICAgICNhZGRyZXNzLWNlbGxzID0gPDI+Owo+
+ICAgICAgICAjc2l6ZS1jZWxscyA9IDwxPjsKPiAgICAgICAgY29tcGF0aWJsZSA9ICJzdCxzdG0z
+Mm1wMS1mbWMyLWViaSI7Cj4gICAgICAgIHJlZyA9IDwweDU4MDAyMDAwIDB4MTAwMD47Cj4gICAg
+ICAgIGNsb2NrcyA9IDwmcmNjIEZNQ19LPjsKPiAgICAgICAgcmVzZXRzID0gPCZyY2MgRk1DX1I+
+Owo+IAo+ICAgICAgICByYW5nZXMgPSA8MCAwIDB4NjAwMDAwMDAgMHgwNDAwMDAwMD4sIC8qIEVC
+SSBDUyAxICovCj4gICAgICAgICAgICAgICAgIDwxIDAgMHg2NDAwMDAwMCAweDA0MDAwMDAwPiwg
+LyogRUJJIENTIDIgKi8KPiAgICAgICAgICAgICAgICAgPDIgMCAweDY4MDAwMDAwIDB4MDQwMDAw
+MDA+LCAvKiBFQkkgQ1MgMyAqLwo+ICAgICAgICAgICAgICAgICA8MyAwIDB4NmMwMDAwMDAgMHgw
+NDAwMDAwMD4sIC8qIEVCSSBDUyA0ICovCj4gICAgICAgICAgICAgICAgIDw0IDAgMHg4MDAwMDAw
+MCAweDEwMDAwMDAwPjsgLyogTkFORCAqLwo+IAo+ICAgICAgICBwc3JhbUAwLDAgewo+ICAgICAg
+ICAgIGNvbXBhdGlibGUgPSAibXRkLXJhbSI7Cj4gICAgICAgICAgcmVnID0gPDAgMHgwMDAwMDAw
+MCAweDEwMDAwMD47Cj4gICAgICAgICAgYmFuay13aWR0aCA9IDwyPjsKPiAKPiAgICAgICAgICBz
+dCxmbWMyLWViaS1jcy10cmFuc2FjdGlvbi10eXBlID0gPDE+Owo+ICAgICAgICAgIHN0LGZtYzIt
+ZWJpLWNzLWFkZHJlc3Mtc2V0dXAtbnMgPSA8NjA+Owo+ICAgICAgICAgIHN0LGZtYzItZWJpLWNz
+LWRhdGEtc2V0dXAtbnMgPSA8MzA+Owo+ICAgICAgICAgIHN0LGZtYzItZWJpLWNzLWJ1cy10dXJu
+YXJvdW5kLW5zID0gPDU+Owo+ICAgICAgICB9Owo+IAo+ICAgICAgICBuYW5kLWNvbnRyb2xsZXJA
+NCwwIHsKPiAgICAgICAgICAjYWRkcmVzcy1jZWxscyA9IDwxPjsKPiAgICAgICAgICAjc2l6ZS1j
+ZWxscyA9IDwwPjsKPiAgICAgICAgICBjb21wYXRpYmxlID0gInN0LHN0bTMybXAxNS1mbWMyIjsK
+PiAgICAgICAgICByZWcgPSA8NCAweDAwMDAwMDAwIDB4MTAwMD4sCj4gICAgICAgICAgICAgICAg
+PDQgMHgwODAxMDAwMCAweDEwMDA+LAo+ICAgICAgICAgICAgICAgIDw0IDB4MDgwMjAwMDAgMHgx
+MDAwPiwKPiAgICAgICAgICAgICAgICA8NCAweDAxMDAwMDAwIDB4MTAwMD4sCj4gICAgICAgICAg
+ICAgICAgPDQgMHgwOTAxMDAwMCAweDEwMDA+LAo+ICAgICAgICAgICAgICAgIDw0IDB4MDkwMjAw
+MDAgMHgxMDAwPjsKPiAgICAgICAgICBpbnRlcnJ1cHRzID0gPEdJQ19TUEkgNDggSVJRX1RZUEVf
+TEVWRUxfSElHSD47Cj4gICAgICAgICAgZG1hcyA9IDwmbWRtYTEgMjAgMHgyIDB4MTIwMDBhMDIg
+MHgwIDB4MD4sCj4gICAgICAgICAgICAgICAgIDwmbWRtYTEgMjAgMHgyIDB4MTIwMDBhMDggMHgw
+IDB4MD4sCj4gICAgICAgICAgICAgICAgIDwmbWRtYTEgMjEgMHgyIDB4MTIwMDBhMGEgMHgwIDB4
+MD47Cj4gICAgICAgICAgZG1hLW5hbWVzID0gInR4IiwgInJ4IiwgImVjYyI7Cj4gCj4gICAgICAg
+ICAgbmFuZEAwIHsKPiAgICAgICAgICAgIHJlZyA9IDwwPjsKPiAgICAgICAgICAgIG5hbmQtb24t
+Zmxhc2gtYmJ0Owo+ICAgICAgICAgICAgI2FkZHJlc3MtY2VsbHMgPSA8MT47Cj4gICAgICAgICAg
+ICAjc2l6ZS1jZWxscyA9IDwxPjsKPiAgICAgICAgICB9Owo+ICAgICAgICB9Owo+ICAgICAgfTsK
+PiAKPiBSZWdhcmRzLAo+IENocmlzdG9waGUgS2VyZWxsby4KClRoYW5rcywKTWlxdcOobAoKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4
+IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
