@@ -2,50 +2,49 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 96E701CD335
-	for <lists+linux-mtd@lfdr.de>; Mon, 11 May 2020 09:49:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D447D1CD336
+	for <lists+linux-mtd@lfdr.de>; Mon, 11 May 2020 09:49:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MqVQfLAYAaATBEIi9QM7NTCQqKMPYk9+BxbWnbepvuA=; b=lhxiH+SMkM4469
-	LB+6i/R86E8AGU+5gp26g78hU/2vZVHe1L98Oo+R9nImC3zEygj3fS0itqIIIpmKMV0qzcgqCRM/i
-	ESTOSPxq84NKAubVR+7NBg8uuBn9KJPMaQ9NtLbZmpN7rQopRjuaT4ZAH3Lrl6SRcEpXTtNWsXowf
-	Pkg1yE6GAC39bsDs0mHTCJQAbmUnz+hAD35ws8bHLyfec2ulqmyR+GLiJhaLtsoPFcVrSf9JfkTwj
-	pLFXY0JyyoJHxVM2bpbsjWpM+Vb1q9ZAL/EaomP0H51PGQMzyxYJNlqIg1W8QLUhwVNnDjnMKAa/V
-	3+edb6thj2m2HZCvCyUw==;
+	List-Owner; bh=1JVd36rMbRyb4KEvjlxRMQrXBBCRJm8v//S/+VzUdyI=; b=rGsVisy0LJ+j1v
+	t/wxQmwLWzZfapfMZYJPvkPdRSa04D4iPYsJaDV6FOV8zsIQ3O3kG0gYgQ6iEkSCSOcz+yavIiPhT
+	t7lOJ/oaHgVVdV5E00v1WEcS0oUm4L7prU6nYiv4NyvnKm+pM2IQio154xe6fHV2Xu940g0uOYmUX
+	W5BHCNubZ9uGqvSmWrQnW0nRurOsN8YEzUYuCKhbJBakssbzQcKUFXSeA3yExuQTDoYAlE3idGjrK
+	kOugZgZ6fM+D9/XYk6eh+Qtz4oKf6Z5C5eBv8xhUXP4uF0oD+XgWxHIKVedRraWiuPPVbUgehDa9e
+	Ig0g1C+bnkYpxkEo8i3Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jY3BM-0002x0-IT; Mon, 11 May 2020 07:49:00 +0000
+	id 1jY3Bd-000353-Ah; Mon, 11 May 2020 07:49:17 +0000
 Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jY3BC-0002wL-QU
- for linux-mtd@lists.infradead.org; Mon, 11 May 2020 07:48:52 +0000
+ id 1jY3BE-0002wf-Rf
+ for linux-mtd@lists.infradead.org; Mon, 11 May 2020 07:48:54 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 17EE1C000B;
- Mon, 11 May 2020 07:48:41 +0000 (UTC)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 8F080C000E;
+ Mon, 11 May 2020 07:48:50 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>,
  Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>,
  Robert Jarzmik <robert.jarzmik@free.fr>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH 5/5] mtd: rawnand: diskonchip: Get rid of the legacy
- interface implementation
-Date: Mon, 11 May 2020 09:48:40 +0200
-Message-Id: <20200511074840.18562-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH 4/5] mtd: rawnand: diskonchip: Implement exec_op()
+Date: Mon, 11 May 2020 09:48:49 +0200
+Message-Id: <20200511074849.18632-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200501143917.1388957-6-boris.brezillon@collabora.com>
+In-Reply-To: <20200501143917.1388957-5-boris.brezillon@collabora.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: d488f201ac06b7743538764be2b09883845a86a7
+X-linux-mtd-patch-commit: 09aa4872cbbe5d95bb5e136cc8f6aa74ca3e92a7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200511_004850_992434_ABDD0CA0 
-X-CRM114-Status: UNSURE (   6.98  )
+X-CRM114-CacheID: sfid-20200511_004853_024742_06D64EBA 
+X-CRM114-Status: UNSURE (   9.73  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -76,9 +75,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 2020-05-01 at 14:39:17 UTC, Boris Brezillon wrote:
-> Now that exec_op() has been implemented we can get rid of the legacy
-> interface implementation.
+On Fri, 2020-05-01 at 14:39:16 UTC, Boris Brezillon wrote:
+> Implement exec_op() so we can later get rid of the legacy
+> implementation.
+> 
+> It's worth noting that the new implementation assert/deassert the CE
+> pin on each operation, which might not be necessary. We also dropped
+> the extra reset done at chip selection time on DOC2001plus. If it's
+> needed we really should do something smarter, because having a reset
+> everytime we access the chip is not that great perf-wise.
 > 
 > Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 
