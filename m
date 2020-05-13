@@ -2,94 +2,93 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 721921CFF05
-	for <lists+linux-mtd@lfdr.de>; Tue, 12 May 2020 22:10:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 237FA1D0633
+	for <lists+linux-mtd@lfdr.de>; Wed, 13 May 2020 07:08:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cxYYYn/CKxp9mi+4wDlbHk53zISTdoYbZBYBcYI8Ano=; b=cn1kaprsyK0mUe
-	clKCTt0Qv5Lt8ovTXZ2Szf8iQHCTG1NadDUcnVtJGxYXoVaE1HVWmCGCraUrCuqaU7BC9JoSmaMt0
-	IklNcuLf8Zmmd7tl3gHLMFCq5/zwKWQDF70EARcOdG08B4WB/ZmcnTOv0iYOyd9Pb/91sZhDpIFGj
-	UO9L8Tg9Ii59pJTIKy5VLjwXuE1V2rzhDho863Xd1o83cCYi4YFNNWeHC8fQyUE53VMnLAdGB2MZq
-	DGsvmsqwUh20qE1s5pPYHRDstd5ZmMZb8kbIYosSkeREfbSdjgXxEMi0E+1gOMsjnbOaYOmCsgOzA
-	wdXSYjXNF+NOn5nYvd3w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nSGW1XB/tPUumFGQvGkW8bTTeFIqDbx1oEgBlCLR1IE=; b=P/l2KAF40aOavu
+	DExyRrf69wpZjFqRP+N+cIUi/7dUxsQojCQ3756IYSk1YTerIplvaeRMRNw5MBPntC6xeO2jrl5w8
+	pRAptHGUg5+TEzVkgsETs3fAbM1P1MZVzQ/FwfkJcJUaejMXttCMHDDh2tQ+cCeRXRAL+wlyF07S4
+	pXxjR5/q5OrcrvDmamjY1PzBvY1GriQzW6OSEEFITKnUBPzhd2i3SyQTor9JUYsMUIT1x3dtkE17x
+	jTJDLPRZfUq/YUbpLQxGJV9f5nWbckE2LIIFuR7YG/RcuN7WRbYcvNycuVjH1AvC1j9CvRljrW/+o
+	fttKkFGj2JrA9skpxELQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYbEH-0005fb-Dq; Tue, 12 May 2020 20:10:17 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1jYjd5-0006Lo-NK; Wed, 13 May 2020 05:08:27 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYbDw-0005f1-U0
- for linux-mtd@lists.infradead.org; Tue, 12 May 2020 20:09:58 +0000
-Received: by mail-lf1-x142.google.com with SMTP id z22so11696722lfd.0
- for <linux-mtd@lists.infradead.org>; Tue, 12 May 2020 13:09:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
- h=subject:to:cc:references:from:organization:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=3xTvH/2ngkA65w8laOlMrD8FnzSgyD5dtueeCH1jUe8=;
- b=lxGwy4u/9XFJ6fpgUCLJlcqgguw/nFIL43u2qkiqz5Yna97/bL6+0+tjoddXwZi+WA
- W/5vIj9hBs0GQk+zgUiAzfw1P2JBzt2u1jxW/FgbIv7lApyppqYNdqRiNDGLt7visZhT
- 0qyGXadBVAeMiVGY+upaOB9Dsd5Q800GX7v7kbQusR2W2eHVyE+3RUfjygNRjBDXE7El
- mLD1PzFw5pXLwVudVLU/4zj1FpcmA1vnk3YGtwjFbzrfG5a9+Y4xlSw1OM6/yofPDepQ
- qaWAIOr0ugXvGqQj4zfRJB6dKZ61DewXd7jsuzKrgLrJgwpFkGEe+KQtPE5IKtnyRQAy
- o7xA==
+ id 1jYjcu-0006Kz-Cz
+ for linux-mtd@lists.infradead.org; Wed, 13 May 2020 05:08:17 +0000
+Received: by mail-pg1-x541.google.com with SMTP id a4so7262531pgc.0
+ for <linux-mtd@lists.infradead.org>; Tue, 12 May 2020 22:08:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:date:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to;
+ bh=gD48qUgTpY5H3y7E/mQ9fNLXyKbI1TMIzyH0EZQrjYY=;
+ b=sQGCPXd4N3EjbMUbGnma6DqfPv0qGLNzCrmuPLoJvPHOQktCBX5jb8CJ4pAAz4KVX8
+ b8E6XYY6AcJldhyadQuzByieYDB9IdoZGx2Yck8FQo23N7vfP0a8auUC/7h16tYqe6Rg
+ sz/Qvk8hV9EhXtBD60xvcLg8DL86wPqLYlY80xoZavrLtfFaTF8jPMfYiocMwh7f2Psr
+ Z9WpHrOo/eVNLJ8jg4QnkEO+gqCZchLtx7/Nnj36dLJViqTZvZCqgSxY+J4Gb2QnbZkO
+ kt2ZWxmNghdiJbOsR41Mbm0NYMcnrWgi1o0zhZ2O9QNp1Y59XKpxU/nsQjqQnApagr99
+ uhIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:cc:references:from:organization
- :message-id:date:user-agent:mime-version:in-reply-to
- :content-language:content-transfer-encoding;
- bh=3xTvH/2ngkA65w8laOlMrD8FnzSgyD5dtueeCH1jUe8=;
- b=FUAjU8uRMjOR8bAL4x2W6itwqVnySWqdNuprJU0BAvtPYTUNa5xoPr2kVdNPqUcXg0
- W4fbkmLJyds3FIt7LvkHkuHQFOX51YViakppJfRu0ZBe/oJhYbH+wtc6yyA+nCi/RsbJ
- wsphgO7JYFXuz5hxi+zmQyhSBkyCfN/WgZe7Qv3231dQL1WLQTfSag5TIJCbXy22YF8n
- 92NU2Rzcg/OAzS7y10ji987Q2bGysQyzQTml1b9B8/i4g+q++WAxhQdHlD1FSaRK8Kd8
- AJ+Rz8C3Tm3S1EE8ugDxGQPo/IXm/0c8I9leZ785W1EQ1umKAJMJqqzAe/VqU7OhgeaP
- ugYg==
-X-Gm-Message-State: AOAM532GzDDE21wNDj6h90sjzOx1kuHxcLX/wiN0YuVvQNGwTVAjsD1a
- sspezjcpBrMuv1agTA/v4TGcyw==
-X-Google-Smtp-Source: ABdhPJxzwMP1PptuWP+lxYO0cCrGiJMcu0idmPkbGGvfB6uRsxyal/VBa9SpT26EILnGjEs5TAWKSg==
-X-Received: by 2002:a19:cb57:: with SMTP id b84mr15360967lfg.112.1589314193937; 
- Tue, 12 May 2020 13:09:53 -0700 (PDT)
-Received: from wasted.cogentembedded.com
- ([2a00:1fa0:4436:fac1:c633:e333:4a04:ab9c])
- by smtp.gmail.com with ESMTPSA id w24sm14559929lfk.47.2020.05.12.13.09.52
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Tue, 12 May 2020 13:09:53 -0700 (PDT)
-Subject: Re: [PATCH 45/62] mtd: rawnand: r852: Stop using nand_release()
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-References: <20200510121220.18042-1-miquel.raynal@bootlin.com>
- <20200510121220.18042-46-miquel.raynal@bootlin.com>
- <fd705f87-2d40-bb2f-99cb-6583e775e2c5@cogentembedded.com>
- <20200511151038.62727bbd@xps13>
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Organization: Cogent Embedded
-Message-ID: <4b166086-7d9e-a35b-8816-822c8d48a10a@cogentembedded.com>
-Date: Tue, 12 May 2020 23:09:51 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+ h=x-gm-message-state:from:date:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=gD48qUgTpY5H3y7E/mQ9fNLXyKbI1TMIzyH0EZQrjYY=;
+ b=S0IoTNBaRFnz4aMb9jXR3LzvoEjTFCjBdXz6LqoKzdk+QfgvGQNe85ibojsOMH+q2i
+ N6k/4b+TGVgU3Ys625sCoBQDe4BHZZFFMzpvfUfvsGv/BA9fFhWL27HOFES9mE4bGU6z
+ 2bxtUj+3/bIMHnIQTbVFfVRVeycHfYjhpr07P5L2C00+Z3blaFx79NNtxok8A9lOyWsP
+ TRr6VdGTGFeD4K83fCVKkBM80WPE8oUkRvXGpTntC/VvsW1BDC+nl2GjOVLdE4El6hPS
+ fIVM6bKduAMbokrtX31Gg15WQnE8Ka0/LiXY5RQpialkKmKKwTQUR1JqcOPVoT/zTzSK
+ fLPQ==
+X-Gm-Message-State: AOAM530UL+MPmCgSmPznSRfTojieoGEwkEECoiD/W1SJhvEO/0d6Kben
+ 4hCvxba/mFbuXfG3cz7r22A=
+X-Google-Smtp-Source: ABdhPJzzP9klR6bWe3ODCdQtf+NWu5xzVOFpNL1jg2fE1q08uaY9K0pcZkmzTtuVxVp2glcG/Xq8BQ==
+X-Received: by 2002:a62:e117:: with SMTP id q23mr3213182pfh.188.1589346493760; 
+ Tue, 12 May 2020 22:08:13 -0700 (PDT)
+Received: from localhost ([2409:10:2e40:5100:6e29:95ff:fe2d:8f34])
+ by smtp.gmail.com with ESMTPSA id x66sm13642770pfb.173.2020.05.12.22.08.12
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 12 May 2020 22:08:12 -0700 (PDT)
+From: Sergey Senozhatsky <sergey.senozhatsky@gmail.com>
+X-Google-Original-From: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
+Date: Wed, 13 May 2020 14:08:12 +0900
+To: Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH v7 07/18] printk: Introduce kmsg_dump_reason_str()
+Message-ID: <20200513050812.GK413@jagdpanzerIV.localdomain>
+References: <20200510202436.63222-1-keescook@chromium.org>
+ <20200510202436.63222-8-keescook@chromium.org>
 MIME-Version: 1.0
-In-Reply-To: <20200511151038.62727bbd@xps13>
-Content-Language: en-MW
+Content-Disposition: inline
+In-Reply-To: <20200510202436.63222-8-keescook@chromium.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200512_130957_169722_4DA2F642 
-X-CRM114-Status: GOOD (  16.81  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200512_220816_491869_5AD2BEA4 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:142 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:541 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [sergey.senozhatsky[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -101,43 +100,30 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Maxim Levitsky <maximlevitsky@gmail.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>,
- Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
- Vignesh Raghavendra <vigneshr@ti.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Petr Mladek <pmladek@suse.com>, Tony Luck <tony.luck@intel.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>, Jonathan Corbet <corbet@lwn.net>,
+ Richard Weinberger <richard@nod.at>, Anton Vorontsov <anton@enomsg.org>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Steven Rostedt <rostedt@goodmis.org>,
+ WeiXiong Liao <liaoweixiong@allwinnertech.com>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Colin Cross <ccross@android.com>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Pavel Tatashin <pasha.tatashin@soleen.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-T24gMDUvMTEvMjAyMCAwNDoxMCBQTSwgTWlxdWVsIFJheW5hbCB3cm90ZToKCj4+PiBUaGlzIGhl
-bHBlciBpcyBub3QgdmVyeSB1c2VmdWwgYW5kIHZlcnkgb2Z0ZW4gcGVvcGxlIGdldCBjb25mdXNl
-ZDoKPj4+IHRoZXkgdXNlIG5hbmRfcmVsZWFzZSgpIGluc3RlYWQgb2YgbmFuZF9jbGVhbnVwKCku
-Cj4+Pgo+Pj4gTGV0J3Mgc3RvcCB1c2luZyBuYW5kX3JlbGVhc2UoKSBieSBjYWxsaW5nIG10ZF9k
-ZXZpY2VfdW5yZWdpc3RlcigpIGFuZAo+Pj4gbmFuZF9jbGVhbnVwKCkgZGlyZWN0bHkuCj4+Pgo+
-Pj4gU2lnbmVkLW9mZi1ieTogTWlxdWVsIFJheW5hbCA8bWlxdWVsLnJheW5hbEBib290bGluLmNv
-bT4KPj4+IENjOiBNYXhpbSBMZXZpdHNreSA8bWF4aW1sZXZpdHNreUBnbWFpbC5jb20+Cj4+PiAt
-LS0KPj4+ICAgZHJpdmVycy9tdGQvbmFuZC9yYXcvcjg1Mi5jIHwgNiArKysrLS0KPj4+ICAgMSBm
-aWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9tdGQvbmFuZC9yYXcvcjg1Mi5jIGIvZHJpdmVycy9tdGQvbmFuZC9y
-YXcvcjg1Mi5jCj4+PiBpbmRleCA3Nzc3NDI1MGZiMTEuLmY4NjVlM2E0N2IwMSAxMDA2NDQKPj4+
-IC0tLSBhL2RyaXZlcnMvbXRkL25hbmQvcmF3L3I4NTIuYwo+Pj4gKysrIGIvZHJpdmVycy9tdGQv
-bmFuZC9yYXcvcjg1Mi5jCj4+PiBAQCAtNjUxLDcgKzY1MSw4IEBAIHN0YXRpYyBpbnQgcjg1Ml9y
-ZWdpc3Rlcl9uYW5kX2RldmljZShzdHJ1Y3Qgcjg1Ml9kZXZpY2UgKmRldikKPj4+ICAgCWRldi0+
-Y2FyZF9yZWdpc3RlcmVkID0gMTsKPj4+ICAgCXJldHVybiAwOwo+Pj4gICBlcnJvcjM6Cj4+PiAt
-CW5hbmRfcmVsZWFzZShkZXYtPmNoaXApOwo+Pj4gKwlXQVJOX09OKG10ZF9kZXZpY2VfdW5yZWdp
-c3RlcihuYW5kX3RvX210ZChkZXYtPmNoaXApKSk7ICAKPj4KPj4gICAgIFNvbWV0aW1lcyB5b3Ug
-ZGVjbGFyZSBhIHZhcmlhYmxlIHRvIHJlY2VpdmUgdGhlIHJlc3VsdCwgc29tZXRpbWVzIChtb3Jl
-IHNlbGRvbSkgeW91IGRvbid0Li4uIFdoYXQgZ3VpZGVzIHlvdT8KPiAKPiBBYnNvbHV0ZWx5LiBU
-aGUgbG9naWMgKGlmIGFueSkgd2FzOgo+IAo+IFVzZSAicmV0IiwgdW5sZXNzIEkgdGhpbmsgaXQg
-ZG9lcyBub3QgZml0IHZlcnkgd2VsbCB0aGUgZHJpdmVyJ3Mgc3R5bGUKPiBvciB0aGUgbG9jYXRp
-b24gd2hlcmUgSSBwdXQgaXQuIFNvIGluIHRoZSBlbmQsIGFzIEkgY29uc2lkZXIgdGhhdCBib3Ro
-Cj4gYXJlIHRvdGFsbHkgZmluZSwgaXQncyBhIGJpdCBtaXhlZCBhbmQgdGhlIGNob2ljZSB2ZXJ5
-IHBlcnNvbm5hbC4gRG8geW91Cj4gdGhpbmsgaXQgaXMgYSBwcm9ibGVtPwoKICAgTm8sIEkgd2Fz
-IGRvdWJ0ZnVsIGFib3V0IHRoZSBvbmUtdGltZSBldmFsdWF0aW9uIG9mIHRoZSBXQVJOX09OKCkn
-cyAxc3QgYXJndW1lbnQKYnV0IHRoZW4gcmVhbGl6ZWQgdGhhdCBpdCdzIHRha2luZyBjYXJlIG9m
-Li4uCgo+IFRoYW5rcywKPiBNaXF1w6hsCgpNQlIsIFNlcmdlaQoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9u
-IG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LW10ZC8K
+On (20/05/10 13:24), Kees Cook wrote:
+> The pstore subsystem already had a private version of this function.
+> With the coming addition of the pstore/zone driver, this needs to be
+> shared. As it really should live with printk, move it there instead.
+
+Acked-by: Sergey Senozhatsky <sergey.senozhatsky@gmail.com>
+
+	-ss
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
