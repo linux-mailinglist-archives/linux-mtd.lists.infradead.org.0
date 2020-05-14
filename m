@@ -2,92 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B3BB1D36A2
-	for <lists+linux-mtd@lfdr.de>; Thu, 14 May 2020 18:37:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A8BE41D37D6
+	for <lists+linux-mtd@lfdr.de>; Thu, 14 May 2020 19:18:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5IetqM3rvcwtSRC6R435o0beKbnkM+bHB4IaV+5/9Qw=; b=rUp1YRjfpsjYAm6EVKy2gIuLc
-	NpVqh7dhfaeaN245FHbuLuT3Z+Fc2/KlPqDjF7tcx46jgJ+JYl9jUH6YqWaulaOmxQkRrHcuyz3Du
-	HEUvXagT+seyCI2m4iqVJFifmwIMh2tJ68cUXwBgKYck8NuGR1nwsteGZ8rvgypANaaWUvF4CRxZM
-	eNNwuLWdzjJbxFrZhFwIH/tLH4cW0gVlIpC+8nTSrSzwjKGippeQpBywSTvUXda0LacAIQjtHi4hF
-	MTWmiWyAe3EVHgxYBpPnFc+IdCgheoRpx/RIVnBOeIofTkBftHGNc6fRyCZWHtyikKh/3/e6DPvxM
-	M6ri1n4BQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h4yTwhnbObGBGhEqV5sWLbeCf9wfRcOxKGXaPct71pI=; b=eSoWpn6dZldJpR
+	BycgNxFAdEMmZDH58F7jLYLvaeKvy5MKKKZinZ8TPqRYVeLUYQz5I0x3Poa/5/QNue8ZKEoHZKy5G
+	N1uNcs9Sk9QzWBVAcbRPuQXF76sbEPxAZRcooXYvZ/L6iVXHr0xxMGavczDhrUDhbRl1RHEpPouNA
+	FErfYUR3+dbl0UIV8lJD5UviLKSammLG4X5lQs3KsSfiznPnWiiff/hQBKOGCs/97rB3yLQ/KEgHe
+	ddfAC3b6w1bhZD7VOkGtXXrOCV0i2IqdvpnbBeGmQzn6RkB40JGJyKaKvZsfSIB6kftlsHBvJXbgc
+	tLAPA074hMA21HjfRbXw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZGrU-0000JF-Ld; Thu, 14 May 2020 16:37:32 +0000
-Received: from mx07-00178001.pphosted.com ([62.209.51.94])
+	id 1jZHV2-0005jD-Lg; Thu, 14 May 2020 17:18:24 +0000
+Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZGrJ-0000I2-5D
- for linux-mtd@lists.infradead.org; Thu, 14 May 2020 16:37:25 +0000
-Received: from pps.filterd (m0046037.ppops.net [127.0.0.1])
- by mx07-00178001.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- 04EGWUkS001136; Thu, 14 May 2020 18:37:10 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=st.com;
- h=subject : to : cc :
- references : from : message-id : date : mime-version : in-reply-to :
- content-type : content-transfer-encoding; s=STMicroelectronics;
- bh=KReqvoQOPXTJ96JZDs+ZdzVVbAczUMc3zsxTmPWmvxI=;
- b=q9SDnPWOFfhSi8oN1yhwBaEHSxFMYJHp6DY9Kht8l6w6vp727CguRfUP0zmT+TDhBNg5
- Vg66vfw4+mCdtUFhe6MRyK0sjWIcir+Ex8Rjh1KrHKp0EHI+QWvF+pxBf/WQzSR+r5iK
- mIimbDtnRsq8zWgd0I22mt/aOy9sT9XTCeLotWd0OnAGBFpnVKeCMC0aB7CJj6xS0deq
- StHUou5unUoz62fMhPHc729MaXgbQ6vsQpPv7cb/HzURhv908YQC+8pNPbRL4tpFI39u
- 4g3pzNAXYIJ1lE/GtF7NMMAi2OrkbD8wCk5eDWyIIgI6hqU8CcYqxAoALXJhJ27s9dyI HQ== 
-Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
- by mx07-00178001.pphosted.com with ESMTP id 3100vqmfvt-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Thu, 14 May 2020 18:37:10 +0200
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
- by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id B311A10002A;
- Thu, 14 May 2020 18:37:09 +0200 (CEST)
-Received: from Webmail-eu.st.com (sfhdag6node2.st.com [10.75.127.17])
- by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 7EC3A2AA60E;
- Thu, 14 May 2020 18:37:09 +0200 (CEST)
-Received: from [10.211.8.23] (10.75.127.47) by SFHDAG6NODE2.st.com
- (10.75.127.17) with Microsoft SMTP Server (TLS) id 15.0.1347.2; Thu, 14 May
- 2020 18:37:08 +0200
-Subject: Re: [PATCH v4 07/10] dt-bindings: memory-controller: add STM32 FMC2
- EBI controller documentation
-To: Rob Herring <robh@kernel.org>
-References: <1588756279-17289-1-git-send-email-christophe.kerello@st.com>
- <1588756279-17289-8-git-send-email-christophe.kerello@st.com>
- <20200514150730.GA10372@bogus>
-From: Christophe Kerello <christophe.kerello@st.com>
-Message-ID: <99d7f354-ed80-ef9f-beb1-4b104eb7e3b6@st.com>
-Date: Thu, 14 May 2020 18:37:06 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+ id 1jZHTi-0004xJ-NY; Thu, 14 May 2020 17:17:04 +0000
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 95635240004;
+ Thu, 14 May 2020 17:16:52 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>
+Subject: [PATCH v5 00/21] Prepare the introduction of generic ECC engines
+Date: Thu, 14 May 2020 19:16:30 +0200
+Message-Id: <20200514171651.24851-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <20200514150730.GA10372@bogus>
-Content-Language: en-US
-X-Originating-IP: [10.75.127.47]
-X-ClientProxiedBy: SFHDAG1NODE3.st.com (10.75.127.3) To SFHDAG6NODE2.st.com
- (10.75.127.17)
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.216, 18.0.676
- definitions=2020-05-14_05:2020-05-14,
- 2020-05-14 signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200514_093721_500851_C839D3F3 
-X-CRM114-Status: GOOD (  26.56  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20200514_101703_044770_9B3CA0CA 
+X-CRM114-Status: GOOD (  23.95  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [62.209.51.94 listed in list.dnswl.org]
+ low trust [217.70.178.230 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,330 +57,238 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, marex@denx.de,
- vigneshr@ti.com, richard@nod.at, miquel.raynal@bootlin.com,
- linux-kernel@vger.kernel.org, boris.brezillon@collabora.com,
- linux-mtd@lists.infradead.org, gregkh@linuxfoundation.org,
- linux-stm32@st-md-mailman.stormreply.com
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Cc: Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Julien Su <juliensu@mxic.com.tw>,
+ Schrempf Frieder <frieder.schrempf@kontron.de>,
+ Paul Cercueil <paul@crapouillou.net>, linux-mtd@lists.infradead.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Mason Yang <masonccyang@mxic.com.tw>, Chuanhong Guo <gch981213@gmail.com>,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Rob,
-
-On 5/14/20 5:07 PM, Rob Herring wrote:
-> On Wed, May 06, 2020 at 11:11:16AM +0200, Christophe Kerello wrote:
->> This patch adds the documentation of the device tree bindings for the STM32
->> FMC2 EBI controller.
->>
->> Signed-off-by: Christophe Kerello <christophe.kerello@st.com>
->> ---
->> Changes in v4:
->>   - fix filename: st,stm32-fmc2-ebi.yaml
->>
->> Changes in v3:
->>   - pattern name has been modified
->>   - vendor properties have been modified
->>     - s/_/-/
->>     - add unit suffix (-ns) on timing properties
->>
->>   .../memory-controllers/st,stm32-fmc2-ebi.yaml      | 261 +++++++++++++++++++++
->>   1 file changed, 261 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32-fmc2-ebi.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32-fmc2-ebi.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32-fmc2-ebi.yaml
->> new file mode 100644
->> index 0000000..bf130c3
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32-fmc2-ebi.yaml
->> @@ -0,0 +1,261 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/memory-controllers/st,stm32-fmc2-ebi.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: STMicroelectronics Flexible Memory Controller 2 (FMC2) Bindings
->> +
->> +description: |
->> +  The FMC2 functional block makes the interface with: synchronous and
->> +  asynchronous static devices (such as PSNOR, PSRAM or other memory-mapped
->> +  peripherals) and NAND flash memories.
->> +  Its main purposes are:
->> +    - to translate AXI transactions into the appropriate external device
->> +      protocol
->> +    - to meet the access time requirements of the external devices
->> +  All external devices share the addresses, data and control signals with the
->> +  controller. Each external device is accessed by means of a unique Chip
->> +  Select. The FMC2 performs only one access at a time to an external device.
->> +
->> +maintainers:
->> +  - Christophe Kerello <christophe.kerello@st.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: st,stm32mp1-fmc2-ebi
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  resets:
->> +    maxItems: 1
->> +
->> +  "#address-cells":
->> +    const: 2
->> +
->> +  "#size-cells":
->> +    const: 1
->> +
->> +  ranges:
->> +    description: |
->> +      Reflects the memory layout with four integer values per bank. Format:
->> +      <bank-number> 0 <address of the bank> <size>
->> +
->> +patternProperties:
->> +  "^.*@[0-4],[a-f0-9]+$":
->> +    type: object
->> +
->> +    properties:
->> +      reg:
->> +        description: Bank number, base address and size of the device.
->> +
->> +      st,fmc2-ebi-cs-transaction-type:
->> +        description: |
->> +                     Select one of the transactions type supported
-> 
-> Indent should be 2 more than 'description'.
-
-Ok, it will be part of v5.
-
-> 
->> +                       0: Asynchronous mode 1 SRAM/FRAM.
->> +                       1: Asynchronous mode 1 PSRAM.
->> +                       2: Asynchronous mode A SRAM/FRAM.
->> +                       3: Asynchronous mode A PSRAM.
->> +                       4: Asynchronous mode 2 NOR.
->> +                       5: Asynchronous mode B NOR.
->> +                       6: Asynchronous mode C NOR.
->> +                       7: Asynchronous mode D NOR.
->> +                       8: Synchronous read synchronous write PSRAM.
->> +                       9: Synchronous read asynchronous write PSRAM.
->> +                       10: Synchronous read synchronous write NOR.
->> +                       11: Synchronous read asynchronous write NOR.
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        minimum: 0
->> +        maximum: 11
->> +
->> +      st,fmc2-ebi-cs-cclk-enable:
->> +        description: Continuous clock enable (first bank must be configured
->> +                     in synchronous mode). The FMC_CLK is generated continuously
->> +                     during asynchronous and synchronous access. By default, the
->> +                     FMC_CLK is only generated during synchronous access.
-> 
-> Indent 2 more than 'description'. You can run this through yaml-format
-> in dtschema repo and it will re-flow everything for you.
-
-Ok, it will be part of v5.
-
-Regards,
-Christophe Kerello.
-
-> 
-> With these fixed,
-> 
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> 
-> 
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-mux-enable:
->> +        description: Address/Data multiplexed on databus (valid only with
->> +                     NOR and PSRAM transactions type). By default, Address/Data
->> +                     are not multiplexed.
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-buswidth:
->> +        description: Data bus width
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [ 8, 16 ]
->> +        default: 16
->> +
->> +      st,fmc2-ebi-cs-waitpol-high:
->> +        description: Wait signal polarity (NWAIT signal active high).
->> +                     By default, NWAIT is active low.
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-waitcfg-enable:
->> +        description: The NWAIT signal indicates wheither the data from the
->> +                     device are valid or if a wait state must be inserted when
->> +                     accessing the device in synchronous mode. By default, the
->> +                     NWAIT signal is active one data cycle before wait state.
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-wait-enable:
->> +        description: The NWAIT signal is enabled (its level is taken into
->> +                     account after the programmed latency period to insert wait
->> +                     states if asserted). By default, the NWAIT signal is
->> +                     disabled.
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-asyncwait-enable:
->> +        description: The NWAIT signal is taken into account during asynchronous
->> +                     transactions. By default, the NWAIT signal is not taken
->> +                     into account during asynchronous transactions.
->> +        $ref: /schemas/types.yaml#/definitions/flag
->> +
->> +      st,fmc2-ebi-cs-cpsize:
->> +        description: CRAM page size. The controller splits the burst access
->> +                     when the memory page is reached. By default, no burst
->> +                     split when crossing page boundary.
->> +        $ref: /schemas/types.yaml#/definitions/uint32
->> +        enum: [ 0, 128, 256, 512, 1024 ]
->> +        default: 0
->> +
->> +      st,fmc2-ebi-cs-byte-lane-setup-ns:
->> +        description: This property configures the byte lane setup timing
->> +                     defined in nanoseconds from NBLx low to Chip Select NEx
->> +                     low.
->> +
->> +      st,fmc2-ebi-cs-address-setup-ns:
->> +        description: This property defines the duration of the address setup
->> +                     phase in nanoseconds used for asynchronous read/write
->> +                     transactions.
->> +
->> +      st,fmc2-ebi-cs-address-hold-ns:
->> +        description: This property defines the duration of the address hold
->> +                     phase in nanoseconds used for asynchronous multiplexed
->> +                     read/write transactions.
->> +
->> +      st,fmc2-ebi-cs-data-setup-ns:
->> +        description: This property defines the duration of the data setup phase
->> +                     in nanoseconds used for asynchronous read/write
->> +                     transactions.
->> +
->> +      st,fmc2-ebi-cs-bus-turnaround-ns:
->> +        description: This property defines the delay in nanoseconds between the
->> +                     end of current read/write transaction and the next
->> +                     transaction.
->> +
->> +      st,fmc2-ebi-cs-data-hold-ns:
->> +        description: This property defines the duration of the data hold phase
->> +                     in nanoseconds used for asynchronous read/write
->> +                     transactions.
->> +
->> +      st,fmc2-ebi-cs-clk-period-ns:
->> +        description: This property defines the FMC_CLK output signal period in
->> +                     nanoseconds.
->> +
->> +      st,fmc2-ebi-cs-data-latency-ns:
->> +        description: This property defines the data latency before reading or
->> +                     writing the first data in nanoseconds.
->> +
->> +      st,fmc2_ebi-cs-write-address-setup-ns:
->> +        description: This property defines the duration of the address setup
->> +                     phase in nanoseconds used for asynchronous write
->> +                     transactions.
->> +
->> +      st,fmc2-ebi-cs-write-address-hold-ns:
->> +        description: This property defines the duration of the address hold
->> +                     phase in nanoseconds used for asynchronous multiplexed
->> +                     write transactions.
->> +
->> +      st,fmc2-ebi-cs-write-data-setup-ns:
->> +        description: This property defines the duration of the data setup
->> +                     phase in nanoseconds used for asynchronous write
->> +                     transactions.
->> +
->> +      st,fmc2-ebi-cs-write-bus-turnaround-ns:
->> +        description: This property defines the delay between the end of current
->> +                     write transaction and the next transaction in nanoseconds.
->> +
->> +      st,fmc2-ebi-cs-write-data-hold-ns:
->> +        description: This property defines the duration of the data hold phase
->> +                     in nanoseconds used for asynchronous write transactions.
->> +
->> +      st,fmc2-ebi-cs-max-low-pulse-ns:
->> +        description: This property defines the maximum chip select low pulse
->> +                     duration in nanoseconds for synchronous transactions. When
->> +                     this timing reaches 0, the controller splits the current
->> +                     access, toggles NE to allow device refresh and restarts a
->> +                     new access.
->> +
->> +    required:
->> +      - reg
->> +
->> +required:
->> +  - "#address-cells"
->> +  - "#size-cells"
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - ranges
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->> +    #include <dt-bindings/clock/stm32mp1-clks.h>
->> +    #include <dt-bindings/reset/stm32mp1-resets.h>
->> +    memory-controller@58002000 {
->> +      #address-cells = <2>;
->> +      #size-cells = <1>;
->> +      compatible = "st,stm32mp1-fmc2-ebi";
->> +      reg = <0x58002000 0x1000>;
->> +      clocks = <&rcc FMC_K>;
->> +      resets = <&rcc FMC_R>;
->> +
->> +      ranges = <0 0 0x60000000 0x04000000>, /* EBI CS 1 */
->> +               <1 0 0x64000000 0x04000000>, /* EBI CS 2 */
->> +               <2 0 0x68000000 0x04000000>, /* EBI CS 3 */
->> +               <3 0 0x6c000000 0x04000000>, /* EBI CS 4 */
->> +               <4 0 0x80000000 0x10000000>; /* NAND */
->> +
->> +      psram@0,0 {
->> +        compatible = "mtd-ram";
->> +        reg = <0 0x00000000 0x100000>;
->> +        bank-width = <2>;
->> +
->> +        st,fmc2-ebi-cs-transaction-type = <1>;
->> +        st,fmc2-ebi-cs-address-setup-ns = <60>;
->> +        st,fmc2-ebi-cs-data-setup-ns = <30>;
->> +        st,fmc2-ebi-cs-bus-turnaround-ns = <5>;
->> +      };
->> +
->> +      nand-controller@4,0 {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +        compatible = "st,stm32mp15-fmc2";
->> +        reg = <4 0x00000000 0x1000>,
->> +              <4 0x08010000 0x1000>,
->> +              <4 0x08020000 0x1000>,
->> +              <4 0x01000000 0x1000>,
->> +              <4 0x09010000 0x1000>,
->> +              <4 0x09020000 0x1000>;
->> +        interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
->> +        dmas = <&mdma1 20 0x2 0x12000a02 0x0 0x0>,
->> +               <&mdma1 20 0x2 0x12000a08 0x0 0x0>,
->> +               <&mdma1 21 0x2 0x12000a0a 0x0 0x0>;
->> +        dma-names = "tx", "rx", "ecc";
->> +
->> +        nand@0 {
->> +          reg = <0>;
->> +          nand-on-flash-bbt;
->> +          #address-cells = <1>;
->> +          #size-cells = <1>;
->> +        };
->> +      };
->> +    };
->> +
->> +...
->> -- 
->> 1.9.1
->>
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+QWxyZWFkeSAzIHNlcmllcyBoYXZlIGJlZW4gc2VudCBvbiB0aGlzIHRvcGljIGJ1dCBhcyB0aGV5
+IGdyb3cgb3Zlcgp0aW1lLCBJIGRlY2lkZWQgdG8gc3BsaXQgaXQgYXJiaXRyYXJ5IGFuZCB0YWtl
+IG9ubHkgdGhlIHByZXBhcmF0aW9uCnBhdGNoZXMgdGhhdCBhcmUgaGVyZS4gVGhlIGFjdHVhbCBF
+Q0MgbWFjaGluZXJ5IHdpbGwgYmUgY29udHJpYnV0ZWQKbGF0ZXIgd2hlbiB0aGlzIHByZXBhcmF0
+aW9uIHNlcmllcyB3aWxsIGJlIG1lcmdlZC4KClRoYW5rcywKTWlxdcOobAoKCkNoYW5nZXMgaW4g
+djUKPT09PT09PT09PT09PQoqIFJlYmFzZWQgb24gdG9wIG9mIG5hbmQvbmV4dAoqIEF2b2lkZWQg
+YSBmYWxsdGhyb3VnaCBzaXR1YXRpb24gaW4gY29tbWl0OgogIG10ZDogcmF3bmFuZDogU2VwYXJh
+dGUgdGhlIEVDQyBlbmdpbmUgdHlwZSBhbmQgdGhlIE9PQiBwbGFjZW1lbnQKKiBGaXhlZCBhbiBv
+Zl9kZXZfcHV0KCkgYnVpbGQgaXNzdWUgZHVlIHRvIGEgbWlzc2luZyBkdW1teSBoZWxwZXIuCiog
+RXh0cmFjdGVkIGEgcGF0Y2ggdGhhdCBkZXNlcnZlZCB0byBiZSBtZXJnZWQgcXVpY2tseS4KKiBG
+aXhlZCBhIGZldyBpc3N1ZXMgcmVwb3J0ZWQgYnkgcm9ib3RzLgoKQ2hhbmdlcyBpbiB2NAo9PT09
+PT09PT09PT09CiogUmViYXNlZCBvbiB0b3Agb2YgYSByZWNlbnQga2VybmVsIHZlcnNpb24uCiog
+QWRkZWQgQm9yaXMnIHJldmlld2VkLWJ5LgoqIEFkZGVkIE1heGltZSdzIEFja2VkLWJ5IHRhZy4K
+KiBBZGRlZCB0aGUgbWlzc2luZyBvZl9kZXZpY2UuaCBoZWFkZXIgdG8gZWNjLmMuCiogQ29ycmVj
+dGVkIGEgJ21pbmltdW0nIGNvbXBhcmlzb24gYnkgdXNpbmcgbWluX3QuCiAqIFVwZGF0ZWQgdGhl
+IG5ldyBNYWNyb25peCByYXcgTkFORCBjb250cm9sbGVyIGRyaXZlciBieSB1c2luZyB0aGUgbmV3
+CiAgKEVDQyByZWxhdGVkKSBmdW5jdGlvbiBuYW1lcy4KKiBGaXhlZCBhIGZ1bmN0aW9uIGNhbGwg
+aW4gbmRmYy5jLgoqIFVwZGF0ZSBicmNtbmFuZC5jIGZpbGUgdG8gZml0IG5ldyBlbnVtZXJhdGlv
+bnMgYW5kIHN0cnVjdHVyZXMgKGR1ZQogIHRvIHJlY2VudCBLYW1hbCdzIGNoYW5nZXMpLgoqIEZv
+cmNlIHNtX2Z0bCB0byBkZXBlbmRzIG9uIHRoZSBIYW1taW5nIGVuZ2luZSwgYmVjYXVzZSBieSBq
+dXN0CiAgc2VsZWN0aW5nIGl0IHRoZSBFQ0MgY29kZSB3b3VsZCBiZSBlbWJlZGRlZCBpbiB0aGUg
+TkFORCBjb3JlIGFuZCB0aGUKICBOQU5EIGNvcmUgbWlnaHQgbm90IGJlIGNvbXBpbGVkIGluIHdp
+dGggc21fZnRsLgoqIEZpeGVkIGEgc3RydWN0dXJlIGZpZWxkIG5hbWUgdGhhdCBJIHByZXZpb3Vz
+bHkgYWRkZWQgaW4gZGF2aW5jaQogIHBsYXRmb3JtIGRhdGEuCiogTW92ZWQgdGhlIG9vYl9maXJz
+dCBwbGFjZW1lbnQgc2NoZW1lIHRvIERhdmluY2kgZHJpdmVyLiBSZW1vdmVkIGFueQogIG9jY3Vy
+ZW5jZSBvZiBpdCBvdXQgb2YgdGhlIGRyaXZlciAodW51c2VkKS4KKiBTaW1wbGlmeSBzdHJ1Y3R1
+cmUgbmFtZXMgYXMgcHJvcG9zZWQgYnkgQm9yaXMuCiogQ2hhbmdlIGVudW1lcmF0aW9uL3N0cmlu
+ZyBuYW1lcyBhYm91dCBFQ0MgZW5naW5lCiAgcHJvdmlkZXJzL3BsYWNlbWVudHMuCiogQ2hhbmdl
+IHRoZSBsb2dpYyBpbiB0aGUgb2ZfZ2V0X25hbmRfZWNjXyogaGVscGVycyB0byBlbnN1cmUgYmFj
+a3dhcmQKICBjb21wYXRpYmlsaXR5LgoqIFVzZSBlbnVtcyBpbnRlYWQgb2YgdW5zaWduZWQgaW50
+ZWdlcnMgaW4gdGhlIGNvcmUgd2hlbiByZWZlcnJpbmcgdG8KICBFQ0MgZW5naW5lIHR5cGUsIHBs
+YWNlbWVudCBhbmQgYWxnb3JpdGhtLgoqIEFkZCBuYW5kLWVjYy1wbGFjZW1lbnQgRFQgcHJvcGVy
+dHkuCiogRGVwcmVjYXRlIGh3X3N5bmRyb21lLgoqIERlcHJlY2F0ZSBuYW5kLWVjYy1tb2RlIGlu
+IGZhdm9yIG9mIG5hbmQtZWNjLXByb3ZpZGVyLgoKKiBGaXhlZCBhIHR5cG8gaW4gdGhlIE1hY3Jv
+bml4IEVDQyBkcml2ZXIsIHdoZXJlIEkgbWFkZSBhIGNvcHkvcGFzdGUKICBlcnJvciB3aGljaCBJ
+IGhhdmVuJ3Qgc3BvdHRlZCBiZWNhdXNlIGl0IGlzIGxvY2F0ZWQgaW4gYSBtYWNybyBvbmx5CiAg
+Y29tcGlsZWQgd2hlbiBidWlsZGluZyB0aGUgZHJpdmVyIGFzIGEgbW9kdWxlIChuYW1lIG9mIHRo
+ZSBvZl9pZHMKICB3YXMgcHJlZml4ZWQgbWFydmVsbF9uZmMgaW5zdGVhZCBvZiBteGljX2VjYyku
+CiogU2ltcGxpZmllZCB0aGUgRUNDIGVuZ2luZSBBUEkgYnkgZHJvcHBpbmcgdGhlIHVzZWxlc3Mg
+b29iYnVmCiAgcGFyYW1ldGVyLiBJbnN0ZWFkLCBFQ0MgZW5naW5lIGRyaXZlcnMgYXJlIHN1cHBv
+c2VkIHRvIHByb3ZpZGUgYQogIHNwYXJlIE9PQiBidWZmZXIgaWYgbm9uZSBpcyBwcm92aWRlZC4g
+VXBkYXRlZCB0aGUgdGhyZWUgZXhpc3RpbmcKICBlbmdpbmVzLgoqIEZpeGVkIEJDSCBzb2Z0d2Fy
+ZSBlbmdpbmUgd2l0aCB0aGUgaGVscCBvZiBNYXNvbiBmcm9tIE1hY3Jvbml4LgoqIEFkZGVkIGEg
+bWVjaGFuaXNtIGNhbGxlZCAidHdlYWtpbmcgcmVxIiB0byBjaGFuZ2UgdGhlIFNQSS1OQU5ECiAg
+cmVxdWVzdHMgYW5kIGVuc3VyZSB0aGV5IGFsd2F5cyBjb250YWluIHRoZSByaWdodCBhbW91bnQg
+b2YgZGF0YS9PT0IKICBuZWVkZWQgZm9yIHRoZSBFQ0MgZW5naW5lIHRvIHdvcmsgcHJvcGVybHku
+CgpDaGFuZ2VzIGluIHYzCj09PT09PT09PT09PT0KKiBBZGRlZCBCb3JpcycgUmV2aWV3ZWQtYnkg
+dGFncy4KKiBBZGRlZCBhIGtlcm5lbCBkb2MgaGVhZGVyIG9uIHRoZSBuYW5kX3BhZ2VfaW9fcmVx
+IGVudW1lcmF0aW9uLgoqIEFkZGVkIHN1cHBvcnQgZm9yIEhXIGVuZ2luZXMuCiogRHJvcGVkIHRo
+ZSBwYXRjaCBjbGFyaWZ5aW5nIHRoZSB2YWx1ZSBvZiB0aGUgZmlyc3QgZW50cnkgaW4KICBlbnVt
+ZXJhdGlvbnMgKHdoaWNoIGlzIGFsd2F5cyAwKS4KKiBSZW5hbWUgdGhlIG5hbmRfZWNjX2NvbmYg
+c3RydWN0dXJlIGFzIG5hbmRfZWNjX3Byb3BzIGJlY2F1c2UgdGhlCiAgX2NvbmYgc3VmZml4IGlt
+cGxpZXMgdGhhdCBpdCBpcyBwb3NzaWJsZSB0byBlZGl0IGl0LCB3aGlsZSBpbiBzb21lCiAgY2Fz
+ZXMgKGVnLiBvbi1kaWUgRUNDKSB0aGVyZSBpcyBub3RoaW5nIHRvIHR3ZWFrLgoqIFNtb290aGVy
+IGludHJvZHVjdGlvbiBvZiB0aGUgRUNDIGVuZ2luZSBhYnN0cmFjdGlvbi4KKiBSZW5hbWVkIHRo
+ZSBFQ0MgZW5naW5lIG1vZHVsZSBuYW5kX2VjY19lbmdpbmUua28uCiogTW92ZWQgYWxsIHRoZSBF
+Q0MgZmlsZXMgaW50byBkcml2ZXJzL210ZC9uYW5kLy4gRm9yZ290IHRoZSBlY2MvCiAgc3ViZGly
+ZWN0b3J5LgoqIEFkZGVkIGEgbmV3IHNlcmllcyB0byBkcm9wIHRoZSBFQ0MgbW9kZSBlbnVtZXJh
+dGlvbiB3aWNoIG1peGVzIHRoZQogIHByb3ZpZGVyIChub25lLCBodywgc3csIG9uLWRpZSkgYW5k
+IHRoZSBPT0IgcGxhY2VtZW50IChmaXJzdCwKICBzeW5kcm9tZSkuCiogVmFyaW91cyB0eXBvcyBm
+aXhlZC4KKiBBZGRlZCBhIGZldyBwYXRjaGVzIHRvIGZpeCBidWdzIGZvdW5kIGluIFNQSS1OQU5E
+L210ZGNoYXIuYy4KKiBJbnRyb2R1Y2VkIHRoZSBleHRlcm5hbCBoYXJkd2FyZSBFQ0MgZW5naW5l
+IGJvaWxlcnBsYXRlLgoKQ2hhbmdlcyBpbiB2Mgo9PT09PT09PT09PT09CiogU1BEWCBsaWNlbnNl
+IGlkZW50aWZpZXJzIGZvciBzb2Z0IEJDSCBhbmQgSGFtbWluZzogdGhlIGxpY2Vuc2UgbWFjcm8K
+ICB3YXMgcmlnaHQsICJHUEwiIG1lYW5zICJHUEx2MiBvciBoaWdoZXIiLCBzbyBkbyBub3QgY2hh
+bmdlIHRoaXMKICBwb3J0aW9uLiBBbHNvIHVwZGF0ZSB0aGUgY29tbWl0IG1lc3NhZ2VzIHRvIGZp
+dCB0aGUgYWN0dWFsIGNoYW5nZS4KKiBEbyBub3QgY29tcGlsZS1pbiB0aGUgTkFORCBjb3JlIGJ5
+IGRlZmF1bHQsIGRvIGl0IG9ubHkgZm9yIHJhdwogIE5BTkQuIFJlbW92ZSB0aGUgZGVwZW5kZW5j
+aWVzIG9uIENPTkZJR19NVEQgaW4gYSBkaWZmZXJlbnQKICBwYXRjaC4gQWxzbywga2VlcCBhbiBl
+eHRyYSBsZXZlbCBvZiBoaWVyYXJjaHkgaW4gS2NvbmZpZyBmb3IgdGhlCiAgTkFORCBiaXRzIGJ5
+IGFkZGluZyBhIG1lbnUgaW5zdGVhZCBvZiBhIGNvbmZpZy4KKiBNb3ZlZCB0aGUgc3RhbmRhcmQg
+T09CIGxheW91dHMgaW4gdGhlIGVjYy9lbmdpbmUuYyBkcml2ZXIgaW5zdGVhZCBvZgogIGluIHRo
+ZSBOQU5EIGNvcmUuCiogVXNlZCB0aGUgbmFuZF9lY2NfIHByZWZpeCBpbiBtb3N0IG9mIHRoZSBl
+bmdpbmVzIGZ1bmN0aW9ucyBpbnN0ZWFkCiAgb2YganVzdCBlY2NfLCB3aGljaCBpcyBub3cgcmVz
+ZXJ2ZWQgZm9yIGJhcmUgaGVscGVycy4gR2V0IHJpZCBvZiB0aGUKICBfX2VjYyBwcmVmaXguCiog
+SW4gdGhlIHN1bnhpIE5BTkQgY29udHJvbGxlciBkcml2ZXI6IG1vdmVkIHRoZSBFQ0Mgc3RydWN0
+dXJlIGZyb20KICBzdW54aV9uZmMgdG8gc3VueGlfbmFuZF9jaGlwIGFzIHRoZSBFQ0MgZW5naW5l
+IGlzIHBlci1jaGlwIGFuZCBub3QKICBwZXIgY29udHJvbGxlci4KKiBTb2Z0d2FyZSBIYW1taW5n
+IEVDQyBlbmdpbmUgaXMgb25seSBlbmFibGVkIGJ5IGRlZmF1bHQgaWYgcmF3IE5BTkQKICBpcyBh
+bHNvIGVuYWJsZWQuIE5ERkMgbm93IHNlbGVjdHMgdGhlIHNvZnR3YXJlIEhhbW1pbmcgRUNDIGVu
+Z2luZQogIChpbnN0ZWFkIG9mIGRlcGVuZGluZyBvbiBpdCkuCiogTWVudGlvbiBpbiBzb2Z0d2Fy
+ZSBCQ0ggYW5kIEhhbW1pbmcgS2NvbmZpZyBlbnRyaWVzIHRoYXQgYm9vdGluZwogIGZyb20gTkFO
+RCBpcyB2ZXJ5IGxpa2VseSB0byBmYWlsIGlmIHRoZSB1c2VyIHNlbGVjdHMgdGhlc2Ugc3ltYm9s
+cwogIGFzIG1vZHVsZXMuCiogQWRkZWQgQm9yaXMgUmV2aWV3ZWQtYnkgdGFnIG9uIHRoZSBTUEkt
+TkFORCB0eXBvIGZpeGluZyBwYXRjaC4KKiBSZW5hbWVkIHRoZSAibW9kZSIgaW50byBhICJwcm92
+aWRlciIgZW50cnkgaW4gdGhlIEVDQyBjb25maWd1cmF0aW9uCiAgc3RydWN0dXJlcy4KKiBNb3Zl
+ZCB0aGUgInRvdGFsIiBlbnRyeSBvZiB0aGUgRUNDIGNvbmZpZ3VyYXRpb24gZGlyZWN0bHkgaW4g
+dGhlCiAgY29udGV4dCBzdHJ1Y3R1cmUgKHNob3VsZCBwcm9iYWJseSBub3QgYmUgcHVibGljIGJ1
+dCBsZXQncyBrZWVwIGl0CiAgYXMgaXMgZm9yIG5vdykuCiogU3BsaXQgdGhlIGdlbmVyaWMgRUND
+IGVuZ2luZSBpbnRyb2R1Y3Rpb24gaW50byBzbWFsbGVyIHBhdGNoZXMgdG8gZG8KICBzb21lIHJl
+bmFtaW5nIGFzaWRlLgoqIERyb3AgdGhlICJtYXhpbWl6ZSIgZW50cnkgaW4gdGhlIEVDQyBlbmdp
+bmUgY29uZmlndXJhdGlvbiBzdHJ1Y3R1cmUsCiAga2VlcCB1c2luZyBhIGZsYWcgbGlrZSBiZWZv
+cmUuCiogQ2FuY2VsZWQgdGhlIG1vdmUgb2YgdGhlIFNQSS1OQU5EIHNwZWNpZmljIEVDQyBlbmdp
+bmUgb3V0IG9mIHRoZQogIGNvcmUgZmlsZS4KKiBBbWVuZGVkIHRoZSByb290IEVDQyBzdHJ1Y3R1
+cmVzIHRvIGhhdmUgdGhyZWUgbmFuZF9lY2NfY29uZgogIHN0cnVjdHVyZXM6IG9uZSBmb3IgdGhl
+IGRlZmF1bHRzLCBvbmUgZm9yIHRoZSBjaGlwIHJlcXVpcmVtZW50cywgb25lCiAgZm9yIHRoZSB1
+c2VyIGRlc2lyZXMuCiogQ3JlYXRlZCBhICpvbmRpZV9lbmdpbmUgcG9pbnRlciBpbiB0aGUgbmFu
+ZF9lY2Mgc3RydWN0dXJlIHRvIHNhdmUKICB0aGUgb24tZGllIEVDQyBlbmdpbmUsIGlmIGFueS4g
+Rm9yIGluc3RhbmNlLCBzYXZpbmcgYSByZWZlcmVuY2UgdG8KICB0aGlzIGVuZ2luZSBpcyBkb25l
+IGJ5IHRoZSBTUEktTkFORCBjb3JlLgoqIERyb3BwZWQgdGhlIFNQSS1OQU5EIGZsYWcgdGhhdCB3
+YXMgdXNlZCB0byBkaXN0aW5ndWlzaCBiZXR3ZWVuIE5BTkQKICBmbGF2b3JzIGZyb20gdGhlIE5B
+TkQgY29yZSwgaXQgc2hvdWxkIG5vdCBiZSBuZWVkZWQgYW55bW9yZS4KKiBBZGRlZCBhbiBoZWxw
+ZXIgaW4gdGhlIE5BTkQgY29yZSB0byBwdXQgYSByZWZlcmVuY2Ugb24gYW4gRUNDCiAgZW5naW5l
+LiBUaGlzIHdpbGwgYmUgdXNlZCBieSB0aGUgaGFyZHdhcmUgZW5naW5lcyBvbmx5LgoqIFJlbmFt
+ZWQgdGhlIGZpbGVzIGVjYy9zdy17YmNoLGhhbW1pbmd9LmMgYW5kIHRoZWlyIGhlYWRlcnMKICBp
+bmNsdWRlL2xpbnV4L210ZC9uYW5kLWVjYy1zdy17YmNoLGhhbW1pbmd9LWVuZ2luZS5oLgoqIENy
+ZWF0ZWQgYSBNVERfTkFORF9FQ0MgaW52aXNpYmxlIEtjb25maWcgc3ltYm9sLgoqIEFkZGVkIHBs
+ZW50eSBvZiBtaXNzaW5nIEVYUE9SVF9TWU1CT0x7LF9HUEx9KCkuCiogTWlub3IgbW9kaWZpY2F0
+aW9ucyBzbyB0aGF0IGV2ZXJ5dGhpbmcgc3RpbGwgY29tcGlsZXMgZXZlbiB3aGVuCiAgbW9kdWxl
+cyBhbmQgYnVpbHQtaW4gZHJpdmVycyBhcmUgbWl4ZWQgaW4gS2NvbmZpZyBpbiB0aGUgd2hvbGUg
+TkFORAogIGRpcmVjdG9yeS4KCk1pcXVlbCBSYXluYWwgKDIxKToKICBtdGQ6IEZpeCB0eXBvIGlu
+IG10ZF9vb2JsYXlvdXRfc2V0X2RhdGFieXRlcygpIGRlc2NyaXB0aW9uCiAgbXRkOiByYXduYW5k
+OiBBdm9pZCBhIHR5cGVkZWYKICBtdGQ6IHJhd25hbmQ6IERyb3AgT09CX0ZJUlNUIHBsYWNlbWVu
+dCBzY2hlbWUKICBkdC1iaW5kaW5nczogbXRkOiBEZXByZWNhdGUgT09CX0ZJUlNUIG1vZGUKICBt
+dGQ6IHJhd25hbmQ6IFJldHVybiBhbiBlbnVtIGZyb20gb2ZfZ2V0X25hbmRfZWNjX2FsZ28oKQog
+IG10ZDogcmF3bmFuZDogQWRkIGFuIGludmFsaWQgRUNDIG1vZGUgdG8gZGlzY3JpbWluYXRlIHdp
+dGggdmFsaWQgb25lcwogIG10ZDogcmF3bmFuZDogQ3JlYXRlIGEgbmV3IGVudW1lcmF0aW9uIHRv
+IGRlc2NyaWJlIE9PQiBwbGFjZW1lbnQKICBtdGQ6IHJhd25hbmQ6IFNlcGFyYXRlIHRoZSBFQ0Mg
+ZW5naW5lIHR5cGUgYW5kIHRoZSBPT0IgcGxhY2VtZW50CiAgbXRkOiByYXduYW5kOiBDcmVhdGUg
+YSBuZXcgZW51bWVyYXRpb24gdG8gZGVzY3JpYmUgcHJvcGVybHkgRUNDIHR5cGVzCiAgbXRkOiBy
+YXduYW5kOiBDcmVhdGUgYSBoZWxwZXIgdG8gcmV0cmlldmUgdGhlIEVDQyBwbGFjZW1lbnQKICBt
+dGQ6IHJhd25hbmQ6IFVzZSB0aGUgbmV3IEVDQyBlbmdpbmUgdHlwZSBlbnVtZXJhdGlvbgogIG10
+ZDogcmF3bmFuZDogRGVwcmVjYXRlIG5hbmQtZWNjLW1vZGUgaW4gZmF2b3Igb2YgbmFuZC1lY2Mt
+cHJvdmlkZXIKICBtdGQ6IHJhd25hbmQ6IERyb3AgdGhlIGxlZ2FjeSBFQ0MgdHlwZSBlbnVtZXJh
+dGlvbgogIGR0LWJpbmRpbmdzOiBtdGQ6IEFkZCB0aGUgbmFuZC1lY2MtcGxhY2VtZW50IHByb3Bl
+cnR5CiAgZHQtYmluZGluZ3M6IG10ZDogRGVwcmVjYXRlIGh3X3N5bmRyb21lIGZyb20gdGhlIEVD
+QyBtb2RlcwogIGR0LWJpbmRpbmdzOiBtdGQ6IERlcHJlY2F0ZSB0aGUgbmFuZC1lY2MtbW9kZSBw
+cm9wZXJ0eQogIG10ZDogbmFuZDogTW92ZSBuYW5kX2RldmljZSBmb3J3YXJkIGRlY2xhcmF0aW9u
+IHRvIHRoZSB0b3AKICBtdGQ6IG5hbmQ6IEFkZCBhbiBleHRyYSBsZXZlbCBpbiB0aGUgS2NvbmZp
+ZyBoaWVyYXJjaHkKICBtdGQ6IG5hbmQ6IERyb3AgdXNlbGVzcyAnZGVwZW5kcyBvbicgaW4gS2Nv
+bmZpZwogIG10ZDogbmFuZDogQWRkIGEgTkFORCBwYWdlIEkvTyByZXF1ZXN0IHR5cGUKICBtdGQ6
+IG5hbmQ6IFJlbmFtZSBhIGNvcmUgc3RydWN0dXJlCgogLi4uL2RldmljZXRyZWUvYmluZGluZ3Mv
+bXRkL2F0bWVsLW5hbmQudHh0ICAgIHwgICAzICstCiAuLi4vYmluZGluZ3MvbXRkL25hbmQtY29u
+dHJvbGxlci55YW1sICAgICAgICAgfCAgMjcgKy0KIGFyY2gvYXJtL21hY2gtZGF2aW5jaS9ib2Fy
+ZC1kYTgzMC1ldm0uYyAgICAgICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1kYXZpbmNpL2JvYXJk
+LWRhODUwLWV2bS5jICAgICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLWRhdmluY2kvYm9hcmQt
+ZG0zNTUtZXZtLmMgICAgICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtZGF2aW5jaS9ib2FyZC1k
+bTM1NS1sZW9wYXJkLmMgICB8ICAgMyArLQogYXJjaC9hcm0vbWFjaC1kYXZpbmNpL2JvYXJkLWRt
+MzY1LWV2bS5jICAgICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLWRhdmluY2kvYm9hcmQtZG02
+NDR4LWV2bS5jICAgICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtZGF2aW5jaS9ib2FyZC1kbTY0
+NngtZXZtLmMgICAgICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1kYXZpbmNpL2JvYXJkLW1pdHlv
+bWFwbDEzOC5jICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLWRhdmluY2kvYm9hcmQtbmV1cm9z
+LW9zZDIuYyAgICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtZGF2aW5jaS9ib2FyZC1vbWFwbDEz
+OC1oYXdrLmMgICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1zM2MyNHh4L2NvbW1vbi1zbWRrLmMg
+ICAgICAgICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLXMzYzI0eHgvbWFjaC1hbnViaXMuYyAg
+ICAgICAgICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtczNjMjR4eC9tYWNoLWF0MjQ0MGV2Yi5j
+ICAgICAgICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1zM2MyNHh4L21hY2gtYmFzdC5jICAgICAg
+ICAgICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLXMzYzI0eHgvbWFjaC1ndGEwMi5jICAgICAg
+ICAgICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtczNjMjR4eC9tYWNoLWppdmUuYyAgICAgICAg
+ICAgICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1zM2MyNHh4L21hY2gtbWluaTI0NDAuYyAgICAg
+ICAgIHwgICAyICstCiBhcmNoL2FybS9tYWNoLXMzYzI0eHgvbWFjaC1vc2lyaXMuYyAgICAgICAg
+ICAgfCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtczNjMjR4eC9tYWNoLXF0MjQxMC5jICAgICAgICAg
+ICB8ICAgMiArLQogYXJjaC9hcm0vbWFjaC1zM2MyNHh4L21hY2gtcngxOTUwLmMgICAgICAgICAg
+IHwgICAyICstCiBhcmNoL2FybS9tYWNoLXMzYzI0eHgvbWFjaC1yeDM3MTUuYyAgICAgICAgICAg
+fCAgIDIgKy0KIGFyY2gvYXJtL21hY2gtczNjMjR4eC9tYWNoLXZzdG1zLmMgICAgICAgICAgICB8
+ICAgMiArLQogYXJjaC9hcm0vbWFjaC1zM2M2NHh4L21hY2gtaG10LmMgICAgICAgICAgICAgIHwg
+ICAyICstCiBhcmNoL2FybS9tYWNoLXMzYzY0eHgvbWFjaC1taW5pNjQxMC5jICAgICAgICAgfCAg
+IDIgKy0KIGFyY2gvYXJtL21hY2gtczNjNjR4eC9tYWNoLXJlYWw2NDEwLmMgICAgICAgICB8ICAg
+MiArLQogZHJpdmVycy9tdGQvbXRkY29yZS5jICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAy
+ICstCiBkcml2ZXJzL210ZC9uYW5kL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgfCAgIDUg
+KwogZHJpdmVycy9tdGQvbmFuZC9vbmVuYW5kL0tjb25maWcgICAgICAgICAgICAgIHwgICAxIC0K
+IGRyaXZlcnMvbXRkL25hbmQvcmF3L0tjb25maWcgICAgICAgICAgICAgICAgICB8ICAgMSAtCiBk
+cml2ZXJzL210ZC9uYW5kL3Jhdy9hbXMtZGVsdGEuYyAgICAgICAgICAgICAgfCAgIDIgKy0KIGRy
+aXZlcnMvbXRkL25hbmQvcmF3L2F0bWVsL25hbmQtY29udHJvbGxlci5jICB8ICAxNCArLQogZHJp
+dmVycy9tdGQvbmFuZC9yYXcvYXUxNTUwbmQuYyAgICAgICAgICAgICAgIHwgICAyICstCiAuLi4v
+bXRkL25hbmQvcmF3L2JjbTQ3eHhuZmxhc2gvb3BzX2JjbTQ3MDYuYyAgfCAgIDMgKy0KIGRyaXZl
+cnMvbXRkL25hbmQvcmF3L2JyY21uYW5kL2JyY21uYW5kLmMgICAgICB8ICAgOCArLQogLi4uL210
+ZC9uYW5kL3Jhdy9jYWRlbmNlLW5hbmQtY29udHJvbGxlci5jICAgIHwgICA0ICstCiBkcml2ZXJz
+L210ZC9uYW5kL3Jhdy9jYWZlX25hbmQuYyAgICAgICAgICAgICAgfCAgIDMgKy0KIGRyaXZlcnMv
+bXRkL25hbmQvcmF3L2NteDI3MF9uYW5kLmMgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9t
+dGQvbmFuZC9yYXcvY3M1NTN4X25hbmQuYyAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210
+ZC9uYW5kL3Jhdy9kYXZpbmNpX25hbmQuYyAgICAgICAgICAgfCAxNTMgKysrKystLS0KIGRyaXZl
+cnMvbXRkL25hbmQvcmF3L2RlbmFsaS5jICAgICAgICAgICAgICAgICB8ICAgMyArLQogZHJpdmVy
+cy9tdGQvbmFuZC9yYXcvZGlza29uY2hpcC5jICAgICAgICAgICAgIHwgICAzICstCiBkcml2ZXJz
+L210ZC9uYW5kL3Jhdy9mc2xfZWxiY19uYW5kLmMgICAgICAgICAgfCAgMTggKy0KIGRyaXZlcnMv
+bXRkL25hbmQvcmF3L2ZzbF9pZmNfbmFuZC5jICAgICAgICAgICB8ICAxMCArLQogZHJpdmVycy9t
+dGQvbmFuZC9yYXcvZnNsX3VwbS5jICAgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210
+ZC9uYW5kL3Jhdy9mc21jX25hbmQuYyAgICAgICAgICAgICAgfCAgMTIgKy0KIGRyaXZlcnMvbXRk
+L25hbmQvcmF3L2dwaW8uYyAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQv
+bmFuZC9yYXcvZ3BtaS1uYW5kL2dwbWktbmFuZC5jICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9u
+YW5kL3Jhdy9oaXNpNTA0X25hbmQuYyAgICAgICAgICAgfCAgIDYgKy0KIC4uLi9tdGQvbmFuZC9y
+YXcvaW5nZW5pYy9pbmdlbmljX25hbmRfZHJ2LmMgICB8ICAxNCArLQogZHJpdmVycy9tdGQvbmFu
+ZC9yYXcvbHBjMzJ4eF9tbGMuYyAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5k
+L3Jhdy9scGMzMnh4X3NsYy5jICAgICAgICAgICAgfCAgIDMgKy0KIGRyaXZlcnMvbXRkL25hbmQv
+cmF3L21hcnZlbGxfbmFuZC5jICAgICAgICAgICB8ICAxNyArLQogZHJpdmVycy9tdGQvbmFuZC9y
+YXcvbWVzb25fbmFuZC5jICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9tcGM1MTIxX25mYy5jICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
+L210a19uYW5kLmMgICAgICAgICAgICAgICB8ICAgNiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcv
+bXhjX25hbmQuYyAgICAgICAgICAgICAgIHwgIDIzICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9u
+YW5kX2Jhc2UuYyAgICAgICAgICAgICAgfCAzMzYgKysrKysrKystLS0tLS0tLS0tCiBkcml2ZXJz
+L210ZC9uYW5kL3Jhdy9uYW5kX21pY3Jvbi5jICAgICAgICAgICAgfCAgIDQgKy0KIGRyaXZlcnMv
+bXRkL25hbmQvcmF3L25hbmRfdG9zaGliYS5jICAgICAgICAgICB8ICAgMyArLQogZHJpdmVycy9t
+dGQvbmFuZC9yYXcvbmFuZHNpbS5jICAgICAgICAgICAgICAgIHwgICA0ICstCiBkcml2ZXJzL210
+ZC9uYW5kL3Jhdy9uZGZjLmMgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRk
+L25hbmQvcmF3L29tYXAyLmMgICAgICAgICAgICAgICAgICB8ICAyMCArLQogZHJpdmVycy9tdGQv
+bmFuZC9yYXcvb3Jpb25fbmFuZC5jICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9u
+YW5kL3Jhdy9wYXNlbWlfbmFuZC5jICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25h
+bmQvcmF3L3BsYXRfbmFuZC5jICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFu
+ZC9yYXcvcWNvbV9uYW5kYy5jICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5k
+L3Jhdy9yODUyLmMgICAgICAgICAgICAgICAgICAgfCAgIDMgKy0KIGRyaXZlcnMvbXRkL25hbmQv
+cmF3L3MzYzI0MTAuYyAgICAgICAgICAgICAgICB8ICAxNiArLQogZHJpdmVycy9tdGQvbmFuZC9y
+YXcvc2hfZmxjdGwuYyAgICAgICAgICAgICAgIHwgICA0ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9zaGFycHNsLmMgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
+L3NvY3JhdGVzX25hbmQuYyAgICAgICAgICB8ICAgMyArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcv
+c3RtMzJfZm1jMl9uYW5kLmMgICAgICAgIHwgICA5ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9z
+dW54aV9uYW5kLmMgICAgICAgICAgICAgfCAgMTggKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3Rh
+bmdvX25hbmQuYyAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvdGVn
+cmFfbmFuZC5jICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy90bWlv
+X25hbmQuYyAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L3R4eDlu
+ZGZtYy5jICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvdmY2MTBf
+bmZjLmMgICAgICAgICAgICAgIHwgICA0ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy94d2F5X25h
+bmQuYyAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvc3BpL2NvcmUuYyAg
+ICAgICAgICAgICAgICAgICB8ICAgNCArLQogaW5jbHVkZS9saW51eC9tdGQvbmFuZC5oICAgICAg
+ICAgICAgICAgICAgICAgIHwgIDMwICstCiBpbmNsdWRlL2xpbnV4L210ZC9yYXduYW5kLmggICAg
+ICAgICAgICAgICAgICAgfCAgNDYgKystCiBpbmNsdWRlL2xpbnV4L210ZC9zcGluYW5kLmggICAg
+ICAgICAgICAgICAgICAgfCAgIDIgKy0KIGluY2x1ZGUvbGludXgvcGxhdGZvcm1fZGF0YS9tdGQt
+ZGF2aW5jaS5oICAgICB8ICAgOSArLQogLi4uL2xpbnV4L3BsYXRmb3JtX2RhdGEvbXRkLW5hbmQt
+czNjMjQxMC5oICAgIHwgICAyICstCiA4NyBmaWxlcyBjaGFuZ2VkLCA1MjkgaW5zZXJ0aW9ucygr
+KSwgNDIwIGRlbGV0aW9ucygtKQoKLS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWls
+aW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1tdGQvCg==
