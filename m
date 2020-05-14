@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A3551D3FED
-	for <lists+linux-mtd@lfdr.de>; Thu, 14 May 2020 23:24:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 240541D3FEF
+	for <lists+linux-mtd@lfdr.de>; Thu, 14 May 2020 23:24:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,72 +11,73 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=4HUFImthBXjIV92t0TJz7cxOEXRAKnb1RsY4H6vlCk4=; b=iTG5VXiQeFAoSR2MXzLLytKiYG
-	rSct5oPrlYuSUJc2LgSyVLwcaJIrU6gPFUdV6COMOr2R1fGb00EwqvanGBc3wdD5evRggO3GO6e4/
-	0SJKLWIBPbVbQHGNerR7cblCKnpe4HxohfUcPAPRAo4OcZPSN3TtnkfCNbd5V6QaKkjEpMi72tG8U
-	zrsuPrtGf6yYvw94BJxs6jm/nNfvV8rAle/EKHDwCTvDyccWSPeC3yDvlX2i0NGpWXR05yilLCm/B
-	mJeN6F4RHAXS6PZWypYHn6p/yJbmRxjVQX8q1ZUE3b5CmbYE+CphOdorQ/oEpKY1bIxcbntT03Ehn
-	PQQmZsuA==;
+	bh=l7/I63PhwwKJ5v/DUllxHzF1GxoRJfqS3+bzHJYhRNI=; b=n1LNDdI6Mzs6fB3GA77fLCRAUK
+	iAfYmx8Q81ZH9cuWUBjMaLkW+v5S2XqIc57NvLPp3exgdQ8D2E2GVBt0nTZG1mwzydaC/S85UmBAZ
+	r65/+znNcbtzGRQcMA2iWixBlIonXKUZgxaIx9l+xmuPdc7JylJMTtAvvEdWd+9OBcKQmjrRAOcsW
+	i9gljWvhfjU9Am6MIeKRlalHCTNviLat2swz7HcjXaKgISUhBUi4tuYhERAk6jfudXf4ESZsKl52F
+	gW6kgjsqJamSbuHNzxZgohRP/UKPSGQdW4AboTL2DHf6SlVLjNqbUAKJAZ1wMKgtJYlbc4v0KdnGP
+	pzQHZDYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZLL0-0007W3-N5; Thu, 14 May 2020 21:24:18 +0000
-Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
+	id 1jZLLX-00080n-Ba; Thu, 14 May 2020 21:24:51 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZLKZ-0007KE-GW
- for linux-mtd@lists.infradead.org; Thu, 14 May 2020 21:23:53 +0000
-Received: by mail-wr1-x441.google.com with SMTP id v12so584053wrp.12
- for <linux-mtd@lists.infradead.org>; Thu, 14 May 2020 14:23:50 -0700 (PDT)
+ id 1jZLKa-0007KG-7Z
+ for linux-mtd@lists.infradead.org; Thu, 14 May 2020 21:23:56 +0000
+Received: by mail-wm1-x344.google.com with SMTP id k12so32317533wmj.3
+ for <linux-mtd@lists.infradead.org>; Thu, 14 May 2020 14:23:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=ulHZ8558oeGMXwN9zdwrz0Ew9CJYldL2ZMK9Dx5VWrQ=;
- b=OzutnI/gEkUrQeDxIkXg5Sh1P9b7R7bDv+rwX1sYdGERPwb42BA/lUxkmVg6VQpcgS
- WJgD0PIWmVRHW5MMWWS9HiMbKv385L+QcvPEhWPYSf/LPsJv+RPDwyj53c6pYkkPVGh6
- q1Iqah4r/63nHSWW2ljhEfvFS0CLZPVI6UAFy4//IYKvvHANDFox5UIsY/tfaqwlORnl
- O1upu2yY6pQVjnjtuRMWORK7hIxvihJQaK9NvUyBuG6QbzOHJzE9oRuHIBytC+JzREE8
- WEP02y8abtdsI7udtpe3kB3cvTZau83hYwA1vgXIvdn91N7lLyzqRfXmmRvJVBwbEMHu
- Rl8A==
+ bh=lOO96wShAJuqAKs9HTsMILVEmF21sJSmi2TS/KIsZio=;
+ b=tQywWIn+EQM58SefyACM7saPcnu0WrnBE7CVKDLYcJKvF0TF0kpVMMsWl07+aXsIFN
+ nNqDWuyGj8Qo1Qn8cWKIaMikHmDSJmxZm138w1tc2G0YA4ZXMoInsKvEgWSlqiF7wNNb
+ UwI7XZegXPGOmO8IpQHBDV5Jj5ceOt3qkF38htqD0ZOKy4/1S+ppfvgbPCXsuS/TMiUM
+ rIVG+kMsslB3jhLXpRdTrPTVnoR4SUEHytb0MD4wZjoyYRUXdG+5vNbOtodS+2BamKwr
+ NaPTNye9gRq6NobW8N3qz4V/kcXmzbcqX1sJg0qVvhe7cg2UBJHpX7vkyG9EvileZUbb
+ 6xtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references;
- bh=ulHZ8558oeGMXwN9zdwrz0Ew9CJYldL2ZMK9Dx5VWrQ=;
- b=kbNX7lVMpUaPfJbH7TNPCw0pqCNBS3IEX4QzjAXt3+ZCZwzBwHdDZNuoxfIPw5zBCK
- bWUyduOWKiLG/HzFdKkb22Pq/zr10n36tvE+R6ufedZL9RdU4y5bKdgQij2hcLgVHEa0
- Ql/W41+6jSqnsL0lz6tW5Rd7zx22nSkGMc0Qe0mToxgD4LkoPI/6y0aMhswNoZgHMB8S
- NrvD63sjztHuSLV7sB3UM1y6Pb65A/vHpQX2qsJ1HIp9QYtuqzORG8Q83k4kYiQQ3rtF
- IVZMXGrYRL5Imox79qP001e8288evEihAwh9GIVwZmpparPtR3zaxaz2rFwwYscFAlk9
- P0Kw==
-X-Gm-Message-State: AOAM532hoYlxTaUXArkrqHVVg1aAi8izm/nBeDI+OVSZseNlMUmGRPQq
- B/d/yISxmIKNwnIjbHOLXWU=
-X-Google-Smtp-Source: ABdhPJyx5kNffekMfSCU3XOff4N/HkBYexfK/7k57F07WY0JzydsqwyHHMLte+TVwGSp/sPcAr4NOQ==
-X-Received: by 2002:adf:e905:: with SMTP id f5mr397637wrm.409.1589491428973;
- Thu, 14 May 2020 14:23:48 -0700 (PDT)
+ bh=lOO96wShAJuqAKs9HTsMILVEmF21sJSmi2TS/KIsZio=;
+ b=t7HT0aIcgA8zBrkCMJWn0YycArVFRarU4y8oGAHYPbrRLYKoOPSUOhFd887qbc3y2G
+ Ha9vW72foTAB2ru/V1fbVGJqNX4bjsEOHapCsBnTnahvhbdVg3Mzyc1qMHhFowD6CKd6
+ cr35zCaUZT8sHGkz+u62lwh8yG1eJHDfjQb9dOQPBuOhvS+5WzpgpNwbUqFuQFZ9P13p
+ V44g77qWJrdMIV3yuWBExqpcNGSNaQ4fimq5l+1JfKG65z9JFYoAEWGqYoDFR/zZYgJR
+ CQs84dopT6rx4MhFCKXIbLxJzARVWyl0XSf3rNfwF95Nk+d9FiNy73iZhhy/k3g1391J
+ xBQg==
+X-Gm-Message-State: AOAM533GdKJjsLJC8liO4aiZznItnvT33CAqVmDBaKswvpOGtWSJCgbF
+ brZzIcMX3BGuMCK+P89I780=
+X-Google-Smtp-Source: ABdhPJybyMp/7RRfr70w9s/bNCxLau75t6A3qL7/kggPaMS1TEgCk4YCZ3jmZxKyRhRdiufFCbYjdw==
+X-Received: by 2002:a05:600c:1403:: with SMTP id
+ g3mr320697wmi.51.1589491431114; 
+ Thu, 14 May 2020 14:23:51 -0700 (PDT)
 Received: from localhost.localdomain (ip5f5bfcc8.dynamic.kabel-deutschland.de.
  [95.91.252.200])
- by smtp.gmail.com with ESMTPSA id 128sm491210wme.39.2020.05.14.14.23.48
+ by smtp.gmail.com with ESMTPSA id 128sm491210wme.39.2020.05.14.14.23.50
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 14 May 2020 14:23:48 -0700 (PDT)
+ Thu, 14 May 2020 14:23:50 -0700 (PDT)
 From: huobean@gmail.com
 X-Google-Original-From: beanhuo@micron.com
 To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
  s.hauer@pengutronix.de, boris.brezillon@collabora.com, derosier@gmail.com
-Subject: [PATCH v3 1/5] mtd: rawnand: group all NAND specific ops into new
- nand_chip_ops
-Date: Thu, 14 May 2020 23:23:29 +0200
-Message-Id: <20200514212333.28692-2-beanhuo@micron.com>
+Subject: [PATCH v3 2/5] mtd: rawnand: Add {pre,
+ post}_erase hooks in nand_chip_ops
+Date: Thu, 14 May 2020 23:23:30 +0200
+Message-Id: <20200514212333.28692-3-beanhuo@micron.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20200514212333.28692-1-beanhuo@micron.com>
 References: <20200514212333.28692-1-beanhuo@micron.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200514_142351_547943_99F41B28 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20200514_142352_275523_33492CD5 
+X-CRM114-Status: GOOD (  12.32  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:441 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
  [list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [huobean[at]gmail.com]
@@ -110,228 +111,92 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Bean Huo <beanhuo@micron.com>
 
-This patch is to create a new structure nand_chip_ops, and take all NAND
-specific functions out from nand_chip and put them in this new structure.
+Add {pre,post}_erase hooks in the structure nand_chip_ops:
+pre_erase will be called before a block is physically erased.
+post_erase will be called after a block is erased.
 
 Signed-off-by: Bean Huo <beanhuo@micron.com>
 ---
- drivers/mtd/nand/raw/nand_base.c     | 20 +++++++++---------
- drivers/mtd/nand/raw/nand_hynix.c    |  2 +-
- drivers/mtd/nand/raw/nand_macronix.c | 10 ++++-----
- drivers/mtd/nand/raw/nand_micron.c   |  2 +-
- include/linux/mtd/rawnand.h          | 31 +++++++++++++++++-----------
- 5 files changed, 36 insertions(+), 29 deletions(-)
+ drivers/mtd/nand/raw/nand_base.c | 18 +++++++++++++-----
+ include/linux/mtd/rawnand.h      | 16 ++++++++++------
+ 2 files changed, 23 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index c24e5e2ba130..a9432e9abf82 100644
+index a9432e9abf82..842490d9fd09 100644
 --- a/drivers/mtd/nand/raw/nand_base.c
 +++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -3130,10 +3130,10 @@ static int nand_setup_read_retry(struct nand_chip *chip, int retry_mode)
- 	if (retry_mode >= chip->read_retries)
- 		return -EINVAL;
- 
--	if (!chip->setup_read_retry)
-+	if (!chip->ops.setup_read_retry)
- 		return -EOPNOTSUPP;
- 
--	return chip->setup_read_retry(chip, retry_mode);
-+	return chip->ops.setup_read_retry(chip, retry_mode);
- }
- 
- static void nand_wait_readrdy(struct nand_chip *chip)
-@@ -4335,8 +4335,8 @@ static int nand_suspend(struct mtd_info *mtd)
- 	int ret = 0;
- 
- 	mutex_lock(&chip->lock);
--	if (chip->suspend)
--		ret = chip->suspend(chip);
-+	if (chip->ops.suspend)
-+		ret = chip->ops.suspend(chip);
- 	if (!ret)
- 		chip->suspended = 1;
- 	mutex_unlock(&chip->lock);
-@@ -4354,8 +4354,8 @@ static void nand_resume(struct mtd_info *mtd)
- 
- 	mutex_lock(&chip->lock);
- 	if (chip->suspended) {
--		if (chip->resume)
--			chip->resume(chip);
-+		if (chip->ops.resume)
-+			chip->ops.resume(chip);
- 		chip->suspended = 0;
- 	} else {
- 		pr_err("%s called for a chip which is not in suspended state\n",
-@@ -4384,10 +4384,10 @@ static int nand_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
+@@ -4172,7 +4172,7 @@ static int nand_erase(struct mtd_info *mtd, struct erase_info *instr)
+ int nand_erase_nand(struct nand_chip *chip, struct erase_info *instr,
+ 		    int allowbbt)
  {
- 	struct nand_chip *chip = mtd_to_nand(mtd);
+-	int page, pages_per_block, ret, chipnr;
++	int page, pages_per_block, ret, chipnr, eb;
+ 	loff_t len;
  
--	if (!chip->lock_area)
-+	if (!chip->ops.lock_area)
- 		return -ENOTSUPP;
+ 	pr_debug("%s: start = 0x%012llx, len = %llu\n",
+@@ -4226,16 +4226,24 @@ int nand_erase_nand(struct nand_chip *chip, struct erase_info *instr,
+ 		    (page + pages_per_block))
+ 			chip->pagecache.page = -1;
  
--	return chip->lock_area(chip, ofs, len);
-+	return chip->ops.lock_area(chip, ofs, len);
- }
+-		ret = nand_erase_op(chip, (page & chip->pagemask) >>
+-				    (chip->phys_erase_shift - chip->page_shift));
++		eb = (page & chip->pagemask) >>
++			(chip->phys_erase_shift - chip->page_shift);
++
++		if (chip->ops.pre_erase)
++			chip->ops.pre_erase(chip, eb);
++
++		ret = nand_erase_op(chip, eb);
+ 		if (ret) {
+-			pr_debug("%s: failed erase, page 0x%08x\n",
+-					__func__, page);
++			pr_debug("%s: failed erase block %d, page 0x%08x\n",
++					__func__, eb, page);
+ 			instr->fail_addr =
+ 				((loff_t)page << chip->page_shift);
+ 			goto erase_exit;
+ 		}
  
- /**
-@@ -4400,10 +4400,10 @@ static int nand_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
- {
- 	struct nand_chip *chip = mtd_to_nand(mtd);
- 
--	if (!chip->unlock_area)
-+	if (!chip->ops.unlock_area)
- 		return -ENOTSUPP;
- 
--	return chip->unlock_area(chip, ofs, len);
-+	return chip->ops.unlock_area(chip, ofs, len);
- }
- 
- /* Set default functions */
-diff --git a/drivers/mtd/nand/raw/nand_hynix.c b/drivers/mtd/nand/raw/nand_hynix.c
-index 7caedaa5b9e5..7d1be53f27f3 100644
---- a/drivers/mtd/nand/raw/nand_hynix.c
-+++ b/drivers/mtd/nand/raw/nand_hynix.c
-@@ -337,7 +337,7 @@ static int hynix_mlc_1xnm_rr_init(struct nand_chip *chip,
- 	rr->nregs = nregs;
- 	rr->regs = hynix_1xnm_mlc_read_retry_regs;
- 	hynix->read_retry = rr;
--	chip->setup_read_retry = hynix_nand_setup_read_retry;
-+	chip->ops.setup_read_retry = hynix_nand_setup_read_retry;
- 	chip->read_retries = nmodes;
- 
- out:
-diff --git a/drivers/mtd/nand/raw/nand_macronix.c b/drivers/mtd/nand/raw/nand_macronix.c
-index 09c254c97b5c..1472f925f386 100644
---- a/drivers/mtd/nand/raw/nand_macronix.c
-+++ b/drivers/mtd/nand/raw/nand_macronix.c
-@@ -130,7 +130,7 @@ static void macronix_nand_onfi_init(struct nand_chip *chip)
- 		return;
- 
- 	chip->read_retries = MACRONIX_NUM_READ_RETRY_MODES;
--	chip->setup_read_retry = macronix_nand_setup_read_retry;
-+	chip->ops.setup_read_retry = macronix_nand_setup_read_retry;
- 
- 	if (p->supports_set_get_features) {
- 		bitmap_set(p->set_feature_list,
-@@ -242,8 +242,8 @@ static void macronix_nand_block_protection_support(struct nand_chip *chip)
- 	bitmap_set(chip->parameters.set_feature_list,
- 		   ONFI_FEATURE_ADDR_MXIC_PROTECTION, 1);
- 
--	chip->lock_area = mxic_nand_lock;
--	chip->unlock_area = mxic_nand_unlock;
-+	chip->ops.lock_area = mxic_nand_lock;
-+	chip->ops.unlock_area = mxic_nand_unlock;
- }
- 
- static int nand_power_down_op(struct nand_chip *chip)
-@@ -312,8 +312,8 @@ static void macronix_nand_deep_power_down_support(struct nand_chip *chip)
- 	if (i < 0)
- 		return;
- 
--	chip->suspend = mxic_nand_suspend;
--	chip->resume = mxic_nand_resume;
-+	chip->ops.suspend = mxic_nand_suspend;
-+	chip->ops.resume = mxic_nand_resume;
- }
- 
- static int macronix_nand_init(struct nand_chip *chip)
-diff --git a/drivers/mtd/nand/raw/nand_micron.c b/drivers/mtd/nand/raw/nand_micron.c
-index 56654030ec7f..d30bc944f729 100644
---- a/drivers/mtd/nand/raw/nand_micron.c
-+++ b/drivers/mtd/nand/raw/nand_micron.c
-@@ -84,7 +84,7 @@ static int micron_nand_onfi_init(struct nand_chip *chip)
- 		struct nand_onfi_vendor_micron *micron = (void *)p->onfi->vendor;
- 
- 		chip->read_retries = micron->read_retry_options;
--		chip->setup_read_retry = micron_nand_setup_read_retry;
-+		chip->ops.setup_read_retry = micron_nand_setup_read_retry;
- 	}
- 
- 	if (p->supports_set_get_features) {
++		if (chip->ops.post_erase)
++			chip->ops.post_erase(chip, eb);
++
+ 		/* Increment page address and decrement length */
+ 		len -= (1ULL << chip->phys_erase_shift);
+ 		page += pages_per_block;
 diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 1e76196f9829..8f5871cf2542 100644
+index 8f5871cf2542..f60cfe93b226 100644
 --- a/include/linux/mtd/rawnand.h
 +++ b/include/linux/mtd/rawnand.h
-@@ -1010,6 +1010,23 @@ struct nand_legacy {
- 	struct nand_controller dummy_controller;
- };
+@@ -1012,12 +1012,14 @@ struct nand_legacy {
  
-+/**
-+ * struct nand_chip_ops - NAND Chip specific operations
-+ * @suspend:           [REPLACEABLE] specific NAND device suspend operation
-+ * @resume:            [REPLACEABLE] specific NAND device resume operation
-+ * @lock_area:         [REPLACEABLE] specific NAND chip lock operation
-+ * @unlock_area:       [REPLACEABLE] specific NAND chip unlock operation
-+ * @setup_read_retry:  [FLASHSPECIFIC] flash (vendor) specific function for
-+ *                     setting the read-retry mode. Mostly needed for MLC NAND.
-+ */
-+struct nand_chip_ops {
-+	int (*suspend)(struct nand_chip *chip);
-+	void (*resume)(struct nand_chip *chip);
-+	int (*lock_area)(struct nand_chip *chip, loff_t ofs, u64 len);
-+	int (*unlock_area)(struct nand_chip *chip, loff_t ofs, u64 len);
-+	int (*setup_read_retry)(struct nand_chip *chip, int retry_mode);
-+};
-+
  /**
-  * struct nand_chip - NAND Private Flash Chip Data
-  * @base:		Inherit from the generic NAND device
-@@ -1018,8 +1035,6 @@ struct nand_legacy {
-  *			you're modifying an existing driver that is using those
-  *			fields/hooks, you should consider reworking the driver
-  *			avoid using them.
-- * @setup_read_retry:	[FLASHSPECIFIC] flash (vendor) specific function for
-- *			setting the read-retry mode. Mostly needed for MLC NAND.
-  * @ecc:		[BOARDSPECIFIC] ECC control structure
-  * @buf_align:		minimum buffer alignment required by a platform
-  * @oob_poi:		"poison value buffer," used for laying out OOB data
-@@ -1064,8 +1079,6 @@ struct nand_legacy {
-  * @lock:		lock protecting the suspended field. Also used to
-  *			serialize accesses to the NAND device.
-  * @suspended:		set to 1 when the device is suspended, 0 when it's not.
-- * @suspend:		[REPLACEABLE] specific NAND device suspend operation
-- * @resume:		[REPLACEABLE] specific NAND device resume operation
-  * @bbt:		[INTERN] bad block table pointer
-  * @bbt_td:		[REPLACEABLE] bad block table descriptor for flash
-  *			lookup.
-@@ -1079,8 +1092,7 @@ struct nand_legacy {
-  * @manufacturer:	[INTERN] Contains manufacturer information
-  * @manufacturer.desc:	[INTERN] Contains manufacturer's description
-  * @manufacturer.priv:	[INTERN] Contains manufacturer private information
-- * @lock_area:		[REPLACEABLE] specific NAND chip lock operation
-- * @unlock_area:	[REPLACEABLE] specific NAND chip unlock operation
-+ * @ops:		NAND-specific operations description structure
+  * struct nand_chip_ops - NAND Chip specific operations
+- * @suspend:           [REPLACEABLE] specific NAND device suspend operation
+- * @resume:            [REPLACEABLE] specific NAND device resume operation
+- * @lock_area:         [REPLACEABLE] specific NAND chip lock operation
+- * @unlock_area:       [REPLACEABLE] specific NAND chip unlock operation
+- * @setup_read_retry:  [FLASHSPECIFIC] flash (vendor) specific function for
+- *                     setting the read-retry mode. Mostly needed for MLC NAND.
++ * @suspend:		[REPLACEABLE] specific NAND device suspend operation
++ * @resume:		[REPLACEABLE] specific NAND device resume operation
++ * @lock_area:		[REPLACEABLE] specific NAND chip lock operation
++ * @unlock_area:	[REPLACEABLE] specific NAND chip unlock operation
++ * @setup_read_retry:	[FLASHSPECIFIC] flash (vendor) specific function for
++ *			setting the read-retry mode. Mostly needed for MLC NAND.
++ * @pre_erase:		[FLASHSPECIFIC] prepare a physical erase block
++ * @post_erase:		[FLASHSPECIFIC] physical block erase post
   */
- 
- struct nand_chip {
-@@ -1088,8 +1100,6 @@ struct nand_chip {
- 
- 	struct nand_legacy legacy;
- 
--	int (*setup_read_retry)(struct nand_chip *chip, int retry_mode);
--
- 	unsigned int options;
- 	unsigned int bbt_options;
- 
-@@ -1121,8 +1131,6 @@ struct nand_chip {
- 
- 	struct mutex lock;
- 	unsigned int suspended : 1;
--	int (*suspend)(struct nand_chip *chip);
--	void (*resume)(struct nand_chip *chip);
- 
- 	uint8_t *oob_poi;
- 	struct nand_controller *controller;
-@@ -1143,8 +1151,7 @@ struct nand_chip {
- 		void *priv;
- 	} manufacturer;
- 
--	int (*lock_area)(struct nand_chip *chip, loff_t ofs, uint64_t len);
--	int (*unlock_area)(struct nand_chip *chip, loff_t ofs, uint64_t len);
-+	struct nand_chip_ops ops;
+ struct nand_chip_ops {
+ 	int (*suspend)(struct nand_chip *chip);
+@@ -1025,6 +1027,8 @@ struct nand_chip_ops {
+ 	int (*lock_area)(struct nand_chip *chip, loff_t ofs, u64 len);
+ 	int (*unlock_area)(struct nand_chip *chip, loff_t ofs, u64 len);
+ 	int (*setup_read_retry)(struct nand_chip *chip, int retry_mode);
++	int (*pre_erase)(struct nand_chip *chip, u32 eraseblock);
++	int (*post_erase)(struct nand_chip *chip, u32 eraseblock);
  };
  
- extern const struct mtd_ooblayout_ops nand_ooblayout_sp_ops;
+ /**
 -- 
 2.17.1
 
