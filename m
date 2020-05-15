@@ -2,51 +2,69 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D13C1D4EC3
-	for <lists+linux-mtd@lfdr.de>; Fri, 15 May 2020 15:16:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CD1781D4F6E
+	for <lists+linux-mtd@lfdr.de>; Fri, 15 May 2020 15:44:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XOIsqdlHtcafF0CHavhZjgXbIgHmh5z4AIfL0dNr5Ss=; b=L21pZBy5yodcxG
-	Xc9QftKiD+uB66YmZEiFhkbTR016z/7OSbd+8+39XX6ilBj2xI6FdFh0r4tuy/XKjEqnrouibuw2M
-	5WIbozmoKDuQ7T2hTvdsOp+YUSoLSN5qsvBckPmdD3CE6hkO9SAp9hOJ7GFiePwKSvwKwdnohB7Ap
-	o9IQV7uhGWgXF8Kn7d7vpbK9HRGV94Fp3U0vgToH6SgP1i01de7/dXBQQ6lPLGYY/cNYXbsWLbTFl
-	ZvZcqiZfmLg23GNS+farQ5NKpUzP+NH+Xx5HkCEdvABZX+1zcwE823lO5BdXaOQs54qEqQiCiysBN
-	qbH1U544UG8F6rfZJcGQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1nURjXLbmg32OCun1jZrD9u/TBJkLkMf+dfb3vr99Lw=; b=BwjZoncHDOIKOO
+	NBhC59xv1sMR6YzCNcOxAdr+Zv3NU568gLxB8Jcg0gkB3IfxkASu3aJlCot8qRZYI/aVmPuPIbbKp
+	vydZBg/T1ohaYSWYW71N1Ft0dBONBUPJOLYxVjrLXQiVTXNwqlziMfClVDE7QEwiVXzddD9izax+h
+	TqMQ0FRIiC5F97hXcijHMPWXbYfhX0fQQGZS1wgNrPYywDb6ySyw7AIggJpJ6nWQoOfLFbBidizoB
+	ZjQjFBb6LQI3NHfaRzGrvX8gU0O3JbXoYsKQLn58q/04X/GI2fqS4g8h5y/lE4g4YWHu0qCT8gzfp
+	aJd9NKPwEOZozv+ITnSw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZaCT-0002wE-4s; Fri, 15 May 2020 13:16:29 +0000
-Received: from mx1.emlix.com ([188.40.240.192])
+	id 1jZadN-0006xw-Ki; Fri, 15 May 2020 13:44:17 +0000
+Received: from mga12.intel.com ([192.55.52.136])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZaCC-0002uF-Fa
- for linux-mtd@lists.infradead.org; Fri, 15 May 2020 13:16:17 +0000
-Received: from mailer.emlix.com (p5098be52.dip0.t-ipconnect.de [80.152.190.82])
- (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mx1.emlix.com (Postfix) with ESMTPS id CFEA35F8D7
- for <linux-mtd@lists.infradead.org>; Fri, 15 May 2020 15:16:08 +0200 (CEST)
-From: Rolf Eike Beer <eb@emlix.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH] fix build of jffs2reader and jffs2dump if zlib or lzo headers
- are not in default paths
-Date: Fri, 15 May 2020 15:16:08 +0200
-Message-ID: <2421145.rPmLg7YRcb@devpool35>
-Organization: emlix GmbH
+ id 1jZadE-0006x6-VG
+ for linux-mtd@lists.infradead.org; Fri, 15 May 2020 13:44:13 +0000
+IronPort-SDR: 9BEOWdxyfgeuKjURJkV8G87ZmNsaN3Il4tazgJmoBam+EjHYnbab5jF4tfHwLWSFJh3NiMvMrh
+ z/Wnn53sMwGw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+ by fmsmga106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 15 May 2020 06:44:06 -0700
+IronPort-SDR: XUuWNIa/68RF2TL7GYDZ0s/YCiuLMpru58HLd5CXgkXXhAEkeWFMozt3KinDZ4zrLhmR6Dbdkm
+ 2j14CFRSWdTA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,395,1583222400"; d="scan'208";a="464907167"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+ by fmsmga006.fm.intel.com with ESMTP; 15 May 2020 06:44:03 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+ (envelope-from <lkp@intel.com>)
+ id 1jZad9-00018C-6A; Fri, 15 May 2020 21:44:03 +0800
+Date: Fri, 15 May 2020 21:43:26 +0800
+From: kbuild test robot <lkp@intel.com>
+To: "Ramuthevar,
+ Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>, 
+ linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
+ devicetree@vger.kernel.org
+Subject: Re: [PATCH v7 2/2] mtd: rawnand: Add NAND controller support on
+ Intel LGM SoC
+Message-ID: <202005152142.AWvx4xc5%lkp@intel.com>
+References: <20200515105537.4876-3-vadivel.muruganx.ramuthevar@linux.intel.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200515105537.4876-3-vadivel.muruganx.ramuthevar@linux.intel.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200515_061612_680180_B7BFB682 
-X-CRM114-Status: UNSURE (   5.53  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200515_064409_031003_B091FA24 
+X-CRM114-Status: GOOD (  10.19  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [192.55.52.136 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -58,35 +76,93 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: kbuild-all@lists.01.org, vigneshr@ti.com, arnd@arndb.de, richard@nod.at,
+ brendanhiggins@google.com, boris.brezillon@collabora.com,
+ miquel.raynal@bootlin.com, anders.roxell@linaro.org, tglx@linutronix.de,
+ masonccyang@mxic.com.tw
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-RnJvbSAxN2Y2NDA3ZjIyYjhmODc5ZTZiNzg4Y2I0ZTNhNjdkODU2YWJlMDJlIE1vbiBTZXAgMTcg
-MDA6MDA6MDAgMjAwMQpGcm9tOiBSb2xmIEVpa2UgQmVlciA8ZWJAZW1saXguY29tPgpEYXRlOiBG
-cmksIDE1IE1heSAyMDIwIDE0OjU2OjQ4ICswMjAwClN1YmplY3Q6IFtQQVRDSF0gZml4IGJ1aWxk
-IG9mIGpmZnMycmVhZGVyIGFuZCBqZmZzMmR1bXAgaWYgemxpYiBvciBsem8KIGhlYWRlcnMgYXJl
-IG5vdCBpbiBkZWZhdWx0IHBhdGhzCgpTaWduZWQtb2ZmLWJ5OiBSb2xmIEVpa2UgQmVlciA8ZWJA
-ZW1saXguY29tPgotLS0KIGpmZnNYLXV0aWxzL01ha2Vtb2R1bGUuYW0gfCAyICsrCiAxIGZpbGUg
-Y2hhbmdlZCwgMiBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvamZmc1gtdXRpbHMvTWFrZW1v
-ZHVsZS5hbSBiL2pmZnNYLXV0aWxzL01ha2Vtb2R1bGUuYW0KaW5kZXggZmIxODFkZS4uOWZkNzM0
-YiAxMDA2NDQKLS0tIGEvamZmc1gtdXRpbHMvTWFrZW1vZHVsZS5hbQorKysgYi9qZmZzWC11dGls
-cy9NYWtlbW9kdWxlLmFtCkBAIC0xMiw5ICsxMiwxMSBAQCBta2ZzX2pmZnMyX0NQUEZMQUdTID0g
-JChBTV9DUFBGTEFHUykgJChaTElCX0NGTEFHUykgJChMWk9fQ0ZMQUdTKQogCiBqZmZzMnJlYWRl
-cl9TT1VSQ0VTID0gamZmc1gtdXRpbHMvamZmczJyZWFkZXIuYwogamZmczJyZWFkZXJfTERBREQg
-PSBsaWJtdGQuYSAkKFpMSUJfTElCUykgJChMWk9fTElCUykKK2pmZnMycmVhZGVyX0NQUEZMQUdT
-ID0gJChBTV9DUFBGTEFHUykgJChaTElCX0NGTEFHUykgJChMWk9fQ0ZMQUdTKQogCiBqZmZzMmR1
-bXBfU09VUkNFUyA9IGpmZnNYLXV0aWxzL2pmZnMyZHVtcC5jCiBqZmZzMmR1bXBfTERBREQgPSBs
-aWJtdGQuYSAkKFpMSUJfTElCUykgJChMWk9fTElCUykKK2pmZnMyZHVtcF9DUFBGTEFHUyA9ICQo
-QU1fQ1BQRkxBR1MpICQoWkxJQl9DRkxBR1MpICQoTFpPX0NGTEFHUykKIAogc3VtdG9vbF9TT1VS
-Q0VTID0gamZmc1gtdXRpbHMvc3VtdG9vbC5jCiBzdW10b29sX0xEQUREID0gbGlibXRkLmEKLS0g
-CjIuMjYuMgoKLS0gClJvbGYgRWlrZSBCZWVyLCBlbWxpeCBHbWJILCBodHRwOi8vd3d3LmVtbGl4
-LmNvbQpGb24gKzQ5IDU1MSAzMDY2NC0wLCBGYXggKzQ5IDU1MSAzMDY2NC0xMQpHb3RoYWVyIFBs
-YXR6IDMsIDM3MDgzIEfDtnR0aW5nZW4sIEdlcm1hbnkKU2l0eiBkZXIgR2VzZWxsc2NoYWZ0OiBH
-w7Z0dGluZ2VuLCBBbXRzZ2VyaWNodCBHw7Z0dGluZ2VuIEhSIEIgMzE2MApHZXNjaMOkZnRzZsO8
-aHJ1bmc6IEhlaWtlIEpvcmRhbiwgRHIuIFV3ZSBLcmFja2Ug4oCTIFVzdC1JZE5yLjogREUgMjA1
-IDE5OCAwNTUKCmVtbGl4IC0gc21hcnQgZW1iZWRkZWQgb3BlbiBzb3VyY2UKCgoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQg
-ZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1tdGQvCg==
+Hi "Ramuthevar,Vadivel,
+
+Thank you for the patch! Perhaps something to improve:
+
+[auto build test WARNING on robh/for-next]
+[also build test WARNING on arm-soc/for-next linus/master linux/master v5.7-rc5 next-20200514]
+[cannot apply to mtd/master]
+[if your patch is applied to the wrong git tree, please drop us a note to help
+improve the system. BTW, we also suggest to use '--base' option to specify the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+
+url:    https://github.com/0day-ci/linux/commits/Ramuthevar-Vadivel-MuruganX/mtd-rawnand-Add-NAND-controller-support-on-Intel-LGM-SoC/20200515-185904
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+reproduce:
+        # apt-get install sparse
+        # sparse version: v0.6.1-193-gb8fad4bc-dirty
+        make ARCH=x86_64 allmodconfig
+        make C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__'
+
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kbuild test robot <lkp@intel.com>
+
+
+sparse warnings: (new ones prefixed by >>)
+
+>> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse: sparse: incorrect type in argument 1 (different base types) @@    expected unsigned int val @@    got restricted __be32 [assignedunsigned int val @@
+>> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse:    expected unsigned int val
+>> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse:    got restricted __be32 [assigned] [usertype] reg
+   drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse: sparse: incorrect type in argument 1 (different base types) @@    expected unsigned int val @@    got restricted __be32 [assignedunsigned int val @@
+   drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse:    expected unsigned int val
+   drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse:    got restricted __be32 [assigned] [usertype] reg
+
+vim +441 drivers/mtd/nand/raw/intel-nand-controller.c
+
+   420	
+   421	static int ebu_nand_write_page_hwecc(struct nand_chip *chip, const u8 *buf,
+   422					     int oob_required, int page)
+   423	{
+   424		struct mtd_info *mtd = nand_to_mtd(chip);
+   425		struct ebu_nand_controller *ebu_host = nand_get_controller_data(chip);
+   426		void __iomem *int_sta = ebu_host->hsnand + HSNAND_INT_STA;
+   427		int ret, val, x;
+   428		__be32 reg;
+   429	
+   430		ebu_nand_trigger(ebu_host, page, NAND_CMD_SEQIN);
+   431	
+   432		ret = ebu_dma_start(ebu_host, DMA_MEM_TO_DEV, buf, mtd->writesize);
+   433		if (ret)
+   434			return ret;
+   435	
+   436		if (oob_required) {
+   437			const u8 *pdata;
+   438	
+   439			pdata = chip->oob_poi;
+   440			reg = cpu_to_be32(*pdata++);
+ > 441			writel(reg, ebu_host->hsnand + HSNAND_CMSG_0);
+   442	
+   443			reg = cpu_to_be32(*pdata);
+   444			writel(reg, ebu_host->hsnand + HSNAND_CMSG_1);
+   445		}
+   446	
+   447		ret = readl_poll_timeout_atomic(int_sta, val,
+   448						!(val & HSNAND_INT_STA_WR_C), 10, 1000);
+   449		if (ret)
+   450			return -EIO;
+   451	
+   452		x = readl(ebu_host->hsnand + HSNAND_CTL);
+   453		x &= ~HSNAND_CTL_GO;
+   454		writel(x, ebu_host->hsnand + HSNAND_CTL);
+   455	
+   456		return 0;
+   457	}
+   458	
+
+---
+0-DAY CI Kernel Test Service, Intel Corporation
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
