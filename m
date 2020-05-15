@@ -2,82 +2,70 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C31841D5089
-	for <lists+linux-mtd@lfdr.de>; Fri, 15 May 2020 16:31:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05D311D59CE
+	for <lists+linux-mtd@lfdr.de>; Fri, 15 May 2020 21:17:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HXCZ/Hzn4GfZjK2gQ3+S+0u/p8SknVsRGSuAdPRBvJo=; b=MSRIq16XGjxz9n
-	GZeNCAZ+Y34QPBXzZtGHCpWxXITZn1YIJmsCv29oVeTxP3Wb3fZz93n7NSLx1Pdz14bmlt1FkrHRy
-	8pMPRe96vvaWGaObt1WQExaCxhczOiWgb6YV5TBE7JBCcMf2itFXESQoWB0ycbVjH6AvZgLOZyAHB
-	ZpZkDauEFNY1wDAuIkkfSUkgFHXgVRu7X8sX1HqPePIFfPisXJZPOn2yqzqjaMdMRPnRaIDfC24EE
-	fdG/JOa7OK082WzDYXYru6EgWigkljDvY0TDkxFONt7xegLTY+mRuv4pRMLsmGAod5yttiTaGtHp1
-	6svCtPdK/6518Gb9ZxFQ==;
+	List-Owner; bh=nEQXR/WuG0XbLBw18YvRBLK7IxKJ7DVdsYHI1OYwMC0=; b=CN8+s3vzCWMtyG
+	0btJu0K65fHlAJe9c8vD+mojcZkLSs/PMES9yXTwclJumP5EaHaE5xyO6QiP9u54WWZ0/GcGncHc0
+	ezYi8BDei8kOyOxDB5Wujwm7qYDG4b+lzBavaixeYbGW/b1ARqZru19cqzhRBYcAOP1Y8SiPs2Uq1
+	hS6IQZ/xhXcSDrFkIe+ZVGcM92DmMfB8bAExF7YKq/DhKFDvfP0CqPqtFnzUxAkGRlkhkvuK1zVT4
+	JBEIXeKFdpYTkj1ED6GSIN9efnL4IDgDzB+Po2b9PM0V9qMuM11ouTLOW9bS8euOScv6OfOV8zCng
+	BIplZgad0hwxcdGjfcgQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZbMW-0000Tu-Tc; Fri, 15 May 2020 14:30:56 +0000
-Received: from mout.kundenserver.de ([212.227.126.133])
+	id 1jZfpZ-0007aa-4G; Fri, 15 May 2020 19:17:13 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZbML-0000TF-9R
- for linux-mtd@lists.infradead.org; Fri, 15 May 2020 14:30:46 +0000
-Received: from mail-qk1-f173.google.com ([209.85.222.173]) by
- mrelayeu.kundenserver.de (mreue012 [212.227.15.129]) with ESMTPSA (Nemesis)
- id 1MJnnV-1jpLtT3Lrt-00K8Hj for <linux-mtd@lists.infradead.org>; Fri, 15 May
- 2020 16:30:43 +0200
-Received: by mail-qk1-f173.google.com with SMTP id z80so2737170qka.0
- for <linux-mtd@lists.infradead.org>; Fri, 15 May 2020 07:30:42 -0700 (PDT)
-X-Gm-Message-State: AOAM533A83p1WQ5ANwemXwJ8nlTU9cODGncb3eBlnVlfrlUIGdMrx/sU
- PzEXzLb8m7NRLwxeehYhqgqWP2c0ZS6iBnaSrUs=
-X-Google-Smtp-Source: ABdhPJzWWXgTORWkb4jbrO8K6QMT6N5lPpxFdl5UWPmbpX97RbGZ8EERls9fxqPwUdbnag+Twa+m+oPKAZzZIORJbmw=
-X-Received: by 2002:ae9:ed95:: with SMTP id c143mr3652955qkg.394.1589553041352; 
- Fri, 15 May 2020 07:30:41 -0700 (PDT)
+ id 1jZfpS-0007a1-QX
+ for linux-mtd@lists.infradead.org; Fri, 15 May 2020 19:17:08 +0000
+Received: from sol.localdomain (c-107-3-166-239.hsd1.ca.comcast.net
+ [107.3.166.239])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id D9E7E20727;
+ Fri, 15 May 2020 19:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1589570226;
+ bh=XBx66mGVJ7Tbb+phuQ5uMEEIItH+a9pVZe/h/WYga1s=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=1UWKkNNKCuIzrl5u6+/k8AYmsz01h1u+HcEBJ/L4lKNuC3iBVSz/ZOmmaLj2uBfL7
+ ccDTssausF1EHjwGCk5y0XHUwHVwYRWaSsoGGmaIz2XUhlgAYJXiRdhDUn4GSKxFP9
+ 4VHfJV9HpwUW4vcJPE890Gi8KFTgoAPCFWyG//Xw=
+Date: Fri, 15 May 2020 12:17:04 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Sascha Hauer <s.hauer@pengutronix.de>, Richard Weinberger <richard@nod.at>
+Subject: Re: [PATCH] ubifs: fix wrong use of crypto_shash_descsize()
+Message-ID: <20200515191704.GE1009@sol.localdomain>
+References: <20200502055945.1008194-1-ebiggers@kernel.org>
+ <20200504071644.GS5877@pengutronix.de>
 MIME-Version: 1.0
-References: <20200515105537.4876-3-vadivel.muruganx.ramuthevar@linux.intel.com>
- <202005152142.AWvx4xc5%lkp@intel.com>
- <CAHp75Ven9q-6dDYtP_uXigeS_r2uvpUZVR5Mh0RdEd36MbTG+Q@mail.gmail.com>
-In-Reply-To: <CAHp75Ven9q-6dDYtP_uXigeS_r2uvpUZVR5Mh0RdEd36MbTG+Q@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 15 May 2020 16:30:24 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3RKJo-C5=19oAppx212s7T8NdnKJVmkj+h=34a8aKMNA@mail.gmail.com>
-Message-ID: <CAK8P3a3RKJo-C5=19oAppx212s7T8NdnKJVmkj+h=34a8aKMNA@mail.gmail.com>
-Subject: Re: [PATCH v7 2/2] mtd: rawnand: Add NAND controller support on Intel
- LGM SoC
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-X-Provags-ID: V03:K1:ZBiDFaJWoPXYaEOZMCxL/7f6AGOH2YLviSiy84W95V3zLstZBTa
- IbvX4+3ijyDMyzJ42x9jbwhHiMfY3hYQqMmEbBvlrCyliFn4TTrlV7qdJMUl2YwIazLNH+f
- pvP9L5xdWRkrlKumqCEbBzk5YJtDsV4DBG5rksrfcfyOShHagEy3AI48gbjFgIaXKpRpDXn
- ujrDLqEKfuYQyLssYt0pw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:KVcMWQlDuTE=:m5b88xrjdLw0nG42pRxs0j
- OdcyWRIypjFW6k+8Y+h5T1vEA3LFyCAuIBSpT06cibPTsSYSlM3eX0z0lvud5SK6iRQJQLY7Q
- USAt3TCjSxgCfZ1eDYz0LQy5MBFFkuxeOcj5+yLucIlUlfp2sGFcw79FR3JAuTTq1Ye0PaYBv
- IRLAUozcjr5INTexyy/N5IccRx83LpHu4pWRQq6yMX6ESK7YvpnDNo0OFIS5heO+24c4dtwLC
- lUSUhqTyA57ILMLNY+YcTe7LDYNM6NFQ5k3ilh1j/UGfgAl8kEr+vMrtrDy5S/z8tql5Qq9UH
- COMWvePk0D+Y7NqTG9tV4G24hMsalCX9qmThFAPxPxMl5zBOizBYeXCNndypQTSLcRL91Qs+9
- jTpFnJp+h2O/ebZKsReHD6R7tKT2p1JcxUxoKkVtkaSBilJYADcd6r245CeZL/liMJeIW+XGM
- polnPJLxVlic1NRuAspLN1fhP+99mYkUOwQCYtTriZ5L58OGkKx1ZwUJsFqYKG8EfFZrgY3Bd
- mefkfrhglNvZbFVyFSZomaec0eMIc4lTzu2jgDSkPMnmSBNmlPTrphmmwepjO74ZCylRFWZ4m
- 2cEzyzmfIuYyV6hSfxAr6V0zp7GkfcR50NKTCO9iq+Vg38wWSPFKbmc/zIhYGat3h8XBz5a3g
- 7xlZO2c9/KWjaUuswUdwk4FI2lGj7zYxAJxpHRtU0yAvvu+qqjxC9+on9DlMUdDEAr7stNc+R
- qcJvCB88OCS0kCv+nnFun+if7u2RtJC6i0gYqxPYSFHRtdixAV9lGYHVyC/VMmY7MVytNyZeK
- G3KzAaYPq/bSgUjjK6E1VEXPwEoWftatDmCK0SPgbgT6MR9oPI=
+Content-Disposition: inline
+In-Reply-To: <20200504071644.GS5877@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200515_073045_625860_292F0C6F 
-X-CRM114-Status: GOOD (  12.73  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200515_121706_881962_7237E419 
+X-CRM114-Status: GOOD (  13.05  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.133 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [212.227.126.133 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,56 +77,38 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, kbuild-all@lists.01.org,
- kbuild test robot <lkp@intel.com>, Richard Weinberger <richard@nod.at>,
- Brendan Higgins <brendanhiggins@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, "Ramuthevar,
- Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- "open list:MEMORY TECHNOLOGY..." <linux-mtd@lists.infradead.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Anders Roxell <anders.roxell@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
- masonccyang@mxic.com.tw, Vignesh R <vigneshr@ti.com>
+Cc: linux-mtd@lists.infradead.org, linux-crypto@vger.kernel.org,
+ stable@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, May 15, 2020 at 4:25 PM Andy Shevchenko
-<andy.shevchenko@gmail.com> wrote:
->
-> On Fri, May 15, 2020 at 4:48 PM kbuild test robot <lkp@intel.com> wrote:
->
-> > sparse warnings: (new ones prefixed by >>)
-> >
-> > >> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse: sparse: incorrect type in argument 1 (different base types) @@    expected unsigned int val @@    got restricted __be32 [assignedunsigned int val @@
-> > >> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse:    expected unsigned int val
-> > >> drivers/mtd/nand/raw/intel-nand-controller.c:441:24: sparse:    got restricted __be32 [assigned] [usertype] reg
-> >    drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse: sparse: incorrect type in argument 1 (different base types) @@    expected unsigned int val @@    got restricted __be32 [assignedunsigned int val @@
-> >    drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse:    expected unsigned int val
-> >    drivers/mtd/nand/raw/intel-nand-controller.c:444:24: sparse:    got restricted __be32 [assigned] [usertype] reg
-> >
-> >    440                  reg = cpu_to_be32(*pdata++);
-> >  > 441                  writel(reg, ebu_host->hsnand + HSNAND_CMSG_0);
-> >    442
-> >    443                  reg = cpu_to_be32(*pdata);
-> >    444                  writel(reg, ebu_host->hsnand + HSNAND_CMSG_1);
->
-> On BE:
-> cpu_to_be32 -> no-op
-> writel() -> converts reg to LE
->
-> On LE:
-> cpu_to_be32 -> converts to BE
-> writel() -> no-op (in terms of conversion)
->
-> Seems to me that the proper API (if above is intended) should be swab32().
-> But something tells me that above is broken (or my understanding is wrong).
+On Mon, May 04, 2020 at 09:16:44AM +0200, Sascha Hauer wrote:
+> On Fri, May 01, 2020 at 10:59:45PM -0700, Eric Biggers wrote:
+> > From: Eric Biggers <ebiggers@google.com>
+> > 
+> > crypto_shash_descsize() returns the size of the shash_desc context
+> > needed to compute the hash, not the size of the hash itself.
+> > 
+> > crypto_shash_digestsize() would be correct, or alternatively using
+> > c->hash_len and c->hmac_desc_len which already store the correct values.
+> > But actually it's simpler to just use stack arrays, so do that instead.
+> > 
+> > Fixes: 49525e5eecca ("ubifs: Add helper functions for authentication support")
+> > Fixes: da8ef65f9573 ("ubifs: Authenticate replayed journal")
+> > Cc: <stable@vger.kernel.org> # v4.20+
+> > Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> > Signed-off-by: Eric Biggers <ebiggers@google.com>
+> 
+> Looks better that way, thanks.
+> 
+> Acked-by: Sascha Hauer <s.hauer@pengutronix.de>
+> 
 
-iowrite_be32() is the correct way to store word into a big-endian mmio register,
-if that is the intention here.
+Richard, could you take this through the ubifs tree for 5.8?
 
-      Arnd
+- Eric
 
 ______________________________________________________
 Linux MTD discussion mailing list
