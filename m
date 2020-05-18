@@ -2,50 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6EEDC1D7F5A
-	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 18:57:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EA1E91D7F94
+	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 19:04:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yoaJiHJY3tJ5WN9qZGxBddQjA8YkNTmdLdmsZFAxGDg=; b=Ql1/ibzpoOrglx
-	1xbKs8jJow8Jw9EI5HBd0183HiTcFuwDgQmZ4tSA7UA1EgPHPJrR4hZqOhFXM5LxWwEbGgiCwM6vq
-	SUGDMEysHqY4PwMSSC5HBs2eJCmtRSEuSCKfTg6lRl5Sl7MpC6Bxuyl5y3PsuAEZxBDPFfDk+TujZ
-	hFvje/hsAFqgYhZQ23fin5oXQlzt1bEKxOo/Ipiz8KqbVt99NYc2TMc/Hpc816cj0J/jnS48U0JrX
-	WlqmlBDNA9Vz8tOMdI51ADODXKIVdUxfpknswbPQDwuwsEuF7nn1ua+i4NybIOpRaAsRsDP70ytfF
-	X2POYBzfkGlNMpFvhnTg==;
+	List-Owner; bh=9Ij2xDD3ORAAVhEi7bN+vFPH6Y4CZ2rIDPd02eEgjJ4=; b=FM+nkF6Nbj65n1
+	5PBylRWeTQzYLhtLvnyFTWYOQRWqJytkaA4iMhXMS2p9YIEMVP9Bl8GKvVh1SiHGx65wjbOoLZ3En
+	nfzeqH1XoA5i7YGLq+77R5fu34f8F+C0C9EsXH2X/tWtBXrfFrjXQdH2fLGzwG9aCXYUxmVxOudrj
+	3J3ATS9lB6oHfc6DvCFttoWhUkMYVvED48MFyh5pl/tOEmdwIr+VqhYzLqsAWKCNqICSUXgUeNyXE
+	tkJseOZxtPsEyAK4IRihA3odNUOt3OiQt1dIy5YVoFXqzoUIfxK767pfe/82coqXhnuV/Zmx4RTMq
+	W5iNTgOZd9dz3SF04DoQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jaj4O-0004LW-RQ; Mon, 18 May 2020 16:56:52 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jajBW-0001Yb-Nn; Mon, 18 May 2020 17:04:14 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jaj4H-0004Kx-TY
- for linux-mtd@lists.infradead.org; Mon, 18 May 2020 16:56:47 +0000
+ id 1jajAn-0001FU-OV; Mon, 18 May 2020 17:03:32 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 7B8AA2A1010;
- Mon, 18 May 2020 17:56:43 +0100 (BST)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 9D5F32A0FD2;
+ Mon, 18 May 2020 18:03:27 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Paul Cercueil <paul@crapouillou.net>,
- Harvey Hunt <harveyhuntnexus@gmail.com>,
+To: Xiaolei Li <xiaolei.li@mediatek.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH] mtd: rawnand: ingenic: Convert the driver to exec_op()
-Date: Mon, 18 May 2020 18:56:40 +0200
-Message-Id: <20200518165640.312220-1-boris.brezillon@collabora.com>
+Subject: [PATCH] mtd: rawnand: mtk: Convert the driver to exec_op()
+Date: Mon, 18 May 2020 19:03:21 +0200
+Message-Id: <20200518170321.321697-1-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.4
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200518_095646_211134_94011D2A 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20200518_100330_076962_758B6A20 
+X-CRM114-Status: GOOD (  15.01  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -59,10 +59,11 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>,
  Boris Brezillon <boris.brezillon@collabora.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>
+ linux-mediatek@lists.infradead.org, Matthias Brugger <matthias.bgg@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
@@ -73,134 +74,89 @@ on the legacy interface.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- .../mtd/nand/raw/ingenic/ingenic_nand_drv.c   | 136 ++++++++++--------
- 1 file changed, 80 insertions(+), 56 deletions(-)
+ drivers/mtd/nand/raw/mtk_nand.c | 116 +++++++++++++++++++-------------
+ 1 file changed, 71 insertions(+), 45 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c b/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
-index e7bd845fdbf5..dcecd54af20b 100644
---- a/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
-+++ b/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
-@@ -27,9 +27,6 @@
- 
- #define DRV_NAME	"ingenic-nand"
- 
--/* Command delay when there is no R/B pin. */
--#define RB_DELAY_US	100
--
- struct jz_soc_info {
- 	unsigned long data_offset;
- 	unsigned long addr_offset;
-@@ -49,7 +46,6 @@ struct ingenic_nfc {
- 	struct nand_controller controller;
- 	unsigned int num_banks;
- 	struct list_head chips;
--	int selected;
- 	struct ingenic_nand_cs cs[];
- };
- 
-@@ -142,51 +138,6 @@ static const struct mtd_ooblayout_ops jz4725b_ooblayout_ops = {
- 	.free = jz4725b_ooblayout_free,
- };
- 
--static void ingenic_nand_select_chip(struct nand_chip *chip, int chipnr)
--{
--	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
--	struct ingenic_nfc *nfc = to_ingenic_nfc(nand->chip.controller);
--	struct ingenic_nand_cs *cs;
--
--	/* Ensure the currently selected chip is deasserted. */
--	if (chipnr == -1 && nfc->selected >= 0) {
--		cs = &nfc->cs[nfc->selected];
--		jz4780_nemc_assert(nfc->dev, cs->bank, false);
--	}
--
--	nfc->selected = chipnr;
--}
--
--static void ingenic_nand_cmd_ctrl(struct nand_chip *chip, int cmd,
--				  unsigned int ctrl)
--{
--	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
--	struct ingenic_nfc *nfc = to_ingenic_nfc(nand->chip.controller);
--	struct ingenic_nand_cs *cs;
--
--	if (WARN_ON(nfc->selected < 0))
--		return;
--
--	cs = &nfc->cs[nfc->selected];
--
--	jz4780_nemc_assert(nfc->dev, cs->bank, ctrl & NAND_NCE);
--
--	if (cmd == NAND_CMD_NONE)
--		return;
--
--	if (ctrl & NAND_ALE)
--		writeb(cmd, cs->base + nfc->soc_info->addr_offset);
--	else if (ctrl & NAND_CLE)
--		writeb(cmd, cs->base + nfc->soc_info->cmd_offset);
--}
--
--static int ingenic_nand_dev_ready(struct nand_chip *chip)
--{
--	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
--
--	return !gpiod_get_value_cansleep(nand->busy_gpio);
--}
--
- static void ingenic_nand_ecc_hwctl(struct nand_chip *chip, int mode)
- {
- 	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
-@@ -298,8 +249,88 @@ static int ingenic_nand_attach_chip(struct nand_chip *chip)
+diff --git a/drivers/mtd/nand/raw/mtk_nand.c b/drivers/mtd/nand/raw/mtk_nand.c
+index e7ec30e784fd..f3b519bef0ea 100644
+--- a/drivers/mtd/nand/raw/mtk_nand.c
++++ b/drivers/mtd/nand/raw/mtk_nand.c
+@@ -387,44 +387,6 @@ static int mtk_nfc_hw_runtime_config(struct mtd_info *mtd)
  	return 0;
  }
  
-+static int ingenic_nand_exec_instr(struct nand_chip *chip,
-+				   struct ingenic_nand_cs *cs,
-+				   const struct nand_op_instr *instr)
+-static void mtk_nfc_select_chip(struct nand_chip *nand, int chip)
+-{
+-	struct mtk_nfc *nfc = nand_get_controller_data(nand);
+-	struct mtk_nfc_nand_chip *mtk_nand = to_mtk_nand(nand);
+-
+-	if (chip < 0)
+-		return;
+-
+-	mtk_nfc_hw_runtime_config(nand_to_mtd(nand));
+-
+-	nfi_writel(nfc, mtk_nand->sels[chip], NFI_CSEL);
+-}
+-
+-static int mtk_nfc_dev_ready(struct nand_chip *nand)
+-{
+-	struct mtk_nfc *nfc = nand_get_controller_data(nand);
+-
+-	if (nfi_readl(nfc, NFI_STA) & STA_BUSY)
+-		return 0;
+-
+-	return 1;
+-}
+-
+-static void mtk_nfc_cmd_ctrl(struct nand_chip *chip, int dat,
+-			     unsigned int ctrl)
+-{
+-	struct mtk_nfc *nfc = nand_get_controller_data(chip);
+-
+-	if (ctrl & NAND_ALE) {
+-		mtk_nfc_send_address(nfc, dat);
+-	} else if (ctrl & NAND_CLE) {
+-		mtk_nfc_hw_reset(nfc);
+-
+-		nfi_writew(nfc, CNFG_OP_CUST, NFI_CNFG);
+-		mtk_nfc_send_command(nfc, dat);
+-	}
+-}
+-
+ static inline void mtk_nfc_wait_ioready(struct mtk_nfc *nfc)
+ {
+ 	int rc;
+@@ -501,6 +463,74 @@ static void mtk_nfc_write_buf(struct nand_chip *chip, const u8 *buf, int len)
+ 		mtk_nfc_write_byte(chip, buf[i]);
+ }
+ 
++static int mtk_nfc_exec_instr(struct nand_chip *chip,
++			      const struct nand_op_instr *instr)
 +{
-+	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
-+	struct ingenic_nfc *nfc = to_ingenic_nfc(chip->controller);
++	struct mtk_nfc *nfc = nand_get_controller_data(chip);
 +	unsigned int i;
++	u32 status;
 +
 +	switch (instr->type) {
 +	case NAND_OP_CMD_INSTR:
-+		writeb(instr->ctx.cmd.opcode,
-+		       cs->base + nfc->soc_info->cmd_offset);
++		mtk_nfc_send_command(nfc, instr->ctx.cmd.opcode);
 +		return 0;
 +	case NAND_OP_ADDR_INSTR:
 +		for (i = 0; i < instr->ctx.addr.naddrs; i++)
-+			writeb(instr->ctx.addr.addrs[i],
-+			       cs->base + nfc->soc_info->cmd_offset);
++			mtk_nfc_send_address(nfc, instr->ctx.addr.addrs[i]);
 +		return 0;
 +	case NAND_OP_DATA_IN_INSTR:
-+		if (instr->ctx.data.force_8bit ||
-+		    !(chip->options & NAND_BUSWIDTH_16))
-+			ioread8_rep(cs->base + nfc->soc_info->data_offset,
-+				    instr->ctx.data.buf.in,
-+				    instr->ctx.data.len);
-+		else
-+			ioread16_rep(cs->base + nfc->soc_info->data_offset,
-+				     instr->ctx.data.buf.in,
-+				     instr->ctx.data.len);
++		mtk_nfc_read_buf(chip, instr->ctx.data.buf.in,
++				 instr->ctx.data.len);
 +		return 0;
 +	case NAND_OP_DATA_OUT_INSTR:
-+		if (instr->ctx.data.force_8bit ||
-+		    !(chip->options & NAND_BUSWIDTH_16))
-+			iowrite8_rep(cs->base + nfc->soc_info->data_offset,
-+				     instr->ctx.data.buf.out,
-+				     instr->ctx.data.len);
-+		else
-+			iowrite16_rep(cs->base + nfc->soc_info->data_offset,
-+				      instr->ctx.data.buf.out,
-+				      instr->ctx.data.len);
++		mtk_nfc_write_buf(chip, instr->ctx.data.buf.out,
++				  instr->ctx.data.len);
 +		return 0;
 +	case NAND_OP_WAITRDY_INSTR:
-+		if (!nand->busy_gpio)
-+			return nand_soft_waitrdy(chip,
-+						 instr->ctx.waitrdy.timeout_ms);
-+
-+		return nand_gpio_waitrdy(chip, nand->busy_gpio,
-+					 instr->ctx.waitrdy.timeout_ms);
++		return readl_poll_timeout(nfc->regs + NFI_STA, status,
++					  status & STA_BUSY, 20,
++					  instr->ctx.waitrdy.timeout_ms);
 +	default:
 +		break;
 +	}
@@ -208,59 +164,81 @@ index e7bd845fdbf5..dcecd54af20b 100644
 +	return -EINVAL;
 +}
 +
-+static int ingenic_nand_exec_op(struct nand_chip *chip,
-+				const struct nand_operation *op,
-+				bool check_only)
++static void mtk_nfc_select_target(struct nand_chip *nand, unsigned int cs)
 +{
-+	struct ingenic_nand *nand = to_ingenic_nand(nand_to_mtd(chip));
-+	struct ingenic_nfc *nfc = to_ingenic_nfc(nand->chip.controller);
-+	struct ingenic_nand_cs *cs;
++	struct mtk_nfc *nfc = nand_get_controller_data(nand);
++	struct mtk_nfc_nand_chip *mtk_nand = to_mtk_nand(nand);
++
++	mtk_nfc_hw_runtime_config(nand_to_mtd(nand));
++
++	nfi_writel(nfc, mtk_nand->sels[cs], NFI_CSEL);
++}
++
++static int mtk_nfc_exec_op(struct nand_chip *chip,
++			   const struct nand_operation *op,
++			   bool check_only)
++{
++	struct mtk_nfc *nfc = nand_get_controller_data(chip);
 +	unsigned int i;
 +	int ret = 0;
 +
 +	if (check_only)
 +		return 0;
 +
-+	cs = &nfc->cs[op->cs];
-+	jz4780_nemc_assert(nfc->dev, cs->bank, true);
++	mtk_nfc_hw_reset(nfc);
++	nfi_writew(nfc, CNFG_OP_CUST, NFI_CNFG);
++	mtk_nfc_select_target(chip, op->cs);
++
 +	for (i = 0; i < op->ninstrs; i++) {
-+		ret = ingenic_nand_exec_instr(chip, cs, &op->instrs[i]);
++		ret = mtk_nfc_exec_instr(chip, &op->instrs[i]);
 +		if (ret)
 +			break;
 +	}
-+	jz4780_nemc_assert(nfc->dev, cs->bank, false);
 +
 +	return ret;
 +}
 +
- static const struct nand_controller_ops ingenic_nand_controller_ops = {
- 	.attach_chip = ingenic_nand_attach_chip,
-+	.exec_op = ingenic_nand_exec_op,
+ static int mtk_nfc_setup_data_interface(struct nand_chip *chip, int csline,
+ 					const struct nand_data_interface *conf)
+ {
+@@ -803,6 +833,7 @@ static int mtk_nfc_write_page(struct mtd_info *mtd, struct nand_chip *chip,
+ 	u32 reg;
+ 	int ret;
+ 
++	mtk_nfc_select_target(chip, chip->cur_cs);
+ 	nand_prog_page_begin_op(chip, page, 0, NULL, 0);
+ 
+ 	if (!raw) {
+@@ -920,6 +951,7 @@ static int mtk_nfc_read_subpage(struct mtd_info *mtd, struct nand_chip *chip,
+ 	u8 *buf;
+ 	int rc;
+ 
++	mtk_nfc_select_target(chip, chip->cur_cs);
+ 	start = data_offs / chip->ecc.size;
+ 	end = DIV_ROUND_UP(data_offs + readlen, chip->ecc.size);
+ 
+@@ -1326,6 +1358,7 @@ static int mtk_nfc_attach_chip(struct nand_chip *chip)
+ static const struct nand_controller_ops mtk_nfc_controller_ops = {
+ 	.attach_chip = mtk_nfc_attach_chip,
+ 	.setup_data_interface = mtk_nfc_setup_data_interface,
++	.exec_op = mtk_nfc_exec_op,
  };
  
- static int ingenic_nand_init_chip(struct platform_device *pdev,
-@@ -339,8 +370,6 @@ static int ingenic_nand_init_chip(struct platform_device *pdev,
- 		ret = PTR_ERR(nand->busy_gpio);
- 		dev_err(dev, "failed to request busy GPIO: %d\n", ret);
- 		return ret;
--	} else if (nand->busy_gpio) {
--		nand->chip.legacy.dev_ready = ingenic_nand_dev_ready;
- 	}
+ static int mtk_nfc_nand_chip_init(struct device *dev, struct mtk_nfc *nfc,
+@@ -1381,13 +1414,6 @@ static int mtk_nfc_nand_chip_init(struct device *dev, struct mtk_nfc *nfc,
+ 	nand_set_controller_data(nand, nfc);
  
- 	nand->wp_gpio = devm_gpiod_get_optional(dev, "wp", GPIOD_OUT_LOW);
-@@ -359,12 +388,7 @@ static int ingenic_nand_init_chip(struct platform_device *pdev,
- 		return -ENOMEM;
- 	mtd->dev.parent = dev;
+ 	nand->options |= NAND_USES_DMA | NAND_SUBPAGE_READ;
+-	nand->legacy.dev_ready = mtk_nfc_dev_ready;
+-	nand->legacy.select_chip = mtk_nfc_select_chip;
+-	nand->legacy.write_byte = mtk_nfc_write_byte;
+-	nand->legacy.write_buf = mtk_nfc_write_buf;
+-	nand->legacy.read_byte = mtk_nfc_read_byte;
+-	nand->legacy.read_buf = mtk_nfc_read_buf;
+-	nand->legacy.cmd_ctrl = mtk_nfc_cmd_ctrl;
  
--	chip->legacy.IO_ADDR_R = cs->base + nfc->soc_info->data_offset;
--	chip->legacy.IO_ADDR_W = cs->base + nfc->soc_info->data_offset;
--	chip->legacy.chip_delay = RB_DELAY_US;
- 	chip->options = NAND_NO_SUBPAGE_WRITE;
--	chip->legacy.select_chip = ingenic_nand_select_chip;
--	chip->legacy.cmd_ctrl = ingenic_nand_cmd_ctrl;
- 	chip->ecc.mode = NAND_ECC_HW;
- 	chip->controller = &nfc->controller;
- 	nand_set_flash_node(chip, np);
+ 	/* set default mode in case dt entry is missing */
+ 	nand->ecc.mode = NAND_ECC_HW;
 -- 
 2.25.4
 
