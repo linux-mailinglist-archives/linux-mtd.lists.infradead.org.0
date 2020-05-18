@@ -2,84 +2,80 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1526C1D799F
-	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 15:20:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 63A531D7A8F
+	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 16:00:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QQJ0I0+KvENFRi0bv9dS48rHl72EL45aAd8pLhAZ5Sk=; b=Hh4OiZDXkFqWoe
-	9BKPw+iZRgQA/wwSMAlRpVsj3lkP4qA8I85R2oQra4K9bK7SkNXhMvJ+HX5X2IWAT+cIYEt3Vf67Y
-	FmoPu7vXcilh+uDT+8axqaWnSFrNSItiLzKxdXsiTJl3GIOG0emM/zyclzo+Pxg0RnPCJs1d9FIS/
-	NsFkPSSn5sNTlghUPaHAEmbduU9mJKocc9L/awfROinYEA6zfIo1/ZM4NL1T9RH64dEe7voIdPJfa
-	mbfLmNbwymuhzT0hRyJCHMo8wNCSvOBfpeVf9l/xLc8nOOUBYo5NUVfwJJht/iIa/vWBywn39K3/c
-	AefiUmp7En7J/O/bBvQA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=+w062jW3mKj9U3FuhhgxjkGHtfnTMh1b5mCMI0qB/Ik=; b=VMo
+	fIIK8QG0oUheLfClGhl7RWcNOxdE5Xgr9HfbwFSZR8MATYfOpf7fXF8ioFtGIpNrJMXNf7t3Kzba5
+	0B6xTWy6PgPN1w55s6ctj1AOkDSLZLyWO54sxkcZGrCrGikAwgLA3P2v/J3+h8Wp6lWWaqXbZxFrS
+	Vbs7KQh7v8W8z5xvHVR7/eCKDXVid3P/GooEBtT/Y6BrnNIRzS8BfOK3dR26ke1NuyYCVR3vtpINg
+	daoc0ubXLd1nJRzLovyFWuyWZ/cTQV7gFTpBfIEPbm6ZXo1s0qktbErt21okpBf09xjbgUgYVfDmQ
+	xELnk8N37HBn3oEvBEbdgbL5DLUQiKQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jafh4-0007cJ-6l; Mon, 18 May 2020 13:20:34 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1jagJY-0001AL-6B; Mon, 18 May 2020 14:00:20 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jafgs-0007ax-Tx
- for linux-mtd@lists.infradead.org; Mon, 18 May 2020 13:20:27 +0000
-Received: by mail-pf1-x442.google.com with SMTP id n18so4935927pfa.2
- for <linux-mtd@lists.infradead.org>; Mon, 18 May 2020 06:20:22 -0700 (PDT)
+ id 1jagJE-0000kC-4p
+ for linux-mtd@lists.infradead.org; Mon, 18 May 2020 14:00:01 +0000
+Received: by mail-wm1-x342.google.com with SMTP id f13so9390834wmc.5
+ for <linux-mtd@lists.infradead.org>; Mon, 18 May 2020 06:59:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=VOhtb6aDUYF/bby4eFhEdjPKdJJNHZhrs2dy1zRqvRg=;
- b=rDsKryn799wrGML6USURKvFtsAV/uzTijzNVu9hI6FTQEj3AFhZ911irHK3ovzhsUH
- gY5LA7X6RURa29N0a9uH5OFLBvFxKgmCVL+S2LHar2ZloaGB+HW7AjVNvR4EFgCBxpsy
- po8m+4EEsdKOq83PhP0pKwMOFemPBi2NghEI8xaASNmmmpuisFOXxp8CYt4r9RUzxxu1
- M3GB8LGBpgcFswMHRmJSEf6wc8sgbA4QBO4WBLxXI/N36soCP3yyMdGiZf7r3pEYznqk
- 6vi0oRLO6oAzTU8/YQKG1+FHZVrR4xGNGcqOGbViiKsPYwbG3i5aRhnYKp6FmwbGWmsi
- ut+A==
+ h=from:to:cc:subject:date:message-id;
+ bh=vq51n84RcgHv+d8wqLYGOsdzlKQOGpPL5C5pKYyl18E=;
+ b=Vgb110JPtOOtPYB2ns99Lh8QR7EaypmU/StfaF7Fs7LrDKz5zEPOzGEAO0yS8WtUrz
+ eYOXSKM6zeCARBcoE9Hd4blN3SQG6KUBIjheyVjFPdO35HlFBV7Uw5ZQ2IwJ+V32kGRa
+ 7N2MAJtvp8b9sB41BjCuffu9Al3BJoKumbkm8tt3X6+3NDOfK9UBhyDyp1a+ftia9Xvk
+ FLhLxALwNCFZfjYRl8gXIgfC2AZ5+RFxZdZc+Z23bsmoERexHV2GbpALGSBsIF59KaWk
+ uVlQs8DbtdKUI5JScCOOTIzhyN02dfBpl1GyoEom8YR0wKT5TxntsvibOLR+n02atD9s
+ srWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=VOhtb6aDUYF/bby4eFhEdjPKdJJNHZhrs2dy1zRqvRg=;
- b=sFblVHKEPqqGbZdTybM52UEaV4I13w1xLDrhB6FDKrMbgSAvidZ2tQlgesczv3QX49
- TGmZaL9OXCBMSogoes8115x8NJHurY/WQl63IT06uq1Wlw5/crdegBKHtehRIJV40Gto
- afna4t7jeoUQdwIBnLwF6D8Lb97H7trfutgiHo6aHtMHqV46HGi1X4qc8pQXGKaotQ4p
- DWj4HAk0Ugrkd24kTxFdCmsJwontFEveanLI6UdmI0sc8cx0N82vgBTbmmJO8/aGTJur
- ODnzOjhyCjxxNCDa6vDP4JgLsADEub9yuXFbpg0qVNtltbxSkMOkz+LO7//Bn3z0thRQ
- pXZA==
-X-Gm-Message-State: AOAM533iiHFhlR2XoHV5LPxG4Hn6T2Rv7AziODvmxw9arV8+R3fzQOgm
- K1kE6/tS1iXxK+sm/70YyxSMZ3Ol/ITMt5adIWI=
-X-Google-Smtp-Source: ABdhPJxEWo37sbtLGrnXVQllcXNP02GCyiWRVMGVtQCaOaZDXATQdRF9Fzdajl4gBo0tRari+NEpX4OkjNg1wYKmxcw=
-X-Received: by 2002:a63:1c1:: with SMTP id 184mr15312040pgb.203.1589808022426; 
- Mon, 18 May 2020 06:20:22 -0700 (PDT)
-MIME-Version: 1.0
-References: <20200515105537.4876-3-vadivel.muruganx.ramuthevar@linux.intel.com>
- <202005152142.AWvx4xc5%lkp@intel.com>
- <CAHp75Ven9q-6dDYtP_uXigeS_r2uvpUZVR5Mh0RdEd36MbTG+Q@mail.gmail.com>
- <CAK8P3a3RKJo-C5=19oAppx212s7T8NdnKJVmkj+h=34a8aKMNA@mail.gmail.com>
- <5180e734-ff56-db5a-ab49-8a55cfa2f2c0@linux.intel.com>
- <CAHp75Ve_XjvvGBEQyhy=qVVJMFS+18j3aKxNxSQpGK5qJmzfBg@mail.gmail.com>
- <CAK8P3a25GbMwbtvkxgmuGss6nEfAW4_vVbOXPxOYuDOaU_zcjA@mail.gmail.com>
-In-Reply-To: <CAK8P3a25GbMwbtvkxgmuGss6nEfAW4_vVbOXPxOYuDOaU_zcjA@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 18 May 2020 16:20:10 +0300
-Message-ID: <CAHp75VfFsdjAT0P4m3O=VQ1e_L7cVyQx6HB7MCN+G_XcFisqZQ@mail.gmail.com>
-Subject: Re: [PATCH v7 2/2] mtd: rawnand: Add NAND controller support on Intel
- LGM SoC
-To: Arnd Bergmann <arnd@arndb.de>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=vq51n84RcgHv+d8wqLYGOsdzlKQOGpPL5C5pKYyl18E=;
+ b=ViNkwHni1CQEJlTlkxM1MZB3yZkAaEfOHzfmgVkxpe59RJDTfKRLbznBVxnCgbrATG
+ 3QKYp7Hd1gIIjJnzElU9ghangOruUPg8iWcY630DbxMc5EO26OgEYKD0kEcpZABT0eoE
+ p2Qy1Ti1vYZH4+bNUtb6NL8IyBuhakCMT9gf1wJr/KRlWGUZmVxmCmEImoJnb/R4KTHK
+ 8agRM29z2oqyAh8woOd0lqLbjPEC1UZZiihRREAdsbAGyJO+WMpkXTNeOHZtu/6SWlWq
+ SEOe7pclCCwFSdZfv1qmlGgtPgHPYeEdEpGsgj+iBtILwsBIgVj2Xom9f1nzB78qfriy
+ uIww==
+X-Gm-Message-State: AOAM531dObpbyLTHImDEo97Gwic1EiLCWPvd8lHIE4Wp9biba+N38462
+ f4Ha8DzQRuRRiKJkJ4Pc5Oo=
+X-Google-Smtp-Source: ABdhPJzKKzuOZ953BF0u4QVx3G927Bzn2sz1T21uKit3CoAGs+d3hNub8IdCnSzu8tpDYL4lalNNnA==
+X-Received: by 2002:a1c:7213:: with SMTP id n19mr19640599wmc.88.1589810396564; 
+ Mon, 18 May 2020 06:59:56 -0700 (PDT)
+Received: from localhost.localdomain ([2a01:598:b884:8d4:84ab:c471:b6eb:fcab])
+ by smtp.gmail.com with ESMTPSA id
+ 81sm18114519wme.16.2020.05.18.06.59.54
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 18 May 2020 06:59:55 -0700 (PDT)
+From: Bean Huo <huobean@gmail.com>
+To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
+ s.hauer@pengutronix.de, boris.brezillon@collabora.com, derosier@gmail.com
+Subject: [PATCH v4 0/5] Micron SLC NAND filling block
+Date: Mon, 18 May 2020 15:59:38 +0200
+Message-Id: <20200518135943.11749-1-huobean@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200518_062026_342802_4DA54085 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20200518_070000_187993_C883ADA6 
+X-CRM114-Status: GOOD (  11.71  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:442 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:342 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [andy.shevchenko[at]gmail.com]
+ provider [huobean[at]gmail.com]
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -98,58 +94,84 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree <devicetree@vger.kernel.org>, kbuild-all@lists.01.org,
- kbuild test robot <lkp@intel.com>, Richard Weinberger <richard@nod.at>,
- Brendan Higgins <brendanhiggins@google.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, "Ramuthevar,
- Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- "open list:MEMORY TECHNOLOGY..." <linux-mtd@lists.infradead.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Anders Roxell <anders.roxell@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
- masonccyang@mxic.com.tw, Vignesh R <vigneshr@ti.com>
+Cc: huobean@gmail.com, linux-mtd@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Bean Huo <beanhuo@micron.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, May 18, 2020 at 2:57 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> On Mon, May 18, 2020 at 1:43 PM Andy Shevchenko
-> <andy.shevchenko@gmail.com> wrote:
-> > On Mon, May 18, 2020 at 2:39 PM Ramuthevar, Vadivel MuruganX
-> > <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
-> > > On 15/5/2020 10:30 pm, Arnd Bergmann wrote:
-> > > > On Fri, May 15, 2020 at 4:25 PM Andy Shevchenko
-> > > > <andy.shevchenko@gmail.com> wrote:
-> > > >> On Fri, May 15, 2020 at 4:48 PM kbuild test robot <lkp@intel.com> wrote:
-> >
-> > > > iowrite_be32() is the correct way to store word into a big-endian mmio register,
-> > > > if that is the intention here.
-> > > Thank you for suggestions to use iowrite32be(), it suits exactly.
-> >
-> > Can you before doing this comment what is the real intention here?
-> >
-> > And note, if you are going to use iowrite*() / ioread*() in one place,
-> > you will probably need to replace all of the read*() / write*() to
-> > respective io* API.
->
-> The way that ioread/iowrite are defined, they are required to be a superset
-> of what readl/writel do and can take __iomem pointers from either
-> ioremap() or ioport_map()/pci_iomap() style mappings, while readl/writel
-> are only required to work with ioremap().
->
-> There is no technical requirement to stick to one set or the other for
-> ioremap(), but the overhead of ioread/iowrite is also small enough
-> that it generally does not hurt.
+From: Bean Huo <beanhuo@micron.com>
 
-Right, my suggestion is solely for consistency. It would be a bit
-weird to see readl() along with ioread32() in the same driver (in case
-there are no differentiated callbacks specifically for different type
-of IP).
+Hi,
+
+on some legacy planar 2D Micron NAND devices when a block erase command is
+issued, occasionally even though a block erase operation completes and returns
+a pass status, the flash block may not be completely erased. Subsequent
+operations to this block on very rare cases can result in subtle failures or
+corruption. These extremely rare cases should nevertheless be considered. This
+patchset is to address this potential issue.
+
+After submission of patch V1 [1] and V2 [2], we stopped its update since we get
+stuck in the solution on how to avoid the power-loss issue in case power-cut
+hits the block filling. In the v1 and v2, to avoid this issue, we always damaged
+page0, page1, this's based on the hypothesis that NAND FS is UBIFS. This
+FS-specifical code is unacceptable in the MTD layer. Also, it cannot cover all
+NAND based file system. Based on the current discussion, seems that re-write all
+first 15 page from page0 is a satisfactory solution.
+
+Meanwhile, I borrowed one idea from Miquel Raynal patchset [3], in which keeps
+a recode of programmed pages, base on it, for most of the cases, we don't need
+to read every page to see if current erasing block is a partially programmed
+block.
+
+Changelog:
+
+v3 - v4:
+    1. In the patch 4/5, change to directly use ecc.strength to judge the page
+       is a empty page or not, rather than max_bitflips < mtd->bitflip_threshold
+    2. In the patch 5/5, for the powerloss case, from the next time boot up,
+       lots of page will be programmed from >page15 address, if still using
+       first_p as GENMASK() bitmask starting position, writtenp will be always 0,
+       fix it by changing its bitmask starting at bit position 0.
+
+v2 - v3:
+    1. Rebase patch to the latest MTD git tree
+    2. Add a record that keeps tracking the programmed pages in the first 16
+       pages
+    3. Change from program odd pages, damage page 0 and page 1, to program all
+       first 15 pages
+    4. Address issues which exist in the V2.
+
+v1 - v2:
+    1. Rebased V1 to latest Linux kernel.
+    2. Add erase preparation function pointer in nand_manufacturer_ops.
+
+
+[1] https://www.spinics.net/lists/linux-mtd/msg04112.html
+[2] https://www.spinics.net/lists/linux-mtd/msg04450.html
+[3] https://www.spinics.net/lists/linux-mtd/msg13083.html
+
+
+Bean Huo (5):
+  mtd: rawnand: group all NAND specific ops into new nand_chip_ops
+  mtd: rawnand: Add {pre,post}_erase hooks in nand_chip_ops
+  mtd: rawnand: Add write_oob hook in nand_chip_ops
+  mtd: rawnand: Introduce a new function nand_check_is_erased_page()
+  mtd: rawnand: micron: Micron SLC NAND filling block
+
+ drivers/mtd/nand/raw/internals.h     |   3 +-
+ drivers/mtd/nand/raw/nand_base.c     |  88 +++++++++++++++++++----
+ drivers/mtd/nand/raw/nand_hynix.c    |   2 +-
+ drivers/mtd/nand/raw/nand_macronix.c |  10 +--
+ drivers/mtd/nand/raw/nand_micron.c   | 104 ++++++++++++++++++++++++++-
+ include/linux/mtd/rawnand.h          |  40 +++++++----
+ 6 files changed, 212 insertions(+), 35 deletions(-)
 
 -- 
-With Best Regards,
-Andy Shevchenko
+2.17.1
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
