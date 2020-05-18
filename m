@@ -2,76 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 87F561D82D9
-	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 20:00:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 220CA1D8466
+	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 20:12:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=/vbJQhi2PdFWCd7hTvns5ib7BYP9Fujff25jW1IVGCY=; b=N7J
-	egy+gkKDUHsnGXBp/Ln8YRmnPikrJ1nF0XEet+OXcWO71gHW9i8U1BmXvLM1g/xW8v22d/LI5oErf
-	FUfVq89SWlBGWuSw3RtD6vomf5kklyxE+6NOdELEoyACsQg86q0mNxekq0rupGch5hQF11kHxc81H
-	Vd2zH3ayJX/EPUkI3kY0y1zILr+YmL19BJTgr+9ZfppXqMSTrP/AgfBCRU+5m8KunpMHboG92GZj+
-	5iyMhl7qdQmyDRRCjmZkOKgjMlR1E97NMPIeOABw8gk3p8RzQezNd2qrqwo4/7svXuY9vbQQYW/Kr
-	hJef1Z1P4ectq4rI50+VThHzPHN1/+w==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Nl6fgy2A2JGCCdy0xJ4K+XZ2ZBpdQwfAD3j3oKvegNU=; b=PugX72XwoF0ueH
+	qdgX+U00hhDd3WomOu77kWg609fcDJxqgkrgLwo6mjb6U/4zNCQLXfBMIFK9ZldlVTGhlGIeKc6Kk
+	hFuoockCbg8otskNdCRsjQMQ6eiHxwhTV0028bQpS3G4gawgsJtZpvAuMTgJGKMJUsUhxpSvkl9xY
+	AMaVh6y0S09xCvv9ZhKGhDnYlpZ0h+thDmx/kCiBgLVw69NhCNmAQMrAUHLjVexeWCwafY/hG7Pdf
+	Rue6E9YGyB2pOF1bWTTUjQuQZjV5BuhzpCnGxghM3yp7j1AOQPCchXgTMACo3rtpopwcgK5bAM9h3
+	L7I2Rt1AseVZc99SBEWw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jak3R-0008J1-OG; Mon, 18 May 2020 17:59:57 +0000
-Received: from rcdn-iport-8.cisco.com ([173.37.86.79])
+	id 1jakFb-0007R6-4g; Mon, 18 May 2020 18:12:31 +0000
+Received: from mail-il1-f195.google.com ([209.85.166.195])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jak34-00089B-58
- for linux-mtd@lists.infradead.org; Mon, 18 May 2020 17:59:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=cisco.com; i=@cisco.com; l=1409; q=dns/txt; s=iport;
- t=1589824773; x=1591034373;
- h=from:to:cc:subject:date:message-id;
- bh=I6Ye1oWv20B/Y6eYK4Iqy3OEerd2+jAvxiUKGYznuqo=;
- b=MYFCMeDkjwhy+ggODO8sP8T2AQ7PgXmhypyokvTpyshWPHyB1JsIqlQJ
- d35Uk3T0qJRmdhchagZdepHNn94I/ivf0RKPfnDIjzpg0WZu2CnGBtlXR
- F1R7DngPWhZnHwyvnUU1l71h63RMnQcNe/KoNNOislgn7xHUjzL+SJ9DZ Q=;
-X-IronPort-AV: E=Sophos;i="5.73,407,1583193600"; d="scan'208";a="768458453"
-Received: from rcdn-core-10.cisco.com ([173.37.93.146])
- by rcdn-iport-8.cisco.com with ESMTP/TLS/DHE-RSA-SEED-SHA;
- 18 May 2020 17:59:32 +0000
-Received: from zorba.cisco.com ([10.24.1.223])
- by rcdn-core-10.cisco.com (8.15.2/8.15.2) with ESMTP id 04IHxUGL000659;
- Mon, 18 May 2020 17:59:32 GMT
-From: Daniel Walker <danielwa@cisco.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Subject: [PATCH 2/2] mtd: spi-nor: intel-spi: fix forced writable option
-Date: Mon, 18 May 2020 10:59:30 -0700
-Message-Id: <20200518175930.10948-2-danielwa@cisco.com>
-X-Mailer: git-send-email 2.17.1
-X-Auto-Response-Suppress: DR, OOF, AutoReply
-X-Outbound-SMTP-Client: 10.24.1.223, [10.24.1.223]
-X-Outbound-Node: rcdn-core-10.cisco.com
+ id 1jakFQ-0007Q6-Ub
+ for linux-mtd@lists.infradead.org; Mon, 18 May 2020 18:12:22 +0000
+Received: by mail-il1-f195.google.com with SMTP id j3so10760721ilk.11
+ for <linux-mtd@lists.infradead.org>; Mon, 18 May 2020 11:12:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=wza7y0iWSmQunc9aAsvn/ABnmr/MQ8TpkPd34EycxTs=;
+ b=G4qGsnRvjs37weApgTWtbYu82TRzmyK0ll3+4ydL+EqM6zeO/G6b0DSqFE0aaTCrfw
+ LB0jVS+dSHqaTblFR4XFvwz5MtKEmEAaPH4WaSV5zm8TJgN3/5uPRfXd/qCeyDDUEhRU
+ /YlC8poDUoPyEYnhYAFa6YfsWclt657agtD5cp2ns0jPrValigFx6s51Ixzi14EDHMAx
+ Jp71yxjfPvWRDFIrufKVf1K8UJ6xHAhP/x/za/ddYDsM6NfJ8iYQfbivUSkjOTcIpvoZ
+ p/To5BUQiFt3Uh/1NJkzINiKBJuPC+8fpppp0CpwNH+YURrY2zdImh/RNPRClaoNlDPh
+ Veng==
+X-Gm-Message-State: AOAM531a65a7qcPFHxaj44Iau/Q+9PWo+wNISqsMjA7cMhItUzaPlC8f
+ LcIsWmp30yLmxlxCPqnUew==
+X-Google-Smtp-Source: ABdhPJxRuz2c7uilqkp6Yz7wsrwWTC5DyQruXesuSs2L9u16dXm49HJmPCUrA+N2gnuqLeLFa3yW+w==
+X-Received: by 2002:a92:8cd6:: with SMTP id s83mr18470530ill.133.1589825538604; 
+ Mon, 18 May 2020 11:12:18 -0700 (PDT)
+Received: from rob-hp-laptop ([64.188.179.252])
+ by smtp.gmail.com with ESMTPSA id p1sm4087313ioh.38.2020.05.18.11.12.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 18 May 2020 11:12:17 -0700 (PDT)
+Received: (nullmailer pid 15457 invoked by uid 1000);
+ Mon, 18 May 2020 18:12:16 -0000
+Date: Mon, 18 May 2020 12:12:16 -0600
+From: Rob Herring <robh@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v4 6/8] dt-bindings: mtd: Document ARASAN NAND bindings
+Message-ID: <20200518181216.GA15399@bogus>
+References: <20200508171339.8052-1-miquel.raynal@bootlin.com>
+ <20200508171339.8052-7-miquel.raynal@bootlin.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200508171339.8052-7-miquel.raynal@bootlin.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200518_105934_275998_BB6F0AEE 
-X-CRM114-Status: GOOD (  12.47  )
-X-Spam-Score: -12.7 (------------)
+X-CRM114-CacheID: sfid-20200518_111220_983336_415AB77B 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-12.7 points)
+ Content analysis details:   (0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [173.37.86.79 listed in wl.mailspike.net]
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [173.37.86.79 listed in list.dnswl.org]
- -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
- white-list
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.166.195 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [robherring2[at]gmail.com]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [robherring2[at]gmail.com]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.195 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -83,52 +92,29 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, xe-linux-external@cisco.com,
- linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>, Jinhua Wu <jinhwu@cisco.com>
-MIME-Version: 1.0
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Michal Simek <monstr@monstr.eu>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, Rob Herring <robh+dt@kernel.org>,
+ Naga Sureshkumar Relli <nagasure@xilinx.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This option currently doesn't work as expected. If the BIOS has this
-flash as read-only there is no way to change this thru the driver.
-There is a parameter which allows the flash to become writable with the
-"writable" option to the module, but it does nothing if the BIOS has it
-set to read-only.
+On Fri,  8 May 2020 19:13:37 +0200, Miquel Raynal wrote:
+> Document the Arasan NAND controller bindings.
+> 
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>  .../bindings/mtd/arasan,nand-controller.yaml  | 63 +++++++++++++++++++
+>  1 file changed, 63 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mtd/arasan,nand-controller.yaml
+> 
 
-I would expect this option would make the flash writable regardless of
-the BIOS settings. This patch changes this option so the BIOS setting
-doesn't stop the writable option from enabling read write on the flash.
-
-Original patch by Jinhua Wu <jinhwu@cisco.com>
-
-Cc: Jinhua Wu <jinhwu@cisco.com>
-Cc: xe-linux-external@cisco.com
-Signed-off-by: Daniel Walker <danielwa@cisco.com>
----
- drivers/mtd/spi-nor/controllers/intel-spi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mtd/spi-nor/controllers/intel-spi.c b/drivers/mtd/spi-nor/controllers/intel-spi.c
-index e5a3d51a2e4d..68a5877bfc0b 100644
---- a/drivers/mtd/spi-nor/controllers/intel-spi.c
-+++ b/drivers/mtd/spi-nor/controllers/intel-spi.c
-@@ -954,7 +954,7 @@ struct intel_spi *intel_spi_probe(struct device *dev,
- 	intel_spi_fill_partition(ispi, &part);
- 
- 	/* Prevent writes if not explicitly enabled */
--	if (!ispi->writeable || !writeable)
-+	if (!ispi->writeable && !writeable)
- 		ispi->nor.mtd.flags &= ~MTD_WRITEABLE;
- 
- 	ret = mtd_device_register(&ispi->nor.mtd, &part, 1);
--- 
-2.17.1
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 ______________________________________________________
 Linux MTD discussion mailing list
