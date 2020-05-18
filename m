@@ -2,55 +2,88 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A2541D888E
-	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 21:57:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A91561D892B
+	for <lists+linux-mtd@lfdr.de>; Mon, 18 May 2020 22:32:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yR7oXubBLi7a9jaEqWqZ8HAcN6pajSTh6O/lHEPYr5Q=; b=r0OOJwSKVTttnD
-	K7F2uOl7A4rQGWAnD6RT7tqku7sEDIfjNpNTI9pxt+h8xLvHT3FgcZXX9lUQt2TvROXgsiPJpSijT
-	nodswLqulhibO57q+3S/kfksJnuSw8OyE98mGxCFwT5TAi6fa5ROijHV40nxx4m41ofN2P9SLxCbr
-	pXtEyEVspTh6Q2HISZO+0YZOyNsjqPtuEi1Gqvehtf81NzAIbeySMPS6XGmcdg4s/Ck7ZMr2dRUNr
-	c3oIxmnbkKGZ2DMpCukgs2q0FEw6MWlBaiCSp+UknyROlFSmFzZgVPlCloV4NR8dDyfvML9efjHYO
-	y7qNvO3fnBXoIAoof2Lw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:To:Subject
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iLVf/r3yc3MlvYP3XjrC8tIc38QeX7pr9Fw3sVg+79U=; b=Z+DXaeR20uWZ1I
+	QZcRu8G2tCg8O89kLAJw0UqTOA9MIlNpUOhoq6kj+y30wD9jk/aMzyVC8Lj+fdbSF1fbQSNs5OCff
+	3RvRV2tWoh1ta0PsUepEiVl6yyBS76crZePy8OIbsrDi9juL9bsUuA9Yo42jCllrLxcw684z5hQqy
+	qg2niHLHdL3e8fz60qFx6YpFIx9nEmXXS4oHr/NBwzifVEsW8YEAET/90mmXfgfI1vhUTkCmuBVHM
+	PxiDeFneXPzWvwtwK+5NmYEnQimVtQMRs5qB8fzGEpQePsHB7r2Ulmr65a68eeSpbv+kRgTpooj5U
+	PT3xdFVaV2vWOvEqrjKg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jalsq-0001SI-EV; Mon, 18 May 2020 19:57:08 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1jamQc-0006Yy-Or; Mon, 18 May 2020 20:32:02 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jalsd-0001P6-I9
- for linux-mtd@lists.infradead.org; Mon, 18 May 2020 19:57:00 +0000
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id D6A89200005;
- Mon, 18 May 2020 19:56:50 +0000 (UTC)
-Date: Mon, 18 May 2020 21:56:49 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Ricardo Ribalda Delgado <ricardo@ribalda.com>
-Subject: Re: [PATCH] mtd: Fix mtd not registered due to nvmem name collision
-Message-ID: <20200518215649.5273b132@xps13>
-In-Reply-To: <CAPybu_3D5p7P5ND5qb8-2QmaQhQuvdEbiNKkeK5PbHdF3s-2Fg@mail.gmail.com>
-References: <20200430131721.360064-1-ricardo@ribalda.com>
- <20200504104339.31b4a858@xps13>
- <CAPybu_3D5p7P5ND5qb8-2QmaQhQuvdEbiNKkeK5PbHdF3s-2Fg@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jamQV-0006Ya-8f
+ for linux-mtd@lists.infradead.org; Mon, 18 May 2020 20:31:56 +0000
+Received: by mail-lf1-x133.google.com with SMTP id a4so9245410lfh.12
+ for <linux-mtd@lists.infradead.org>; Mon, 18 May 2020 13:31:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cogentembedded-com.20150623.gappssmtp.com; s=20150623;
+ h=from:subject:to:cc:organization:message-id:date:user-agent
+ :mime-version:content-language:content-transfer-encoding;
+ bh=BmSBD7h3njitpLi5QsmTDnHJWiGkucDb02pMa3UrBRI=;
+ b=S/V2meIHX6iNtfRVQH6gN/h2Lyp5uwDpI0DvK0EGXJdBE8jiAkFT97P5mkXdh2m3qW
+ ubkAh6O+D9ZIP0TmMu3wEF23N+L0d1FbplsFxsXfmJkWqBx/FecsnSOhqcbJSZalCmSX
+ ab2E8KVO0NHXnv45BislI93lru50zeVPdIXNKU8o7U2BmVysz3A37I1k07XWaEjHG9tt
+ QCNMsjiHo9N9IDnZAKrkwUP4eE2k4MJ0+/P7m2/02hKLGgbf1HVZsvZVfuDJpKcGOkeU
+ V3Sm5fQgFuy8ce7soIHMMb1eQvOblNhAIkIaWlcnoPIUqVXoXZ0WnYTvkon9naCb3Zky
+ fmmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:subject:to:cc:organization:message-id:date
+ :user-agent:mime-version:content-language:content-transfer-encoding;
+ bh=BmSBD7h3njitpLi5QsmTDnHJWiGkucDb02pMa3UrBRI=;
+ b=Xi+pp4UJ2zh7k3EUc5KgBdbk4MTXypupSjEXTAoeWmus3H0o2Si0xWqSv88Ov5fozX
+ TKQur4CKarx955YdktCayM0obBDrRWLze0Yo/Ad0vTHTdpdRlK3pyh22ZG63P6Sqj7wR
+ GIzoVciobDSYFrA+pxr3IFGZk7nOgAp8f/lqWwjka9Gh11rQiLTLsE0y7YyOz15ViHK7
+ /i+0rNgXzy2dMubR3pbeaqA8/gzdsOL6+j0O1+I/g7zcQc4kXxQcAGOZ6BhZcQsC3vbU
+ d3nwecAiuJbP7o/L6/ZHeGfJhQWgDtazpJNAb1DREpiln7etyLj57aRaETJoNPb9a4p9
+ Rsgg==
+X-Gm-Message-State: AOAM531EB6tM4bzsEL3dmhouLqcI9bhxrgWupvfVCdK30ZRf06HJIcb8
+ L729Chj87Fq5euFxBXKYb93kv/URL54=
+X-Google-Smtp-Source: ABdhPJwbeRgWCUksn3Rp9PyliuSUUrgdtDgGrHAVgDph+uCNv8e0tKIc/Q6nrbUUHFC0gCY5cMqmTg==
+X-Received: by 2002:a19:990:: with SMTP id 138mr7817351lfj.135.1589833912488; 
+ Mon, 18 May 2020 13:31:52 -0700 (PDT)
+Received: from wasted.cogentembedded.com
+ ([2a00:1fa0:4650:c10:49f1:792f:a411:29a7])
+ by smtp.gmail.com with ESMTPSA id z17sm7136988ljc.81.2020.05.18.13.31.51
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 18 May 2020 13:31:51 -0700 (PDT)
+From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
+Subject: [PATCH v3 0/2] Add Renesas RPC-IF support
+To: Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org
+Organization: Cogent Embedded
+Message-ID: <26faf5e8-26eb-cceb-a500-f0fd64609737@cogentembedded.com>
+Date: Mon, 18 May 2020 23:31:50 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
 MIME-Version: 1.0
+Content-Language: en-MW
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200518_125655_882312_0102608F 
-X-CRM114-Status: GOOD (  23.23  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200518_133155_453201_07152172 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.232 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:133 listed in]
+ [list.dnswl.org]
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,65 +95,32 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>,
- LKML <linux-kernel@vger.kernel.org>,
- Boris Brezillon <boris.brezillon@collabora.com>, Alban Bedel <albeu@free.fr>,
- linux-mtd@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Chris Brandt <chris.brandt@renesas.com>,
+ Mason Yang <masonccyang@mxic.com.tw>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-spi@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgUmljYXJkbywKClJpY2FyZG8gUmliYWxkYSBEZWxnYWRvIDxyaWNhcmRvQHJpYmFsZGEuY29t
-PiB3cm90ZSBvbiBNb24sIDE4IE1heSAyMDIwCjE2OjAxOjQ3ICswMjAwOgoKPiBIaQo+IAo+IFRo
-aXMgaXMganVzdCBhIGZyaWVuZGx5IHBpbmcgYWZ0ZXIgdHdvIHdlZWtzIDspCgpEb24ndCB3b3Jy
-eSwgaXQncyBpbiB0aGUgcGlwZSA6KQoKPiAKPiBPbiBNb24sIE1heSA0LCAyMDIwIGF0IDEwOjQ0
-IEFNIE1pcXVlbCBSYXluYWwgPG1pcXVlbC5yYXluYWxAYm9vdGxpbi5jb20+IHdyb3RlOgo+ID4K
-PiA+IEhpIFJpY2hhcmQsCj4gPgo+ID4gUmljYXJkbyBSaWJhbGRhIERlbGdhZG8gPHJpY2FyZG9A
-cmliYWxkYS5jb20+IHdyb3RlIG9uIFRodSwgMzAgQXByIDIwMjAKPiA+IDE1OjE3OjIxICswMjAw
-Ogo+ID4gIAo+ID4gPiBGcm9tOiBSaWNhcmRvIFJpYmFsZGEgRGVsZ2FkbyA8cmliYWxkYUBrZXJu
-ZWwub3JnPgo+ID4gPgo+ID4gPiBXaGVuIHRoZSBudm1lbSBmcmFtZXdvcmsgaXMgZW5hYmxlZCwg
-YSBudm1lbSBkZXZpY2UgaXMgY3JlYXRlZCBwZXIgbXRkCj4gPiA+IGRldmljZS9wYXJ0aXRpb24u
-Cj4gPiA+Cj4gPiA+IEl0IGlzIG5vdCB1bmNvbW1vbiB0aGF0IGEgZGV2aWNlIGNhbiBoYXZlIG11
-bHRpcGxlIG10ZCBkZXZpY2VzIHdpdGgKPiA+ID4gcGFydGl0aW9ucyB0aGF0IGhhdmUgdGhlIHNh
-bWUgbmFtZS4gRWcsIHdoZW4gdGhlcmUgRFQgb3ZlcmxheSBpcyBhbGxvd2VkCj4gPiA+IGFuZCB0
-aGUgc2FtZSBkZXZpY2Ugd2l0aCBtdGQgaXMgYXR0YWNoZWQgdHdpY2UuCj4gPiA+Cj4gPiA+IFVu
-ZGVyIHRoYXQgY2lyY3Vtc3RhbmNlcywgdGhlIG10ZCBmYWlscyB0byByZWdpc3RlciBkdWUgdG8g
-YSBuYW1lCj4gPiA+IGR1cGxpY2F0aW9uIG9uIHRoZSBudm1lbSBmcmFtZXdvcmsuCj4gPiA+Cj4g
-PiA+IFdpdGggdGhpcyBwYXRjaCB3ZSB1c2UgdGhlIG10ZFggbmFtZSBpbnN0ZWFkIG9mIHRoZSBw
-YXJ0aXRpb24gbmFtZSwKPiA+ID4gd2hpY2ggaXMgdW5pcXVlLgo+ID4gPgo+ID4gPiBbICAgIDgu
-OTQ4OTkxXSBzeXNmczogY2Fubm90IGNyZWF0ZSBkdXBsaWNhdGUgZmlsZW5hbWUgJy9idXMvbnZt
-ZW0vZGV2aWNlcy9Qcm9kdWN0aW9uIERhdGEnCj4gPiA+IFsgICAgOC45NDg5OTJdIENQVTogNyBQ
-SUQ6IDI0NiBDb21tOiBzeXN0ZW1kLXVkZXZkIE5vdCB0YWludGVkIDUuNS4wLXF0ZWMtc3RhbmRh
-cmQgIzEzCj4gPiA+IFsgICAgOC45NDg5OTNdIEhhcmR3YXJlIG5hbWU6IEFNRCBEaWJibGVyL0Rp
-YmJsZXIsIEJJT1MgMDUuMjIuMDQuMDAxOSAxMC8yNi8yMDE5Cj4gPiA+IFsgICAgOC45NDg5OTRd
-IENhbGwgVHJhY2U6Cj4gPiA+IFsgICAgOC45NDg5OTZdICBkdW1wX3N0YWNrKzB4NTAvMHg3MAo+
-ID4gPiBbICAgIDguOTQ4OTk4XSAgc3lzZnNfd2Fybl9kdXAuY29sZCsweDE3LzB4MmQKPiA+ID4g
-WyAgICA4Ljk0OTAwMF0gIHN5c2ZzX2RvX2NyZWF0ZV9saW5rX3NkLmlzcmEuMCsweGMyLzB4ZDAK
-PiA+ID4gWyAgICA4Ljk0OTAwMl0gIGJ1c19hZGRfZGV2aWNlKzB4NzQvMHgxNDAKPiA+ID4gWyAg
-ICA4Ljk0OTAwNF0gIGRldmljZV9hZGQrMHgzNGIvMHg4NTAKPiA+ID4gWyAgICA4Ljk0OTAwNl0g
-IG52bWVtX3JlZ2lzdGVyLnBhcnQuMCsweDFiZi8weDY0MAo+ID4gPiAuLi4KPiA+ID4gWyAgICA4
-Ljk0ODkyNl0gbXRkIG10ZDg6IEZhaWxlZCB0byByZWdpc3RlciBOVk1FTSBkZXZpY2UKPiA+ID4K
-PiA+ID4gRml4ZXM6IGM0ZGZhMjVhYjMwNyAoIm10ZDogYWRkIHN1cHBvcnQgZm9yIHJlYWRpbmcg
-TVREIGRldmljZXMgdmlhIHRoZSBudm1lbSBBUEkiKQo+ID4gPiBTaWduZWQtb2ZmLWJ5OiBSaWNh
-cmRvIFJpYmFsZGEgRGVsZ2FkbyA8cmliYWxkYUBrZXJuZWwub3JnPgo+ID4gPiAtLS0KPiA+ID4g
-IGRyaXZlcnMvbXRkL210ZGNvcmUuYyB8IDIgKy0KPiA+ID4gIDEgZmlsZSBjaGFuZ2VkLCAxIGlu
-c2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+ID4gPgo+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVy
-cy9tdGQvbXRkY29yZS5jIGIvZHJpdmVycy9tdGQvbXRkY29yZS5jCj4gPiA+IGluZGV4IDI5MTY2
-NzQyMDhiMy4uMjlkNDEwMDNkNmUwIDEwMDY0NAo+ID4gPiAtLS0gYS9kcml2ZXJzL210ZC9tdGRj
-b3JlLmMKPiA+ID4gKysrIGIvZHJpdmVycy9tdGQvbXRkY29yZS5jCj4gPiA+IEBAIC01NTUsNyAr
-NTU1LDcgQEAgc3RhdGljIGludCBtdGRfbnZtZW1fYWRkKHN0cnVjdCBtdGRfaW5mbyAqbXRkKQo+
-ID4gPgo+ID4gPiAgICAgICBjb25maWcuaWQgPSAtMTsKPiA+ID4gICAgICAgY29uZmlnLmRldiA9
-ICZtdGQtPmRldjsKPiA+ID4gLSAgICAgY29uZmlnLm5hbWUgPSBtdGQtPm5hbWU7Cj4gPiA+ICsg
-ICAgIGNvbmZpZy5uYW1lID0gZGV2X25hbWUoJm10ZC0+ZGV2KTsKPiA+ID4gICAgICAgY29uZmln
-Lm93bmVyID0gVEhJU19NT0RVTEU7Cj4gPiA+ICAgICAgIGNvbmZpZy5yZWdfcmVhZCA9IG10ZF9u
-dm1lbV9yZWdfcmVhZDsKPiA+ID4gICAgICAgY29uZmlnLnNpemUgPSBtdGQtPnNpemU7ICAKPiA+
-Cj4gPiBXZSBob3BlIHRoaXMgd2lsbCBkZWZpbml0ZWx5IGZpeCB0aGUgTlZNRU0gZHVwbGljYXRl
-IG5hbWUgaXNzdWUuIElmIGl0Cj4gPiBkb2VzIG5vdCByZWxpYWJseSwgd2UgbWlnaHQgd2FudCB0
-byByZXZlcnQgdGhpcyBwYXRjaCBhbmQgY3JlYXRlIGFuIE1URAo+ID4gdW5pcXVlIElEIGZpZWxk
-IHdoaWNoLCBmb3IgZWFjaCBNVEQgZGV2aWNlLCBjb25jYXRlbmF0ZXMgdGhlIG5hbWUgb2YKPiA+
-IGl0cyBwYXJlbnQgYW5kIGl0cyBvd24gbXRkLT5uYW1lLgo+ID4KPiA+IEFja2VkLWJ5OiBNaXF1
-ZWwgUmF5bmFsIDxtaXF1ZWwucmF5bmFsQGJvb3RsaW4uY29tPgo+ID4KPiA+IFRoYW5rcywKPiA+
-IE1pcXXDqGwgIAo+IAo+IAo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
+Hello!
+
+Here's a set of 2 patches against Linus' repo. Renesas Reduced Pin Count
+Interface (RPC-IF) allows a SPI flash or HyperFlash connected to the SoC
+to be accessed via the external address space read mode or the manual mode.
+The memory controller driver for RPC-IF registers either SPI or HyperFLash
+subdevice, depending on the contents of the device tree subnode; it also
+provides the abstract "back end" API that can be used by the "front end"
+SPI/MTD drivers to talk to the real hardware...
+
+Based on the original patch by Mason Yang <masonccyang@mxic.com.tw>.
+
+[1/2] dt-bindings: memory: document Renesas RPC-IF bindings
+[2/2] memory: add Renesas RPC-IF driver
+
+MBR, Sergei
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
