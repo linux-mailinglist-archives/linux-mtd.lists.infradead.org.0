@@ -2,53 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09CCC1D96EB
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:01:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4383F1D96EC
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:02:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LNCo9Vi4iC3LwN+O7JBV4GNo1L97B5miBQhCnzjr2H0=; b=h42GzdtPeyJGC/
-	Y+nNS1T7mjwR38+qPg6j0bpPHkSO4A+aQ0uy/zH6Kd7hWkmHvLE3122H3AAuq7CZtK2Vt/Fzx3G87
-	Ly66hTHtUk8W95LUmq/OJdaiwsMekR5OaK5W99V1s89RgwxByx4GHrH8Wc0pR7UE3f8edJnTVE5MS
-	gu0QFD9+aFnzMIZqR4lcdZol3mdUaoMQXR5OUOXw/Xy3GqgGYSJE/abMtkiSpBzjNjk4/dlmV6iqN
-	Ku2yX0pF7rj5Va4KT7tR46VC65GJggTQggpijIQTclDu4tiIaTvCWKdA8en1PGlOIudxwQ+1TK8Or
-	ijT7ygsMGSJj5fGSZZgw==;
+	List-Owner; bh=l5VMHweOPxzYdFSCWBW1i3JIgrX1Dcoz92Z2L3byGvk=; b=CBlFPpJwF4P8tT
+	O2t7HMhbmLzTjIJkbk6O6y0LTB5c8+LpssCuty42qOpDsmZ6OL32eSr5Dd/MJmWHTElFvNU5DRyp/
+	fretGCaEoV9/woNnnUxlQd8zuwc0san6X+rHXT29UNfe7h1ZgoOUzTaJ/SWqberYnJadyfV+NwxfJ
+	7ijRidfpQtNfn23z9jjlXoxkNYb1RjO8lV9/YvbxXNkweEvfSVf+9+b24p54MWVdtX1KuCV6miZ2Z
+	KPo74cxAyAEnRYKtlGsTm/5B2WFoe1ImhCEEFttbn/UluEnQtaRakXWwsqWkQuabguoHj7yWC6+C3
+	N4h1cvIiEsJ3VbgNBGvA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb1sQ-0002RM-KY; Tue, 19 May 2020 13:01:46 +0000
+	id 1jb1sn-0002hr-2A; Tue, 19 May 2020 13:02:09 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1rP-0001fy-Hr
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:45 +0000
+ id 1jb1rP-0001fx-HZ
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:47 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 0FBADFF802;
- Tue, 19 May 2020 13:00:40 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 773D6FF815;
+ Tue, 19 May 2020 13:00:41 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 01/62] mtd: rawnand: ams-delta: Stop using nand_release()
-Date: Tue, 19 May 2020 14:59:34 +0200
-Message-Id: <20200519130035.1883-2-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 02/62] mtd: rawnand: au1550nd: Stop using nand_release()
+Date: Tue, 19 May 2020 14:59:35 +0200
+Message-Id: <20200519130035.1883-3-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060043_776933_EB7EEC85 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20200519_060043_782796_94F19D68 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
  [217.70.183.199 listed in wl.mailspike.net]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.199 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -76,30 +77,26 @@ nand_cleanup() directly.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/ams-delta.c | 5 ++++-
+ drivers/mtd/nand/raw/au1550nd.c | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/ams-delta.c b/drivers/mtd/nand/raw/ams-delta.c
-index d66dab25df20..3711e7a0436c 100644
---- a/drivers/mtd/nand/raw/ams-delta.c
-+++ b/drivers/mtd/nand/raw/ams-delta.c
-@@ -387,12 +387,15 @@ static int gpio_nand_remove(struct platform_device *pdev)
+diff --git a/drivers/mtd/nand/raw/au1550nd.c b/drivers/mtd/nand/raw/au1550nd.c
+index 2ac84cb0501d..f7b4f421b2b0 100644
+--- a/drivers/mtd/nand/raw/au1550nd.c
++++ b/drivers/mtd/nand/raw/au1550nd.c
+@@ -325,8 +325,11 @@ static int au1550nd_remove(struct platform_device *pdev)
  {
- 	struct gpio_nand *priv = platform_get_drvdata(pdev);
- 	struct mtd_info *mtd = nand_to_mtd(&priv->nand_chip);
-+	int ret;
+ 	struct au1550nd_ctx *ctx = platform_get_drvdata(pdev);
+ 	struct resource *r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	struct nand_chip *chip = &ctx->chip;
  
- 	/* Apply write protection */
- 	gpiod_set_value(priv->gpiod_nwp, 1);
- 
- 	/* Unregister device */
--	nand_release(mtd_to_nand(mtd));
-+	ret = mtd_device_unregister(mtd);
+-	nand_release(&ctx->chip);
++	ret = mtd_device_unregister(nand_to_mtd(chip));
 +	WARN_ON(ret);
-+	nand_cleanup(mtd_to_nand(mtd));
- 
- 	return 0;
- }
++	nand_cleanup(chip);
+ 	iounmap(ctx->base);
+ 	release_mem_region(r->start, 0x1000);
+ 	kfree(ctx);
 -- 
 2.20.1
 
