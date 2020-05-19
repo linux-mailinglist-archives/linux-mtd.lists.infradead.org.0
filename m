@@ -2,44 +2,44 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B101F1D9772
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:16:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 309C11D9771
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:16:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fu9Hx4GSJ+QWbg3O9QVENn6TlgTmW2kUYI95TILQ7b8=; b=gse3G9QFptlXym
-	6P/n+1boyUk2VwO3jTHmeYmt8iakz1inbReH/To6yP/OCM0ze8eh4NhLqCLEoG6R4kJQJB4pBf/VT
-	o8aPhrrx2lWAjlE/jR0I4YgwdUTYfnjhls29I9OkmP5Fszm6O8Y+ETkPRkh5AC218CZwEcpV21E+O
-	BxWfuaP5NbXXanRvBXmyey6J+umpceLCdoAv3a75uoYKsqgdTHqUZ8gaQgCvaP1BF8Ay6ICsUtJcc
-	GEtZz7axnbVWLTIcRHj7/N01ifqUSArwToPE+wRJ4ENSk7jLRbHCUGjntRlVyh2QDnhjcWAaOkY8P
-	9SQFkCC8Pk4/CCk27FJQ==;
+	List-Owner; bh=4QMNRS6kdkXN3C93CzqesHzsncLhNXkA7HVxv794nxA=; b=etd9X7XTqqRJuq
+	VgUsLqoXsTGCQJ4XsGdDOpH68dh+OZUdaUzlowCSbQIVo7fERS6QVuk+eGXtPgYIqGFxkipbxmpih
+	A7EtKvayoaj4s6L4bDJbjkwpYTlPIzYwzRDwes7kf7UArVIluqv6r8IR3hRTZymWBwfbl68EVgcdu
+	6rkjrl94WPwL/aHGrMPsVexWolQyPTWOb2aIH0eBeNAo0McxP5PqeSlEWYYosLPYnZyUFBfcAn/ZN
+	ETiRDbGRW/8MyJVKTgRkY04DSXCjc23jR9XxdvMrinKi4Cb3CAuvXFhx5W9ddi4n9xZTzh8v0zNr6
+	6mdBDgRAZdYm2rCEJ6bg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb26U-0005gs-H2; Tue, 19 May 2020 13:16:18 +0000
+	id 1jb26F-0005Sx-08; Tue, 19 May 2020 13:16:03 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1ru-0002CV-Iw
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:01:18 +0000
+ id 1jb1rv-0002D4-34
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:01:19 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 9A57BFF819;
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 145C8FF81E;
  Tue, 19 May 2020 13:01:12 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 58/62] mtd: rawnand: txx9ndfmc: Stop using nand_release()
-Date: Tue, 19 May 2020 15:00:31 +0200
-Message-Id: <20200519130035.1883-59-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 59/62] mtd: rawnand: vf610: Stop using nand_release()
+Date: Tue, 19 May 2020 15:00:32 +0200
+Message-Id: <20200519130035.1883-60-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060115_115706_B3DB0153 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20200519_060115_295899_63DA6061 
+X-CRM114-Status: GOOD (  10.51  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -62,7 +62,7 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Stefan Agner <stefan@agner.ch>, Miquel Raynal <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
@@ -75,34 +75,29 @@ Let's stop using nand_release() by calling mtd_device_unregister() and
 nand_cleanup() directly.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Stefan Agner <stefan@agner.ch>
 ---
- drivers/mtd/nand/raw/txx9ndfmc.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/raw/vf610_nfc.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/txx9ndfmc.c b/drivers/mtd/nand/raw/txx9ndfmc.c
-index 2642d5bb3241..47d966871445 100644
---- a/drivers/mtd/nand/raw/txx9ndfmc.c
-+++ b/drivers/mtd/nand/raw/txx9ndfmc.c
-@@ -371,7 +371,7 @@ static int __init txx9ndfmc_probe(struct platform_device *dev)
- static int __exit txx9ndfmc_remove(struct platform_device *dev)
+diff --git a/drivers/mtd/nand/raw/vf610_nfc.c b/drivers/mtd/nand/raw/vf610_nfc.c
+index bd9e16de78a2..7248c5901183 100644
+--- a/drivers/mtd/nand/raw/vf610_nfc.c
++++ b/drivers/mtd/nand/raw/vf610_nfc.c
+@@ -917,8 +917,12 @@ static int vf610_nfc_probe(struct platform_device *pdev)
+ static int vf610_nfc_remove(struct platform_device *pdev)
  {
- 	struct txx9ndfmc_drvdata *drvdata = platform_get_drvdata(dev);
--	int i;
-+	int ret, i;
+ 	struct vf610_nfc *nfc = platform_get_drvdata(pdev);
++	struct nand_chip *chip = &nfc->chip;
++	int ret;
  
- 	if (!drvdata)
- 		return 0;
-@@ -385,7 +385,9 @@ static int __exit txx9ndfmc_remove(struct platform_device *dev)
- 		chip = mtd_to_nand(mtd);
- 		txx9_priv = nand_get_controller_data(chip);
- 
--		nand_release(chip);
-+		ret = mtd_device_unregister(nand_to_mtd(chip));
-+		WARN_ON(ret);
-+		nand_cleanup(chip);
- 		kfree(txx9_priv->mtdname);
- 		kfree(txx9_priv);
- 	}
+-	nand_release(&nfc->chip);
++	ret = mtd_device_unregister(nand_to_mtd(chip));
++	WARN_ON(ret);
++	nand_cleanup(chip);
+ 	clk_disable_unprepare(nfc->clk);
+ 	return 0;
+ }
 -- 
 2.20.1
 
