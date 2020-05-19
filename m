@@ -2,44 +2,44 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47F491D9704
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:05:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E87071D9714
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:05:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P8tdOVNIh95KGub6p9bFk1sdBdMme3BYgFaXeJeEPKg=; b=cJ3MujAToUelNz
-	wzuJdBDRwZnbnDCVjOxcXooEeYLF54ctwhrmHrdwGlkdnqt1cXxpXFBRmJ3Fo9FVDFPFiOCNRjDQT
-	BdFh38G0m7tuWzUm76G3T+GtDY0wug6HtvNlgZfivY9yVtpWGrcmlj2a6dFRoQ3K6ZIqJnvZO359o
-	HwFr4sBfaocZ6gENwCY9N5dIZegUyq618Bbes/GEbhCLpOEwg271sBdk54BXA0Q2ir++Oa3PDbwPO
-	7RCLdyF+RhBpfijR9YMApCn5Vbn9S9j8yw2fSbd5I/9cNgV4/TS+x1THno/vZDanZ1aPemKLna8zW
-	Ch7xXGiEVGR4non1NNvQ==;
+	List-Owner; bh=zMd4LX3RP5SPuvkXvalv7zlpvQeOnCk1vOxJTNGZe/0=; b=VsVY5nAxVywGae
+	pe+QWp+zxDBps7vSwayBfUJQh8S3k3Do+U/CU6wnwArK70DTdnYrI+PkXEUbqUsp+3CSxQcXhsvFi
+	pQMAdzwW0gasMsLxrIGW90TfT3QW5KsrMLYL3fYTIru51fheUQx1vKOTZrdfAQ9Mg8CTn9sphWtuT
+	Cnu7tZLec1ZglvfVqSnxciiCL0ZJSfKqGMO6uEpbyH1IAVbA+fTVfJkw3WGP+4jnoJNxnhbjxVInj
+	kg8AvJ4Sjv/ytrrv0aJoVwU+P10N3SlpVJlbuTcPBTZdgYr3QKijc0ibZFkzBbxNRH752Pv2JwDaW
+	DvZX2UmfdB1zZzWJvLXA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb1vS-0005Ah-EQ; Tue, 19 May 2020 13:04:54 +0000
+	id 1jb1wL-0008Gw-Ot; Tue, 19 May 2020 13:05:49 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1rV-0001o6-Ei
+ id 1jb1rV-0001oY-ST
  for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:51 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id AEAD4FF822;
- Tue, 19 May 2020 13:00:47 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 17867FF80C;
+ Tue, 19 May 2020 13:00:48 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 13/62] mtd: rawnand: diskonchip: Stop using nand_release()
-Date: Tue, 19 May 2020 14:59:46 +0200
-Message-Id: <20200519130035.1883-14-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 14/62] mtd: rawnand: fsl_elbc: Stop using nand_release()
+Date: Tue, 19 May 2020 14:59:47 +0200
+Message-Id: <20200519130035.1883-15-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060049_661284_3A209318 
-X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-CacheID: sfid-20200519_060050_059818_6084E2BE 
+X-CRM114-Status: UNSURE (   9.35  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -77,31 +77,28 @@ nand_cleanup() directly.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/diskonchip.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/fsl_elbc_nand.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/diskonchip.c b/drivers/mtd/nand/raw/diskonchip.c
-index f8ccee797645..43721863a0d8 100644
---- a/drivers/mtd/nand/raw/diskonchip.c
-+++ b/drivers/mtd/nand/raw/diskonchip.c
-@@ -1514,13 +1514,16 @@ static void release_nanddoc(void)
- 	struct mtd_info *mtd, *nextmtd;
- 	struct nand_chip *nand;
- 	struct doc_priv *doc;
+diff --git a/drivers/mtd/nand/raw/fsl_elbc_nand.c b/drivers/mtd/nand/raw/fsl_elbc_nand.c
+index e1dc675b12bb..088692b2e27a 100644
+--- a/drivers/mtd/nand/raw/fsl_elbc_nand.c
++++ b/drivers/mtd/nand/raw/fsl_elbc_nand.c
+@@ -956,8 +956,13 @@ static int fsl_elbc_nand_remove(struct platform_device *pdev)
+ {
+ 	struct fsl_elbc_fcm_ctrl *elbc_fcm_ctrl = fsl_lbc_ctrl_dev->nand;
+ 	struct fsl_elbc_mtd *priv = dev_get_drvdata(&pdev->dev);
++	struct nand_chip *chip = &priv->chip;
 +	int ret;
++
++	ret = mtd_device_unregister(nand_to_mtd(chip));
++	WARN_ON(ret);
++	nand_cleanup(chip);
  
- 	for (mtd = doclist; mtd; mtd = nextmtd) {
- 		nand = mtd_to_nand(mtd);
- 		doc = nand_get_controller_data(nand);
+-	nand_release(&priv->chip);
+ 	fsl_elbc_chip_remove(priv);
  
- 		nextmtd = doc->nextdoc;
--		nand_release(nand);
-+		ret = mtd_device_unregister(mtd);
-+		WARN_ON(ret);
-+		nand_cleanup(nand);
- 		iounmap(doc->virtadr);
- 		release_mem_region(doc->physadr, DOC_IOREMAP_LEN);
- 		free_rs(doc->rs_decoder);
+ 	mutex_lock(&fsl_elbc_nand_mutex);
 -- 
 2.20.1
 
