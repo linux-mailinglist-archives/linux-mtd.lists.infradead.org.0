@@ -2,44 +2,44 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4E2D1D971B
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:07:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5124C1D971D
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:07:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6K/bPXz4LsQrMtTCoe4hQelMzcXDruboL7daDkIqWGM=; b=NL85kHpRbZTUwb
-	IUMd0W4BOIxNFZ11xeZkwnHlsOFpOKpthwdNg83i5W19TR8LS7fHn764KQQdGBZwtsvMjugZlRQzv
-	Q15ZEssHfGuY92SRM3a0NVyZtnNlXp3yZcpfgB1QY5eBKcMXQXpLoWL/GCSuazREiSsk6Bde+PZPD
-	xkW+UIkJRnCKIbI8u+0ztlpmGBGc+dSn14Tm2t5tDxRgeSghRCstiyGvMLDFiOfvRdWYOfyG8pdz3
-	AtG1Y17S3qKzOA5rHPvpB8t9l7XIczy4BK/dDNeiSzhhUXwUaviVjD+AyBYcBO+WEAO9cm9i/PRPq
-	tM+yc+Zhc+d1B+khu1xQ==;
+	List-Owner; bh=1GUnXHM4+iI5WvMh2vAc1Hpmc2roLlZSkjgl9Cnzxuk=; b=kyQZRMM0eoqfAR
+	7+eE0OB2/dYPgOVuXIv6ppa7Wh2kI9YCH0U32iPhH0x6M/ngysp5r+RkJbm6tDDEjOiP5OkHPMKbF
+	2eiDxV340+7f9bTCwKoRiv9vlU+2hLcl06FLHQTwE7NpPGw0qaFjeeuawWYWS0pjTpKIlgZawphgS
+	IJO5bjzSxVhIwGtBIbNmumPVJpCqmEhWxKKhAKBRrQSRQW1g9q8/O73ZJFe6z5a/OCf1Nw6TGhMVb
+	EPkv07zVjdxYlnm4vaLxG1cyTTW7YN6nhM4axpJbox3rKkhIivmGfva9uDxKo1Jjnd0Ky59BZoEEm
+	RMINb1i9Clqu36hIQsMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb1xX-0000yC-0J; Tue, 19 May 2020 13:07:03 +0000
+	id 1jb1xm-0001CI-DS; Tue, 19 May 2020 13:07:18 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1rY-0001rY-NU
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:54 +0000
+ id 1jb1rZ-0001so-Mc
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:56 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 9EE54FF814;
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 06028FF80B;
  Tue, 19 May 2020 13:00:50 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 20/62] mtd: rawnand: hisi504: Stop using nand_release()
-Date: Tue, 19 May 2020 14:59:53 +0200
-Message-Id: <20200519130035.1883-21-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 21/62] mtd: rawnand: ingenic: Fix the probe error path
+Date: Tue, 19 May 2020 14:59:54 +0200
+Message-Id: <20200519130035.1883-22-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060053_043827_2DC7DEB0 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20200519_060053_882561_1C1DB246 
+X-CRM114-Status: GOOD (  12.85  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -62,41 +62,46 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Paul Cercueil <paul@crapouillou.net>,
+ Harvey Hunt <harveyhuntnexus@gmail.com>, stable@vger.kernel.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This helper is not very useful and very often people get confused:
-they use nand_release() instead of nand_cleanup().
+nand_release() is supposed be called after MTD device registration.
+Here, only nand_scan() happened, so use nand_cleanup() instead.
 
-Let's stop using nand_release() by calling mtd_device_unregister() and
-nand_cleanup() directly.
+There is no real Fixes tag applying here as the use of nand_release()
+in this driver predates the introduction of nand_cleanup() in
+commit d44154f969a4 ("mtd: nand: Provide nand_cleanup() function to free NAND related resources")
+which makes this change possible. Hence, pointing it as the commit to
+fix for backporting purposes, even if this commit is not introducing
+any bug makes sense.
 
+Fixes: d44154f969a4 ("mtd: nand: Provide nand_cleanup() function to free NAND related resources")
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: stable@vger.kernel.org
+Cc: Paul Cercueil <paul@crapouillou.net>
+Cc: Harvey Hunt <harveyhuntnexus@gmail.com>
 ---
- drivers/mtd/nand/raw/hisi504_nand.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/hisi504_nand.c b/drivers/mtd/nand/raw/hisi504_nand.c
-index 0b48be54ba6f..b84238e2268a 100644
---- a/drivers/mtd/nand/raw/hisi504_nand.c
-+++ b/drivers/mtd/nand/raw/hisi504_nand.c
-@@ -806,8 +806,12 @@ static int hisi_nfc_probe(struct platform_device *pdev)
- static int hisi_nfc_remove(struct platform_device *pdev)
- {
- 	struct hinfc_host *host = platform_get_drvdata(pdev);
-+	struct nand_chip *chip = &host->chip;
-+	int ret;
+diff --git a/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c b/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
+index e7bd845fdbf5..3bfb6fa8bad9 100644
+--- a/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
++++ b/drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c
+@@ -376,7 +376,7 @@ static int ingenic_nand_init_chip(struct platform_device *pdev,
  
--	nand_release(&host->chip);
-+	ret = mtd_device_unregister(nand_to_mtd(chip));
-+	WARN_ON(ret);
-+	nand_cleanup(chip);
+ 	ret = mtd_device_register(mtd, NULL, 0);
+ 	if (ret) {
+-		nand_release(chip);
++		nand_cleanup(chip);
+ 		return ret;
+ 	}
  
- 	return 0;
- }
 -- 
 2.20.1
 
