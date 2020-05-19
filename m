@@ -2,44 +2,44 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8FBD41D96ED
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:02:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CF7E91D96F7
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:04:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wTXjVuuOjV0STOEM9RpNGEH05faMx+NCYfV1r7j79yc=; b=a7MyZByztVjK8X
-	RItugWv+phJG2nstKM3TD0N82GB5SI0GVf+xxQiXyybBdH4GKKedy1UHNHjkuX+ccqcijyIzFrG3Z
-	WVN/r+jEbbJc8UDzBT5sIh7LIrQ1gyg/GgcA6Rx2gYn6U10GLE5dslBIRAlWgm9vaUoGYpnzY17tF
-	sapkXnAA+EiCCPCw52Abo0hY3Up4f2K1m25utlg6YukaGbDYNofasJK5G7PA0rULYy2y/8VdzMKyH
-	NPPVyT5baLN9ztHYuiS97qsq2vptdrt9VE+gNuYsVG6mCdXQYQPJHZvYF8YUwU4Ga1PrZEF37AMpz
-	ZCHICWxUEql+e5ry5y9Q==;
+	List-Owner; bh=Ili6tlfC7o645iO8oOaJ7QZmxOCXSaK4ubhluDnr/sY=; b=dWvCXybrmapDBv
+	F7Sd6QROGYJPTmswk99jrhGTdYnYhItdnzwWJauUUlpjV5aey5EECFqRZTLjI8/5kH1reQqOGtf5I
+	4HWvG9mRReDVQXotojR8YO8NHDZ1d/zf4jdPD2PoLRhSNxHOA7FfVBLTKbRZYWDOa5VkAizC1nWTm
+	z6PfhCeBriPOQCZrQpbknZkBi9/uw8bqd6XXlxhMZRn5O7OkX+SCCUlPakNmZZEr7/x8cSuahH7ob
+	lkWAJNrLBKzLieHDd6kV9an4vtamiVcXBMm+s8u3/Qwt+HAksC7MIiIJxWauOikeo8GOg6lck5Lse
+	1DhVwoIlGPtAqYWRVGcA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb1t7-0002x0-ET; Tue, 19 May 2020 13:02:29 +0000
+	id 1jb1uc-0004Lv-1k; Tue, 19 May 2020 13:04:02 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1rR-0001j1-DD
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:47 +0000
+ id 1jb1rR-0001jk-ST
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:49 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 7EF2DFF807;
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id F34FDFF80F;
  Tue, 19 May 2020 13:00:43 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 06/62] mtd: rawnand: cafe: Stop using nand_release()
-Date: Tue, 19 May 2020 14:59:39 +0200
-Message-Id: <20200519130035.1883-7-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 07/62] mtd: rawnand: cmx270: Stop using nand_release()
+Date: Tue, 19 May 2020 14:59:40 +0200
+Message-Id: <20200519130035.1883-8-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060045_613704_1D831302 
-X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-CacheID: sfid-20200519_060046_067157_13683027 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -77,29 +77,27 @@ nand_cleanup() directly.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/cafe_nand.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/cmx270_nand.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/cafe_nand.c b/drivers/mtd/nand/raw/cafe_nand.c
-index 2a0df13df5f3..92173790f20b 100644
---- a/drivers/mtd/nand/raw/cafe_nand.c
-+++ b/drivers/mtd/nand/raw/cafe_nand.c
-@@ -807,11 +807,14 @@ static void cafe_nand_remove(struct pci_dev *pdev)
- 	struct mtd_info *mtd = pci_get_drvdata(pdev);
- 	struct nand_chip *chip = mtd_to_nand(mtd);
- 	struct cafe_priv *cafe = nand_get_controller_data(chip);
+diff --git a/drivers/mtd/nand/raw/cmx270_nand.c b/drivers/mtd/nand/raw/cmx270_nand.c
+index 045b6175ae79..42c4cc030be3 100644
+--- a/drivers/mtd/nand/raw/cmx270_nand.c
++++ b/drivers/mtd/nand/raw/cmx270_nand.c
+@@ -219,8 +219,12 @@ module_init(cmx270_init);
+  */
+ static void __exit cmx270_cleanup(void)
+ {
 +	int ret;
- 
- 	/* Disable NAND IRQ in global IRQ mask register */
- 	cafe_writel(cafe, ~1 & cafe_readl(cafe, GLOBAL_IRQ_MASK), GLOBAL_IRQ_MASK);
- 	free_irq(pdev->irq, mtd);
--	nand_release(chip);
-+	ret = mtd_device_unregister(mtd);
++
+ 	/* Release resources, unregister device */
+-	nand_release(mtd_to_nand(cmx270_nand_mtd));
++	ret = mtd_device_unregister(cmx270_nand_mtd);
 +	WARN_ON(ret);
-+	nand_cleanup(chip);
- 	free_rs(cafe->rs);
- 	pci_iounmap(pdev, cafe->mmio);
- 	dma_free_coherent(&cafe->pdev->dev, 2112, cafe->dmabuf, cafe->dmaaddr);
++	nand_cleanup(mtd_to_nand(cmx270_nand_mtd));
+ 
+ 	gpio_free(GPIO_NAND_RB);
+ 	gpio_free(GPIO_NAND_CS);
 -- 
 2.20.1
 
