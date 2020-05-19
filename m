@@ -2,78 +2,74 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A7461D940A
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 12:07:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A923C1D9430
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 12:18:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=hyXjzM/8KFJgpzspwOJP7huKEoogJNNysIo61Uq22+U=; b=jnNaTDv7eDqTruuP0DT5CFzTaS
-	k3+omlxbmRXSTkLVYNxj+seUUsn2WaJ1jhMw2cpY1hSnQ5lqAsSDu2QLOVIRTL3+mwu9M9YDUvMLW
-	N+p1bbDczTX5mU7nNp4p1g7nNrKXJwH56B2a5FNIu+QDe2xq/BblPqDDmBxqD/jGTGtMlDu1fUwXX
-	GUcoozLEgsxMO6GkjLrJI0XUtS9OfrlpCnNg0INMddZY8Q4BrShDGfjdlIpo5vnTG2k4lv30x7RQd
-	XKQV0iZLoJmhDFg+0WRKM/66FLRIVjuwCUqWBwZCWb8D3jckdq13e0M+EqAT0uddroSjN4cCqUYRX
-	p1+0fS9w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=RxSbfp+wJiQ5Fu7c265x1/cwr3fcALtf/XdllKsJmQY=; b=ZmU
+	Hz5QDA2fq9wi7fh2y0kBJ4RRd1+h+2zFdcZrrnahDQXr3PI05Q0M2WeiLGJO9gbN9kPONZUGBdRs0
+	guvBOjw3CYFFOAveaic2eIUCxK6gzrqPbsPmRKDM7SdKQU1F14Bd/HNto3bKv3UWIS4pOrZQuPbgu
+	yf98JFU410a6fbQQ9Zj54JakElXZUcj53751LpRvxNQhje7BhsvYaoWjq/E2tgcREAN35ZIlOFFy6
+	5gYYUFmABS7VbcQF0RTKxntuER6t8ApIX6L5oY2TTJ1Br1BA5RrZ3SqrDNp0YwR/ChgbjfJwMxKv1
+	UjuG+NlCvHB0OvOPNQqZgvfVXkUQ4jw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jaz9O-0001wX-O6; Tue, 19 May 2020 10:07:06 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1jazKI-0000ob-K8; Tue, 19 May 2020 10:18:22 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jaz7s-0000np-EB
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 10:05:34 +0000
-Received: by mail-wm1-x342.google.com with SMTP id w64so2787377wmg.4
- for <linux-mtd@lists.infradead.org>; Tue, 19 May 2020 03:05:32 -0700 (PDT)
+ id 1jazJo-0000Oq-O8
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 10:17:54 +0000
+Received: by mail-wr1-x443.google.com with SMTP id l18so15242570wrn.6
+ for <linux-mtd@lists.infradead.org>; Tue, 19 May 2020 03:17:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=1GMSJCrVKCMzm4RoTB2snBSGZpkdY3EFXYzNpB+xzY4=;
- b=GqxbbDC0jocpqGUD1GN7Ds69rwrA0JczU3I6iaX/nBBLNBJNsAUS1PVbzwgaW+OnKE
- X8PGEnjA1MJLxPYivD8yWuM+3ZfMQihBgWeNJnWhG1ZgKDh8Anhb8kbuk2ogj1Y0ewwm
- TNfL1N9L7+eFLW3t8ocPvJ9wXhovd4rxVkC1y3Eu5qFw7yStZAsCbct7VIrKeNJGNlwX
- RsjYNu//FmvxdqsJbeJoDa+wgD/1a7ZNyLGqxmaz4cqOQ6Qa4DnB+1NBpD3qgVnSlLpv
- 5Lyg1491lLXqp4zpY94LR1S5jwi2usnYE5mdSHhlAhiDbyTbYo/oxa80waqPnH6w0sqj
- Xb8g==
+ h=from:to:cc:subject:date:message-id;
+ bh=qnbBjKj/NVa4wsBr3rCK+T4/dJSnYWUMxL1sU5PiC/g=;
+ b=EvrwjTjF/BGHMVobO0tpRUf2ZpEKg6hGmQ/IcgX2d79GnmVZUDTaIYGDukheGrbvWB
+ TrtS85wHC+rZljtk8Cnayaw56mKcjhG8YGAk4SouMV6XYvCZbPb4LrhPwlOYUWzq7uPx
+ tLZlJQ4NamzPDzISx6zguesGy9PvmMPyQt2HugANL9XzNAqPomfO5oR84y58yRkmRTI1
+ yScF8/VuthFByM/LiO6Kl4hi+JVaJpDdsb9C0iLke7K9+XY7afOMD5czUyb3grSMOzPj
+ xbvR8fHJsiZ+RlvBG5jJZ+vDpRaYqm3X1fLuvixT66K9SVBE7mLe+BjOCcgm6Y1rDAna
+ lf5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=1GMSJCrVKCMzm4RoTB2snBSGZpkdY3EFXYzNpB+xzY4=;
- b=jcRPCLigBWpnTXH1qyDe0CoXrvpJrKapzjGGRNaVx1O7bkbtw3ax2/vkU4lpH5FYoI
- zP96xbyl3cNArJcwF/KmiLXvdduvlcpK5IERC3i7+NRkPUMgvXQSGLjWm+1Mcr8MucSp
- R02Ft+LutQL+vtDejt/m/MC5YSLYxwi3wD00kUWC4Y0c+iz+WRZwGvnahLZP/DTNH640
- EQ0HRoxB6pxPBNFqYRNV36U5ZPdPvhLJYnaol+1t5381CeoToGkzLjOaRk9r7hDoKZa5
- ANfie4Q9f9KV9F26rFTT4gucqkDA8XzIxw23h7SuBwX88KiF2IjRCsJkRF6onhqseE6G
- V+bA==
-X-Gm-Message-State: AOAM532bwOzizWUDpmE1K6LYE85JLOjpdlJ8gwOH5KVm92s9lLEycXOf
- 9Qs0cFAU9aMjtqaG1EzUhxo=
-X-Google-Smtp-Source: ABdhPJySVGHY3Ow4lEdRvcSpfi2x+vjpHrg10Futm+xnWY0KfG5b4LhONXz7f/w5AcQOFUkANOVNuQ==
-X-Received: by 2002:a1c:7305:: with SMTP id d5mr4717705wmb.85.1589882730918;
- Tue, 19 May 2020 03:05:30 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=qnbBjKj/NVa4wsBr3rCK+T4/dJSnYWUMxL1sU5PiC/g=;
+ b=Tjb7fMaUq8c7mKyZxKLLBZboQAOoXjYZ0xYhaBwteStrrLIVU2Ssdh0ZWS2lHfv5Pm
+ aHEfTShTzs3jMUZZQyXQFmbpYL1XwJmHC5LfEDOuJ7QEt6AWxrVxaY3wnSg2nERj4D8o
+ p8O5GPY4Oe6ujiAvvo/yb1HMjhRLUGav5Sv9QA6F7/Z5/odaImta9VS3C5tLF4XU/niJ
+ Xoq70uXrrV/J5li5rk65QT6XmRLL7LTsxp0CuypP1ONzRi38jqwKNGxO7RrUpNgkorP/
+ 0DCcnD5LOkRv3YEk5DrOtbfG0x2ueUow64VqoD7oOVFAlL3N/AgDgoIqUwN5WR/+ckL4
+ z0Vw==
+X-Gm-Message-State: AOAM5330j9s6X6yPoVEz/diy8NeiWL6KONQOd+h1vhdhw2v6LblPFOMQ
+ bYulF4XfkX8gT6ZIsepuNec=
+X-Google-Smtp-Source: ABdhPJxMEXN1zUwvOOirYrC1fsioxeXESihxh3pcn4zzW1WZ1djtfL8WeqgS1tKvaDuhQ+vwmCS8gg==
+X-Received: by 2002:adf:f344:: with SMTP id e4mr24906434wrp.395.1589883466663; 
+ Tue, 19 May 2020 03:17:46 -0700 (PDT)
 Received: from ubuntu-G3.micron.com ([165.225.86.140])
- by smtp.gmail.com with ESMTPSA id b18sm19968008wrn.82.2020.05.19.03.05.29
+ by smtp.gmail.com with ESMTPSA id w15sm3062488wmi.35.2020.05.19.03.17.44
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 19 May 2020 03:05:30 -0700 (PDT)
+ Tue, 19 May 2020 03:17:46 -0700 (PDT)
 From: Bean Huo <huobean@gmail.com>
 To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
  s.hauer@pengutronix.de, boris.brezillon@collabora.com, derosier@gmail.com
-Subject: [PATCH v5 5/5] mtd: rawnand: micron: Micron SLC NAND filling block
-Date: Tue, 19 May 2020 12:05:07 +0200
-Message-Id: <20200519100507.19323-6-huobean@gmail.com>
+Subject: [RESET PATCH v5 0/5] Micron SLC NAND filling block
+Date: Tue, 19 May 2020 12:17:29 +0200
+Message-Id: <20200519101734.19927-1-huobean@gmail.com>
 X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20200519100507.19323-1-huobean@gmail.com>
-References: <20200519100507.19323-1-huobean@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_030532_588891_D8368D12 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20200519_031752_788518_4F883538 
+X-CRM114-Status: GOOD (  12.26  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:342 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:443 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
@@ -107,159 +103,73 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Bean Huo <beanhuo@micron.com>
 
-On planar 2D Micron NAND devices when a block erase command is issued,
-occasionally even though a block erase operation completes and returns a
-pass status, the flash block may not be completely erased. Subsequent
-operations to this block on very rare cases can result in subtle failures
-or corruption. These extremely rare cases should nevertheless be
-considered. These rare occurrences have been observed on partially written
-blocks.
+Resent this patset since there is typo in the cover-letter.
 
-To avoid this rare occurrence, we should make sure that at least 15 pages
-have been programmed to a block before it is erased. In case we find that
-less than 15 pages have been programmed, we will rewrite first 15 pages of
+Hi,
+On planar 2D Micron NAND devices when a block erase command is issued,
+occasionally even though a block erase operation completes and returns a pass
+status, the flash block may not be completely erased. Subsequent operations to
+this block on very rare cases can result in subtle failures or corruption. These
+extremely rare cases should nevertheless be considered. This patchset is to
+address this potential issue.
+
+After submission of patch V1 [1] and V2 [2], we stopped its update since we get
+stuck in the solution on how to avoid the power-loss issue in case power-cut
+hits the block filling. In the v1 and v2, to avoid this issue, we always damaged
+page0, page1, this's based on the hypothesis that NAND FS is UBIFS. This
+FS-specifical code is unacceptable in the MTD layer. Also, it cannot cover all
+NAND based file system. Based on the current discussion, seems that re-write all
+first 15 page from page0 is a satisfactory solution.
+
+Meanwhile, I borrowed one idea from Miquel Raynal patchset [3], in which keeps
+a recode of programmed pages, base on it, for most of the cases, we don't need
+to read every page to see if current erasing block is a partially programmed
 block.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Signed-off-by: Bean Huo <beanhuo@micron.com>
----
- drivers/mtd/nand/raw/nand_micron.c | 102 +++++++++++++++++++++++++++++
- 1 file changed, 102 insertions(+)
+hangelog:
+v4 - v5:
+    1. Add Miquel Raynal Authorship and SoB in 4/5 and 5/5 (Miquel Raynal)
+    2. Change  commit message in 5/5. (Steve deRosier)
+    3. delete unused variable max_bitflips in 4/5
 
-diff --git a/drivers/mtd/nand/raw/nand_micron.c b/drivers/mtd/nand/raw/nand_micron.c
-index b3485b0995ad..c5fd9e60f46d 100644
---- a/drivers/mtd/nand/raw/nand_micron.c
-+++ b/drivers/mtd/nand/raw/nand_micron.c
-@@ -36,6 +36,9 @@
- #define NAND_ECC_STATUS_1_3_CORRECTED	BIT(4)
- #define NAND_ECC_STATUS_7_8_CORRECTED	(BIT(4) | BIT(3))
- 
-+#define MICRON_SHALLOW_ERASE_MIN_PAGE 15
-+#define MICRON_PAGE_MASK_TRIGGER GENMASK(MICRON_SHALLOW_ERASE_MIN_PAGE, 0)
-+
- struct nand_onfi_vendor_micron {
- 	u8 two_plane_read;
- 	u8 read_cache;
-@@ -64,6 +67,7 @@ struct micron_on_die_ecc {
- 
- struct micron_nand {
- 	struct micron_on_die_ecc ecc;
-+	u16 *writtenp;
- };
- 
- static int micron_nand_setup_read_retry(struct nand_chip *chip, int retry_mode)
-@@ -429,6 +433,93 @@ static int micron_supports_on_die_ecc(struct nand_chip *chip)
- 	return MICRON_ON_DIE_SUPPORTED;
- }
- 
-+static int micron_nand_pre_erase(struct nand_chip *chip, u32 eraseblock)
-+{
-+	struct micron_nand *micron = nand_get_manufacturer_data(chip);
-+	struct mtd_info *mtd = nand_to_mtd(chip);
-+	u8 last_page = MICRON_SHALLOW_ERASE_MIN_PAGE - 1;
-+	u32 page;
-+	u8 *data_buf;
-+	int ret, i;
-+
-+	data_buf = nand_get_data_buf(chip);
-+	WARN_ON(!data_buf);
-+
-+	if (likely(micron->writtenp[eraseblock] & BIT(last_page)))
-+		return 0;
-+
-+	page = eraseblock << (chip->phys_erase_shift - chip->page_shift);
-+
-+	if (unlikely(micron->writtenp[eraseblock] == 0)) {
-+		ret = nand_read_page_raw(chip, data_buf, 1, page + last_page);
-+		if (ret)
-+			return ret; /* Read error */
-+		ret = nand_check_is_erased_page(chip, data_buf, true);
-+		if (!ret)
-+			return 0;
-+	}
-+
-+	memset(data_buf, 0x00, mtd->writesize);
-+
-+	for (i = 0; i < MICRON_SHALLOW_ERASE_MIN_PAGE; i++) {
-+		ret = nand_write_page_raw(chip, data_buf, false, page + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int micron_nand_post_erase(struct nand_chip *chip, u32 eraseblock)
-+{
-+	struct micron_nand *micron = nand_get_manufacturer_data(chip);
-+
-+	if (!micron)
-+		return -EINVAL;
-+
-+	micron->writtenp[eraseblock] = 0;
-+
-+	return 0;
-+}
-+
-+static int micron_nand_write_oob(struct nand_chip *chip, loff_t to,
-+				 struct mtd_oob_ops *ops)
-+{
-+	struct micron_nand *micron = nand_get_manufacturer_data(chip);
-+	u32 eb_sz = nanddev_eraseblock_size(&chip->base);
-+	u32 p_sz = nanddev_page_size(&chip->base);
-+	u32 ppeb = nanddev_pages_per_eraseblock(&chip->base);
-+	u32 nb_p_tot = ops->len / p_sz;
-+	u32 first_eb = DIV_ROUND_DOWN_ULL(to, eb_sz);
-+	u32 first_p = DIV_ROUND_UP_ULL(to - (first_eb * eb_sz), p_sz);
-+	u32 nb_eb = DIV_ROUND_UP_ULL(first_p + nb_p_tot, ppeb);
-+	u32 remaining_p, eb, nb_p;
-+	int ret;
-+
-+	ret = nand_write_oob_nand(chip, to, ops);
-+
-+	if (ret || ops->len != ops->retlen)
-+		return ret;
-+
-+	/* Mark the last pages of the first erase block to write */
-+	nb_p = min(nb_p_tot, ppeb - first_p);
-+	micron->writtenp[first_eb] |= GENMASK(first_p + nb_p, 0) &
-+					MICRON_PAGE_MASK_TRIGGER;
-+	remaining_p = nb_p_tot - nb_p;
-+
-+	/* Mark all the pages of all "in-the-middle" erase blocks */
-+	for (eb = first_eb + 1; eb < first_eb + nb_eb - 1; eb++) {
-+		micron->writtenp[eb] |= MICRON_PAGE_MASK_TRIGGER;
-+		remaining_p -= ppeb;
-+	}
-+
-+	/* Mark the first pages of the last erase block to write */
-+	if (remaining_p)
-+		micron->writtenp[eb] |= GENMASK(remaining_p - 1, 0) &
-+					MICRON_PAGE_MASK_TRIGGER;
-+		return 0;
-+}
-+
- static int micron_nand_init(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-@@ -515,6 +606,17 @@ static int micron_nand_init(struct nand_chip *chip)
- 		}
- 	}
- 
-+	if (nand_is_slc(chip)) {
-+		micron->writtenp = kcalloc(nanddev_neraseblocks(&chip->base),
-+					   sizeof(u16), GFP_KERNEL);
-+		if (!micron->writtenp)
-+			goto err_free_manuf_data;
-+
-+		chip->ops.write_oob = micron_nand_write_oob;
-+		chip->ops.pre_erase = micron_nand_pre_erase;
-+		chip->ops.post_erase = micron_nand_post_erase;
-+	}
-+
- 	return 0;
- 
- err_free_manuf_data:
+v3 - v4:
+    1. In the patch 4/5, change to directly use ecc.strength to judge the page
+       is a empty page or not, rather than max_bitflips < mtd->bitflip_threshold
+    2. In the patch 5/5, for the powerloss case, from the next time boot up,
+       lots of page will be programmed from >page15 address, if still using
+       first_p as GENMASK() bitmask starting position, writtenp will be always 0.
+       fix it by changing its bitmask starting at bit position 0.
+v2 - v3:
+    1. Rebase patch to the latest MTD git tree
+    2. Add a record that keeps tracking the programmed pages in the first 16 pages
+    3. Change from program odd pages, damage page 0 and page 1, to program all
+       first 15 pages
+    4. Address issues which exist in the V2.
+
+v1 - v2:
+    1. Rebased V1 to latest Linux kernel.
+    2. Add erase preparation function pointer in nand_manufacturer_ops.
+
+[1] https://www.spinics.net/lists/linux-mtd/msg04112.html
+[2] https://www.spinics.net/lists/linux-mtd/msg04450.html
+[3] https://www.spinics.net/lists/linux-mtd/msg13083.html
+
+Bean Huo (3):
+  mtd: rawnand: group all NAND specific ops into new nand_chip_ops
+  mtd: rawnand: Add {pre,post}_erase hooks in nand_chip_ops
+  mtd: rawnand: Introduce a new function nand_check_is_erased_page()
+Miquel Raynal (2):
+  mtd: rawnand: Add write_oob hook in nand_chip_ops
+  mtd: rawnand: micron: Micron SLC NAND filling block
+
+ drivers/mtd/nand/raw/internals.h     |   3 +-
+ drivers/mtd/nand/raw/nand_base.c     |  87 ++++++++++++++++++----
+ drivers/mtd/nand/raw/nand_hynix.c    |   2 +-
+ drivers/mtd/nand/raw/nand_macronix.c |  10 +--
+ drivers/mtd/nand/raw/nand_micron.c   | 104 ++++++++++++++++++++++++++-
+ include/linux/mtd/rawnand.h          |  40 +++++++----
+ 6 files changed, 211 insertions(+), 35 deletions(-)
+
 -- 
 2.17.1
 
