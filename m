@@ -2,43 +2,43 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5F7771D9713
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:05:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 321361D9718
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 15:06:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PmO/0jZBUIdUppnSI20rMTTACBzZYe7SfBebUBQoScA=; b=rFipIRLXBNaMqS
-	FSMR8YweG8XtuaIu6b6vuJtl0Us9XaodcBqxZm07TtqEqQFc0WgWTKIgXkQ/NWt4I/rL5tqGSdT3D
-	jTVZsOKvxGVHFdzwZmc2wgbUAYjxij5i09dNBXYdZ8ok0LyLe1pCz5jHW0HRdnoNpCAfphYe4JeLH
-	hc8HUt98aZJHg7tq7E7NOKp958kQyMCdEJrHxmbI3f/MRPPmze/dd5nl1bpGhKy4QnFNHHUy71U3v
-	JCHGSTeDubcjc+73XaMDPnLLcG0Ac0Zn3FCanBjIQ/cvIVXKs1MYeR85thFc3HeelIrlPADcmrOhy
-	qey1UxrmxBtb2Dv/3twg==;
+	List-Owner; bh=fclICcQua+N4sdABMxTonBEhVsEwX8lm8hW4Q2ur+3E=; b=eeZg8BIfW6SbPq
+	n/A92043uvpPmI7ikjRzpku6l5p46P1VvFZTgio/eZgxnMnBVoktj/qDPydbENFoexXsMcZ9/DVeY
+	hF3dZ3ZgYqXDmcrBDznknZUNIKI5ABtfR66UTBmdcQNbOa7bvAiuUfvhi7nGCKSTTMf++aLbf5XJF
+	KFErGzDOMl4J6gs+gwZOTTxrfvm4ilLFlx5qEUxjp0pIX97xZjie0xJ3eEgPX0OiCi/ylstPBjtWw
+	7RZq+VPr4FhyaWkt+eLWsShIpbyOfqJBKfDVG0283wm3ITEpTbf93Vn7T1Mrnr2vITy4/zOszfVZ0
+	mHliXt0uN+I1YzUiU8nQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jb1w6-00083x-Fp; Tue, 19 May 2020 13:05:34 +0000
+	id 1jb1x3-0000VW-Rl; Tue, 19 May 2020 13:06:33 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jb1rW-0001q6-Uq
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:52 +0000
+ id 1jb1rX-0001qf-Hz
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 13:00:53 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 43D6BFF825;
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id B2C84FF80F;
  Tue, 19 May 2020 13:00:49 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: [PATCH v2 17/62] mtd: rawnand: fsmc: Stop using nand_release()
-Date: Tue, 19 May 2020 14:59:50 +0200
-Message-Id: <20200519130035.1883-18-miquel.raynal@bootlin.com>
+Subject: [PATCH v2 18/62] mtd: rawnand: gpio: Stop using nand_release()
+Date: Tue, 19 May 2020 14:59:51 +0200
+Message-Id: <20200519130035.1883-19-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 References: <20200519130035.1883-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200519_060051_138894_B5BBF0FF 
+X-CRM114-CacheID: sfid-20200519_060051_744843_444DD8E4 
 X-CRM114-Status: GOOD (  10.15  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -76,27 +76,27 @@ nand_cleanup() directly.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/fsmc_nand.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/gpio.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/fsmc_nand.c b/drivers/mtd/nand/raw/fsmc_nand.c
-index 2a9222e99bcc..3909752b14c5 100644
---- a/drivers/mtd/nand/raw/fsmc_nand.c
-+++ b/drivers/mtd/nand/raw/fsmc_nand.c
-@@ -1136,7 +1136,12 @@ static int fsmc_nand_remove(struct platform_device *pdev)
- 	struct fsmc_nand_data *host = platform_get_drvdata(pdev);
+diff --git a/drivers/mtd/nand/raw/gpio.c b/drivers/mtd/nand/raw/gpio.c
+index f6b12354024f..938077e5c6a9 100644
+--- a/drivers/mtd/nand/raw/gpio.c
++++ b/drivers/mtd/nand/raw/gpio.c
+@@ -190,8 +190,12 @@ gpio_nand_get_io_sync(struct platform_device *pdev)
+ static int gpio_nand_remove(struct platform_device *pdev)
+ {
+ 	struct gpiomtd *gpiomtd = platform_get_drvdata(pdev);
++	struct nand_chip *chip = &gpiomtd->nand_chip;
++	int ret;
  
- 	if (host) {
--		nand_release(&host->nand);
-+		struct nand_chip *chip = &host->nand;
-+		int ret;
-+
-+		ret = mtd_device_unregister(nand_to_mtd(chip));
-+		WARN_ON(ret);
-+		nand_cleanup(chip);
- 		fsmc_nand_disable(host);
+-	nand_release(&gpiomtd->nand_chip);
++	ret = mtd_device_unregister(nand_to_mtd(chip));
++	WARN_ON(ret);
++	nand_cleanup(chip);
  
- 		if (host->mode == USE_DMA_ACCESS) {
+ 	/* Enable write protection and disable the chip */
+ 	if (gpiomtd->nwp && !IS_ERR(gpiomtd->nwp))
 -- 
 2.20.1
 
