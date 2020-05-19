@@ -2,75 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 91D241D8EE4
-	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 06:51:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BFC581D9146
+	for <lists+linux-mtd@lfdr.de>; Tue, 19 May 2020 09:46:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a5wNqv493sIHl/qEL7QZFFApUB66Y36wpnJ2aWipEGM=; b=WzIvHOp5gbcG1y
-	iGUHkwralMb24mr6lYkda5sexqysaY3NdhafUvOhkVfgaY33559Ye2+1CwZnKCShV2ynhVEJ0auUq
-	VsLg4Rfp4DQwocCzXc4Hsk7rvcgxo8AeNrUDDN2Z+AjIHyjwTycqygY/QICGXUXtzKWjiY1zc7KS3
-	fsoTt46EiltwresVa+FJhhm8GdrDJc47B8ECuj7gGvWYSjiBmoGFM0u6j18xppGYFrlRCabL2hYBP
-	2HrsyIwbkWju4AeEDebchg3ryelFXpPJgLkC68AIYPd5xhVX2FZBb9+Iv5dhZOArO27v6Rt9eYs4+
-	ITN5qLSQUdrj/IQQI6yA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7TcFQ4ep0JDLvo6Ck2KEcx9MnFyIpcbC1Ln3YJFT7Bo=; b=f79mOfqnbzSCom
+	2+Cl0ncpcsFwsjHPCNsJPXurzHHhwwY4QAECBFt5xBiNNTMVyTNPScGYDnxkYTeXg9qb+qUTFANJ8
+	nOZQRx+2+Z05xbiCPwePdAdsmkB2WisvKbW1eprZ+uNzdw64zGLfu/QARcdB+zQuAycRxf/AXIvi4
+	B5tm2HrsIjRFyKs3sQApwfJE/DddMrrPTLVXrx6j1/xWRmjUJdWgN88ZBcErNnsaFBEWjLO2FyFeC
+	E+20Mk81Qau+kjmou3w60bfh1R72+qduKV/dDrNqK3cnpOLLzLyfXcuPbjM823KCWWDMgzsvOwaeR
+	QxHn/f9ZFaXTNgOyAmlA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jauEA-0002Wv-UF; Tue, 19 May 2020 04:51:42 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1jawwz-0006qh-6Z; Tue, 19 May 2020 07:46:09 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jauDz-0002WL-TQ
- for linux-mtd@lists.infradead.org; Tue, 19 May 2020 04:51:35 +0000
-IronPort-SDR: E7c5rRgfZ5kYigx0LFHXuhqVn29O4QieX1Of+daiQbTwtgcb1vUY4RnH5P+leVJyGO4sdRyyqo
- PUbFJrqwn+dA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
- by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 18 May 2020 21:51:29 -0700
-IronPort-SDR: sDHDPLv0Zq2i/WryGB8ccV16p9q6KiAsv59U/AzhorfKCPdIZhdApcc3OowqzcDABrgj7mbV8E
- MD2I0g/K96kg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,409,1583222400"; d="scan'208";a="282205960"
-Received: from linux.intel.com ([10.54.29.200])
- by orsmga002.jf.intel.com with ESMTP; 18 May 2020 21:51:28 -0700
-Received: from [10.213.130.44] (vramuthx-mobl1.gar.corp.intel.com
- [10.213.130.44])
- by linux.intel.com (Postfix) with ESMTP id C523E580613;
- Mon, 18 May 2020 21:51:23 -0700 (PDT)
-Subject: Re: [PATCH v6 1/2] dt-bindings: mtd: Add Nand Flash Controller
- support for Intel LGM SoC
-To: Rob Herring <robh@kernel.org>
-References: <20200513104615.7905-1-vadivel.muruganx.ramuthevar@linux.intel.com>
- <20200513104615.7905-2-vadivel.muruganx.ramuthevar@linux.intel.com>
- <20200514125709.GA8436@bogus>
- <dc51e6af-bda8-d8b9-1782-f5c4d5d3fed7@linux.intel.com>
- <CAL_JsqJxqdi2MmyHZteMOpx5yy_o+ZxaqGHMUV7aCknWWQ0ptg@mail.gmail.com>
-From: "Ramuthevar, Vadivel MuruganX"
- <vadivel.muruganx.ramuthevar@linux.intel.com>
-Message-ID: <bed51658-68a7-605b-ebdb-f471690e226f@linux.intel.com>
-Date: Tue, 19 May 2020 12:51:22 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.8.0
+ id 1jawwm-0006pO-AT
+ for linux-mtd@lists.infradead.org; Tue, 19 May 2020 07:45:58 +0000
+X-Originating-IP: 91.224.148.103
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 6220D240008;
+ Tue, 19 May 2020 07:45:50 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>
+Subject: [PATCH v5 0/8] New Arasan NAND controller driver
+Date: Tue, 19 May 2020 09:45:41 +0200
+Message-Id: <20200519074549.23673-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-In-Reply-To: <CAL_JsqJxqdi2MmyHZteMOpx5yy_o+ZxaqGHMUV7aCknWWQ0ptg@mail.gmail.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200518_215131_963040_6608FE6A 
-X-CRM114-Status: GOOD (  16.49  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20200519_004556_635830_502C8DC4 
+X-CRM114-Status: GOOD (  14.38  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [192.55.52.88 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.193 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [192.55.52.88 listed in wl.mailspike.net]
+ [217.70.183.193 listed in wl.mailspike.net]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -83,73 +63,81 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
-Cc: cheol.yong.kim@intel.com, "hauke.mehrtens" <hauke.mehrtens@intel.com>,
- qi-ming.wu@intel.com, Anders Roxell <anders.roxell@linaro.org>,
- Vignesh R <vigneshr@ti.com>, Arnd Bergmann <arnd@arndb.de>,
- devicetree@vger.kernel.org, Richard Weinberger <richard@nod.at>,
- Brendan Higgins <brendanhiggins@google.com>,
- "open list:MIPS" <linux-mips@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+Cc: Michal Simek <monstr@monstr.eu>,
  Boris Brezillon <boris.brezillon@collabora.com>,
- MTD Maling List <linux-mtd@lists.infradead.org>,
- =?UTF-8?Q?Miqu=c3=a8l_Raynal?= <miquel.raynal@bootlin.com>,
- Thomas Gleixner <tglx@linutronix.de>, Mason Yang <masonccyang@mxic.com.tw>,
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+ Naga Sureshkumar Relli <nagasure@xilinx.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Rob,
-
-On 19/5/2020 2:27 am, Rob Herring wrote:
-> On Thu, May 14, 2020 at 8:08 PM Ramuthevar, Vadivel MuruganX
-> <vadivel.muruganx.ramuthevar@linux.intel.com> wrote:
->>
->> Hi Rob,
->>
->> On 14/5/2020 8:57 pm, Rob Herring wrote:
->>> On Wed, 13 May 2020 18:46:14 +0800, Ramuthevar,Vadivel MuruganX wrote:
->>>> From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
->>>>
->>>> Add YAML file for dt-bindings to support NAND Flash Controller
->>>> on Intel's Lightning Mountain SoC.
->>>>
->>>> Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
->>>> ---
->>>>    .../devicetree/bindings/mtd/intel,lgm-nand.yaml    | 83 ++++++++++++++++++++++
->>>>    1 file changed, 83 insertions(+)
->>>>    create mode 100644 Documentation/devicetree/bindings/mtd/intel,lgm-nand.yaml
->>>>
->>>
->>>
->>> My bot found errors running 'make dt_binding_check' on your patch:
->>>
->>> /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mtd/intel,lgm-nand.example.dt.yaml: nand-controller@e0f00000: 'dmas' is a dependency of 'dma-names'
->>>
->>> See https://patchwork.ozlabs.org/patch/1289160
->>>
->>> If you already ran 'make dt_binding_check' and didn't see the above
->>> error(s), then make sure dt-schema is up to date:
->>>
->>> pip3 install git+https://github.com/devicetree-org/dt-schema.git@master --upgrade
->>>
->>> Please check and re-submit.
->> Thank you very much for review comments...
->> I didn't find build errors, successfully built.
-> 
-> You need to build without DT_SCHEMA_FILES set or be on 5.7-rc (you
-> should be on a current -rcX at least for any patch submission). This
-> comes from the core schema.
-Yes, reproduced the issue as above mentioned and fixed it. Thanks!
-
-Regards
-Vadivel
-> 
-> Rob
-> 
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGVsbG8sCgpUaGlzIGlzIGEgZGVlcCByZXdvcmsgb2YgTmFnYSdzIEFyYXNhbiBOQU5EIGNvbnRy
+b2xsZXIgZHJpdmVyLiBUaGlzCnZlcnNpb24gaXMgdGhlIGZpbmFsIHZlcnNpb24gYW5kIHdvcmtz
+IHdpdGggc29mdHdhcmUgRUNDLiBJdCByZWxpZXMgb24KYSBwcmV2aW91cyBzZXJpZXMgY2FsbGVk
+ICJTdXBwb3J0aW5nIHJlc3RyaWN0ZWQgTkFORCBjb250cm9sbGVycyIgdGhhdApicmluZ3MgbW9y
+ZSBmbGV4aWJpbGl0eSB0byB0aGUgTkFORCB3aXRoIHRoZSBnb2FsIHRvIHN1cHBvcnQKcmVzdHJp
+Y3RlZCBjb250cm9sbGVycyBsaWtlIHRoaXMgb25lLgoKQ2hlZXJzLApNaXF1w6hsCgpDaGFuZ2Vz
+IGluIHY1OgoqIEFkZGVkIGEgRklYTUUgYW5kIHR3byBUT0RPIGNvbW1lbnRzIGluIHRoZSBjb2Rl
+LCBleHBsYWluaW5nIGhvdy9oeQogIHRoZSBOQU5EIGNvcmUgc2hvdWxkIGJlIGV4dGVuZGVkLgoq
+IENyZWF0ZWQgYSByZWFsIGZ1bmN0aW9uIHRoYXQgcmV0dXJucyB0aGUgcGFja2V0IHNpemUgYW5k
+IG51bWJlciwgb3IKICBhbiBlcnJvciBpZiB0aGUgZXhhY3QgcmVxdWVzdGVkIGFtb3VudCBjYW5u
+b3QgYmUgcmVhY2hlZC4KKiBDcmVhdGVkIGEgbmV3IGhlbHBlciB0byBjaGVjayBpZiBhbiBvcGVy
+YXRpb24gaXMgYWN0dWFsbHkgc3VwcG9ydGVkCiAgb3Igbm90LiBVc2VkIHRoZSBhYm92ZSBuZXcg
+aGVscGVyIGZvciBjaGVja2luZyB0aGUgdmFsaWRpdHkgb2YgYW4KICAtPmV4ZWNfb3AoKSBvcGVy
+YXRpb24gb24gZGVtYW5kLgoqIENvbGxlY3RlZCBSb2IncyBSZXZpZXdlZC1ieSB0YWcuCgpDaGFu
+Z2VzIGluIHY0OgoqIENvbGxlY3RlZCBSZXZpZXdlZC1ieSB0YWdzLgoqIERyb3BwZWQgSXZhbiBm
+cm9tIHRoZSBsaXN0IChkaWQgbm90IGZpbmQgaGlzIGNvbnRhY3QpLgoqIFdyYXBwZWQgY29tbWl0
+IGxvZy4KKiBGaXhlZCB0eXBvcyBpbiB0aGUgY29tbWl0IGxvZ3MvY29tbWVudHMuCiogVG9vayBh
+dXRob3JzaGlwIG9mIGFsbCBwYXRjaGVzLgoqIEFkZGVkIG1vcmUgZGV0YWlscyBvbiB0aGUgQkNI
+IGNoYW5nZXMuCiogRG9jdW1lbnRlZCB0aGUgbmV3IGJjaF9jb250cm9sIGVudHJ5LgoqIE1hZGUg
+dGhlIHN3YXAgYml0IGNhbGxzIGNvbmRpdGlvbmFscyBpbiBiY2hfZW5jb2RlIHRvIGF2b2lkCiAg
+cGVuYWxpemluZyBwZW9wbGUgdGhhdCBkbyBub3QgdXNlIGl0LgoqIFBhdGNoZWQgYmNoX2luaXQo
+KSB0byB0YWtlIGFuIGV4dHJhIGFyZ3VtZW50LgoqIERyb3BwZWQgY2FsbHMgdG8gbmFuZF9yZWxl
+YXNlKCksIHVzZSB0aGUgY29uc3RydWN0aW9uIHByb3Bvc2VkIGJ5CiAgQm9yaXMgaW5zdGVhZC4K
+KiBEcm9wcGVkIGEgdXNlbGVzcyBORkMgc3RydWN0IGZpZWxkLgoqIEFkZGVkIGEgY29tbWVudCBv
+biBub3QgaGF2aW5nIGFuIGludGVycnVwdCBmb3IgUkIuCiogQ2hlY2tlZCB0aGUgbnVtYmVyIG9m
+IHN0ZXBzIHJlcXVlc3RlZCBpcyBjb21wYXRpYmxlIHdpdGggdGhlCiAgY29udHJvbGxlciBsaW1p
+dGF0aW9ucy4KKiBSZXdvcmtlZCBhbmZjX2V4ZWNfb3AgYXMgc3VnZ2VzdGVkIHRvIHRyZWF0IHRo
+ZSBjaGVja19vbmx5IGFyZ3VtZW50CiAgYW5vdGhlciB3YXkuCiogQ2hhbmdlIHRoZSBjb21tZW50
+IHN0YXRpbmcgdGhhdCB0aGUgY29udHJvbGxlciBoYXMgb25seSBvbmUgQ1MuCiogQ2xhcmlmaWVk
+IHRoZSBpbnRlcnJ1cHRzIHNpZ25hbHMgdnMuIGludGVycnVwdCBzdGF0dXMgYml0cy4KCkNoYW5n
+ZXMgaW4gdjM6CiogUHJlZml4IHNwZWNpZmljIGNsb2NrIGRlZmluaXRpb25zIHdpdGggWExOWCBh
+cyB0aGV5IGRvIG5vdCBhcHBseSBmb3IKICBhbnkgb3RoZXIgU29DIGFuZCBhcmUgYXR0YWNoZWQg
+dG8gYSBzaW5nbGUgY29tcGF0aWJsZS4KKiBVc2VkIGZpZWxkIGdldHRlcnMvc2V0dGVycyBhcyBk
+ZWZpbmVkIGluIGJpdGZpZWxkLmguCiogRm9yY2UgY2FzdGluZyB0byB1MzIgYmVmb3JlIHNoaWZ0
+aW5nIHU4IHZhbHVlcyBieSA4IDE2IG9yIDI0IGJpdHMuCiogQ29tcGx5IHdpdGggdGhlIHJlY2Vu
+dCBjb3JlIGNoYW5nZXMgYW5kIHNlbGVjdCBtYW51YWxseQogIG5hbmRfbW9ub2xpdGhpY19yZWFk
+L3dyaXRlX3BhZ2VfcmF3KCkgaGVscGVycy4KKiBBZGQgTUFJTlRBSU5FUiBwYXRjaC4KKiBBZGQg
+YSBiaXQgZXh0cmFjdGlvbiBoZWxwZXIgaW4gdGhlIGNvcmUuCiogUmVuYW1lIEJDSCBmdW5jdGlv
+bnMuCiogQWRkIGEgc3dhcHBpbmcgYml0IG1lY2hhbmlzbSB0byBCQ0guCiogU3VwcG9ydCB0aGUg
+aGFyZHdhcmUgRUNDIGVuZ2luZS4KCkNoYW5nZXMgaW4gdjI6CiogV29ya2luZyAtPmV4ZWNfb3Ao
+KSBpbXBsZW1lbnRhdGlvbiByZWx5aW5nIG9uIGNvcmUgY2hhbmdlcy4KKiBEcm9wcGVkIHRoZSBF
+Q0Mgc3VwcG9ydCBmb3Igbm93LCB3aWxsIGJlIHBhcnQgb2YgYW5vdGhlciBzZXJpZXMgaWYKICB0
+aGlzIHBhdGNoIGlzIGFjY2VwdGVkLgoKCk1pcXVlbCBSYXluYWwgKDgpOgogIGxpYi9iY2g6IFJl
+d29yayBhIGxpdHRsZSBiaXQgdGhlIGV4cG9ydGVkIGZ1bmN0aW9uIG5hbWVzCiAgbGliL2JjaDog
+QWxsb3cgZWFzeSBiaXQgc3dhcHBpbmcKICBtdGQ6IHJhd25hbmQ6IEVuc3VyZSB0aGUgbnVtYmVy
+IG9mIGJpdGZsaXBzIGlzIGNvbnNpc3RlbnQKICBtdGQ6IHJhd25hbmQ6IEFkZCBuYW5kX2V4dHJh
+Y3RfYml0cygpCiAgTUFJTlRBSU5FUlM6IEFkZCBBcmFzYW4gTkFORCBjb250cm9sbGVyIGFuZCBi
+aW5kaW5ncwogIGR0LWJpbmRpbmdzOiBtdGQ6IERvY3VtZW50IEFSQVNBTiBOQU5EIGJpbmRpbmdz
+CiAgbXRkOiByYXduYW5kOiBhcmFzYW46IEFkZCBuZXcgQXJhc2FuIE5BTkQgY29udHJvbGxlcgog
+IG10ZDogcmF3bmFuZDogYXJhc2FuOiBTdXBwb3J0IHRoZSBoYXJkd2FyZSBCQ0ggRUNDIGVuZ2lu
+ZQoKIC4uLi9iaW5kaW5ncy9tdGQvYXJhc2FuLG5hbmQtY29udHJvbGxlci55YW1sICB8ICAgNjMg
+KwogTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgICAgNyAr
+CiBkcml2ZXJzL210ZC9kZXZpY2VzL2RvY2czLmMgICAgICAgICAgICAgICAgICAgfCAgIDEwICst
+CiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9LY29uZmlnICAgICAgICAgICAgICAgICAgfCAgICA3ICsK
+IGRyaXZlcnMvbXRkL25hbmQvcmF3L01ha2VmaWxlICAgICAgICAgICAgICAgICB8ICAgIDEgKwog
+ZHJpdmVycy9tdGQvbmFuZC9yYXcvYXJhc2FuLW5hbmQtY29udHJvbGxlci5jIHwgMTI5NyArKysr
+KysrKysrKysrKysrKwogZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9iYXNlLmMgICAgICAgICAg
+ICAgIHwgICA1MiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9iY2guYyAgICAgICAgICAg
+ICAgIHwgICAxMCArLQogaW5jbHVkZS9saW51eC9iY2guaCAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgICAxMSArLQogaW5jbHVkZS9saW51eC9tdGQvcmF3bmFuZC5oICAgICAgICAgICAgICAg
+ICAgIHwgICAgNCArCiBsaWIvYmNoLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgMTUyICstCiAxMSBmaWxlcyBjaGFuZ2VkLCAxNTUwIGluc2VydGlvbnMoKyksIDY0IGRl
+bGV0aW9ucygtKQogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9tdGQvYXJhc2FuLG5hbmQtY29udHJvbGxlci55YW1sCiBjcmVhdGUgbW9kZSAxMDA2
+NDQgZHJpdmVycy9tdGQvbmFuZC9yYXcvYXJhc2FuLW5hbmQtY29udHJvbGxlci5jCgotLSAKMi4y
+MC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
