@@ -2,70 +2,62 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 806AD1DC028
-	for <lists+linux-mtd@lfdr.de>; Wed, 20 May 2020 22:30:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3257F1DC064
+	for <lists+linux-mtd@lfdr.de>; Wed, 20 May 2020 22:44:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jfi73SQIwGUvF7Zzo09Xetjd1JtwzKgn1172oUipQ/s=; b=nOc8ubi20C/VzJ
-	gGzi0F5pZYIJnJjamvVLORNcD/0lhMkVNJB9Ef8VOT+DnstGUWaX/B4VdwKLI3RX1KSxnatTjxWtR
-	G8H2APKEJL648znVwzac/aFQgrNwXQ2afeHSV1lQqT+PadeC7dgT6/cKd5WXGtnuvWoFKEHpJZ+Og
-	fN3CatZuNhQbXwTYa8dvph7fPiIp2LA/yTnvUNuVEtq0WGElGno9gqrT48sLbdPDzvrYQcO5m/RDd
-	vkEXG3kwK2tra48avVl98UqVXH83yMasf0R3UoxUovFDh+ge58we/27QQ4ZDyxPTc1BNa4z04Whs1
-	0xbkOt9h06csnc8AJUFw==;
+	List-Owner; bh=IqfUSIeIURjeofjov0XcQRoZXEGWNb4GfQwldGGsHaA=; b=KdPXQBIBmsHAx+
+	AqXqntc2Pkcl81MKP/Aiw5qKnX97Rnk8QUJoyy0CB4u6G7YwD6niVcn/RNqJjrJRMrwo4JERiZ+Pk
+	4B8EobgSGPGmSLhx65bDHoQsFTbJdieZsNwIt+CCh/1hKYqXzA+XekRTZf1wNK0Wq4lNank4vWeHJ
+	PtFblVFXPCQ1pveVa20TCayVbYQP0MM6ZGOhTmwwi0xge6qlv6hjyNHJYAXf1lb4ImXAPGBe7zeN5
+	jIQIgkAstuLgtZFAxNFSjhzKu3EyyaRJWtyVdUeX7KCGyX1Fi0fVoxcYuTJQ2gJyPpOpNre6JX001
+	4I9CvskoUijkadrf6/Fg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbVMD-0005A5-V3; Wed, 20 May 2020 20:30:29 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jbVZT-00056d-Ig; Wed, 20 May 2020 20:44:11 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbVLo-0003Pm-6R
- for linux-mtd@lists.infradead.org; Wed, 20 May 2020 20:30:06 +0000
-Subject: Re: [GIT PULL] UBI/UBIFS fixes for 5.7 final
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1590006603;
- bh=WDeYoHot53ESIixuTZ65c/GG9a6J/45XWKc8BZEBD1Q=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=D7zjVYxx7gu1Tg20tNJ4G2Tqx3tHKcaevDFh0D/ZXSXW1mKvZrfhILlJ/99TzfJ4c
- Nq4em4EstKjKGmhftyPT2tuQa4paBJx9espfeSO2Gamxy4SUy8JE1ATDTLEyf3Rl2L
- 8Za6OuKL89RpAQR9APlNIQVX0GyggDXayn8SqMjc=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <294087931.249343.1590004178869.JavaMail.zimbra@nod.at>
-References: <294087931.249343.1590004178869.JavaMail.zimbra@nod.at>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <294087931.249343.1590004178869.JavaMail.zimbra@nod.at>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git
- tags/for-linus-5.7-rc6
-X-PR-Tracked-Commit-Id: 0e7572cffe442290c347e779bf8bd4306bb0aa7c
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: fea371e259ebcc85d2d51a036743189bee487289
-Message-Id: <159000660389.10849.13761453252049235258.pr-tracker-bot@kernel.org>
-Date: Wed, 20 May 2020 20:30:03 +0000
-To: Richard Weinberger <richard@nod.at>
+ id 1jbVZH-00052h-PF
+ for linux-mtd@lists.infradead.org; Wed, 20 May 2020 20:44:01 +0000
+X-Originating-IP: 91.224.148.103
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 9F7A9240002;
+ Wed, 20 May 2020 20:43:55 +0000 (UTC)
+Date: Wed, 20 May 2020 22:43:54 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH 2/2] mtd: rawnand: Add timings for Kioxia TH58NVG2S3HBAI4
+Message-ID: <20200520224354.0670b814@xps13>
+In-Reply-To: <20200520172652.051b9d90@collabora.com>
+References: <1589981533129.2663@axis.com> <20200520154343.2ce58cc6@xps13>
+ <1589984216684.8771@axis.com> <20200520162936.6eb499fb@xps13>
+ <1589985750394.77181@axis.com>
+ <20200520165022.1e241604@collabora.com>
+ <20200520171246.538823eb@xps13>
+ <20200520172652.051b9d90@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200520_133004_257785_69EC578A 
-X-CRM114-Status: UNSURE (   1.88  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200520_134400_096774_5333261F 
+X-CRM114-Status: GOOD (  28.01  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.193 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [217.70.183.193 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,27 +69,106 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd <linux-mtd@lists.infradead.org>,
- torvalds <torvalds@linux-foundation.org>,
- linux-kernel <linux-kernel@vger.kernel.org>
-MIME-Version: 1.0
+Cc: Boris Brezillon <bbrezillon@kernel.org>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ Rickard X Andersson <Rickard.Andersson@axis.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The pull request you sent on Wed, 20 May 2020 21:49:38 +0200 (CEST):
+Hi Boris,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/rw/ubifs.git tags/for-linus-5.7-rc6
+Boris Brezillon <boris.brezillon@collabora.com> wrote on Wed, 20 May
+2020 17:26:52 +0200:
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/fea371e259ebcc85d2d51a036743189bee487289
+> On Wed, 20 May 2020 17:12:46 +0200
+> Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+> 
+> > Hi Boris,
+> > 
+> > Boris Brezillon <boris.brezillon@collabora.com> wrote on Wed, 20 May
+> > 2020 16:50:22 +0200:
+> >   
+> > > On Wed, 20 May 2020 14:42:31 +0000
+> > > Rickard X Andersson <Rickard.Andersson@axis.com> wrote:
+> > >     
+> > > > > > If I understand you correctly you want me to use onfi_find_equivalent_sdr_mode in order to find the corresponding onfi mode. Then you want me to use onfi_fill_data_interface and loop towards mode 0 checking which mode the controller accepts? I just thought it was a "messy" to duplicate this code in all vendor drivers.
+> > > > > > Or do you mean that I should just use onfi_find_equivalent_sdr_mode to set ."timings.mode" and let nand_base to do the looping in case error is returned from th58nvg2s3hbai4_choose_data_interface (i.e specialized timings not accepted by the controller).        
+> > > > >
+> > > > > Sorry for the misunderstanding. What I think you should try is:
+> > > > > 1/ call onfi_find_equivalent_sdr_mode() to set the timings.mode field.
+> > > > > 2/ call nand_controller_supports_data_interface()
+> > > > > 3/ if the controller supports the timings, set
+> > > > > chip->default_timing_mode accordingly and return 0.      
+> > > 
+> > > Why do we have to set the default_timing_mode field? Can't we just set
+> > > timings.mode directly?
+> > >     
+> > > > > 4/ if the controller does not support the timings, you may want to
+> > > > > propose other standard timings to test by setting
+> > > > > chip->default_timing_mode anyway but returning an error which means
+> > > > > "best interface has not been found yet" so the rest of the
+> > > > > choose_data_interface() helper will try the remaining ONFI modes
+> > > > > automatically (fallbacks to 0 anyway).      
+> > > 
+> > > Again, I don't see why setting chip->default_timing_mode is needed here,
+> > > and I'm not sure trying remaining ONFI modes is useful, I guess we can
+> > > just fall back on mode 0 in that case.    
+> > 
+> > It is needed because of the logic in nand_reset() which does not apply
+> > the data interface after a reset if this field is null.  
+> 
+> We should probably replace that check by a memcmp():
+> 
+> 	if (!memcmp(&chip->data_interface, saved_data_intf,
+> 		    sizeof(saved_data_intf)))
+> 		return 0;
+> 
+> And maybe we should allocate this struct instead of copying things
+> around (have a "default/reset timings" object that's shared by all
+> drivers and matches timing mode 0, and a "best timing" object that's
+> allocated at init time).
 
-Thank you!
+Indeed, checking if a pointer has been set is much less expensive than
+a memcmp I suppose. I'll try to come up with something.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+> 
+> > 
+> > Otherwise I also wondered if falling back to regular ONFI mode was
+> > useful. If this is not, we can just return after the call to
+> > chip->ops.choose_data_interface().  
+> 
+> Or maybe we could expose this logic as a helper:
+> 
+> static int
+> nand_choose_best_sdr_timings(struct nand_chip *,
+> 			     struct nand_sdr_timings *best_timings)
+> {
+> 	/*
+> 	 * 1/ pick the closest mode and assign best_timings->mode
+> 	 *    using onfi_find_equivalent_sdr_mode()
+> 	 * 2/ call controller->setup_data_interface(check_only, best_timings);
+> 	 * 3/ pick timings of best_timings->mode - 1 if it fails and go back to
+> 	 *    #2, return 0 otherwise.
+> 	 */
+> }
+> 
+> This way the driver doesn't have to duplicate the logic, it only has
+> to fill the best_timings struct accordingly, and the core can simply
+> do:
+> 
+> 	if (chip->ops.choose_data_interface)
+> 		return chip->ops.choose_data_interface();
+
+Well, that's very close to what I just proposed, no? The
+difference being that I was reusing the existing code (and
+already adapted it to DDR modes BTW) because "picking timings of
+best_timings->mode - 1 if it fails and go back to #2" is precisely what
+nand_choose_data_interface() does.
+
+Let me propose something with the above changes.
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
