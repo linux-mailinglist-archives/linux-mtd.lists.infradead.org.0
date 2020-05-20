@@ -2,57 +2,85 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DBD6D1DB768
-	for <lists+linux-mtd@lfdr.de>; Wed, 20 May 2020 16:50:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7640F1DB774
+	for <lists+linux-mtd@lfdr.de>; Wed, 20 May 2020 16:53:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IqY38SlimirVoV0HbzmwPcoyA3bQwF6E3SFco5luhbk=; b=qytLbYQ0gc6wUr
-	WMAPAYxXKVY7V+jIlEL0aor5rTp1o+2WwKeaE5fmKk+T8h8m2H4V2AYMqWq6eu/+33MLfhqgkHE92
-	CoVDYIpZWij2gXjbtl2PRU3kSwzLOzR3XlLuZBWFhH0ZsRIF9+Pr3DRtG4SYGyLLGjdWRkY3S03VF
-	SnKfbC/0OnVR54epDjXUMdTuSrjYpZRyV7hAukd+tKDFKdDv7sTRLwAm8Nex9slAZ7Gd3qcRT/Nve
-	0lyxkkVvPiwXJlpI17a2lfabepaPVtC9jMHjevF1k2InFsBYsjUmBEoVq/Qcu2U8Ol27knUog5AdZ
-	mHt+yD8AeuD4+rpkyIqA==;
+	List-Owner; bh=MnkL6J1mwinskmXlN/eNWsF0PxyU95L19TJY7XUZvCQ=; b=nZyu5tKI+aDpNE
+	asSWK8HiV0O/y72QMlmHP/v1KPsUCmXgul3i2m1AWwHLp+XHi794aN07aIyeFBISvfGb6Wrtwo3UU
+	i+4Hh+692wWWoGsU15O5jGacem+BC8+OOOaSz0Uzw8U+isbKaMPhFg7CFae7YBGJtNSjgAnNB5qEq
+	ibTrGcZm3DL1FiUwYv/0hUfUrmL9Da0FIc2Fzl2vJQ89i6lLwao1kQ9VvN2uNZ3XeKpcaP2Th8Q08
+	Vfh4vrtQki5EiVsJRzxZGO29FiUWdQFT5KOlsiYtGRVbK8CcNHdSFxHQbMPAxvQvATAGl+wGOBERv
+	zgxqAW1IH0twEw//4UzA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbQ3I-0003g7-SQ; Wed, 20 May 2020 14:50:36 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jbQ5e-0004Sj-Rl; Wed, 20 May 2020 14:53:02 +0000
+Received: from smtp2.axis.com ([195.60.68.18])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbQ39-0003fI-Iw
- for linux-mtd@lists.infradead.org; Wed, 20 May 2020 14:50:30 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 8C0A32A26DD;
- Wed, 20 May 2020 15:50:25 +0100 (BST)
-Date: Wed, 20 May 2020 16:50:22 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Rickard X Andersson <Rickard.Andersson@axis.com>
-Subject: Re: [PATCH 2/2] mtd: rawnand: Add timings for Kioxia TH58NVG2S3HBAI4
-Message-ID: <20200520165022.1e241604@collabora.com>
-In-Reply-To: <1589985750394.77181@axis.com>
-References: <1589981533129.2663@axis.com> <20200520154343.2ce58cc6@xps13>
- <1589984216684.8771@axis.com> <20200520162936.6eb499fb@xps13>
- <1589985750394.77181@axis.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1jbQ5W-0004Rs-JP
+ for linux-mtd@lists.infradead.org; Wed, 20 May 2020 14:52:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=axis.com; l=1413; q=dns/txt; s=axis-central1;
+ t=1589986374; x=1621522374;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-transfer-encoding:mime-version;
+ bh=JTX40Y26P9qpnP3rMqxJoeus5v3Z1jbGvpoAUWsMENI=;
+ b=Ts2OInR7ZwyOI7JNCLrBd4bgUfpUMtOy4N3GPlnUuxcQv+GXbop71Xy1
+ Ld+6wZuR9zv4Y2bWIFmNT3Dao3cnj+Q/9kAqwiq7mgZjpp24IG0kQ2vun
+ /InGfPXUB19gWXIMBa7rcYAX26cq9pARu0QYK3W+kfWmbN8k0KvseDAB2
+ QajF+MqQQIeDsuLz8rDhcKOvnA6jWzp0Bv4CCTKfqZEjVr6qKYqz+vCju
+ FZYbhUsoGO6IKOgGBW1x7zEIeuesMDMu4tbV48/hpbbbCdlUywthJndSK
+ f+nMPR75JOYKLWPpBX52x9IYdtuz9Q+AkF2GSCZLN1N2/b6gC5yMPiwt8 w==;
+IronPort-SDR: lrBym4owJ+qSuaJiEw2aubcZjO0JPOz4I6CgQ84/+7UugsUQM0wIASgh1oWlTOAsm+oYpeCLsZ
+ HdZmsSemVazevDW1DQ+ATYrTLVgGqs43ljnkA7oV7fXDEWQdsBo/tOONbAhFgnHiRKBV0xWuKH
+ K5MDq3bZmaZ0UrZEKXrsRJw3biYbubdcsR5r5K87tKgO/UnRkpypYzjNY7mdv01tLA4ziVIEAJ
+ 6jmQr7Dmbacv8IGhjkOFC3OLE5l5EiholDdjkc63W4nPCnWCt009HfhcbOQpscqn3mNJ5CQTeu
+ Fgk=
+X-IronPort-AV: E=Sophos;i="5.73,414,1583190000"; 
+   d="scan'208";a="8681218"
+From: Rickard X Andersson <Rickard.Andersson@axis.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: SV: [PATCH v2 1/2] mtd: rawnand: Add a helper for testing data
+ interface
+Thread-Topic: [PATCH v2 1/2] mtd: rawnand: Add a helper for testing data
+ interface
+Thread-Index: AQHWLqwJKaZ59bK9OUGbtdzkQ1QSh6iw3cSAgAAu71Q=
+Date: Wed, 20 May 2020 14:52:52 +0000
+Message-ID: <1589986371551.27178@axis.com>
+References: <20200520133854.25241-1-rickaran@axis.com>,
+ <20200520155529.3d959e96@xps13>
+In-Reply-To: <20200520155529.3d959e96@xps13>
+Accept-Language: sv-SE, en-US
+Content-Language: sv-SE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.0.5.60]
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200520_075029_056888_4A5B4B9D 
-X-CRM114-Status: GOOD (  17.14  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200520_075254_965331_6CE62952 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.60.68.18 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,39 +92,48 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <bbrezillon@kernel.org>,
- "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
- Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, 20 May 2020 14:42:31 +0000
-Rickard X Andersson <Rickard.Andersson@axis.com> wrote:
+Hi Miquel,
 
-> > > If I understand you correctly you want me to use onfi_find_equivalent_sdr_mode in order to find the corresponding onfi mode. Then you want me to use onfi_fill_data_interface and loop towards mode 0 checking which mode the controller accepts? I just thought it was a "messy" to duplicate this code in all vendor drivers.
-> > > Or do you mean that I should just use onfi_find_equivalent_sdr_mode to set ."timings.mode" and let nand_base to do the looping in case error is returned from th58nvg2s3hbai4_choose_data_interface (i.e specialized timings not accepted by the controller).  
-> >
-> > Sorry for the misunderstanding. What I think you should try is:
-> > 1/ call onfi_find_equivalent_sdr_mode() to set the timings.mode field.
-> > 2/ call nand_controller_supports_data_interface()
-> > 3/ if the controller supports the timings, set
-> > chip->default_timing_mode accordingly and return 0.
+Comments on two of your comments. (I am fine with all the other comments.)
 
-Why do we have to set the default_timing_mode field? Can't we just set
-timings.mode directly?
+> > + =A0 =A0 /*
+> > + =A0 =A0 =A0* Pass NAND_DATA_IFACE_CHECK_ONLY to only check if the
+> > + =A0 =A0 =A0* controller supports the requested timings.
+> > + =A0 =A0 =A0*/
+> > + =A0 =A0 ret =3D chip->controller->ops->setup_data_interface(chip,
+> > + =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0NAND_DATA_IFACE_CHECK_ONLY,
+> > + =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =
+=A0 =A0 =A0 =A0 =A0 =A0&chip->data_interface);
+>
+> Could you align these lines to the opened parenthesis?
 
-> > 4/ if the controller does not support the timings, you may want to
-> > propose other standard timings to test by setting
-> > chip->default_timing_mode anyway but returning an error which means
-> > "best interface has not been found yet" so the rest of the
-> > choose_data_interface() helper will try the remaining ONFI modes
-> > automatically (fallbacks to 0 anyway).
+Then the lines will have 80+ characters.
 
-Again, I don't see why setting chip->default_timing_mode is needed here,
-and I'm not sure trying remaining ONFI modes is useful, I guess we can
-just fall back on mode 0 in that case.
+> > @@ -994,9 +1020,6 @@ static int nand_choose_data_interface(struct nand_=
+chip *chip)
+> > =A0 =A0 =A0 if (chip->parameters.onfi) {
+> > =A0 =A0 =A0 =A0 =A0 =A0 =A0 modes =3D chip->parameters.onfi->async_timi=
+ng_mode;
+> > =A0 =A0 =A0 } else {
+> > - =A0 =A0 =A0 =A0 =A0 =A0 if (!chip->default_timing_mode)
+> > - =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 =A0 return 0;
+> > -
+>
+> This should not be removed
+
+Then onfi_fill_data_interface would not be called for default_timing_mode 0=
+. (In case we have called chip->ops.choose_data_interface and got an error.=
+).
+
+BR,
+Rickard
 
 ______________________________________________________
 Linux MTD discussion mailing list
