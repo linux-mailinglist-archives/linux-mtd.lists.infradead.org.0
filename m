@@ -2,63 +2,60 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC9661DC843
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 10:10:55 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 49E9C1DC879
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 10:28:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Date:From:Message-ID:MIME-Version:
 	Subject:To:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MGiqllBXqliqKawGuynWkP0DMPzxteE7Z2O6i68REKo=; b=dnsWAbyz+2Rxyw
-	8c/91AhD3F/kPyL3qdlY1YF23aQlhxSc5RJqNcgqnsBnPHv3k09TZaPpUm5u+BN+ONR/E0MmfJikE
-	ewHD6OYLoXRHzDM9KxmKj8aPNZ2yb7t51s4Bl5ypwh1zybQFJlP5V0zlfTBBgNWwxHbCH0gHmHT3L
-	fPc/q+lNcLt1XuA1C5I+fl4qwXSlZkl3/ReigDrxfNiBcVXVV22S/IWB4JoKwILOYED0GISsJqyhm
-	oYjNq/2R9A/xwWM2RXYQGtAKkN3QyLHbKNGrk2oiui0e9T0fo3TkbrweRv0Ir3eJnwht4nNbGf8l1
-	7OSbdgGRxpduZPQcBm0A==;
+	List-Owner; bh=upxVXDH/cFYT3Ihfv6PCEqJg/xzkWQVuj3FSE9mJ2kA=; b=aN+HZ5gNngBzrn
+	fgDSFXKCqhLwAJx5K33BvXxmHux6q2V2FGALc0tx8XlWcdF0rjeV2G132BaEWFiEqcSMy8sHplCzR
+	y36YhfEzPGgq1CahlDRkZOjIbPNZrQb7J37fGTPgq1TosRpuvHFKgBrwLHieyIYngFpwSTAQn8UGS
+	DJHUdsfUeHzaK6zCJsqsgPEWWtLFYQBhBuYFdmu42cYM9thCB+/W8X2gYzQvL4ep0M/yT3A47LanT
+	DfjOm1MT4aW0rqNEf9tGI8yfYdg4MStqBQ9e/c6974dZGUwFqER9z0O8nDaJnJVGeNAVuc9qElDxM
+	04y9Op6G53pt/jMGqtLw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbgHz-0000Xg-Nr; Thu, 21 May 2020 08:10:51 +0000
-Received: from twhmllg3.macronix.com ([122.147.135.201])
+	id 1jbgZ1-0002S1-Ve; Thu, 21 May 2020 08:28:28 +0000
+Received: from twhmllg3.macronix.com ([211.75.127.131])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbgHf-0000NA-Dt; Thu, 21 May 2020 08:10:37 +0000
+ id 1jbgYr-0002RQ-Av; Thu, 21 May 2020 08:28:19 +0000
 Received: from twhfmlp1.macronix.com (twhfmlp1.macronix.com [172.17.20.91])
- by TWHMLLG3.macronix.com with ESMTP id 04L89rJP053197;
- Thu, 21 May 2020 16:09:53 +0800 (GMT-8)
+ by TWHMLLG3.macronix.com with ESMTP id 04L8RljY069236;
+ Thu, 21 May 2020 16:27:47 +0800 (GMT-8)
  (envelope-from masonccyang@mxic.com.tw)
 Received: from MXML06C.mxic.com.tw (mxml06c.macronix.com [172.17.14.55])
- by Forcepoint Email with ESMTP id 7422D97B974B4667C822;
- Thu, 21 May 2020 16:09:53 +0800 (CST)
-In-Reply-To: <20200520103728.jtbslowdfrv3o5yz@ti.com>
+ by Forcepoint Email with ESMTP id 1B985808C8C345E414D3;
+ Thu, 21 May 2020 16:27:48 +0800 (CST)
+In-Reply-To: <20200519142642.24131-2-p.yadav@ti.com>
 References: <20200519142642.24131-1-p.yadav@ti.com>
- <20200519142642.24131-10-p.yadav@ti.com>
- <OF83616464.480FA751-ON4825856E.002A4483-4825856E.002BE6AF@mxic.com.tw>
- <20200520085534.yra4f5ww5xs23c4j@ti.com>
- <OF98344913.4BF4C313-ON4825856E.0032A810-4825856E.00352141@mxic.com.tw>
- <20200520103728.jtbslowdfrv3o5yz@ti.com>
+ <20200519142642.24131-2-p.yadav@ti.com>
 To: "Pratyush Yadav" <p.yadav@ti.com>
-Subject: Re: [PATCH v5 09/19] mtd: spi-nor: sfdp: parse xSPI Profile 1.0 table
+Subject: Re: [PATCH v5 01/19] spi: spi-mem: allow specifying whether an op is
+ DTR or not
 MIME-Version: 1.0
-X-KeepSent: F5A6BA99:395182B5-4825856F:002B2F98;
+X-KeepSent: 1FE36FB9:9FBEFCD6-4825856F:002D767F;
  type=4; name=$KeepSent
 X-Mailer: Lotus Notes Release 8.5.3FP4 SHF90 June 10, 2013
-Message-ID: <OFF5A6BA99.395182B5-ON4825856F.002B2F98-4825856F.002CD973@mxic.com.tw>
+Message-ID: <OF1FE36FB9.9FBEFCD6-ON4825856F.002D767F-4825856F.002E7D42@mxic.com.tw>
 From: masonccyang@mxic.com.tw
-Date: Thu, 21 May 2020 16:09:52 +0800
+Date: Thu, 21 May 2020 16:27:47 +0800
 X-MIMETrack: Serialize by Router on MXML06C/TAIWAN/MXIC(Release 9.0.1FP10
- HF265|July 25, 2018) at 2020/05/21 PM 04:09:53,
- Serialize complete at 2020/05/21 PM 04:09:53
-X-MAIL: TWHMLLG3.macronix.com 04L89rJP053197
+ HF265|July 25, 2018) at 2020/05/21 PM 04:27:48,
+ Serialize complete at 2020/05/21 PM 04:27:48
+X-MAIL: TWHMLLG3.macronix.com 04L8RljY069236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_011031_809726_8C959B48 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20200521_012817_629006_E61FDACE 
+X-CRM114-Status: GOOD (  17.37  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [122.147.135.201 listed in list.dnswl.org]
+ no trust [211.75.127.131 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -82,133 +79,133 @@ Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
  Boris Brezillon <boris.brezillon@collabora.com>,
  linux-mediatek@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
  Matthias Brugger <matthias.bgg@gmail.com>, linux-mtd@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
+ Pratyush Yadav <p.yadav@ti.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 
-Hi Pratyush, 
+Hi Pratyush,
 
-> > 
-> > > > > +/**
-> > > > > + * spi_nor_parse_profile1() - parse the xSPI Profile 1.0 table
-> > > > > + * @nor:      pointer to a 'struct spi_nor'
-> > > > > + * @param_header:   pointer to the 'struct 
-sfdp_parameter_header' 
-> > > > describing
-> > > > > + *         the 4-Byte Address Instruction Table length and 
-version.
-> > > > > + * @params:      pointer to the 'struct 
-spi_nor_flash_parameter' to 
-> > be.
-> > > > > + *
-> > > > > + * Return: 0 on success, -errno otherwise.
-> > > > > + */
-> > > > > +static int spi_nor_parse_profile1(struct spi_nor *nor,
-> > > > > +              const struct sfdp_parameter_header 
-*profile1_header,
-> > > > > +              struct spi_nor_flash_parameter *params)
-> > > > > +{
-> > > > > +   u32 *table, opcode, addr;
-> > > > > +   size_t len;
-> > > > > +   int ret, i;
-> > > > > +
-> > > > > +   len = profile1_header->length * sizeof(*table);
-> > > > > +   table = kmalloc(len, GFP_KERNEL);
-> > > > > +   if (!table)
-> > > > > +      return -ENOMEM;
-> > > > > +
-> > > > > +   addr = SFDP_PARAM_HEADER_PTP(profile1_header);
-> > > > > +   ret = spi_nor_read_sfdp(nor, addr, len, table);
-> > > > > +   if (ret)
-> > > > > +      goto out;
-> > > > > +
-> > > > > +   /* Fix endianness of the table DWORDs. */
-> > > > > +   for (i = 0; i < profile1_header->length; i++)
-> > > > > +      table[i] = le32_to_cpu(table[i]);
-> > > > > +
-> > > > > +   /* Get 8D-8D-8D fast read opcode and dummy cycles. */
-> > > > > +   opcode = FIELD_GET(PROFILE1_DWORD1_RD_FAST_CMD, table[0]);
-> > > > > +
-> > > > > +   /*
-> > > > > +    * Update the fast read settings. We set the default dummy 
-> > cycles to 
-> > > > 20
-> > > > > +    * here. Flashes can change this value if they need to when 
-> > enabling
-> > > > > +    * octal mode.
-> > > > > +    */
-> > > > > + 
-spi_nor_set_read_settings(&params->reads[SNOR_CMD_READ_8_8_8_DTR],
-> > > > > +              0, 20, opcode,
-> > > > > +              SNOR_PROTO_8_8_8_DTR);
-> > > > > +
-> > > > 
-> > > > 
-> > > > I thought we have a agreement that only do parse here, no other 
-read 
-> > > > parameters setting.
-> > > 
-> > > Yes, and I considered it. But it didn't make much sense to me to 
-> > > introduce an extra member in struct spi_nor just to make this call 
-in 
-> > > some other function later.
-> > > 
-> > > Why exactly do you think doing this here is bad? The way I see it, 
-we 
-> > > avoid carrying around an extra member in spi_nor and this also 
-allows 
-> > > flashes to change the read settings easily in a post-sfdp hook. The 
-> > > 4bait parsing function does something similar.
-> > 
-> > I think it's not a question for good or bad. 
-> > 
-> > 4bait parsing function parse the 4-Byte Address Instruction Table
-> > and set up read/pp parameters there for sure.
-> > 
-> > Here we give the function name spi_nor_parse_profile1() but also 
-> 
-> But the function that parses 4bait table is also called 
-> spi_nor_parse_4bait(). 
-> 
-> > do others setting that has nothing to do with it, 
-> 
-> Why has setting read opcode and dummy cycles got nothing to do with it? 
-> The purpose of the Profile 1.0 table is to tell us the Read Fast command 
-
-> and dummy cycles, among other things. I think it _does_ have something 
-> to do with it.
-
-As you know I mean this function just do parse parameter of profile 1 
-table
-and keep these value data for later usage.
-
-A device supports xSPI profile table could work in either 8S-8S-8S or 
-8D-8D-8D mode.
-It seems to setup these parameters somewhere out here is betters.
+Given cmd.nbytes a initial value & check it !
 
 > 
-> Just like the 4bait table tells us the 4-byte opcodes and we set them up 
-
-> in our data structures, the profile 1.0 table tells us the 8D read 
-> opcode and dummy cycles, and we set them up in our data structures.
+> [PATCH v5 01/19] spi: spi-mem: allow specifying whether an op is DTR or 
+not
 > 
-> > it seems not good for SW module design. 
-> > oh, it's my humble opinion.
-> > 
-> > > 
-> > > What are the benefits of doing it otherwise?
-> > 
-> > For other Octal Flash like mx25*
+> Each phase is given a separate 'dtr' field so mixed protocols like
+> 4S-4D-4D can be supported.
 > 
-> I mean from a design perspective. How does it make the code better, or 
-> the job of people who need to read/change it easier?
+> Signed-off-by: Pratyush Yadav <p.yadav@ti.com>
+> ---
+>  drivers/spi/spi-mem.c       | 3 +++
+>  include/linux/spi/spi-mem.h | 8 ++++++++
+>  2 files changed, 11 insertions(+)
+> 
+> diff --git a/drivers/spi/spi-mem.c b/drivers/spi/spi-mem.c
+> index 9a86cc27fcc0..93e255287ab9 100644
+> --- a/drivers/spi/spi-mem.c
+> +++ b/drivers/spi/spi-mem.c
+> @@ -156,6 +156,9 @@ bool spi_mem_default_supports_op(struct spi_mem 
+*mem,
+>                 op->data.dir == SPI_MEM_DATA_OUT))
+>        return false;
+> 
+> +   if (op->cmd.dtr || op->addr.dtr || op->dummy.dtr || op->data.dtr)
+> +      return false;
+> +
 
-yes, agreed.
-I also need to patch for 8S-8S-8S mode, not only 8D-8D-8D mode.
-That's why we have some discussions.
++       if (op->cmd.nbytes != 1)
++               return false;
+
+>     return true;
+>  }
+>  EXPORT_SYMBOL_GPL(spi_mem_default_supports_op);
+
+
+ static int spi_mem_check_op(const struct spi_mem_op *op)
+ {
+-                if (!op->cmd.buswidth)
++                if (!op->cmd.buswidth || op->cmd.nbytes < 1 || 
+op->cmd.nbytes > 2)
+                                 return -EINVAL;
+
+
+> diff --git a/include/linux/spi/spi-mem.h b/include/linux/spi/spi-mem.h
+> index af9ff2f0f1b2..e3dcb956bf61 100644
+> --- a/include/linux/spi/spi-mem.h
+> +++ b/include/linux/spi/spi-mem.h
+
+#define SPI_MEM_OP_CMD(__opcode, __buswidth)                    \
+         {                                                       \
+                 .buswidth = __buswidth,                         \
+                 .opcode = __opcode,                             \
++                .nbytes = 1,                                    \
+         }
+
+
+
+> @@ -71,9 +71,11 @@ enum spi_mem_data_dir {
+>   * struct spi_mem_op - describes a SPI memory operation
+>   * @cmd.buswidth: number of IO lines used to transmit the command
+>   * @cmd.opcode: operation opcode
+> + * @cmd.dtr: whether the command opcode should be sent in DTR mode or 
+not
+>   * @addr.nbytes: number of address bytes to send. Can be zero if the 
+operation
+>   *       does not need to send an address
+>   * @addr.buswidth: number of IO lines used to transmit the address 
+cycles
+> + * @addr.dtr: whether the address should be sent in DTR mode or not
+>   * @addr.val: address value. This value is always sent MSB first on the 
+bus.
+>   *         Note that only @addr.nbytes are taken into account in this
+>   *         address value, so users should make sure the value fits in 
+the
+> @@ -81,7 +83,9 @@ enum spi_mem_data_dir {
+>   * @dummy.nbytes: number of dummy bytes to send after an opcode or 
+address. Can
+>   *        be zero if the operation does not require dummy bytes
+>   * @dummy.buswidth: number of IO lanes used to transmit the dummy bytes
+> + * @dummy.dtr: whether the dummy bytes should be sent in DTR mode or 
+not
+>   * @data.buswidth: number of IO lanes used to send/receive the data
+> + * @data.dtr: whether the data should be sent in DTR mode or not
+>   * @data.dir: direction of the transfer
+>   * @data.nbytes: number of data bytes to send/receive. Can be zero if 
+the
+>   *       operation does not involve transferring data
+> @@ -91,22 +95,26 @@ enum spi_mem_data_dir {
+>  struct spi_mem_op {
+>     struct {
+>        u8 buswidth;
+> +      u8 dtr : 1;
+>        u8 opcode;
+>     } cmd;
+> 
+>     struct {
+>        u8 nbytes;
+>        u8 buswidth;
+> +      u8 dtr : 1;
+>        u64 val;
+>     } addr;
+> 
+>     struct {
+>        u8 nbytes;
+>        u8 buswidth;
+> +      u8 dtr : 1;
+>     } dummy;
+> 
+>     struct {
+>        u8 buswidth;
+> +      u8 dtr : 1;
+>        enum spi_mem_data_dir dir;
+>        unsigned int nbytes;
+>        union {
+> -- 
+> 2.26.2
+> 
 
 thanks & best regards,
 Mason
