@@ -2,60 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D23D1DCC0E
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 13:24:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2AC191DCCAD
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 14:14:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=448jzB8vZ0VExs/7Q0EBQpMsTESM2sew8PGU2icfdCo=; b=IAlKo9nPrrPIl5
-	EloMCS2OLE78PDWI1R2betI2+XiDT7kfs5AMF0fhWev1v6Q0szcdn1gUKAD1PdYNdU1begeU7U8YZ
-	94XvSmDS29R6fLKgb5dJ7YUBqoxVjLHjzEu0A2PKurf3vrCS38uKljoGQ0xmmjM3qD+wgMtl//nxY
-	TjiWxKm6t61kEx2UuZpUjPvsR8Ox9FXfES0C6uOFxKLojQTrOdv2ANlhgQQbft2Jo6O/SVv6BMVGN
-	MFrPugb7d/UnHtl7/Icc/nzqdK2WnK0AkRqKSe2sQO8k8yc8Kq0qmi8A0IDAXt2C42tJKoT0f77mY
-	8CRa6xLBXS3tPGi+wdfQ==;
+	List-Owner; bh=KrCTnenTXjiAaMZWu/NQES/YmPJkZQvm2+CKJpqclTw=; b=o7YaeutOhXzlUD
+	PpfDGF3h7LAgvrE1srHTrTsYgQRX4h83c+pVOOShG9XxB+J4cO9KQTScpv2htcYZJc6Zy2ZkVhsc9
+	uVsUMfZArqAzx3wX1kWIpIMsCLQ4J2h1mqyKpi1eHdg8IUGgTS1hXgkpT/QjDvJ3+YcZezlshlR9Y
+	kK+d2IiUctOCWgNEC8YwTRHfRvsMpgScW3/+hRdB88AJQDRSDPjprGuVL1s4MAtt3/wg7EbyNAmbD
+	bLRCpyK42oMuAvzP0FTyq/gXFzPt3R3TY8m9dURG28pROdL2LXQQKadpYemY6yCnITLeoannZ4vg7
+	wiVuUvn76rG93I79c9Jg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbjJe-0003xC-9d; Thu, 21 May 2020 11:24:46 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1jbk5b-0001f3-ET; Thu, 21 May 2020 12:14:19 +0000
+Received: from mga01.intel.com ([192.55.52.88])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbjJG-0003my-Oy
- for linux-mtd@lists.infradead.org; Thu, 21 May 2020 11:24:24 +0000
-Received: from DGGEMS403-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id 09BDBD8DE7A7168C8D15;
- Thu, 21 May 2020 19:24:18 +0800 (CST)
-Received: from localhost.localdomain (10.67.165.24) by
- DGGEMS403-HUB.china.huawei.com (10.3.19.203) with Microsoft SMTP Server id
- 14.3.487.0; Thu, 21 May 2020 19:24:08 +0800
-From: Yicong Yang <yangyicong@hisilicon.com>
-To: <broonie@kernel.org>, <tudor.ambarus@microchip.com>,
- <linux-spi@vger.kernel.org>, <linux-mtd@lists.infradead.org>
-Subject: [RFC PATCH 3/3] spi: hisi-sfc-v3xx: Add prepare/unprepare methods to
- avoid race condition
-Date: Thu, 21 May 2020 19:23:51 +0800
-Message-ID: <1590060231-23242-4-git-send-email-yangyicong@hisilicon.com>
-X-Mailer: git-send-email 2.8.1
-In-Reply-To: <1590060231-23242-1-git-send-email-yangyicong@hisilicon.com>
-References: <1590060231-23242-1-git-send-email-yangyicong@hisilicon.com>
+ id 1jbk5U-0001eO-NN
+ for linux-mtd@lists.infradead.org; Thu, 21 May 2020 12:14:13 +0000
+IronPort-SDR: cMdCnwiwxRokIYRsAkIi3UvO56d0AP8JJVtPDZ0n9pH0w1usTZ6DtYjYimldCKeJxJ+RaHakhC
+ 1DDK9eBB5Eew==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+ by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 21 May 2020 05:14:12 -0700
+IronPort-SDR: MFQk67iCXel4hNSRiGw0kw3tkSFQSs0WGWIE0LscF3gapHDp7VHSj1sMLjVmuLywmuKyIbkWIl
+ 2i7szTVcA3ug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,417,1583222400"; d="scan'208";a="466762230"
+Received: from linux.intel.com ([10.54.29.200])
+ by fmsmga005.fm.intel.com with ESMTP; 21 May 2020 05:14:11 -0700
+Received: from [10.215.164.158] (vramuthx-mobl1.gar.corp.intel.com
+ [10.215.164.158])
+ by linux.intel.com (Postfix) with ESMTP id AD60A5804B4;
+ Thu, 21 May 2020 05:14:05 -0700 (PDT)
+Subject: Re: [PATCH v2 1/1] dt-bindings: spi: Add schema for Cadence QSPI
+ Controller driver
+To: Mark Brown <broonie@kernel.org>
+References: <20200520123612.11797-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200520124329.GF4823@sirena.org.uk>
+ <fd086da7-7e18-83bc-d423-56095b0cff96@linux.intel.com>
+ <20200521105646.GA4770@sirena.org.uk>
+From: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>
+Message-ID: <24b0297c-5c33-f690-9514-68b76fc2c9ea@linux.intel.com>
+Date: Thu, 21 May 2020 20:14:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.0
 MIME-Version: 1.0
-X-Originating-IP: [10.67.165.24]
-X-CFilter-Loop: Reflected
+In-Reply-To: <20200521105646.GA4770@sirena.org.uk>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_042422_976800_1894B243 
-X-CRM114-Status: GOOD (  16.10  )
-X-Spam-Score: -2.1 (--)
+X-CRM114-CacheID: sfid-20200521_051412_782237_348CA97F 
+X-CRM114-Status: GOOD (  15.13  )
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.1 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [192.55.52.88 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [192.55.52.88 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,107 +82,49 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, john.garry@huawei.com, vigneshr@ti.com,
- miquel.raynal@bootlin.com
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
+Cc: cheol.yong.kim@intel.com, robh@kernel.org, vigneshr@ti.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-mtd@lists.infradead.org, qi-ming.wu@intel.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The controller can be shared with the firmware, which may cause race
-problems. As most read/write/erase/lock/unlock of spi-nor flash are
-composed of a set of operations, while the firmware may use the controller
-and start its own operation in the middle of the process started by the
-kernel driver, which may lead to the kernel driver's function broken.
 
-Bit[20] in HISI_SFC_V3XX_CMD_CFG register plays a role of a lock, to
-protect the controller from firmware access, which means the firmware
-cannot reach the controller if the driver set the bit. Add prepare/
-unprepare methods for the controller, we'll hold the lock in prepare
-method and release it in unprepare method, which will solve the race
-issue.
+Hi Mark,
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- drivers/spi/spi-hisi-sfc-v3xx.c | 41 ++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
+On 21/5/2020 6:56 pm, Mark Brown wrote:
+> On Thu, May 21, 2020 at 10:18:26AM +0800, Ramuthevar, Vadivel MuruganX wrote:
+>> On 20/5/2020 8:43 pm, Mark Brown wrote:
+>>> On Wed, May 20, 2020 at 08:36:12PM +0800, Ramuthevar,Vadivel MuruganX wrote:
+> 
+>>>>    .../devicetree/bindings/mtd/cadence-quadspi.txt    |  67 -----------
+>>>>    .../devicetree/bindings/spi/cdns,qspi-nor.yaml     | 133 +++++++++++++++++++++
+> 
+>>> The changelog says this is adding a new binding but the actual change is
+>>> mostly a conversion to YAML.  Please split the additions out into a
+>>> separate change, ideally doing that before the conversion since there is
+>>> a backlog on review of YAML conversions.
+> 
+>> Initially was sending the only YAML file alone, then reviewers suggest to me
+>> do this way so I did, next by split the patches like below...
+> 
+>> 1. remove the cadence-quadspi.txt (patch1)
+>> 2. convert txt to YAML (patch2)
+> 
+> That doesn't address either of the issues.  The removal of the old
+> bindings and addition of the YAML ones needs to be in a single patch
+> doing that conversion.  What I'm suggesting should be done separately is
+> whatever changes to the semantics of the bindings you are (according to
+> your changelog) doing.
+You mean semantics of the binding as a single patch you are suggesting 
+me, right? , Thanks!
 
-diff --git a/drivers/spi/spi-hisi-sfc-v3xx.c b/drivers/spi/spi-hisi-sfc-v3xx.c
-index e3b5725..13c161c 100644
---- a/drivers/spi/spi-hisi-sfc-v3xx.c
-+++ b/drivers/spi/spi-hisi-sfc-v3xx.c
-@@ -18,6 +18,7 @@
- #define HISI_SFC_V3XX_VERSION (0x1f8)
- 
- #define HISI_SFC_V3XX_CMD_CFG (0x300)
-+#define HISI_SFC_V3XX_CMD_CFG_LOCK BIT(20)
- #define HISI_SFC_V3XX_CMD_CFG_DUAL_IN_DUAL_OUT (1 << 17)
- #define HISI_SFC_V3XX_CMD_CFG_DUAL_IO (2 << 17)
- #define HISI_SFC_V3XX_CMD_CFG_FULL_DIO (3 << 17)
-@@ -41,6 +42,34 @@ struct hisi_sfc_v3xx_host {
- 	int max_cmd_dword;
- };
- 
-+int hisi_sfc_v3xx_op_prepare(struct spi_mem *mem)
-+{
-+	struct spi_device *spi = mem->spi;
-+	struct hisi_sfc_v3xx_host *host;
-+	u32 reg = HISI_SFC_V3XX_CMD_CFG_LOCK;
-+
-+	host = spi_controller_get_devdata(spi->master);
-+
-+	writel(reg, host->regbase + HISI_SFC_V3XX_CMD_CFG);
-+
-+	reg = readl(host->regbase + HISI_SFC_V3XX_CMD_CFG);
-+	if (!(reg & HISI_SFC_V3XX_CMD_CFG_LOCK))
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+void hisi_sfc_v3xx_op_unprepare(struct spi_mem *mem)
-+{
-+	struct spi_device *spi = mem->spi;
-+	struct hisi_sfc_v3xx_host *host;
-+
-+	host = spi_controller_get_devdata(spi->master);
-+
-+	/* Release the lock and clear the command register. */
-+	writel(0, host->regbase + HISI_SFC_V3XX_CMD_CFG);
-+}
-+
- #define HISI_SFC_V3XX_WAIT_TIMEOUT_US		1000000
- #define HISI_SFC_V3XX_WAIT_POLL_INTERVAL_US	10
- 
-@@ -163,7 +192,15 @@ static int hisi_sfc_v3xx_generic_exec_op(struct hisi_sfc_v3xx_host *host,
- 					 u8 chip_select)
- {
- 	int ret, len = op->data.nbytes;
--	u32 config = 0;
-+	u32 config;
-+
-+	/*
-+	 * The lock bit is in the command register. Clear the command
-+	 * field with lock bit held if it has been set in
-+	 * .prepare().
-+	 */
-+	config = readl(host->regbase + HISI_SFC_V3XX_CMD_CFG);
-+	config &= HISI_SFC_V3XX_CMD_CFG_LOCK;
- 
- 	if (op->addr.nbytes)
- 		config |= HISI_SFC_V3XX_CMD_CFG_ADDR_EN_MSK;
-@@ -248,6 +285,8 @@ static int hisi_sfc_v3xx_exec_op(struct spi_mem *mem,
- 
- static const struct spi_controller_mem_ops hisi_sfc_v3xx_mem_ops = {
- 	.adjust_op_size = hisi_sfc_v3xx_adjust_op_size,
-+	.prepare	= hisi_sfc_v3xx_op_prepare,
-+	.unprepare	= hisi_sfc_v3xx_op_unprepare,
- 	.exec_op = hisi_sfc_v3xx_exec_op,
- };
- 
--- 
-2.8.1
+Regards
+Vadivel
 
+> 
 
 ______________________________________________________
 Linux MTD discussion mailing list
