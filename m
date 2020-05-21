@@ -2,84 +2,70 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 388181DC42A
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 02:49:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2141C1DC51C
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 04:20:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:From:To:
-	Subject:Content-Description:MIME-Version:Cc:Content-ID:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=SGTg5qTmNBWAkiZCXhL9fF13rgzsrrpU5BymoiynscQ=; b=mVn
-	RudG+gI5vcdZDKcCHD4sGRgfpxJ9Y/NpRW52C9+1CorkqIMXLTcs/6isOKOt8o+dgPWSHh1XmYp+4
-	+bKEA9uwsni8dU9oh31fP1Qw0xwXZ14uDSlTrF98uQFvNvRzmqGED/1+9H8ssMh9I6rola+3nYqD9
-	mPh21QfjzthSUTDRjXcrb3VFtYRSVUYEBDqr24vrjONICV1f+h9GnIFka/SimDvCA39TDO/JF2MIG
-	NhmbRP+BkldHMwJV/DBAGTP0sGb19Ft0BPPxKkkXBbiapUYLz7SJSilFr61s481Hl+xqcLev18bX9
-	oqQxSWCZhcvRaCmj9Cei6Ckm+yxAc/A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Mzg0YgR31fGlofx9J2AqMm4rNY3eH0Wsjy9R2t5xT5g=; b=Y/BhMmqORs02mL
+	XTV2B/pPWFukgY1fqvGbADqmZdNO+qGbNYKduqkB8YhmXNugYK5nSgL0jCRi9udZ+O+4LixGOp2ji
+	Z6yGhYRRazMvjjnUyGuLtOZQYEjRJF5JyGj4x0WioJ9UD2LYUp+yYfOP2YeEcmzEqM1CvUpfzQW2O
+	vTFd4G9yatVVyg0V0fWGnGlSCadiLA3lLcunYWeKJIDOResU45lDc0rDn9YC5oQguqYouO71bGf3c
+	WIFJ1nanAGA1j2QJ1NZBj/KXXCbdNJOXvVyIazfbsVE148L6xKO3XJRsTrG7FhCb/0aHMU6k/GtDK
+	aueZWbv0YRPcv+Zx4v+A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbZOe-0007cF-Rn; Thu, 21 May 2020 00:49:16 +0000
-Received: from poczta.grupaang.pl ([185.30.126.62])
+	id 1jbap6-0008CX-03; Thu, 21 May 2020 02:20:40 +0000
+Received: from mga03.intel.com ([134.134.136.65])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbZOO-0007SJ-5s
- for linux-mtd@lists.infradead.org; Thu, 21 May 2020 00:49:02 +0000
-Received: from localhost (localhost [IPv6:::1])
- by poczta.grupaang.pl (Postfix) with ESMTP id 239B09C23BD1;
- Thu, 21 May 2020 02:37:50 +0200 (CEST)
-Received: from poczta.grupaang.pl ([IPv6:::1])
- by localhost (poczta.grupaang.pl [IPv6:::1]) (amavisd-new, port 10032)
- with ESMTP id 55chENBezQyO; Thu, 21 May 2020 02:37:50 +0200 (CEST)
-Received: from localhost (localhost [IPv6:::1])
- by poczta.grupaang.pl (Postfix) with ESMTP id 1F01F9C24DD3;
- Thu, 21 May 2020 02:34:02 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.9.2 poczta.grupaang.pl 1F01F9C24DD3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grupaang.pl;
- s=7793420A-B2DC-11E5-9111-2A02918EC272; t=1590021242;
- bh=cqIY/mudBtC9yvLXuPdU1hJ2LOQoEgrUVunny0tc7EQ=;
- h=Content-Type:MIME-Version:Content-Transfer-Encoding:Subject:To:
- From:Date:Reply-To:Message-Id;
- b=VrwYG79avHsnB5t+9pfegvU3xll5/CZe+f8U+jr779MfH/N6j1uywXEL5dhsGegQz
- cLCMkPonoLJnxr2dSzeKxIW4aIR/sUUuEr7PpwGwiolgyO1NK63crJ7YgBCWcG2Jef
- LizHofMPnzwgT7v4eduz2eFs7oGKCRdmX2dO16Iw=
-X-Virus-Scanned: amavisd-new at grupaang.pl
-Received: from poczta.grupaang.pl ([IPv6:::1])
- by localhost (poczta.grupaang.pl [IPv6:::1]) (amavisd-new, port 10026)
- with ESMTP id LKZs3bI8FP3M; Thu, 21 May 2020 02:34:02 +0200 (CEST)
-Received: from [172.20.10.6] (unknown [105.4.3.6])
- by poczta.grupaang.pl (Postfix) with ESMTPSA id E70AD9C24E05;
- Thu, 21 May 2020 02:31:49 +0200 (CEST)
+ id 1jbaoz-0005ZQ-OD
+ for linux-mtd@lists.infradead.org; Thu, 21 May 2020 02:20:34 +0000
+IronPort-SDR: KRTzYJ5umSBOzcwk71E1yjMTbAKyx3izfI0sPFg1GmAYSGVolbMLO+GjGl0Eh7opzC+rf3Njh3
+ f2c9rZGV0UUw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 20 May 2020 19:18:31 -0700
+IronPort-SDR: ej73RVr5VXW1YFsQO2RnXxS2Gz6PpL1WryA3R0i9OZOzz47haLbA6uGuM5NSc3gblLeTdBhlYP
+ ofEnlu51jN9g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,416,1583222400"; d="scan'208";a="300642970"
+Received: from linux.intel.com ([10.54.29.200])
+ by orsmga008.jf.intel.com with ESMTP; 20 May 2020 19:18:31 -0700
+Received: from [10.214.148.54] (vramuthx-MOBL1.gar.corp.intel.com
+ [10.214.148.54])
+ by linux.intel.com (Postfix) with ESMTP id 99B9E580613;
+ Wed, 20 May 2020 19:18:28 -0700 (PDT)
+Subject: Re: [PATCH v2 1/1] dt-bindings: spi: Add schema for Cadence QSPI
+ Controller driver
+To: Mark Brown <broonie@kernel.org>
+References: <20200520123612.11797-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200520124329.GF4823@sirena.org.uk>
+From: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>
+Message-ID: <fd086da7-7e18-83bc-d423-56095b0cff96@linux.intel.com>
+Date: Thu, 21 May 2020 10:18:26 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.0
 MIME-Version: 1.0
-Content-Description: Mail message body
-Subject: my subject
-To: Recipients <adam.kobiela@grupaang.pl>
-From: "Harrison" <adam.kobiela@grupaang.pl>
-Date: Wed, 20 May 2020 20:31:36 -0400
-X-Antivirus: Avast (VPS 200520-0, 05/20/2020), Outbound message
-X-Antivirus-Status: Clean
-Message-Id: <20200521003149.E70AD9C24E05@poczta.grupaang.pl>
+In-Reply-To: <20200520124329.GF4823@sirena.org.uk>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200520_174900_630086_3B8D3BC4 
-X-CRM114-Status: UNSURE (  -3.58  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 2.6 (++)
+X-CRM114-CacheID: sfid-20200520_192033_831301_4C0D0FDB 
+X-CRM114-Status: GOOD (  12.54  )
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (2.6 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [185.30.126.62 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [134.134.136.65 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [harrison_leo1967[at]outlook.com]
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -91,20 +77,45 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: harrison_leo1967@outlook.com
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
+Cc: cheol.yong.kim@intel.com, robh@kernel.org, vigneshr@ti.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-mtd@lists.infradead.org, qi-ming.wu@intel.com
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Ben=F6tigen Sie einen dringenden Kredit, wenn ja? Kontaktieren Sie uns sofo=
-rt per E-Mail: harrison_leo1967@outlook.com f=FCr weitere Informationen
+Hi Mark,
 
--- =
+  Thank you for the review comments...
 
-This email has been checked for viruses by Avast antivirus software.
-https://www.avast.com/antivirus
+On 20/5/2020 8:43 pm, Mark Brown wrote:
+> On Wed, May 20, 2020 at 08:36:12PM +0800, Ramuthevar,Vadivel MuruganX wrote:
+>> From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+>>
+>> Add dt-bindings documentation for Cadence-QSPI controller to support
+>> spi based flash memories.
+>>
+>> Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+>> ---
+>>   .../devicetree/bindings/mtd/cadence-quadspi.txt    |  67 -----------
+>>   .../devicetree/bindings/spi/cdns,qspi-nor.yaml     | 133 +++++++++++++++++++++
+> 
+> The changelog says this is adding a new binding but the actual change is
+> mostly a conversion to YAML.  Please split the additions out into a
+> separate change, ideally doing that before the conversion since there is
+> a backlog on review of YAML conversions.
 
+Initially was sending the only YAML file alone, then reviewers suggest 
+to me do this way so I did, next by split the patches like below...
+
+1. remove the cadence-quadspi.txt (patch1)
+2. convert txt to YAML (patch2)
+
+Regards
+Vadivel
+> 
 
 ______________________________________________________
 Linux MTD discussion mailing list
