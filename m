@@ -2,82 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0486E1DD598
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 20:06:02 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 09C811DD5E8
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 20:23:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ytrY6FqVCUPW85UVIOrO7wBEO/8Q440vN/3F2ivVpl0=; b=tnxEcWUiSf8GtJ
-	um/RgqsQjj+MXUOpwCpehhoF8Hr8NQchubedjWdgjWnZqSMtBNU9Bx4WDh4DAH5jcoqXrzi7i9HvF
-	wqsQn81D7MoDdt7uhSAy9v9yRvg275UGbxf4+W5YsVfneUtpoeIHf1HIANu5cxd5wQT9yBSLPeczA
-	6t0NTE+kbi9H0K30qkLhGGfrkIh+EASZzPoYHlSzCbejkvM7FIU7eWae0kErCY8BDZsXq33X4QbqG
-	ZM86QRW4Qc3Q7ipxxG8Dxwu4a4HyegYNVchKBx2QEBQFwGXJxGXWcYWDsqswmLHlI19GpMRac5SEw
-	qd8lcRXE/ioFiRAag0zQ==;
+	List-Owner; bh=AZe/vb/WzWsJue/nTB3C6ATzuiLariS6b0o82U4Sflo=; b=WGGN4ghJxvf9On
+	5XqDinUgGMmd/mVIrKBovGfr8n32aCMpMaic6ok7DbBM/lwXgx6iWs4jk3/hgm6RfGXcjp5dgx5Tb
+	i0DdoNJ534zx6cYLSKy58u2RZc83+739+lXny4HOJnfhIMIsmkRrbsNRCPQcngdMCHAZCU/vn8ADc
+	cI74aOvnfFmqfc9fluxNAQjjIKTHfI/EnneI7nVAXvvte1NhottHJQBdrVxPZx9MQHJlvQNlJYME2
+	6PU4beIvT8NUzRlJ+PxMX7FOO8J0Q5cdRv3s+DWCuH8dWXBIh3wcNqk3YonL79gQWO9psTCYBZVF/
+	Hk5hZRjCaojS+ZwYqAMQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbpZo-0007GU-OV; Thu, 21 May 2020 18:05:52 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1jbpqu-0000rU-DR; Thu, 21 May 2020 18:23:32 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbpZJ-000746-AW; Thu, 21 May 2020 18:05:22 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
- by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 04LI5DJV011706;
- Thu, 21 May 2020 13:05:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1590084313;
- bh=cBsuSs5XQOpsuV0CecqCZ/lRLSi2so73QLU1KFL+2mY=;
- h=Date:From:To:CC:Subject:References:In-Reply-To;
- b=FLO65yzDuTlgGUCUQ7nHNXlT4uLcDc+hgAhVu0jeL9+geY1C0p7coynxs+WK7Yu4L
- 5vfHTjmN/KIWEdxbxN9I7BNVIGKnhOE79nr2G2S12qpCrHDKkJmUrUQpU3E5ZdUUkT
- lQJX9Q/39W1YZJQEGY1SkXFUnmB9PZtZVZzCicMU=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
- by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTP id 04LI5DiY012172;
- Thu, 21 May 2020 13:05:13 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Thu, 21
- May 2020 13:05:12 -0500
-Received: from lelv0326.itg.ti.com (10.180.67.84) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
- Frontend Transport; Thu, 21 May 2020 13:05:12 -0500
-Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
- by lelv0326.itg.ti.com (8.15.2/8.15.2) with ESMTP id 04LI5CJE066205;
- Thu, 21 May 2020 13:05:12 -0500
-Date: Thu, 21 May 2020 23:35:11 +0530
-From: Pratyush Yadav <p.yadav@ti.com>
-To: Mark Brown <broonie@kernel.org>
-Subject: Re: [PATCH v6 00/19] mtd: spi-nor: add xSPI Octal DTR support
-Message-ID: <20200521180511.4axjf46g6b25mp3k@ti.com>
+ id 1jbpqS-0000ej-T0; Thu, 21 May 2020 18:23:07 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 6C8F62A366B;
+ Thu, 21 May 2020 19:23:01 +0100 (BST)
+Date: Thu, 21 May 2020 20:22:56 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Pratyush Yadav <p.yadav@ti.com>
+Subject: Re: [PATCH v6 04/19] spi: spi-mem: allow specifying a command's
+ extension
+Message-ID: <20200521202256.5816eb32@collabora.com>
+In-Reply-To: <20200520163053.24357-5-p.yadav@ti.com>
 References: <20200520163053.24357-1-p.yadav@ti.com>
- <20200521163957.GG4770@sirena.org.uk>
+ <20200520163053.24357-5-p.yadav@ti.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200521163957.GG4770@sirena.org.uk>
-User-Agent: NeoMutt/20171215
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_110521_441870_763CA2DB 
-X-CRM114-Status: GOOD (  12.80  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20200521_112305_068070_E4F64303 
+X-CRM114-Status: GOOD (  20.52  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.23.248 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -95,7 +67,7 @@ Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
  Richard Weinberger <richard@nod.at>, Sekhar Nori <nsekhar@ti.com>,
  Nicolas Ferre <nicolas.ferre@microchip.com>, linux-kernel@vger.kernel.org,
  Ludovic Desroches <ludovic.desroches@microchip.com>,
- Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
+ Mark Brown <broonie@kernel.org>, linux-mtd@lists.infradead.org,
  Miquel Raynal <miquel.raynal@bootlin.com>,
  Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org,
  linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -104,28 +76,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Mark,
+On Wed, 20 May 2020 22:00:38 +0530
+Pratyush Yadav <p.yadav@ti.com> wrote:
 
-On 21/05/20 05:39PM, Mark Brown wrote:
-> On Wed, May 20, 2020 at 10:00:34PM +0530, Pratyush Yadav wrote:
-> > Hi,
-> > 
-> > This series adds support for octal DTR flashes in the spi-nor framework,
-> > and then adds hooks for the Cypress Semper and Mircom Xcella flashes to
-> > allow running them in octal DTR mode. This series assumes that the flash
-> > is handed to the kernel in Legacy SPI mode.
+> In xSPI mode, flashes expect 2-byte opcodes. The second byte is called
+> the "command extension". There can be 3 types of extensions in xSPI:
+> repeat, invert, and hex. When the extension type is "repeat", the same
+> opcode is sent twice. When it is "invert", the second byte is the
+> inverse of the opcode. When it is "hex" an additional opcode byte based
+> is sent with the command whose value can be anything.
 > 
-> Are people happy with the SPI bits of this from a MTD point of view?  I
-> don't have any concerns and could apply them on a branch even if more
-> revisions are needed for the MTD side.
+> So, make opcode a 16-bit value and add a 'nbytes', similar to how
+> multiple address widths are handled.
+> 
+> Signed-off-by: Pratyush Yadav <p.yadav@ti.com>
+> ---
+>  include/linux/spi/spi-mem.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/spi/spi-mem.h b/include/linux/spi/spi-mem.h
+> index e3dcb956bf61..731bb64c6ba6 100644
+> --- a/include/linux/spi/spi-mem.h
+> +++ b/include/linux/spi/spi-mem.h
+> @@ -69,6 +69,8 @@ enum spi_mem_data_dir {
+>  
+>  /**
+>   * struct spi_mem_op - describes a SPI memory operation
+> + * @cmd.nbytes: number of opcode bytes (only 1 or 2 are valid). The opcode is
+> + *		sent MSB-first.
+>   * @cmd.buswidth: number of IO lines used to transmit the command
+>   * @cmd.opcode: operation opcode
+>   * @cmd.dtr: whether the command opcode should be sent in DTR mode or not
+> @@ -94,9 +96,10 @@ enum spi_mem_data_dir {
+>   */
+>  struct spi_mem_op {
+>  	struct {
+> +		u8 nbytes;
+>  		u8 buswidth;
+>  		u8 dtr : 1;
+> -		u8 opcode;
+> +		u16 opcode;
+>  	} cmd;
+>  
+>  	struct {
 
-There were a couple small changes suggested for spi-mem. Will send a 
-re-roll in a few minutes.
+As mentioned in one of my previous review, you should patch the mxic
+driver before extending the opcode field:
 
--- 
-Regards,
-Pratyush Yadav
-Texas Instruments India
+--->8---
+diff --git a/drivers/spi/spi-mxic.c b/drivers/spi/spi-mxic.c
+index 69491f3a515d..c3f4136a7c1d 100644
+--- a/drivers/spi/spi-mxic.c
++++ b/drivers/spi/spi-mxic.c
+@@ -356,6 +356,7 @@ static int mxic_spi_mem_exec_op(struct spi_mem *mem,
+        int nio = 1, i, ret;
+        u32 ss_ctrl;
+        u8 addr[8];
++       u8 cmd[2];
+ 
+        ret = mxic_spi_set_freq(mxic, mem->spi->max_speed_hz);
+        if (ret)
+@@ -393,7 +394,10 @@ static int mxic_spi_mem_exec_op(struct spi_mem *mem,
+        writel(readl(mxic->regs + HC_CFG) | HC_CFG_MAN_CS_ASSERT,
+               mxic->regs + HC_CFG);
+ 
+-       ret = mxic_spi_data_xfer(mxic, &op->cmd.opcode, NULL, 1);
++       for (i = 0; i < op->cmd.nbytes; i++)
++               cmd[i] = op->cmd.opcode >> (8 * (op->cmd.nbytes - i - 1));
++
++       ret = mxic_spi_data_xfer(mxic, cmd, NULL, op->cmd.nbytes);
+        if (ret)
+                goto out;
+ 
 
 ______________________________________________________
 Linux MTD discussion mailing list
