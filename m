@@ -2,74 +2,58 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B30A1DCD54
-	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 14:53:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 701341DD330
+	for <lists+linux-mtd@lfdr.de>; Thu, 21 May 2020 18:40:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=27JGia9fiGUqP6gOUPfIGsB+jAscxHMbyRP8cmGAA1g=; b=aoDViNFi3D/hQF
-	5amzLUQwnrifN0N98d41pmHflA5tAYCZt60ETQ3fjzvqhKpq4mgfBWn+MnFR2JziRYhK/PlF9G8Uz
-	F8+mgY1bP1I1K0qipY43BProm0oAp6ztish0kEHSY0n9vvzFZYjBoiZID0fJYpFZV3knr3u2p9eyL
-	o5aImRXpzkVfAHmt171J5r8W4niFPHW3+OK2W/GIdWWCmNQhomV+puhOgV9Mzv8PBTnjcvFFqaQJT
-	0V/Pi0y9IwHznhAommgLMb+sVZ3einJQ0qACjS9ZR5USlRZejsPhfNzL0cZ1FmX1FTKzYkIODSwKP
-	sXLue3fWq0OboUlmSgAw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=zO59SwyCBcis6JINJ4nla4keTdYdM8QZmBnq7o+pJ9U=; b=epMZ43Ck3SMChUQqFM4g8yL45
+	FcR6ZrcCiHpzU9QJ9eRaD6R/6aK10QZfYJ2+Bo741cMPTZhLBBQv1KPgNcjWOSihNif2pCKwa1Bnf
+	gG48MHCPssMDNHW+bSFkIlQHDm7PQhCP1EPfkBztw/azmQfc/ygT8c596ZByhCj077eyk2oAMfsvi
+	ypwed3aV7ZpiHHN8o9iD2gFDpGRxIANtAQo/LxsUZyYexFkNEUF3bmqBSLadC0Ayzo9FXJhvi4R2u
+	nfVmLEmCpyA9VoaRKpqXhz9UZw43mkMTrSBfXzTxYLFvnjLEW6c4uK7XyKxeauDCgE/I5ZE/w/sZ6
+	9bGuMNp2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbkh1-0002HH-TD; Thu, 21 May 2020 12:52:59 +0000
-Received: from lelv0143.ext.ti.com ([198.47.23.248])
+	id 1jboFP-0005Ke-IO; Thu, 21 May 2020 16:40:43 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbkgc-00025l-8r; Thu, 21 May 2020 12:52:35 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
- by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 04LCqQBM073519;
- Thu, 21 May 2020 07:52:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1590065547;
- bh=HhdS0k1uvFyYcnFyKdAE7u2FGKBzACV32jA6ddp5U90=;
- h=Date:From:To:CC:Subject:References:In-Reply-To;
- b=B6AX0BmewPmUOKJI5DJ3cIZn+mQtSxDXO9Avzp912H0DIeRRFYLdBCq5F1P0K/PX7
- ZBFr4KNidcljuogeJKGXNVIzLhPqoT8rUaNRB9jQktX4F+5LUYW8hpz+7HKo+ea875
- 9xBCwVXNAZY05h0iL5muyCMfD/8jR9tAittuvtXQ=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
- by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 04LCqQkD089935
- (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
- Thu, 21 May 2020 07:52:26 -0500
-Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Thu, 21
- May 2020 07:52:26 -0500
-Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
- Frontend Transport; Thu, 21 May 2020 07:52:26 -0500
-Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 04LCqPlK071033;
- Thu, 21 May 2020 07:52:26 -0500
-Date: Thu, 21 May 2020 18:22:25 +0530
-From: Pratyush Yadav <p.yadav@ti.com>
-To: <masonccyang@mxic.com.tw>
-Subject: Re: [PATCH v5 05/19] mtd: spi-nor: add support for DTR protocol
-Message-ID: <20200521125225.odxcdjkoy5lckrbx@ti.com>
-References: <20200519142642.24131-1-p.yadav@ti.com>
- <20200519142642.24131-6-p.yadav@ti.com>
- <OF6C754784.29BF11CD-ON4825856F.0032D83F-4825856F.0033A4F1@mxic.com.tw>
+ id 1jboEi-0002lo-PX; Thu, 21 May 2020 16:40:01 +0000
+Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id C3B5D2072C;
+ Thu, 21 May 2020 16:39:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1590079200;
+ bh=AfI9fmUuFN9xXeTYe0PWSZoP2kgFN0oEZnj47UWorQk=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=PxuSU3uZYzpRLRdfe6Rz7HLoMY3bYg9op1wwP4N0PdBGZPEFoO/2RdlRUJkMufXCN
+ k+uSn09pgwURuO7SDRb3U6qQ8aMF1Yb9d5sweGPvl86oLvc98dLElPyf6p82Wjnwr/
+ do5Lo8UULK6bwoTOnwcV2rAUBlsuroCTbYwvqnMk=
+Date: Thu, 21 May 2020 17:39:57 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Pratyush Yadav <p.yadav@ti.com>
+Subject: Re: [PATCH v6 00/19] mtd: spi-nor: add xSPI Octal DTR support
+Message-ID: <20200521163957.GG4770@sirena.org.uk>
+References: <20200520163053.24357-1-p.yadav@ti.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <OF6C754784.29BF11CD-ON4825856F.0032D83F-4825856F.0033A4F1@mxic.com.tw>
-User-Agent: NeoMutt/20171215
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+In-Reply-To: <20200520163053.24357-1-p.yadav@ti.com>
+X-Cookie: Keep your laws off my body!
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_055234_431777_E895E230 
-X-CRM114-Status: GOOD (  10.58  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20200521_094000_852959_5B0C03B2 
+X-CRM114-Status: GOOD (  12.00  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.23.248 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -92,52 +76,70 @@ List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
+ Mason Yang <masonccyang@mxic.com.tw>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, Mark Brown <broonie@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Sekhar Nori <nsekhar@ti.com>,
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
+ Richard Weinberger <richard@nod.at>, Sekhar Nori <nsekhar@ti.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>, linux-kernel@vger.kernel.org,
  Ludovic Desroches <ludovic.desroches@microchip.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- linux-mediatek@lists.infradead.org, Miquel Raynal <miquel.raynal@bootlin.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, linux-mtd@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org,
+ linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============5193887476924722309=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi,
 
-On 21/05/20 05:24PM, masonccyang@mxic.com.tw wrote:
-> 
-> Hi Pratyush,
-> 
-> 
-> > @@ -311,6 +313,7 @@ struct flash_info {
-> >                  * BP3 is bit 6 of status register.
-> >                  * Must be used with SPI_NOR_4BIT_BP.
-> >                  */
-> > +#define SPI_NOR_OCTAL_DTR_READ   BIT(19) /* Flash supports octal DTR 
-> Read. */
-> 
-> #define SPI_NOR_OCTAL_DTR_RDWR  BIT(19) /* Support Octal DTR Read & Write 
-> */
+--===============5193887476924722309==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TdkiTnkLhLQllcMS"
+Content-Disposition: inline
 
-This flag only enables SNOR_HWCAPS_READ_8_8_8_DTR. It does not affect 
-SNOR_HWCAPS_PP_8_8_8_DTR. So it shouldn't be called RDWR.
- 
-> more precisely and clearly ?
-> 
-> thanks,
-> Mason
-> 
 
--- 
-Regards,
-Pratyush Yadav
-Texas Instruments India
+--TdkiTnkLhLQllcMS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, May 20, 2020 at 10:00:34PM +0530, Pratyush Yadav wrote:
+> Hi,
+>=20
+> This series adds support for octal DTR flashes in the spi-nor framework,
+> and then adds hooks for the Cypress Semper and Mircom Xcella flashes to
+> allow running them in octal DTR mode. This series assumes that the flash
+> is handed to the kernel in Legacy SPI mode.
+
+Are people happy with the SPI bits of this from a MTD point of view?  I
+don't have any concerns and could apply them on a branch even if more
+revisions are needed for the MTD side.
+
+--TdkiTnkLhLQllcMS
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl7Grt0ACgkQJNaLcl1U
+h9D1OQgAhiDwTKnfU5U/brtlpuvixDO+Q0C2aTYod9BlC6/J0LiO/hDJeEvk37Pr
+hAyYy3T36TEfkovmaLsQTTthWIkmvU+GhZhOmBUpGTPsINXBUDCM5oIV7D8k7axY
+okkAhFALSCWJk9KSkaYyQAKXH1JdAAh+3kodj4zU+jGaa9NOpsjJmIapIQ+9/iTn
+48Rn8Du87lLkYGQkA13k7sdi4sghM/8Nx3fvjPgEG9K65J+DE2nds2v5mrD0HPDx
+G+4+54Z0N9/QT4ZVebUEb4fMuBRlB0tpMnaQhd/ll/VJ7XNppMBtKhlMeV7TUF/+
+z9wWlZEKa3CYCCbQdluJq1GlHlhAIg==
+=fkrh
+-----END PGP SIGNATURE-----
+
+--TdkiTnkLhLQllcMS--
+
+
+--===============5193887476924722309==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============5193887476924722309==--
+
