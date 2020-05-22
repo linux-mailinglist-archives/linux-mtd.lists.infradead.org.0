@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD45A1DDBE8
-	for <lists+linux-mtd@lfdr.de>; Fri, 22 May 2020 02:12:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 10CA21DDBF0
+	for <lists+linux-mtd@lfdr.de>; Fri, 22 May 2020 02:13:06 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,42 +11,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Subject:To:From:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=ivFFVTVYUkff050N+qdx8iiEbO9XV9LMdXmo3+uRVlY=; b=ByABmYjkr6ENhO3Wqn9zV5SCle
-	U1FBvwtEw5YndR4zUZjY6ODW9PuUNeLvIkXP0t0m2tjElL2ufTCaxy0eCZvQ4n40Hbv2rcJSTfgKH
-	l+hZPKAjCrrczSRTMqfBrGIGzHYqSBNoXEyAcZBfpcOb7v51rEGcDTvS0N4ruPgdwlEH6WIrjpWNp
-	7F6RcxVjOPrS4sybeVYlGSxGkVnOQK7vvo2u2v0q3tQsIJv5piJKt8LrlEigun/fw/K9TuT92hLhm
-	X48L3kBY50BGtMU3SbwRWtqzI7pJfmJDqhtRalF280H3y8wzpII+V5s8Gu8vrQqm1IIArUR8I85Ce
-	9DJmli+A==;
+	bh=ivFFVTVYUkff050N+qdx8iiEbO9XV9LMdXmo3+uRVlY=; b=KbQ+WVG9x8iHTUNjXrtnYgNWKz
+	5k8X/qY2YyuTiXqTvCoGjlibvd9f0qKvsAWVcyeyiuA1dq5yrD2mWih6zlgaaV5MgjTIztHDb9TQI
+	MmaqI2TjkvxLUNSpo6cRl267o2yATYQOgiUxjUj4AcehW6eoLDTwUT77i7k/FemvO9UKLnqAFAEwp
+	MW8yP21mdx+vdJ2vb1Xnec+ucPicd0Tyz1qwdnopwZonT1sG617vd4CB500JTXZ+yBJ+7xFzNTmMP
+	60nnoI1PC4K/vXthCVXzk+vxP60AsRXtsHhixTXyYb3vguMaipVHpxUkykh6dtZq9TVsMJFQ1JrAb
+	mpUey6xw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbvIj-0007oe-2F; Fri, 22 May 2020 00:12:37 +0000
+	id 1jbvJ7-0007wr-LL; Fri, 22 May 2020 00:13:01 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbvIZ-0007nM-5y
+ id 1jbvIZ-0007nN-6A
  for linux-mtd@lists.infradead.org; Fri, 22 May 2020 00:12:28 +0000
 Received: from localhost (unknown [137.135.114.1])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 4C2DA2078B;
- Fri, 22 May 2020 00:12:25 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6731B207D8;
+ Fri, 22 May 2020 00:12:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1590106345;
+ s=default; t=1590106346;
  bh=WOiqB0GpcVWMKmnet1Sc0/6IqMPI2nyLCQayz4Y0Ccw=;
  h=Date:From:To:To:To:Cc:Cc:Cc:Subject:In-Reply-To:References:From;
- b=vKc1ANogCT/J9uFQoFts3Hv7iFE/uiMLYgR8ppl8YWVltDLQTo/2EQn7BqXHdEcnq
- XEPLD483fKkm+HmAX5hMcx445Mwtnfh92Gu1+9ziBchJ0L3JTAkk4EQBod/ZKXBKpA
- yEUhPuaKhOGy0a2j7EGgm6gWwuwhWaP5pU5PtHOI=
-Date: Fri, 22 May 2020 00:12:24 +0000
+ b=h3sPkUZuAoB0s0l1gfbvqo3HwXX31uqJQOrz5dK7r08y832CG9oCLa59YV8mI7Kiy
+ 1Msmr9lyis2hSGfE1Kh1Y6BXPSd2UEHUh++iPpuzqP2aGE+LlaR2LLbFGpjObyclai
+ Pp3kBgMa4y4a/eOkOvmkbmuftVkLCaDY5ZsRDz3I=
+Date: Fri, 22 May 2020 00:12:25 +0000
 From: Sasha Levin <sashal@kernel.org>
 To: Sasha Levin <sashal@kernel.org>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
 To: <linux-mtd@lists.infradead.org>
-Subject: Re: [PATCH v2 50/62] mtd: rawnand: socrates: Fix the probe error path
-In-Reply-To: <20200519130035.1883-51-miquel.raynal@bootlin.com>
-References: <20200519130035.1883-51-miquel.raynal@bootlin.com>
-Message-Id: <20200522001225.4C2DA2078B@mail.kernel.org>
+Subject: Re: [PATCH v2 56/62] mtd: rawnand: tmio: Fix the probe error path
+In-Reply-To: <20200519130035.1883-57-miquel.raynal@bootlin.com>
+References: <20200519130035.1883-57-miquel.raynal@bootlin.com>
+Message-Id: <20200522001226.6731B207D8@mail.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200521_171227_246041_DB245A16 
+X-CRM114-CacheID: sfid-20200521_171227_245724_3EE121D3 
 X-CRM114-Status: UNSURE (   7.19  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -5.2 (-----)
