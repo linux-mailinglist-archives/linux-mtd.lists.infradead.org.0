@@ -2,97 +2,79 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 033661DFA08
-	for <lists+linux-mtd@lfdr.de>; Sat, 23 May 2020 20:00:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FB471DFD65
+	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 08:03:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tUcLeCWNVqD9diXQVBPLBH6SzoLKQ0TYmtd8SS0xT2g=; b=nfWs0cCyMH8Nh6
-	HnrQY3Vm4UDAazRPAsnBqkLaJgbmNa2yDYbnj6miIX+sasNVkKZcU++uum/VpbMePJTaT/n6j+Prl
-	k+zsm7B/7BWUv47hpgQtKJpAltW82dTWk7HA9gYpdx2cn6lpGAIJ1vDqLRZI5HY41xllp9XmltVce
-	GuitSjCvz9+25Jd6s3QTRCAzSPhM6vwSfI2wAjICcYBkUFLP3P50gl1EEtIeMbLsMBiJaguegI9cy
-	8mYMfLc1q6uFzktOoNAo+AIdR83QTLESQvyTvdwQKPWSnxvZhhxF1v274IUU5YkRYUPpO0mXEous3
-	dTg//q2/41Yk3Z7rynAg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:In-Reply-To:
+	Date:MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=3zy2hU3J2a6ecciuxkgL1snLz1Ws8kgC0Lc0Slmule4=; b=D0KyEuCBuVgzw8
+	qsgT0nsQKlMQjSQ1x8TkcVsMrUGHrT450R1kq335dK6Ur+V+Ri8RAz70MBrQ2C0zwaDN7PnlM/xBN
+	80Isk0SExdQO/66VzFh8Os55YNCiVqC9TrKA88FH9cXp61NxL3jnI11dKT0CbrGbMST5q8ZmrGBxR
+	7vZFE1tmXTmjAr82ScFGU5eiLdNT0HwxuXCSUOlIiA/4rhP4ngEvt6HJwqEbfcj1rXInrX7Mgric2
+	lzxNGQTb0xr+msR7IiWR1ig1NgAZ27iDI7MOxV+N8N6eEzTgz6hOUsXb3MGX5oyMLhfyJq+8yh9hQ
+	2WMJmQQvGQRala3JUPQw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcYS2-0000wX-Rz; Sat, 23 May 2020 18:00:50 +0000
-Received: from mail-qt1-x841.google.com ([2607:f8b0:4864:20::841])
+	id 1jcjjF-0005Fs-1s; Sun, 24 May 2020 06:03:21 +0000
+Received: from mail-il1-f200.google.com ([209.85.166.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcYRr-0000tj-UE
- for linux-mtd@lists.infradead.org; Sat, 23 May 2020 18:00:41 +0000
-Received: by mail-qt1-x841.google.com with SMTP id v4so10975712qte.3
- for <linux-mtd@lists.infradead.org>; Sat, 23 May 2020 11:00:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=F3NMDrR9dummcUXdRfruEEfbIS6yB2vx68nB8Asq/5Q=;
- b=vhvRG4iP0p/cCM0/gHqK0xx0MaMNF3/azTtn5P0fCT1b4XLjGRAoR85FXgvwYtowP6
- J1ev3dPiedOMtPyOzUYmKFEqsj6BkIi2lR8s0YRNLylOZ8MbeWQpwNTWDXPX57LUrKeO
- FLL54WToKnc9WyFCTQNZdn8yjuqVF61dsdwJrbIWn1f8+mXNgwQXd1Xox425XdFJLCTr
- UNYtD5Mkr7J8HytQpl125rrGiBWdOVTtdeDic18s2v1Ex5H4EMrCDseWe8z8QJUA2DPl
- pMcmWf9nM5lni1dYRbVMyTKtLHSFCzrJM5oRvB7Hp9K31CMWsqtaG47ZQbJG6ZEre6uU
- kwNQ==
+ id 1jcjj2-0005E4-Sj
+ for linux-mtd@lists.infradead.org; Sun, 24 May 2020 06:03:10 +0000
+Received: by mail-il1-f200.google.com with SMTP id u4so3536762ilq.17
+ for <linux-mtd@lists.infradead.org>; Sat, 23 May 2020 23:03:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=F3NMDrR9dummcUXdRfruEEfbIS6yB2vx68nB8Asq/5Q=;
- b=WDZ5Qs62gYgdqbx1QBuMJ7VKvDeF3gSLgiB9lsiEMsRGfu2Xb5BOqvt5+zQvxDRN4P
- oCtDctijH7Mc7S5TEyVRiD7HSjqcg2tiDPXeDXzitI6uAWbrNNj40hN34p3HynU+m65e
- +y/cAj2WnbSiRT4BhNKL2FcL2gz+yqFK/ODijOgXUyUF6MvBjyMsIp+SsFkQZ/jVru1Y
- LDtOT0Y96rPOEdvb1GuKfa4qMUeywVDsvv3+IcFdd+i0WMvYY28lIdjZUddkRDgq3Gq7
- 4yD9pqmA4olRh4LVlfLyzSZMzif5h2aPSvV3akM6AxJTX4dCSt6f3umuBFUo8LqDk7C2
- C6YA==
-X-Gm-Message-State: AOAM532FOAhrzDwCZFrlw1SKQLMZA9r4YhMl6vRMn7GnkeNs78AZDLpR
- u/I8MKkW8iP6zim9FicQxgrjprgd57mkRzjs47w=
-X-Google-Smtp-Source: ABdhPJw4JSLl4s8hKmdikxPHOZTjp7LuShJQWo5DKJXfhdyHNpRWrWLXX1iWw/azZwGF2Nz0kU5bTrWvyq5YmK6naS0=
-X-Received: by 2002:ac8:1e16:: with SMTP id n22mr21502226qtl.78.1590256838401; 
- Sat, 23 May 2020 11:00:38 -0700 (PDT)
+ h=x-gm-message-state:mime-version:date:in-reply-to:message-id:subject
+ :from:to;
+ bh=f8cm7i+6DZaPSRKesHef9xX2E7QNOPynTMGv2aqlP84=;
+ b=Nd5JcdrYx0+dzJVZGyRRqOFbccmtzLiEjlSWSi1ViBCHPja2OcAuPNVSHPhncmwxjc
+ j2olaneRx9ZrcZVtQ7goV+C1yYRg4Jpf9XeqNttLPJY8aM9rHopB+X/4EaoeW1uuQx34
+ FVjCBLOp6sGx//C7AdMINqFClI6IRy2DavoipLhAe3M5ujnV+CHX0QbC9gRMi3AtPcPb
+ eZYTjVc4OfAG0gNuPAY6z8+6cX40hUt+nROnj7DTucuQhmU478Gb11BQN3rOfaThFyzF
+ lQzjTwBGIgTWhEFoMejCajztdffm9nigt6iuCM2yU1ktOKKTwU9rvOxrhzIOxJ4EqhCa
+ KiyQ==
+X-Gm-Message-State: AOAM531Y9PheEhnKxNecdNL3ZWA6xY2ZA7Bj9AlwXygHKWk/CvhsWfEl
+ hIbvd5ka75xjUTcjWNRKHMTb/hnWSllZ7UjmdUESJp2E/rG+
+X-Google-Smtp-Source: ABdhPJwGqcUvFi9kw0HhVexHTCTsxhtssXwOhzWwTlRVW0bo6dxr+flQYWuUIA+M7jdwFMz5UWSgckDGMnoq58SrEydxAK0FWUZP
 MIME-Version: 1.0
-Received: by 2002:a37:9fd3:0:0:0:0:0 with HTTP; Sat, 23 May 2020 11:00:37
- -0700 (PDT)
-From: mrs chantal <mrs.chantalas1@gmail.com>
-Date: Sat, 23 May 2020 18:00:37 +0000
-Message-ID: <CAMdkyyDY_0O7YgysHCjgRTJ=8-B7XurK7o1razRHDVOjgr2V2g@mail.gmail.com>
-Subject: jjCompliment
-To: undisclosed-recipients:;
+X-Received: by 2002:a92:914f:: with SMTP id t76mr20627206ild.238.1590300183500; 
+ Sat, 23 May 2020 23:03:03 -0700 (PDT)
+Date: Sat, 23 May 2020 23:03:03 -0700
+In-Reply-To: <000000000000ba47b705a6443a0d@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <000000000000861e3305a65e9d74@google.com>
+Subject: Re: KASAN: use-after-free Read in uif_close
+From: syzbot <syzbot+0ce97ea45b008ba3b8bd@syzkaller.appspotmail.com>
+To: arnd@arndb.de, daniel.baluta@nxp.com, festevam@gmail.com, 
+ gregkh@linuxfoundation.org, kernel@pengutronix.de, 
+ linux-arm-kernel@lists.infradead.org, linux-imx@nxp.com, 
+ linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, 
+ linux@rempel-privat.de, miquel.raynal@bootlin.com, richard@nod.at, 
+ s.hauer@pengutronix.de, shawnguo@kernel.org, syzkaller-bugs@googlegroups.com, 
+ vigneshr@ti.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200523_110039_982922_F880F3BE 
-X-CRM114-Status: UNSURE (  -2.49  )
+X-CRM114-CacheID: sfid-20200523_230308_925211_11EB521B 
+X-CRM114-Status: UNSURE (   2.48  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 2.3 (++)
+X-Spam-Score: 3.1 (+++)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (2.3 points)
+ Content analysis details:   (3.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:841 listed in]
- [list.dnswl.org]
+ no trust [209.85.166.200 listed in list.dnswl.org]
+ 0.3 FROM_LOCAL_HEX         From: localpart has long hexadecimal sequence
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 2.5 SORTED_RECIPS          Recipient list is sorted by address
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [mrs.chantala2055[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [mrs.chantalas1[at]gmail.com]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [mrs.chantalas1[at]gmail.com]
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.0 T_HK_NAME_FM_MR_MRS    No description available.
- 0.0 LOTS_OF_MONEY          Huge... sums of money
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
- 0.0 T_FILL_THIS_FORM_SHORT Fill in a short form with personal
- information
- 0.0 MONEY_FORM_SHORT       Lots of money if you fill out a short form
- 1.0 ADVANCE_FEE_4_NEW_MONEY Advance Fee fraud and lots of money
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.200 listed in wl.mailspike.net]
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -104,19 +86,33 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: mrs.chantala2055@gmail.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-     Compliment of the day to you. I am Mrs.CHANTAL I am sending this brief
-    letter to solicit your partnership to transfer $13.5 Million US
-    Dollars.I shall send you more information and procedures when I receive
-    positive response From you. Please send me a message in My private
-    email address is ( mrschantal066@gmail.com  )
-    Best Regards
-    MrS.Chantal
+syzbot has bisected this bug to:
+
+commit 32ec783ae19d48084b893cc54747fed37b07eb0c
+Author: Arnd Bergmann <arnd@arndb.de>
+Date:   Wed Apr 8 19:02:57 2020 +0000
+
+    firmware: imx: fix compile-testing
+
+bisection log:  https://syzkaller.appspot.com/x/bisect.txt?x=15b22972100000
+start commit:   c11d28ab Add linux-next specific files for 20200522
+git tree:       linux-next
+final crash:    https://syzkaller.appspot.com/x/report.txt?x=17b22972100000
+console output: https://syzkaller.appspot.com/x/log.txt?x=13b22972100000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=3f6dbdea4159fb66
+dashboard link: https://syzkaller.appspot.com/bug?extid=0ce97ea45b008ba3b8bd
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=14b23f06100000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=111b0172100000
+
+Reported-by: syzbot+0ce97ea45b008ba3b8bd@syzkaller.appspotmail.com
+Fixes: 32ec783ae19d ("firmware: imx: fix compile-testing")
+
+For information about bisection process see: https://goo.gl/tpsmEJ#bisection
 
 ______________________________________________________
 Linux MTD discussion mailing list
