@@ -2,65 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F9351E0299
-	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:34:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E6CE1E02B6
+	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 22:18:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7VuBnAlJo9BlalTh2HBXxlbbU/wjrrKBzYAJJJXnsAU=; b=LaamunaAZHE3H7
-	Ca7tKPHpeyC9jd9WOXtEa/A1I/kOpdnxr0O+32W6dVlkAwR0+m0PonSHqR5y5Ee1EPpS7oiyRb12r
-	leXiOTSAeuRDwqf4uGd5F630OPUOD6FxPbPWDLqqB+qocMUF0Q+rfJ1701tnkiEw74aTQDmtWKzx/
-	CnfPMQsm3Yg4fY9IVqvlgdzdn3WLmtEExzkunKN5R/tAFQ6U3jKol3+TNF6DuqaGVyr7K0AMEJ/Pt
-	6s7Hj+X+KYkweMR53KhmdEQtg6r+V6gGXhbzkDvVRqstL5r4bbPtXX9atlQMhthOWpyYfgVRwM90b
-	Qmb8stJoSqdBpK8NcSbQ==;
+	List-Owner; bh=unWy4ztR8edB+nFh/ZzjAmr7E6qaGWUC1rxVuJxoOIc=; b=VABa/useI4th8z
+	mD8U1k4nOD+KyNuWiZPzhhfgMuHLLK92QKyu+r3zX2iFp9a8ZjqbgxiD0S+HiHV5sVj0JhS2K2JFT
+	+ygZommq5X+R0Yod8/fdoew01oPOf1ejTmdSbTA8j/CVg7NepNIPdwxMguTjZhS8vVIXvrVBr58wN
+	paihKp6kXFG4wFhdj/tqk8WLf8qOKIAgmeuq4khvYldne/4nt244h5l4b+jBA28OoZ3feiG1ffLjv
+	tvZ19j+aqrnqH+kwl7u8KL1jmlnhsrsFBgzOzsJANDIKFYdnoTJaZNKLKzpQGY934C54I0N0LRhSR
+	KDnU/AbSs8mkJQZzwCqQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcwNg-0006xo-DG; Sun, 24 May 2020 19:33:56 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1jcx4m-0000Fe-UB; Sun, 24 May 2020 20:18:28 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcwHh-0007v9-Dy
- for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:27:47 +0000
-X-Originating-IP: 91.224.148.103
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 1F098240003;
- Sun, 24 May 2020 19:27:41 +0000 (UTC)
-Date: Sun, 24 May 2020 21:27:40 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: =?UTF-8?B?w4FsdmFybyBGZXJuw6FuZGV6?= Rojas <noltari@gmail.com>,
- computersforpeace@gmail.com, kdasu.kdev@gmail.com,
- miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
- sumit.semwal@linaro.org, linux-mtd@lists.infradead.org,
- bcm-kernel-feedback-list@broadcom.com, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org
-Subject: Re: [PATCH v4 4/5] dt: bindings: brcmnand: add v2.1 and v2.2 support
-Message-ID: <20200524212740.08c2810f@xps13>
-In-Reply-To: <20200524192550.4559-1-miquel.raynal@bootlin.com>
-References: <20200522121524.4161539-5-noltari@gmail.com>
- <20200524192550.4559-1-miquel.raynal@bootlin.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jcx4O-00005z-AY; Sun, 24 May 2020 20:18:05 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 2A9BD26107D;
+ Sun, 24 May 2020 21:18:02 +0100 (BST)
+Date: Sun, 24 May 2020 22:17:58 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Pratyush Yadav <p.yadav@ti.com>
+Subject: Re: [PATCH v8 02/19] spi: spi-mem: allow specifying a command's
+ extension
+Message-ID: <20200524221758.7c30f336@collabora.com>
+In-Reply-To: <20200522224042.29970-3-p.yadav@ti.com>
+References: <20200522224042.29970-1-p.yadav@ti.com>
+ <20200522224042.29970-3-p.yadav@ti.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200524_122745_624892_F20A5061 
-X-CRM114-Status: UNSURE (   6.86  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200524_131804_493015_B8CF42F1 
+X-CRM114-Status: GOOD (  13.70  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.193 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [217.70.183.193 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,22 +61,91 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Mason Yang <masonccyang@mxic.com.tw>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, Sekhar Nori <nsekhar@ti.com>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Michal Simek <michal.simek@xilinx.com>,
+ Ludovic Desroches <ludovic.desroches@microchip.com>,
+ Mark Brown <broonie@kernel.org>, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-mediatek@lists.infradead.org,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Ck1pcXVlbCBSYXluYWwgPG1pcXVlbC5yYXluYWxAYm9vdGxpbi5jb20+IHdyb3RlIG9uIFN1biwg
-MjQgTWF5IDIwMjAKMjE6MjU6NTAgKzAyMDA6Cgo+IE9uIEZyaSwgMjAyMC0wNS0yMiBhdCAxMjox
-NToyMyBVVEMsID0/dXRmLTg/cT89QzM9ODFsdmFyb19GZXJuPUMzPUExbmRlel9Sb2phcz89IHdy
-b3RlOgo+ID4gQWRkZWQgYnJjbSxicmNtbmFuZC12Mi4xIGFuZCBicmNtLGJyY21uYW5kLXYyLjIg
-YXMgcG9zc2libGUgY29tcGF0aWJsZQo+ID4gc3RyaW5ncyB0byBzdXBwb3J0IGJyY21uYW5kIGNv
-bnRyb2xsZXJzIHYyLjEgYW5kIHYyLjIuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IMOBbHZhcm8g
-RmVybsOhbmRleiBSb2phcyA8bm9sdGFyaUBnbWFpbC5jb20+Cj4gPiBBY2tlZC1ieTogRmxvcmlh
-biBGYWluZWxsaSA8Zi5mYWluZWxsaUBnbWFpbC5jb20+ICAKPiAKPiBBcHBsaWVkIHRvIGh0dHBz
-Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L210ZC9saW51eC5naXQg
-bmFuZC9uZXh0LCB0aGFua3MuCgpGWUkgSSB1cGRhdGVkIHRoZSBjb21taXQgbG9nOgpzL2R0OiBi
-aW5kaW5nczovZHQtYmluZGluZ3M6IG10ZDovCnMvQWRkZWQvQWRkLwoKVGhhbmtzLApNaXF1w6hs
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-TGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
+On Sat, 23 May 2020 04:10:25 +0530
+Pratyush Yadav <p.yadav@ti.com> wrote:
+
+> diff --git a/drivers/spi/spi-mxic.c b/drivers/spi/spi-mxic.c
+> index 69491f3a515d..4e4292f0ee1d 100644
+> --- a/drivers/spi/spi-mxic.c
+> +++ b/drivers/spi/spi-mxic.c
+> @@ -356,6 +356,7 @@ static int mxic_spi_mem_exec_op(struct spi_mem *mem,
+>  	int nio = 1, i, ret;
+>  	u32 ss_ctrl;
+>  	u8 addr[8];
+> +	u8 opcode = op->cmd.opcode & 0xff;
+
+You don't need the '& 0xff' here, the cast to an u8 will truncate the
+value anyway.
+
+>  
+>  	ret = mxic_spi_set_freq(mxic, mem->spi->max_speed_hz);
+>  	if (ret)
+> @@ -393,7 +394,7 @@ static int mxic_spi_mem_exec_op(struct spi_mem *mem,
+>  	writel(readl(mxic->regs + HC_CFG) | HC_CFG_MAN_CS_ASSERT,
+>  	       mxic->regs + HC_CFG);
+>  
+> -	ret = mxic_spi_data_xfer(mxic, &op->cmd.opcode, NULL, 1);
+> +	ret = mxic_spi_data_xfer(mxic, &opcode, NULL, 1);
+>  	if (ret)
+>  		goto out;
+>  
+> diff --git a/drivers/spi/spi-zynq-qspi.c b/drivers/spi/spi-zynq-qspi.c
+> index 17641157354d..41389856e14a 100644
+> --- a/drivers/spi/spi-zynq-qspi.c
+> +++ b/drivers/spi/spi-zynq-qspi.c
+> @@ -527,20 +527,21 @@ static int zynq_qspi_exec_mem_op(struct spi_mem *mem,
+>  	struct zynq_qspi *xqspi = spi_controller_get_devdata(mem->spi->master);
+>  	int err = 0, i;
+>  	u8 *tmpbuf;
+> +	u8 opcode = op->cmd.opcode & 0xff;
+>  
+
+Ditto.
+
+>  	dev_dbg(xqspi->dev, "cmd:%#x mode:%d.%d.%d.%d\n",
+> -		op->cmd.opcode, op->cmd.buswidth, op->addr.buswidth,
+> +		opcode, op->cmd.buswidth, op->addr.buswidth,
+>  		op->dummy.buswidth, op->data.buswidth);
+>  
+>  	zynq_qspi_chipselect(mem->spi, true);
+>  	zynq_qspi_config_op(xqspi, mem->spi);
+>  
+> -	if (op->cmd.opcode) {
+> +	if (opcode) {
+
+Unrelated to this patch, but this test is wrong. I don't see why we
+couldn't have a '0' opcode. The test should be dropped or done on the
+new op->cmd.nbytes field.
+
+>  		reinit_completion(&xqspi->data_completion);
+> -		xqspi->txbuf = (u8 *)&op->cmd.opcode;
+> +		xqspi->txbuf = &opcode;
+>  		xqspi->rxbuf = NULL;
+> -		xqspi->tx_bytes = sizeof(op->cmd.opcode);
+> -		xqspi->rx_bytes = sizeof(op->cmd.opcode);
+> +		xqspi->tx_bytes = op->cmd.nbytes;
+> +		xqspi->rx_bytes = op->cmd.nbytes;
+>  		zynq_qspi_write_op(xqspi, ZYNQ_QSPI_FIFO_DEPTH, true);
+>  		zynq_qspi_write(xqspi, ZYNQ_QSPI_IEN_OFFSET,
+>  				ZYNQ_QSPI_IXR_RXTX_MASK);
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
