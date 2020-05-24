@@ -2,48 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BEA2F1E01E6
-	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:16:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8629A1E01E7
+	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:16:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AJiswNj6ZwBFbHD105F+fz+RcZIbpjM++QtCOJ12n70=; b=ZRwVcIr6Iv47g5
-	n9p84KGILii+x6FuI0dMVEnyGBRvziZxZlltn6RT6/WJKyR867Boyst8plVTZ3ZAvlIeuQm8xwmwD
-	+MW/3pjTiYwGxMisn8JXY5SSLJ8y+3ZW4DA7m1gZBZ2LSDSDzsXFWn1/2YAZumJxwd6itO9PRzxcl
-	rTMsgLJZoZm/YjkiHpBVQwAz3L8M9/9iWFTPWg17V0N1Yp/1bMGbQRS+Ks3aUnN+T4WLko6+CpV81
-	y+9M73XlQnr89vtVsWWkDSx+ie/ZR/Rd1ZYYg+VvSo2iCXP6xrk4/SVWICsrnjNwYrxZq38J2Jg4T
-	pHnrHCmWgcz2XYX9VckQ==;
+	List-Owner; bh=ndq/6hOboXZ2pCstMn28LfuecqPNvXvzR1n6JJkOGzA=; b=iZQBfg2ojHGjyj
+	TYZl9A1D1Uu0fNCKd1B8ffuh7PNChA5Noyi8ePJ8/fxbmXK4/5GsmwS+xKAzQl326PkWGUTqrUrwJ
+	WZ683U5o9RGFrDva/ljgdnMvRDXm4BbaCaXW1s7VlPRbzvwvH9g2684gI2ahY3mS6muZGNzrVm09h
+	hKxxk/ZuTC/0d7ddAm/pqHF9mDmwEhrMfWFAa3uCvENvHGLSNAMotpGw39KTeWQzQy+okTMqNgKXJ
+	/dFypl7hxedJSUUEv4mOLjl3dWPCvPfaR+GJTdcQwY41h7hQjtTEpTwESqNzYdNgCD0mNdbyqcmgo
+	EcH0IdOmuN0a0fDd3XJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcw6I-0000sh-RL; Sun, 24 May 2020 19:15:58 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1jcw6V-000163-E2; Sun, 24 May 2020 19:16:11 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcvxl-0005Dg-Ec
- for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:07:11 +0000
+ id 1jcvxr-0005IG-14
+ for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:07:20 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 6A897240002;
- Sun, 24 May 2020 19:07:07 +0000 (UTC)
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id E2AA8FF806;
+ Sun, 24 May 2020 19:07:12 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	linux-mtd@lists.infradead.org
-Subject: Re: [PATCH v2 23/62] mtd: rawnand: lpc32xx_mlc: Stop using
- nand_release()
-Date: Sun, 24 May 2020 21:07:06 +0200
-Message-Id: <20200524190706.31814-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v2 22/62] mtd: rawnand: ingenic: Stop using nand_release()
+Date: Sun, 24 May 2020 21:07:11 +0200
+Message-Id: <20200524190711.32342-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200519130035.1883-24-miquel.raynal@bootlin.com>
+In-Reply-To: <20200519130035.1883-23-miquel.raynal@bootlin.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 6dd4e748fb662fdfc72010780410c96e77f48502
+X-linux-mtd-patch-commit: 1e0f27435256a7c56aacfc649cc1e6b453911c28
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200524_120709_707208_7EB3552C 
-X-CRM114-Status: UNSURE (   6.08  )
+X-CRM114-CacheID: sfid-20200524_120715_246635_72DCAC7D 
+X-CRM114-Status: UNSURE (   6.47  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -51,12 +50,9 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.193 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [217.70.183.193 listed in wl.mailspike.net]
+ low trust [217.70.183.199 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,12 +64,14 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Cc: Paul Cercueil <paul@crapouillou.net>,
+ Harvey Hunt <harveyhuntnexus@gmail.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 2020-05-19 at 12:59:56 UTC, Miquel Raynal wrote:
+On Tue, 2020-05-19 at 12:59:55 UTC, Miquel Raynal wrote:
 > This helper is not very useful and very often people get confused:
 > they use nand_release() instead of nand_cleanup().
 > 
@@ -81,6 +79,8 @@ On Tue, 2020-05-19 at 12:59:56 UTC, Miquel Raynal wrote:
 > nand_cleanup() directly.
 > 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> Cc: Paul Cercueil <paul@crapouillou.net>
+> Cc: Harvey Hunt <harveyhuntnexus@gmail.com>
 
 Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next.
 
