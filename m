@@ -2,47 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2421A1E019A
-	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:03:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 19D421E019B
+	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:04:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=616lUCn0mda+aV17wfx6KwxD2AgeZxCH5XN1s0e4LKs=; b=jdk9+tXkCuTTYv
-	rXG5xnpdVJXUN2ytQ6DWAHOt+G+V68a7ohZHvu0d1Z73eP/RMohmQb8PPjQ8Mvqc1UjClPGKGpgdq
-	98lTVsUqV5dIWvAL5+avMQRZeka1xRmR6PKDICF93Sy6BZf+8YaEHxtHPTKAwEj4LzJXixS1ljrqw
-	iuL1eTK6Sg+tV4hbU8orTC/jL7/n5yila4FKGA7a6qZ/Olb4ytGdP+YdeW23KyJd/vu1HP5VxSWBC
-	Tnc2eZLnJqy9ui+xcrdngCUp1yowkV+w8V+XBtn03DAYlD79lzjHZLPpPAXe6GnoQD2cIaPXcBtPc
-	mStLPyGjt6NNIkKoKC7w==;
+	List-Owner; bh=WIvP3uf3bo0Fk+ZH8iyePdnHh0f76TypRsosnf9y+28=; b=Qjt9e9FO/EK8D9
+	BLdclgxe8XAypJka5wnxpV3li3CYcQAOYRzPrJoewUvGSspeUwQptyhC7U/37VRXzJQqUCTOnGIH5
+	ExxrmXvPVgzEH7pucZjXNTcqQtz7YqjnV8pz6SVLUw3vaoOzjfvjKYTSViOyXI97+sip8nuRZNpai
+	5xGKU+iUzs96xizNUdFADr/dqIkK/XUXPSaTFrwHDklpis/vx/o74LF7mKa1GETwNlJ4WkSnnHEyK
+	qJ0iZFpZXrHM+XaoAdBVcwaPD0m/BNdC63E5GVt2IlJbIuZa2MBEwXSn1WyBh1uwD4NIKMvEyBy0X
+	pZOksoMCY0vebyQOvUMg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcvuX-0008PB-3d; Sun, 24 May 2020 19:03:49 +0000
+	id 1jcvuk-0000Cj-9U; Sun, 24 May 2020 19:04:02 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcvtx-00082K-VI
- for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:03:15 +0000
+ id 1jcvu2-00088b-Av
+ for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:03:19 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 3AA2B240002;
- Sun, 24 May 2020 19:03:07 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 21A05240007;
+ Sun, 24 May 2020 19:03:16 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Dinghao Liu <dinghao.liu@zju.edu.cn>,
 	kjlu@umn.edu
-Subject: Re: [PATCH] mtd: rawnand: gpmi: Fix runtime PM imbalance in
- gpmi_nand_probe
-Date: Sun, 24 May 2020 21:03:06 +0200
-Message-Id: <20200524190306.3492-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH] mtd: rawnand: gpmi: Fix runtime PM imbalance on error
+Date: Sun, 24 May 2020 21:03:15 +0200
+Message-Id: <20200524190315.3593-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200522101713.24350-1-dinghao.liu@zju.edu.cn>
+In-Reply-To: <20200522095139.19653-1-dinghao.liu@zju.edu.cn>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 3a868cb6bd60e43c87c5318fd9b7e0ccf05f54b3
+X-linux-mtd-patch-commit: de7355de0b24d879fc4de4f0c02e91849f216f39
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200524_120314_143651_CFC78A0E 
-X-CRM114-Status: UNSURE (   4.78  )
+X-CRM114-CacheID: sfid-20200524_120318_525637_3D8C474F 
+X-CRM114-Status: UNSURE (   6.66  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -72,9 +71,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 2020-05-22 at 10:17:13 UTC, Dinghao Liu wrote:
-> There is no reason that the failure of __gpmi_enable_clk()
-> could lead to PM usage counter decrement.
+On Fri, 2020-05-22 at 09:51:39 UTC, Dinghao Liu wrote:
+> pm_runtime_get_sync() increments the runtime PM usage counter even
+> when it returns an error code. Thus a pairing decrement is needed on
+> the error handling path to keep the counter balanced.
 > 
 > Signed-off-by: Dinghao Liu <dinghao.liu@zju.edu.cn>
 
