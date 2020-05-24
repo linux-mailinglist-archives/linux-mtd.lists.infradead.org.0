@@ -2,48 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 045941E0285
-	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:29:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A424B1E0292
+	for <lists+linux-mtd@lfdr.de>; Sun, 24 May 2020 21:32:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EEFhfXnq762bjewcXzyI/EYJIiss7uhnxTzAJXgRDPE=; b=tQc78G5OC5oWPl
-	hK4ix5qWR3IAK41g7HyP8GAsTJA5+kOKvYhuqZYXwgnhShNyb1GjxUmzmP3TPrjAmuq+7hcc1ecaD
-	ze/6SFoR8V/ghaSGG3A2zHw/btwNbLESuR9QlNd8qxjIetrcNUbJxOaCDavyvUEJT4PTlljUb7JY4
-	CutqjCAkKimj8RYLTTqv4Lu6wsnP+tA3DrJhIHPMAOOME1VWCY+/MR6qXCqTLLkQSmhh+8oljxtf3
-	NvZu9dM/U5keQxcoAt8FMMLMjH5akVnouzORSqEmwPiIKz3c0835k5OgTwq5hWexZ3rQXZfrvJKlp
-	SAJ2RcwlxLcB+csQmQEQ==;
+	List-Owner; bh=7OK/sODVV80XER6sZqO+ONt+y8WdGl8mDjksqPlfeB0=; b=uR4zj5Is60CIbh
+	hhBSULIJl/qufiGjGZPQzfGWnSYCelB0M7UBvgyl4tZWxREF9DA1IOEq8DzGQehzNvZJ/puaywNy3
+	iQjCrlyVeKyAJoyf/auBAYYnEXU8MayftGMa1UpahtA2vE1/RWDhWl5NGr38Ij5qj1IHqOlVCZ+yZ
+	/PC2ZvXXioCb6tpqvO7tOOHWoKkAxlUcll0AU2EdQwKHjutbIxlrwhDQKwvijO5L80EwFYZWDjfYG
+	Tuc6J4XjW5usv6c//iQKfAHZH85rKIdxp5wU/X24eJDI3jIRue7sQWPtqzjxghyejElZh1zlPW91o
+	r5l/6nsSFlPBAORbrR2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcwIp-0000Gf-Dp; Sun, 24 May 2020 19:28:55 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jcwLm-0005AY-EH; Sun, 24 May 2020 19:31:58 +0000
+Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcw8E-0002mV-NR
- for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:18:00 +0000
-X-Originating-IP: 91.224.148.103
+ id 1jcwG0-0006WR-Pl
+ for linux-mtd@lists.infradead.org; Sun, 24 May 2020 19:26:03 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 59790FF809;
- Sun, 24 May 2020 19:17:56 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id F4107240002;
+ Sun, 24 May 2020 19:25:56 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Christophe Kerello <christophe.kerello@st.com>, miquel.raynal@bootlin.com,
- richard@nod.at, vigneshr@ti.com
-Subject: Re: [PATCH v5 1/2] mtd: rawnand: stm32_fmc2: cosmetic change to use
- nfc instead of fmc2 where relevant
-Date: Sun, 24 May 2020 21:17:55 +0200
-Message-Id: <20200524191755.353-1-miquel.raynal@bootlin.com>
+To: =?utf-8?q?=C3=81lvaro_Fern=C3=A1ndez_Rojas?= <noltari@gmail.com>,
+ computersforpeace@gmail.com, kdasu.kdev@gmail.com,
+ miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
+ sumit.semwal@linaro.org, linux-mtd@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org
+Subject: Re: [PATCH v4 4/5] dt: bindings: brcmnand: add v2.1 and v2.2 support
+Date: Sun, 24 May 2020 21:25:50 +0200
+Message-Id: <20200524192550.4559-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <1589284068-4079-2-git-send-email-christophe.kerello@st.com>
+In-Reply-To: <20200522121524.4161539-5-noltari@gmail.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 743f05572e7f81dcccfecf454bc7d9e10edbbaca
+X-linux-mtd-patch-commit: 191dd7b0d8899e3fc0c4c6627a244a5fad8f2cfb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200524_121758_913514_7C96BEA0 
-X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-CacheID: sfid-20200524_122601_002246_42FA9361 
+X-CRM114-Status: UNSURE (   5.40  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -51,7 +54,7 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
+ low trust [217.70.178.230 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -65,26 +68,19 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 2020-05-12 at 11:47:47 UTC, Christophe Kerello wrote:
-> This patch renames functions and local variables.
-> This cleanup is done to get all functions starting by stm32_fmc2_nfc
-> in the FMC2 raw NAND driver when all functions will start by
-> stm32_fmc2_ebi in the FMC2 EBI driver.
-> 
-> Signed-off-by: Christophe Kerello <christophe.kerello@st.com>
-> Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
-
-Miquel
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gRnJpLCAyMDIwLTA1LTIyIGF0IDEyOjE1OjIzIFVUQywgPT91dGYtOD9xPz1DMz04MWx2YXJv
+X0Zlcm49QzM9QTFuZGV6X1JvamFzPz0gd3JvdGU6Cj4gQWRkZWQgYnJjbSxicmNtbmFuZC12Mi4x
+IGFuZCBicmNtLGJyY21uYW5kLXYyLjIgYXMgcG9zc2libGUgY29tcGF0aWJsZQo+IHN0cmluZ3Mg
+dG8gc3VwcG9ydCBicmNtbmFuZCBjb250cm9sbGVycyB2Mi4xIGFuZCB2Mi4yLgo+IAo+IFNpZ25l
+ZC1vZmYtYnk6IMOBbHZhcm8gRmVybsOhbmRleiBSb2phcyA8bm9sdGFyaUBnbWFpbC5jb20+Cj4g
+QWNrZWQtYnk6IEZsb3JpYW4gRmFpbmVsbGkgPGYuZmFpbmVsbGlAZ21haWwuY29tPgoKQXBwbGll
+ZCB0byBodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9tdGQv
+bGludXguZ2l0IG5hbmQvbmV4dCwgdGhhbmtzLgoKTWlxdWVsCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24g
+bWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtbXRkLwo=
