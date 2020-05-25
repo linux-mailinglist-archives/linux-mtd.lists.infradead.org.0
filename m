@@ -2,46 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7DAB51E139F
-	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:45:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 331E61E13A3
+	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:46:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2nI3zSBb7Vs29S2aFZiB9LnGu/CS/3y0q/YQCXoZjdE=; b=PLlIaiGIahATke
-	jmazl3K+QO+eyQ72qa0SPutUDtSTMLlrMYaE0+NRHYrgH6tFdmfS+kmMB0x/MzgiWS/W4hSfG7oH9
-	XcIsyzdhE1wnJNXyB2jzDh5Q8UkpJZGZrBpd1wVcHVueZX34pxxANJzmxife12uJ8YvUkrXhJV5Dh
-	3ZPzblegIbO2WrnXvW27J7VQiWRPRfNutLQ893kAYs35jT9Ydnc/fl6g2Zum5tyRTt91izB5OR9Iw
-	OrczZlRGEYhDJmv9LXTYDpEvnbVAb0F6IV1LRZ1mylvj/aAMnbg8jjiS7QkwosuaesBiPt9rMOLdj
-	/DrKH85WawTBZHXwpX4Q==;
+	List-Owner; bh=OwAcLah7OFzjFi7SvothIaYmahvy46JKt+N3szdK+aE=; b=rxzJxbhfpI4lQQ
+	a/YHpWdVveMGoqa/YE3mLXJlAH3eeOuOKWmsh33B23IBeiRRXedAvwe/DpJedF3pMsaEP+m/1mAfH
+	jeEbZTGILkN/jASpcNTmFXv5XJBW8CTdXdWRWnZ3METT6mP+YmGzRfJ8rFw6zgbMuj7IPAOpIQQRe
+	3vJeNJhXTc8iM455Qh+mCtFXufQkxvYe7WWHTaykRi7wrMH/RxFbqoOxnn/5b/NbqrADucyCb4bzy
+	t1uzh/3fXozBtYHi0wbt0fiT+YQU4Y2mMgiwdYcEnZmM1oSB8BtO6AIoyHSrx3lpotE6G1K8HGK9o
+	kmvd+zkIMR8I+gfj208g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdHAL-0007Ml-K9; Mon, 25 May 2020 17:45:33 +0000
+	id 1jdHAs-0007zH-ML; Mon, 25 May 2020 17:46:06 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdH7o-0003C1-DA
+ id 1jdH7p-0003Cj-F2
  for linux-mtd@lists.infradead.org; Mon, 25 May 2020 17:42:58 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 3114024000D;
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 1325A24000A;
  Mon, 25 May 2020 17:42:54 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v4 08/19] mtd: rawnand: Rename onfi_timing_mode_default
-Date: Mon, 25 May 2020 19:42:28 +0200
-Message-Id: <20200525174239.11349-9-miquel.raynal@bootlin.com>
+Subject: [PATCH v4 09/19] mtd: rawnand: Use the data interface mode entry when
+ relevant
+Date: Mon, 25 May 2020 19:42:29 +0200
+Message-Id: <20200525174239.11349-10-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 References: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200525_104256_718896_12F874BD 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20200525_104257_644572_247E3E2B 
+X-CRM114-Status: GOOD (  11.75  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -73,124 +74,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This parameter would better be named default_timing_mode as we are
-opening the way to non-ONFI timings.
+The data interface setup does not care about the default timing mode
+but cares about the actual timing mode at the time of the call of this
+helper.
+
+Use this entry instead and let chip->default_timing_mode only be used
+at initialization time.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_base.c    | 20 +++++++++-----------
- drivers/mtd/nand/raw/nand_toshiba.c |  2 +-
- include/linux/mtd/rawnand.h         |  8 ++++----
- 3 files changed, 14 insertions(+), 16 deletions(-)
+ drivers/mtd/nand/raw/nand_base.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index 7567c973964b..adbc12580e2e 100644
+index adbc12580e2e..514ac78899ec 100644
 --- a/drivers/mtd/nand/raw/nand_base.c
 +++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -952,7 +952,7 @@ static int nand_reset_data_interface(struct nand_chip *chip, int chipnr)
+@@ -951,9 +951,8 @@ static int nand_reset_data_interface(struct nand_chip *chip, int chipnr)
+  */
  static int nand_setup_data_interface(struct nand_chip *chip, int chipnr)
  {
- 	u8 tmode_param[ONFI_SUBFEATURE_PARAM_LEN] = {
--		chip->onfi_timing_mode_default,
-+		chip->default_timing_mode,
- 	};
+-	u8 tmode_param[ONFI_SUBFEATURE_PARAM_LEN] = {
+-		chip->default_timing_mode,
+-	};
++	u8 mode = chip->data_interface.timings.mode;
++	u8 tmode_param[ONFI_SUBFEATURE_PARAM_LEN] = { mode, };
  	int ret;
  
-@@ -987,9 +987,9 @@ static int nand_setup_data_interface(struct nand_chip *chip, int chipnr)
+ 	if (!nand_has_setup_data_iface(chip))
+@@ -987,9 +986,9 @@ static int nand_setup_data_interface(struct nand_chip *chip, int chipnr)
  	if (ret)
  		goto err_reset_chip;
  
--	if (tmode_param[0] != chip->onfi_timing_mode_default) {
-+	if (tmode_param[0] != chip->default_timing_mode) {
+-	if (tmode_param[0] != chip->default_timing_mode) {
++	if (tmode_param[0] != mode) {
  		pr_warn("timing mode %d not acknowledged by the NAND chip\n",
--			chip->onfi_timing_mode_default);
-+			chip->default_timing_mode);
+-			chip->default_timing_mode);
++			mode);
  		goto err_reset_chip;
  	}
  
-@@ -1016,9 +1016,8 @@ static int nand_setup_data_interface(struct nand_chip *chip, int chipnr)
-  * and the driver.
-  * First tries to retrieve supported timing modes from ONFI information,
-  * and if the NAND chip does not support ONFI, relies on the
-- * ->onfi_timing_mode_default specified in the nand_ids table. After this
-- * function nand_chip->data_interface is initialized with the best timing mode
-- * available.
-+ * ->default_timing_mode specified in the nand_ids table. After this function
-+ * nand_chip->data_interface is initialized with the best timing mode available.
-  *
-  * Returns 0 for success or negative error code otherwise.
-  */
-@@ -1037,10 +1036,10 @@ static int nand_init_data_interface(struct nand_chip *chip)
- 	if (chip->parameters.onfi) {
- 		modes = chip->parameters.onfi->async_timing_mode;
- 	} else {
--		if (!chip->onfi_timing_mode_default)
-+		if (!chip->default_timing_mode)
- 			return 0;
- 
--		modes = GENMASK(chip->onfi_timing_mode_default, 0);
-+		modes = GENMASK(chip->default_timing_mode, 0);
- 	}
- 
- 	for (mode = fls(modes) - 1; mode >= 0; mode--) {
-@@ -1056,7 +1055,7 @@ static int nand_init_data_interface(struct nand_chip *chip)
- 						 NAND_DATA_IFACE_CHECK_ONLY,
- 						 &chip->data_interface);
- 		if (!ret) {
--			chip->onfi_timing_mode_default = mode;
-+			chip->default_timing_mode = mode;
- 			break;
- 		}
- 	}
-@@ -4814,8 +4813,7 @@ static bool find_full_id_nand(struct nand_chip *chip,
- 		chip->options |= type->options;
- 		chip->base.eccreq.strength = NAND_ECC_STRENGTH(type);
- 		chip->base.eccreq.step_size = NAND_ECC_STEP(type);
--		chip->onfi_timing_mode_default =
--					type->onfi_timing_mode_default;
-+		chip->default_timing_mode = type->onfi_timing_mode_default;
- 
- 		chip->parameters.model = kstrdup(type->name, GFP_KERNEL);
- 		if (!chip->parameters.model)
-diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
-index ae069905d7e4..b6efaf5195bb 100644
---- a/drivers/mtd/nand/raw/nand_toshiba.c
-+++ b/drivers/mtd/nand/raw/nand_toshiba.c
-@@ -198,7 +198,7 @@ static int tc58teg5dclta00_init(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 
--	chip->onfi_timing_mode_default = 5;
-+	chip->default_timing_mode = 5;
- 	chip->options |= NAND_NEED_SCRAMBLING;
- 	mtd_set_pairing_scheme(mtd, &dist3_pairing_scheme);
- 
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 622da6527a36..a4b68e7b246a 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -1067,9 +1067,9 @@ struct nand_manufacturer {
-  * @options: Various chip options. They can partly be set to inform nand_scan
-  *           about special functionality. See the defines for further
-  *           explanation.
-- * @onfi_timing_mode_default: Default ONFI timing mode. This field is set to the
-- *			      actually used ONFI mode if the chip is ONFI
-- *			      compliant or deduced from the datasheet otherwise
-+ * @default_timing_mode: Default timing mode. This field is set to the actually
-+ *                       used ONFI mode if the chip is ONFI compliant or deduced
-+ *                       from the datasheet otherwise
-  * @data_interface: NAND interface timing information
-  * @bbt_erase_shift: Number of address bits in a bbt entry
-  * @bbt_options: Bad block table specific options. All options used here must
-@@ -1117,7 +1117,7 @@ struct nand_chip {
- 	unsigned int options;
- 
- 	/* Data interface */
--	int onfi_timing_mode_default;
-+	int default_timing_mode;
- 	struct nand_data_interface data_interface;
- 
- 	/* Bad block information */
 -- 
 2.20.1
 
