@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id ADCF01E13B0
-	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:48:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BA451E13AA
+	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:47:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YIg8+5XKcpx7HVI5jn8wt4oFSqVCO5vkbiYoO81lNyk=; b=qe0rJjAB9bsWGb
-	MdRL91JBFp1ss52gWIURCN8R4tpr/gs160PiEVW8YA6LI6g5ZOjjMCYRBMjgX0TJ9+slXLuQ/PHI5
-	+eGnsgjRbkaVs7G6HIi6sFQwYG+qBKu1D0iuptBOBhmWyesJHhKAl5ekIu9TKB6VvwvNLctiX/F2P
-	iCO5qvblPrf46GH5MJWQTyAbwAN2QyDOssUAGrqKHKxrtp/q1ib4D2tQfEvr4gjjkzIcV7xSRfOCw
-	ftVrOn6KTiZjCE2Mov+k5ybMe+6XAZtoLb0tYKmN79wz2ODSUtKPHqux4f6hPc3ufRIm4RkhFCQrU
-	lLsJ2wplQreUPDtPPE3A==;
+	List-Owner; bh=YscLrUW+hWph9oyjnWTX/LsL1IdyoXWb4E5cqspBrsw=; b=WddN++o0GyYLjT
+	hk3mvgb9HmU4FKijaJ/NPch4QEDjK8eVMvUpn4Xw7JzUnTiEup1Dm/13rQEnzHSkMRc4UddZ00jQF
+	uJZ5KZVrJHSh7fGNjU0FvpU3Eud66bgt9Aq8AvGCeYA3GXt9yyC3HOPGVn/xIOb/hXVgv2U6sSoJh
+	LEmXfsoUUsk69o3r6JHxYwCBsnkSF+pet3FnR4/Aq0ZPZPsgaD2Bzj0XZpthRC+HDa4KSQkVOjS72
+	xFinCf6A1KHEyOO8pzrTOgFGLjqc/8xDywhZ2apT2cnvDzDBay7cGwZr8NAcBDmf59jcEtL9lk/XT
+	8yjjrjfJijrcN+j0gzow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdHD8-0001bq-PT; Mon, 25 May 2020 17:48:26 +0000
+	id 1jdHC9-0000gb-AW; Mon, 25 May 2020 17:47:25 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdH7x-0003Lo-Ew
- for linux-mtd@lists.infradead.org; Mon, 25 May 2020 17:43:07 +0000
+ id 1jdH7y-0003MZ-E5
+ for linux-mtd@lists.infradead.org; Mon, 25 May 2020 17:43:08 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 339CA24000E;
- Mon, 25 May 2020 17:43:03 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 290F424000D;
+ Mon, 25 May 2020 17:43:04 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v4 18/19] mtd: rawnand: Add the ->choose_data_interface() hook
-Date: Mon, 25 May 2020 19:42:38 +0200
-Message-Id: <20200525174239.11349-19-miquel.raynal@bootlin.com>
+Subject: [PATCH v4 19/19] mtd: rawnand: Add timings for Kioxia TH58NVG2S3HBAI4
+Date: Mon, 25 May 2020 19:42:39 +0200
+Message-Id: <20200525174239.11349-20-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 References: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200525_104305_755543_5DCEE89F 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20200525_104306_756518_C8901451 
+X-CRM114-Status: GOOD (  12.86  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -73,75 +73,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This hook can be overloaded by NAND manufacturer drivers to propose
-alternative timings when not following the main standards.
+From: Rickard x Andersson <rickaran@axis.com>
 
-Vendors implementing this hook should:
-1- choose the best timings and fill the data interface,
-2- verify that the controller supports them.
+The Kioxia/Toshiba TH58NVG2S3HBAI4 NAND memory is not ONFI compliant.
+The timings of the NAND chip memory are quite close to ONFI mode 4 but
+is breaking that spec.
 
+By providing our own set of timings, erase block read speed is increased
+from 6910 kiB/s to 13490 kiB/s and erase block write speed is increased
+from 3350 kiB/s to 4410 kiB/s.
+
+Tested on IMX6SX which has a NAND controller supporting EDO mode.
+
+Signed-off-by: Rickard x Andersson <rickaran@axis.com>
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/internals.h | 5 +++++
- drivers/mtd/nand/raw/nand_base.c | 8 ++++++++
- include/linux/mtd/rawnand.h      | 2 ++
- 3 files changed, 15 insertions(+)
+ drivers/mtd/nand/raw/nand_ids.c     |  3 +++
+ drivers/mtd/nand/raw/nand_toshiba.c | 38 +++++++++++++++++++++++++++++
+ 2 files changed, 41 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
-index 9af6979257e2..61edbab35068 100644
---- a/drivers/mtd/nand/raw/internals.h
-+++ b/drivers/mtd/nand/raw/internals.h
-@@ -146,6 +146,11 @@ static inline bool nand_controller_has_setup_data_iface(struct nand_chip *chip)
- 	return true;
+diff --git a/drivers/mtd/nand/raw/nand_ids.c b/drivers/mtd/nand/raw/nand_ids.c
+index e0dbc2e316c7..8b676e8b481b 100644
+--- a/drivers/mtd/nand/raw/nand_ids.c
++++ b/drivers/mtd/nand/raw/nand_ids.c
+@@ -52,6 +52,9 @@ struct nand_flash_dev nand_flash_ids[] = {
+ 		{ .id = {0xad, 0xde, 0x94, 0xda, 0x74, 0xc4} },
+ 		  SZ_8K, SZ_8K, SZ_2M, NAND_NEED_SCRAMBLING, 6, 640,
+ 		  NAND_ECC_INFO(40, SZ_1K), 4 },
++	{"TH58NVG2S3HBAI4 4G 3.3V 8-bit",
++		{ .id = {0x98, 0xdc, 0x91, 0x15, 0x76} },
++		  SZ_2K, SZ_512, SZ_128K, 0, 5, 128, NAND_ECC_INFO(8, SZ_512) },
+ 
+ 	LEGACY_ID_NAND("NAND 4MiB 5V 8-bit",   0x6B, 4, SZ_8K, SP_OPTIONS),
+ 	LEGACY_ID_NAND("NAND 4MiB 3,3V 8-bit", 0xE3, 4, SZ_8K, SP_OPTIONS),
+diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
+index b6efaf5195bb..6c79464fdf34 100644
+--- a/drivers/mtd/nand/raw/nand_toshiba.c
++++ b/drivers/mtd/nand/raw/nand_toshiba.c
+@@ -205,6 +205,42 @@ static int tc58teg5dclta00_init(struct nand_chip *chip)
+ 	return 0;
  }
  
-+static inline bool nand_can_choose_data_interface(struct nand_chip *chip)
++static int th58nvg2s3hbai4_choose_data_interface(struct nand_chip *chip)
 +{
-+	return chip->ops.choose_data_interface;
++	struct nand_data_interface iface;
++	struct nand_sdr_timings *sdr = &iface.timings.sdr;
++	int ret;
++
++	/* Start with timings from the closest timing mode, mode 4. */
++	ret = onfi_fill_data_interface(chip, &iface, NAND_SDR_IFACE, 4);
++	if (ret)
++		return ret;
++
++	/* Patch timings that differ from mode 4. */
++	sdr->tALS_min = 12000;
++	sdr->tCHZ_max = 20000;
++	sdr->tCLS_min = 12000;
++	sdr->tCOH_min = 0;
++	sdr->tDS_min = 12000;
++	sdr->tRHOH_min = 25000;
++	sdr->tRHW_min = 30000;
++	sdr->tRHZ_max = 60000;
++	sdr->tWHR_min = 60000;
++
++	/* Patch timings not part of onfi timing mode. */
++	sdr->tPROG_max = 700000000;
++	sdr->tBERS_max = 5000000000;
++
++	return nand_choose_best_vendor_sdr_iface(chip, &iface);
 +}
 +
- /* BBT functions */
- int nand_markbad_bbt(struct nand_chip *chip, loff_t offs);
- int nand_isreserved_bbt(struct nand_chip *chip, loff_t offs);
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index d9fe7795f183..e9df339849d3 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -1060,6 +1060,14 @@ static int nand_choose_data_interface(struct nand_chip *chip)
- 	if (!nand_controller_has_setup_data_iface(chip))
- 		return 0;
- 
-+	/*
-+	 * Let the NAND vendor hook identify the best timings.
-+	 * ->choose_data_interface() is expected to update the entire chip's
-+	 * nand_data_interface structure.
-+	 */
-+	if (nand_can_choose_data_interface(chip))
-+		return chip->ops.choose_data_interface(chip);
++static int th58nvg2s3hbai4_init(struct nand_chip *chip)
++{
++	chip->ops.choose_data_interface = th58nvg2s3hbai4_choose_data_interface;
 +
- 	/*
- 	 * First try to identify the best timings from ONFI parameters and
- 	 * if the NAND does not support ONFI, fallback to the default ONFI
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index a4b68e7b246a..5b8b94521a18 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -1034,6 +1034,7 @@ struct nand_legacy {
-  * @lock_area: Lock operation
-  * @unlock_area: Unlock operation
-  * @setup_read_retry: Set the read-retry mode (mostly needed for MLC NANDs)
-+ * @choose_data_interface: Choose the best data interface
-  */
- struct nand_chip_ops {
- 	int (*suspend)(struct nand_chip *chip);
-@@ -1041,6 +1042,7 @@ struct nand_chip_ops {
- 	int (*lock_area)(struct nand_chip *chip, loff_t ofs, uint64_t len);
- 	int (*unlock_area)(struct nand_chip *chip, loff_t ofs, uint64_t len);
- 	int (*setup_read_retry)(struct nand_chip *chip, int retry_mode);
-+	int (*choose_data_interface)(struct nand_chip *chip);
- };
++	return 0;
++}
++
+ static int toshiba_nand_init(struct nand_chip *chip)
+ {
+ 	if (nand_is_slc(chip))
+@@ -217,6 +253,8 @@ static int toshiba_nand_init(struct nand_chip *chip)
  
- /**
+ 	if (!strcmp("TC58TEG5DCLTA00", chip->parameters.model))
+ 		tc58teg5dclta00_init(chip);
++	if (!strncmp("TH58NVG2S3HBAI4", chip->parameters.model, 15))
++		th58nvg2s3hbai4_init(chip);
+ 
+ 	return 0;
+ }
 -- 
 2.20.1
 
