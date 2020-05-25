@@ -2,62 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D22B31E08E5
-	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 10:35:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B57651E0962
+	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 10:54:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L9iNPzq2RTA9Pvp/xgqGNjNktnGdd3HcEyR6+ciWmeI=; b=BUH71Z6EBC25T+
-	kfoBiFMUnB2kQv3NxY4ep0HXQ3DHQ+OffHTRgw+rqYbHkckDjfe8qu7StUQoWB50Zvru0Z275QklI
-	0SnBU5Maj2VTlGjBCkPMvlVQd8lroi6YE3WTFTJVImjbA+ToiJaCPTkJZyLa6Pdsg4vz2CnjG/rKX
-	eMh3UiXy9fB8ixipXPLC1YUsGb3Qbxo/khMHsz290yW7u5RzJOcXm4Q1SOyOZtfpxDj/F66eBq9di
-	rsJDe2JeFYvUOkbIC6JzYa5plVzZwBZJOpYH9U7D0PWBJAlE6k67Az1nIMJwjNn9S0w9fQZc5OWeQ
-	J0RkFVghr4xMqj386Vuw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6s3lt4LnQGQC4PAs4avcM4CKU2fZ0cUdk/yoJQ+tvjk=; b=N95anyqlHGp4Zz
+	yCKpFJya2Pnj60ynXrVf0oQpKKs3TDvKrxuuwFD7Qez7QLlN97PAwCUx/D6DUL5KzIqCcIfmxCNs8
+	i5HgzQ0WqrAAJeumhXuiEZTKcozHw2YMXG+PRgf1oBexlc3XBvXqFVN4cjFN3Z21CAL6+lplNrR/t
+	ZxB80hWbptO0K0kc0xjHeV0pJ4mtxK7ugGjlnXs9v9ZmCqLAnNC4g7aZmdp/dRaPZDcfP3JfZfUKD
+	isjg8/Ecpm3CQDziys0oTNHcJN8JwIUIi2IAuXZCGyqssIWQ7CWWXuzPLFXL8NJqyeOwD9Qphfmq+
+	/d9z2hKr62EXSRlKTeBQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jd8Zs-0003hN-Mc; Mon, 25 May 2020 08:35:20 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jd8rv-0000NH-Ft; Mon, 25 May 2020 08:53:59 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jd8Zj-000327-OY
- for linux-mtd@lists.infradead.org; Mon, 25 May 2020 08:35:13 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 2FDBA2A00AD;
- Mon, 25 May 2020 09:35:09 +0100 (BST)
-Date: Mon, 25 May 2020 10:35:02 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH 17/17] mtd: rawnand: nandsim: Reorganize
- ns_cleanup_module()
-Message-ID: <20200525103502.2b838933@collabora.com>
-In-Reply-To: <20200525102852.068349d8@xps13>
-References: <20200509191431.15862-1-miquel.raynal@bootlin.com>
- <20200509191431.15862-18-miquel.raynal@bootlin.com>
- <CAFLxGvzU2ESxZ74cve9w=CLBY2v95MMMJqzOFEmCAhVHYF5VvA@mail.gmail.com>
- <20200525001328.6b52da1f@xps13>
- <20200525084637.328d2872@collabora.com>
- <20200525084735.0ca0dad3@collabora.com>
- <20200525092315.5f950554@xps13> <20200525102852.068349d8@xps13>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1jd8rY-0000C7-4Z
+ for linux-mtd@lists.infradead.org; Mon, 25 May 2020 08:53:37 +0000
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id DAD9B200016;
+ Mon, 25 May 2020 08:53:30 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>
+Subject: [PATCH v2 00/17] Clean nandsim error path
+Date: Mon, 25 May 2020 10:52:10 +0200
+Message-Id: <20200525085329.17259-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200525_013511_955821_1DF07269 
-X-CRM114-Status: GOOD (  17.27  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200525_015336_319839_352CB7C0 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.178.232 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [217.70.178.232 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -69,73 +62,42 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- Richard Weinberger <richard.weinberger@gmail.com>,
- Richard Weinberger <richard@nod.at>, dedekind@infradead.org,
- linux-mtd@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, 25 May 2020 10:28:52 +0200
-Miquel Raynal <miquel.raynal@bootlin.com> wrote:
-
-> Miquel Raynal <miquel.raynal@bootlin.com> wrote on Mon, 25 May 2020
-> 09:23:15 +0200:
-> 
-> > Hi Boris,
-> > 
-> > Boris Brezillon <boris.brezillon@collabora.com> wrote on Mon, 25 May
-> > 2020 08:47:35 +0200:
-> >   
-> > > On Mon, 25 May 2020 08:46:37 +0200
-> > > Boris Brezillon <boris.brezillon@collabora.com> wrote:
-> > >     
-> > > > On Mon, 25 May 2020 00:13:28 +0200
-> > > > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
-> > > >       
-> > > > > Hi Richard,
-> > > > > 
-> > > > > Richard Weinberger <richard.weinberger@gmail.com> wrote on Sun, 24 May
-> > > > > 2020 23:37:13 +0200:
-> > > > >         
-> > > > > > On Sat, May 9, 2020 at 9:19 PM Miquel Raynal <miquel.raynal@bootlin.com> wrote:          
-> > > > > > >         ns_debugfs_remove(ns);
-> > > > > > > -       ns_free(ns);    /* Free nandsim private resources */
-> > > > > > > -       nand_release(chip); /* Unregister driver */
-> > > > > > > -       kfree(ns);        /* Free other structures */
-> > > > > > > -       ns_free_lists();
-> > > > > > > +       WARN_ON(mtd_device_unregister(nsmtd));
-> > > > > > > +       ns_free(ns);
-> > > > > > > +       kfree(erase_block_wear);
-> > > > > > > +       nand_cleanup(chip);
-> > > > > > > +       list_for_each_safe(pos, n, &grave_pages) {
-> > > > > > > +               kfree(list_entry(pos, struct grave_page, list));
-> > > > > > > +               list_del(pos);            
-> > > > > > 
-> > > > > > Are you sure you can use pos after freeing the entry?
-> > > > > > Smells like use after free.
-> > > > > >           
-> > > > > 
-> > > > > Mmmmh, I should probably invert those two lines, first call list_del()
-> > > > > and then call kfree() on list_entry().        
-> > > > 
-> > > > You can also use  list_for_each_entry_safe():    
-> > 
-> > I usually use this helper, but I guess I copy/pasted the below lines
-> > from somewhere else in this file... I'll use list_for_each_entry_safe().  
-> 
-> Actually, grave_pages, weak_pages and weak_blocks are three structures
-> of different types, that's why they called kfree() directly on
-> list_entry() -> to avoid having to declare 6 different pointers. I'll
-> stick to the same presentation than ns_free_lists then.
-
-Hm, okay. I guess having the init/cleanup split is sub-functions would
-be cleaner, but it's not like we want to invest time in nandsim, so I'm
-fine with the list_for_each_safe().
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGVsbG8sCgpBcyBwYXJ0IG9mIGEgYmlnZ2VyIGNsZWFudXAgSSByZWFsaXplZCB0aGUgZXJyb3Ig
+cGF0aCBvZiBuYW5kc2ltLmMgd2FzCmhvcnJpYmx5IHdyb25nLiBUaGVyZSBhcmUgYSBmZXcgYWRk
+aXRpb25hbCBjaGFuZ2VzLCBsaWtlIGhhdmluZyBhCmNvbnNpc3RlbnQgbmFtaW5nIGZvciBhIGdp
+dmVuIG9iamVjdCwgYnV0IG1vcmVvdmVyIHRoaXMgaXMgYW4gZXJyb3IKcGF0aCBjbGVhbnVwLCBk
+cml2ZXItd2lkZS4KCkNoZWVycywKTWlxdcOobAoKQ2hhbmdlcyBpbiB2MjoKKiBSZW9yZGVyZWQg
+dGhlIGtmcmVlKCkgYW5kIHRoZSBsaXN0X2RlbCgpIHRvIGF2b2lkIGEgdXNlIGFmdGVyIGZyZWUK
+ICBpc3N1ZSB0aGF0IEkgaW50cm9kdWNlZCBpbiB2MS4KKiBVc2VkIGRlYnVnZnNfcmVtb3ZlX3Jl
+Y3Vyc2l2ZSgpIGluc3RlYWQgb2YganVzdCBkZWJ1Z2ZzX3JlbW92ZSgpLgoKTWlxdWVsIFJheW5h
+bCAoMTcpOgogIG10ZDogcmF3bmFuZDogbmFuZHNpbTogQ29uc2lzdGVudCB1c2Ugb2YgJ25zJyBp
+bnN0ZWFkIG9mICdkZXYnCiAgbXRkOiByYXduYW5kOiBuYW5kc2ltOiBVc2Ugb2N0YWwgcGVybWlz
+c2lvbnMKICBtdGQ6IHJhd25hbmQ6IG5hbmRzaW06IFVzZSBhIGNvbnNpc3RlbnQgbnNfIHByZWZp
+eCBmb3IgYWxsIGZ1bmN0aW9ucwogIG10ZDogcmF3bmFuZDogbmFuZHNpbTogQ2xlYW4gZXJyb3Ig
+aGFuZGxpbmcKICBtdGQ6IHJhd25hbmQ6IG5hbmRzaW06IEtlZXAgdHJhY2sgb2YgdGhlIGNyZWF0
+ZWQgZGVidWdmcyBlbnRyaWVzCiAgbXRkOiByYXduYW5kOiBuYW5kc2ltOiBSZW1vdmUgZGVidWdm
+cyBlbnRyaWVzIGF0IHVubG9hZCB0aW1lCiAgbXRkOiByYXduYW5kOiBuYW5kc2ltOiBGaXggdGhl
+IHR3byBuc19hbGxvY19kZXZpY2UoKSBlcnJvciBwYXRocwogIG10ZDogcmF3bmFuZDogbmFuZHNp
+bTogRnJlZSBwYXJ0aXRpb24gbmFtZXMgb24gZXJyb3IgaW4gbnNfaW5pdCgpCiAgbXRkOiByYXdu
+YW5kOiBuYW5kc2ltOiBGcmVlIHRoZSBhbGxvY2F0ZWQgZGV2aWNlIG9uIGVycm9yIGluIG5zX2lu
+aXQoKQogIG10ZDogcmF3bmFuZDogbmFuZHNpbTogRnJlZSB0aGUgcGFydGl0aW9uIG5hbWVzIGlu
+IG5zX2ZyZWUoKQogIG10ZDogcmF3bmFuZDogbmFuZHNpbTogU3RvcCB1c2luZyBuYW5kX3JlbGVh
+c2UoKQogIG10ZDogcmF3bmFuZDogbmFuZHNpbTogVXNlIGFuIGFkZGl0aW9uYWwgbGFiZWwgd2hl
+biBmcmVlaW5nIHRoZQogICAgbmFuZHNpbSBvYmplY3QKICBtdGQ6IHJhd25hbmQ6IG5hbmRzaW06
+IEZyZWUgZXJhc2VfYmxvY2tfd2VhciBvbiBlcnJvcgogIG10ZDogcmF3bmFuZDogbmFuZHNpbTog
+Rml4IHRoZSBsYWJlbCBwb2ludGluZyBvbiBuYW5kX2NsZWFudXAoKQogIG10ZDogcmF3bmFuZDog
+bmFuZHNpbTogTWFuYWdlIGxpc3RzIG9uIGVycm9yIGluIG5zX2luaXRfbW9kdWxlKCkKICBtdGQ6
+IHJhd25hbmQ6IG5hbmRzaW06IFJlbmFtZSBhIGxhYmVsIGluIG5zX2luaXRfbW9kdWxlKCkKICBt
+dGQ6IHJhd25hbmQ6IG5hbmRzaW06IFJlb3JnYW5pemUgbnNfY2xlYW51cF9tb2R1bGUoKQoKIGRy
+aXZlcnMvbXRkL25hbmQvcmF3L25hbmRzaW0uYyB8IDQzNyArKysrKysrKysrKysrKysrKysrLS0t
+LS0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAyNTMgaW5zZXJ0aW9ucygrKSwgMTg0IGRlbGV0
+aW9ucygtKQoKLS0gCjIuMjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
