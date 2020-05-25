@@ -2,47 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C7C931E138A
-	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:43:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DD99C1E138C
+	for <lists+linux-mtd@lfdr.de>; Mon, 25 May 2020 19:43:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/tldEQ5tTwnz+0EsmkNiZ2vhI2wSKXibQJ909rguZsA=; b=gQQD/5aSiPIECN
-	vgmPtDkFtcnJLaKhThU7eDk38YvFtgi3F2Wzig+yR7JUoG2nRzWgxOi8ouAUL4QxZe9DTcgSXDq6Y
-	jlytbFF8t1J+yK7ViSoNZCPDL1R3yjCOfvOv8jTH5FYUC8Mi3QwoC52Deo4PoGlSwYKtkZtMo2xHA
-	HJtAy3vWBD7tsp74X0OpkflzZ8h9OqiDwVIbUW33ypG/li8/l9M72PV7OEbnT4yyGoOAyMujouD3v
-	cqbpVLbWt+E2qNMRY/b1nToP7z/y2h+FUE0Huu2AnJfCDIbIa+5NTPlrdKmlPOfUCBfwxbUR3WYo1
-	dJRPNPVNFEXmfVRN4gdw==;
+	List-Owner; bh=1CbKs8fxeNPds6yiiagwh+PrnRPw2GbXXgOhKmmm7PQ=; b=IQNBxSuUTsRzZO
+	QXjHchOtHQ4iGk0n/j45PWUc+AFYxRUTm2MgHcBbq9lzvkU63iqAvaIwf0fM0TY8+oTIXUu6SCjCT
+	JdtoMmRxUI1ijp7wUnMGA/dUFPJogacoUGDg3rePd36N6oY73QNCay6hXxOi4WXO7KKI9hiSH+/eY
+	cOy+VXO7HMEInAvKeW3sMzxzrHsUo6trD7N7/8+dRAJ9dfNR+mTjFQS5Ow1aiWgOrYhb7p1+Iaw22
+	2csiAO6sNtmMJHAjxBk1lUVW0iIhwg4drrqzCS887ddSu3rEMc9kYox1NGD5VA7hy6sU3wvFuUSrP
+	wD5zhmV0jNM5SFlgKEEA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdH7z-00039W-NL; Mon, 25 May 2020 17:43:07 +0000
+	id 1jdH8Y-0003do-8y; Mon, 25 May 2020 17:43:42 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdH7i-00038B-BY
- for linux-mtd@lists.infradead.org; Mon, 25 May 2020 17:42:51 +0000
+ id 1jdH7i-00038F-SZ
+ for linux-mtd@lists.infradead.org; Mon, 25 May 2020 17:42:52 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id E7551240006;
- Mon, 25 May 2020 17:42:47 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id C6D5224000D;
+ Mon, 25 May 2020 17:42:48 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v4 01/19] mtd: rawnand: Use unsigned types for nand_chip
- unsigned values
-Date: Mon, 25 May 2020 19:42:21 +0200
-Message-Id: <20200525174239.11349-2-miquel.raynal@bootlin.com>
+Subject: [PATCH v4 02/19] mtd: rawnand: Only use u8 instead of uint8_t in
+ nand_chip structure
+Date: Mon, 25 May 2020 19:42:22 +0200
+Message-Id: <20200525174239.11349-3-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 References: <20200525174239.11349-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200525_104250_532800_EEF88E19 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20200525_104251_053543_FAA3E9D1 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -75,49 +75,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-page_shift, phys_erase_shift, bbt_erase_shift, chip_shift, pagemask,
-subpagesize and badblockbits are all positive values, so declare
-them as unsigned.
+Mechanical change to avoid using old types.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- include/linux/mtd/rawnand.h | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ include/linux/mtd/rawnand.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 2804c13e5662..8a1e0192f78e 100644
+index 8a1e0192f78e..7d62e0e719ac 100644
 --- a/include/linux/mtd/rawnand.h
 +++ b/include/linux/mtd/rawnand.h
-@@ -1110,11 +1110,11 @@ struct nand_chip {
- 	unsigned int options;
- 	unsigned int bbt_options;
+@@ -1141,13 +1141,13 @@ struct nand_chip {
+ 	int (*suspend)(struct nand_chip *chip);
+ 	void (*resume)(struct nand_chip *chip);
  
--	int page_shift;
--	int phys_erase_shift;
--	int bbt_erase_shift;
--	int chip_shift;
--	int pagemask;
-+	unsigned int page_shift;
-+	unsigned int phys_erase_shift;
-+	unsigned int bbt_erase_shift;
-+	unsigned int chip_shift;
-+	unsigned int pagemask;
- 	u8 *data_buf;
+-	uint8_t *oob_poi;
++	u8 *oob_poi;
+ 	struct nand_controller *controller;
  
- 	struct {
-@@ -1122,10 +1122,10 @@ struct nand_chip {
- 		int page;
- 	} pagecache;
+ 	struct nand_ecc_ctrl ecc;
+ 	unsigned long buf_align;
  
--	int subpagesize;
-+	unsigned int subpagesize;
- 	int onfi_timing_mode_default;
- 	unsigned int badblockpos;
--	int badblockbits;
-+	unsigned int badblockbits;
+-	uint8_t *bbt;
++	u8 *bbt;
+ 	struct nand_bbt_descr *bbt_td;
+ 	struct nand_bbt_descr *bbt_md;
  
- 	struct nand_id id;
- 	struct nand_parameters parameters;
 -- 
 2.20.1
 
