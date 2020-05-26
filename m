@@ -2,47 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 06D3A1E2D85
-	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:24:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EC5C81E2DB2
+	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:25:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IGhAjc8zFaTPuNkT/JuZzHYGB7chC9K4RsbIooWlPrs=; b=CRfmtLRKg+Kg6V
-	wvO8xVrPrlbJ/DJ1LO5k5gO3lqTd084GR02E2ds1lUHQexL62lVNzshpasEjOSxk7SEtOgG/m9G1O
-	SZMgvVyE43Pmdzsvizs/GekS4eSTAUsJl6t3ZKDFCJ2KLoCrXEOgzdMpyIxBnQ4piBFWKfzaqEIta
-	Gb/V2Ph5CQM9GRsmruQvGvBy1TMqMj4puJmPoIoIlkyRbnwxSHTs/sycQRKqT+8gER1PpE3ch3Mee
-	vQPE98eNZTyhHD9zSJsK8YRR76dmjXBO0c2FNYwpD8MfcV/SUVMNuxUk192WCwkjEzGT/shb3SsvL
-	GiHbuK0eKaum6e4EIPZw==;
+	List-Owner; bh=nQUzwtH06OSuaR0JXP4Di2JbDUCv14Z76QVDQenLV4s=; b=bbRkjmnr52YDus
+	icAzR15ePlJWI7+R3JrMeDbntcLJhtd0TDgkW1y4NhB83jYuPLfOZDfWGL3YoxM9YBtrvY3j+idCt
+	tstiDHWgCz8E9LJsHOV4SQ5IJRW+KGmOzlwiajZip+gToq7TWntAn5s+Z5W0QhlcjcZyMljfa7q00
+	MAWuVuE65Kaippn1ExkJK73Xe3sWVC38uEd00lQM703T5HgNBgGz06osFfX2AAuCbqClkNvHHFPxy
+	lz6mPIbta0MfZBY+cYrbesG1+Auf5uJjI2aM9QuTB6M3MzUKbieWPo+8hmzcUcUFU6uy4H3exuit+
+	48gwShtFfXXTu/5qiR7g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdfBk-0001IK-9z; Tue, 26 May 2020 19:24:36 +0000
+	id 1jdfC0-0001WE-QM; Tue, 26 May 2020 19:24:52 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdf5R-0001i8-J4
- for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:18:08 +0000
+ id 1jdf5S-0001iq-28
+ for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:18:10 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id B6587240008;
- Tue, 26 May 2020 19:18:01 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id DCD0224000F;
+ Tue, 26 May 2020 19:18:02 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v5 23/28] mtd: rawnand: toshiba: Implement
- ->choose_data_interface() for TC58TEG5DCLTA00
-Date: Tue, 26 May 2020 21:17:20 +0200
-Message-Id: <20200526191725.7591-24-miquel.raynal@bootlin.com>
+Subject: [PATCH v5 24/28] mtd: rawnand: toshiba: Implement
+ ->choose_data_interface() for TC58NVG0S3E
+Date: Tue, 26 May 2020 21:17:21 +0200
+Message-Id: <20200526191725.7591-25-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 References: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_121805_792072_F70F8742 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200526_121806_256319_92988D61 
+X-CRM114-Status: GOOD (  11.03  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -71,29 +70,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Implement this hook for the tc58teg5dclta00 NAND chip and stop setting
-->default_timing_mode.
+This chip supports ONFI SDR timing mode 2, implement the new hook to
+advertize it.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_toshiba.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/nand_ids.c     |  3 +--
+ drivers/mtd/nand/raw/nand_toshiba.c | 21 +++++++++++++++++++++
+ 2 files changed, 22 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/mtd/nand/raw/nand_ids.c b/drivers/mtd/nand/raw/nand_ids.c
+index e0dbc2e316c7..c729a8bc895d 100644
+--- a/drivers/mtd/nand/raw/nand_ids.c
++++ b/drivers/mtd/nand/raw/nand_ids.c
+@@ -28,8 +28,7 @@ struct nand_flash_dev nand_flash_ids[] = {
+ 	 */
+ 	{"TC58NVG0S3E 1G 3.3V 8-bit",
+ 		{ .id = {0x98, 0xd1, 0x90, 0x15, 0x76, 0x14, 0x01, 0x00} },
+-		  SZ_2K, SZ_128, SZ_128K, 0, 8, 64, NAND_ECC_INFO(1, SZ_512),
+-		  2 },
++		  SZ_2K, SZ_128, SZ_128K, 0, 8, 64, NAND_ECC_INFO(1, SZ_512), },
+ 	{"TC58NVG2S0F 4G 3.3V 8-bit",
+ 		{ .id = {0x98, 0xdc, 0x90, 0x26, 0x76, 0x15, 0x01, 0x08} },
+ 		  SZ_4K, SZ_512, SZ_256K, 0, 8, 224, NAND_ECC_INFO(4, SZ_512) },
 diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
-index 302d4a6e175b..fe2bc20972a9 100644
+index fe2bc20972a9..860ae0c13063 100644
 --- a/drivers/mtd/nand/raw/nand_toshiba.c
 +++ b/drivers/mtd/nand/raw/nand_toshiba.c
-@@ -193,11 +193,24 @@ static void toshiba_nand_decode_id(struct nand_chip *chip)
- 	}
+@@ -206,6 +206,18 @@ tc58teg5dclta00_choose_data_interface(struct nand_chip *chip,
+ 	return nand_choose_best_sdr_timings(chip, iface, NULL);
  }
  
-+static int
-+tc58teg5dclta00_choose_data_interface(struct nand_chip *chip,
-+				      struct nand_data_interface *iface)
++static int tc58nvg0s3e_choose_data_interface(struct nand_chip *chip,
++					     struct nand_data_interface *iface)
 +{
 +	int ret;
 +
-+	ret = onfi_fill_data_interface(chip, iface, NAND_SDR_IFACE, 5);
++	ret = onfi_fill_data_interface(chip, iface, NAND_SDR_IFACE, 2);
 +	if (ret)
 +		return ret;
 +
@@ -103,12 +116,29 @@ index 302d4a6e175b..fe2bc20972a9 100644
  static int tc58teg5dclta00_init(struct nand_chip *chip)
  {
  	struct mtd_info *mtd = nand_to_mtd(chip);
+@@ -217,6 +229,13 @@ static int tc58teg5dclta00_init(struct nand_chip *chip)
+ 	return 0;
+ }
  
--	chip->onfi_timing_mode_default = 5;
-+	chip->ops.choose_data_interface = &tc58teg5dclta00_choose_data_interface;
- 	chip->options |= NAND_NEED_SCRAMBLING;
- 	mtd_set_pairing_scheme(mtd, &dist3_pairing_scheme);
++static int tc58nvg0s3e_init(struct nand_chip *chip)
++{
++	chip->ops.choose_data_interface = &tc58nvg0s3e_choose_data_interface;
++
++	return 0;
++}
++
+ static int toshiba_nand_init(struct nand_chip *chip)
+ {
+ 	if (nand_is_slc(chip))
+@@ -229,6 +248,8 @@ static int toshiba_nand_init(struct nand_chip *chip)
  
+ 	if (!strcmp("TC58TEG5DCLTA00", chip->parameters.model))
+ 		tc58teg5dclta00_init(chip);
++	if (!strcmp("TC58NVG0S3E", chip->parameters.model))
++		tc58nvg0s3e_init(chip);
+ 
+ 	return 0;
+ }
 -- 
 2.20.1
 
