@@ -2,43 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C82501E2CDC
-	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:18:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F3F621E2CCF
+	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:17:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=zBvc0M7z78WzElFwIqxCkvMHBdYEQOeyX05pNG/OywE=; b=LYaqJLQC/WYwl1
-	1GXlJiMMYtbzsv3+8Gcnw28IMByO3YYqWW+kgljyINfBzXU611GK+6sa856Lp1nzishUgP2B26jNp
-	nauBDoVS8POVQlq4znAQGEC0zIClflqpJl9Yy/bY8hbqWXk7IaIyxVEFHtuvF5oDxbEA06VM7+Oh/
-	omlEKh4laUHhq1gK0Gvk49e1lvJ+HoSGiSXSiKKW0qsklgrsK7/n9vPzg7nxipwhikYvB3XuuvG+h
-	3UKn6N6txXYukWXcFG2S26sbQnAzRwtrYgf/zdnO3YJMMMtaE2CvYiTyaGHpH3csBhjx4gB8sBEZj
-	HFOTBsZ2hqrcfJlzTg3Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Wh11W7QxrsCZqGLxagBdnkxyqQNZmj+5Pwu3YY7OWyk=; b=EmBoQgzCuD3GA/
+	xASUUTgM+J8gd0pMQMNhNrf8LjRL7vBiALXu1Z5PjxHjyPKZ70x/PFsgCsBnhA2jm5F4kjLgEg8UK
+	pgEK1T/hCJ9qmoDVDlfDmjjSRdvR47R4oRDe4pV1AQOiupw9JTx7idJRsktA58YxSepsSnirQK9vg
+	KYzdl+667y39UFA735vanpACZRVdRj/oNDXWmhu+jlTYdGtSRirmFwfTEEUIjFk28EjpF2ez2foGO
+	yczxA7MLqPuE2VVrmCUTW29SD2Pc0+heme2J//Y4vBvFSr62/nkANX62GlFHQOfTxwVoOcPXNmEYc
+	1TuTNeHWdGOb/drd1vQg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdf5w-0001tb-A6; Tue, 26 May 2020 19:18:36 +0000
+	id 1jdf5F-0001JQ-4k; Tue, 26 May 2020 19:17:53 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdf4x-0001Hj-JO
- for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:17:38 +0000
+ id 1jdf4x-0001Hk-JN
+ for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:17:37 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 7B275240007;
- Tue, 26 May 2020 19:17:26 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id ACF4C24000B;
+ Tue, 26 May 2020 19:17:32 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v5 00/28] Allow vendor drivers to propose their own timings
-Date: Tue, 26 May 2020 21:16:57 +0200
-Message-Id: <20200526191725.7591-1-miquel.raynal@bootlin.com>
+Subject: [PATCH v5 01/28] mtd: rawnand: Use unsigned types for nand_chip
+ unsigned values
+Date: Tue, 26 May 2020 21:16:58 +0200
+Message-Id: <20200526191725.7591-2-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200526191725.7591-1-miquel.raynal@bootlin.com>
+References: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_121735_904716_75A6BEE5 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20200526_121735_769642_14323938 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -62,97 +66,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
 Cc: Rickard Andersson <rickaran@axis.com>,
  Boris Brezillon <boris.brezillon@collabora.com>,
  Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-QXMgcmFpc2VkIGJ5IFJpY2thcmQsIGNlcnRhaW4gY2hpcHMgbGlrZSBUb3NoaWJhL0tpb3hpYQpU
-SDU4TlZHMlMzSEJBSTQgYXJlIG5vdCBPTkZJIGNvbXBsaWFudCBhbmQgYmVjYXVzZSBvZiB0aGF0
-LCB3b3JrIGF0IGEKdmVyeSBzbG93IHBhY2UuIFRoaXMgY2hpcCBpbiBwYXJ0aWN1bGFyIHN1cHBv
-cnRzIHJ1bm5pbmcgYXQgYSBwYWNlCiJjbG9zZSIgdG8gT05GSSBtb2RlIDQuCgpUaGlzIHNlcmll
-cyBwcm92aWRlcyBhIHdheSB0byBtYW51ZmFjdHVyZXIgZHJpdmVycyB0byBwcm9wb3NlIGEgZGF0
-YQppbnRlcmZhY2UgdG8gdGhlIGNvcmUgd2l0aCBhIHZlcnkgc2ltcGxlIGludGVyZmFjZSBhbmQg
-YWxzbyBpbXByb3Zlcwp0aGUgY29yZSBieSBhbGxvY2F0aW5nIHRoZSBkYXRhIGludGVyZmFjZSBk
-eW5hbWljYWxseSBhbmQgdXNlIGEgc3RhdGljCmRlZmF1bHQgcmVzZXQgaW50ZXJmYWNlLgoKQ2hl
-ZXJzLApNaXF1w6hsCgpDaGFuZ2VzIGluIHY1OgoqIENvbGxlY3RlZCBSLWJ5IHRhZ3MuCiogRHJv
-cHBlZCB0aGUgcmVuYW1lIG9mIG9uZmlfdGltaW5nX21vZGVfZGVmYXVsdCwgZ290IHJpZCBvZiBp
-dCBpbnN0ZWFkLgoqIENvbnZlcnRlZCBIeW5peCBhbmQgVG9zaGliYSBkcml2ZXJzIHRvIC0+Y2hv
-b3NlX2RhdGFfaW50ZXJmYWNlKCkuCiogQ3JlYXRlZCBhIHN0YXRpYyBkZWZhdWx0IHJlc2V0IGRh
-dGEgaW50ZXJmYWNlIG9iamVjdC4KKiBBbGxvY2F0ZWQgZHluYW1pY2FsbHkgdGhlIHRpbWluZ3Mu
-CiogUmVuYW1lZCBvbmZpX2ZpbmRfY2xvc2VzdF9zZHJfbW9kZSgpIGFuZCBpdHMgcGFyYW1ldGVy
-LgoqIERyb3BwZWQgdGhlIGNvbXBhcmlzb24gd2l0aCBtYXhpbXVtIHZhbHVlcyBpbgogIG9uZmlf
-ZmluZF9jbG9zZXN0X3Nkcl9tb2RlKCkuCiogVXNlICJiZXN0X3RpbWluZ3MiIGluc3RlYWQgb2Yg
-ImJlc3RfaWZhY2UiIGFzIEREUiBpcyBub3Qgc3VwcG9ydGVkCiAgeWV0LgoqIERyb3BwZWQgY2hv
-b3NlX2Jlc3RfdmVuZG9yX3Nkcl90aW1pbmdzKCkgYW5kIHVuaWZlZCBpdHMgY29udGVudCB3aXRo
-CiAgY2hvb3NlX2Jlc3Rfc2RyX3RpbWluZ3MoKS4KKiBJZiB0aGUgc3BlY2lmaWMgdGltaW5nIHNl
-dCBjbG9zZSB0byBPTkZJIG1vZGUgWCBpcyBub3Qgc3VwcG9ydGVkLAogIGZhbGxiYWNrIHRvIE9O
-RkkgbW9kZSBYIGZpcnN0LCBub3QgWCAtIDEuCgpDaGFuZ2VzIGluIHY0OgoqIFRvb2sgUmlja2Fy
-ZCBwYXRjaCBiYXNlZCBvbiBteSBwcmV2aW91cyBwcm9wb3NhbHMgb3ZlciBHaXRodWIgYW5kCiAg
-dHdlYWtlZCBhIGZldyBtb3JlIHRoaW5nczoKICAtIEFkZGVkIGEgImdlbmVyaWMiIGhlbHBlciB0
-byBmYWxsYmFjayBvbiBzbG93ZXIgT05GSSBtb2RlcyB3aGVuIHRoZQogICAgcHJvcG9zZWQgaW50
-ZXJmYWNlIGlzIG5vdCBzdXBwb3J0ZWQgYnkgdGhlIGNvbnRyb2xsZXIuCiAgLSBGaXhlZCBtb3Jl
-IGtkb2MuCiAgLSBTaW1wbGlmaWVkIHRoZSB2ZW5kb3IgZHJpdmVyIHNpZGUgYnkgcHJvdmlkaW5n
-IGFkZGl0aW9uYWwgaGVscGVycy4KKiBUd2Vha2VkIGEgbGl0dGxlIGJpdCBSaWNrYXJkIHBhdGNo
-IHRvIGZpdCB0aGUgbGF0ZXN0IGNoYW5nZXMuCgpNaXF1ZWwgUmF5bmFsICgyNyk6CiAgbXRkOiBy
-YXduYW5kOiBVc2UgdW5zaWduZWQgdHlwZXMgZm9yIG5hbmRfY2hpcCB1bnNpZ25lZCB2YWx1ZXMK
-ICBtdGQ6IHJhd25hbmQ6IE9ubHkgdXNlIHU4IGluc3RlYWQgb2YgdWludDhfdCBpbiBuYW5kX2No
-aXAgc3RydWN0dXJlCiAgbXRkOiByYXduYW5kOiBDcmVhdGUgYSBuYW5kX2NoaXAgb3BlcmF0aW9u
-cyBzdHJ1Y3R1cmUKICBtdGQ6IHJhd25hbmQ6IFJlbmFtZSB0aGUgbWFudWZhY3R1cmVyIHN0cnVj
-dHVyZQogIG10ZDogcmF3bmFuZDogRGVjbGFyZSB0aGUgbmFuZF9tYW51ZmFjdHVyZXIgc3RydWN0
-dXJlIG91dCBvZiBuYW5kX2NoaXAKICBtdGQ6IHJhd25hbmQ6IFJlb3JnYW5pemUgdGhlIG5hbmRf
-Y2hpcCBzdHJ1Y3R1cmUKICBtdGQ6IHJhd25hbmQ6IENvbXBhcmUgdGhlIGFjdHVhbCB0aW1pbmcg
-dmFsdWVzCiAgbXRkOiByYXduYW5kOiBVc2UgdGhlIGRhdGEgaW50ZXJmYWNlIG1vZGUgZW50cnkg
-d2hlbiByZWxldmFudAogIG10ZDogcmF3bmFuZDogUmVuYW1lIG5hbmRfaGFzX3NldHVwX2RhdGFf
-aW50ZXJmYWNlKCkKICBtdGQ6IHJhd25hbmQ6IEZpeCBuYW5kX3NldHVwX2RhdGFfaW50ZXJmYWNl
-KCkgZGVzY3JpcHRpb24KICBtdGQ6IHJhd25hbmQ6IFJlbmFtZSBuYW5kX2luaXRfZGF0YV9pbnRl
-cmZhY2UoKQogIG10ZDogcmF3bmFuZDogdGltaW5nczogVXBkYXRlIG9uZmlfZmlsbF9kYXRhX2lu
-dGVyZmFjZSgpIGtlcm5lbCBkb2MKICBtdGQ6IHJhd25hbmQ6IHRpbWluZ3M6IFByb3ZpZGUgb25m
-aV9maWxsX2RhdGFfaW50ZXJmYWNlKCkgd2l0aCBhIGRhdGEKICAgIGludGVyZmFjZQogIG10ZDog
-cmF3bmFuZDogdGltaW5nczogQWRkIGEgaGVscGVyIHRvIGZpbmQgdGhlIGNsb3Nlc3QgT05GSSBt
-b2RlCiAgbXRkOiByYXduYW5kOiB0aW1pbmdzOiBBdm9pZCByZWRlZmluaW5nIHRSX21heCBhbmQg
-dENDU19taW4KICBtdGQ6IHJhd25hbmQ6IHRpbWluZ3M6IFVzZSBkZWZhdWx0IHZhbHVlcyBmb3Ig
-dFBST0dfbWF4IGFuZCB0QkVSU19tYXgKICBtdGQ6IHJhd25hbmQ6IERlZmluZSBhIHVuaXF1ZSBy
-ZXNldCBkYXRhIGludGVyZmFjZQogIG10ZDogcmF3bmFuZDogbWFydmVsbDogVXNlIGEgaGVscGVy
-IHRvIGFjY2VzcyB0aGUgdGltaW5ncwogIG10ZDogcmF3bmFuZDogbGVnYWN5OiBVc2UgYSBoZWxw
-ZXIgdG8gYWNjZXNzIHRoZSB0aW1pbmdzCiAgbXRkOiByYXduYW5kOiBIaWRlIHRoZSBjaGlwLT5k
-YXRhX2ludGVyZmFjZSBpbmRpcmVjdGlvbgogIG10ZDogcmF3bmFuZDogSW50cm9kdWNlIG5hbmRf
-Y2hvb3NlX2Jlc3Rfc2RyX3RpbWluZ3MoKQogIG10ZDogcmF3bmFuZDogQWRkIHRoZSAtPmNob29z
-ZV9kYXRhX2ludGVyZmFjZSgpIGhvb2sKICBtdGQ6IHJhd25hbmQ6IHRvc2hpYmE6IEltcGxlbWVu
-dCAtPmNob29zZV9kYXRhX2ludGVyZmFjZSgpIGZvcgogICAgVEM1OFRFRzVEQ0xUQTAwCiAgbXRk
-OiByYXduYW5kOiB0b3NoaWJhOiBJbXBsZW1lbnQgLT5jaG9vc2VfZGF0YV9pbnRlcmZhY2UoKSBm
-b3IKICAgIFRDNThOVkcwUzNFCiAgbXRkOiByYXduYW5kOiBoeW5peDogSW1wbGVtZW50IC0+Y2hv
-b3NlX2RhdGFfaW50ZXJmYWNlKCkgZm9yCiAgICBIMjdVQ0c4VDJBVFItQkMKICBtdGQ6IHJhd25h
-bmQ6IEdldCByaWQgb2YgdGhlIGRlZmF1bHQgT05GSSB0aW1pbmcgbW9kZQogIG10ZDogcmF3bmFu
-ZDogQWxsb2NhdGUgdGhlIGJlc3QgZGF0YSBpbnRlcmZhY2Ugc3RydWN0dXJlIGR5bmFtaWNhbGx5
-CgpSaWNrYXJkIHggQW5kZXJzc29uICgxKToKICBtdGQ6IHJhd25hbmQ6IHRvc2hpYmE6IENob29z
-ZSB0aGUgZGF0YSBpbnRlcmZhY2UgZm9yIFRINThOVkcyUzNIQkFJNAoKIGRyaXZlcnMvbXRkL25h
-bmQvcmF3L2Ftcy1kZWx0YS5jICAgICAgICAgICAgICB8ICAgMiArLQogLi4uL210ZC9uYW5kL3Jh
-dy9jYWRlbmNlLW5hbmQtY29udHJvbGxlci5jICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5k
-L3Jhdy9kZW5hbGkuYyAgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQv
-cmF3L2ZzbWNfbmFuZC5jICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9y
-YXcvZ3BtaS1uYW5kL2dwbWktbmFuZC5jICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jh
-dy9pbnRlcm5hbHMuaCAgICAgICAgICAgICAgfCAgMTQgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
-L21hcnZlbGxfbmFuZC5jICAgICAgICAgICB8ICAxMCArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcv
-bWVzb25fbmFuZC5jICAgICAgICAgICAgIHwgICA4ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9t
-dGtfbmFuZC5jICAgICAgICAgICAgICAgfCAgIDIgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L214
-Y19uYW5kLmMgICAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbXhp
-Y19uYW5kLmMgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9uYW5k
-X2Jhc2UuYyAgICAgICAgICAgICAgfCAyNDQgKysrKysrKysrLS0tLS0tLS0KIGRyaXZlcnMvbXRk
-L25hbmQvcmF3L25hbmRfaHluaXguYyAgICAgICAgICAgICB8ICAxOCArLQogZHJpdmVycy9tdGQv
-bmFuZC9yYXcvbmFuZF9pZHMuYyAgICAgICAgICAgICAgIHwgIDI0ICstCiBkcml2ZXJzL210ZC9u
-YW5kL3Jhdy9uYW5kX2xlZ2FjeS5jICAgICAgICAgICAgfCAgIDYgKy0KIGRyaXZlcnMvbXRkL25h
-bmQvcmF3L25hbmRfbWFjcm9uaXguYyAgICAgICAgICB8ICAxMCArLQogZHJpdmVycy9tdGQvbmFu
-ZC9yYXcvbmFuZF9taWNyb24uYyAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9uYW5k
-L3Jhdy9uYW5kX3RpbWluZ3MuYyAgICAgICAgICAgfCAgODkgKysrKystLQogZHJpdmVycy9tdGQv
-bmFuZC9yYXcvbmFuZF90b3NoaWJhLmMgICAgICAgICAgIHwgIDc4ICsrKysrLQogZHJpdmVycy9t
-dGQvbmFuZC9yYXcvczNjMjQxMC5jICAgICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210
-ZC9uYW5kL3Jhdy9zdG0zMl9mbWMyX25hbmQuYyAgICAgICAgfCAgIDQgKy0KIGRyaXZlcnMvbXRk
-L25hbmQvcmF3L3N1bnhpX25hbmQuYyAgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQv
-bmFuZC9yYXcvdGFuZ29fbmFuZC5jICAgICAgICAgICAgIHwgICAyICstCiBkcml2ZXJzL210ZC9u
-YW5kL3Jhdy90ZWdyYV9uYW5kLmMgICAgICAgICAgICAgfCAgIDIgKy0KIGluY2x1ZGUvbGludXgv
-bXRkL3Jhd25hbmQuaCAgICAgICAgICAgICAgICAgICB8IDI1MCArKysrKysrKystLS0tLS0tLS0K
-IDI1IGZpbGVzIGNoYW5nZWQsIDQ3NiBpbnNlcnRpb25zKCspLCAzMDUgZGVsZXRpb25zKC0pCgot
-LSAKMi4yMC4xCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
+page_shift, phys_erase_shift, bbt_erase_shift, chip_shift, pagemask,
+subpagesize and badblockbits are all positive values, so declare
+them as unsigned.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+---
+ include/linux/mtd/rawnand.h | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index 2804c13e5662..8a1e0192f78e 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -1110,11 +1110,11 @@ struct nand_chip {
+ 	unsigned int options;
+ 	unsigned int bbt_options;
+ 
+-	int page_shift;
+-	int phys_erase_shift;
+-	int bbt_erase_shift;
+-	int chip_shift;
+-	int pagemask;
++	unsigned int page_shift;
++	unsigned int phys_erase_shift;
++	unsigned int bbt_erase_shift;
++	unsigned int chip_shift;
++	unsigned int pagemask;
+ 	u8 *data_buf;
+ 
+ 	struct {
+@@ -1122,10 +1122,10 @@ struct nand_chip {
+ 		int page;
+ 	} pagecache;
+ 
+-	int subpagesize;
++	unsigned int subpagesize;
+ 	int onfi_timing_mode_default;
+ 	unsigned int badblockpos;
+-	int badblockbits;
++	unsigned int badblockbits;
+ 
+ 	struct nand_id id;
+ 	struct nand_parameters parameters;
+-- 
+2.20.1
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
