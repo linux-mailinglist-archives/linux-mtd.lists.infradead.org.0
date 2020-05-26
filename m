@@ -2,53 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67E911E3147
-	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 23:36:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C9C71E3152
+	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 23:42:25 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Nh+tnTwG/L4Kumoa6H0ay8UtF6g/0EEG1MXDsJcLjM=; b=MCIfm+xONsM+9i
-	+HvsctSjQX3sZtnUQ0ygaNtKed/El2z+/B9nsTDh7AUxScn/+njtnc2j0axmmABk24nUKSkfeLAPo
-	3iB+AEe9gbL/WaFzjV1a/hc/xhX7/6Pnqq8fVY82RJPuCA7cgZtFLcri/ldVv5o5HFlPt+ERsY8wL
-	Tm3gMEI8czn50QkwKcLDW0IgZBAzNHDI823vZqXIhR6xG9EI8IK0C9yqNUlMhp8CDIJdqn/FY8tnF
-	il4gw/zMvKIBtey2qG1Od1zER0MNzILNEXQMU7vguNZqxRZD2P8FSpM122Zamr4kzmbSM0UfDRbUx
-	47w2HlwFsacmfNi6yGdg==;
+	List-Owner; bh=zWWZwuHzhAnLcBfqaZY4crhA6KAUEtADEs+1NjAkVeg=; b=XKcZJwo/hu5dbj
+	fUhBrab71kmfYfGq/wamcLtwBUa+tRtB5sWZKjszaOE20IssWS38B5tQplZcF6kUyFP0tpmufbfZ2
+	7z41MGk180Ffv+4qkNbzeSgd+RIdFHGfUKB4b7ZPrx4NACr+rmSca9GfB4LYgdeRVjH9/C4gV4n20
+	6q2A2qgGye27/t5bocHQ4o8ovRnQRYXPs1n0fVa9ld8chMidHrZy4XnQQpviUgMQiHTbAudCfRel0
+	bZpoqe3MZSLOkGouw0BEE9RJ6IEg0yrlmDB8nZ2sMibh8jnWgqrfcSGHZZ5K0NARMRrq9u/CVzBPO
+	op3vnRDA8uwweci1vESg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdhFR-0005Ue-Bk; Tue, 26 May 2020 21:36:33 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1jdhL1-00009R-0i; Tue, 26 May 2020 21:42:19 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdhFI-0005UI-Uv
- for linux-mtd@lists.infradead.org; Tue, 26 May 2020 21:36:26 +0000
+ id 1jdhKs-00006I-MN
+ for linux-mtd@lists.infradead.org; Tue, 26 May 2020 21:42:12 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:b93f:9fae:b276:a89a])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id A765D2A35E4;
- Tue, 26 May 2020 22:36:23 +0100 (BST)
-Date: Tue, 26 May 2020 23:36:20 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id E3BB22A00DC;
+ Tue, 26 May 2020 22:42:08 +0100 (BST)
+Date: Tue, 26 May 2020 23:42:05 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v5 20/28] mtd: rawnand: Hide the chip->data_interface
- indirection
-Message-ID: <20200526233620.44914f1f@collabora.com>
-In-Reply-To: <20200526191725.7591-21-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v5 14/28] mtd: rawnand: timings: Add a helper to find
+ the closest ONFI mode
+Message-ID: <20200526234205.73021fc2@collabora.com>
+In-Reply-To: <20200526191725.7591-15-miquel.raynal@bootlin.com>
 References: <20200526191725.7591-1-miquel.raynal@bootlin.com>
- <20200526191725.7591-21-miquel.raynal@bootlin.com>
+ <20200526191725.7591-15-miquel.raynal@bootlin.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_143625_124134_7E02E125 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20200526_144210_864145_6D289C69 
+X-CRM114-Status: GOOD (  21.33  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -70,31 +72,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 26 May 2020 21:17:17 +0200
+On Tue, 26 May 2020 21:17:11 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> As a preparation for allocating the data interface structure
-> dynamically (and rename it), let's avoid calling it directly.
-> 
-> Instead, we operate a rename on an existing helper to reuse that name
-> for another helper:
-> * s/nand_get_sdr_timings/nand_extract_sdr_timings/
->   -> this helper just extracts timings from a given data interface
-
-Hm, I'm not entirely happy with that name. In my mind extract means
-that you had to do some transformation to get the data, which is not
-the case here. How about nand_data_interface_get_sdr_timings()? 
-
-> * nand_get_sdr_timings()
->   -> this helper retrieves the in use timings from a nand_chip structure
-
-Do we really need that one? Can we do that in 2 steps instead?
-
-conf = nand_get_data_interface_config(chip);
-sdr = nand_data_interface_get_sdr_timings(conf);
-  
+> Vendors are allowed to provide their own set of timings. In this case,
+> we provide a way to derive the "closest" timing mode so that, if the
+> NAND controller does not support tweaking these parameters, it will be
+> able to configure itself anyway.
 > 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>  drivers/mtd/nand/raw/internals.h    |  2 ++
+>  drivers/mtd/nand/raw/nand_timings.c | 49 +++++++++++++++++++++++++++++
+>  2 files changed, 51 insertions(+)
+> 
+> diff --git a/drivers/mtd/nand/raw/internals.h b/drivers/mtd/nand/raw/internals.h
+> index dc84e3b55d48..c7357ae86eeb 100644
+> --- a/drivers/mtd/nand/raw/internals.h
+> +++ b/drivers/mtd/nand/raw/internals.h
+> @@ -88,6 +88,8 @@ int onfi_fill_data_interface(struct nand_chip *chip,
+>  			     struct nand_data_interface *iface,
+>  			     enum nand_data_interface_type type,
+>  			     int timing_mode);
+> +unsigned int
+> +onfi_find_closest_sdr_mode(const struct nand_sdr_timings *spec_timings);
+>  int nand_get_features(struct nand_chip *chip, int addr, u8 *subfeature_param);
+>  int nand_set_features(struct nand_chip *chip, int addr, u8 *subfeature_param);
+>  int nand_read_page_raw_notsupp(struct nand_chip *chip, u8 *buf,
+> diff --git a/drivers/mtd/nand/raw/nand_timings.c b/drivers/mtd/nand/raw/nand_timings.c
+> index ce6bb87db2e8..3c44c4b90536 100644
+> --- a/drivers/mtd/nand/raw/nand_timings.c
+> +++ b/drivers/mtd/nand/raw/nand_timings.c
+> @@ -273,6 +273,55 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
+>  	},
+>  };
+>  
+> +/**
+> + * onfi_find_closest_sdr_mode - Derive the closest ONFI SDR timing mode given a
+> + *                              set of timings
+> + * @spec_timings: the timings to challenge
+> + */
+> +unsigned int
+> +onfi_find_closest_sdr_mode(const struct nand_sdr_timings *spec_timings)
+> +{
+> +	const struct nand_sdr_timings *onfi_timings;
+> +	int mode;
+> +
+> +	for (mode = ARRAY_SIZE(onfi_sdr_timings) - 1; mode > 0; mode--) {
+> +		onfi_timings = &onfi_sdr_timings[mode].timings.sdr;
+> +
+> +		if (spec_timings->tCCS_min > onfi_timings->tCCS_min ||
+> +		    spec_timings->tADL_min > onfi_timings->tADL_min ||
+> +		    spec_timings->tALH_min > onfi_timings->tALH_min ||
+> +		    spec_timings->tALS_min > onfi_timings->tALS_min ||
+> +		    spec_timings->tAR_min > onfi_timings->tAR_min ||
+> +		    spec_timings->tCEH_min > onfi_timings->tCEH_min ||
+> +		    spec_timings->tCH_min > onfi_timings->tCH_min ||
+> +		    spec_timings->tCLH_min > onfi_timings->tCLH_min ||
+> +		    spec_timings->tCLR_min > onfi_timings->tCLR_min ||
+> +		    spec_timings->tCLS_min > onfi_timings->tCLS_min ||
+> +		    spec_timings->tCOH_min > onfi_timings->tCOH_min ||
+> +		    spec_timings->tCS_min > onfi_timings->tCS_min ||
+> +		    spec_timings->tDH_min > onfi_timings->tDH_min ||
+> +		    spec_timings->tDS_min > onfi_timings->tDS_min ||
+> +		    spec_timings->tIR_min > onfi_timings->tIR_min ||
+> +		    spec_timings->tRC_min > onfi_timings->tRC_min ||
+> +		    spec_timings->tREH_min > onfi_timings->tREH_min ||
+> +		    spec_timings->tRHOH_min > onfi_timings->tRHOH_min ||
+> +		    spec_timings->tRHW_min > onfi_timings->tRHW_min ||
+> +		    spec_timings->tRLOH_min > onfi_timings->tRLOH_min ||
+> +		    spec_timings->tRP_min > onfi_timings->tRP_min ||
+> +		    spec_timings->tRR_min > onfi_timings->tRR_min ||
+> +		    spec_timings->tWC_min > onfi_timings->tWC_min ||
+> +		    spec_timings->tWH_min > onfi_timings->tWH_min ||
+> +		    spec_timings->tWHR_min > onfi_timings->tWHR_min ||
+> +		    spec_timings->tWP_min > onfi_timings->tWP_min ||
+> +		    spec_timings->tWW_min > onfi_timings->tWW_min)
+
+Just nitpicking but you could just do the opposite test ('<=' instead of
+'>' and '&&' instead of '||') and return mode directly, so you don't
+need this continue.
+
+I didn't check if all the _min timings were tested, but assuming that's
+the case, you can add
+
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+
+> +			continue;
+> +
+> +		return mode;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * onfi_fill_data_interface - Initialize a data interface from a given ONFI mode
+>   * @chip: The NAND chip
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
