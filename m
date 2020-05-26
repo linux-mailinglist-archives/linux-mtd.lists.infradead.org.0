@@ -2,45 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCD2F1E2D4F
-	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:23:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7412D1E2D4E
+	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:23:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e/qAyrsn2ZpULAbBbcOAfl5jDK/wwDMed9D05wCPigk=; b=ciRmn+lUZ+hrX5
-	qBAjQOVvJQHmxpTkDRwDe0hhx5vmrhG9u/N0amPSwwFzc3d4rmxYatWexsJ0ywZyHTFiVdtokpsVa
-	ZLpecD8MzYA6Y8DIi4N13+i5oqN+ko21K9UJ9DFujzNiV1m1hm14HKTeFDaKzCtNf6k8ntFUa0F59
-	dDBwSPBdwlO8IwbdDFkZAJQf131dnsHk92xhcbO5m+hOnd+nC9PmMQqcDfJtunHEgfzCMq+7XIUmk
-	ynTXUhOOuUvnk71SlV5J+2XGC79hJxdCFFG/IiV2LbUGXn8oyQiLPA5nbGBuIv3qHDzkXQRvgUVNO
-	TBXQWpUfs2hrcHvhZ/Tw==;
+	List-Owner; bh=PceWg0wyW+/vavY3jqUaczeQF6dyF2Gdn3Pk2ENukTs=; b=S8lvquGuxTG5St
+	uBCs/5Ss3B9wd7AAgmHieIpCZW1WQ0FI/1XOBKiq3Q7kBej1tM+xGGP0vcHX4NuP8M1ojvIucFUs3
+	qKXgkDcH3d9UE4RXZxWCoC5GVWEGZHjUwAcOYsliMk1P7dHT16Xyjt4Ki/gtw9JOMCuIaCDGY1hDH
+	zvgNzOL2ZJJFj0FjssQ68sMg7Uy84HFdblNwKK+o3NhlVZK7wS+CWDWoDPVcly0VNvBv4JTfnrWiR
+	FurfiEQpkEUvehQY2zy2mE38jyd7OyEZ/3tglV/NZawtmBprGb4jCcWYGJZrSmTx/iiZ6J/ClmYSZ
+	dF32xfFpLXyG6GeAa7+Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdfAQ-00005d-Io; Tue, 26 May 2020 19:23:14 +0000
+	id 1jdfAC-0008IC-5K; Tue, 26 May 2020 19:23:00 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdf5I-0001ad-If
- for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:17:58 +0000
+ id 1jdf5J-0001bu-QT
+ for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:18:00 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 8111724000F;
- Tue, 26 May 2020 19:17:53 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 59D87240002;
+ Tue, 26 May 2020 19:17:55 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v5 17/28] mtd: rawnand: Define a unique reset data interface
-Date: Tue, 26 May 2020 21:17:14 +0200
-Message-Id: <20200526191725.7591-18-miquel.raynal@bootlin.com>
+Subject: [PATCH v5 18/28] mtd: rawnand: marvell: Use a helper to access the
+ timings
+Date: Tue, 26 May 2020 21:17:15 +0200
+Message-Id: <20200526191725.7591-19-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 References: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_121756_929101_3660B966 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20200526_121758_025231_5DA73A76 
+X-CRM114-Status: GOOD (  10.09  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -69,82 +70,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-All NAND chips will always use the same data interface for reset and
-at startup: SDR mode 0. Instead of copying around the data interface
-timings, let's just have a default reset data interface for that.
+Do not access the SDR timings directly but use nand_get_sdr_timings()
+instead. This way, future patching over this helper will be easier.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/nand_base.c    | 9 +++------
- drivers/mtd/nand/raw/nand_timings.c | 3 +++
- include/linux/mtd/rawnand.h         | 3 +++
- 3 files changed, 9 insertions(+), 6 deletions(-)
+ drivers/mtd/nand/raw/marvell_nand.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index 89f10a8c1d62..1005035c233a 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -927,9 +927,8 @@ static int nand_reset_data_interface(struct nand_chip *chip, int chipnr)
- 	 * timings to timing mode 0.
- 	 */
- 
--	onfi_fill_data_interface(chip, &chip->data_interface, NAND_SDR_IFACE, 0);
- 	ret = chip->controller->ops->setup_data_interface(chip, chipnr,
--							&chip->data_interface);
-+							  nand_reset_data_iface);
- 	if (ret)
- 		pr_err("Failed to configure data interface to SDR timing mode 0\n");
- 
-@@ -2484,7 +2483,6 @@ EXPORT_SYMBOL_GPL(nand_subop_get_data_len);
-  */
- int nand_reset(struct nand_chip *chip, int chipnr)
+diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
+index 260a0430313e..ebf45a2754f1 100644
+--- a/drivers/mtd/nand/raw/marvell_nand.c
++++ b/drivers/mtd/nand/raw/marvell_nand.c
+@@ -1096,6 +1096,7 @@ static int marvell_nfc_hw_ecc_hmg_do_write_page(struct nand_chip *chip,
+ 						const u8 *oob_buf, bool raw,
+ 						int page)
  {
--	struct nand_data_interface saved_data_intf = chip->data_interface;
- 	int ret;
- 
- 	ret = nand_reset_data_interface(chip, chipnr);
-@@ -2509,11 +2507,10 @@ int nand_reset(struct nand_chip *chip, int chipnr)
- 	 * nand_setup_data_interface() uses ->set/get_features() which would
- 	 * fail anyway as the parameter page is not available yet.
- 	 */
--	if (!memcmp(&chip->data_interface, &saved_data_intf,
--		    sizeof(saved_data_intf)))
-+	if (!memcmp(&chip->data_interface, nand_reset_data_iface,
-+		    sizeof(*nand_reset_data_iface)))
- 		return 0;
- 
--	chip->data_interface = saved_data_intf;
- 	ret = nand_setup_data_interface(chip, chipnr);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->data_interface);
+ 	struct marvell_nand_chip *marvell_nand = to_marvell_nand(chip);
+ 	struct marvell_nfc *nfc = to_marvell_nfc(chip->controller);
+ 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
+@@ -1140,8 +1141,7 @@ static int marvell_nfc_hw_ecc_hmg_do_write_page(struct nand_chip *chip,
  	if (ret)
  		return ret;
-diff --git a/drivers/mtd/nand/raw/nand_timings.c b/drivers/mtd/nand/raw/nand_timings.c
-index 52ee83e75646..343284c43e81 100644
---- a/drivers/mtd/nand/raw/nand_timings.c
-+++ b/drivers/mtd/nand/raw/nand_timings.c
-@@ -285,6 +285,9 @@ static const struct nand_data_interface onfi_sdr_timings[] = {
- 	},
- };
  
-+/* All NAND chips share the same reset data interface: SDR mode 0 */
-+const struct nand_data_interface *nand_reset_data_iface = &onfi_sdr_timings[0];
-+
- /**
-  * onfi_find_closest_sdr_mode - Derive the closest ONFI SDR timing mode given a
-  *                              set of timings
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 622da6527a36..6c334cca3977 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -1203,6 +1203,9 @@ static inline struct device_node *nand_get_flash_node(struct nand_chip *chip)
- 	return mtd_get_of_node(nand_to_mtd(chip));
+-	ret = marvell_nfc_wait_op(chip,
+-				  PSEC_TO_MSEC(chip->data_interface.timings.sdr.tPROG_max));
++	ret = marvell_nfc_wait_op(chip, PSEC_TO_MSEC(sdr->tPROG_max));
+ 	return ret;
  }
  
-+/* Default/reset data interface */
-+extern const struct nand_data_interface *nand_reset_data_iface;
-+
- /*
-  * A helper for defining older NAND chips where the second ID byte fully
-  * defined the chip, including the geometry (chip size, eraseblock size, page
+@@ -1562,6 +1562,7 @@ static int marvell_nfc_hw_ecc_bch_write_page(struct nand_chip *chip,
+ 					     const u8 *buf,
+ 					     int oob_required, int page)
+ {
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->data_interface);
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+ 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
+ 	const u8 *data = buf;
+@@ -1598,8 +1599,7 @@ static int marvell_nfc_hw_ecc_bch_write_page(struct nand_chip *chip,
+ 		marvell_nfc_wait_ndrun(chip);
+ 	}
+ 
+-	ret = marvell_nfc_wait_op(chip,
+-				  PSEC_TO_MSEC(chip->data_interface.timings.sdr.tPROG_max));
++	ret = marvell_nfc_wait_op(chip, PSEC_TO_MSEC(sdr->tPROG_max));
+ 
+ 	marvell_nfc_disable_hw_ecc(chip);
+ 
 -- 
 2.20.1
 
