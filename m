@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7412D1E2D4E
-	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:23:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 67AB41E2D50
+	for <lists+linux-mtd@lfdr.de>; Tue, 26 May 2020 21:23:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PceWg0wyW+/vavY3jqUaczeQF6dyF2Gdn3Pk2ENukTs=; b=S8lvquGuxTG5St
-	uBCs/5Ss3B9wd7AAgmHieIpCZW1WQ0FI/1XOBKiq3Q7kBej1tM+xGGP0vcHX4NuP8M1ojvIucFUs3
-	qKXgkDcH3d9UE4RXZxWCoC5GVWEGZHjUwAcOYsliMk1P7dHT16Xyjt4Ki/gtw9JOMCuIaCDGY1hDH
-	zvgNzOL2ZJJFj0FjssQ68sMg7Uy84HFdblNwKK+o3NhlVZK7wS+CWDWoDPVcly0VNvBv4JTfnrWiR
-	FurfiEQpkEUvehQY2zy2mE38jyd7OyEZ/3tglV/NZawtmBprGb4jCcWYGJZrSmTx/iiZ6J/ClmYSZ
-	dF32xfFpLXyG6GeAa7+Q==;
+	List-Owner; bh=opSB6RSMmv1xYLP09M1d9zQRmnXuABFvBPLqGJCCcbw=; b=c3lQm4SDWD7Yjl
+	tH5mu266q3YQFzOYny4/tye4TLDcxLQUbtJ92B+EE3r7++hp66CVo/tJHK2bxECP22SrSXGZQ75dH
+	z/qkGhRLuc4HCnE/zbrdijmN9FI+jKzsekCDUoaIaT551ZS4KJUiWVrFh6H9QNTpcCC3CYKxjjNVr
+	R3nmOWhrHrptTWJR1pojGCCTQpIG3zwhQWIp/D59yOkFItc0mrMNU9zH6gkP0qJ/lj5Gyd6fmY6GB
+	1wWUgrlyDD8ms471t3HVbmBFO+rdAnDYcz20EFV5RyNInzrC9fmT4siSlsLUVlOLwOnXPrCGwvmSR
+	K+VGVFZa7nxvZiLe4BOg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdfAC-0008IC-5K; Tue, 26 May 2020 19:23:00 +0000
+	id 1jdfAe-0000KA-0h; Tue, 26 May 2020 19:23:28 +0000
 Received: from relay10.mail.gandi.net ([217.70.178.230])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdf5J-0001bu-QT
- for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:18:00 +0000
+ id 1jdf5L-0001dd-L4
+ for linux-mtd@lists.infradead.org; Tue, 26 May 2020 19:18:01 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 59D87240002;
- Tue, 26 May 2020 19:17:55 +0000 (UTC)
+ by relay10.mail.gandi.net (Postfix) with ESMTPSA id 797C2240006;
+ Tue, 26 May 2020 19:17:56 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v5 18/28] mtd: rawnand: marvell: Use a helper to access the
+Subject: [PATCH v5 19/28] mtd: rawnand: legacy: Use a helper to access the
  timings
-Date: Tue, 26 May 2020 21:17:15 +0200
-Message-Id: <20200526191725.7591-19-miquel.raynal@bootlin.com>
+Date: Tue, 26 May 2020 21:17:16 +0200
+Message-Id: <20200526191725.7591-20-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 References: <20200526191725.7591-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200526_121758_025231_5DA73A76 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20200526_121759_842816_FA08D358 
+X-CRM114-Status: GOOD (  11.13  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -75,49 +75,31 @@ instead. This way, future patching over this helper will be easier.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/nand/raw/marvell_nand.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/mtd/nand/raw/nand_legacy.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
-index 260a0430313e..ebf45a2754f1 100644
---- a/drivers/mtd/nand/raw/marvell_nand.c
-+++ b/drivers/mtd/nand/raw/marvell_nand.c
-@@ -1096,6 +1096,7 @@ static int marvell_nfc_hw_ecc_hmg_do_write_page(struct nand_chip *chip,
- 						const u8 *oob_buf, bool raw,
- 						int page)
+diff --git a/drivers/mtd/nand/raw/nand_legacy.c b/drivers/mtd/nand/raw/nand_legacy.c
+index 8b91aa7773d8..34b4c944f6a6 100644
+--- a/drivers/mtd/nand/raw/nand_legacy.c
++++ b/drivers/mtd/nand/raw/nand_legacy.c
+@@ -354,6 +354,8 @@ static void nand_command(struct nand_chip *chip, unsigned int command,
+ 
+ static void nand_ccs_delay(struct nand_chip *chip)
  {
 +	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->data_interface);
- 	struct marvell_nand_chip *marvell_nand = to_marvell_nand(chip);
- 	struct marvell_nfc *nfc = to_marvell_nfc(chip->controller);
- 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
-@@ -1140,8 +1141,7 @@ static int marvell_nfc_hw_ecc_hmg_do_write_page(struct nand_chip *chip,
- 	if (ret)
- 		return ret;
- 
--	ret = marvell_nfc_wait_op(chip,
--				  PSEC_TO_MSEC(chip->data_interface.timings.sdr.tPROG_max));
-+	ret = marvell_nfc_wait_op(chip, PSEC_TO_MSEC(sdr->tPROG_max));
- 	return ret;
++
+ 	/*
+ 	 * The controller already takes care of waiting for tCCS when the RNDIN
+ 	 * or RNDOUT command is sent, return directly.
+@@ -366,7 +368,7 @@ static void nand_ccs_delay(struct nand_chip *chip)
+ 	 * (which should be safe for all NANDs).
+ 	 */
+ 	if (nand_controller_has_setup_data_iface(chip))
+-		ndelay(chip->data_interface.timings.sdr.tCCS_min / 1000);
++		ndelay(sdr->tCCS_min / 1000);
+ 	else
+ 		ndelay(500);
  }
- 
-@@ -1562,6 +1562,7 @@ static int marvell_nfc_hw_ecc_bch_write_page(struct nand_chip *chip,
- 					     const u8 *buf,
- 					     int oob_required, int page)
- {
-+	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->data_interface);
- 	struct mtd_info *mtd = nand_to_mtd(chip);
- 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
- 	const u8 *data = buf;
-@@ -1598,8 +1599,7 @@ static int marvell_nfc_hw_ecc_bch_write_page(struct nand_chip *chip,
- 		marvell_nfc_wait_ndrun(chip);
- 	}
- 
--	ret = marvell_nfc_wait_op(chip,
--				  PSEC_TO_MSEC(chip->data_interface.timings.sdr.tPROG_max));
-+	ret = marvell_nfc_wait_op(chip, PSEC_TO_MSEC(sdr->tPROG_max));
- 
- 	marvell_nfc_disable_hw_ecc(chip);
- 
 -- 
 2.20.1
 
