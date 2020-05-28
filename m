@@ -2,47 +2,47 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9530E1E7048
-	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 01:22:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E24CE1E704A
+	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 01:22:53 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kqiDHDSS4rI3uauuYxyxSNbsS0CpAf1Afk56IBXoN1o=; b=nxJU4i9w6gNavw
-	LUWG3qsY2O5roGkZKPCPX/Ylimde+BuEZzQ6N9ZJuI7l84O11yabaDcIcCTWf50GJYVtLoFOZRN/q
-	bs5p+WNUiJIkwgRBpk0UBVXNU2Ah5e9PhWNiB7RIzy2g2TiLdbNnN1wmpwboZXGfqipQTXHFtoMOG
-	eLc3S0qS8zwZqSYsem2hC33YUrhvFYgY6mZZK5pbiQl2FFtLTWnuLs7SMVc9M+wlMnlPLuNqFlKlE
-	w3ZdcGEub9wJV6U5qVXAYAiQSL86kpLLelphPbZS/XP5FvWzcvtkk8rgViaA1TaoFxc60EKBTbOFE
-	RKX62Cs40li7mQb+D0jA==;
+	List-Owner; bh=0yQUsUFhtAXW21ToQ04qpmwsLT19LiKtRVbIzcNd47A=; b=RkNXECIs/g0jCH
+	Nkw+Yp4BjtasRzorlVEd0GWZBJk0YRTmTybNvmIdYLhaI0pCe77meNLI6HJ1eYiUg8FFKh435wT6R
+	gQm4A/P/vWH++TDXxiBPZzixKL7knxamyd7MnTjGt9AXzIUA27A93MEfzLLr1o3Mjv72p2bku1L5K
+	F6rMzAjfU4a4qzQtTpbOKFFfjC0HRUOnzTK7WHz99xQd/SXTaCchbhBGEAeP+vL/4LxXj4U1vvppC
+	/GEwGxNTolUUUVxkpIi1Hovtue0LvRlWhBFXj7RuBpsojCIzMyzgx3EUUjABrwuO3ZXcz7VGGVmJI
+	4G5faF5Bw9M5vd1+A6yQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeRqm-0004xR-VV; Thu, 28 May 2020 23:22:13 +0000
+	id 1jeRrI-0005Rm-A8; Thu, 28 May 2020 23:22:44 +0000
 Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeRlS-0006NV-Sf
- for linux-mtd@lists.infradead.org; Thu, 28 May 2020 23:16:47 +0000
+ id 1jeRlT-0006Ny-SS
+ for linux-mtd@lists.infradead.org; Thu, 28 May 2020 23:16:51 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id E4193240007;
- Thu, 28 May 2020 23:16:39 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 0A8FD24000A;
+ Thu, 28 May 2020 23:16:40 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>
-Subject: [PATCH v6 21/30] mtd: rawnand: legacy: Use a helper to access the
- timings
-Date: Fri, 29 May 2020 01:16:03 +0200
-Message-Id: <20200528231612.8958-22-miquel.raynal@bootlin.com>
+Subject: [PATCH v6 22/30] mtd: rawnand: Hide the chip->interface_config
+ indirection
+Date: Fri, 29 May 2020 01:16:04 +0200
+Message-Id: <20200528231612.8958-23-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200528231612.8958-1-miquel.raynal@bootlin.com>
 References: <20200528231612.8958-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_161643_137648_43EEA9C9 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20200528_161644_429505_B311913B 
+X-CRM114-Status: GOOD (  14.56  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
@@ -76,37 +76,308 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Do not access the SDR timings directly but use nand_get_sdr_timings()
-instead. This way, future patching over this helper will be easier.
+As a preparation for allocating the data interface structure
+dynamically (and rename it), let's avoid calling it directly.
+
+Instead, we introduce a helper, nand_get_interface_config(), and use
+it to retrieve the current interface configuration out of a nand_chip
+object.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/nand_legacy.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/mtd/nand/raw/marvell_nand.c    |  6 ++-
+ drivers/mtd/nand/raw/meson_nand.c      |  8 ++--
+ drivers/mtd/nand/raw/nand_base.c       | 56 +++++++++++++-------------
+ drivers/mtd/nand/raw/nand_legacy.c     |  3 +-
+ drivers/mtd/nand/raw/nand_toshiba.c    |  4 +-
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c |  2 +-
+ include/linux/mtd/rawnand.h            | 11 +++++
+ 7 files changed, 52 insertions(+), 38 deletions(-)
 
+diff --git a/drivers/mtd/nand/raw/marvell_nand.c b/drivers/mtd/nand/raw/marvell_nand.c
+index 59609f680cbf..46d5c0a71e89 100644
+--- a/drivers/mtd/nand/raw/marvell_nand.c
++++ b/drivers/mtd/nand/raw/marvell_nand.c
+@@ -1096,7 +1096,8 @@ static int marvell_nfc_hw_ecc_hmg_do_write_page(struct nand_chip *chip,
+ 						const u8 *oob_buf, bool raw,
+ 						int page)
+ {
+-	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->interface_config);
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct marvell_nand_chip *marvell_nand = to_marvell_nand(chip);
+ 	struct marvell_nfc *nfc = to_marvell_nfc(chip->controller);
+ 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
+@@ -1563,7 +1564,8 @@ static int marvell_nfc_hw_ecc_bch_write_page(struct nand_chip *chip,
+ 					     const u8 *buf,
+ 					     int oob_required, int page)
+ {
+-	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->interface_config);
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+ 	const struct marvell_hw_ecc_layout *lt = to_marvell_nand(chip)->layout;
+ 	const u8 *data = buf;
+diff --git a/drivers/mtd/nand/raw/meson_nand.c b/drivers/mtd/nand/raw/meson_nand.c
+index c9b9594efa4f..42174915d074 100644
+--- a/drivers/mtd/nand/raw/meson_nand.c
++++ b/drivers/mtd/nand/raw/meson_nand.c
+@@ -573,10 +573,10 @@ static int meson_nfc_write_buf(struct nand_chip *nand, u8 *buf, int len)
+ static int meson_nfc_rw_cmd_prepare_and_execute(struct nand_chip *nand,
+ 						int page, bool in)
+ {
++	const struct nand_interface_config *config = nand_get_interface_config(nand);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct mtd_info *mtd = nand_to_mtd(nand);
+ 	struct meson_nfc *nfc = nand_get_controller_data(nand);
+-	const struct nand_sdr_timings *sdr =
+-		nand_get_sdr_timings(&nand->interface_config);
+ 	u32 *addrs = nfc->cmdfifo.rw.addrs;
+ 	u32 cs = nfc->param.chip_select;
+ 	u32 cmd0, cmd_num, row_start;
+@@ -626,9 +626,9 @@ static int meson_nfc_rw_cmd_prepare_and_execute(struct nand_chip *nand,
+ static int meson_nfc_write_page_sub(struct nand_chip *nand,
+ 				    int page, int raw)
+ {
++	const struct nand_interface_config *config = nand_get_interface_config(nand);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct mtd_info *mtd = nand_to_mtd(nand);
+-	const struct nand_sdr_timings *sdr =
+-		nand_get_sdr_timings(&nand->interface_config);
+ 	struct meson_nfc_nand_chip *meson_chip = to_meson_nand(nand);
+ 	struct meson_nfc *nfc = nand_get_controller_data(nand);
+ 	int data_len, info_len;
+diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+index 4a72ec221262..14d003062fa6 100644
+--- a/drivers/mtd/nand/raw/nand_base.c
++++ b/drivers/mtd/nand/raw/nand_base.c
+@@ -773,7 +773,7 @@ int nand_soft_waitrdy(struct nand_chip *chip, unsigned long timeout_ms)
+ 		return -ENOTSUPP;
+ 
+ 	/* Wait tWB before polling the STATUS reg. */
+-	timings = nand_get_sdr_timings(&chip->interface_config);
++	timings = nand_get_sdr_timings(nand_get_interface_config(chip));
+ 	ndelay(PSEC_TO_NSEC(timings->tWB_max));
+ 
+ 	ret = nand_status_op(chip, NULL);
+@@ -1116,9 +1116,9 @@ static int nand_sp_exec_read_page_op(struct nand_chip *chip, unsigned int page,
+ 				     unsigned int offset_in_page, void *buf,
+ 				     unsigned int len)
+ {
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+-	const struct nand_sdr_timings *sdr =
+-		nand_get_sdr_timings(&chip->interface_config);
+ 	u8 addrs[4];
+ 	struct nand_op_instr instrs[] = {
+ 		NAND_OP_CMD(NAND_CMD_READ0, 0),
+@@ -1159,8 +1159,8 @@ static int nand_lp_exec_read_page_op(struct nand_chip *chip, unsigned int page,
+ 				     unsigned int offset_in_page, void *buf,
+ 				     unsigned int len)
+ {
+-	const struct nand_sdr_timings *sdr =
+-		nand_get_sdr_timings(&chip->interface_config);
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	u8 addrs[5];
+ 	struct nand_op_instr instrs[] = {
+ 		NAND_OP_CMD(NAND_CMD_READ0, 0),
+@@ -1256,8 +1256,8 @@ int nand_read_param_page_op(struct nand_chip *chip, u8 page, void *buf,
+ 		return -EINVAL;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_PARAM, 0),
+ 			NAND_OP_ADDR(1, &page, PSEC_TO_NSEC(sdr->tWB_max)),
+@@ -1311,8 +1311,8 @@ int nand_change_read_column_op(struct nand_chip *chip,
+ 		return -ENOTSUPP;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		u8 addrs[2] = {};
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_RNDOUT, 0),
+@@ -1386,9 +1386,9 @@ static int nand_exec_prog_page_op(struct nand_chip *chip, unsigned int page,
+ 				  unsigned int offset_in_page, const void *buf,
+ 				  unsigned int len, bool prog)
+ {
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 	struct mtd_info *mtd = nand_to_mtd(chip);
+-	const struct nand_sdr_timings *sdr =
+-		nand_get_sdr_timings(&chip->interface_config);
+ 	u8 addrs[5] = {};
+ 	struct nand_op_instr instrs[] = {
+ 		/*
+@@ -1510,8 +1510,8 @@ int nand_prog_page_end_op(struct nand_chip *chip)
+ 	u8 status;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_PAGEPROG,
+ 				    PSEC_TO_NSEC(sdr->tWB_max)),
+@@ -1617,8 +1617,8 @@ int nand_change_write_column_op(struct nand_chip *chip,
+ 		return -ENOTSUPP;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		u8 addrs[2];
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_RNDIN, 0),
+@@ -1672,8 +1672,8 @@ int nand_readid_op(struct nand_chip *chip, u8 addr, void *buf,
+ 		return -EINVAL;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_READID, 0),
+ 			NAND_OP_ADDR(1, &addr, PSEC_TO_NSEC(sdr->tADL_min)),
+@@ -1711,8 +1711,8 @@ EXPORT_SYMBOL_GPL(nand_readid_op);
+ int nand_status_op(struct nand_chip *chip, u8 *status)
+ {
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_STATUS,
+ 				    PSEC_TO_NSEC(sdr->tADL_min)),
+@@ -1780,8 +1780,8 @@ int nand_erase_op(struct nand_chip *chip, unsigned int eraseblock)
+ 	u8 status;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		u8 addrs[3] = {	page, page >> 8, page >> 16 };
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_ERASE1, 0),
+@@ -1839,8 +1839,8 @@ static int nand_set_features_op(struct nand_chip *chip, u8 feature,
+ 	int i, ret;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_SET_FEATURES, 0),
+ 			NAND_OP_ADDR(1, &feature, PSEC_TO_NSEC(sdr->tADL_min)),
+@@ -1886,8 +1886,8 @@ static int nand_get_features_op(struct nand_chip *chip, u8 feature,
+ 	int i;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_GET_FEATURES, 0),
+ 			NAND_OP_ADDR(1, &feature, PSEC_TO_NSEC(sdr->tWB_max)),
+@@ -1943,8 +1943,8 @@ static int nand_wait_rdy_op(struct nand_chip *chip, unsigned int timeout_ms,
+ int nand_reset_op(struct nand_chip *chip)
+ {
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(NAND_CMD_RESET, PSEC_TO_NSEC(sdr->tWB_max)),
+ 			NAND_OP_WAIT_RDY(PSEC_TO_MSEC(sdr->tRST_max), 0),
+@@ -3221,7 +3221,7 @@ static void nand_wait_readrdy(struct nand_chip *chip)
+ 	if (!(chip->options & NAND_NEED_READRDY))
+ 		return;
+ 
+-	sdr = nand_get_sdr_timings(&chip->interface_config);
++	sdr = nand_get_sdr_timings(nand_get_interface_config(chip));
+ 	WARN_ON(nand_wait_rdy_op(chip, PSEC_TO_MSEC(sdr->tR_max), 0));
+ }
+ 
 diff --git a/drivers/mtd/nand/raw/nand_legacy.c b/drivers/mtd/nand/raw/nand_legacy.c
-index 60798eb29ca9..8f3644ca2ea0 100644
+index 8f3644ca2ea0..32601f91d375 100644
 --- a/drivers/mtd/nand/raw/nand_legacy.c
 +++ b/drivers/mtd/nand/raw/nand_legacy.c
-@@ -354,6 +354,8 @@ static void nand_command(struct nand_chip *chip, unsigned int command,
+@@ -354,7 +354,8 @@ static void nand_command(struct nand_chip *chip, unsigned int command,
  
  static void nand_ccs_delay(struct nand_chip *chip)
  {
-+	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->interface_config);
-+
+-	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(&chip->interface_config);
++	const struct nand_interface_config *config = nand_get_interface_config(chip);
++	const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 
  	/*
  	 * The controller already takes care of waiting for tCCS when the RNDIN
- 	 * or RNDOUT command is sent, return directly.
-@@ -366,7 +368,7 @@ static void nand_ccs_delay(struct nand_chip *chip)
- 	 * (which should be safe for all NANDs).
- 	 */
- 	if (nand_controller_can_setup_interface(chip))
--		ndelay(chip->interface_config.timings.sdr.tCCS_min / 1000);
-+		ndelay(sdr->tCCS_min / 1000);
- 	else
- 		ndelay(500);
- }
+diff --git a/drivers/mtd/nand/raw/nand_toshiba.c b/drivers/mtd/nand/raw/nand_toshiba.c
+index f99c9cc5ffa5..2712f4e95798 100644
+--- a/drivers/mtd/nand/raw/nand_toshiba.c
++++ b/drivers/mtd/nand/raw/nand_toshiba.c
+@@ -32,8 +32,8 @@ static int toshiba_nand_benand_read_eccstatus_op(struct nand_chip *chip,
+ 	u8 *ecc_status = buf;
+ 
+ 	if (nand_has_exec_op(chip)) {
+-		const struct nand_sdr_timings *sdr =
+-			nand_get_sdr_timings(&chip->interface_config);
++		const struct nand_interface_config *config = nand_get_interface_config(chip);
++		const struct nand_sdr_timings *sdr = nand_get_sdr_timings(config);
+ 		struct nand_op_instr instrs[] = {
+ 			NAND_OP_CMD(TOSHIBA_NAND_CMD_ECC_STATUS_READ,
+ 				    PSEC_TO_NSEC(sdr->tADL_min)),
+diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+index 749ac1044006..a4140af43ed4 100644
+--- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
++++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+@@ -1308,7 +1308,7 @@ static int stm32_fmc2_nfc_waitrdy(struct nand_chip *chip,
+ 		dev_warn(nfc->dev, "Waitrdy timeout\n");
+ 
+ 	/* Wait tWB before R/B# signal is low */
+-	timings = nand_get_sdr_timings(&chip->interface_config);
++	timings = nand_get_sdr_timings(nand_get_interface_config(chip));
+ 	ndelay(PSEC_TO_NSEC(timings->tWB_max));
+ 
+ 	/* R/B# signal is low, clear high level flag */
+diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+index b37eb5ee11c8..03b62f900d20 100644
+--- a/include/linux/mtd/rawnand.h
++++ b/include/linux/mtd/rawnand.h
+@@ -1205,6 +1205,17 @@ static inline struct device_node *nand_get_flash_node(struct nand_chip *chip)
+ /* Default/reset data interface */
+ const struct nand_interface_config *nand_get_reset_interface(void);
+ 
++/**
++ * nand_get_interface_config - Retrieve the current interface configuration
++ *                             of a NAND chip
++ * @chip: The NAND chip
++ */
++static inline const struct nand_interface_config *
++nand_get_interface_config(struct nand_chip *chip)
++{
++	return &chip->interface_config;
++}
++
+ /*
+  * A helper for defining older NAND chips where the second ID byte fully
+  * defined the chip, including the geometry (chip size, eraseblock size, page
 -- 
 2.20.1
 
