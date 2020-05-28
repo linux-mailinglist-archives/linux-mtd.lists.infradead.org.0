@@ -2,55 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 05F911E64BF
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 16:53:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 300531E64FF
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 16:58:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6rbL0JcwIwvRTiep1UrR+bfgwfbulcJh50ktBrHxj9o=; b=cEj9AjxvO6FwYT
-	9UAGplaopAQGv7N7qU7SRbtaJNUDqZZTurzt+iPl5iKA2V2gTdXhqzPeveF91g7qtssYEejFDcjOi
-	LVIq0aMMTUEogV9kgSAUQzovs+sYEkyU/VncTBm4hNCxtNIs8An12FvlD/lFFqbERK7/5yB+1MgBz
-	ieAHLtaMbCYgW9xx08y1++1A/XzC/j18sA9gEFj8D5H2rw4pQgKAGX6l9KQ+RFTjvMZ9o6MiADGf1
-	/Ip00EkEDGRRqhXO4NnjyqyG7DN8E/9tu0QHurDKKmrGUWdRE4WEnYhjI05IcAb8ui9CXwqiFYp2f
-	WC1N4WrFxEln+bKonNDw==;
+	List-Owner; bh=qBfEdY8wvdIaMzPe1OULzvheIgx25mTcluWfBBFk6H0=; b=hHRbFgegWDQaUv
+	5ymd8qXgk2ZUhgGdpaNlAVC2F5vUREIlFDAP4m6a7lZhh3ZlTM3uEcxg7w9ry/mylENa5NzkR9RAL
+	7a5lbdG7i3RsOTc2cFemdVua/W+COmJzHCG/xAnsmKGbRChIvzWBtymuD/asorBYWwDse3Jj3j8Tf
+	pKkznsbNC7uhhbHH4orxIOiTjmLF361lru1dB6mkaNDhXZZGLepJHIrrxzZb8mCDEGDcK1j0gKCCU
+	HdZzovEwf0bw45Vz/3hD/1uMJYlSik3SS5TJTwkm2dppKAT9hlPockLsY/RHRWD5tGiF/8oUalob7
+	/MxVjAKECzLjQdqiig7g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeJum-00077I-11; Thu, 28 May 2020 14:53:48 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1jeJzP-0003C7-NZ; Thu, 28 May 2020 14:58:35 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeJuP-0006xU-GD; Thu, 28 May 2020 14:53:26 +0000
+ id 1jeJyt-000301-A5; Thu, 28 May 2020 14:58:05 +0000
+X-Originating-IP: 91.224.148.103
 Received: from xps13 (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id C190F20000C;
- Thu, 28 May 2020 14:53:17 +0000 (UTC)
-Date: Thu, 28 May 2020 16:53:16 +0200
+ by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 98167FF810;
+ Thu, 28 May 2020 14:57:56 +0000 (UTC)
+Date: Thu, 28 May 2020 16:57:54 +0200
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v6 17/18] mtd: rawnand: Write a compatibility layer
-Message-ID: <20200528165316.647f9cb0@xps13>
-In-Reply-To: <20200528164217.4eec33ae@collabora.com>
+Subject: Re: [PATCH v6 14/18] mtd: nand: Add more parameters to the
+ nand_ecc_props structure
+Message-ID: <20200528165754.35985b62@xps13>
+In-Reply-To: <20200528163424.6677597c@collabora.com>
 References: <20200528113113.9166-1-miquel.raynal@bootlin.com>
- <20200528113113.9166-18-miquel.raynal@bootlin.com>
- <20200528164217.4eec33ae@collabora.com>
+ <20200528113113.9166-15-miquel.raynal@bootlin.com>
+ <20200528163424.6677597c@collabora.com>
 Organization: Bootlin
 X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_075325_668462_AFCEA58C 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200528_075803_617471_B783BAB3 
+X-CRM114-Status: GOOD (  19.05  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.232 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.178.232 listed in wl.mailspike.net]
+ low trust [217.70.183.199 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -79,31 +78,91 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 
 Boris Brezillon <boris.brezillon@collabora.com> wrote on Thu, 28 May
-2020 16:42:17 +0200:
+2020 16:34:24 +0200:
 
-> On Thu, 28 May 2020 13:31:12 +0200
+> On Thu, 28 May 2020 13:31:09 +0200
 > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 > 
-> > +static enum nand_ecc_engine_type
-> > +of_get_rawnand_ecc_engine_type_legacy(struct device_node *np)
-> > +{
-> > +	enum nand_ecc_legacy_mode {
-> > +		NAND_ECC_INVALID,
-> > +		NAND_ECC_NONE,
-> > +		NAND_ECC_SOFT,
-> > +		NAND_ECC_SOFT_BCH,
-> > +		NAND_ECC_HW,
-> > +		NAND_ECC_HW_SYNDROME,
-> > +		NAND_ECC_ON_DIE,
-> > +	};  
+> > Prepare the migration to the generic ECC framework by adding more
+> > fields to the nand_ecc_props structure which will be used widely to
+> > describe different kind of ECC properties.
+> > 
+> > Doing this imposes to move the engine type, ECC placement and
+> > algorithm enumerations in a shared place: nand.h.
+> > 
+> > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> > ---
+> >  include/linux/mtd/nand.h    | 52 +++++++++++++++++++++++++++++++++++++
+> >  include/linux/mtd/rawnand.h | 44 -------------------------------
+> >  2 files changed, 52 insertions(+), 44 deletions(-)
+> > 
+> > diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
+> > index 6add464fd18b..2e9af24936cd 100644
+> > --- a/include/linux/mtd/nand.h
+> > +++ b/include/linux/mtd/nand.h
+> > @@ -127,14 +127,66 @@ struct nand_page_io_req {
+> >  	int mode;
+> >  };
+> >  
+> > +/**
+> > + * enum nand_ecc_engine_type - NAND ECC engine type
+> > + * @NAND_ECC_ENGINE_TYPE_INVALID: Invalid value
+> > + * @NAND_ECC_ENGINE_TYPE_NONE: No ECC correction
+> > + * @NAND_ECC_ENGINE_TYPE_SOFT: Software ECC correction
+> > + * @NAND_ECC_ENGINE_TYPE_ON_HOST: On host hardware ECC correction
+> > + * @NAND_ECC_ENGINE_TYPE_ON_DIE: On chip hardware ECC correction
+> > + */
+> > +enum nand_ecc_engine_type {
+> > +	NAND_ECC_ENGINE_TYPE_INVALID,
+> > +	NAND_ECC_ENGINE_TYPE_NONE,
+> > +	NAND_ECC_ENGINE_TYPE_SOFT,
+> > +	NAND_ECC_ENGINE_TYPE_ON_HOST,
+> > +	NAND_ECC_ENGINE_TYPE_ON_DIE,
+> > +};
+> > +
+> > +/**
+> > + * enum nand_ecc_placement - NAND ECC bytes placement
+> > + * @NAND_ECC_PLACEMENT_UNKNOWN: The actual position of the ECC bytes is unknown
+> > + * @NAND_ECC_PLACEMENT_OOB: The ECC bytes are located in the OOB area
+> > + * @NAND_ECC_PLACEMENT_INTERLEAVED: Syndrome layout, there are ECC bytes
+> > + *                                  interleaved with regular data in the main
+> > + *                                  area
+> > + */
+> > +enum nand_ecc_placement {
+> > +	NAND_ECC_PLACEMENT_UNKNOWN,
+> > +	NAND_ECC_PLACEMENT_OOB,
+> > +	NAND_ECC_PLACEMENT_INTERLEAVED,
+> > +};
+> > +
+> > +/**
+> > + * enum nand_ecc_algo - NAND ECC algorithm
+> > + * @NAND_ECC_ALGO_UNKNOWN: Unknown algorithm
+> > + * @NAND_ECC_ALGO_HAMMING: Hamming algorithm
+> > + * @NAND_ECC_ALGO_BCH: Bose-Chaudhuri-Hocquenghem algorithm
+> > + * @NAND_ECC_ALGO_RS: Reed-Solomon algorithm
+> > + */
+> > +enum nand_ecc_algo {
+> > +	NAND_ECC_ALGO_UNKNOWN,
+> > +	NAND_ECC_ALGO_HAMMING,
+> > +	NAND_ECC_ALGO_BCH,
+> > +	NAND_ECC_ALGO_RS,
+> > +};
+> > +
+> >  /**
+> >   * struct nand_ecc_props - NAND ECC properties
+> > + * @engine_type: ECC engine type
+> > + * @placement: OOB placement (if relevant)
+> > + * @algo: ECC algorithm (if relevant)
+> >   * @strength: ECC strength
+> >   * @step_size: Number of bytes per step
+> > + * @flags: Misc properties  
 > 
-> You're redefining an enum, but I don't see the old enum/defines being
-> removed, is that expected?
+> I'd like to hear more about that one. What is this about? I'd rather
+> not add a field if it's not needed.
+> 
 
-Oh yeah, my desire was to get rid of this public enumeration and mov it
-to the single legacy function using it, but indeed I am removing it in
-the next patch as part of the global move to nand/core.c. I will do it
-in this patch.
+It is used in patch 18/18 to store the NAND_ECC_MAXIMIZE flag. And I
+expect others to come later...
 
 ______________________________________________________
 Linux MTD discussion mailing list
