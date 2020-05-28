@@ -2,56 +2,58 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 513101E643D
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 16:43:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 54E861E6460
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 16:46:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fnJRUvpkWOSjk+rZByfpmGlprow7xHwidmPY3C3LWpA=; b=McYg3DZORBTLT/
-	yL1VMVj7pbYRb4bHYYM7v2xl0SaETi/ceMHoUxC8F1Rn/HCzVkI0poFiEEkcM2tV6eS+gu5GtnlF/
-	O+VDKIzc1JANYCjov/QsUEh0sG+2AuBdtxA5SsY4yD33ba6STeHCPY+sLvxIqBF+fHVvrLLJFXNMN
-	hbSS6FZfOzIXWjFI6nxM0PuyS3lHyWOq8Dq84sDTFg70HzblDYYnPyqDB4+N0oxWbGqEpxUGKqp0N
-	DXe4dg8nyXSDNLB1nTWbn+VlORXe2NeCf48Ucyx7mMPqieMIvkFwRb49eLJxpcmGoy6wJ/XLZza4V
-	7H1hg0nuZzpxgoH4rBow==;
+	List-Owner; bh=1kUTaaj/Ql89VyUqnA1QGeLuhne6LiCIRJ8x/0sBw5U=; b=mn46yTu/9Bf5/4
+	f0aCvvX6xKXTuIitq8UlfnFEdZ4LOTtrGZXJnpUVvyq+GHgjqV+n1pJXLRTL0FFeeF4b8+4pJmJ70
+	3UjJcwz/fnrsHzRDV71kAhiQvmmSmPcfx8SLafj70fbh98lY+Dk+npDOw4FpIAy3o2kGAglOM4zt5
+	yU9jJOSXtIh7vKNA8MIRt0qqDLKw8J10G3tfZuZOZZd5FiWoYeyN4noTJTcUci1bx7Ei7WNE829Ry
+	RLsqhU5Euz03dPxMVHizt0qYivTxhKlj49WcH2pBLSAXy3cX6nbDyWN8dbvDdqPCsbr2NvjC3TVxH
+	ErB34nXYgnMXHTxngyYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeJkE-00057A-VF; Thu, 28 May 2020 14:42:54 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jeJnQ-0000u4-BM; Thu, 28 May 2020 14:46:12 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeJji-0004vO-86; Thu, 28 May 2020 14:42:23 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 764022A0FBF;
- Thu, 28 May 2020 15:42:20 +0100 (BST)
-Date: Thu, 28 May 2020 16:42:17 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v6 17/18] mtd: rawnand: Write a compatibility layer
-Message-ID: <20200528164217.4eec33ae@collabora.com>
-In-Reply-To: <20200528113113.9166-18-miquel.raynal@bootlin.com>
+ id 1jeJmy-0000jO-CV; Thu, 28 May 2020 14:45:45 +0000
+X-Originating-IP: 91.224.148.103
+Received: from xps13 (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id 4C0F4C0009;
+ Thu, 28 May 2020 14:45:37 +0000 (UTC)
+Date: Thu, 28 May 2020 16:45:35 +0200
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v6 08/18] mtd: rawnand: Use the new ECC engine type
+ enumeration
+Message-ID: <20200528164535.3655ffcb@xps13>
+In-Reply-To: <20200528163150.6ad71fcc@collabora.com>
 References: <20200528113113.9166-1-miquel.raynal@bootlin.com>
- <20200528113113.9166-18-miquel.raynal@bootlin.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ <20200528113113.9166-9-miquel.raynal@bootlin.com>
+ <20200528163150.6ad71fcc@collabora.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_074222_419068_4AFD7F38 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200528_074544_556666_96E2E605 
+X-CRM114-Status: GOOD (  17.60  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [217.70.183.198 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [217.70.183.198 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -76,24 +78,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, 28 May 2020 13:31:12 +0200
-Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> +static enum nand_ecc_engine_type
-> +of_get_rawnand_ecc_engine_type_legacy(struct device_node *np)
-> +{
-> +	enum nand_ecc_legacy_mode {
-> +		NAND_ECC_INVALID,
-> +		NAND_ECC_NONE,
-> +		NAND_ECC_SOFT,
-> +		NAND_ECC_SOFT_BCH,
-> +		NAND_ECC_HW,
-> +		NAND_ECC_HW_SYNDROME,
-> +		NAND_ECC_ON_DIE,
-> +	};
+Boris Brezillon <boris.brezillon@collabora.com> wrote on Thu, 28 May
+2020 16:31:50 +0200:
 
-You're redefining an enum, but I don't see the old enum/defines being
-removed, is that expected?
+> On Thu, 28 May 2020 13:31:03 +0200
+> Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+> 
+> > Mechanical switch from the legacy "mode" enumeration to the new
+> > "engine type" enumeration in drivers and board files.
+> > 
+> > The device tree parsing is also updated to return the new enumeration
+> > from the old strings.
+> > 
+> > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>  
+> 
+> I didn't check all the changes, but I'm fine with the approach
+> 
+> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+> 
+> > diff --git a/include/linux/platform_data/mtd-davinci.h b/include/linux/platform_data/mtd-davinci.h
+> > index 3383101c233b..dd474dd44848 100644
+> > --- a/include/linux/platform_data/mtd-davinci.h
+> > +++ b/include/linux/platform_data/mtd-davinci.h
+> > @@ -60,16 +60,16 @@ struct davinci_nand_pdata {		/* platform_data */
+> >  	struct mtd_partition	*parts;
+> >  	unsigned		nr_parts;
+> >  
+> > -	/* none  == NAND_ECC_NONE (strongly *not* advised!!)
+> > -	 * soft  == NAND_ECC_SOFT
+> > -	 * else  == NAND_ECC_HW, according to ecc_bits
+> > +	/* none  == NAND_ECC_ENGINE_TYPE_NONE (strongly *not* advised!!)
+> > +	 * soft  == NAND_ECC_ENGINE_TYPE_SOFT
+> > +	 * else  == NAND_ECC_ENGINE_TYPE_ON_HOST, according to ecc_bits
+> >  	 *
+> >  	 * All DaVinci-family chips support 1-bit hardware ECC.
+> >  	 * Newer ones also support 4-bit ECC, but are awkward
+> >  	 * using it with large page chips.
+> >  	 */
+> > -	enum nand_ecc_mode	ecc_mode;
+> > -	enum nand_ecc_placement	ecc_placement;
+> > +	enum nand_ecc_engine_type engine_type;
+> > +	enum nand_ecc_placement ecc_placement;  
+> 
+> Nitpick: if you want to use a space instead of tab, it should be done in
+> patch 3.
+
+Right, fixed!
 
 ______________________________________________________
 Linux MTD discussion mailing list
