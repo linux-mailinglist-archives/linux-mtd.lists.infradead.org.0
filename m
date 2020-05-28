@@ -2,8 +2,8 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E4FA1E5A1D
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 10:00:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48F6F1E5A1F
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 10:01:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,38 +11,39 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=W1CkRGFfCHB0pw0Fwy17KQnr18gA6ru2hIXjr8L5ICI=; b=qGq/QS4J2StGFA3aJU5Iho2+K9
-	MNOcBwYS2/mZJImLKDmAuHEo3+mdrY7uwq6mnZNv/qz3RE3QR3GNYqa7+l7LO9xlFYXqU8Wc6nGVI
-	Pz/ZUPVHL8NGXzn+l7BcoGfaJ9PUHyd9H4ULE6b9HDXUfp+8EnH5UQl0meUonCCQbRYvnqOvj4xKE
-	4fdcdFO4VRO9tCqO9I2lGUckDmtVEXmWO28l0KoHi8Qk37ob1uf26Q5d2QmKPaF19vwtSrWPQaNZ+
-	3IsAuyk8QrNV4oEcUj58b0A1oyFpZ/i3WeuDkfiHzXAcqLx5KRoS5nspddxhPogHh+5KlitxIWu+e
-	xJK4DIDg==;
+	bh=13emWVXCRuIZedwU3R7nvA99f8cI1/BDQAVn52iUso0=; b=TA+aT0ACuFg64jym/XhG3u9ML2
+	NMpDl+12zbO0UmTGOpWU+GyfpqL9W5IXspCGsB1s2+9izQLiY+MW2gdTl5wZlPwJMA499EVj8mKpz
+	U/rgu74JW84EAcSi70vyW4+jndU48SYyZk3B1UvOdmPdpVc4tXIvO7jvfXXNz40Mn7QZFryrxMRDt
+	iBAKElJOShYyzorQZQU3TCa+2jiStZeDhlK2kZxoA8xzrDo5DSg9z16qqCp04+3cZTby29aZmNRZd
+	CF/cq+B16ZeofELPEem2Omc1ZJ3b6ru1bSBh+ov1qEaszfm3p12YG1DiQb8wKjJ9W3aWH7JBhBH8N
+	X4rSbr9g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeDSw-0002e4-D7; Thu, 28 May 2020 08:00:38 +0000
+	id 1jeDTU-000385-3t; Thu, 28 May 2020 08:01:12 +0000
 Received: from twhmllg4.macronix.com ([211.75.127.132])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeDRO-0007a5-08
- for linux-mtd@lists.infradead.org; Thu, 28 May 2020 07:59:03 +0000
+ id 1jeDRa-0007m5-Th
+ for linux-mtd@lists.infradead.org; Thu, 28 May 2020 07:59:16 +0000
 Received: from localhost.localdomain ([172.17.195.96])
- by TWHMLLG4.macronix.com with ESMTP id 04S7wMHd030973;
- Thu, 28 May 2020 15:58:26 +0800 (GMT-8)
+ by TWHMLLG4.macronix.com with ESMTP id 04S7wMHe030973;
+ Thu, 28 May 2020 15:58:27 +0800 (GMT-8)
  (envelope-from masonccyang@mxic.com.tw)
 From: Mason Yang <masonccyang@mxic.com.tw>
 To: broonie@kernel.org, tudor.ambarus@microchip.com, miquel.raynal@bootlin.com,
  richard@nod.at, vigneshr@ti.com, boris.brezillon@collabora.com,
  matthias.bgg@gmail.com
-Subject: [PATCH v3 04/14] mtd: spi-nor: sfdp: prepare BFPT parsing for JESD216
- rev D
-Date: Thu, 28 May 2020 15:58:06 +0800
-Message-Id: <1590652696-8844-5-git-send-email-masonccyang@mxic.com.tw>
+Subject: [PATCH v3 05/14] mtd: spi-nor: sfdp: get command opcode extension
+ type from BFPT
+Date: Thu, 28 May 2020 15:58:07 +0800
+Message-Id: <1590652696-8844-6-git-send-email-masonccyang@mxic.com.tw>
 X-Mailer: git-send-email 1.9.1
 In-Reply-To: <1590652696-8844-1-git-send-email-masonccyang@mxic.com.tw>
 References: <1590652696-8844-1-git-send-email-masonccyang@mxic.com.tw>
-X-MAIL: TWHMLLG4.macronix.com 04S7wMHd030973
+X-MAIL: TWHMLLG4.macronix.com 04S7wMHe030973
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_005902_310338_879C5D87 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20200528_005915_250219_5CA7A2E9 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -73,76 +74,63 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 From: Pratyush Yadav <p.yadav@ti.com>
 
-JESD216 rev D makes BFPT 20 DWORDs. Update the BFPT size define to
-reflect that.
-
-The check for rev A or later compared the BFPT header length with the
-maximum BFPT length, BFPT_DWORD_MAX. Since BFPT_DWORD_MAX was 16, and so
-was the BFPT length for both rev A and B, this check worked fine. But
-now, since BFPT_DWORD_MAX is 20, it means this check will also stop BFPT
-parsing for rev A or B, since their length is 16.
-
-So, instead check for BFPT_DWORD_MAX_JESD216 to stop BFPT parsing for
-the first JESD216 version, and check for BFPT_DWORD_MAX_JESD216B for the
-next two versions.
+Some devices in DTR mode expect an extra command byte called the
+extension. The extension can either be same as the opcode, bitwise
+inverse of the opcode, or another additional byte forming a 16-byte
+opcode. Get the extension type from the BFPT. For now, only flashes with
+"repeat" and "inverse" extensions are supported.
 
 Signed-off-by: Pratyush Yadav <p.yadav@ti.com>
 ---
- drivers/mtd/spi-nor/sfdp.c | 7 ++++++-
- drivers/mtd/spi-nor/sfdp.h | 5 +++--
- 2 files changed, 9 insertions(+), 3 deletions(-)
+ drivers/mtd/spi-nor/sfdp.c | 17 +++++++++++++++++
+ drivers/mtd/spi-nor/sfdp.h |  6 ++++++
+ 2 files changed, 23 insertions(+)
 
 diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
-index f917631..c289395 100644
+index c289395..3685a3a 100644
 --- a/drivers/mtd/spi-nor/sfdp.c
 +++ b/drivers/mtd/spi-nor/sfdp.c
-@@ -548,7 +548,7 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
- 				  SNOR_ERASE_TYPE_MASK;
- 
- 	/* Stop here if not JESD216 rev A or later. */
--	if (bfpt_header->length < BFPT_DWORD_MAX)
-+	if (bfpt_header->length == BFPT_DWORD_MAX_JESD216)
+@@ -608,6 +608,23 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
+ 	if (bfpt_header->length == BFPT_DWORD_MAX_JESD216B)
  		return spi_nor_post_bfpt_fixups(nor, bfpt_header, &bfpt,
  						params);
- 
-@@ -604,6 +604,11 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
- 		return -EINVAL;
- 	}
- 
-+	/* Stop here if JESD216 rev B. */
-+	if (bfpt_header->length == BFPT_DWORD_MAX_JESD216B)
-+		return spi_nor_post_bfpt_fixups(nor, bfpt_header, &bfpt,
-+						params);
++	/* 8D-8D-8D command extension. */
++	switch (bfpt.dwords[BFPT_DWORD(18)] & BFPT_DWORD18_CMD_EXT_MASK) {
++	case BFPT_DWORD18_CMD_EXT_REP:
++		nor->cmd_ext_type = SPI_NOR_EXT_REPEAT;
++		break;
 +
++	case BFPT_DWORD18_CMD_EXT_INV:
++		nor->cmd_ext_type = SPI_NOR_EXT_INVERT;
++		break;
++
++	case BFPT_DWORD18_CMD_EXT_RES:
++		return -EINVAL;
++
++	case BFPT_DWORD18_CMD_EXT_16B:
++		dev_err(nor->dev, "16-bit opcodes not supported\n");
++		return -ENOTSUPP;
++	}
+ 
  	return spi_nor_post_bfpt_fixups(nor, bfpt_header, &bfpt, params);
  }
- 
 diff --git a/drivers/mtd/spi-nor/sfdp.h b/drivers/mtd/spi-nor/sfdp.h
-index e0a8ded..f8198af 100644
+index f8198af..e15e307 100644
 --- a/drivers/mtd/spi-nor/sfdp.h
 +++ b/drivers/mtd/spi-nor/sfdp.h
-@@ -10,11 +10,11 @@
- /* Basic Flash Parameter Table */
+@@ -84,6 +84,12 @@ struct sfdp_bfpt {
+ #define BFPT_DWORD15_QER_SR2_BIT1_NO_RD		(0x4UL << 20)
+ #define BFPT_DWORD15_QER_SR2_BIT1		(0x5UL << 20) /* Spansion */
  
- /*
-- * JESD216 rev B defines a Basic Flash Parameter Table of 16 DWORDs.
-+ * JESD216 rev D defines a Basic Flash Parameter Table of 20 DWORDs.
-  * They are indexed from 1 but C arrays are indexed from 0.
-  */
- #define BFPT_DWORD(i)		((i) - 1)
--#define BFPT_DWORD_MAX		16
-+#define BFPT_DWORD_MAX		20
- 
- struct sfdp_bfpt {
- 	u32	dwords[BFPT_DWORD_MAX];
-@@ -22,6 +22,7 @@ struct sfdp_bfpt {
- 
- /* The first version of JESD216 defined only 9 DWORDs. */
- #define BFPT_DWORD_MAX_JESD216			9
-+#define BFPT_DWORD_MAX_JESD216B			16
- 
- /* 1st DWORD. */
- #define BFPT_DWORD1_FAST_READ_1_1_2		BIT(16)
++#define BFPT_DWORD18_CMD_EXT_MASK		GENMASK(30, 29)
++#define BFPT_DWORD18_CMD_EXT_REP		(0x0UL << 29) /* Repeat */
++#define BFPT_DWORD18_CMD_EXT_INV		(0x1UL << 29) /* Invert */
++#define BFPT_DWORD18_CMD_EXT_RES		(0x2UL << 29) /* Reserved */
++#define BFPT_DWORD18_CMD_EXT_16B		(0x3UL << 29) /* 16-bit opcode */
++
+ struct sfdp_parameter_header {
+ 	u8		id_lsb;
+ 	u8		minor;
 -- 
 1.9.1
 
