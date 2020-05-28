@@ -2,79 +2,136 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0905B1E5A78
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 10:12:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 74BEA1E5A6D
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 10:10:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eV596mcWc4x7JgdROAAWb500jvYBj1hB3nF/ReDZb4o=; b=fFEWiIBUvb43K9
-	cgsAKQpbiRyUiuVZXxoDwwXdhZC3OFilKmpzGqZIq5g67wRl4PXUZ3PVfi3H6TzSUywcCvwDldF/U
-	xmDt6jIQVevtQ0kmi31isKO4l3VjKrGtam/CW0I8OijX5GAp82at9Aw46E3Yqv7Q069kZpKLdxnPN
-	s1NZh26UEYHdkJZLivQKqIimEMVGUnkgOxY7DjPrbbfD5DduOcGx9JZVJ0088i94ShV5IbiVCg+Od
-	z/ohDeq1ML+hrt9odtMmp9NrVqOuHqZo1Dh5ExdANaMMUgIG/0LOdmxypSUkVbJRCH44M312R2rsH
-	GvJYMxah1dm0JVx5bXlg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8IskeAh/Arc7aIxeDeWU9VhVFzL52mZNNmhfoF5QgQo=; b=dE9hGWOvPEzT5L
+	lSlgCTGMUFDjKRLGU7PR1+J3H24czphhras1Iq55PPEySwSKC5yaZ++DsQwSxoaLCm7LxMP+H6U53
+	Pq1WZDfSwbOpmt20d+/IqKKyCMhynex6stebY0gXHpRqebmpFuNkR+TxCrtZ+5GP/sNuDLRjkPF4m
+	k9Mids4WFfY/X3zNdwoOfX6l30elZcV8Goywure2nx/I4KT1WiQHtewIX9FyCUenMd5B00CKKIRx6
+	IDjqQ9qwHQFkOkoxgN9aA7/wgzfkZHDJO9HL2SOWUPeyp78kL7AjB27vpSHxGPF2fOSbxiCpDTErG
+	+xuzO0W/JNd3yDsbL38A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeDeZ-0006DK-Qb; Thu, 28 May 2020 08:12:39 +0000
-Received: from mail-lf1-x144.google.com ([2a00:1450:4864:20::144])
+	id 1jeDcT-00049S-UI; Thu, 28 May 2020 08:10:29 +0000
+Received: from esa5.microchip.iphmx.com ([216.71.150.166])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeDe5-00062A-Q4
- for linux-mtd@lists.infradead.org; Thu, 28 May 2020 08:12:11 +0000
-Received: by mail-lf1-x144.google.com with SMTP id w15so16001898lfe.11
- for <linux-mtd@lists.infradead.org>; Thu, 28 May 2020 01:12:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=RQk00OdF5LpL5xlOXSrSDqS1InuSH/j3c3d+RMcDSME=;
- b=hYFrV6hnyOyM0TqXYVyo29Mpe9PYRzNEp8rLaIglftrYmaU+1sviJPkAq8BJWc6y/w
- yhY1Pk1ezuwKQRUlNTJu5vNwOoExi7sUy5E0WVr5C/E5gWVz3Z/4o/hfAXYgt35nHeuC
- SWR+WWvBvCn3CoQ2xvQkyWd7+dQ4Jo0vw+Y1bJMTH07IzG6E5b5HNh0umWhC0XM09eUV
- Q6BxXW2N0LtoPpjqx8yJP2DrA+XVGsjEho2ebLZJmUCz1oQuS7vw7/BqumbbtQ1PJMZH
- A81KtK5cZOOvqgdlm0Zzvjm6iSxyfZ1/wEGXgqe7waJEyfZG91NLA/B9SY6hsl34z0Wg
- 8HJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=RQk00OdF5LpL5xlOXSrSDqS1InuSH/j3c3d+RMcDSME=;
- b=ExQ5tQ4ZjtoEYMNHLbZMhQD4bo417oO5jSm9ndgZbMMFY8nhO6KwXReAxBLutqwQHj
- 1QI+bseQihtEXlmUH6+0AU60syLhx1XbkDjIlIEWwiLbUrff+R2ijdABYitIC87NyXlp
- 5T4UkWUpJFVxHdXEeFlHc6n8soLXE4EJ5jnd/8mPYgi8MRJ/J0GqIJBQryLuDCi4f7my
- XdWqMI8ssAnTfOscaNXa40VJH+vFGSJFLbhWDgXcYxBoWADIBYGOnTeciGbAgBPuXqTk
- W2QS9nFKkXdqpHgFXVsux+W2mMZPtfyTql4crPWpXQwA1JyC50xY8wyIJRepNKLjlmyP
- wujQ==
-X-Gm-Message-State: AOAM533AIB8RHcId+JHBzqP/Cz0CsTlgNJ4WycZ9ezTXfeRbuFlGi9Et
- +Va+uBIMhLc6VIapRRXsaf9SuA==
-X-Google-Smtp-Source: ABdhPJyrtOTFzXqWYpVxK2jNQGKv40aIylKXBy4gz7zT5WSPDOADC9e2YRecvBb+8sPOeIrhFdhHPA==
-X-Received: by 2002:a19:c616:: with SMTP id w22mr1020281lff.123.1590653527967; 
- Thu, 28 May 2020 01:12:07 -0700 (PDT)
-Received: from localhost.localdomain
- (c-8cdb225c.014-348-6c756e10.bbcust.telenor.se. [92.34.219.140])
- by smtp.gmail.com with ESMTPSA id y11sm1289351lji.52.2020.05.28.01.12.06
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 May 2020 01:12:07 -0700 (PDT)
-From: Linus Walleij <linus.walleij@linaro.org>
-To: linux-block@vger.kernel.org,
-	Jens Axboe <axboe@kernel.dk>
-Subject: [PATCH] block: Flag elevators suitable for single queue
-Date: Thu, 28 May 2020 10:10:03 +0200
-Message-Id: <20200528081003.238804-1-linus.walleij@linaro.org>
-X-Mailer: git-send-email 2.25.4
+ id 1jeDcI-00048v-Hc
+ for linux-mtd@lists.infradead.org; Thu, 28 May 2020 08:10:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1590653418; x=1622189418;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=XLd7n7rMCkdWKnnl4uNRcWfS/47OPzOGqnxqm6u8kg4=;
+ b=eusmKJvC0b07hZRKUtZmy0CY48ar1+u4mcTX/3w+i4fWT1h2QxyDuTWH
+ sBQwKPhtWwyiJ0ySEa0QvU8BJZHg4q51s7kXVM+4dNebKIQuYj55B2MaW
+ SN18usNCD2OTE21XNaGn18ayVX29JVSHUTV8l5Qeqge49HpPGFbCvy9Ze
+ gCXp2ljBJ5NehOf6DUOs8gSN8E++KPZJxeAkJdu9CoTokT96JxWSJ1FO1
+ XlGUOgJsJLrI4a/SahbVXzeAuqBA1dsRdJk+jArneEyaEjOHUgL2lBt4H
+ GCOMaB+MTbbeqHrSiogI+F8e2uCC/4mCY3/BcslPgiRm5B/ddGAwm7r1N w==;
+IronPort-SDR: FHBMb+SaMPgGMwDVG6RUMIb8h6PGAl903hksU0WPSjFWQLYYNl4ctFGMRa/Nz71K2OcnjOnCA6
+ tStMfQMNLQ+PmEiGRoRhDdl6JrBfrmbE2Hy1mPMM2OSf5FvoB5jZBXX9bDmYm+Epnl+qfZ8v2/
+ 8SFuuKXaOSRYBN5bVKMVk43NRl6TPMV9jcjZgV3BDut/vG0D96PD4B73cTztZJQevO1PoyLhRB
+ aoWkaEut8u/jenFGJCEDUdrceIB3qE64x8IwJFqZpt9JH73JryLApC8daMarhhanQPpJPeXKyY
+ gSw=
+X-IronPort-AV: E=Sophos;i="5.73,444,1583218800"; d="scan'208";a="77329823"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 28 May 2020 01:10:14 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Thu, 28 May 2020 01:10:13 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.1713.5
+ via Frontend Transport; Thu, 28 May 2020 01:10:13 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=AVlUScTiJqiqx955v+UrCiYOFjBHTSsmnsYW616kNiU+ApRgSBD+89UBJwcQ6fE3TTeWv3gJ/lxD00nQ5D4Z7KysoOnadNuEcNoTpAJMd8qyMjkXqohd2ZvPzKThSt5ZHHbTO5LSZcSb2EF2Gkh1pAs8Uf9QCXUNH3WixKzMLGJdXleZk7oiyfuPPFLGepY/lhtt8pHP6VhlefSSmkKP0d1CfOqVxndDd9L7xv1BHYCHK4y0RNOfJ4uKL5LzxjfVBxlWYx7yay9p5pR8HyERF/fcBPWbdwlPb+Ugm6nr35v8otwDpqAJq8iF5yRQZBb3BfqESH/i563zQme2rvA4RA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XLd7n7rMCkdWKnnl4uNRcWfS/47OPzOGqnxqm6u8kg4=;
+ b=M+aNyf7/J/JoalyytSfOi+jn0BRm0Rx783UP70qHqK7XIj/1l5PzH2bFGbpJR1QHRHPExr+E8WGGj29p/jBmj3O6b/Q+uOm5aKRKI3zQIIIzHwDIhpOTRHlYVT9T2KDu70ttsZZ4BdyIjubvzDHRkh49lbeFeA0gLrcuEpq9MJrkw8E//VyH3wHH+UkMUyOcBGKih+GVQBweoOuS9u3X1MxkSEMdb1NZDLneig8E93BtKAhof7HQrJImHDIYa1TVKh9s7MErE9yHxAo26XWftJGc3ODB3hGH3qkEubSUWtQktGGPkjhpyIh/tzpMEwt0LadYe0cbbY0IFGSKMabTew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XLd7n7rMCkdWKnnl4uNRcWfS/47OPzOGqnxqm6u8kg4=;
+ b=nHOpedYvcthq1ShpPpV1FbTW2MB9MeIk1WzJxaM1UmC2Fk68Z6VXWSE5bdeWqgjL/LDh6SlXyD7As0ch3eph9x43y9qt1Zp7zVNyM1tU74pxcJledsbA0fkGzC0CzhUD33vJhH/Ht4YMY0vQPikUclZ88AH1WCKFLxTMH6Wf2aE=
+Received: from BY5PR11MB4419.namprd11.prod.outlook.com (2603:10b6:a03:1c8::13)
+ by BY5PR11MB4134.namprd11.prod.outlook.com (2603:10b6:a03:18e::30)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3045.19; Thu, 28 May
+ 2020 08:10:12 +0000
+Received: from BY5PR11MB4419.namprd11.prod.outlook.com
+ ([fe80::d847:5d58:5325:c536]) by BY5PR11MB4419.namprd11.prod.outlook.com
+ ([fe80::d847:5d58:5325:c536%7]) with mapi id 15.20.3045.018; Thu, 28 May 2020
+ 08:10:12 +0000
+From: <Tudor.Ambarus@microchip.com>
+To: <yangyicong@hisilicon.com>
+Subject: Re: [PATCH v3] mtd: spi-nor: Add support for s25fs128s1
+Thread-Topic: [PATCH v3] mtd: spi-nor: Add support for s25fs128s1
+Thread-Index: AQHWNMdpgFtFKTkLHEavmG9ugo8Wfg==
+Date: Thu, 28 May 2020 08:10:12 +0000
+Message-ID: <20296452.IyAK31tqu9@192.168.0.120>
+References: <1587546809-3797-1-git-send-email-yangyicong@hisilicon.com>
+In-Reply-To: <1587546809-3797-1-git-send-email-yangyicong@hisilicon.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: hisilicon.com; dkim=none (message not signed)
+ header.d=none;hisilicon.com; dmarc=none action=none
+ header.from=microchip.com;
+x-originating-ip: [94.177.32.156]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 113fe9d9-c2c8-404c-6904-08d802de8bc5
+x-ms-traffictypediagnostic: BY5PR11MB4134:
+x-microsoft-antispam-prvs: <BY5PR11MB4134EC96D0B60DE5BB39A9B7F08E0@BY5PR11MB4134.namprd11.prod.outlook.com>
+x-bypassexternaltag: True
+x-ms-oob-tlc-oobclassifiers: OLM:7219;
+x-forefront-prvs: 0417A3FFD2
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: tCm0Jru54NUqOPOLKGPj3cNP8mWWTMEdigOhm/bo5gdOK+1N3FHNY6+lNLvYPZo5mY0hFsb1VCDQxJ4USaaPGMZ1xZFDcKM0wavDs7TAbxZWcVW+ODswPzxKDfLNuASnoZNezQmw39YhcPCsAg6O2H2aCwQBE1LNx5S6TLQnjc0r7Kg3myY9vTlUDv/g2LO4WJs6pM4iomgZJIMwgTSYbP2g1WMX/4n6/xOaUJZ/ytYHkt+QBeoQiif+ZF8CzjVcvD8moWlTSfAfQnuj10muZeQtfDv8czpwJU/yryT9h6qhb3gfB0Ec8tT5fgSIPidzUQAOKaPHkBRPS+wDmMfiVCmV/7D6RGuuZuXCY4ySgo0J00fCEStcsn7wgECxQTey4tRT1YuQeyGdzT4ROzvULp8EJUEz31yfqcc4T/fWI7jBxhr6UYB/SNmmbp1CFTHj272pePakT6QnpnT7VkChkHKN6OigyQFrrIj44Zxfu8A+LQpfHbcHF1zXXYtBQ20IoQVhQUSgOilOh9F3OFJWlLFuUhnsmkC/Hhcl4XQmegn6kzA5GbYnaaUZHCCNCxqE2xSlKSIQMB4Dcy15deXYwT5Tl31paXXJY5X+17ZNGZ3APCoYeDdt/NLqshFlQDC9YkAGHcihSS04AjN5nOMwiRhdjbB6YtJKdXN4PJkAKIWn2gjuB8SrFTi8ci0aHqzJUD2lyu8E4wYh/wab+kNvKg==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:5; SRV:;
+ IPV:NLI; SFV:SPM; H:BY5PR11MB4419.namprd11.prod.outlook.com; PTR:; CAT:OSPM;
+ SFTY:;
+ SFS:(366004)(376002)(136003)(346002)(39860400002)(396003)(186003)(91956017)(76116006)(8676002)(6512007)(9686003)(66476007)(66556008)(64756008)(66446008)(14286002)(66946007)(478600001)(4326008)(6486002)(8936002)(54906003)(316002)(53546011)(6506007)(26005)(6916009)(86362001)(2906002)(71200400001)(4744005)(5660300002)(39026012)(138113003);
+ DIR:OUT; SFP:1501; 
+x-ms-exchange-antispam-messagedata: 4vpHpfeA2VwjDedqZxvXJmtnZDBQNRu3YkbLnanq6qCDSSMkEGsxRSa47u2V+O6NEEwq374d3pSCp35DoKkHjYdBbJ9WgcTP335X6ug8Y0C1wHJOqByd5e3LdA+EfpPxRuCZDZLg4iOrJh0XNV6oi2fen8y7dw4ingEgLao7l5TCGIft9M62SAd7D/aPiJ+lGxYHakFAVIj6Xg8K7XetwY053Sy9eNdwI010Qr+S8EGyIGZPi0ouDImwZbHgs4qN6W4PIOVwUWcZag8D3DOygJt3XCb8Eyy/3Xai8QfJb1Ov/CSI/2InhahKP2eW0UXnatOGjgPjpj+T8zpjAAUUWW8Ienm9NGGv54ts7jRq4qhYucph7gITTzYHdWqp3Hrno081ZXaW6LZXoZdTZ1Hdpg5RzbB46Rkp4KgExd+xgDWbhidcBeteOHx34U38rgydrs4VPVQ1KTkc3SYfFF3F5qsas1zjNGoKTS4evbSr5e4=
+x-ms-exchange-transport-forked: True
+Content-ID: <651813A5052CD144A172B0053DE6D955@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-Network-Message-Id: 113fe9d9-c2c8-404c-6904-08d802de8bc5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 May 2020 08:10:12.2201 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: znKsNLqCIngN6UsUS//JHWC9YGfLVJ+4Y3ft5TCfPerwv0esr9/o3/R+u9733FHP1vlkyT1nJyGGxx4ThclDQ89Supu2fliHqyjZkoQc46A=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR11MB4134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_011209_910096_343A1BDC 
-X-CRM114-Status: GOOD (  13.08  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200528_011018_598567_E193D88D 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:144 listed in]
- [list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [216.71.150.166 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -95,93 +152,28 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>,
- Paolo Valente <paolo.valente@linaro.org>,
- Linus Walleij <linus.walleij@linaro.org>, linux-mmc@vger.kernel.org,
- Ming Lei <ming.lei@redhat.com>, linux-mtd@lists.infradead.org,
- Johannes Thumshirn <jthumshirn@suse.de>, Christoph Hellwig <hch@lst.de>
+Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com, richard@nod.at,
+ john.garry@huawei.com, linuxarm@huawei.com, linux-mtd@lists.infradead.org,
+ miquel.raynal@bootlin.com, yangyicong@huawei.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The Kyber block scheduler is not suitable for single hardware
-queue devices, so add a new flag for single hardware queue
-devices and add that to the deadline and BFQ schedulers
-so the Kyber scheduler will not be selected for single queue
-devices.
+On Wednesday, April 22, 2020 12:13:29 PM EEST Yicong Yang wrote:
+> Add support for Cypress s25fs128s1 flash. Previously the flash is
+> decoded as s25fl129p1 by mistake.
+> 
+> Add it in the flash info list to correctly decode. The flash also
+> needs a fixup for s25fs-s family. Further capability of the flash will
+> be parsed from bfpt.
+> 
+> The flash has been tested under SPI/DUAL/QUAD mode on hisi-sfc-v3xx
+> controller, all the write/read/erase works well.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 
-Deadline and BFQ are applicable to single HW queues so flag
-each of these as single HW queue-friendly.
-
-Cc: Johannes Thumshirn <jthumshirn@suse.de>
-Cc: Christoph Hellwig <hch@lst.de>
-Cc: Ming Lei <ming.lei@redhat.com>
-Cc: Damien Le Moal <damien.lemoal@wdc.com>
-Cc: Paolo Valente <paolo.valente@linaro.org>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- block/bfq-iosched.c      | 1 +
- block/elevator.c         | 3 +++
- block/mq-deadline.c      | 3 ++-
- include/linux/elevator.h | 2 ++
- 4 files changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/block/bfq-iosched.c b/block/bfq-iosched.c
-index 3d411716d7ee..7bf99fd83472 100644
---- a/block/bfq-iosched.c
-+++ b/block/bfq-iosched.c
-@@ -6812,6 +6812,7 @@ static struct elevator_type iosched_bfq_mq = {
- 	.icq_align =		__alignof__(struct bfq_io_cq),
- 	.elevator_attrs =	bfq_attrs,
- 	.elevator_name =	"bfq",
-+	.elevator_features =	ELEVATOR_F_SINGLE_HW_QUEUE,
- 	.elevator_owner =	THIS_MODULE,
- };
- MODULE_ALIAS("bfq-iosched");
-diff --git a/block/elevator.c b/block/elevator.c
-index 4eab3d70e880..ebb4fc875b86 100644
---- a/block/elevator.c
-+++ b/block/elevator.c
-@@ -678,6 +678,9 @@ void elevator_init_mq(struct request_queue *q)
- 	if (unlikely(q->elevator))
- 		return;
- 
-+	if (q->nr_hw_queues == 1)
-+		q->required_elevator_features |= ELEVATOR_F_SINGLE_HW_QUEUE;
-+
- 	if (!q->required_elevator_features)
- 		e = elevator_get_default(q);
- 	else
-diff --git a/block/mq-deadline.c b/block/mq-deadline.c
-index b490f47fd553..324047add271 100644
---- a/block/mq-deadline.c
-+++ b/block/mq-deadline.c
-@@ -794,7 +794,8 @@ static struct elevator_type mq_deadline = {
- 	.elevator_attrs = deadline_attrs,
- 	.elevator_name = "mq-deadline",
- 	.elevator_alias = "deadline",
--	.elevator_features = ELEVATOR_F_ZBD_SEQ_WRITE,
-+	.elevator_features = ELEVATOR_F_ZBD_SEQ_WRITE |
-+	ELEVATOR_F_SINGLE_HW_QUEUE,
- 	.elevator_owner = THIS_MODULE,
- };
- MODULE_ALIAS("mq-deadline-iosched");
-diff --git a/include/linux/elevator.h b/include/linux/elevator.h
-index 901bda352dcb..03057fa2f569 100644
---- a/include/linux/elevator.h
-+++ b/include/linux/elevator.h
-@@ -172,6 +172,8 @@ extern struct request *elv_rb_find(struct rb_root *, sector_t);
- 
- /* Supports zoned block devices sequential write constraint */
- #define ELEVATOR_F_ZBD_SEQ_WRITE	(1U << 0)
-+/* Elevator is suitable for single hardware queue devices */
-+#define ELEVATOR_F_SINGLE_HW_QUEUE	(1U << 1)
- 
- #endif /* CONFIG_BLOCK */
- #endif
--- 
-2.25.4
+Fixed compilation error, fixed alignment and applied.
 
 
 ______________________________________________________
