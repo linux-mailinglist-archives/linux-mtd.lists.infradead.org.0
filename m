@@ -2,57 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D31301E6561
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 17:04:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E48B1E6566
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 17:04:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=88V1uW1vaqFIizDR0xQL1JQIN5LA8Oqi289ERSGyFmQ=; b=dz2biHaAGLn4zf
-	KRHr8e60AnTfav62K7wK07LP6mJdObVlUI1KVmBfN8/hs83wwDJvU5NlvfWN6xYS8/DP05dW4ah6a
-	7Jb4NtUlAEsx/9kYYwl4Ysag2HO/XXdAq/Pd0qbkcbm4fvA3IHiyzYXMohub3muAOUXeNvgr1V/d8
-	ysLdeuCyo2F2aQOJwQ9owxwoE/KfKMzLuJqlI+3nL18oHcu4cUc/hCZ3OG58Wcx6+oKHhsNOsN0HZ
-	+I2FQirbP3S7DojJZxva/jI4SwaQfqK1ukaXWMtmfF3ntCnrbaTYraNYShRN9oMLaZ3GFe+Txy4QD
-	HUeqHBOFBfTDkTgqvyMA==;
+	List-Owner; bh=ZAUGuEW+J53jdIdm21eFdTBXK2EEBY7rD0sr8KtNBGs=; b=qc2bms4dqqsrir
+	4aiXuVhJfTHIrcARWPn/fs8ah8P1ybodncZtcmAnxV9bh0RlAC8qU6f1B2vhiVCg0oiL2CJMDgBXs
+	wRb5pmKMZgq7biMOA57bTZZ4zwBnhCCUHbpyjzt0iDAS3ZanGXDBCfsKv9Jm6A9MyYtjhVphEmS7P
+	27nJ9l93OwLbwEx+AE/l4mcE4zaAcuCFhIdVDpyNaCPohAI9jABUTWzZT7Hh7EOt8YuhDpI6HmEXP
+	vwax6yCBr4LLnLGOTm15yPRwczphHn5VWc8cAkfOn/4TUDsSHY8lMzC3pg6XTFOZqGCbtL30BRbj/
+	e8BLQMXuRpjMQWF+DIaA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeK4r-0000PQ-5R; Thu, 28 May 2020 15:04:13 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1jeK5K-0000hs-NM; Thu, 28 May 2020 15:04:42 +0000
+Received: from mga05.intel.com ([192.55.52.43])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeK3N-00087p-Uk; Thu, 28 May 2020 15:02:43 +0000
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id 22B84240017;
- Thu, 28 May 2020 15:02:34 +0000 (UTC)
-Date: Thu, 28 May 2020 17:02:33 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v6 14/18] mtd: nand: Add more parameters to the
- nand_ecc_props structure
-Message-ID: <20200528170233.0b91986b@xps13>
-In-Reply-To: <20200528170022.5cd5b46c@collabora.com>
-References: <20200528113113.9166-1-miquel.raynal@bootlin.com>
- <20200528113113.9166-15-miquel.raynal@bootlin.com>
- <20200528163424.6677597c@collabora.com>
- <20200528165754.35985b62@xps13>
- <20200528170022.5cd5b46c@collabora.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jeK4W-0000P7-R9
+ for linux-mtd@lists.infradead.org; Thu, 28 May 2020 15:03:54 +0000
+IronPort-SDR: PB94M/oVG5UzEOYrR819fv3GYqEYWGYe7OT05ohPijG8fewv8+qGsrm8JVio+Cp83tLuKnBnn/
+ r98Jt0YLTmiQ==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+ by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 28 May 2020 08:03:48 -0700
+IronPort-SDR: VCP24WwpwTZQMISVT31BpFmDM2ZKPpBO2QU5tNkPxtdm/saoNw2Q2QS82qfDVk1hdz1UxhZQdu
+ 4XiBex7pwm4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,445,1583222400"; d="scan'208";a="469143502"
+Received: from linux.intel.com ([10.54.29.200])
+ by fmsmga005.fm.intel.com with ESMTP; 28 May 2020 08:03:47 -0700
+Received: from [10.214.148.6] (vramuthx-mobl1.gar.corp.intel.com
+ [10.214.148.6])
+ by linux.intel.com (Postfix) with ESMTP id 8928D5803E3;
+ Thu, 28 May 2020 08:03:41 -0700 (PDT)
+Subject: Re: [PATCH v9 1/2] dt-bindings: mtd: Add Nand Flash Controller
+ support for Intel LGM SoC
+To: Rob Herring <robh@kernel.org>
+References: <20200528051211.3063-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200528051211.3063-2-vadivel.muruganx.ramuthevar@linux.intel.com>
+ <20200528140606.GA4173978@bogus>
+From: "Ramuthevar, Vadivel MuruganX"
+ <vadivel.muruganx.ramuthevar@linux.intel.com>
+Message-ID: <9ef6560e-9981-57a8-8d6d-88ba40b2be88@linux.intel.com>
+Date: Thu, 28 May 2020 23:03:39 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.1
 MIME-Version: 1.0
+In-Reply-To: <20200528140606.GA4173978@bogus>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_080242_291452_9280E557 
-X-CRM114-Status: GOOD (  21.83  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200528_080352_906056_5125B201 
+X-CRM114-Status: GOOD (  13.77  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.230 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [192.55.52.43 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,116 +78,57 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
- Richard Weinberger <richard@nod.at>, Paul Cercueil <paul@crapouillou.net>,
- Rob Herring <robh+dt@kernel.org>, linux-mtd@lists.infradead.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Mason Yang <masonccyang@mxic.com.tw>, Chuanhong Guo <gch981213@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Reply-To: vadivel.muruganx.ramuthevar@linux.intel.com
+Cc: cheol.yong.kim@intel.com, hauke.mehrtens@intel.com, masonccyang@mxic.com.tw,
+ anders.roxell@linaro.org, vigneshr@ti.com, arnd@arndb.de,
+ devicetree@vger.kernel.org, richard@nod.at, brendanhiggins@google.com,
+ linux-mips@vger.kernel.org, robh+dt@kernel.org, linux-kernel@vger.kernel.org,
+ boris.brezillon@collabora.com, linux-mtd@lists.infradead.org,
+ miquel.raynal@bootlin.com, tglx@linutronix.de, qi-ming.wu@intel.com,
+ andriy.shevchenko@intel.com
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+Hi Rob,
 
-Boris Brezillon <boris.brezillon@collabora.com> wrote on Thu, 28 May
-2020 17:00:22 +0200:
-
-> On Thu, 28 May 2020 16:57:54 +0200
-> Miquel Raynal <miquel.raynal@bootlin.com> wrote:
+On 28/5/2020 10:06 pm, Rob Herring wrote:
+> On Thu, 28 May 2020 13:12:10 +0800, Ramuthevar,Vadivel MuruganX wrote:
+>> From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+>>
+>> Add YAML file for dt-bindings to support NAND Flash Controller
+>> on Intel's Lightning Mountain SoC.
+>>
+>> Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+>> ---
+>>   .../devicetree/bindings/mtd/intel,lgm-nand.yaml    | 93 ++++++++++++++++++++++
+>>   1 file changed, 93 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/mtd/intel,lgm-nand.yaml
+>>
 > 
-> > Boris Brezillon <boris.brezillon@collabora.com> wrote on Thu, 28 May
-> > 2020 16:34:24 +0200:
-> >   
-> > > On Thu, 28 May 2020 13:31:09 +0200
-> > > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
-> > >     
-> > > > Prepare the migration to the generic ECC framework by adding more
-> > > > fields to the nand_ecc_props structure which will be used widely to
-> > > > describe different kind of ECC properties.
-> > > > 
-> > > > Doing this imposes to move the engine type, ECC placement and
-> > > > algorithm enumerations in a shared place: nand.h.
-> > > > 
-> > > > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> > > > ---
-> > > >  include/linux/mtd/nand.h    | 52 +++++++++++++++++++++++++++++++++++++
-> > > >  include/linux/mtd/rawnand.h | 44 -------------------------------
-> > > >  2 files changed, 52 insertions(+), 44 deletions(-)
-> > > > 
-> > > > diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
-> > > > index 6add464fd18b..2e9af24936cd 100644
-> > > > --- a/include/linux/mtd/nand.h
-> > > > +++ b/include/linux/mtd/nand.h
-> > > > @@ -127,14 +127,66 @@ struct nand_page_io_req {
-> > > >  	int mode;
-> > > >  };
-> > > >  
-> > > > +/**
-> > > > + * enum nand_ecc_engine_type - NAND ECC engine type
-> > > > + * @NAND_ECC_ENGINE_TYPE_INVALID: Invalid value
-> > > > + * @NAND_ECC_ENGINE_TYPE_NONE: No ECC correction
-> > > > + * @NAND_ECC_ENGINE_TYPE_SOFT: Software ECC correction
-> > > > + * @NAND_ECC_ENGINE_TYPE_ON_HOST: On host hardware ECC correction
-> > > > + * @NAND_ECC_ENGINE_TYPE_ON_DIE: On chip hardware ECC correction
-> > > > + */
-> > > > +enum nand_ecc_engine_type {
-> > > > +	NAND_ECC_ENGINE_TYPE_INVALID,
-> > > > +	NAND_ECC_ENGINE_TYPE_NONE,
-> > > > +	NAND_ECC_ENGINE_TYPE_SOFT,
-> > > > +	NAND_ECC_ENGINE_TYPE_ON_HOST,
-> > > > +	NAND_ECC_ENGINE_TYPE_ON_DIE,
-> > > > +};
-> > > > +
-> > > > +/**
-> > > > + * enum nand_ecc_placement - NAND ECC bytes placement
-> > > > + * @NAND_ECC_PLACEMENT_UNKNOWN: The actual position of the ECC bytes is unknown
-> > > > + * @NAND_ECC_PLACEMENT_OOB: The ECC bytes are located in the OOB area
-> > > > + * @NAND_ECC_PLACEMENT_INTERLEAVED: Syndrome layout, there are ECC bytes
-> > > > + *                                  interleaved with regular data in the main
-> > > > + *                                  area
-> > > > + */
-> > > > +enum nand_ecc_placement {
-> > > > +	NAND_ECC_PLACEMENT_UNKNOWN,
-> > > > +	NAND_ECC_PLACEMENT_OOB,
-> > > > +	NAND_ECC_PLACEMENT_INTERLEAVED,
-> > > > +};
-> > > > +
-> > > > +/**
-> > > > + * enum nand_ecc_algo - NAND ECC algorithm
-> > > > + * @NAND_ECC_ALGO_UNKNOWN: Unknown algorithm
-> > > > + * @NAND_ECC_ALGO_HAMMING: Hamming algorithm
-> > > > + * @NAND_ECC_ALGO_BCH: Bose-Chaudhuri-Hocquenghem algorithm
-> > > > + * @NAND_ECC_ALGO_RS: Reed-Solomon algorithm
-> > > > + */
-> > > > +enum nand_ecc_algo {
-> > > > +	NAND_ECC_ALGO_UNKNOWN,
-> > > > +	NAND_ECC_ALGO_HAMMING,
-> > > > +	NAND_ECC_ALGO_BCH,
-> > > > +	NAND_ECC_ALGO_RS,
-> > > > +};
-> > > > +
-> > > >  /**
-> > > >   * struct nand_ecc_props - NAND ECC properties
-> > > > + * @engine_type: ECC engine type
-> > > > + * @placement: OOB placement (if relevant)
-> > > > + * @algo: ECC algorithm (if relevant)
-> > > >   * @strength: ECC strength
-> > > >   * @step_size: Number of bytes per step
-> > > > + * @flags: Misc properties      
-> > > 
-> > > I'd like to hear more about that one. What is this about? I'd rather
-> > > not add a field if it's not needed.
-> > >     
-> > 
-> > It is used in patch 18/18 to store the NAND_ECC_MAXIMIZE flag. And I
-> > expect others to come later...  
 > 
-> Then I think it should be introduced in this patch, not here.
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mtd/intel,lgm-nand.example.dt.yaml: nand-controller@e0f00000: '#address-cells', '#size-cells' do not match any of the regexes: '^nand@[a-f0-9]+$', 'pinctrl-[0-9]+'
+> /builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mtd/intel,lgm-nand.example.dt.yaml: nand-controller@e0f00000: nand@0: '#address-cells', '#size-cells', 'nand-on-flash-bbt' do not match any of the regexes: 'pinctrl-[0-9]+'
+> 
+> See https://patchwork.ozlabs.org/patch/1299399
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure dt-schema is up to date:
+> 
+> pip3 install git+https://github.com/devicetree-org/dt-schema.git@master --upgrade
+> 
+> Please check and re-submit.
+Thank you!!!
 
-I'm fine with that.
+Oh my bad, used old dtc compiler path and didn't see the error, will fix.
+
+Regards
+Vadivel
+
+> 
 
 ______________________________________________________
 Linux MTD discussion mailing list
