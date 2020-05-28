@@ -2,47 +2,48 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 011C41E66F0
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 17:57:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E53A61E66FB
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 18:00:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5zk+DAHBiaNPM5ec+mhVaFvK/WyR2BTqnaQUmvhzCdA=; b=shRTUvrT3m5Sml
-	XkUPVoNPyRi+FTlkhjZ4DQvFZi8/aziDksYUDoCgXhVASLyKKdt11AnaORCTFXfnS6puo5sFe3gW4
-	sn28bv+6OUZqOvxLdzH5QVDWIxp1t0dfLKz0PpAebEYZWu3iLsuYZKM9ELD1m/qSp0j0Vn83qrtJP
-	fx3pouxWVIFTlYPlm7FcqtsCIbeLZEhpAf8fhDLvOyiq2J8FotVMle2IO3bJbansmOvdqXwxdd74J
-	HtR3vgviLipJ8cXkB0MC+/c+Y0Y7oQ4oTL9x2WG6ELMi2sSdAHIMjRYEJ9zU6bcOAVD1ev0FpvSr8
-	W6+Brgvnj43+rmeI5+cA==;
+	List-Owner; bh=n4vhD/yJBba/jCG+Ip4X1je/nviyB1hNnsjMmLhrKj0=; b=fxpEaHD4cpLjA+
+	JFBl0pIkCFbjs64/dHqS4Rwn5olzOfxj5ZUCDarpCFa0wyIQ9BE+eEf9O/q2ZKikSnxHbcgIxbcTJ
+	1R5+eiHVdNi9lMDDBSpRKrZSglqAvasgMbIPhmE36sg4SNDLSLxwwpmR9UsfKeWthAONxI8GoOOVG
+	odlKXZ1L2lCl0u03uuIRdIr5k9zYsU4Yp37ip2dgzoUCwcB+fw25a2GAi+c23MzbnJ/e7n+DZGkvj
+	Cq9xZR6I0UH7WdeShcCtF6vM+YO4WVc+HgPeSXfLyFolo5sGre+757VSH0FVq3nqGx7uo7SoGUf49
+	FsQBAT+gCw7VTwKFAKZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeKuE-0003iV-Q0; Thu, 28 May 2020 15:57:18 +0000
+	id 1jeKxN-00074O-Vu; Thu, 28 May 2020 16:00:34 +0000
 Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeKtv-0003ZT-TP; Thu, 28 May 2020 15:57:01 +0000
+ id 1jeKwz-0005s1-4v; Thu, 28 May 2020 16:00:10 +0000
 Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
  (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 726632A336C;
- Thu, 28 May 2020 16:56:58 +0100 (BST)
-Date: Thu, 28 May 2020 17:56:56 +0200
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id E086E2A383F;
+ Thu, 28 May 2020 17:00:05 +0100 (BST)
+Date: Thu, 28 May 2020 18:00:03 +0200
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
-Subject: Re: [PATCH v6 18/18] mtd: rawnand: Move generic bits to the ECC
- framework
-Message-ID: <20200528175656.0a32dd7c@collabora.com>
-In-Reply-To: <20200528113113.9166-19-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v6 16/18] mtd: nand: Convert generic NAND bits to use
+ the ECC framework
+Message-ID: <20200528180003.0f682e6f@collabora.com>
+In-Reply-To: <20200528113113.9166-17-miquel.raynal@bootlin.com>
 References: <20200528113113.9166-1-miquel.raynal@bootlin.com>
- <20200528113113.9166-19-miquel.raynal@bootlin.com>
+ <20200528113113.9166-17-miquel.raynal@bootlin.com>
 Organization: Collabora
 X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_085700_074121_10EF8249 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20200528_090009_336875_FC62BB17 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -74,24 +75,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, 28 May 2020 13:31:13 +0200
+On Thu, 28 May 2020 13:31:11 +0200
 Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-> +/**
-> + * nanddev_get_flash_node() - Get the device node attached to a NAND device
-> + * @nand: NAND device
-> + *
-> + * Return: the device node linked to @nand.
-> + */
-> +static inline struct device_node *nanddev_get_flash_node(struct nand_device *nand)
-> +{
-> +	return mtd_get_of_node(nanddev_to_mtd(nand));
-> +}
-> +
+> Embed a generic NAND ECC high-level object in the nand_device
+> structure to carry all the ECC engine configuration/data. Adapt the
+> raw NAND and SPI-NAND cores to fit the change.
 
-Can we name that one nanddev_get_of_node(). We'll probably want to
-expose fwnode at some point, and get_flash_node() is a bit too generic
-IMO.
+I would also split that one:
+
+1/ s/nand_ecc_props/nand_ecc/ in the core + change the spi nand
+   framework accordingly
+
+2/ update rawnand to use the generic layer
 
 ______________________________________________________
 Linux MTD discussion mailing list
