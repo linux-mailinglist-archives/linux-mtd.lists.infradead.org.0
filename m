@@ -2,72 +2,72 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F2501E6D90
-	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 23:22:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E70811E6DEA
+	for <lists+linux-mtd@lfdr.de>; Thu, 28 May 2020 23:43:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1An206rVotgEfZuV0FNjEJTCyKuFZc5aHfWBx47NUGA=; b=oth32RsHITICPX
-	g5c+hsB/Cv/KjMvACtrNH8hK47KEKV5kMS5zbOLVQ4cvoLldD9uYYcBDz9d5JZJ625G2uRcwU4Q8O
-	EJYXq98lDfGnNJ1D/2kAgN7/ddWJRG9OzEBZOi/EIxzXrjQ47V5hTWWu7xvvgNpA0GRhNV5JCSxiI
-	fDBRbGs9veiFAkx0rM0OkdolzsyrjjybzuqMQDsnlC58vyo7gv+y6M2o7KK/b7nKklZHSAyKlgfQu
-	X0Q6hN3lXQY1ab4NrOXhQsIzAXBkslHTVW8yasZZi1aH52roaguckEP6Vqu3A9HDElZYfDvXelFRq
-	+cqvEdWMNSeE+CYPKjNg==;
+	List-Owner; bh=6gN7MqQq/6iXD+D0xREPQhFEN/z/CXgyLbffLfSmrus=; b=A+1Yu0BcqVT30x
+	+lnDN19niKAMuwdKGJkYPy5VfX9/OKcFO3dyzTTLjBzsHXWEx4SjROKScHP4TsMekzwPkN5L+S9fT
+	MI2oo1khZS7eIAYyPEixnoMT5NR8aBf4G1wuiQkL40lg0yvRC6L8Cyy3QBpAhgHHFRbDls3FQQXyz
+	Z6kZFBOwWMCEXqgRi244JN570C2qwVcv8CY36DX4+lKCTdpS/xOr3Z7OtmsD3dOCjoMqLyQKaOUEz
+	s7tMXhMIXp3gX15O8jU68rhtkD0/Yx6gwEsqfVYcQxPJtzj+UMqNupzU5gO9/uexUo2d/EMpcjGEa
+	4U+DbYee4unkVcy9ippw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jePyk-0007QR-Ml; Thu, 28 May 2020 21:22:18 +0000
-Received: from mail-il1-f193.google.com ([209.85.166.193])
+	id 1jeQIg-00043c-Hf; Thu, 28 May 2020 21:42:54 +0000
+Received: from mail-il1-f194.google.com ([209.85.166.194])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jePya-0007Q7-4A
- for linux-mtd@lists.infradead.org; Thu, 28 May 2020 21:22:09 +0000
-Received: by mail-il1-f193.google.com with SMTP id l20so375726ilj.10
- for <linux-mtd@lists.infradead.org>; Thu, 28 May 2020 14:22:07 -0700 (PDT)
+ id 1jeQIX-00042m-WE
+ for linux-mtd@lists.infradead.org; Thu, 28 May 2020 21:42:47 +0000
+Received: by mail-il1-f194.google.com with SMTP id h3so414347ilh.13
+ for <linux-mtd@lists.infradead.org>; Thu, 28 May 2020 14:42:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to;
- bh=To0MImAwjvqag3VAUNXV0DUtWR10A9REtHprkgmtmDY=;
- b=VdbthW0WhzxbWpivVym25+4MRpypBgqa3BQwTSLdzqshJUO62HbH42n1EMz7BZwyH2
- 3bN191jR9EKEYrkzPVTMzYRDhYUvFb5le0QrwRas/wACtLtv+e24/J+BoHe1G4pmuFjf
- 3LgyxJHb3Oyves0fJStDfLyT+2JWKcaUbwOtmqPXlS2WAc5B7jq5z6hNtdLV96r9MLbM
- h6t2B3Sr4GqjYDWjQwvX3PZ7IMFNyeSuPgBBe9+TYEEDhvF1ft5o2tO1/FzFq+yWuL3F
- yXDI6Sy43c/4SoI0S1gSEm8AYy5cLHPwhaZZ0nouKXVkWNbu0oKSgHz4eREpgNTAXGmv
- 2XRw==
-X-Gm-Message-State: AOAM533hf3IxN7djDS6SGBbLQHLdMboCpEn03i51JTQYC0GaDwfPCQkP
- VH+7DElusMvgPYPEgkqIyw==
-X-Google-Smtp-Source: ABdhPJxPQCBhqRbh6yY1Y0SKjEPh0cgrS1kldGfVcUomDpSrOeTHfsYVtZpMp1cbWsXyfhkhQ9Tm+Q==
-X-Received: by 2002:a92:d449:: with SMTP id r9mr4794314ilm.166.1590700927426; 
- Thu, 28 May 2020 14:22:07 -0700 (PDT)
+ bh=kKfMEdEPf1qQORIeLe3Cv29R1EeXGe6brVInGMzh/i8=;
+ b=DXWBNnkFECgN+T4qrCmKyEH2wFiFW2mrZ0XxI9XnMW2+KD6Ru8UEQX09sAKug9i6zH
+ icXn7BFpouO+gNk2+v4OogkfoJxjro6HPo4ssOVqN4Jf9x80wL7vPTHTSrq40Cbn2rMi
+ bzbj6dK8RP423uuLjRTT9DvJML/qK6E2tai99+p7LqELeSgALmB4SEDv0F6TbIj9zH9b
+ AUlpe+kSc9a8yZ5wPbchbUy79clT7Q8RjwM/wSqcnF/aAJGTJ7fMNyEGFykRuNMarXE3
+ wLp/IPOGvLIjujB97vrwHZsFcpiGJFJwDYf06b39z4MHlA01u/hiZaqGsbHLcIhMl1Rf
+ ueKQ==
+X-Gm-Message-State: AOAM531H4XbgWf/V6fTNxt19KTMoIDFpfWp7kQUu4rh++7W3shCL8jke
+ wcmZEiOMH9BW5ZkE9qRSnA==
+X-Google-Smtp-Source: ABdhPJwzMqJMjsR6qnJhFZThxIFACTIgnQWqf3/oGxPMvS4qxVMWPovqxkHZ6ABDo7bKbNCpywwDYQ==
+X-Received: by 2002:a05:6e02:11a5:: with SMTP id
+ 5mr4857068ilj.108.1590702165155; 
+ Thu, 28 May 2020 14:42:45 -0700 (PDT)
 Received: from xps15 ([64.188.179.252])
- by smtp.gmail.com with ESMTPSA id c70sm1216409ila.42.2020.05.28.14.22.06
+ by smtp.gmail.com with ESMTPSA id h10sm3115504ioe.3.2020.05.28.14.42.43
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 28 May 2020 14:22:06 -0700 (PDT)
-Received: (nullmailer pid 708257 invoked by uid 1000);
- Thu, 28 May 2020 21:22:05 -0000
-Date: Thu, 28 May 2020 15:22:05 -0600
+ Thu, 28 May 2020 14:42:44 -0700 (PDT)
+Received: (nullmailer pid 735075 invoked by uid 1000);
+ Thu, 28 May 2020 21:42:43 -0000
+Date: Thu, 28 May 2020 15:42:43 -0600
 From: Rob Herring <robh@kernel.org>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v2 2/4] dt-bindings: mtd: nand: Document the generic
- rb-gpios property
-Message-ID: <20200528212205.GA708162@bogus>
-References: <20200519232454.374081-1-boris.brezillon@collabora.com>
- <20200519232454.374081-2-boris.brezillon@collabora.com>
+To: Paul Cercueil <paul@crapouillou.net>
+Subject: Re: [PATCH v2 1/3] dt-bindings: pinctrl: Convert ingenic, pinctrl.txt
+ to YAML
+Message-ID: <20200528214243.GA711753@bogus>
+References: <20200520002234.418025-1-paul@crapouillou.net>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200519232454.374081-2-boris.brezillon@collabora.com>
+In-Reply-To: <20200520002234.418025-1-paul@crapouillou.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_142208_168060_F25CF81D 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20200528_144246_038231_E93C04AE 
+X-CRM114-Status: GOOD (  20.60  )
 X-Spam-Score: 0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.193 listed in list.dnswl.org]
+ no trust [209.85.166.194 listed in list.dnswl.org]
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
  in digit [robherring2[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -77,7 +77,7 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
  mail domains are different
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.193 listed in wl.mailspike.net]
+ [209.85.166.194 listed in wl.mailspike.net]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -91,33 +91,186 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <tudor.ambarus@microchip.com>,
- Richard Weinberger <richard@nod.at>, Paul Cercueil <paul@crapouillou.net>,
- Rob Herring <robh+dt@kernel.org>, linux-mtd@lists.infradead.org,
- Harvey Hunt <harveyhuntnexus@gmail.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: devicetree@vger.kernel.org, Boris Brezillon <bbrezillon@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, od@zcrc.me,
+ linux-mtd@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, 20 May 2020 01:24:52 +0200, Boris Brezillon wrote:
-> A few drivers use this property to describe GPIO pins used to sample
-> the NAND Ready/Busy state. Let's make it part of the generic binding
-> doc.
+On Wed, May 20, 2020 at 02:22:32AM +0200, Paul Cercueil wrote:
+> Convert the ingenic,pinctrl.txt doc file to ingenic,pinctrl.yaml.
 > 
-> Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
-> ---
-> Changes in v2:
-> * New patch
-> ---
->  Documentation/devicetree/bindings/mtd/nand-controller.yaml | 7 +++++++
->  1 file changed, 7 insertions(+)
+> In the process, some compatible strings now require a fallback, as the
+> corresponding SoCs are pin-compatible with their fallback variant.
 > 
+> Signed-off-by: Paul Cercueil <paul@crapouillou.net>
+> ---
+> 
+> Notes:
+>     v2: - Use 'pinctrl' instead of 'pin-controller' as the node name
+>         - remove 'additionalProperties: false' since we will have pin conf nodes
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+You need to describe those nodes and not just allow anything.
+
+> 
+>  .../bindings/pinctrl/ingenic,pinctrl.txt      |  81 -----------
+>  .../bindings/pinctrl/ingenic,pinctrl.yaml     | 136 ++++++++++++++++++
+>  2 files changed, 136 insertions(+), 81 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.txt
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
+
+
+> diff --git a/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
+> new file mode 100644
+> index 000000000000..5be2b1e95b36
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/ingenic,pinctrl.yaml
+> @@ -0,0 +1,136 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/ingenic,pinctrl.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Ingenic SoCs pin controller devicetree bindings
+> +
+> +description: >
+> +  Please refer to pinctrl-bindings.txt in this directory for details of the
+> +  common pinctrl bindings used by client devices, including the meaning of the
+> +  phrase "pin configuration node".
+> +
+> +  For the Ingenic SoCs, pin control is tightly bound with GPIO ports. All pins
+> +  may be used as GPIOs, multiplexed device functions are configured within the
+> +  GPIO port configuration registers and it is typical to refer to pins using the
+> +  naming scheme "PxN" where x is a character identifying the GPIO port with
+> +  which the pin is associated and N is an integer from 0 to 31 identifying the
+> +  pin within that GPIO port. For example PA0 is the first pin in GPIO port A,
+> +  and PB31 is the last pin in GPIO port B. The JZ4740, the X1000 and the X1830
+> +  contains 4 GPIO ports, PA to PD, for a total of 128 pins. The JZ4760, the
+> +  JZ4770 and the JZ4780 contains 6 GPIO ports, PA to PF, for a total of 192
+> +  pins.
+> +
+> +maintainers:
+> +  - Paul Cercueil <paul@crapouillou.net>
+> +
+> +properties:
+> +  nodename:
+
+It's $nodename as that's not a real property. And that will expose the 
+error in the example for you.
+
+> +    pattern: "^pinctrl@[0-9a-f]+$"
+> +
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +        - ingenic,jz4740-pinctrl
+> +        - ingenic,jz4725b-pinctrl
+> +        - ingenic,jz4760-pinctrl
+> +        - ingenic,jz4770-pinctrl
+> +        - ingenic,jz4780-pinctrl
+> +        - ingenic,x1000-pinctrl
+> +        - ingenic,x1500-pinctrl
+> +        - ingenic,x1830-pinctrl
+> +      - items:
+> +        - const: ingenic,jz4760b-pinctrl
+> +        - const: ingenic,jz4760-pinctrl
+> +      - items:
+> +        - const: ingenic,x1000e-pinctrl
+> +        - const: ingenic,x1000-pinctrl
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +patternProperties:
+> +  "^gpio@[0-9]$":
+> +    type: object
+> +    properties:
+> +      compatible:
+> +        enum:
+> +          - ingenic,jz4740-gpio
+> +          - ingenic,jz4725b-gpio
+> +          - ingenic,jz4760-gpio
+> +          - ingenic,jz4770-gpio
+> +          - ingenic,jz4780-gpio
+> +          - ingenic,x1000-gpio
+> +          - ingenic,x1500-gpio
+> +          - ingenic,x1830-gpio
+> +
+> +      reg:
+> +        items:
+> +          - description: The GPIO bank number
+> +
+> +      gpio-controller: true
+> +
+> +      "#gpio-cells":
+> +        const: 2
+> +
+> +      gpio-ranges:
+> +        maxItems: 1
+> +
+> +      interrupt-controller: true
+> +
+> +      "#interrupt-cells":
+> +        const: 2
+> +        description:
+> +          Refer to ../interrupt-controller/interrupts.txt for more details.
+> +
+> +      interrupts:
+> +        maxItems: 1
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - gpio-controller
+> +      - "#gpio-cells"
+> +      - interrupts
+> +      - interrupt-controller
+> +      - "#interrupt-cells"
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +
+> +examples:
+> +  - |
+> +    pin-controller@10010000 {
+> +      compatible = "ingenic,jz4770-pinctrl";
+> +      reg = <0x10010000 0x600>;
+> +
+> +      #address-cells = <1>;
+> +      #size-cells = <0>;
+> +
+> +      gpio@0 {
+> +        compatible = "ingenic,jz4770-gpio";
+> +        reg = <0>;
+> +
+> +        gpio-controller;
+> +        gpio-ranges = <&pinctrl 0 0 32>;
+> +        #gpio-cells = <2>;
+> +
+> +        interrupt-controller;
+> +        #interrupt-cells = <2>;
+> +
+> +        interrupt-parent = <&intc>;
+> +        interrupts = <17>;
+> +      };
+> +    };
+> -- 
+> 2.26.2
+> 
 
 ______________________________________________________
 Linux MTD discussion mailing list
