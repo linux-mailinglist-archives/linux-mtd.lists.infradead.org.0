@@ -2,46 +2,46 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 986411E718D
-	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 02:33:28 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CB161E7185
+	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 02:31:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yLYkGTPwHQoy0KkWhA7WIEb5gOTbJG7+QmJVkvc3+oI=; b=drDTYLB5EbJ/CQ
-	3xKa2gbqcpFfbvwVUJ0AmhMhgn4LX8TlpTlk6QdRxA+LkEFXhHtqo/1lalUm8aCo/exRSKj3QzByE
-	xxuUTWIYbCCb8FM0qOSXdkIYaQCltrVP2QdiRgrgEQpF5PULyYWxXvjbrSQyCbHv4wJRuQHjbyA0U
-	l2wUPJVKdN/4SRD090ET+c1Tg7kHYHCWr21x8SFw+CTiRMLUZPK/9+trQMHhn0oajJob3W9bWjBp8
-	VHuI5ivy3FGAusDl3Lp+Dxv4tLytK8bgm9SSRzRwHKySFZsi0NGXUCH4eEr/kpy4a8KsCf19ky4bV
-	8j5Qtcw50PHv4yaJSP8A==;
+	List-Owner; bh=U4X1DZ+7R9JtZ1Hh0ta7q7sJVDAlUe4RztybV1APkz4=; b=JMr+mcrVKjnXaP
+	z1Y/vka2BJVJBPh6Av724/oRNrmfG6N9SAyljXXpcGe2g5dBGrDvd6skFIyda/gN0Mtkv0V6F/moh
+	2pUyp09+swQLQOEVvbMisq84lol/whlaqI6faKVZ9bzWlw2y3YSrJJlqh0iVz/UJGUi16o61c7kzB
+	JOZFW/b+vXx+YU70ogHUIQsu2vi5DlU1/Ca2WBPCFtL4uuubTzSZgQjCMpcis+OJL2PtHPvub9FJ/
+	ex4Fj6Z+ygI6qKBWvdg21CI/S+csuuS18X9g1fv3xy6PGZPHd0KeYmC4l0Yhy0dub0SRJQJ+Zj+Y8
+	dBWTdWD4HO2JdXt9rHKg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeSxg-0006Ep-Al; Fri, 29 May 2020 00:33:24 +0000
+	id 1jeSvj-0004WK-RE; Fri, 29 May 2020 00:31:23 +0000
 Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jeSqC-00067u-Dn; Fri, 29 May 2020 00:25:42 +0000
+ id 1jeSqE-00069V-FR; Fri, 29 May 2020 00:25:44 +0000
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id 2A10C200005;
- Fri, 29 May 2020 00:25:37 +0000 (UTC)
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id D56ED200007;
+ Fri, 29 May 2020 00:25:38 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>,
  <linux-mtd@lists.infradead.org>, Rob Herring <robh+dt@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>, <devicetree@vger.kernel.org>
-Subject: [PATCH v7 09/20] mtd: nand: Move nand_device forward declaration to
- the top
-Date: Fri, 29 May 2020 02:25:06 +0200
-Message-Id: <20200529002517.3546-10-miquel.raynal@bootlin.com>
+Subject: [PATCH v7 10/20] mtd: nand: Add an extra level in the Kconfig
+ hierarchy
+Date: Fri, 29 May 2020 02:25:07 +0200
+Message-Id: <20200529002517.3546-11-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200529002517.3546-1-miquel.raynal@bootlin.com>
 References: <20200529002517.3546-1-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200528_172540_614997_798E8D1C 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20200528_172542_689291_0585532B 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -77,37 +77,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-This structure might be used earlier in this file, let's move the
-forward declaration at the top.
+Use an extra level in Kconfig for all NAND related entries.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- include/linux/mtd/nand.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/Kconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
-index 0c7483843a32..a1f38c778d0e 100644
---- a/include/linux/mtd/nand.h
-+++ b/include/linux/mtd/nand.h
-@@ -12,6 +12,8 @@
- 
- #include <linux/mtd/mtd.h>
- 
-+struct nand_device;
+diff --git a/drivers/mtd/nand/Kconfig b/drivers/mtd/nand/Kconfig
+index a5d8a211cb8a..c1a45b071165 100644
+--- a/drivers/mtd/nand/Kconfig
++++ b/drivers/mtd/nand/Kconfig
+@@ -1,7 +1,12 @@
+ # SPDX-License-Identifier: GPL-2.0-only
 +
- /**
-  * struct nand_memory_organization - Memory organization structure
-  * @bits_per_cell: number of bits per NAND cell
-@@ -133,8 +135,6 @@ struct nand_bbt {
- 	unsigned long *cache;
- };
++menu "NAND"
++
+ config MTD_NAND_CORE
+ 	tristate
  
--struct nand_device;
--
- /**
-  * struct nand_ops - NAND operations
-  * @erase: erase a specific block. No need to check if the block is bad before
+ source "drivers/mtd/nand/onenand/Kconfig"
+ source "drivers/mtd/nand/raw/Kconfig"
+ source "drivers/mtd/nand/spi/Kconfig"
++
++endmenu
 -- 
 2.20.1
 
