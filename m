@@ -2,57 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A3F31E79A1
-	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 11:42:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7D4BF1E7B6C
+	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 13:14:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/96rbEwx8DVzrL8gIr56jPs+YfIsKmdt76wLFqp78tw=; b=INITt/k0zg6C0s
-	7pTZ61j5cXEVvEkOs25kavZUF3fV7zHmz5UQUolfNK3NGnCXo55WDM76U7Sm2URM1EK6UgYDqXFFl
-	FhnWSgJRhkjKRtph7KXEMzZ47b01XWNR5UYwKVu/2eBqBCbc4QsKI2u0X+ZaTHueiFEBWcbI9XhAe
-	um35n83SVECelJ4LHL8dLpoOd9fNMMak9OXts6iNDnDrhP9gVGbSmFcKnTIS8c4bSBfNPSh9zRKBz
-	wYNHAC8W2Cumjjsnjj03rjDAoU5AvmCMTouNvYLZi3nn/CAHknhPfHrV6jnbilp4srg01fWYu0+w4
-	DMupkXg2Gw2Abi6q70Ww==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0ET1fMfhRTHQljkuvcTXL/yYq6WAsCtZexVxjQH/ZDg=; b=aeTRTSlKM7fnHc
+	QnzeMji0g+Ldmxm73w7nnnATzYtuI1t8tnT6kORg+XXx88B1qDkUrh1Gqqk6mRHjewXM7StzCcZEk
+	VQLVDHt4Tdzc3w5U2WEdp1gV7Irq073o4lPZwMnAzm/6B7eSuXocTvWrIazy/nUagzvpUHVl9AejR
+	DWtGt+tvNrnm+upVA0Pu4UaVw0ooE3ywrRry14QVjRPm32AlyLFys85iIA/pvKS1kbaEtHvPhCvMh
+	JjTiRnMNxN38n4Yg1G7XZSJ03WPEZEapl+1MbyJ9az9qqpBr2EBLINdNmz1BaY18AuiCDSOxSzmdC
+	W6OqyULDe5m5pJipH1tg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jebX1-00043i-Ek; Fri, 29 May 2020 09:42:27 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1jecxk-0003Oa-0P; Fri, 29 May 2020 11:14:08 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jebWo-00042f-Sh
- for linux-mtd@lists.infradead.org; Fri, 29 May 2020 09:42:16 +0000
-X-Originating-IP: 42.109.222.225
-Received: from localhost (unknown [42.109.222.225])
- (Authenticated sender: me@yadavpratyush.com)
- by relay6-d.mail.gandi.net (Postfix) with ESMTPSA id A530DC0007;
- Fri, 29 May 2020 09:42:07 +0000 (UTC)
-Date: Fri, 29 May 2020 15:12:02 +0530
-From: Pratyush Yadav <me@yadavpratyush.com>
-To: Mason Yang <masonccyang@mxic.com.tw>
-Subject: Re: [PATCH v4 7/7] mtd: spi-nor: macronix: Add Octal 8D-8D-8D
- supports for Macronix mx25uw51245g
-Message-ID: <20200529094202.7vjs7clhykncivux@yadavpratyush.com>
-References: <1590737775-4798-1-git-send-email-masonccyang@mxic.com.tw>
- <1590737775-4798-8-git-send-email-masonccyang@mxic.com.tw>
+ id 1jecx6-0003Bn-2A
+ for linux-mtd@lists.infradead.org; Fri, 29 May 2020 11:13:29 +0000
+X-Originating-IP: 91.224.148.103
+Received: from localhost.localdomain (unknown [91.224.148.103])
+ (Authenticated sender: miquel.raynal@bootlin.com)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 28F07240008;
+ Fri, 29 May 2020 11:13:22 +0000 (UTC)
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ <linux-mtd@lists.infradead.org>
+Subject: [PATCH v7 00/28] Allow vendor drivers to propose their own timings
+Date: Fri, 29 May 2020 13:12:54 +0200
+Message-Id: <20200529111322.7184-1-miquel.raynal@bootlin.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1590737775-4798-8-git-send-email-masonccyang@mxic.com.tw>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200529_024215_195852_B5B07605 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20200529_041328_375924_5CFBA557 
+X-CRM114-Status: GOOD (  14.18  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.198 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.198 listed in wl.mailspike.net]
+ low trust [217.70.183.193 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [217.70.183.193 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,124 +63,136 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, tudor.ambarus@microchip.com, juliensu@mxic.com.tw,
- richard@nod.at, linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org,
- broonie@kernel.org, boris.brezillon@collabora.com, miquel.raynal@bootlin.com,
- matthias.bgg@gmail.com, linux-mtd@lists.infradead.org, p.yadav@ti.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Michal Simek <monstr@monstr.eu>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Naga Sureshkumar Relli <nagasure@xilinx.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On 29/05/20 03:36PM, Mason Yang wrote:
-> Macronix mx25uw51245g is a SPI NOR that supports 1-1-1/8-8-8 mode.
-> 
-> Correct the dummy cycles to device for various frequencies
-> after xSPI profile 1.0 table parsed.
-> 
-> Enable mx25uw51245g to Octal DTR mode by executing the command sequences
-> to change to octal DTR mode.
-> 
-> Signed-off-by: Mason Yang <masonccyang@mxic.com.tw>
-> ---
->  drivers/mtd/spi-nor/macronix.c | 55 ++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 55 insertions(+)
-> 
-> diff --git a/drivers/mtd/spi-nor/macronix.c b/drivers/mtd/spi-nor/macronix.c
-> index 96735d8..6c9a24c 100644
-> --- a/drivers/mtd/spi-nor/macronix.c
-> +++ b/drivers/mtd/spi-nor/macronix.c
-> @@ -8,6 +8,57 @@
->  
->  #include "core.h"
->  
-> +#define MXIC_CR2_DUMMY_SET_ADDR 0x300
-> +
-> +/* Fixup the dummy cycles to device and setup octa_dtr_enable() */
-> +static void mx25uw51245g_post_sfdp_fixups(struct spi_nor *nor)
-> +{
-> +	struct spi_nor_flash_parameter *params = nor->params;
-> +	int ret;
-> +	u8 rdc, wdc;
-> +
-> +	ret = spi_nor_read_cr2(nor, MXIC_CR2_DUMMY_SET_ADDR, &rdc);
-> +	if (ret)
-> +		return;
-> +
-> +	/* Refer to dummy cycle and frequency table(MHz) */
-> +	switch (params->dummy_cycles) {
-> +	case 10:	/* 10 dummy cycles for 104 MHz */
-> +		wdc = 5;
-> +		break;
-> +	case 12:	/* 12 dummy cycles for 133 MHz */
-> +		wdc = 4;
-> +		break;
-> +	case 16:	/* 16 dummy cycles for 166 MHz */
-> +		wdc = 2;
-> +		break;
-> +	case 18:	/* 18 dummy cycles for 173 MHz */
-> +		wdc = 1;
-> +		break;
-> +	case 20:	/* 20 dummy cycles for 200 MHz */
-> +	default:
-> +		wdc = 0;
-> +	}
-
-I don't get the point of this. You already know the fastest the 
-mx25uw51245g flash can run at. Why not just use the maximum dummy 
-cycles? SPI NOR doesn't know the speed the controller is running at so 
-the best it can do is use the maximum dummy cycles possible so it never 
-falls short. Sure, it will be _slightly_ less performance, but we will 
-be sure to read the correct data, which is much much more important.
-
-Is it possible to have two chips which have _exactly_ the same ID but 
-one supports say 200MHz frequency but the other doesn't? Without that, 
-we can just enable the maximum and move on.
-
-> +
-> +	if (rdc != wdc)
-> +		spi_nor_write_cr2(nor, MXIC_CR2_DUMMY_SET_ADDR, &wdc);
-> +
-> +	if (params->cmd_seq[0].len) {
-> +		params->octal_dtr_enable = spi_nor_cmd_seq_octal_dtr;
-> +		params->hwcaps.mask |= SNOR_HWCAPS_READ_8_8_8_DTR;
-> +		params->hwcaps.mask |= SNOR_HWCAPS_PP_8_8_8_DTR;
-
-Same comment as above. We are in the mx25uw51245g fixup hook. We already 
-know if the flash supports 8D mode or not from the datasheet. What is 
-the need to discover it from SFDP?
-
-> +
-> +	} else {
-> +		params->octal_dtr_enable = NULL;
-> +		params->hwcaps.mask &= ~SNOR_HWCAPS_READ_8_8_8_DTR;
-> +		params->hwcaps.mask &= ~SNOR_HWCAPS_PP_8_8_8_DTR;
-> +	}
-> +}
-> +
-> +static struct spi_nor_fixups mx25uw51245g_fixups = {
-> +	.post_sfdp = mx25uw51245g_post_sfdp_fixups,
-> +};
-> +
->  static int
->  mx25l25635_post_bfpt_fixups(struct spi_nor *nor,
->  			    const struct sfdp_parameter_header *bfpt_header,
-> @@ -84,6 +135,10 @@
->  			      SPI_NOR_QUAD_READ) },
->  	{ "mx66l1g55g",  INFO(0xc2261b, 0, 64 * 1024, 2048,
->  			      SPI_NOR_QUAD_READ) },
-> +	{ "mx25uw51245g", INFO(0xc2813a, 0, 64 * 1024, 1024,
-> +			      SECT_4K | SPI_NOR_4B_OPCODES |
-> +			      SPI_NOR_OCTAL_DTR_READ)
-> +			      .fixups = &mx25uw51245g_fixups },
->  };
->  
->  static void macronix_default_init(struct spi_nor *nor)
-
--- 
-Regards,
-Pratyush Yadav
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+QXMgcmFpc2VkIGJ5IFJpY2thcmQsIGNlcnRhaW4gY2hpcHMgbGlrZSBUb3NoaWJhL0tpb3hpYQpU
+SDU4TlZHMlMzSEJBSTQgYXJlIG5vdCBPTkZJIGNvbXBsaWFudCBhbmQgYmVjYXVzZSBvZiB0aGF0
+LCB3b3JrIGF0IGEKdmVyeSBzbG93IHBhY2UuIFRoaXMgY2hpcCBpbiBwYXJ0aWN1bGFyIHN1cHBv
+cnRzIHJ1bm5pbmcgYXQgYSBwYWNlCiJjbG9zZSIgdG8gT05GSSBtb2RlIDQuCgpUaGlzIHNlcmll
+cyBwcm92aWRlcyBhIHdheSB0byBtYW51ZmFjdHVyZXIgZHJpdmVycyB0byBwcm9wb3NlIGEgZGF0
+YQppbnRlcmZhY2UgdG8gdGhlIGNvcmUgd2l0aCBhIHZlcnkgc2ltcGxlIGludGVyZmFjZS4gV2hp
+bGUgYXQgaXQsIEkgZGlkCnNvbWUgY2xlYW51cCBhbmQgcHJlcGFyZWQgdGhlIGludHJvZHVjdGlv
+biBvZiBOVi1ERFIgdGltaW5ncy4KCkNoZWVycywKTWlxdcOobAoKQ2hhbmdlcyBpbiB2NzoKKiBG
+aXhlZCB0eXBvcy9yZXdvcmRlZCBjb21taXQgbG9ncy4KKiBDb2xsZWN0ZWQgUi1ieSB0YWdzLgoq
+IEFkZGVkIGEgcGF0Y2ggdG8gdHVybiB0aW1pbmdfbW9kZSBhbiB1bnNpZ25lZCBpbnQgKG9uZSBw
+YXJhbWV0ZXIgb2YKICBvbmZpX2ZpbGxfZGF0YV9pbnRlcmZhY2UvaW50ZXJmYWNlX2NvbmZpZyku
+CiogVGhhbmtzIHRvIEJvcmlzIGNvbW1lbnRzLCBJIHJlYWxpemVkIEkgY291bGQgbm90IGludHJv
+ZHVjZSB0aGUKICAicmVzZXQgdGltaW5nIGhlbHBlciIgYmVmb3JlIHRoZSBjaGFuZ2UgYWxsb2Nh
+dGluZyB0aGUgaW50ZXJmYWNlCiAgY29uZmlndXJhdGlvbiBkeW5hbWljYWxseS4gTm9yIGl0IHdv
+dWxkIG1ha2Ugc2Vuc2UgdG8gZG8gaXQKICBhZnRlcndhcmRzLCBzbyBJIG1lcmdlZCB0aGUgdHdv
+IHBhdGNoZXMuCiogcy9uYW5kX2Nob29zZV9pbnRlcmZhY2UvbmFuZF9jaG9vc2VfaW50ZXJmYWNl
+X2NvbmZpZy8uCiogcy8tPmNob29zZV9pbnRlcmZhY2UoKS8tPmNob29zZV9pbnRlcmZhY2VfY29u
+ZmlnKCkvLgoqIE1vdmVkIHRoZSBwYXRjaCBoaWRpbmcgdGhlIC0+ZGF0YV9pbnRlcmZhY2UgaW5k
+aXJlY3Rpb24gYmVmb3JlIHRoZQogIHBhdGNoIHJlbmFtaW5nIGRhdGFfaW50ZXJmYWNlIGludG8g
+aW50ZXJmYWNlX2NvbmZpZy4gVGhpcyBoYWQgdGhlCiAgZWZmZWN0IG9mIGRyb3BwaW5nIHR3byBw
+YXRjaGVzIChsZWdhY3lfbmFuZCBhbmQgbWFydmVsbF9uYW5kCiAgdXBkYXRlcykuCiogRHJvcHBl
+ZCBhbiBhbHdheXMgd3JvbmcgY29uZGl0aW9uIGluIG5hbmRfcmVzZXQoKSBzcG90dGVkIGJ5IEJv
+cmlzLgoKQ2hhbmdlcyBpbiB2NjoKKiBDb2xsZWN0ZWQgUi1ieSB0YWdzLgoqIEluc2VydGVkIGEg
+cGF0Y2ggcmVuYW1pbmcgbWFzc2l2ZWx5IHRoZSAiZGF0YSBpbnRlcmZhY2UiIG5hbWUgaW50bwog
+ICJpbnRlcmZhY2UgY29uZmlndXJhdGlvbiIuIEZvbGxvd2VkIHRoaXMgbmFtaW5nIGZvciB0aGUg
+cmVzdCBvZiB0aGUKICBzZXJpZXMsIGluIHBhcnRpY3VsYXIgZm9yIHRoZSBuZXcgaG9va3MuCiog
+UmUtYWRkZWQgYSBjb21tZW50IGFib3V0IHRoZSBzcGVjaWZpYyB0Q0NTLCB0UiwgdEJFUlMgYW5k
+IHRQUk9HCiAgdGltaW5ncy4KKiBJbnZlcnRlZCB0aGUgY29uZGl0aW9ucyBpbiBvbmZpX2ZpbmRf
+Y2xvc2VzdF9zZHJfbW9kZSgpIGFzIGFkdmlzZWQuCiogQ3JlYXRlZCBhIGhlbHBlciB0byByZXRy
+aWV2ZSB0aGUgcmVzZXQgaW50ZXJmYWNlIGNvbmZpZ3VyYXRpb24uCiogRHJvcHBlZCBuYW5kX2V4
+dHJhY3Rfc2RyX3RpbWluZ3MoKSBhbmQga2VwdCBuYW5kX2dldF9zZHJfdGltaW5ncygpLgoqIENy
+ZWF0ZWQgbmFuZF9nZXRfaW50ZXJmYWNlX2NvbmZpZygpIGluc3RlYWQsIHRvIHJldHJpZXZlIGFu
+CiAgaW50ZXJmYWNlIGNvbmZpZ3VyYXRpb24gcHJvdmlkZWQgYSBuYW5kX2NoaXAgb2JqZWN0Lgoq
+IENoYW5nZWQgdGhlIHNjb3BlIG9mIGEgdmFyaWFibGUuCiogVHVybmVkIG9uZmlfZmlsbF9pbnRl
+cmZhY2VfY29uZmlnKCkgaW50byBhIHZvaWQgaGVscGVyLgoqIEZpeGVkIHR5cG9zLgoqIFVzZWQg
+c3RybmNtcCgpIHRvIGNvbXBhcmUgTkFORCBjaGlwIG1vZGVsIG5hbWVzLgoqIFByZXZlbnRlZCBh
+cHBseWluZyB0aW1pbmcgbW9kZSAwIHR3aWNlLgoqIENyZWF0ZWQgYSAtPmN1cnJlbnRfaW50ZXJm
+YWNlX2NvbmZpZyBlbnRyeSBpbiBuYW5kX2NoaXAsIGFsd2F5cwogIHBvaW50aW5nIHRvIHRoZSBy
+aWdodCBpbnRlcmZhY2UgY29uZmlndXJhdGlvbi4KKiBSZW5hbWVkIHRoZSBvdGhlciBlbnRyeSAt
+PmJlc3RfaW50ZXJmYWNlX2NvbmZpZy4KCkNoYW5nZXMgaW4gdjU6CiogQ29sbGVjdGVkIFItYnkg
+dGFncy4KKiBEcm9wcGVkIHRoZSByZW5hbWUgb2Ygb25maV90aW1pbmdfbW9kZV9kZWZhdWx0LCBn
+b3QgcmlkIG9mIGl0IGluc3RlYWQuCiogQ29udmVydGVkIEh5bml4IGFuZCBUb3NoaWJhIGRyaXZl
+cnMgdG8gLT5jaG9vc2VfZGF0YV9pbnRlcmZhY2UoKS4KKiBDcmVhdGVkIGEgc3RhdGljIGRlZmF1
+bHQgcmVzZXQgZGF0YSBpbnRlcmZhY2Ugb2JqZWN0LgoqIEFsbG9jYXRlZCBkeW5hbWljYWxseSB0
+aGUgdGltaW5ncy4KKiBSZW5hbWVkIG9uZmlfZmluZF9jbG9zZXN0X3Nkcl9tb2RlKCkgYW5kIGl0
+cyBwYXJhbWV0ZXIuCiogRHJvcHBlZCB0aGUgY29tcGFyaXNvbiB3aXRoIG1heGltdW0gdmFsdWVz
+IGluCiAgb25maV9maW5kX2Nsb3Nlc3Rfc2RyX21vZGUoKS4KKiBVc2UgImJlc3RfdGltaW5ncyIg
+aW5zdGVhZCBvZiAiYmVzdF9pZmFjZSIgYXMgRERSIGlzIG5vdCBzdXBwb3J0ZWQKICB5ZXQuCiog
+RHJvcHBlZCBjaG9vc2VfYmVzdF92ZW5kb3Jfc2RyX3RpbWluZ3MoKSBhbmQgdW5pZmVkIGl0cyBj
+b250ZW50IHdpdGgKICBjaG9vc2VfYmVzdF9zZHJfdGltaW5ncygpLgoqIElmIHRoZSBzcGVjaWZp
+YyB0aW1pbmcgc2V0IGNsb3NlIHRvIE9ORkkgbW9kZSBYIGlzIG5vdCBzdXBwb3J0ZWQsCiAgZmFs
+bGJhY2sgdG8gT05GSSBtb2RlIFggZmlyc3QsIG5vdCBYIC0gMS4KCkNoYW5nZXMgaW4gdjQ6Ciog
+VG9vayBSaWNrYXJkIHBhdGNoIGJhc2VkIG9uIG15IHByZXZpb3VzIHByb3Bvc2FscyBvdmVyIEdp
+dGh1YiBhbmQKICB0d2Vha2VkIGEgZmV3IG1vcmUgdGhpbmdzOgogIC0gQWRkZWQgYSAiZ2VuZXJp
+YyIgaGVscGVyIHRvIGZhbGxiYWNrIG9uIHNsb3dlciBPTkZJIG1vZGVzIHdoZW4gdGhlCiAgICBw
+cm9wb3NlZCBpbnRlcmZhY2UgaXMgbm90IHN1cHBvcnRlZCBieSB0aGUgY29udHJvbGxlci4KICAt
+IEZpeGVkIG1vcmUga2RvYy4KICAtIFNpbXBsaWZpZWQgdGhlIHZlbmRvciBkcml2ZXIgc2lkZSBi
+eSBwcm92aWRpbmcgYWRkaXRpb25hbCBoZWxwZXJzLgoqIFR3ZWFrZWQgYSBsaXR0bGUgYml0IFJp
+Y2thcmQgcGF0Y2ggdG8gZml0IHRoZSBsYXRlc3QgY2hhbmdlcy4KCk1pcXVlbCBSYXluYWwgKDI3
+KToKICBtdGQ6IHJhd25hbmQ6IFVzZSB1bnNpZ25lZCB0eXBlcyBmb3IgbmFuZF9jaGlwIHVuc2ln
+bmVkIHZhbHVlcwogIG10ZDogcmF3bmFuZDogT25seSB1c2UgdTggaW5zdGVhZCBvZiB1aW50OF90
+IGluIG5hbmRfY2hpcCBzdHJ1Y3R1cmUKICBtdGQ6IHJhd25hbmQ6IENyZWF0ZSBhIG5hbmRfY2hp
+cCBvcGVyYXRpb25zIHN0cnVjdHVyZQogIG10ZDogcmF3bmFuZDogUmVuYW1lIHRoZSBtYW51ZmFj
+dHVyZXIgc3RydWN0dXJlCiAgbXRkOiByYXduYW5kOiBEZWNsYXJlIHRoZSBuYW5kX21hbnVmYWN0
+dXJlciBzdHJ1Y3R1cmUgb3V0IG9mIG5hbmRfY2hpcAogIG10ZDogcmF3bmFuZDogUmVvcmdhbml6
+ZSB0aGUgbmFuZF9jaGlwIHN0cnVjdHVyZQogIG10ZDogcmF3bmFuZDogQ29tcGFyZSB0aGUgYWN0
+dWFsIHRpbWluZyB2YWx1ZXMKICBtdGQ6IHJhd25hbmQ6IFVzZSB0aGUgZGF0YSBpbnRlcmZhY2Ug
+bW9kZSBlbnRyeSB3aGVuIHJlbGV2YW50CiAgbXRkOiByYXduYW5kOiBSZW5hbWUgbmFuZF9oYXNf
+c2V0dXBfZGF0YV9pZmFjZSgpCiAgbXRkOiByYXduYW5kOiBGaXggbmFuZF9zZXR1cF9kYXRhX2lu
+dGVyZmFjZSgpIGRlc2NyaXB0aW9uCiAgbXRkOiByYXduYW5kOiBSZW5hbWUgbmFuZF9pbml0X2Rh
+dGFfaW50ZXJmYWNlKCkKICBtdGQ6IHJhd25hbmQ6IHRpbWluZ3M6IFVwZGF0ZSBvbmZpX2ZpbGxf
+ZGF0YV9pbnRlcmZhY2UoKSBrZXJuZWwgZG9jCiAgbXRkOiByYXduYW5kOiB0aW1pbmdzOiBQcm92
+aWRlIG9uZmlfZmlsbF9kYXRhX2ludGVyZmFjZSgpIHdpdGggYSBkYXRhCiAgICBpbnRlcmZhY2UK
+ICBtdGQ6IHJhd25hbmQ6IHRpbWluZ3M6IG9uZmlfZmlsbF9kYXRhX2ludGVyZmFjZSB0aW1pbmcg
+bW9kZSBpcwogICAgdW5zaWduZWQKICBtdGQ6IHJhd25hbmQ6IHRpbWluZ3M6IEFkZCBhIGhlbHBl
+ciB0byBmaW5kIHRoZSBjbG9zZXN0IE9ORkkgbW9kZQogIG10ZDogcmF3bmFuZDogdGltaW5nczog
+QXZvaWQgcmVkZWZpbmluZyB0Ul9tYXggYW5kIHRDQ1NfbWluCiAgbXRkOiByYXduYW5kOiB0aW1p
+bmdzOiBVc2UgZGVmYXVsdCB2YWx1ZXMgZm9yIHRQUk9HX21heCBhbmQgdEJFUlNfbWF4CiAgbXRk
+OiByYXduYW5kOiBIaWRlIHRoZSBjaGlwLT5kYXRhX2ludGVyZmFjZSBpbmRpcmVjdGlvbgogIG10
+ZDogcmF3bmFuZDogcy9kYXRhX2ludGVyZmFjZS9pbnRlcmZhY2VfY29uZmlnLwogIG10ZDogcmF3
+bmFuZDogdGltaW5nczogTWFrZSBvbmZpX2ZpbGxfaW50ZXJmYWNlX2NvbmZpZygpIGEgdm9pZCBo
+ZWxwZXIKICBtdGQ6IHJhd25hbmQ6IEludHJvZHVjZSBuYW5kX2Nob29zZV9iZXN0X3Nkcl90aW1p
+bmdzKCkKICBtdGQ6IHJhd25hbmQ6IEFkZCB0aGUgLT5jaG9vc2VfaW50ZXJmYWNlX2NvbmZpZygp
+IGhvb2sKICBtdGQ6IHJhd25hbmQ6IHRvc2hpYmE6IEltcGxlbWVudCAtPmNob29zZV9pbnRlcmZh
+Y2VfY29uZmlnKCkgZm9yCiAgICBUQzU4VEVHNURDTFRBMDAKICBtdGQ6IHJhd25hbmQ6IHRvc2hp
+YmE6IEltcGxlbWVudCAtPmNob29zZV9pbnRlcmZhY2VfY29uZmlnKCkgZm9yCiAgICBUQzU4TlZH
+MFMzRQogIG10ZDogcmF3bmFuZDogaHluaXg6IEltcGxlbWVudCAtPmNob29zZV9pbnRlcmZhY2Vf
+Y29uZmlnKCkgZm9yCiAgICBIMjdVQ0c4VDJBVFItQkMKICBtdGQ6IHJhd25hbmQ6IEdldCByaWQg
+b2YgdGhlIGRlZmF1bHQgT05GSSB0aW1pbmcgbW9kZQogIG10ZDogcmF3bmFuZDogQWxsb2NhdGUg
+dGhlIGludGVyZmFjZSBjb25maWd1cmF0aW9ucyBkeW5hbWljYWxseQoKUmlja2FyZCB4IEFuZGVy
+c3NvbiAoMSk6CiAgbXRkOiByYXduYW5kOiB0b3NoaWJhOiBDaG9vc2UgdGhlIGludGVyZmFjZSBj
+b25maWd1cmF0aW9uIGZvcgogICAgVEg1OE5WRzJTM0hCQUk0CgogZHJpdmVycy9tdGQvbmFuZC9y
+YXcvYW1zLWRlbHRhLmMgICAgICAgICAgICAgIHwgICA2ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9hcmFzYW4tbmFuZC1jb250cm9sbGVyLmMgfCAgIDYgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
+L2F0bWVsL25hbmQtY29udHJvbGxlci5jICB8ICAzNCArLS0KIC4uLi9tdGQvbmFuZC9yYXcvY2Fk
+ZW5jZS1uYW5kLWNvbnRyb2xsZXIuYyAgICB8ICAgNiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcv
+ZGVuYWxpLmMgICAgICAgICAgICAgICAgIHwgICA4ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9m
+c21jX25hbmQuYyAgICAgICAgICAgICAgfCAgIDYgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L2dw
+bWktbmFuZC9ncG1pLW5hbmQuYyAgICB8ICAgNiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvaW50
+ZXJuYWxzLmggICAgICAgICAgICAgIHwgIDIyICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9tYXJ2
+ZWxsX25hbmQuYyAgICAgICAgICAgfCAgMTggKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L21lc29u
+X25hbmQuYyAgICAgICAgICAgICB8ICAxNCArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbXRrX25h
+bmQuYyAgICAgICAgICAgICAgIHwgICA2ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jhdy9teGNfbmFu
+ZC5jICAgICAgICAgICAgICAgfCAgMjAgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3L214aWNfbmFu
+ZC5jICAgICAgICAgICAgICB8ICAgNiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcvbmFuZF9iYXNl
+LmMgICAgICAgICAgICAgIHwgMjY0ICsrKysrKysrKy0tLS0tLS0tCiBkcml2ZXJzL210ZC9uYW5k
+L3Jhdy9uYW5kX2h5bml4LmMgICAgICAgICAgICAgfCAgMTYgKy0KIGRyaXZlcnMvbXRkL25hbmQv
+cmF3L25hbmRfaWRzLmMgICAgICAgICAgICAgICB8ICAyNCArLQogZHJpdmVycy9tdGQvbmFuZC9y
+YXcvbmFuZF9sZWdhY3kuYyAgICAgICAgICAgIHwgICA3ICstCiBkcml2ZXJzL210ZC9uYW5kL3Jh
+dy9uYW5kX21hY3Jvbml4LmMgICAgICAgICAgfCAgMTAgKy0KIGRyaXZlcnMvbXRkL25hbmQvcmF3
+L25hbmRfbWljcm9uLmMgICAgICAgICAgICB8ICAgMiArLQogZHJpdmVycy9tdGQvbmFuZC9yYXcv
+bmFuZF90aW1pbmdzLmMgICAgICAgICAgIHwgMTE2ICsrKysrKy0tCiBkcml2ZXJzL210ZC9uYW5k
+L3Jhdy9uYW5kX3Rvc2hpYmEuYyAgICAgICAgICAgfCAgNzIgKysrKy0KIGRyaXZlcnMvbXRkL25h
+bmQvcmF3L3MzYzI0MTAuYyAgICAgICAgICAgICAgICB8ICAgNiArLQogZHJpdmVycy9tdGQvbmFu
+ZC9yYXcvc3RtMzJfZm1jMl9uYW5kLmMgICAgICAgIHwgICA2ICstCiBkcml2ZXJzL210ZC9uYW5k
+L3Jhdy9zdW54aV9uYW5kLmMgICAgICAgICAgICAgfCAgIDYgKy0KIGRyaXZlcnMvbXRkL25hbmQv
+cmF3L3RhbmdvX25hbmQuYyAgICAgICAgICAgICB8ICAgNCArLQogZHJpdmVycy9tdGQvbmFuZC9y
+YXcvdGVncmFfbmFuZC5jICAgICAgICAgICAgIHwgICA2ICstCiBpbmNsdWRlL2xpbnV4L210ZC9y
+YXduYW5kLmggICAgICAgICAgICAgICAgICAgfCAyNzAgKysrKysrKysrLS0tLS0tLS0tCiAyNyBm
+aWxlcyBjaGFuZ2VkLCA1NzkgaW5zZXJ0aW9ucygrKSwgMzg4IGRlbGV0aW9ucygtKQoKLS0gCjIu
+MjAuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJh
+ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
