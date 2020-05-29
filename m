@@ -2,58 +2,98 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D4D331E7E7E
-	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 15:19:28 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 174F51E82BB
+	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 18:00:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K7wsBaMGN+1O3MAKm+lY1Av7yNh2uXpSrt3oUxu6Yw0=; b=Ee/GGX6K4fzN0y
-	0EfCKUok0gmQdZ0B+97EDTBTXod3zBH3tg400e5lVfYUvbyu7NtniZFmWI3+cEXttnb5zuIAo/6BG
-	YzUrAutfGxvsayb22sqixLfZ4vAI+hUXQTnrL8OdrwQAJRnPRt4PUXhoe1hSxiQzUT8QcTF1zSVvm
-	0x9dKKriM8wr561moObacAHc+EOnuTaRxiNyOUFcB1K71QiQmjUoROjM1wbIu/RA+epDTjSm2WgHQ
-	OnGxocn3p/ouFM6DNPBjnW+HTA38JGIn0FjQhp2YCUBZ9mYwhbs+ohR2ejg0yvXq5W+iFffzmz9+g
-	osUmtKpETuCTk0mZNNDQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=OARtM95H7wbzem2HNxxgAQ9lZVLvD9mEGif2pVad7Rw=; b=vCH
+	7OHtLdQPU82zVHMhAWezUv6rE86i0HWdD5BRDBQyERzvR3PF2ZmGnbQ3yTnnvxA+Y849J+jivjuAz
+	VNhdmX7zzDIMY8puNaPmAW2M5+5PN3nwefRWZXkGc13a9SEEGzJM7KipTSv4DiLhP8m1RzP2FBEFP
+	6IAZV3DFbaJptEqc2sDeutMyQPfteC1i6/SsWDOG1ucwnBai7NCp/Jb7223ELjCQUzuyVBD+aiIX9
+	ltrn4wZ0P8E0+xxeFKXKrS0WTlLffSyR0IvF79upJ09BT9yN5qvh0UYXgkHj88xNIs/In3KBhMmRe
+	7WIG5sRVULlY5jg1+zovLv9cEkreKlg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jeeuv-0003ms-3z; Fri, 29 May 2020 13:19:21 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jehQh-0000Oy-VR; Fri, 29 May 2020 16:00:19 +0000
+Received: from mail-wr1-x441.google.com ([2a00:1450:4864:20::441])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jees0-0001Hm-Ch; Fri, 29 May 2020 13:16:23 +0000
-X-Originating-IP: 91.224.148.103
-Received: from localhost.localdomain (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id D6E5CFF818;
- Fri, 29 May 2020 13:16:16 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- <linux-mtd@lists.infradead.org>, Rob Herring <robh+dt@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, <devicetree@vger.kernel.org>
-Subject: [PATCH v8 5/5] mtd: rawnand: Move the user input parsing bits to the
- ECC framework
-Date: Fri, 29 May 2020 15:16:02 +0200
-Message-Id: <20200529131602.21532-6-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200529131602.21532-1-miquel.raynal@bootlin.com>
-References: <20200529131602.21532-1-miquel.raynal@bootlin.com>
+ id 1jehQL-0000OK-SG
+ for linux-mtd@lists.infradead.org; Fri, 29 May 2020 15:59:59 +0000
+Received: by mail-wr1-x441.google.com with SMTP id t18so4258622wru.6
+ for <linux-mtd@lists.infradead.org>; Fri, 29 May 2020 08:59:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:from:date:message-id:subject:to
+ :content-transfer-encoding;
+ bh=jPExNZM3mmX+1Ih8VVxmCh7AFIrM8pkRXK2ZyryZhKI=;
+ b=W/kf/0RA50wsUdcUqjkxfAgcEyK/vPduJ7PaG6dog01b3p/iv016KPI+BcdZRp8i6e
+ o0pdaCgNBNv5VewNcYy93nodAxddc3UO1Ay+Bc3lH/xVIGHUdIcDZOd5ObBsJYXDyqIu
+ stwUQ1WFHS873G8WuRdWGJ0SDXG8WW5hTjIwkdXlElsv1cEXpbKc3G5kmBJm+Nsa8W5Z
+ LxovpUr/FKo/SPnpGhVMJOu4H4yBLcq9EBIC9+Jjc9CChk1BXoSRK93q3iT5XsgCgOO0
+ UlUt+CBbzmo0oHh9Hl0ThmBDe1hDRV+RlxCT1YcjPtCyH8BRrWKuWtyahk88gsDkaY+2
+ 6R1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to
+ :content-transfer-encoding;
+ bh=jPExNZM3mmX+1Ih8VVxmCh7AFIrM8pkRXK2ZyryZhKI=;
+ b=DMg0+/amdI/IV/BvBqkfDYE97KmfONDsjo2cTrvr+CBQ/AhodjsMhGYolJOLuwKPI3
+ qulj1fn8eVs2o1OtnOaIEPcdcaPCiNX/lK/hJGcKpPrU/eryxhICOVyP2JoJ1nZ6l9Ah
+ N8blHmqjZEzAZwLNVcqbT/pijNZBPpGaWm2YvXCfD6+CpQFsRxxPsXvX56/yqeu7PFaD
+ 9DxQt5DVY/+tYWvY1RcZAh4Cdk0aB3Vlm9l65JiW3hrB+HwEZfeB852ygcrXzoKOozqs
+ I8v9LlWQPgzANb5jVeGeH6/2mO2MTrm+MENumfSDe8mFQU3VhSxsxg/Dzdq9AlQjMoru
+ 02mw==
+X-Gm-Message-State: AOAM530W8itW/nvCeI7vVaiwM8ODSG9zzOA+0j117aj3xNhBC9jpQ3q8
+ QrNa+5nCloskyeMYzFKW+skRnF+9gHEz1wkD3QI=
+X-Google-Smtp-Source: ABdhPJwixhDXU5R0m3mEo1A3b04+x/807HxN4wYeI9e0++4jrX9MdqoKgY7faqni8qgrD+kx8BSKk6qeBCtzDB/Ng58=
+X-Received: by 2002:a05:6000:1202:: with SMTP id
+ e2mr8966662wrx.231.1590767995405; 
+ Fri, 29 May 2020 08:59:55 -0700 (PDT)
 MIME-Version: 1.0
+Received: by 2002:adf:f3c7:0:0:0:0:0 with HTTP; Fri, 29 May 2020 08:59:54
+ -0700 (PDT)
+From: baco uche <bankbankb38@gmail.com>
+Date: Fri, 29 May 2020 16:59:54 +0100
+Message-ID: <CAHJX93Yj_BsbaNt13GjiD0_FvLMTUkdFh52irX7tw27g4rVSUQ@mail.gmail.com>
+Subject: Eid Mubarak,
+To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200529_061620_719094_72F2F28E 
-X-CRM114-Status: GOOD (  21.07  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200529_085957_928978_2EA1BDC7 
+X-CRM114-Status: UNSURE (  -4.23  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 3.5 (+++)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (3.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.199 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:441 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [bankbankb38[at]gmail.com]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [bankbankb38[at]gmail.com]
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.5 HK_SCAM                No description available.
+ 0.0 LOTS_OF_MONEY          Huge... sums of money
+ 1.0 FREEMAIL_REPLY         From and body contain different freemails
+ 0.0 XFER_LOTSA_MONEY       Transfer a lot of money
+ 0.0 T_MONEY_PERCENT        X% of a lot of money for you
+ 0.0 FILL_THIS_FORM         Fill in a form with personal information
+ 2.0 FILL_THIS_FORM_LONG    Fill in a form with personal information
+ 0.0 MONEY_FRAUD_8          Lots of money and very many fraud phrases
+ 0.0 FORM_FRAUD_5           Fill a form and many fraud phrases
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,575 +105,33 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Julien Su <juliensu@mxic.com.tw>, Weijie Gao <weijie.gao@mediatek.com>,
- Paul Cercueil <paul@crapouillou.net>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Mason Yang <masonccyang@mxic.com.tw>, Chuanhong Guo <gch981213@gmail.com>,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Many helpers are generic to all NAND chips, they should not be
-restricted to be only used by raw NAND controller drivers. They might
-later be used by generic ECC engines and SPI-NAND devices as well so
-move them into a more generic place.
-
-To avoid moving all the raw NAND core "history" into the generic NAND
-layer, we already moved certain bits into legacy helpers in the raw
-NAND core to ensure backward compatibility.
-
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/nand/ecc.c                       | 138 +++++++++++++++++
- drivers/mtd/nand/raw/atmel/nand-controller.c |   3 +-
- drivers/mtd/nand/raw/denali.c                |   3 +
- drivers/mtd/nand/raw/nand_base.c             | 150 ++-----------------
- drivers/mtd/nand/raw/sunxi_nand.c            |   3 +-
- drivers/mtd/nand/raw/tegra_nand.c            |   5 +-
- include/linux/mtd/nand.h                     |   7 +
- include/linux/mtd/rawnand.h                  |   1 -
- 8 files changed, 166 insertions(+), 144 deletions(-)
-
-diff --git a/drivers/mtd/nand/ecc.c b/drivers/mtd/nand/ecc.c
-index ad08a047dfc5..1ac7aaa6c6c2 100644
---- a/drivers/mtd/nand/ecc.c
-+++ b/drivers/mtd/nand/ecc.c
-@@ -328,6 +328,144 @@ const struct mtd_ooblayout_ops *nand_get_large_page_hamming_ooblayout(void)
- }
- EXPORT_SYMBOL_GPL(nand_get_large_page_hamming_ooblayout);
- 
-+static enum nand_ecc_engine_type
-+of_get_nand_ecc_engine_type(struct device_node *np)
-+{
-+	return NAND_ECC_ENGINE_TYPE_INVALID;
-+}
-+
-+static const char * const nand_ecc_placement[] = {
-+	[NAND_ECC_PLACEMENT_OOB] = "oob",
-+	[NAND_ECC_PLACEMENT_INTERLEAVED] = "interleaved",
-+};
-+
-+enum nand_ecc_placement of_get_nand_ecc_placement(struct device_node *np)
-+{
-+	enum nand_ecc_placement placement;
-+	const char *pm;
-+	int err;
-+
-+	err = of_property_read_string(np, "nand-ecc-placement", &pm);
-+	if (!err) {
-+		for (placement = NAND_ECC_PLACEMENT_OOB;
-+		     placement < ARRAY_SIZE(nand_ecc_placement); placement++) {
-+			if (!strcasecmp(pm, nand_ecc_placement[placement]))
-+				return placement;
-+		}
-+	}
-+
-+	return NAND_ECC_PLACEMENT_UNKNOWN;
-+}
-+
-+static const char * const nand_ecc_algos[] = {
-+	[NAND_ECC_ALGO_HAMMING]	= "hamming",
-+	[NAND_ECC_ALGO_BCH]	= "bch",
-+	[NAND_ECC_ALGO_RS]	= "rs",
-+};
-+
-+static enum nand_ecc_algo of_get_nand_ecc_algo(struct device_node *np)
-+{
-+	enum nand_ecc_algo ecc_algo;
-+	const char *pm;
-+	int err;
-+
-+	err = of_property_read_string(np, "nand-ecc-algo", &pm);
-+	if (!err) {
-+		for (ecc_algo = NAND_ECC_ALGO_HAMMING;
-+		     ecc_algo < ARRAY_SIZE(nand_ecc_algos);
-+		     ecc_algo++) {
-+			if (!strcasecmp(pm, nand_ecc_algos[ecc_algo]))
-+				return ecc_algo;
-+		}
-+	}
-+
-+	return NAND_ECC_ALGO_UNKNOWN;
-+}
-+
-+static int of_get_nand_ecc_step_size(struct device_node *np)
-+{
-+	int ret;
-+	u32 val;
-+
-+	ret = of_property_read_u32(np, "nand-ecc-step-size", &val);
-+	return ret ? ret : val;
-+}
-+
-+static int of_get_nand_ecc_strength(struct device_node *np)
-+{
-+	int ret;
-+	u32 val;
-+
-+	ret = of_property_read_u32(np, "nand-ecc-strength", &val);
-+	return ret ? ret : val;
-+}
-+
-+static inline bool of_get_nand_ecc_maximize(struct device_node *np)
-+{
-+	return of_property_read_bool(np, "nand-ecc-maximize");
-+}
-+
-+void nand_ecc_read_user_conf(struct nand_device *nand)
-+{
-+	struct device_node *dn = nanddev_get_of_node(nand);
-+	int strength, size;
-+
-+	nand->ecc.user_conf.engine_type = of_get_nand_ecc_engine_type(dn);
-+	nand->ecc.user_conf.algo = of_get_nand_ecc_algo(dn);
-+	nand->ecc.user_conf.placement = of_get_nand_ecc_placement(dn);
-+
-+	strength = of_get_nand_ecc_strength(dn);
-+	if (strength >= 0)
-+		nand->ecc.user_conf.strength = strength;
-+
-+	size = of_get_nand_ecc_step_size(dn);
-+	if (size >= 0)
-+		nand->ecc.user_conf.step_size = size;
-+
-+	if (of_get_nand_ecc_maximize(dn))
-+		nand->ecc.user_conf.flags |= NAND_ECC_MAXIMIZE;
-+}
-+EXPORT_SYMBOL(nand_ecc_read_user_conf);
-+
-+/**
-+ * nand_ecc_correction_is_enough - Check if the chip configuration meets the
-+ *                                 datasheet requirements.
-+ *
-+ * @nand: Device to check
-+ *
-+ * If our configuration corrects A bits per B bytes and the minimum
-+ * required correction level is X bits per Y bytes, then we must ensure
-+ * both of the following are true:
-+ *
-+ * (1) A / B >= X / Y
-+ * (2) A >= X
-+ *
-+ * Requirement (1) ensures we can correct for the required bitflip density.
-+ * Requirement (2) ensures we can correct even when all bitflips are clumped
-+ * in the same sector.
-+ */
-+bool nand_ecc_correction_is_enough(struct nand_device *nand)
-+{
-+	const struct nand_ecc_props *reqs = nanddev_get_ecc_requirements(nand);
-+	const struct nand_ecc_props *conf = nanddev_get_ecc_conf(nand);
-+	struct mtd_info *mtd = nanddev_to_mtd(nand);
-+	int corr, ds_corr;
-+
-+	if (conf->step_size == 0 || reqs->step_size == 0)
-+		/* Not enough information */
-+		return true;
-+
-+	/*
-+	 * We get the number of corrected bits per page to compare
-+	 * the correction density.
-+	 */
-+	corr = (mtd->writesize * conf->strength) / conf->step_size;
-+	ds_corr = (mtd->writesize * reqs->strength) / reqs->step_size;
-+
-+	return corr >= ds_corr && conf->strength >= reqs->strength;
-+}
-+EXPORT_SYMBOL(nand_ecc_correction_is_enough);
-+
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Miquel Raynal <miquel.raynal@bootlin.com>");
- MODULE_DESCRIPTION("Generic ECC engine");
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 08df7f23b859..39d8fe15b8ab 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -1046,6 +1046,7 @@ static int atmel_nand_pmecc_init(struct nand_chip *chip)
- 	const struct nand_ecc_props *requirements =
- 		nanddev_get_ecc_requirements(&chip->base);
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct atmel_nand_controller *nc;
- 	struct atmel_pmecc_user_req req;
-@@ -1070,7 +1071,7 @@ static int atmel_nand_pmecc_init(struct nand_chip *chip)
- 			chip->ecc.size = val;
- 	}
- 
--	if (chip->ecc.options & NAND_ECC_MAXIMIZE)
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE)
- 		req.ecc.strength = ATMEL_PMECC_MAXIMIZE_ECC_STRENGTH;
- 	else if (chip->ecc.strength)
- 		req.ecc.strength = chip->ecc.strength;
-diff --git a/drivers/mtd/nand/raw/denali.c b/drivers/mtd/nand/raw/denali.c
-index a6a6464974ec..51bc014ebc0a 100644
---- a/drivers/mtd/nand/raw/denali.c
-+++ b/drivers/mtd/nand/raw/denali.c
-@@ -1181,6 +1181,7 @@ int denali_chip_init(struct denali_controller *denali,
- {
- 	struct nand_chip *chip = &dchip->chip;
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct denali_chip *dchip2;
- 	int i, j, ret;
- 
-@@ -1248,6 +1249,8 @@ int denali_chip_init(struct denali_controller *denali,
- 
- 	mtd_set_ooblayout(mtd, &denali_ooblayout_ops);
- 
-+	nanddev->ecc.user_conf.flags |= NAND_ECC_MAXIMIZE;
-+
- 	ret = nand_scan(chip, dchip->nsels);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index afc3506468ba..036e88cb52a1 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -4854,17 +4854,6 @@ static int nand_detect(struct nand_chip *chip, struct nand_flash_dev *type)
- 	return ret;
- }
- 
--static const char * const nand_ecc_placement[] = {
--	[NAND_ECC_PLACEMENT_OOB] = "oob",
--	[NAND_ECC_PLACEMENT_INTERLEAVED] = "interleaved",
--};
--
--static enum nand_ecc_engine_type
--of_get_nand_ecc_engine_type(struct device_node *np)
--{
--	return NAND_ECC_ENGINE_TYPE_INVALID;
--}
--
- static enum nand_ecc_engine_type
- of_get_rawnand_ecc_engine_type_legacy(struct device_node *np)
- {
-@@ -4916,24 +4905,6 @@ of_get_rawnand_ecc_engine_type_legacy(struct device_node *np)
- 	return NAND_ECC_ENGINE_TYPE_INVALID;
- }
- 
--enum nand_ecc_placement of_get_nand_ecc_placement(struct device_node *np)
--{
--	enum nand_ecc_placement placement;
--	const char *pm;
--	int err;
--
--	err = of_property_read_string(np, "nand-ecc-placement", &pm);
--	if (!err) {
--		for (placement = NAND_ECC_PLACEMENT_OOB;
--		     placement < ARRAY_SIZE(nand_ecc_placement); placement++) {
--			if (!strcasecmp(pm, nand_ecc_placement[placement]))
--				return placement;
--		}
--	}
--
--	return NAND_ECC_PLACEMENT_UNKNOWN;
--}
--
- enum nand_ecc_placement
- of_get_rawnand_ecc_placement_legacy(struct device_node *np)
- {
-@@ -4949,31 +4920,6 @@ of_get_rawnand_ecc_placement_legacy(struct device_node *np)
- 	return NAND_ECC_PLACEMENT_UNKNOWN;
- }
- 
--static const char * const nand_ecc_algos[] = {
--	[NAND_ECC_ALGO_HAMMING]	= "hamming",
--	[NAND_ECC_ALGO_BCH]	= "bch",
--	[NAND_ECC_ALGO_RS]	= "rs",
--};
--
--static enum nand_ecc_algo of_get_nand_ecc_algo(struct device_node *np)
--{
--	enum nand_ecc_algo ecc_algo;
--	const char *pm;
--	int err;
--
--	err = of_property_read_string(np, "nand-ecc-algo", &pm);
--	if (!err) {
--		for (ecc_algo = NAND_ECC_ALGO_HAMMING;
--		     ecc_algo < ARRAY_SIZE(nand_ecc_algos);
--		     ecc_algo++) {
--			if (!strcasecmp(pm, nand_ecc_algos[ecc_algo]))
--				return ecc_algo;
--		}
--	}
--
--	return NAND_ECC_ALGO_UNKNOWN;
--}
--
- static enum nand_ecc_algo of_get_rawnand_ecc_algo_legacy(struct device_node *np)
- {
- 	const char *pm;
-@@ -4990,48 +4936,10 @@ static enum nand_ecc_algo of_get_rawnand_ecc_algo_legacy(struct device_node *np)
- 	return NAND_ECC_ALGO_UNKNOWN;
- }
- 
--static int of_get_nand_ecc_step_size(struct device_node *np)
--{
--	int ret;
--	u32 val;
--
--	ret = of_property_read_u32(np, "nand-ecc-step-size", &val);
--	return ret ? ret : val;
--}
--
--static int of_get_nand_ecc_strength(struct device_node *np)
--{
--	int ret;
--	u32 val;
--
--	ret = of_property_read_u32(np, "nand-ecc-strength", &val);
--	return ret ? ret : val;
--}
--
--static void nand_ecc_read_user_conf(struct nand_chip *chip)
--{
--	struct device_node *dn = nand_get_flash_node(chip);
--	struct nand_device *nand = &chip->base;
--	int strength, size;
--
--	nand->ecc.user_conf.engine_type = of_get_nand_ecc_engine_type(dn);
--	nand->ecc.user_conf.algo = of_get_nand_ecc_algo(dn);
--	nand->ecc.user_conf.placement = of_get_nand_ecc_placement(dn);
--
--	strength = of_get_nand_ecc_strength(dn);
--	if (strength >= 0)
--		nand->ecc.user_conf.strength = strength;
--
--	size = of_get_nand_ecc_step_size(dn);
--	if (size >= 0)
--		nand->ecc.user_conf.step_size = size;
--}
--
- static void rawnand_ecc_read_legacy_user_conf(struct nand_chip *chip)
- {
- 	struct device_node *dn = nand_get_flash_node(chip);
--	struct nand_device *nand = &chip->base;
--	struct nand_ecc_props *user_conf = &nand->ecc.user_conf;
-+	struct nand_ecc_props *user_conf = &chip->base.ecc.user_conf;
- 
- 	if (user_conf->engine_type != NAND_ECC_ENGINE_TYPE_INVALID)
- 		user_conf->engine_type = of_get_rawnand_ecc_engine_type_legacy(dn);
-@@ -5081,10 +4989,7 @@ static int rawnand_dt_init(struct nand_chip *chip)
- 	if (of_get_nand_on_flash_bbt(dn))
- 		chip->bbt_options |= NAND_BBT_USE_FLASH;
- 
--	if (of_property_read_bool(dn, "nand-ecc-maximize"))
--		chip->ecc.options |= NAND_ECC_MAXIMIZE;
--
--	nand_ecc_read_user_conf(chip);
-+	nand_ecc_read_user_conf(nand);
- 	rawnand_ecc_read_legacy_user_conf(chip);
- 
- 	/*
-@@ -5214,6 +5119,7 @@ static void nand_scan_ident_cleanup(struct nand_chip *chip)
- static int nand_set_ecc_soft_ops(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct nand_ecc_ctrl *ecc = &chip->ecc;
- 
- 	if (WARN_ON(ecc->engine_type != NAND_ECC_ENGINE_TYPE_SOFT))
-@@ -5289,7 +5195,7 @@ static int nand_set_ecc_soft_ops(struct nand_chip *chip)
- 		 * used.
- 		 */
- 		if (mtd->ooblayout == nand_get_large_page_ooblayout() &&
--		    ecc->options & NAND_ECC_MAXIMIZE) {
-+		    nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE) {
- 			int steps, bytes;
- 
- 			/* Always prefer 1k blocks over 512bytes ones */
-@@ -5529,11 +5435,12 @@ nand_maximize_ecc(struct nand_chip *chip,
-  * @caps: ECC engine caps info structure
-  * @oobavail: OOB size that the ECC engine can use
-  *
-- * Choose the ECC configuration according to following logic
-+ * Choose the ECC configuration according to following logic.
-  *
-  * 1. If both ECC step size and ECC strength are already set (usually by DT)
-  *    then check if it is supported by this controller.
-- * 2. If NAND_ECC_MAXIMIZE is set, then select maximum ECC strength.
-+ * 2. If the user provided the nand-ecc-maximize property, then select maximum
-+ *    ECC strength.
-  * 3. Otherwise, try to match the ECC step size and ECC strength closest
-  *    to the chip's requirement. If available OOB size can't fit the chip
-  *    requirement then fallback to the maximum ECC step size and ECC strength.
-@@ -5544,6 +5451,7 @@ int nand_ecc_choose_conf(struct nand_chip *chip,
- 			 const struct nand_ecc_caps *caps, int oobavail)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 
- 	if (WARN_ON(oobavail < 0 || oobavail > mtd->oobsize))
- 		return -EINVAL;
-@@ -5551,7 +5459,7 @@ int nand_ecc_choose_conf(struct nand_chip *chip,
- 	if (chip->ecc.size && chip->ecc.strength)
- 		return nand_check_ecc_caps(chip, caps, oobavail);
- 
--	if (chip->ecc.options & NAND_ECC_MAXIMIZE)
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE)
- 		return nand_maximize_ecc(chip, caps, oobavail);
- 
- 	if (!nand_match_ecc_req(chip, caps, oobavail))
-@@ -5561,43 +5469,6 @@ int nand_ecc_choose_conf(struct nand_chip *chip,
- }
- EXPORT_SYMBOL_GPL(nand_ecc_choose_conf);
- 
--/*
-- * Check if the chip configuration meet the datasheet requirements.
--
-- * If our configuration corrects A bits per B bytes and the minimum
-- * required correction level is X bits per Y bytes, then we must ensure
-- * both of the following are true:
-- *
-- * (1) A / B >= X / Y
-- * (2) A >= X
-- *
-- * Requirement (1) ensures we can correct for the required bitflip density.
-- * Requirement (2) ensures we can correct even when all bitflips are clumped
-- * in the same sector.
-- */
--static bool nand_ecc_strength_good(struct nand_chip *chip)
--{
--	struct mtd_info *mtd = nand_to_mtd(chip);
--	struct nand_ecc_ctrl *ecc = &chip->ecc;
--	const struct nand_ecc_props *requirements =
--		nanddev_get_ecc_requirements(&chip->base);
--	int corr, ds_corr;
--
--	if (ecc->size == 0 || requirements->step_size == 0)
--		/* Not enough information */
--		return true;
--
--	/*
--	 * We get the number of corrected bits per page to compare
--	 * the correction density.
--	 */
--	corr = (mtd->writesize * ecc->strength) / ecc->size;
--	ds_corr = (mtd->writesize * requirements->strength) /
--		  requirements->step_size;
--
--	return corr >= ds_corr && ecc->strength >= requirements->strength;
--}
--
- static int rawnand_erase(struct nand_device *nand, const struct nand_pos *pos)
- {
- 	struct nand_chip *chip = container_of(nand, struct nand_chip,
-@@ -5653,6 +5524,7 @@ static const struct nand_ops rawnand_ops = {
- static int nand_scan_tail(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct nand_ecc_ctrl *ecc = &chip->ecc;
- 	int ret, i;
- 
-@@ -5880,7 +5752,7 @@ static int nand_scan_tail(struct nand_chip *chip)
- 	mtd->oobavail = ret;
- 
- 	/* ECC sanity check: warn if it's too weak */
--	if (!nand_ecc_strength_good(chip))
-+	if (!nand_ecc_correction_is_enough(nanddev))
- 		pr_warn("WARNING: %s: the ECC used on your system (%db/%dB) is too weak compared to the one required by the NAND chip (%db/%dB)\n",
- 			mtd->name,
- 			nanddev_get_ecc_conf(&chip->base)->strength,
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 490ba485e939..f863fabb8610 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1609,12 +1609,13 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 	static const u8 strengths[] = { 16, 24, 28, 32, 40, 48, 56, 60, 64 };
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	struct mtd_info *mtd = nand_to_mtd(nand);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct sunxi_nand_hw_ecc *data;
- 	int nsectors;
- 	int ret;
- 	int i;
- 
--	if (ecc->options & NAND_ECC_MAXIMIZE) {
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE) {
- 		int bytes;
- 
- 		ecc->size = 1024;
-diff --git a/drivers/mtd/nand/raw/tegra_nand.c b/drivers/mtd/nand/raw/tegra_nand.c
-index fecdb7e8f9e8..1267e7529ca2 100644
---- a/drivers/mtd/nand/raw/tegra_nand.c
-+++ b/drivers/mtd/nand/raw/tegra_nand.c
-@@ -840,9 +840,10 @@ static int tegra_nand_get_strength(struct nand_chip *chip, const int *strength,
- 				   int strength_len, int bits_per_step,
- 				   int oobsize)
- {
-+	struct nand_device *base = mtd_to_nanddev(nand_to_mtd(chip));
- 	const struct nand_ecc_props *requirements =
--		nanddev_get_ecc_requirements(&chip->base);
--	bool maximize = chip->ecc.options & NAND_ECC_MAXIMIZE;
-+		nanddev_get_ecc_requirements(base);
-+	bool maximize = base->ecc.user_conf.flags & NAND_ECC_MAXIMIZE;
- 	int i;
- 
- 	/*
-diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
-index 77757aabeba2..3484374fb0cd 100644
---- a/include/linux/mtd/nand.h
-+++ b/include/linux/mtd/nand.h
-@@ -182,6 +182,7 @@ enum nand_ecc_algo {
-  * @algo: ECC algorithm (if relevant)
-  * @strength: ECC strength
-  * @step_size: Number of bytes per step
-+ * @flags: Misc properties
-  */
- struct nand_ecc_props {
- 	enum nand_ecc_engine_type engine_type;
-@@ -189,10 +190,14 @@ struct nand_ecc_props {
- 	enum nand_ecc_algo algo;
- 	unsigned int strength;
- 	unsigned int step_size;
-+	unsigned int flags;
- };
- 
- #define NAND_ECCREQ(str, stp) { .strength = (str), .step_size = (stp) }
- 
-+/* NAND ECC misc flags */
-+#define NAND_ECC_MAXIMIZE BIT(0)
-+
- /**
-  * struct nand_bbt - bad block table object
-  * @cache: in memory BBT cache
-@@ -264,12 +269,14 @@ struct nand_ecc_engine {
- 	struct nand_ecc_engine_ops *ops;
- };
- 
-+void nand_ecc_read_user_conf(struct nand_device *nand);
- int nand_ecc_init_ctx(struct nand_device *nand);
- void nand_ecc_cleanup_ctx(struct nand_device *nand);
- int nand_ecc_prepare_io_req(struct nand_device *nand,
- 			    struct nand_page_io_req *req);
- int nand_ecc_finish_io_req(struct nand_device *nand,
- 			   struct nand_page_io_req *req);
-+bool nand_ecc_correction_is_enough(struct nand_device *nand);
- 
- /**
-  * struct nand_ecc - Information relative to the ECC
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 66f69a1d27a5..9d69fa6608ae 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -98,7 +98,6 @@ struct nand_chip;
-  * pages and you want to rely on the default implementation.
-  */
- #define NAND_ECC_GENERIC_ERASED_CHECK	BIT(0)
--#define NAND_ECC_MAXIMIZE		BIT(1)
- 
- /*
-  * Option constants for bizarre disfunctionality and real
--- 
-2.20.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+QXNzYWxhbSBhbGFpa3VtLAoKSSBhbSBhbiBhY3RpdmUgYmFua2VyLCAgSSBzYXcgeW91ciBlbWFp
+bCBhZGRyZXNzIHdoaWxlIGJyb3dzaW5nCnRocm91Z2ggdGhlIGJhbmsgRFRDIFNjcmVlbiBpbiBt
+eSBvZmZpY2UgeWVzdGVyZGF5LiBub3cgIEkgYW0gaW4gYQpiZXR0ZXIgcG9zaXRpb24gdG8gdHJh
+bnNmZXIgYWJvdXQgJDguMyBtaWxsaW9uIFVTIERvbGxhcnMgaW50byBhCmZvcmVpZ24gYWNjb3Vu
+dC4gSWYgeW91IGFyZSB3aWxsaW5nIGFuZCBjYXBhYmxlIHRvIHdvcmsgd2l0aCBtZSB0bwpyZWNl
+aXZlIHRoaXMgZnVuZCBpbnRvIGEgcGVyc29uYWwgb3IgY29tcGFueSdzIGFjY291bnQsIEkgd2ls
+bCBnaXZlCnlvdSB0aGUgZnVsbCBkZXRhaWxlZCBpbmZvcm1hdGlvbi4gTm8gcmlzayBpcyBpbnZv
+bHZlZCBhcyBpdCB3aWxsIHBhc3MKdGhyb3VnaCBub3JtYWwgYmFua2luZyBwcm9jZWR1cmVzLgoK
+SGVuY2UsIEkgYW0gaW52aXRpbmcgeW91IGZvciBhIGJ1c2luZXNzIGRlYWwgd2hlcmUgdGhpcyBt
+b25leSBjYW4gYmUKdHJhbnNmZXIgdG8geW91ciBhY2NvdW50IHdoaWNoIHdlIHdpbGwgc2hhcmVk
+IGJldHdlZW4gdXMgaW4gdGhlIHJhdGlvCm9mIDUwJSBmb3IgbWUsNTAlIGZvciB5b3UgYW5kIGJv
+dGggb2YgdXMgd2lsbCBzaGFyZSBhbnkgZXhwZW5zZXMgdGhhdAp3aWxsIGNvbWUgZHVyaW5nIHRo
+ZSByZWxlYXNlL3RyYW5zZmVyIGZyb20gb3VyIGJhbmssIGlmIHlvdSBhZ3JlZSB0bwpteSBidXNp
+bmVzcyBwcm9wb3NhbC4gRnVydGhlciBkZXRhaWxzIG9mIHRoaXMgRnVuZCByZWxlYXNlIGFuZAp0
+cmFuc2ZlciB3aWxsIGJlIGZvcndhcmRlZCB0byB5b3UgYXMgc29vbiBhcyBJIHJlY2VpdmUgeW91
+ciBkZXRhaWwKTWFpbC4KCjEpWW91ciBGdWxsIE5hbWVzLiAoMilZb3VyIGNvdW50cnkuICgzKVlv
+dXIgVGVsZXBob25lCig0KVlvdXIgT2NjdXBhdGlvbiAuKDUpWW91ciBBZ2UuICg2KSBZb3VyIGZ1
+bGwgQWRkcmVzcy4KSSB3aWxsIHVzZSB0aGVzZSBkZXRhaWwgaW5mb3JtYXRpb27igJlzIHRvIGZp
+bGwgYSByZWxlYXNlL3RyYW5zZmVyIGFuZAphcnJhbmdlIHNvbWUgZG9jdW1lbnRzIG9uIHlvdXIg
+YmVoYWxmIGluIG91ciBiYW5rIGhlcmUgYXMgdGhlCmJlbmVmaWNpYXJ5IG93bmVyIG9mIHRoaXMg
+ZnVuZCBhYmFuZG9uZWQgaW4gb3VyIGJhbmsKClBsZWFzZSBjb250YWN0IG1lIHRocm91Z2ggbXkg
+cHJpdmF0ZSBFbWFpbDphbGhvdXR0dGFAZ21haWwuY29tCgpUaGFua3MKQWxoIElkcmlzcyBBa2lt
+IE91dHRhCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
