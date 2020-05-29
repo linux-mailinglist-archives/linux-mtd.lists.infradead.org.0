@@ -2,55 +2,59 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E51211E7969
-	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 11:26:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 785F01E796D
+	for <lists+linux-mtd@lfdr.de>; Fri, 29 May 2020 11:27:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hDYMYaYgsvoreOoLWZbb+sBhCDI0j1Bz/jHgnLy0eQU=; b=qxkYFiBWAqjQQi
-	cyCxW9cCsKX12wCu9V+/7CRhiSNiGCvoBUiSh8BBZyHaV0HxCB8QBIJa7WgeoO9r5o0OONJmZ8PmA
-	O0WtM48oIrBd7AMKv9FsEe4ZmTYuuQOmeP9IScvakkmNkEGXrJn7TkDYzzaZuVF2AuNxHuub9L8rq
-	rrHIwo7zyUeTKhZMreckBY6U7fTWEbLhxCzfId/DhhOkHOhTe378m1uYPi1Vd4oWlblh8pA1B49u8
-	ellBe5D4meT3xp6Z52WLT1VuXu7fVTlO3xnCHPEcd9WMwqqPEJA0a8hvERX2hTaO+3lHZK/xL2QeF
-	l1Eh2hfjiaV4zY0uPysQ==;
+	List-Owner; bh=eDVxeHsZ6qXR2YTICBbAaSPz9I+Dek7QrUnt6d795Nc=; b=iOoQfiq/vIscrO
+	8TDSyHn54PFJBIVwhHiqT5NmnSd9PdselWLu/Fd+4CCtHYQ25xytntG+fq6oKMLtW2cUm5T0C0OcG
+	YQC+YgOtVjG2sorXJLYoOQY0nMnQ6m5PgWBo6+tFn2x6IMTFprwTqb5qqjbEHjOM0LfCy/zPrxxLM
+	lDCYT5PtwZaZs6cacpKcV6Z2Tp/ubihs60w29vdzrHV1FqvZIkkGPWre0aniuhbTRbQbKrh2rSrAU
+	33K9HEiI5o4sPWnRyl6tF75TrLtBVsbqitr6zfHl0UFNmdkaCLS4Ur01jLK9KO2itaH9y45WhCStw
+	PpWXrnNFcnNDxzHqujvA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jebHZ-0001mF-QM; Fri, 29 May 2020 09:26:29 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1jebIt-0002LE-G8; Fri, 29 May 2020 09:27:51 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jebGV-00014X-HX; Fri, 29 May 2020 09:25:25 +0000
+ id 1jebIm-0002Kr-1D
+ for linux-mtd@lists.infradead.org; Fri, 29 May 2020 09:27:45 +0000
+X-Originating-IP: 91.224.148.103
 Received: from xps13 (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id A274C240005;
- Fri, 29 May 2020 09:25:16 +0000 (UTC)
-Date: Fri, 29 May 2020 11:25:14 +0200
+ by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 56ABB2000E;
+ Fri, 29 May 2020 09:27:39 +0000 (UTC)
+Date: Fri, 29 May 2020 11:27:38 +0200
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH v7 16/20] mtd: nand: Convert generic NAND bits to use
- the ECC framework
-Message-ID: <20200529112514.0453904c@xps13>
-In-Reply-To: <20200529103222.18c5b89b@collabora.com>
-References: <20200529002517.3546-1-miquel.raynal@bootlin.com>
- <20200529002517.3546-17-miquel.raynal@bootlin.com>
- <20200529103222.18c5b89b@collabora.com>
+Subject: Re: [PATCH v6 19/30] mtd: rawnand: Define a unique reset interface
+ configuration
+Message-ID: <20200529112738.2f58858d@xps13>
+In-Reply-To: <20200529093205.626f36d9@collabora.com>
+References: <20200528231612.8958-1-miquel.raynal@bootlin.com>
+ <20200528231612.8958-20-miquel.raynal@bootlin.com>
+ <20200529093205.626f36d9@collabora.com>
 Organization: Bootlin
 X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200529_022523_752783_65C7E6BF 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20200529_022744_344243_60CE85E3 
+X-CRM114-Status: GOOD (  20.09  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.230 listed in list.dnswl.org]
+ low trust [217.70.183.200 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [217.70.183.200 listed in wl.mailspike.net]
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,14 +66,12 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+Cc: Rickard Andersson <rickaran@axis.com>, Michal Simek <monstr@monstr.eu>,
  Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
- Richard Weinberger <richard@nod.at>, Weijie Gao <weijie.gao@mediatek.com>,
- Paul Cercueil <paul@crapouillou.net>, Rob Herring <robh+dt@kernel.org>,
- linux-mtd@lists.infradead.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Mason Yang <masonccyang@mxic.com.tw>, Chuanhong Guo <gch981213@gmail.com>,
- linux-arm-kernel@lists.infradead.org
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Naga Sureshkumar Relli <nagasure@xilinx.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
@@ -77,53 +79,100 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 
 Boris Brezillon <boris.brezillon@collabora.com> wrote on Fri, 29 May
-2020 10:32:22 +0200:
+2020 09:32:05 +0200:
 
-> On Fri, 29 May 2020 02:25:13 +0200
+> On Fri, 29 May 2020 01:16:01 +0200
 > Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 > 
-> > Embed a generic NAND ECC high-level object in the nand_device
-> > structure to carry all the ECC engine configuration/data. Adapt the
-> > raw NAND and SPI-NAND cores to fit the change.  
-> 
-> In order to split that one, and make future re-organizations less
-> painful (hope we won't have to do that again, but who knows), I would
-> recommend doing things in this order:
-> 
-> 1/ create a nanddev_get_ecc_requirements() helper that returns a
->    const struct nand_ecc_props *
-> 2/ patch spinand to use this helper
-> 3/ introduce nand_ecc
-> 4/ patch rawnand to use the new ecc layer
-
-Sounds like a lot of efforts for a mechanical change to me. Not
-mentioning that the diff is pretty small now. But ok, I'll try.
-
-
+> > All NAND chips will always use the same interface configuration for
+> > reset and at startup: SDR mode 0. Instead of copying around the
+> > interface configuration, let's just define a helper to retrieve the
+> > reset interface configuration object.
 > > 
 > > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 > > ---
-> >  drivers/mtd/nand/raw/atmel/nand-controller.c |  9 +++--
-> >  drivers/mtd/nand/raw/brcmnand/brcmnand.c     |  7 ++--
-> >  drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c   | 12 +++---
-> >  drivers/mtd/nand/raw/marvell_nand.c          |  7 ++--
-> >  drivers/mtd/nand/raw/mtk_nand.c              |  4 +-
-> >  drivers/mtd/nand/raw/nand_base.c             | 25 ++++++------
-> >  drivers/mtd/nand/raw/nand_esmt.c             | 11 +++---
-> >  drivers/mtd/nand/raw/nand_hynix.c            | 41 ++++++++++----------
-> >  drivers/mtd/nand/raw/nand_jedec.c            |  4 +-
-> >  drivers/mtd/nand/raw/nand_micron.c           | 14 ++++---
-> >  drivers/mtd/nand/raw/nand_onfi.c             |  8 ++--
-> >  drivers/mtd/nand/raw/nand_samsung.c          | 19 ++++-----
-> >  drivers/mtd/nand/raw/nand_toshiba.c          | 11 +++---
-> >  drivers/mtd/nand/raw/sunxi_nand.c            |  5 ++-
-> >  drivers/mtd/nand/raw/tegra_nand.c            |  9 +++--
-> >  drivers/mtd/nand/spi/core.c                  |  8 ++--
-> >  drivers/mtd/nand/spi/macronix.c              |  6 +--
-> >  drivers/mtd/nand/spi/toshiba.c               |  6 +--
-> >  include/linux/mtd/nand.h                     |  8 ++--
-> >  19 files changed, 114 insertions(+), 100 deletions(-)
+> >  drivers/mtd/nand/raw/nand_base.c    | 10 +++-------
+> >  drivers/mtd/nand/raw/nand_timings.c |  6 ++++++
+> >  include/linux/mtd/rawnand.h         |  3 +++
+> >  3 files changed, 12 insertions(+), 7 deletions(-)
 > > 
+> > diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
+> > index 07a7d918b462..4a72ec221262 100644
+> > --- a/drivers/mtd/nand/raw/nand_base.c
+> > +++ b/drivers/mtd/nand/raw/nand_base.c
+> > @@ -928,9 +928,7 @@ static int nand_reset_interface(struct nand_chip *chip, int chipnr)
+> >  	 * timings to timing mode 0.
+> >  	 */
+> >  
+> > -	onfi_fill_interface_config(chip, &chip->interface_config,
+> > -				   NAND_SDR_IFACE, 0);
+> > -	ret = ops->setup_interface(chip, chipnr, &chip->interface_config);
+> > +	ret = ops->setup_interface(chip, chipnr, nand_get_reset_interface());
+> >  	if (ret)
+> >  		pr_err("Failed to configure data interface to SDR timing mode 0\n");
+> >  
+> > @@ -2483,7 +2481,6 @@ EXPORT_SYMBOL_GPL(nand_subop_get_data_len);
+> >   */
+> >  int nand_reset(struct nand_chip *chip, int chipnr)
+> >  {
+> > -	struct nand_interface_config saved_intf_config = chip->interface_config;
+> >  	int ret;
+> >  
+> >  	ret = nand_reset_interface(chip, chipnr);
+> > @@ -2508,11 +2505,10 @@ int nand_reset(struct nand_chip *chip, int chipnr)
+> >  	 * nand_setup_interface() uses ->set/get_features() which would
+> >  	 * fail anyway as the parameter page is not available yet.
+> >  	 */
+> > -	if (!memcmp(&chip->interface_config, &saved_intf_config,
+> > -		    sizeof(saved_intf_config)))
+> > +	if (!memcmp(&chip->interface_config, nand_get_reset_interface(),
+> > +		    sizeof(chip->interface_config)))
+> >  		return 0;
+> >  
+> > -	chip->interface_config = saved_intf_config;  
+> 
+> Are you sure you can do that now? Looks like the current interface
+> config is not preserved, and you end up with mode 0 after a reset.
+
+You're probably right, I'll move that to the patch handling
+interface_config pointers.
+
+> 
+> >  	ret = nand_setup_interface(chip, chipnr);
+> >  	if (ret)
+> >  		return ret;
+> > diff --git a/drivers/mtd/nand/raw/nand_timings.c b/drivers/mtd/nand/raw/nand_timings.c
+> > index 6c12cd52323d..0089196b9e36 100644
+> > --- a/drivers/mtd/nand/raw/nand_timings.c
+> > +++ b/drivers/mtd/nand/raw/nand_timings.c
+> > @@ -292,6 +292,12 @@ static const struct nand_interface_config onfi_sdr_timings[] = {
+> >  	},
+> >  };
+> >  
+> > +/* All NAND chips share the same reset data interface: SDR mode 0 */
+> > +const struct nand_interface_config *nand_get_reset_interface(void)
+> > +{
+> > +	return &onfi_sdr_timings[0];
+> > +}
+> > +
+> >  /**
+> >   * onfi_find_closest_sdr_mode - Derive the closest ONFI SDR timing mode given a
+> >   *                              set of timings
+> > diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
+> > index c2fcac38bcc2..b37eb5ee11c8 100644
+> > --- a/include/linux/mtd/rawnand.h
+> > +++ b/include/linux/mtd/rawnand.h
+> > @@ -1202,6 +1202,9 @@ static inline struct device_node *nand_get_flash_node(struct nand_chip *chip)
+> >  	return mtd_get_of_node(nand_to_mtd(chip));
+> >  }
+> >  
+> > +/* Default/reset data interface */
+> > +const struct nand_interface_config *nand_get_reset_interface(void);
+> > +
+> >  /*
+> >   * A helper for defining older NAND chips where the second ID byte fully
+> >   * defined the chip, including the geometry (chip size, eraseblock size, page  
+> 
 
 
 ______________________________________________________
