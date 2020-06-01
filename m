@@ -2,72 +2,75 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD7661E9F7E
-	for <lists+linux-mtd@lfdr.de>; Mon,  1 Jun 2020 09:50:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 77C521EA06D
+	for <lists+linux-mtd@lfdr.de>; Mon,  1 Jun 2020 10:59:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CYW0a7zvF0swbhCfj4arxdGuFHYcQPjrdl3K2/9/sA4=; b=dIfwWyhpyPgvTX
-	UJcrfstIuIsorUpMpp+/D4FBhHF4JHzn58ne1ocyOfceOtOstdyKxAajCYac1T9xH/dfIyZCdXU+B
-	8L8QwQp6bnPfcb1jvWbLTOCahSwZ6XXaUK7BogFe/o0KUKHPnJJdkXqPeYN+KfPHi+HOCdmhMavOL
-	UGr2nfaru2TuA5cfAiTXBGxY942XKTiHKDVEGs69XjM8sfcyoJmrPnNnS9vec3Y1Tin60Td/p8Fl+
-	m6iMFeA6RBazikzlpJ6B5RMFzk+XMmxwaIx2CaS7OyMmP4eTwpvB82v/6bi0Spk0JMpGJe51agvOe
-	mtPrYq6zndwpZgyx2Jpw==;
+	List-Owner; bh=uq+4FyaIvbfqgGzK1+p5gYKA110jH3VaFUGkaYK8BEI=; b=W/2dVUbJkOQnSb
+	blhJnS8SN8gBPsy94JzqXpokwD2+4najcYL5TdZkXVmN0q/lXnKcZyc65658kuc3yyl0jZsSHNadm
+	tIPBF9koL9UajUhVcC9G4De3WNxxLxkePgsUptGttM0YprFIph074jwMKFZ4ru1RBz23lN90qNA23
+	Wq+X401eZPSr2cqruEX7dpqS9Un4caquJiWGpaYmYNeNfoTHKj3DipOUEyBuwE9M4zc3L054OGt/c
+	iJ0lO5BWUqxpLTqWCQg7O7IEDRAtJP9gGxfy/4Qzt24ad2x4mBXMWu44NkUb/wQ8W3XkazNtQEI4O
+	m6BC98kY6zxCpUWw73LA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jffDN-0001Ur-6G; Mon, 01 Jun 2020 07:50:33 +0000
-Received: from us-smtp-delivery-1.mimecast.com ([207.211.31.120]
- helo=us-smtp-1.mimecast.com)
+	id 1jfgIF-00020h-PN; Mon, 01 Jun 2020 08:59:39 +0000
+Received: from lelv0143.ext.ti.com ([198.47.23.248])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jffDG-0001SQ-KD
- for linux-mtd@lists.infradead.org; Mon, 01 Jun 2020 07:50:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1590997819;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- in-reply-to:in-reply-to:references:references;
- bh=IuO46ycNz8mneB+aXPJm85h+RFJWz/TY+HoUCs4wBY8=;
- b=bXUhQiZjg4RExx35olI9uHu8hNZuI13hBU/j9ggN0PSiG7O3jDU3uBLDWAMjaROfkVmBOv
- c3mzkdqdgTZjJFZw4jt9pFXxnGgID6WOeJ8Z8nXy6wRlJBYo0Dxkot81NF1KBbBAzP/7qz
- 5GhTbk3820CzY5ca6vT4FYhgYW6paE0=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-167-5Kga0UcWNre1R3UidKM26A-1; Mon, 01 Jun 2020 03:50:13 -0400
-X-MC-Unique: 5Kga0UcWNre1R3UidKM26A-1
-Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com
- [10.5.11.15])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 42EB9100CCC2;
- Mon,  1 Jun 2020 07:50:12 +0000 (UTC)
-Received: from T590 (ovpn-13-152.pek2.redhat.com [10.72.13.152])
- by smtp.corp.redhat.com (Postfix) with ESMTPS id 0A29C78EA8;
- Mon,  1 Jun 2020 07:50:01 +0000 (UTC)
-Date: Mon, 1 Jun 2020 15:49:57 +0800
-From: Ming Lei <ming.lei@redhat.com>
-To: Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH] block: Flag elevators suitable for single queue
-Message-ID: <20200601074957.GE1181806@T590>
-References: <20200528081003.238804-1-linus.walleij@linaro.org>
+ id 1jfgHs-0001cl-0q; Mon, 01 Jun 2020 08:59:17 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+ by lelv0143.ext.ti.com (8.15.2/8.15.2) with ESMTP id 0518wsLQ099629;
+ Mon, 1 Jun 2020 03:58:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+ s=ti-com-17Q1; t=1591001934;
+ bh=lGlyZcBPTfIHV1CPcNrc05ZOhHwMY7+8yiwU4k+Xhg0=;
+ h=Date:From:To:CC:Subject:References:In-Reply-To;
+ b=m5Qq5qb7OFtWluux14ydZvYIB+t2mYHHOthas1jkOapNLeJlaFRvONQYEkz26llr9
+ EFGeFBlqJEAHl4OeX/VV2UTqZi5O9lrZ5mjMMnXcpcxzL+ItRg7yv/dVP7HVzsLlgO
+ BOIF2Pr24g5StH8GbC7rs1773ZevkHhWdx8O9Zzw=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+ by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 0518wsv0092753
+ (version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+ Mon, 1 Jun 2020 03:58:54 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Mon, 1 Jun
+ 2020 03:58:53 -0500
+Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
+ Frontend Transport; Mon, 1 Jun 2020 03:58:53 -0500
+Received: from localhost (ileax41-snat.itg.ti.com [10.172.224.153])
+ by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 0518wqOG104672;
+ Mon, 1 Jun 2020 03:58:53 -0500
+Date: Mon, 1 Jun 2020 14:28:52 +0530
+From: Pratyush Yadav <p.yadav@ti.com>
+To: <Tudor.Ambarus@microchip.com>
+Subject: Re: [PATCH v9 13/19] mtd: spi-nor: sfdp: do not make invalid quad
+ enable fatal
+Message-ID: <20200601085850.um32giucfcvh5oke@ti.com>
+References: <20200525091544.17270-1-p.yadav@ti.com>
+ <20200525091544.17270-14-p.yadav@ti.com>
+ <2267830.vuSd8QnXzO@192.168.0.120>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20200528081003.238804-1-linus.walleij@linaro.org>
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+In-Reply-To: <2267830.vuSd8QnXzO@192.168.0.120>
+User-Agent: NeoMutt/20171215
+X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200601_005026_738439_99D2A259 
-X-CRM114-Status: GOOD (  11.08  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200601_015916_187246_2FF60562 
+X-CRM114-Status: GOOD (  20.47  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [207.211.31.120 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [207.211.31.120 listed in wl.mailspike.net]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [198.47.23.248 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -77,7 +80,6 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
  -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -90,33 +92,80 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Jens Axboe <axboe@kernel.dk>, Damien Le Moal <damien.lemoal@wdc.com>,
- Paolo Valente <paolo.valente@linaro.org>, linux-mmc@vger.kernel.org,
- linux-block@vger.kernel.org, linux-mtd@lists.infradead.org,
- Johannes Thumshirn <jthumshirn@suse.de>, Christoph Hellwig <hch@lst.de>
+Cc: alexandre.belloni@bootlin.com, masonccyang@mxic.com.tw, vigneshr@ti.com,
+ richard@nod.at, nsekhar@ti.com, Nicolas.Ferre@microchip.com,
+ boris.brezillon@collabora.com, michal.simek@xilinx.com,
+ Ludovic.Desroches@microchip.com, broonie@kernel.org,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ miquel.raynal@bootlin.com, matthias.bgg@gmail.com,
+ linux-mediatek@lists.infradead.org, linux-spi@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Thu, May 28, 2020 at 10:10:03AM +0200, Linus Walleij wrote:
-> The Kyber block scheduler is not suitable for single hardware
-> queue devices, so add a new flag for single hardware queue
-> devices and add that to the deadline and BFQ schedulers
-> so the Kyber scheduler will not be selected for single queue
-> devices.
+Hi Tudor,
 
-The above may not be true for some single hw queue high performance HBA(
-such as megasas), which can get better performance from none, so it is
-reasonable to get better performance from kyber, see 6ce3dd6eec11 ("blk-mq:
-issue directly if hw queue isn't busy in case of 'none'"), and the
-following link:
+On 30/05/20 06:42PM, Tudor.Ambarus@microchip.com wrote:
+> On Monday, May 25, 2020 12:15:38 PM EEST Pratyush Yadav wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the
+> > content is safe
+> > 
+> > The Micron MT35XU512ABA flash does not support the quad enable bit. But
+> > instead of programming the Quad Enable Require field to 000b ("Device
+> > does not have a QE bit"), it is programmed to 111b ("Reserved").
+> > 
+> > While this is technically incorrect, it is not reason enough to abort
+> > BFPT parsing. Instead, continue BFPT parsing assuming there is no quad
+> > enable bit present.
+> > 
+> > Signed-off-by: Pratyush Yadav <p.yadav@ti.com>
+> > ---
+> >  drivers/mtd/spi-nor/sfdp.c | 8 +++-----
+> >  1 file changed, 3 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
+> > index 052cabb52df9..9fd3d8d9a127 100644
+> > --- a/drivers/mtd/spi-nor/sfdp.c
+> > +++ b/drivers/mtd/spi-nor/sfdp.c
+> > @@ -576,10 +576,6 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
+> > 
+> >         /* Quad Enable Requirements. */
+> >         switch (bfpt.dwords[BFPT_DWORD(15)] & BFPT_DWORD15_QER_MASK) {
+> > -       case BFPT_DWORD15_QER_NONE:
+> > -               params->quad_enable = NULL;
+> > -               break;
+> > -
+> >         case BFPT_DWORD15_QER_SR2_BIT1_BUGGY:
+> >                 /*
+> >                  * Writing only one byte to the Status Register has the
+> > @@ -616,8 +612,10 @@ static int spi_nor_parse_bfpt(struct spi_nor *nor,
+> >                 params->quad_enable = spi_nor_sr2_bit1_quad_enable;
+> >                 break;
+> > 
+> > +       case BFPT_DWORD15_QER_NONE:
+> >         default:
+> > -               return -EINVAL;
+> > +               params->quad_enable = NULL;
+> > +               break;
+> 
+> I would just add a dev_dbg message and break the switch.
+> 	dev_dbg(nor->dev, "BFPT QER reserved value used.\n");
+> 	break;
+> 
+> You will then have to set params->quad_enable = NULL; in a post_bfpt hook.
 
-https://lore.kernel.org/linux-block/20180710010331.27479-1-ming.lei@redhat.com/
+Ok. Will re-roll.
 
-Thanks, 
-Ming
+BTW, are you planning to pick up the xSPI/8D support for 5.8? It has 
+been outstanding for quite some time now and it would be great if it can 
+make it through this merge window.
 
+-- 
+Regards,
+Pratyush Yadav
+Texas Instruments India
 
 ______________________________________________________
 Linux MTD discussion mailing list
