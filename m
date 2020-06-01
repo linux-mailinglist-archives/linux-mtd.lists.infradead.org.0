@@ -2,142 +2,134 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C7E51EB1DC
-	for <lists+linux-mtd@lfdr.de>; Tue,  2 Jun 2020 00:48:24 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1565D1EB242
+	for <lists+linux-mtd@lfdr.de>; Tue,  2 Jun 2020 01:37:32 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:Subject:To:From:Date:MIME-Version:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OsA1Hw7INHEkpsJ3JvJKTYxQNVlZkXrUk6XUirirsl4=; b=nLdZcn8XuVqV+t
-	mvDEqdiqudu8A7GlgMj7Xr4wQBR22TVp9f+TObYSACYd1UVZrJ9/0CJvMVWOKd5xGRnh92fe0ckB/
-	pil+hYzwUuoPWKnBzcJJ0FMFg8jztC26Oe1UMoJrp6vnKc2dduJMR2qadHnBpC0XWW35a49VjnGZU
-	S7N2umBdVQ9OPHjlOzyKUeDpnWIGjhrsGmH9sgX4d9e6eW4sfai5yMqhCJo+zE2AXdal5NKj7SB6M
-	iacSug9wsnRPq2KPI9xdgu+L7XBB0aUFlPgmMHlKqsrgxQVKBpjRnjFKzRcjlYqhx0x/fIeIrxUQ+
-	1i0Qtn94KhDAQZXZD6MQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Betk6lfslJAZIHSSK6DykhXll8NqUhjcmfzlTUghbLs=; b=NrAItX+zj6XAjS
+	bpYlCZqYZ2iV7t317csYJHcfjFS0Unlhreex8/IjnYT2C/eokTNSg7vJAM5U0UXa3bJG/ndtrQdi3
+	hg3Uo+HwxNM/Uvu9p3lJBB34+3+J5r42KzbGVvT4qsXGX7wVj4YFWUdsjeX+U+GUlG2nEcTN42/RL
+	3TfeUuY3ks6kn/KAiPacMOdevPH0cVaSng2j/tgkKtgA2DlkPmccIjFvMzMlOry+wrR9OKiG55u83
+	6S8YXdDEW/6rey4M4/tF73Ni9llB5JGiR8R+ooKHlWrPO746RXEkngNZU16Q1PG/MKxfmbzC0JkZs
+	Omrne+cTLH7Vq48Gq6vQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jftE0-0005Me-OE; Mon, 01 Jun 2020 22:48:08 +0000
-Received: from se2g-iad1.servconfig.com ([173.231.248.13])
+	id 1jftzj-000265-6e; Mon, 01 Jun 2020 23:37:27 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jftDu-0005M4-9F; Mon, 01 Jun 2020 22:48:03 +0000
-Received: from res241.servconfig.com ([192.145.239.216])
- by se2-iad1.servconfig.com with esmtps
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.92)
- (envelope-from <contato@kasat.com.br>)
- id 1jftDS-000QUs-Rn; Mon, 01 Jun 2020 18:47:39 -0400
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=kasat.com.br; s=default; h=Message-ID:Subject:To:From:Date:
- Content-Transfer-Encoding:Content-Type:MIME-Version:Sender:Reply-To:Cc:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=ed0+A8SOx+hFaIG7Gdu8Y2nWvryKSUPjzq5Oj4cLCgE=; b=RhuuUyICCWDAowyMZ+R25WJVm
- 9rGWsOW4jobmc5DUSzrGKfl7qH0BAmnek5xBCyNFPnxUIdmvBntXUjXDHGN5JDrShDbOrs7nr9Yu2
- KviHty44sz8Jms161L7E7mn7z51jW95s4mwIHTeATt/LVFed2ot29i70L51buH9Mw4l+AGjIglGfm
- Q3xnjUpr+1sOPpYynPyHgYqJW8IkHRBAz4sCMq8EIofUHcCM66mC5Ib5O1liW+G6RH3j2sbs3S/f9
- OYWsw2ptOGL7YzyaQRaRURLDWpNwA/S7CA3MQeTyAvpH0NG+kcgtrEtXXRPX7C9zaUz/fJ5xuxmWu
- bSM8kgswA==;
-Received: from [::1] (port=45496 helo=res241.servconfig.com)
- by res241.servconfig.com with esmtpa (Exim 4.93)
- (envelope-from <contato@kasat.com.br>)
- id 1jft9g-0046Wx-Qg; Mon, 01 Jun 2020 15:43:40 -0700
+ id 1jftzc-00021F-GR
+ for linux-mtd@lists.infradead.org; Mon, 01 Jun 2020 23:37:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1591054640; x=1622590640;
+ h=from:to:cc:subject:date:message-id:references:
+ in-reply-to:content-id:content-transfer-encoding: mime-version;
+ bh=k17/yg2hIVDc146Ebpu0PUkQ8vi9Lap+mFKrSS+Ebmc=;
+ b=YUa0UWl+TpLlatA71tzoLPwilb3qrSoa8hVQQkKc6yG8+OFfe3GOxfsO
+ SbHp6bMr5FGNw71jCc6g58KPyqQ/6VGtiZ7yhcK0Q8uL/P3qw/893pnpt
+ e+AVp+NUtOKRuIp6bVcpAASFwoSs4QkloPalrkItHgsN7Cdy8edSpEWe2
+ MldZnvv3NkEuWjrmxBkWOAcF4RLIXNE+/QE1wtnNQomquLX547V+T7C/T
+ 9NqsQtiyy8SEMTYtiV4AODrP8JFaGVk5T4Jnv+N7Ha8Rryv6b5evXWwBQ
+ z1rye9fWggukfNAXgl+Uj+4dAMlkI4LAVXEVWDeGPdqCUnlAq8/sNjNpC A==;
+IronPort-SDR: /CnUb2ez5gmbYo4HylkOPY+MClQIuf4Bb7GEXr009NXNKFAzCbC+pKxC5TqdQhJ8Aw7/bBzHIq
+ 4vru1/mnoC6XZ9pLKGyYqTsMzMSH/8qVflVmdjnEj0zepxbszFXh2oUbpFRapCKojXrawO9VNj
+ 0Bmgtu1ha2p4d8iS0GDaPDyFtIVD+iHyNsqMv9dxu6BOepiSehEebVOcFAtAlBkFX+dsWtKH+k
+ MyNCQWpqGUOQE7yDf2hw/oLZR31vzsVIB+/qF7gFpV41HtlT2gWlGpQHce9Phkzqm8aMNMRun+
+ tgg=
+X-IronPort-AV: E=Sophos;i="5.73,462,1583164800"; d="scan'208";a="139303581"
+Received: from mail-bl2nam02lp2052.outbound.protection.outlook.com (HELO
+ NAM02-BL2-obe.outbound.protection.outlook.com) ([104.47.38.52])
+ by ob1.hgst.iphmx.com with ESMTP; 02 Jun 2020 07:37:15 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WNEExdpufi8OyoxcpEqdpn/zxd1kBulL2fLW2XuFKUNi45sIkMehi9gg8hKxlmM4LiMEvTK4wAVEVS45LpMUHvVUNTeOiHwZTg6qM5dRGrC+/YEBzNv6PQh1jhOCVOx8O6hHL5sYxqcpteOFszv5BE8dptc5kOA/1ocD4LuxVapM5mQvGVZRmYDI4jhkLRcEgx0OxBIPZAaXmHAg6K3WYefsVBLbmcRfSuHaohmapzhW/LYQLhSONbXtu7fsAroAUgGMcxFRh8L7SlYF0aXwHnS3IZPSiEEt/0Ol84S6+pw6JlK/wp9LewKAwIXDAdpZBAbwFup98pflmFYggHcSfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k17/yg2hIVDc146Ebpu0PUkQ8vi9Lap+mFKrSS+Ebmc=;
+ b=FoPqotP0Noc6J/7GsvzkbfrG9s+kJZHK3bKs8c63dnn1TgR/GsTmW/KztcuS5SzOqQrMxB3dgABW11tHkSOiv1Nb7/zi+rECJAvzNrt86gSMMUYX/vNNoiOGi6pSx11S4+gPl1WIDsKXfl78/wjEDrTTkL0tK0A54A+tRxx+HB78KcmDAs/NSn/0t7N91n6SkfBv+mvVXf0oLHFIhbmZZV5qJQbHi+5HgBqmx1L1grkbZjkSr2+Q6R3VKnexxZIdzczEJ7zsuvOfPq9gEiI0neVX90npiTLERPZeU7QNnddtRZX4LliDK2ahHIIZiAt6YyarV5eki1oPNBueVhsntA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wdc.com; dmarc=pass action=none header.from=wdc.com; dkim=pass
+ header.d=wdc.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=sharedspace.onmicrosoft.com; s=selector2-sharedspace-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k17/yg2hIVDc146Ebpu0PUkQ8vi9Lap+mFKrSS+Ebmc=;
+ b=UZ1VFv0qMvGpTJqvqm/RcExePvye0Sxy0dThGLv6xJNj5OnAwmmm74Av6582AeC9S8zvNMbUONV3gQfBt+QP3UEd9qRKKdcRrfjG93CnN8Xlmw/tfeHEieAke/6GIMzS2tgVUsc1ERId1BcLluJs3Ymo0b+MECoksbtf2NbdTMc=
+Received: from CY4PR04MB3751.namprd04.prod.outlook.com (2603:10b6:903:ec::14)
+ by CY4PR04MB0215.namprd04.prod.outlook.com (2603:10b6:903:3a::21)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3045.19; Mon, 1 Jun
+ 2020 23:37:14 +0000
+Received: from CY4PR04MB3751.namprd04.prod.outlook.com
+ ([fe80::c593:f271:eebe:ac7]) by CY4PR04MB3751.namprd04.prod.outlook.com
+ ([fe80::c593:f271:eebe:ac7%9]) with mapi id 15.20.3045.024; Mon, 1 Jun 2020
+ 23:37:14 +0000
+From: Damien Le Moal <Damien.LeMoal@wdc.com>
+To: "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>, "ming.lei@redhat.com"
+ <ming.lei@redhat.com>
+Subject: Re: [PATCH] block: Flag elevators suitable for single queue
+Thread-Topic: [PATCH] block: Flag elevators suitable for single queue
+Thread-Index: AQHWNMe05j/yUN3OvkCO6kMWTOQvo6jDaO2AgAA/aQCAAAX7AIAAD3aAgACz0IA=
+Date: Mon, 1 Jun 2020 23:37:14 +0000
+Message-ID: <7f9aaf69b24b794ca4c9c126eb2394862e276c73.camel@wdc.com>
+References: <20200528081003.238804-1-linus.walleij@linaro.org>
+ <20200601074957.GE1181806@T590>
+ <CACRpkdYL4-Z=kaS+RfniVr=Sn-yOf+=CKMJDsn=eTK3atmGohg@mail.gmail.com>
+ <20200601115818.GB1190838@T590>
+ <CAPDyKFq2paDu9ogEFh6VXWq8___FLeEaNyBWhkMSdpZYpEytQQ@mail.gmail.com>
+In-Reply-To: <CAPDyKFq2paDu9ogEFh6VXWq8___FLeEaNyBWhkMSdpZYpEytQQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.36.2 (3.36.2-1.fc32) 
+authentication-results: linaro.org; dkim=none (message not signed)
+ header.d=none;linaro.org; dmarc=none action=none header.from=wdc.com;
+x-originating-ip: [2400:2411:43c0:6000:62d1:16e6:ecb1:d604]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: abb94424-c1c2-4051-3f00-08d80684b6f1
+x-ms-traffictypediagnostic: CY4PR04MB0215:
+x-microsoft-antispam-prvs: <CY4PR04MB0215BFB59FC293CBE6B1AA66E78A0@CY4PR04MB0215.namprd04.prod.outlook.com>
+wdcipoutbound: EOP-TRUE
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 0421BF7135
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: hoM4xAU3/0oDUlezvWmqqk21Ct+wy+hJyxgyp629gAGByVl/azPTk89ksbIQEGPN3TcL/zJ1rmnNg5EyAJP/mkB7H1+w393Bz1BGre0hke35PQw0wEwQhxLdGmPMkc67aEu4h4q+nWHLO7G4h4I/SK6Lc7j0Ty3nThxoTcdG6qRVI6/npuzUQdlLl3MYPlsTrqrEql+xwdsZoteDzObjHUKp8XgW+y0gVrNWFzTr3j7k3vtfDKOkpGIyQcMo+Racz0YbiEFHiIl3XPFW/ZKw4HF38LsvxdmEFAgrta6XllR0vE6X+CJsElFbtOdKv5hX18XIeky9QdB4Y4DZITzyDuVOk/EVriE2ZZdlV1FOAQ2LuY+9PQA9SmnIkVc1VZWBYm49e7iekmFoPMrBDYGjqQ==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:CY4PR04MB3751.namprd04.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(4636009)(39850400004)(136003)(396003)(366004)(346002)(376002)(66446008)(76116006)(64756008)(66476007)(86362001)(66556008)(36756003)(66946007)(186003)(5660300002)(8936002)(8676002)(91956017)(2906002)(6506007)(2616005)(53546011)(7416002)(71200400001)(966005)(110136005)(316002)(6486002)(83380400001)(478600001)(4326008)(6512007)(54906003);
+ DIR:OUT; SFP:1102; 
+x-ms-exchange-antispam-messagedata: jrw7ZwW0cRbNWNv+XN4gx8w8LDtDd2DY+iAtEEJlB45L3kP6sJrphuRiYO+8BaDSHhKC/7F6ubalVfYlHdyegqC2g39it4HnkO2drJUxXv/ZpYxg41o9wUsvPTwXV4aVAp9jCbkT8ywEJ5p/UFe0AeH3hLFqdo+Ag4BQNtHZ4S9crTvx1TEmTd3nAYUYW6x5h4emErj+PDhY0bZIunnM15amKcAnt7a5d5NczVGW6rIRFaQ6voo8iWtqy5ZQUzdHxy1PlA6pBdIyx3P4LWRxi2l+XJeB+Xa05gN5uqP/mvX9FOJZ8B/oEB8zq8twY9u1Z1zsEa+0UFXLu/XWdIZdo8OM4PtE8YKN7FGZixlI3RTSGozFi40+oEhYFnUZBUEtcav/sFmzDNg7X8/x+h6GbuTZys09lH4DJy8J6EO47/jFOafIuavopAfXv1MVbTABN7uwHk/EwqSh7ojjhZT/UzDOCLMe3m+305B1uSMIEuWbAoEivOD5hgqXFrK78zMQ+UAwJCv7C/c5QZx7ulEdu2L+CAPTJ0LjEe16vWfGJCEcK8HnUROd3yqfnkctKCEJ
+x-ms-exchange-transport-forked: True
+Content-ID: <E2CFAEAD7024954C872AB397F2A4CB10@namprd04.prod.outlook.com>
 MIME-Version: 1.0
-Date: Mon, 01 Jun 2020 15:43:40 -0700
-From: Douglas McGregor <contato@kasat.com.br>
-To: undisclosed-recipients:;
-Subject: Did you get my last email?
-Message-ID: <980f7470db51d1611127707c520427d7@kasat.com.br>
-X-Sender: contato@kasat.com.br
-User-Agent: Roundcube Webmail/1.3.8
-X-Get-Message-Sender-Via: res241.servconfig.com: authenticated_id:
- contato@kasat.com.br
-X-Authenticated-Sender: res241.servconfig.com: contato@kasat.com.br
-X-Originating-IP: 192.145.239.216
-X-SpamExperts-Domain: res241.servconfig.com
-X-SpamExperts-Username: 192.145.239.216
-Authentication-Results: servconfig.com; auth=pass
- smtp.auth=192.145.239.216@res241.servconfig.com
-X-SpamExperts-Outgoing-Class: unsure
-X-SpamExperts-Outgoing-Evidence: Combined (0.80)
-X-Recommended-Action: accept
-X-Filter-ID: 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
- eygp1ZSTN8OsJpX3TBsE4Vyr5I66j4YlkQ==
-X-Report-Abuse-To: spam@se1-lax1.servconfig.com
+X-OriginatorOrg: wdc.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abb94424-c1c2-4051-3f00-08d80684b6f1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jun 2020 23:37:14.6199 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b61c8803-16f3-4c35-9b17-6f65f441df86
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qEf2CvB9AO13efvtN6cLmLksZKnCLzm4F/+i87CPadFxdbKwzRqHYD4ODgXOStLwWGMLEoTph18Al/Tc698bIA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR04MB0215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200601_154802_325202_CE9F3F8D 
-X-CRM114-Status: UNSURE (  -2.24  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200601_163720_664159_F4D334FB 
+X-CRM114-Status: GOOD (  29.55  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [216.71.153.144 listed in list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -156,19 +148,94 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
+Cc: "axboe@kernel.dk" <axboe@kernel.dk>,
+ "paolo.valente@linaro.org" <paolo.valente@linaro.org>,
+ "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
+ "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
+ "linux-block@vger.kernel.org" <linux-block@vger.kernel.org>,
+ "linux-mtd@lists.infradead.org" <linux-mtd@lists.infradead.org>,
+ "jthumshirn@suse.de" <jthumshirn@suse.de>, "hch@lst.de" <hch@lst.de>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
+On Mon, 2020-06-01 at 14:53 +0200, Ulf Hansson wrote:
+> On Mon, 1 Jun 2020 at 13:58, Ming Lei <ming.lei@redhat.com> wrote:
+> > On Mon, Jun 01, 2020 at 01:36:54PM +0200, Linus Walleij wrote:
+> > > On Mon, Jun 1, 2020 at 9:50 AM Ming Lei <ming.lei@redhat.com> wrote:
+> > > > On Thu, May 28, 2020 at 10:10:03AM +0200, Linus Walleij wrote:
+> > > > > The Kyber block scheduler is not suitable for single hardware
+> > > > > queue devices, so add a new flag for single hardware queue
+> > > > > devices and add that to the deadline and BFQ schedulers
+> > > > > so the Kyber scheduler will not be selected for single queue
+> > > > > devices.
+> > > > 
+> > > > The above may not be true for some single hw queue high performance HBA(
+> > > > such as megasas), which can get better performance from none, so it is
+> > > > reasonable to get better performance from kyber, see 6ce3dd6eec11 ("blk-mq:
+> > > > issue directly if hw queue isn't busy in case of 'none'"), and the
+> > > > following link:
+> > > > 
+> > > > https://lore.kernel.org/linux-block/20180710010331.27479-1-ming.lei@redhat.com/
+> > > 
+> > > I see, but isn't the case rather that none is preferred and kyber gives
+> > > the same characteristics because it's not standing in the way
+> > > as much?
+> > 
+> > Kyber has its own characteristic, such as fair read & write, better
+> > IO merge. And the decision on scheduler isn't only related with device,
+> > but also with workloads.
+> > 
+> > > It looks like if we should add a special flag for these devices with
+> > > very fast single queues so they can say "I prefer none", do you
+> > > agree?
+> > 
+> > I am not sure if it is easy to add such flag, because it isn't only
+> > related with HBA, but also with the attached disks.
+> > 
+> 
+> In general I don't mind the idea of giving hints from lower layer
+> block devices, about what kind of scheduling algorithm that could make
+> sense (as long it's on a reasonable granularity).
+> 
+> If I understand your point correctly, what you are saying is that it
+> isn't easy or even possible for some block devices HWs. However, that
+> should be fine, as it wouldn't be mandatory to set this kind of flags,
+> but
+> instead could help where we see it fit, right?
 
+The elevator features flag was implemented not as a hint, but as hard
+requirements for elevators that are needed (mandatory) for a particular
+device type for correct operation. By correct operation, I mean "no IO
+errors or weird behavior resulting in errors such as timeouts". Until
+now, the only hard requirement we have is for zoned block devices which
+need mq-deadline to guarantee in-order dispatch of write commands (for
+sequential zones writing).
 
-   I have been trying to reach you, is this email still active? I have 
-something important to discuss with you. Please get back to me as soon 
-as you can.
+We definitely could add hint flags to better help the block layer
+decide on the default optimal elevator for a particular device type,
+but as is, the elevator features will completely prevent the use of any
+other elevator that does not have the feature set. Those elevators will
+not be seen in /sys/block/<dev>/queue/scheduler. This may be a little
+too much for hint level rather than hard requirement.
 
-A. Douglas McGregor
+Furthermore, as Ming said, this depends on the HBA too rather than just
+the device itself. E.g. the smartpqi driver (Microsemi SAS HBAs)
+exposes single hard-disks as well as fast RAID arrays as multi-queue
+devices. While kyber may make sense for the latter, it probably does
+not make much sense for the former.
 
+In kernel vs udev rules for setting the optimal elevator for a
+particular device type should also be considered.
+
+> 
+> Kind regards
+> Uffe
+
+-- 
+Damien Le Moal
+Western Digital Research
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
