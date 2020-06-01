@@ -2,74 +2,57 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 58AEA1E9D85
-	for <lists+linux-mtd@lfdr.de>; Mon,  1 Jun 2020 07:49:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 320871E9E38
+	for <lists+linux-mtd@lfdr.de>; Mon,  1 Jun 2020 08:29:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TH5ycIef2ooGdFtIuA7xrfdy4QoIYf3gfBowIdHiqco=; b=QZt+/oDw9vl3xL
-	4vUWYWlbHZj2Whc+GwwMNv+H5tV4kUHAoc8FxgWhnFPsiCAmnOM1fwgT9Kj62i/QlImBZCJ1jb7V8
-	lm1Ft4SexRA9bkKevRJdhBUiHoPYHg+zKwfX/Flqd01nOKSTalj6zFIr1fl1yQ5Q2Qnxk1iVlQmDq
-	hIuitjBydj4fKt55AbA3Y8IJXBVcsuIe+oMySEfY3HZ5PkjzUYbXTMJPA3prHKtSkPIB6sGcrg96d
-	LVCq5tWWODBSxgnDYTPxmltsr50NKi9b1AYJpNdjR9FCbeRyjvES4h/LamPqnoiS5lLtqYThQyMdO
-	BJYTAG99BTCYMhOOlaWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cm7z4XeWDYIs1Apd4Wgop+TegPmJvnTIC/+ysCEO2Hw=; b=pe/vqbIL1femgd
+	KQguxb7jrjkUPtGNb6LjIAQSSgU8yC7Xh/9e6xfv+K+IlLe1x+rDDXPhpGDsCrR4/sDh1zIYUK3df
+	FqE2vYMtETYHTz0bACV+L0/oSWy9ZDigHj/BBm7GJC+tpq+4NgPDKhDO5v5MtAZSVl5EqzkIMuPjq
+	15zWUi0tHT0QVqsx0JFfCNi3xzRepn0EaadkerB9InAMrk7iJHERazrDn2RD6mcAFz2nI77k5L/QL
+	UaNJPJWv23yiRiItsD0Z9opTpJVTab9cFYeOpnZbNSpar5uSPG9fCGGfuXZWbRLxY3btfL4No2U5G
+	EFJ7EtSaYzfWVt5t/1pA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jfdKI-0002FP-Ob; Mon, 01 Jun 2020 05:49:34 +0000
-Received: from fllv0016.ext.ti.com ([198.47.19.142])
+	id 1jfdwh-0004ji-0a; Mon, 01 Jun 2020 06:29:15 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jfdIu-0001Bg-7S
- for linux-mtd@lists.infradead.org; Mon, 01 Jun 2020 05:48:11 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
- by fllv0016.ext.ti.com (8.15.2/8.15.2) with ESMTP id 0515m4IQ051464;
- Mon, 1 Jun 2020 00:48:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
- s=ti-com-17Q1; t=1590990484;
- bh=916alQ9InbsjJ79x1qqrxg2FcYSTaaSB//J0KAT095w=;
- h=From:To:CC:Subject:Date:In-Reply-To:References;
- b=jwjQZTSztl1r3SkZ2KhGcwJ02i8uM9RpJAIFYo4O3oZGx3g7PJtnwHwyJbY2ZFu+/
- C2iQexPOUDfbUm+id4clZKJzeuZ4tTFjIA2NcEaDrKMnD+SJnSnlQzuaQTY0v76w0y
- Me+dp6QE+OY5smFI3KjTD1JtXMoLKGs2gqx/+oPY=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
- by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTP id 0515m3ta074627;
- Mon, 1 Jun 2020 00:48:03 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3; Mon, 1 Jun
- 2020 00:48:03 -0500
-Received: from fllv0039.itg.ti.com (10.64.41.19) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.1979.3 via
- Frontend Transport; Mon, 1 Jun 2020 00:48:03 -0500
-Received: from ula0132425.ent.ti.com (ileax41-snat.itg.ti.com [10.172.224.153])
- by fllv0039.itg.ti.com (8.15.2/8.15.2) with ESMTP id 0515lRPo038289;
- Mon, 1 Jun 2020 00:48:00 -0500
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Tudor Ambarus <tudor.ambarus@microchip.com>, Mark Brown
- <broonie@kernel.org>
-Subject: [PATCH v3 8/8] spi: Move cadence-quadspi driver to drivers/spi/
-Date: Mon, 1 Jun 2020 11:17:25 +0530
-Message-ID: <20200601054725.2060-9-vigneshr@ti.com>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200601054725.2060-1-vigneshr@ti.com>
-References: <20200601054725.2060-1-vigneshr@ti.com>
+ id 1jfdwW-0004jJ-3v
+ for linux-mtd@lists.infradead.org; Mon, 01 Jun 2020 06:29:05 +0000
+Received: from sol.localdomain (c-107-3-166-239.hsd1.ca.comcast.net
+ [107.3.166.239])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 984C62074B;
+ Mon,  1 Jun 2020 06:29:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1590992942;
+ bh=1+HgUI0i7fD04WdwIoS+2wnOjK8xL00OVCgY/EpDx+k=;
+ h=Date:From:To:Cc:Subject:From;
+ b=MVHaz8NKfknh3A0lNcT3nJFyTOEe5L8m03Pcsrk9fJegee57FJh4GsxGwfBuXsCt7
+ EEKaPXfr+/SBUG57z7bDRJTyN066lYEVel0r9o+D6IPFtwiHAcxXa3ETpYnJ1/RY+O
+ EAFX2wU0xM9B3cxEdLcx07R/QyByhcXKANim49yM=
+Date: Sun, 31 May 2020 23:28:48 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [GIT PULL] fscrypt updates for 5.8
+Message-ID: <20200601062848.GA11054@sol.localdomain>
 MIME-Version: 1.0
-X-EXCLAIMER-MD-CONFIG: e1e8a2fd-e40a-4ac6-ac9b-f7e9cc9ee180
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200531_224808_525622_86636DA8 
-X-CRM114-Status: GOOD (  12.56  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20200531_232904_179151_3368B4B3 
+X-CRM114-Status: GOOD (  10.92  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [198.47.19.142 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [198.47.19.142 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -91,131 +74,70 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: marex@denx.de, Vignesh Raghavendra <vigneshr@ti.com>,
- Boris Brezillon <bbrezillon@kernel.org>, dinguyen@kernel.org,
- simon.k.r.goldschmidt@gmail.com, linux-kernel@vger.kernel.org,
- linux-spi@vger.kernel.org,
- Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>,
- linux-mtd@lists.infradead.org
+Cc: Theodore Ts'o <tytso@mit.edu>, linux-kernel@vger.kernel.org,
+ linux-f2fs-devel@lists.sourceforge.net, linux-fscrypt@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+ Jaegeuk Kim <jaegeuk@kernel.org>, linux-ext4@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-From: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
+The following changes since commit 2ef96a5bb12be62ef75b5828c0aab838ebb29cb8:
 
-Now that cadence-quadspi has been converted to use spi-mem framework,
-move it under drivers/spi/
+  Linux 5.7-rc5 (2020-05-10 15:16:58 -0700)
 
-Update license header to match SPI subsystem style
+are available in the Git repository at:
 
-Signed-off-by: Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
----
- drivers/mtd/spi-nor/controllers/Kconfig            | 11 -----------
- drivers/mtd/spi-nor/controllers/Makefile           |  1 -
- drivers/spi/Kconfig                                | 11 +++++++++++
- drivers/spi/Makefile                               |  1 +
- .../spi-cadence-quadspi.c}                         | 14 +++++++-------
- 5 files changed, 19 insertions(+), 19 deletions(-)
- rename drivers/{mtd/spi-nor/controllers/cadence-quadspi.c => spi/spi-cadence-quadspi.c} (99%)
+  https://git.kernel.org/pub/scm/fs/fscrypt/fscrypt.git tags/fscrypt-for-linus
 
-diff --git a/drivers/mtd/spi-nor/controllers/Kconfig b/drivers/mtd/spi-nor/controllers/Kconfig
-index d89a5ea9446a..5c0e0ec2e6d1 100644
---- a/drivers/mtd/spi-nor/controllers/Kconfig
-+++ b/drivers/mtd/spi-nor/controllers/Kconfig
-@@ -9,17 +9,6 @@ config SPI_ASPEED_SMC
- 	  and support for the SPI flash memory controller (SPI) for
- 	  the host firmware. The implementation only supports SPI NOR.
- 
--config SPI_CADENCE_QUADSPI
--	tristate "Cadence Quad SPI controller"
--	depends on OF && (ARM || ARM64 || COMPILE_TEST)
--	help
--	  Enable support for the Cadence Quad SPI Flash controller.
--
--	  Cadence QSPI is a specialized controller for connecting an SPI
--	  Flash over 1/2/4-bit wide bus. Enable this option if you have a
--	  device with a Cadence QSPI controller and want to access the
--	  Flash as an MTD device.
--
- config SPI_HISI_SFC
- 	tristate "Hisilicon FMC SPI NOR Flash Controller(SFC)"
- 	depends on ARCH_HISI || COMPILE_TEST
-diff --git a/drivers/mtd/spi-nor/controllers/Makefile b/drivers/mtd/spi-nor/controllers/Makefile
-index 46e6fbe586e3..e7abba491d98 100644
---- a/drivers/mtd/spi-nor/controllers/Makefile
-+++ b/drivers/mtd/spi-nor/controllers/Makefile
-@@ -1,6 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- obj-$(CONFIG_SPI_ASPEED_SMC)	+= aspeed-smc.o
--obj-$(CONFIG_SPI_CADENCE_QUADSPI)	+= cadence-quadspi.o
- obj-$(CONFIG_SPI_HISI_SFC)	+= hisi-sfc.o
- obj-$(CONFIG_SPI_NXP_SPIFI)	+= nxp-spifi.o
- obj-$(CONFIG_SPI_INTEL_SPI)	+= intel-spi.o
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index 099d6a75a371..2de8098b26c1 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -200,6 +200,17 @@ config SPI_CADENCE
- 	  This selects the Cadence SPI controller master driver
- 	  used by Xilinx Zynq and ZynqMP.
- 
-+config SPI_CADENCE_QUADSPI
-+	tristate "Cadence Quad SPI controller"
-+	depends on OF && (ARM || ARM64 || COMPILE_TEST)
-+	help
-+	  Enable support for the Cadence Quad SPI Flash controller.
-+
-+	  Cadence QSPI is a specialized controller for connecting an SPI
-+	  Flash over 1/2/4-bit wide bus. Enable this option if you have a
-+	  device with a Cadence QSPI controller and want to access the
-+	  Flash as an MTD device.
-+
- config SPI_CLPS711X
- 	tristate "CLPS711X host SPI controller"
- 	depends on ARCH_CLPS711X || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index 889368f4ad53..f03834d1d312 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -31,6 +31,7 @@ obj-$(CONFIG_SPI_BCM_QSPI)		+= spi-iproc-qspi.o spi-brcmstb-qspi.o spi-bcm-qspi.
- obj-$(CONFIG_SPI_BITBANG)		+= spi-bitbang.o
- obj-$(CONFIG_SPI_BUTTERFLY)		+= spi-butterfly.o
- obj-$(CONFIG_SPI_CADENCE)		+= spi-cadence.o
-+obj-$(CONFIG_SPI_CADENCE_QUADSPI)	+= spi-cadence-quadspi.o
- obj-$(CONFIG_SPI_CLPS711X)		+= spi-clps711x.o
- obj-$(CONFIG_SPI_COLDFIRE_QSPI)		+= spi-coldfire-qspi.o
- obj-$(CONFIG_SPI_DAVINCI)		+= spi-davinci.o
-diff --git a/drivers/mtd/spi-nor/controllers/cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
-similarity index 99%
-rename from drivers/mtd/spi-nor/controllers/cadence-quadspi.c
-rename to drivers/spi/spi-cadence-quadspi.c
-index c12a1c0191b9..1c1a9d17eec0 100644
---- a/drivers/mtd/spi-nor/controllers/cadence-quadspi.c
-+++ b/drivers/spi/spi-cadence-quadspi.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0-only
--/*
-- * Driver for Cadence QSPI Controller
-- *
-- * Copyright Altera Corporation (C) 2012-2014. All rights reserved.
-- * Copyright Intel Corporation (C) 2019-2020. All rights reserved.
-- * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
-- */
-+//
-+// Driver for Cadence QSPI Controller
-+//
-+// Copyright Altera Corporation (C) 2012-2014. All rights reserved.
-+// Copyright Intel Corporation (C) 2019-2020. All rights reserved.
-+// Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
-+
- #include <linux/clk.h>
- #include <linux/completion.h>
- #include <linux/delay.h>
--- 
-2.26.2
+for you to fetch changes up to e3b1078bedd323df343894a27eb3b3c34944dfd1:
 
+  fscrypt: add support for IV_INO_LBLK_32 policies (2020-05-19 09:34:18 -0700)
+
+----------------------------------------------------------------
+
+- Add the IV_INO_LBLK_32 encryption policy flag which modifies the
+  encryption to be optimized for eMMC inline encryption hardware.
+
+- Make the test_dummy_encryption mount option for ext4 and f2fs support
+  v2 encryption policies.
+
+- Fix kerneldoc warnings and some coding style inconsistencies.
+
+There will be merge conflicts with the ext4 and f2fs trees due to the
+test_dummy_encryption change, but the resolutions are straightforward.
+
+----------------------------------------------------------------
+Eric Biggers (8):
+      fscrypt: fix all kerneldoc warnings
+      fscrypt: name all function parameters
+      fscrypt: remove unnecessary extern keywords
+      linux/parser.h: add include guards
+      fscrypt: add fscrypt_add_test_dummy_key()
+      fscrypt: support test_dummy_encryption=v2
+      fscrypt: make test_dummy_encryption use v2 by default
+      fscrypt: add support for IV_INO_LBLK_32 policies
+
+ Documentation/filesystems/f2fs.rst    |   6 +-
+ Documentation/filesystems/fscrypt.rst |  33 +++++-
+ fs/crypto/crypto.c                    |  15 ++-
+ fs/crypto/fname.c                     |  52 ++++++---
+ fs/crypto/fscrypt_private.h           | 111 +++++++++---------
+ fs/crypto/hooks.c                     |   4 +-
+ fs/crypto/keyring.c                   | 122 ++++++++++++-------
+ fs/crypto/keysetup.c                  | 109 ++++++++++++-----
+ fs/crypto/policy.c                    | 195 ++++++++++++++++++++++++++++---
+ fs/ext4/ext4.h                        |   7 +-
+ fs/ext4/super.c                       |  68 ++++++++---
+ fs/ext4/sysfs.c                       |   2 +
+ fs/f2fs/f2fs.h                        |   4 +-
+ fs/f2fs/super.c                       |  85 ++++++++++----
+ fs/f2fs/sysfs.c                       |   4 +
+ include/linux/fscrypt.h               | 214 ++++++++++++++++++++--------------
+ include/linux/parser.h                |   5 +-
+ include/uapi/linux/fscrypt.h          |   3 +-
+ 18 files changed, 737 insertions(+), 302 deletions(-)
 
 ______________________________________________________
 Linux MTD discussion mailing list
