@@ -2,59 +2,56 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2388A1EBE4B
-	for <lists+linux-mtd@lfdr.de>; Tue,  2 Jun 2020 16:38:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 95B451EBF64
+	for <lists+linux-mtd@lfdr.de>; Tue,  2 Jun 2020 17:52:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=VSUwsFRdbf7XGMxE8NTtRhShDzv8mAc+Lbl2nFnLgEQ=; b=pwx
-	I5zRGcJNim7sUef/GxjCs5RZEoZxStymsGNkoavNgrEEHuVWnn36+kH150KC1Ro+3mVh7MUkSVak5
-	X+fjCcJInsx/MwItcByQ+ojFV/PkF4H3B6t3nfDb6Xw9Fqy0y799OBYzhT7VzkPxY/27S+7pl4cWs
-	WD1K2kBHuxnfHGWe8MHMgQwqc0CEb1wh4b59fFUGUDAqJeWVKL8iBah25dTxNtIuw4z+2SFtTNIh1
-	XtJmDETA5l3LO79OBQ6CclQSlH5MvypH96JEzbb5qdgXDD0hk5YkpZTV4lfiHs0jXZHW13fXT1tSF
-	c+077xbzCiLa3BBGwpC0WgAjJim74qw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=moP3Bu64Vo6bUvEUfuE1SAZCB2xCrxUBMY5II8+6qyM=; b=CukSlwcz2XmxuN
+	c1Kd/M1mweBy4Uw4aXvMmNBGihPRfsgK0yZeAhVrjm+wuhzII1yJXhA62befiPAM/WT83c33Oz7rT
+	aFhAJYzG3fe0nFKWQEAF7CJrdx2TzLeHhpqxfCzcdG3a1WDg3/v/y8USHO2clkEI5R2yKDVYM/mKo
+	j3mqTKJMlIE55zJClA0crV7y+rT1e6klibpEqUT35Ta3voeQ2fF1vlJiXZ80RxeIhN3UAbCdbJmna
+	payq4Fgw/zybb75K/cAtWcGGE0ult+KvmV6WSndNEiDXF2kjwwCKFCM6ts0TBCve9mN8ddnnDsY2V
+	45+Ir9rpyFAWem+0sNew==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jg83J-0000Oe-9i; Tue, 02 Jun 2020 14:38:05 +0000
-Received: from da1vs04.rockwellcollins.com ([205.175.227.52])
+	id 1jg9DD-0007Vm-8S; Tue, 02 Jun 2020 15:52:23 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jg7zS-0003aS-RE
- for linux-mtd@lists.infradead.org; Tue, 02 Jun 2020 14:34:09 +0000
-IronPort-SDR: F1Hg54IqbbK7W6WrKo/B4dawbF283jQqzXKwRVeAxBbCPnZmesHmrtYnG/aUTsp6FfU17JXAJE
- V4QSQRa4AgXahOTCNUySgI0NqkETQk9bapq3vyarnnWoQUu/QjL+vPAfSPGjgIzaF7MsC5rdY2
- KD4oY+HJSz8Ug5ajLZdiWuhuho68SMDa8yKgj0N4J2O6BlC9W0KfjH6a6cnKcBugQOXRUbEK6A
- F/hE2YMwePvvZsPuyLY5Wt5/hozWhXJajumeq77CNUTWqSaygohk9uYZYbxTckVpZnhUjkhox6
- hVA=
-Received: from ofwda1n02.rockwellcollins.com (HELO
- crulimr01.rockwellcollins.com) ([205.175.227.14])
- by da1vs04.rockwellcollins.com with ESMTP; 02 Jun 2020 09:34:04 -0500
-X-Received: from biscuits.rockwellcollins.com (biscuits.rockwellcollins.lab
- [10.148.119.137])
- by crulimr01.rockwellcollins.com (Postfix) with ESMTP id 6503D60290;
- Tue,  2 Jun 2020 09:34:04 -0500 (CDT)
-From: Matt Weber <matthew.weber@rockwellcollins.com>
-To: linux-mtd@lists.infradead.org
-Subject: [PATCH] mtd: mtdconcat: map through panic write handler
-Date: Tue,  2 Jun 2020 09:34:03 -0500
-Message-Id: <20200602143403.13465-1-matthew.weber@rockwellcollins.com>
-X-Mailer: git-send-email 2.17.1
+ id 1jg9Ct-0007O2-FD; Tue, 02 Jun 2020 15:52:05 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 4B5BF2A2E68;
+ Tue,  2 Jun 2020 16:52:01 +0100 (BST)
+Date: Tue, 2 Jun 2020 17:51:57 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v9 1/9] mtd: nand: Create a helper to extract the ECC
+ configuration
+Message-ID: <20200602175157.438e30bc@collabora.com>
+In-Reply-To: <20200602143124.29553-2-miquel.raynal@bootlin.com>
+References: <20200602143124.29553-1-miquel.raynal@bootlin.com>
+ <20200602143124.29553-2-miquel.raynal@bootlin.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200602_073406_964996_A7F275D7 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200602_085203_637130_F0F94FA0 
+X-CRM114-Status: GOOD (  16.59  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [205.175.227.52 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,88 +63,62 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Matt Weber <matthew.weber@rockwellcollins.com>
-MIME-Version: 1.0
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
+ Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Mason Yang <masonccyang@mxic.com.tw>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Allows a mtdconcat's subdevice->_panic_write to be used for
-capturing a mtdoops dump.
+On Tue,  2 Jun 2020 16:31:16 +0200
+Miquel Raynal <miquel.raynal@bootlin.com> wrote:
 
-Note: The ->_panic_write is mapped through from the first chip
-      that is part of the concat virtual device.
+> Despite its current name "eccreq", this object first stores data that
+> is meant to be the requirements, and then this data gets eventually
+> updated and becomes the actual configuration.
 
-Signed-off-by: Matthew Weber <matthew.weber@rockwellcollins.com>
----
- drivers/mtd/mtdconcat.c | 44 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+Despite its current name, the eccreq field actually encodes both the
+NAND requirements and the final ECC configuration. That works fine when
+using on-die ECC since those 2 concepts match perfectly, but it starts
+being a problem as soon as we use on-host ECC engines, where we're not
+guaranteed to have a perfect match.
 
-diff --git a/drivers/mtd/mtdconcat.c b/drivers/mtd/mtdconcat.c
-index cbc5925e6440..af99a5af601e 100644
---- a/drivers/mtd/mtdconcat.c
-+++ b/drivers/mtd/mtdconcat.c
-@@ -116,6 +116,48 @@ concat_read(struct mtd_info *mtd, loff_t from, size_t len,
- 	return -EINVAL;
- }
- 
-+static int
-+concat_panic_write(struct mtd_info *mtd, loff_t to, size_t len,
-+	     size_t * retlen, const u_char * buf)
-+{
-+	struct mtd_concat *concat = CONCAT(mtd);
-+	int err = -EINVAL;
-+	int i;
-+	for (i = 0; i < concat->num_subdev; i++) {
-+		struct mtd_info *subdev = concat->subdev[i];
-+		size_t size, retsize;
-+
-+		if (to >= subdev->size) {
-+			size = 0;
-+			to -= subdev->size;
-+			continue;
-+		}
-+		if (to + len > subdev->size)
-+			size = subdev->size - to;
-+		else
-+			size = len;
-+
-+		err = mtd_panic_write(subdev, to, size, &retsize, buf);
-+		if (err == -EOPNOTSUPP) {
-+			printk(KERN_ERR "mtdconcat: Cannot write from panic without panic_write\n");
-+			return;
-+		}
-+		if (err)
-+			break;
-+
-+		*retlen += retsize;
-+		len -= size;
-+		if (len == 0)
-+			break;
-+
-+		err = -EINVAL;
-+		buf += size;
-+		to = 0;
-+	}
-+	return err;
-+}
-+
-+
- static int
- concat_write(struct mtd_info *mtd, loff_t to, size_t len,
- 	     size_t * retlen, const u_char * buf)
-@@ -660,6 +702,8 @@ struct mtd_info *mtd_concat_create(struct mtd_info *subdev[],	/* subdevices to c
- 		concat->mtd._block_isbad = concat_block_isbad;
- 	if (subdev[0]->_block_markbad)
- 		concat->mtd._block_markbad = concat_block_markbad;
-+	if (subdev[0]->_panic_write)
-+		concat->mtd._panic_write = concat_panic_write;
- 
- 	concat->mtd.ecc_stats.badblocks = subdev[0]->ecc_stats.badblocks;
- 
--- 
-2.17.1
+> Abstracting this
+> indirection will help us clarify the structures in a future change.
+
+Let's hide the ECC configuration access behind a helper so we can later
+split those 2 concepts.
+
+> 
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>  include/linux/mtd/nand.h | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/include/linux/mtd/nand.h b/include/linux/mtd/nand.h
+> index 2f838394b5f7..7fd0d492073b 100644
+> --- a/include/linux/mtd/nand.h
+> +++ b/include/linux/mtd/nand.h
+> @@ -512,6 +512,16 @@ nanddev_get_memorg(struct nand_device *nand)
+>  	return &nand->memorg;
+>  }
+>  
+> +/**
+> + * nanddev_get_ecc_conf() - Extract the ECC configuration from a NAND device
+> + * @nand: NAND device
+> + */
+> +static inline const struct nand_ecc_props *
+> +nanddev_get_ecc_conf(struct nand_device *nand)
+> +{
+> +	return &nand->eccreq;
+> +}
+> +
+>  int nanddev_init(struct nand_device *nand, const struct nand_ops *ops,
+>  		 struct module *owner);
+>  void nanddev_cleanup(struct nand_device *nand);
 
 
 ______________________________________________________
