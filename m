@@ -2,54 +2,82 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9A71B1ED5E0
-	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 20:10:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5583C1ED87B
+	for <lists+linux-mtd@lfdr.de>; Thu,  4 Jun 2020 00:16:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s9sLElj5L9MaDalnkpp/ZuFJ/QeAPp07mqsRa36N8Zw=; b=RW3qtFwl3b7v5S
-	+/lXAZU1wVkHZ4KswaVU20LNjVy1YYAJCczzvvX2iS38o5oLk7W7PyM3x4RSZz5M/XPZ7elM8Orm0
-	4nHwIMwBjJSGiIdr8MMp0uh5etAUM7OkxPEUDxGO4pwB5OID8zfCf/XQpE6V851oWis3JAaPd6Y3A
-	MvI8oZbYbSoUlNK1E+b2PQ/vHeP3U/sUIOMVzni/DE23OJYppNCEa8tA9/Os2OdEXTR/AhStuJLPo
-	zpQNa7rNYQrtPpcN3xo9a16AN7H1AQUJyY3+GZXPPwNpPYRUPTsFlKh3Y7NtjOx603WV3Ef3a86Bo
-	NqfIOauuabv1hxr6JMAQ==;
+	List-Owner; bh=W7H+s6bdSxoE9943YfPFoIhMplaFub434gUACl5a5VE=; b=j7ddFRdWstXJ0u
+	BDsZZcUUDdAaBLtN+88PzH+LPu4/ZAycnuXDrJ9znuMlXixQIhJw0puPA4PmsRwVyeiNXEM3x4ttr
+	frx3MSfI3QoG5TIibk0gK0mOSiOW389JbGdMXt1zfzz+ZWBKJz1xc428iie8UXJjkYwtx1Q2vVQv2
+	rY6H65oTZTrvpioNQ6rWGDGOxlN47nnM3DdMWJu0Mf4awrABxCjBumjHOMIeDa63kmfycFW2bocb/
+	XtbTGevVEu0zk10LB8/nDV6uPY4zeQG0yf/FSX6JJUY6Jwml/RjexPG0dryHpGwVEIysyPTsUEW4l
+	KkDFme27TY1EtJ7TPfjw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgXqa-0005Au-CG; Wed, 03 Jun 2020 18:10:40 +0000
-Received: from relay10.mail.gandi.net ([217.70.178.230])
+	id 1jgbgb-0001Gn-Fh; Wed, 03 Jun 2020 22:16:37 +0000
+Received: from mail-il1-f193.google.com ([209.85.166.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgXf2-0005VW-M1; Wed, 03 Jun 2020 17:58:49 +0000
-Received: from localhost.localdomain (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay10.mail.gandi.net (Postfix) with ESMTPSA id E1EBE24000E;
- Wed,  3 Jun 2020 17:58:40 +0000 (UTC)
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>,
- <linux-mtd@lists.infradead.org>
-Subject: [PATCH v10 20/20] mtd: rawnand: Use the NAND framework user_conf
- object for ECC flags
-Date: Wed,  3 Jun 2020 19:57:59 +0200
-Message-Id: <20200603175759.19948-21-miquel.raynal@bootlin.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200603175759.19948-1-miquel.raynal@bootlin.com>
+ id 1jgbg9-00013g-1k; Wed, 03 Jun 2020 22:16:11 +0000
+Received: by mail-il1-f193.google.com with SMTP id a13so4163233ilh.3;
+ Wed, 03 Jun 2020 15:16:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=rMYc84n19+OGgtVn9II/5P6MMogBkCCeasm/Kp8sey8=;
+ b=NT8JJJyoWAwA83Ddzfl2tWPqonvnHWanho2s2qd7y4dyffqNRpTc9LRTUSujYGo0wJ
+ nhyesbLquCgsJmEwNGLkLDcf/Cb05QK/KusJIS0A0cQ8C5wjQTELltAQWmunUHXp/1gs
+ Gpf7CZbOxZHIQqpxJecm+tZU4epkdLvka97anpk8uDDI1LF8HmBc+loDmYh7ZCN+QZ/m
+ +cQ37Z3d7EePhPVdaFOsPPktp9+2BEfZikx1957Jab9g1D+wiytFNvU2YGu9jZSK/lte
+ eh4i7k2uRL1TmkzsksIi/jYAc/S6Ss1Nso7zJSzBvuB/wB6yYJS0UoEo0ulXdJsdnZVW
+ JfRA==
+X-Gm-Message-State: AOAM530rveoqyfBIPhwX7/D3aPRIeGu06dXX0a5ORJvKan6Im9YybuXh
+ 8W8DbipqKo9cXSqcLwj6iw==
+X-Google-Smtp-Source: ABdhPJwHwIAVtxvUaysPu24YULecyerhtKCC4mVOZp+b8rP7kXwCis13n1FDg9z0ORHJNiIUJxrn7Q==
+X-Received: by 2002:a92:9ac7:: with SMTP id c68mr1553583ill.53.1591222567528; 
+ Wed, 03 Jun 2020 15:16:07 -0700 (PDT)
+Received: from xps15 ([64.188.179.251])
+ by smtp.gmail.com with ESMTPSA id k18sm1406721ioj.54.2020.06.03.15.16.06
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 03 Jun 2020 15:16:06 -0700 (PDT)
+Received: (nullmailer pid 1973472 invoked by uid 1000);
+ Wed, 03 Jun 2020 22:16:05 -0000
+Date: Wed, 3 Jun 2020 16:16:05 -0600
+From: Rob Herring <robh@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v10 06/20] dt-bindings: mtd: Document nand-ecc-engine
+Message-ID: <20200603221605.GA1973010@bogus>
 References: <20200603175759.19948-1-miquel.raynal@bootlin.com>
+ <20200603175759.19948-7-miquel.raynal@bootlin.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200603175759.19948-7-miquel.raynal@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_105845_015356_802FE0D3 
-X-CRM114-Status: GOOD (  15.13  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200603_151609_107291_4C29C52A 
+X-CRM114-Status: GOOD (  10.73  )
+X-Spam-Score: 0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.230 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.166.193 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.193 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [robherring2[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [robherring2[at]gmail.com]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,178 +90,52 @@ List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
 Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
- Julien Su <juliensu@mxic.com.tw>, Miquel Raynal <miquel.raynal@bootlin.com>,
- Rob Herring <robh+dt@kernel.org>,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <Tudor.Ambarus@microchip.com>, Julien Su <juliensu@mxic.com.tw>,
+ Richard Weinberger <richard@nod.at>, Rob Herring <robh+dt@kernel.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>, linux-mtd@lists.infradead.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
  Mason Yang <masonccyang@mxic.com.tw>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Instead of storing the ECC flags in chip->ecc.options, use
-nanddev->ecc.user_conf.flags.
+On Wed, 03 Jun 2020 19:57:45 +0200, Miquel Raynal wrote:
+> This property is needed to precisely point to the hardware ECC engine
+> to use when there are several of them available. Here, hardware also
+> refers to the on-die possibility.
+> 
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>  .../devicetree/bindings/mtd/nand-controller.yaml     | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
 
-There is currently only one to save: NAND_ECC_MAXIMIZE.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/nand/raw/atmel/nand-controller.c |  3 ++-
- drivers/mtd/nand/raw/denali_pci.c            |  2 +-
- drivers/mtd/nand/raw/nand_base.c             | 14 +++++++-------
- drivers/mtd/nand/raw/sunxi_nand.c            |  3 ++-
- drivers/mtd/nand/raw/tegra_nand.c            |  5 +++--
- include/linux/mtd/rawnand.h                  |  1 -
- 6 files changed, 15 insertions(+), 13 deletions(-)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
-index 08df7f23b859..a594f5efb0a2 100644
---- a/drivers/mtd/nand/raw/atmel/nand-controller.c
-+++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
-@@ -1046,6 +1046,7 @@ static int atmel_nand_pmecc_init(struct nand_chip *chip)
- 	const struct nand_ecc_props *requirements =
- 		nanddev_get_ecc_requirements(&chip->base);
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct atmel_nand *nand = to_atmel_nand(chip);
- 	struct atmel_nand_controller *nc;
- 	struct atmel_pmecc_user_req req;
-@@ -1070,7 +1071,7 @@ static int atmel_nand_pmecc_init(struct nand_chip *chip)
- 			chip->ecc.size = val;
- 	}
- 
--	if (chip->ecc.options & NAND_ECC_MAXIMIZE)
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH)
- 		req.ecc.strength = ATMEL_PMECC_MAXIMIZE_ECC_STRENGTH;
- 	else if (chip->ecc.strength)
- 		req.ecc.strength = chip->ecc.strength;
-diff --git a/drivers/mtd/nand/raw/denali_pci.c b/drivers/mtd/nand/raw/denali_pci.c
-index 2f77ee55e1bf..20c085a30adc 100644
---- a/drivers/mtd/nand/raw/denali_pci.c
-+++ b/drivers/mtd/nand/raw/denali_pci.c
-@@ -100,7 +100,7 @@ static int denali_pci_probe(struct pci_dev *dev, const struct pci_device_id *id)
- 		goto out_remove_denali;
- 	}
- 
--	dchip->chip.ecc.options |= NAND_ECC_MAXIMIZE;
-+	dchip->chip.base.ecc.user_conf.flags |= NAND_ECC_MAXIMIZE_STRENGTH;
- 
- 	dchip->nsels = nsels;
- 
-diff --git a/drivers/mtd/nand/raw/nand_base.c b/drivers/mtd/nand/raw/nand_base.c
-index 53e07f25ae65..c0d13f3b308a 100644
---- a/drivers/mtd/nand/raw/nand_base.c
-+++ b/drivers/mtd/nand/raw/nand_base.c
-@@ -4989,9 +4989,6 @@ static int rawnand_dt_init(struct nand_chip *chip)
- 	if (of_get_nand_on_flash_bbt(dn))
- 		chip->bbt_options |= NAND_BBT_USE_FLASH;
- 
--	if (of_property_read_bool(dn, "nand-ecc-maximize"))
--		chip->ecc.options |= NAND_ECC_MAXIMIZE;
--
- 	of_get_nand_ecc_user_config(nand);
- 	of_get_nand_ecc_legacy_user_config(chip);
- 
-@@ -5122,6 +5119,7 @@ static void nand_scan_ident_cleanup(struct nand_chip *chip)
- static int nand_set_ecc_soft_ops(struct nand_chip *chip)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct nand_ecc_ctrl *ecc = &chip->ecc;
- 
- 	if (WARN_ON(ecc->engine_type != NAND_ECC_ENGINE_TYPE_SOFT))
-@@ -5197,7 +5195,7 @@ static int nand_set_ecc_soft_ops(struct nand_chip *chip)
- 		 * used.
- 		 */
- 		if (mtd->ooblayout == nand_get_large_page_ooblayout() &&
--		    ecc->options & NAND_ECC_MAXIMIZE) {
-+		    nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH) {
- 			int steps, bytes;
- 
- 			/* Always prefer 1k blocks over 512bytes ones */
-@@ -5437,11 +5435,12 @@ nand_maximize_ecc(struct nand_chip *chip,
-  * @caps: ECC engine caps info structure
-  * @oobavail: OOB size that the ECC engine can use
-  *
-- * Choose the ECC configuration according to following logic
-+ * Choose the ECC configuration according to following logic.
-  *
-  * 1. If both ECC step size and ECC strength are already set (usually by DT)
-  *    then check if it is supported by this controller.
-- * 2. If NAND_ECC_MAXIMIZE is set, then select maximum ECC strength.
-+ * 2. If the user provided the nand-ecc-maximize property, then select maximum
-+ *    ECC strength.
-  * 3. Otherwise, try to match the ECC step size and ECC strength closest
-  *    to the chip's requirement. If available OOB size can't fit the chip
-  *    requirement then fallback to the maximum ECC step size and ECC strength.
-@@ -5452,6 +5451,7 @@ int nand_ecc_choose_conf(struct nand_chip *chip,
- 			 const struct nand_ecc_caps *caps, int oobavail)
- {
- 	struct mtd_info *mtd = nand_to_mtd(chip);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 
- 	if (WARN_ON(oobavail < 0 || oobavail > mtd->oobsize))
- 		return -EINVAL;
-@@ -5459,7 +5459,7 @@ int nand_ecc_choose_conf(struct nand_chip *chip,
- 	if (chip->ecc.size && chip->ecc.strength)
- 		return nand_check_ecc_caps(chip, caps, oobavail);
- 
--	if (chip->ecc.options & NAND_ECC_MAXIMIZE)
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH)
- 		return nand_maximize_ecc(chip, caps, oobavail);
- 
- 	if (!nand_match_ecc_req(chip, caps, oobavail))
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 490ba485e939..cbd05cea5bad 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -1609,12 +1609,13 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 	static const u8 strengths[] = { 16, 24, 28, 32, 40, 48, 56, 60, 64 };
- 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
- 	struct mtd_info *mtd = nand_to_mtd(nand);
-+	struct nand_device *nanddev = mtd_to_nanddev(mtd);
- 	struct sunxi_nand_hw_ecc *data;
- 	int nsectors;
- 	int ret;
- 	int i;
- 
--	if (ecc->options & NAND_ECC_MAXIMIZE) {
-+	if (nanddev->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH) {
- 		int bytes;
- 
- 		ecc->size = 1024;
-diff --git a/drivers/mtd/nand/raw/tegra_nand.c b/drivers/mtd/nand/raw/tegra_nand.c
-index fecdb7e8f9e8..5c94ecbf496f 100644
---- a/drivers/mtd/nand/raw/tegra_nand.c
-+++ b/drivers/mtd/nand/raw/tegra_nand.c
-@@ -840,9 +840,10 @@ static int tegra_nand_get_strength(struct nand_chip *chip, const int *strength,
- 				   int strength_len, int bits_per_step,
- 				   int oobsize)
- {
-+	struct nand_device *base = mtd_to_nanddev(nand_to_mtd(chip));
- 	const struct nand_ecc_props *requirements =
--		nanddev_get_ecc_requirements(&chip->base);
--	bool maximize = chip->ecc.options & NAND_ECC_MAXIMIZE;
-+		nanddev_get_ecc_requirements(base);
-+	bool maximize = base->ecc.user_conf.flags & NAND_ECC_MAXIMIZE_STRENGTH;
- 	int i;
- 
- 	/*
-diff --git a/include/linux/mtd/rawnand.h b/include/linux/mtd/rawnand.h
-index 66f69a1d27a5..9d69fa6608ae 100644
---- a/include/linux/mtd/rawnand.h
-+++ b/include/linux/mtd/rawnand.h
-@@ -98,7 +98,6 @@ struct nand_chip;
-  * pages and you want to rely on the default implementation.
-  */
- #define NAND_ECC_GENERIC_ERASED_CHECK	BIT(0)
--#define NAND_ECC_MAXIMIZE		BIT(1)
- 
- /*
-  * Option constants for bizarre disfunctionality and real
--- 
-2.20.1
+Documentation/devicetree/bindings/mtd/nand-controller.yaml:  while scanning for the next token
+found character that cannot start any token
+  in "<unicode string>", line 62, column 1
+Documentation/devicetree/bindings/Makefile:12: recipe for target 'Documentation/devicetree/bindings/mtd/nand-controller.example.dts' failed
+make[1]: *** [Documentation/devicetree/bindings/mtd/nand-controller.example.dts] Error 1
+make[1]: *** Waiting for unfinished jobs....
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mtd/nand-controller.yaml: ignoring, error parsing file
+warning: no schema found in file: ./Documentation/devicetree/bindings/mtd/nand-controller.yaml
+/builds/robherring/linux-dt-review/Documentation/devicetree/bindings/mtd/nand-controller.yaml: ignoring, error parsing file
+warning: no schema found in file: ./Documentation/devicetree/bindings/mtd/nand-controller.yaml
+Makefile:1300: recipe for target 'dt_binding_check' failed
+make: *** [dt_binding_check] Error 2
+
+See https://patchwork.ozlabs.org/patch/1303116
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure dt-schema is up to date:
+
+pip3 install git+https://github.com/devicetree-org/dt-schema.git@master --upgrade
+
+Please check and re-submit.
 
 
 ______________________________________________________
