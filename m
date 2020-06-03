@@ -2,55 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C4A671ED206
-	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 16:23:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 22DE61ED2FD
+	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 17:08:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6cRjVi9r8AIOXkqsZKziT1sMhzQZRUYvUzInznOhEtg=; b=CpnHZL9bmNmuM0
-	yNAYtHwgTWofAJ7L1UUCD2NthM9KhBr6PMURO9mmn6wZFJtxf329PF5IQ3LjruuK8nKfkHxhP7uCA
-	VFHJOftLLBRnN5riVieW578w6DcxGpCXyJPpbufdwDjhXaYl85LWflrRnfoF2ZxjQ79/dqr9EyQQU
-	sDJ9snfYbJrAsqAwcdMdn1UTbElo9PQ53Lf/arWLVqm8MjAfPSPDNosOKuFogBqU06wPKxZ17tyP3
-	/DGW6FXhmDR23e4R3MLYSejmI0t3Z6R6/Hy36ePEx38VOY648IuquSLTzCaalZ49LJbbNtF9TgSUr
-	iFlK/FJJh6/WAR2MaISw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1LbFeZVD4Tq9sGjmghx6qTZqkS6mtsLXhgNtWl568E4=; b=LzjB0tN/z1uOHx
+	OS8iL/jbbdKZ8akNaVaO0t0cJTu3bxhvIjtgf+wi3UqUKQDuKHQFFc6EnQ+LTiZEazQfXP9eNvnky
+	/ftznPnD7BC0unOVHYqF0LBVHIGStJhdPl352V6h3itPxY2e6SNA8xK7ESEdZIzNaDYRY9+z3wPle
+	unnC65YH2RARGgUAFI96zRkHIgdXnJ7zhfe9zb1p/nSdXNKBZYEqZi3sSPmXmj8Y1DBrXfms97MJY
+	slg4cFHU8jBIiblAcrt4A3zFoE6P6jFKl2aQv+nh6hyLtVno86y4B1/8Ol7TvTfEPKSpb4K/pPBrF
+	fE4m963/on3LOhF/w/NA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgUIy-0003Py-W7; Wed, 03 Jun 2020 14:23:45 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1jgV02-0006I5-Ak; Wed, 03 Jun 2020 15:08:14 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgUIl-0003PB-89
- for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 14:23:32 +0000
-X-Originating-IP: 91.224.148.103
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay7-d.mail.gandi.net (Postfix) with ESMTPSA id 2E7C420010;
- Wed,  3 Jun 2020 14:23:29 +0000 (UTC)
-Date: Wed, 3 Jun 2020 16:23:28 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH] mtd: rawnand: tango: Convert the driver to exec_op()
-Message-ID: <20200603162328.64f39596@xps13>
-In-Reply-To: <20200518170912.328988-1-boris.brezillon@collabora.com>
-References: <20200518170912.328988-1-boris.brezillon@collabora.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jgUzi-0006AD-KJ
+ for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 15:07:56 +0000
+Received: from localhost.localdomain (unknown
+ [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested) (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 482E72A3A88;
+ Wed,  3 Jun 2020 16:07:52 +0100 (BST)
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org,
+ Ben Dooks <ben-linux@fluff.org>
+Subject: [PATCH 0/3] mtd: rawnand: gpio: Convert to exec_op()
+Date: Wed,  3 Jun 2020 17:07:43 +0200
+Message-Id: <20200603150746.1423257-1-boris.brezillon@collabora.com>
+X-Mailer: git-send-email 2.25.4
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_072331_418024_50411E64 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200603_080754_792309_8843378E 
+X-CRM114-Status: GOOD (  12.06  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.200 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,21 +58,50 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Richard Weinberger <richard@nod.at>,
- Tudor Ambarus <tudor.ambarus@microchip.com>, linux-mtd@lists.infradead.org,
- Vignesh Raghavendra <vigneshr@ti.com>, Marc Gonzalez <marc.w.gonzalez@free.fr>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-mips@linux-mips.org, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, Ralf Baechle <ralf@linux-mips.org>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Haojian Zhuang <haojian.zhuang@gmail.com>, Jamie Iles <jamie@jamieiles.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>, Daniel Mack <daniel@zonque.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGVsbG8sCgpCb3JpcyBCcmV6aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29tPiB3
-cm90ZSBvbiBNb24sIDE4IE1heQoyMDIwIDE5OjA5OjEyICswMjAwOgoKPiBMZXQncyBjb252ZXJ0
-IHRoZSBkcml2ZXIgdG8gZXhlY19vcCgpIHRvIGhhdmUgb25lIGxlc3MgZHJpdmVyIHJlbHlpbmcK
-PiBvbiB0aGUgbGVnYWN5IGludGVyZmFjZS4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBCb3JpcyBCcmV6
-aWxsb24gPGJvcmlzLmJyZXppbGxvbkBjb2xsYWJvcmEuY29tPgo+IC0tLQoKQW55b25lIHRvIHRl
-c3QgdGhpcyBzZXJpZXM/CgpJZiBub3QgSSB3aWxsIGFwcGx5IGl0IGFzIHNvb24gYXMgdjUuOC1y
-YzEgaXMgcmVsZWFzZWQuCgoKVGhhbmtzLApNaXF1w6hsCgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFp
-bGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtbXRkLwo=
+Hello,
+
+A bit of context to explain the motivation behind those conversions
+I've been sending for the last few weeks. The raw NAND subsystem
+carries a lot of history which makes any rework not only painful, but
+also subject to regressions which we only detect when someone dares to
+update its kernel on one of those ancient HW. While carrying drivers
+for old HW is not a problem per se, carrying ancient and unmaintained
+drivers that are not converted to new APIs is a maintenance burden,
+hence this massive conversion attempt I'm conducting here.
+
+So here is a series converting the GPIO NAND controller driver to
+exec_op(). I hope I'll find someone to test those changes, but if
+there's no one still having access to this HW or no interest in keeping
+it supported in recent kernel versions, we should definitely consider
+removing the driver instead.
+
+Regards,
+
+Boris
+
+Boris Brezillon (3):
+  mtd: rawnand: gpio: Inherit from nand_controller
+  mtd: rawnand: gpio: Implement exec_op()
+  mtd: rawnand: gpio: Get rid of the legacy interface implementation
+
+ drivers/mtd/nand/raw/gpio.c | 116 ++++++++++++++++++++++++++++--------
+ 1 file changed, 91 insertions(+), 25 deletions(-)
+
+-- 
+2.25.4
+
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
