@@ -2,56 +2,54 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 170941ED195
-	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 15:58:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5E8891ED198
+	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 15:59:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g1QvsNgLbH37Vb1+5H/kvVXJhZTjS3PCNyQaCa3qiZs=; b=rtCCCWuKFLCpri
-	ChNllwn/SmCiJF7E//Ewypzfaoq+TXiC5Pxq21b33wiLuhFxF7iAzhLgfTuFjp4mvEmdwPdrYCZI8
-	Gjx85bKRgWKOJ2jzmGpd+qDXFlfxYi/fX02+Jtpjt2RpYlL176h5j3mgYZdJL57FqVmy8A0A+QTS6
-	GMNli2Ah7OX4JaWvguhLneVz2KtbWuumo2reO0KAKz1xHdVf6jT9gj8vxM1iWtIn4rnmdNwLm3/v7
-	+or0VMqXLA+zPknAXybKAV3iLnX0VrzG0GzhcoxrOtkXh9M9j9qLtEpkun8ypADTCtz710TwUL8TZ
-	gscJ1WNoVs3EQ+KmnK5g==;
+	List-Owner; bh=08dP4mKaAFFfFp4QkgoI97tW3Dix17q5DvZ+zPqWIzo=; b=IQTrcHt43tyBr8
+	p9eGwASyBPWFPUqVBMMdhdSTfx1KosrMkCwSnTEVt3Uje/I+oTXlTjDTdsdDgJ173qEoZYhmiO2rj
+	KlB+xX6USPM8l/8+R0qOkv+bRtT+G97zKshGNM5ThKGxhxwS8uRKqNmC/v0K+j8XY0EChBU5TJ7q6
+	nqOt4qFXF/NafD/I9NHfK8jGk+FwV0UocDzyWD5fRGUVW+2Cv8u7OuZNLuHnBqM+TUbdMZUI90nLa
+	5KZQE4B61Fb9tC7GwgQD6bLhzKaYpn3eYbRbii50UkJLQVXGpJUGWJM0gjHcmz69nvCQuTkSu4Urb
+	XAlBrf2motCModY1Adzw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgTuR-0003W7-JV; Wed, 03 Jun 2020 13:58:23 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jgTvU-0003nV-JJ; Wed, 03 Jun 2020 13:59:28 +0000
+Received: from relay12.mail.gandi.net ([217.70.178.232])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgTuI-0003VG-H7
- for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 13:58:16 +0000
-X-Originating-IP: 91.224.148.103
+ id 1jgTvJ-0003mz-DY
+ for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 13:59:19 +0000
 Received: from xps13 (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id DE971FF80B;
- Wed,  3 Jun 2020 13:58:03 +0000 (UTC)
-Date: Wed, 3 Jun 2020 15:58:02 +0200
+ by relay12.mail.gandi.net (Postfix) with ESMTPSA id 0A803200009;
+ Wed,  3 Jun 2020 13:59:09 +0000 (UTC)
+Date: Wed, 3 Jun 2020 15:59:08 +0200
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>
-Subject: Re: [PATCH 05/10] mtd: rawnand: fsl_upm: Use
- platform_get_resource() + devm_ioremap_resource()
-Message-ID: <20200603155802.12165328@xps13>
-In-Reply-To: <20200603134922.1352340-6-boris.brezillon@collabora.com>
+Subject: Re: [PATCH 06/10] mtd: rawnand: fsl_upm: Use gpio descriptors
+Message-ID: <20200603155908.0d60607e@xps13>
+In-Reply-To: <20200603134922.1352340-7-boris.brezillon@collabora.com>
 References: <20200603134922.1352340-1-boris.brezillon@collabora.com>
- <20200603134922.1352340-6-boris.brezillon@collabora.com>
+ <20200603134922.1352340-7-boris.brezillon@collabora.com>
 Organization: Bootlin
 X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_065814_704485_CC674863 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20200603_065917_884995_0DB39A37 
+X-CRM114-Status: GOOD (  10.19  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
+ low trust [217.70.178.232 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.199 listed in wl.mailspike.net]
+ [217.70.178.232 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -78,52 +76,25 @@ Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
 
 Boris Brezillon <boris.brezillon@collabora.com> wrote on Wed,  3 Jun
-2020 15:49:17 +0200:
+2020 15:49:18 +0200:
 
-> Replace the of_address_to_resource() + devm_ioremap() calls by
-> platform_get_resource() + devm_ioremap_resource() ones which allows us
-> to get rid of one error message since devm_ioremap_resource() already
-> takes care of that.
+> The integer-based GPIO ids are now deprecated in favor of the GPIO desc
+> API. The PPC platforms have already been converted to GPIOLIB, so let's
+> use gpio descs in the NAND driver too.
+> 
+> While at it, we use devm_gpiod_get_index_optional() so we can get rid
+> of the manual gpio desc release done in the init error path and in the
+> remove function.
 > 
 > Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 > ---
->  drivers/mtd/nand/raw/fsl_upm.c | 23 +++++++----------------
->  1 file changed, 7 insertions(+), 16 deletions(-)
+>  drivers/mtd/nand/raw/fsl_upm.c | 44 ++++++++--------------------------
+>  1 file changed, 10 insertions(+), 34 deletions(-)
 > 
-> diff --git a/drivers/mtd/nand/raw/fsl_upm.c b/drivers/mtd/nand/raw/fsl_upm.c
-> index a3e3a968891d..54851e9ea784 100644
-> --- a/drivers/mtd/nand/raw/fsl_upm.c
-> +++ b/drivers/mtd/nand/raw/fsl_upm.c
-> @@ -14,7 +14,6 @@
->  #include <linux/mtd/nand_ecc.h>
->  #include <linux/mtd/partitions.h>
->  #include <linux/mtd/mtd.h>
-> -#include <linux/of_address.h>
->  #include <linux/of_platform.h>
->  #include <linux/of_gpio.h>
->  #include <linux/io.h>
-> @@ -197,7 +196,7 @@ static int fun_chip_init(struct fsl_upm_nand *fun,
->  static int fun_probe(struct platform_device *ofdev)
->  {
->  	struct fsl_upm_nand *fun;
-> -	struct resource io_res;
-> +	struct resource *io_res;
->  	const __be32 *prop;
->  	int rnb_gpio;
->  	int ret;
-> @@ -208,13 +207,12 @@ static int fun_probe(struct platform_device *ofdev)
->  	if (!fun)
->  		return -ENOMEM;
->  
-> -	ret = of_address_to_resource(ofdev->dev.of_node, 0, &io_res);
-> -	if (ret) {
-> -		dev_err(&ofdev->dev, "can't get IO base\n");
-> -		return ret;
-> -	}
-> +	io_res = platform_get_resource(ofdev, IORESOURCE_MEM, 0);
-> +	fun->io_base = devm_ioremap_resource(&ofdev->dev, io_res);
 
-Why not even using devm_platform_ioremap_resource() resource directly?
+
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
