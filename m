@@ -2,54 +2,52 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DDD511ED174
-	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 15:52:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DAA261ED169
+	for <lists+linux-mtd@lfdr.de>; Wed,  3 Jun 2020 15:51:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=06B7+1JXEwnn2mB7+HDBRT3I0jbZi5DTUirExDx1cRs=; b=H57EvNrzgMB7+c
-	E5Z6KvYtlDPMzkT4FuG/Y3zaTdv4VN4xoabqbi6XcSqRx8snY+d9oqDV0jhM5TD4j455OVfgD0wTG
-	oT6VpJzYpVNDj543XE80YEkRHC17GyPIuYvJUugvPLgg9GU9ppf24v7s5/dmUPmhxeRBLbU9zrUr7
-	llj6/iDhDLwcdpF+DEEopHXLNNujPLDp3MjsTSm5ZtdNRp+WvyXbekv8Ar/3mpEZdReknOB1SAG1s
-	H/PnWDDSY+Qdhoob981FpL9+60taz9QlvFRyId/70OFkqov50l7qT6SrL/mrYY9UfJgFQ9cm+IprU
-	/4EiGK/3MQRG6P6wPHfQ==;
+	List-Owner; bh=cgRzJRlicsZ6G8UYExi0e7rjm5aehhASp1gdYrvZWc8=; b=i//5m6XqDRMmJf
+	c771bRZ8LgQ/9KYA5oeeUVHHSujfSofuRlNGQuVaOGG1x7qGM+i2gDAhJZG27xh1KN5QjUT3HTx4W
+	dVc481AH7Gow3iyWfhdcp51oPWkGZQp7YC77wjh3MgPjGptCZ5ThfbGGeAQdC182aZnUeRQBd8sf8
+	OlOL5Mu3fXmq8fsfqahkdwsjthtjzAyyqK6q5xlp7X8t15nRmDnu1HIJZPBgaXFpiCKe8UtV4NAQA
+	UxDez+aeyK/+t9O8sn+EinlyltJpuLCLHVl1zI0LoO3JIU6bV5IcyjFYXKque2ZyJg/dYlRqi87BK
+	Gs6z8eYuNmQPEWQeYIow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jgTob-0006Tp-LJ; Wed, 03 Jun 2020 13:52:21 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1jgTnz-0005nf-2n; Wed, 03 Jun 2020 13:51:43 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jgTlr-0001lO-La
- for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 13:49:35 +0000
+ id 1jgTls-0001lN-2S
+ for linux-mtd@lists.infradead.org; Wed, 03 Jun 2020 13:49:34 +0000
 Received: from localhost.localdomain (unknown
  [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested) (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 4CEC42A3D7C;
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id A59162A3D7D;
  Wed,  3 Jun 2020 14:49:29 +0100 (BST)
 From: Boris Brezillon <boris.brezillon@collabora.com>
 To: Anton Vorontsov <anton@enomsg.org>,
  Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
-Subject: [PATCH 09/10] mtd: rawnand: fsl_upm: Get rid of the legacy interface
- implementation
-Date: Wed,  3 Jun 2020 15:49:21 +0200
-Message-Id: <20200603134922.1352340-10-boris.brezillon@collabora.com>
+Subject: [PATCH 10/10] dt-bindings: mtd: fsl-upm-nand: Deprecate chip-delay
+ and fsl, upm-wait-flags
+Date: Wed,  3 Jun 2020 15:49:22 +0200
+Message-Id: <20200603134922.1352340-11-boris.brezillon@collabora.com>
 X-Mailer: git-send-email 2.25.4
 In-Reply-To: <20200603134922.1352340-1-boris.brezillon@collabora.com>
 References: <20200603134922.1352340-1-boris.brezillon@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200603_064931_995638_2FF7FED8 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20200603_064932_259237_0BB03206 
+X-CRM114-Status: GOOD (  11.94  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-mtd@lists.infradead.org
@@ -75,195 +73,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Now that the driver implements exec_op(), we can get rid of the legacy
-interface implementation.
+Those properties are no longer parsed by the driver which is being passed
+those information by the core now. Let's deprecate them.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 ---
- drivers/mtd/nand/raw/fsl_upm.c | 133 ---------------------------------
- 1 file changed, 133 deletions(-)
+ Documentation/devicetree/bindings/mtd/fsl-upm-nand.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/mtd/nand/raw/fsl_upm.c b/drivers/mtd/nand/raw/fsl_upm.c
-index 03ca20930274..197850aeb261 100644
---- a/drivers/mtd/nand/raw/fsl_upm.c
-+++ b/drivers/mtd/nand/raw/fsl_upm.c
-@@ -19,15 +19,10 @@
- #include <linux/slab.h>
- #include <asm/fsl_lbc.h>
+diff --git a/Documentation/devicetree/bindings/mtd/fsl-upm-nand.txt b/Documentation/devicetree/bindings/mtd/fsl-upm-nand.txt
+index fce4894f5a98..25f07c1f9e44 100644
+--- a/Documentation/devicetree/bindings/mtd/fsl-upm-nand.txt
++++ b/Documentation/devicetree/bindings/mtd/fsl-upm-nand.txt
+@@ -7,14 +7,16 @@ Required properties:
+ - fsl,upm-cmd-offset : UPM pattern offset for the command latch.
  
--#define FSL_UPM_WAIT_RUN_PATTERN  0x1
--#define FSL_UPM_WAIT_WRITE_BYTE   0x2
--#define FSL_UPM_WAIT_WRITE_BUFFER 0x4
--
- struct fsl_upm_nand {
- 	struct nand_controller base;
- 	struct device *dev;
- 	struct nand_chip chip;
--	int last_ctrl;
- 	struct fsl_upm upm;
- 	uint8_t upm_addr_offset;
- 	uint8_t upm_cmd_offset;
-@@ -36,8 +31,6 @@ struct fsl_upm_nand {
- 	uint32_t mchip_offsets[NAND_MAX_CHIPS];
- 	uint32_t mchip_count;
- 	uint32_t mchip_number;
--	int chip_delay;
--	uint32_t wait_flags;
- };
+ Optional properties:
+-- fsl,upm-wait-flags : add chip-dependent short delays after running the
+-	UPM pattern (0x1), after writing a data byte (0x2) or after
+-	writing out a buffer (0x4).
+ - fsl,upm-addr-line-cs-offsets : address offsets for multi-chip support.
+ 	The corresponding address lines are used to select the chip.
+ - gpios : may specify optional GPIOs connected to the Ready-Not-Busy pins
+ 	(R/B#). For multi-chip devices, "n" GPIO definitions are required
+ 	according to the number of chips.
++
++Deprecated properties:
++- fsl,upm-wait-flags : add chip-dependent short delays after running the
++	UPM pattern (0x1), after writing a data byte (0x2) or after
++	writing out a buffer (0x4).
+ - chip-delay : chip dependent delay for transferring data from array to
+ 	read registers (tR). Required if property "gpios" is not used
+ 	(R/B# pins not connected).
+@@ -52,8 +54,6 @@ upm@3,0 {
+ 	fsl,upm-cmd-offset = <0x08>;
+ 	/* Multi-chip NAND device */
+ 	fsl,upm-addr-line-cs-offsets = <0x0 0x200>;
+-	fsl,upm-wait-flags = <0x5>;
+-	chip-delay = <25>; // in micro-seconds
  
- static inline struct fsl_upm_nand *to_fsl_upm_nand(struct mtd_info *mtdinfo)
-@@ -46,105 +39,6 @@ static inline struct fsl_upm_nand *to_fsl_upm_nand(struct mtd_info *mtdinfo)
- 			    chip);
- }
- 
--static int fun_chip_ready(struct nand_chip *chip)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--
--	if (gpiod_get_value(fun->rnb_gpio[fun->mchip_number]))
--		return 1;
--
--	dev_vdbg(fun->dev, "busy\n");
--	return 0;
--}
--
--static void fun_wait_rnb(struct fsl_upm_nand *fun)
--{
--	if (fun->rnb_gpio[fun->mchip_number] >= 0) {
--		int cnt = 1000000;
--
--		while (--cnt && !fun_chip_ready(&fun->chip))
--			cpu_relax();
--		if (!cnt)
--			dev_err(fun->dev, "tired waiting for RNB\n");
--	} else {
--		ndelay(100);
--	}
--}
--
--static void fun_cmd_ctrl(struct nand_chip *chip, int cmd, unsigned int ctrl)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--	u32 mar;
--
--	if (!(ctrl & fun->last_ctrl)) {
--		fsl_upm_end_pattern(&fun->upm);
--
--		if (cmd == NAND_CMD_NONE)
--			return;
--
--		fun->last_ctrl = ctrl & (NAND_ALE | NAND_CLE);
--	}
--
--	if (ctrl & NAND_CTRL_CHANGE) {
--		if (ctrl & NAND_ALE)
--			fsl_upm_start_pattern(&fun->upm, fun->upm_addr_offset);
--		else if (ctrl & NAND_CLE)
--			fsl_upm_start_pattern(&fun->upm, fun->upm_cmd_offset);
--	}
--
--	mar = (cmd << (32 - fun->upm.width)) |
--		fun->mchip_offsets[fun->mchip_number];
--	fsl_upm_run_pattern(&fun->upm, chip->legacy.IO_ADDR_R, mar);
--
--	if (fun->wait_flags & FSL_UPM_WAIT_RUN_PATTERN)
--		fun_wait_rnb(fun);
--}
--
--static void fun_select_chip(struct nand_chip *chip, int mchip_nr)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--
--	if (mchip_nr == -1) {
--		chip->legacy.cmd_ctrl(chip, NAND_CMD_NONE, 0 | NAND_CTRL_CHANGE);
--	} else if (mchip_nr >= 0 && mchip_nr < NAND_MAX_CHIPS) {
--		fun->mchip_number = mchip_nr;
--		chip->legacy.IO_ADDR_R = fun->io_base + fun->mchip_offsets[mchip_nr];
--		chip->legacy.IO_ADDR_W = chip->legacy.IO_ADDR_R;
--	} else {
--		BUG();
--	}
--}
--
--static uint8_t fun_read_byte(struct nand_chip *chip)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--
--	return in_8(fun->chip.legacy.IO_ADDR_R);
--}
--
--static void fun_read_buf(struct nand_chip *chip, uint8_t *buf, int len)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--	int i;
--
--	for (i = 0; i < len; i++)
--		buf[i] = in_8(fun->chip.legacy.IO_ADDR_R);
--}
--
--static void fun_write_buf(struct nand_chip *chip, const uint8_t *buf, int len)
--{
--	struct fsl_upm_nand *fun = to_fsl_upm_nand(nand_to_mtd(chip));
--	int i;
--
--	for (i = 0; i < len; i++) {
--		out_8(fun->chip.legacy.IO_ADDR_W, buf[i]);
--		if (fun->wait_flags & FSL_UPM_WAIT_WRITE_BYTE)
--			fun_wait_rnb(fun);
--	}
--	if (fun->wait_flags & FSL_UPM_WAIT_WRITE_BUFFER)
--		fun_wait_rnb(fun);
--}
--
- static int fun_chip_init(struct fsl_upm_nand *fun,
- 			 const struct device_node *upm_np,
- 			 const struct resource *io_res)
-@@ -153,21 +47,8 @@ static int fun_chip_init(struct fsl_upm_nand *fun,
- 	int ret;
- 	struct device_node *flash_np;
- 
--	fun->chip.legacy.IO_ADDR_R = fun->io_base;
--	fun->chip.legacy.IO_ADDR_W = fun->io_base;
--	fun->chip.legacy.cmd_ctrl = fun_cmd_ctrl;
--	fun->chip.legacy.chip_delay = fun->chip_delay;
--	fun->chip.legacy.read_byte = fun_read_byte;
--	fun->chip.legacy.read_buf = fun_read_buf;
--	fun->chip.legacy.write_buf = fun_write_buf;
- 	fun->chip.ecc.mode = NAND_ECC_SOFT;
- 	fun->chip.ecc.algo = NAND_ECC_HAMMING;
--	if (fun->mchip_count > 1)
--		fun->chip.legacy.select_chip = fun_select_chip;
--
--	if (!fun->rnb_gpio[0])
--		fun->chip.legacy.dev_ready = fun_chip_ready;
--
- 	fun->chip.controller = &fun->base;
- 	mtd->dev.parent = fun->dev;
- 
-@@ -342,23 +223,9 @@ static int fun_probe(struct platform_device *ofdev)
- 		}
- 	}
- 
--	prop = of_get_property(ofdev->dev.of_node, "chip-delay", NULL);
--	if (prop)
--		fun->chip_delay = be32_to_cpup(prop);
--	else
--		fun->chip_delay = 50;
--
--	prop = of_get_property(ofdev->dev.of_node, "fsl,upm-wait-flags", &size);
--	if (prop && size == sizeof(uint32_t))
--		fun->wait_flags = be32_to_cpup(prop);
--	else
--		fun->wait_flags = FSL_UPM_WAIT_RUN_PATTERN |
--				  FSL_UPM_WAIT_WRITE_BYTE;
--
- 	nand_controller_init(&fun->base);
- 	fun->base.ops = &fun_ops;
- 	fun->dev = &ofdev->dev;
--	fun->last_ctrl = NAND_CLE;
- 
- 	ret = fun_chip_init(fun, ofdev->dev.of_node, io_res);
- 	if (ret)
+ 	nand@0 {
+ 		#address-cells = <1>;
 -- 
 2.25.4
 
