@@ -2,91 +2,94 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 629801F105B
-	for <lists+linux-mtd@lfdr.de>; Mon,  8 Jun 2020 01:13:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6F6451F15A8
+	for <lists+linux-mtd@lfdr.de>; Mon,  8 Jun 2020 11:41:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
-	From:MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=h3UL3ITzL/Z+b74e77XxpUNQilHezVULkP+E/LN3HqY=; b=Yn+vc+jsAYuJgI
-	tQ5hg5zLAm43eVDIJkxLcSBdlooLM3zpLh9ZjRoVFeu9DEhIJtQexPrx8AkWOMOf+FJXKXJSEun1t
-	B4yGIBz57EnvU9Zb16MVyE2AIV8gW55nNlStUsI4khYE7J37yzdAYvpT/GsAY17N7xMQzPCUX5HML
-	EieVcNWEIyTsCBbGud+FH+EhSRZK5oRGThfmN8H641eTfhIXzGAge+DqfhciuiNT1f3alY+vCczsV
-	R98neafFlv6V2S65mt3dQAV9oqO4FFWDq76Diu0BukFQ9d6g29aB5QVmFYaGoSCHLOud0+MrQ+lla
-	uM6V0cd8AIfdoJqR2ARg==;
+	List-Owner; bh=OuMUHoc8ZxuEVpEftgU/fB5FA0VVOJSzUucYGP2Ur3c=; b=H3XYfhVNcnstU7
+	+idGmPY+JKvrIc2xUoQFhHmH7kvFtAwor67wTWpRkotDvwA0d2vs/k2zLdZv+FZU07Xkk6cS6EUMm
+	itwokHbbOX9OkbKSmNwhQob3d+oe197rl0qRRB4TtBMHzUhOVnTAK/fz63getmW3psPn2esI2s3FU
+	PIgOXWAsc08fnRLaw+x7wd4QpVU5g+7ngqzYnOPZjFZsoVQriLMBcuAuff/TOJcpVsX4SZIQglslI
+	PXktPdvZIb6Saq/fqfaaySrNUDzv5A3+LtWn85AcQkJhS3VcZnO404T+C/5zfCN4QwymfG3NmWjG+
+	V+I0RWnOUtAVAn+sQyRQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ji4Tn-0000tJ-Io; Sun, 07 Jun 2020 23:13:27 +0000
-Received: from mail-lj1-x244.google.com ([2a00:1450:4864:20::244])
+	id 1jiEHS-0002xm-1W; Mon, 08 Jun 2020 09:41:22 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ji4Tf-0000sn-7B
- for linux-mtd@lists.infradead.org; Sun, 07 Jun 2020 23:13:20 +0000
-Received: by mail-lj1-x244.google.com with SMTP id z9so18151716ljh.13
- for <linux-mtd@lists.infradead.org>; Sun, 07 Jun 2020 16:13:18 -0700 (PDT)
+ id 1jiEH3-0002mb-SD; Mon, 08 Jun 2020 09:40:59 +0000
+Received: by mail-wm1-x341.google.com with SMTP id q25so15828981wmj.0;
+ Mon, 08 Jun 2020 02:40:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:reply-to:from:date:message-id:subject:to;
- bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
- b=g+VCAHAoWL4xJzVklduY/eoWtSGEo/mtgOVbK4Gi8+Nb3iUA9nZ3+HpURn1aAS4I2F
- HgncHRAVgNkCScp4JmCRZ6XFU3G8c02cMhEcPp8EuUs0z4IdxNy5RFTIg0wGresilJys
- 7Xs/4oaf1EdtDeE5ucm3WjBQJQHs2UeKe8w+A0LolHIqhPQJFp3cRWeDIG5ojFI9U7/s
- CKPy7p3+P/XCcKSStb9PXWuZRqw2Svek1LcKl2GqwaUR0LIY/ijp8/kUOGqMKg4XgNq8
- B6+/e46ixcPOZfjXHofCu+B9C1dkgWMhimQy/2YJw/pzPLqgGL6KJ7eDVPAoGTDOH5Hg
- Hckw==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=+F6VpU2DhJ38D1OzhvVOMkYO64zmbpsjhAiXZI8h3vs=;
+ b=iSoehG0/Vz0/hFRBTy05XlPZguWhE683LXK3Skhpl3x5As15/po8UkSHDk2lk6nX8s
+ EmfTIGxZrRzy+4Uca9R+I+lMk+JJxO3pNYIKfGX3M1SHybTaTwQodmZK/e5QQjH3apXb
+ bjYRtAiGQhKAH6ksUDm69xag6askBl3VCWymf/c94eoGYsBLlEsrhMmyU5sJ67PqcxTr
+ gYo6AGAKfXOjpMVuQAcG8+RqQV7WapOqkbXqQCK1NLL4ysw+n/WlrdzAdYYGMFB2iuLt
+ oQKy8A7deCvfHilqoP1TXjVWcSElvG3lhEVBjqOWdLkk/n+7n4+c++GQx9oZ5+w8zVTD
+ 5VbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:reply-to:from:date:message-id
- :subject:to;
- bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
- b=WoowxnylBHI3youdsx3bsaquHhRB9W7UfbNp7E6hpygELfhigDMYL31Y45rqqV+qx/
- 9NA3U1SnSivhBmavRuLnsdOf1MNvnMF12M1jkyyHDJsAfsSopIFjgEs/h8+Zd6xbpIul
- Na4trE+6hf2+g1EF4PmoupGjxHGwKrIMBsVVhMsU8YbOZk7lQ/0/Ov8GpLlSHapOhuP4
- +e9aS2ZP8XriRP2+/RlKmF1IoFCGCFSlRFMm1dlMVXEHOiFQ205hznnzi57xc6i59y6R
- 0bqLusTPP8PzHJIFdsC2sb2PbcHGBgS8WnHjQrnft9A01tgnHQeNt08D41IL2zZbqdf8
- kbow==
-X-Gm-Message-State: AOAM531p/yLa+Bi732Upv90NpELmaMQKbf0kPR6qos8lPOG4H2Rh24Df
- MWbPJKXWanVLJOs8mXEoCKTaLqKN5fQ3KrW8/TfD7/Rn
-X-Google-Smtp-Source: ABdhPJzme8PSx37VldFgrX2JPtlGM5JDMXscegPHbrAYCIXVYZupzKIgpKJ0syu70AFEmpjJ4bacfIi5FIWo3jRFXBs=
-X-Received: by 2002:a2e:584e:: with SMTP id x14mr9045064ljd.380.1591571597674; 
- Sun, 07 Jun 2020 16:13:17 -0700 (PDT)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=+F6VpU2DhJ38D1OzhvVOMkYO64zmbpsjhAiXZI8h3vs=;
+ b=d8lVZAfUnVnC6BhR0lyeRiY+i0TjpDY4iRyYIUcz8yo5cQHABfmXLJ+sc4erBUVTmQ
+ kVKZT+VTzzpxCXUTyCphps5HCFdHU0FcDXtWcYlitv20Vjj5/029l+hMxv+oPcXcYZit
+ WNMkt0PX7Z4wEAdCDYTae6yyjGTZmR+BoUm3QEw9q8k+eiCzKkIKFi1ntlaCY1nRoj7M
+ Kh1WktM2dKsS6TzK4elOZ7AmpYvR5ThXr4kXjOo2SI6+gdNi7SA0CtDlU0LgPDH3pu6a
+ uXkepyvTPrEeC1O7wYaUoD4XWUC+5qjmBNMkDOQuJGFZc9/sekcGBlb678cybJk2ysKj
+ zARQ==
+X-Gm-Message-State: AOAM530XgvOAizP6IfNrJ7S9y7VQMehk+tAxTejciKCqZdZYYq/b4zYE
+ ooHxkfMewcwnWuWx37YTtcI=
+X-Google-Smtp-Source: ABdhPJwwSZuP+bLORdgzdVpGe4oKaJlyNkuAUhDK5qX4qEIjzSeAk+d6t6RgsEH1l8fS5REb59KWjg==
+X-Received: by 2002:a1c:f401:: with SMTP id z1mr14952827wma.44.1591609256454; 
+ Mon, 08 Jun 2020 02:40:56 -0700 (PDT)
+Received: from skynet.lan (28.red-83-49-61.dynamicip.rima-tde.net.
+ [83.49.61.28])
+ by smtp.gmail.com with ESMTPSA id a3sm22096479wrp.91.2020.06.08.02.40.55
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 08 Jun 2020 02:40:55 -0700 (PDT)
+From: =?UTF-8?q?=C3=81lvaro=20Fern=C3=A1ndez=20Rojas?= <noltari@gmail.com>
+To: tsbogend@alpha.franken.de, f.fainelli@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, miquel.raynal@bootlin.com,
+ richard@nod.at, vigneshr@ti.com, jonas.gorski@gmail.com,
+ linus.walleij@linaro.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org
+Subject: [PATCH 0/2] mtd: parsers: bcm63xx: simplify CFE detection
+Date: Mon,  8 Jun 2020 11:40:51 +0200
+Message-Id: <20200608094053.3381512-1-noltari@gmail.com>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
-Received: by 2002:a05:6512:313b:0:0:0:0 with HTTP; Sun, 7 Jun 2020 16:13:17
- -0700 (PDT)
-From: Sylvia Robinson <lorijrobinson589@gmail.com>
-Date: Mon, 8 Jun 2020 00:13:17 +0100
-Message-ID: <CAKXTXJw_ePTi_bgdz2qOC8B=A0q7nHjipsB0vbXcov95PFSeag@mail.gmail.com>
-Subject: =?UTF-8?B?U2l6ZSBnw7ZuZGVyZGnEn2ltIG1lc2FqxLFtxLEgZ8O2cmTDvG4gbcO8Pw==?=
-To: undisclosed-recipients:;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200607_161319_257834_7C07C3D1 
-X-CRM114-Status: UNSURE (   0.57  )
+X-CRM114-CacheID: sfid-20200608_024057_910781_C8F0D41E 
+X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.3 (+)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (1.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:244 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:341 listed in]
  [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [lorijrobinson589[at]gmail.com]
+ provider [noltari[at]gmail.com]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.2 FREEMAIL_REPLYTO_END_DIGIT Reply-To freemail username ends in
- digit [sylviajones046[at]gmail.com]
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [lorijrobinson589[at]gmail.com]
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 1.0 FREEMAIL_REPLYTO       Reply-To/From or Reply-To/body contain
- different freemails
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,14 +101,20 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Reply-To: sylviajones046@gmail.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: =?UTF-8?q?=C3=81lvaro=20Fern=C3=A1ndez=20Rojas?= <noltari@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SW5zdGVhZCBvZiB0cnlpbmcgdG8gcGFyc2UgQ0ZFIHZlcnNpb24gc3RyaW5nLCB3aGljaCBpcyBj
+dXN0b21pemVkIGJ5IHNvbWUKdmVuZG9ycywgbGV0J3MganVzdCBjaGVjayB0aGF0ICJDRkUxIiB3
+YXMgcGFzc2VkIG9uIGFyZ3VtZW50IDMuCgrDgWx2YXJvIEZlcm7DoW5kZXogUm9qYXMgKDIpOgog
+IE1JUFM6IEJDTTYzeHg6IGFkZCBoZWxwZXIgZnVuY3Rpb24gdG8gZGV0ZWN0IENGRQogIG10ZDog
+cGFyc2VyczogYmNtNjN4eDogc2ltcGxpZnkgQ0ZFIGRldGVjdGlvbgoKIC4uLi9pbmNsdWRlL2Fz
+bS9tYWNoLWJjbTYzeHgvYmNtNjN4eF9ib2FyZC5oICB8ICA2ICsrKysKIGRyaXZlcnMvbXRkL3Bh
+cnNlcnMvYmNtNjN4eHBhcnQuYyAgICAgICAgICAgICB8IDI4ICsrLS0tLS0tLS0tLS0tLS0tLS0K
+IDIgZmlsZXMgY2hhbmdlZCwgOSBpbnNlcnRpb25zKCspLCAyNSBkZWxldGlvbnMoLSkKCi0tIAoy
+LjI2LjIKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KTGludXggTVREIGRpc2N1c3Npb24gbWFpbGluZyBsaXN0Cmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtbXRkLwo=
