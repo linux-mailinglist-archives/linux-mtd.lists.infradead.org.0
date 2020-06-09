@@ -2,64 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9EEFF1F33DF
-	for <lists+linux-mtd@lfdr.de>; Tue,  9 Jun 2020 07:58:48 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5986D1F351D
+	for <lists+linux-mtd@lfdr.de>; Tue,  9 Jun 2020 09:41:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:
-	Subject:From:To:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=TO9eXO+Yxq+JtJwEyPzMjv1jyEQi1EGYjqUr/aAZrxg=; b=UPa
-	ZHKIE1oSWwG4XPkL4RX+JiPYtu6RXKG5BPx/BdjYZHfnogp8Kfh/yLv49v8EZRp5eeADpC91By2ns
-	CS14tb2Br8J2EVwgGMC61vnSwXMbEcYTnYLmK7wZy6juN2/GVjTvlIT08F2tMEdC9V40aciud0FC/
-	gJoaC2u9V4Rrn0sfjNrUxWONvTkAh3kW1aWAFajPNzQiczwfp/wMJMO79k7pKALqWSZJCiwN72R8l
-	Lkh5IrtXuCSZLpTklTNnc2ClBeIr3Kxuw7wPIW9h6qI7L0svY/lsFDgwj2ZLS7n5EgwmavXWCjsZw
-	LjVx4jwt8m0krf18XuBsDpPRKodGcKA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=KHhreigXavRZIbWNuZSmzMmlJU7A7q9wNoXhcl6C5Ow=; b=iJq
+	7F6PtFPfoN3+WeRn9B9EURizGRCAdn3Gne9LOaY/sg78a5DJ8YBXOJ7x5eJZIkKX5mpj+2XipvAmk
+	Kz0evXbGO5yqrg5W63ASutVoQNwT/lxdMT1Td1F/3Y/+HBvvGIn0UsSjyTVKUHrfgtNb4dBIhHM6S
+	zyhXPTF6aj75rajOvFSSsMog4TJABR0aNo7GHXJ8iht1bQRIXBR4nayvmoa8OE2LJREjhO8eY8Aop
+	t9t7iRZDr+5WRp2NZWQpTke7Q+Hvdf0Qkg3XyZQ+osmVTg+lkQL86fN2PdZAEGjciuj67DpiiHliz
+	kFxGLOJNOvYMVIH8CjQ8kb7TNrrPAkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jiXHX-0001EP-6g; Tue, 09 Jun 2020 05:58:43 +0000
-Received: from bilbo.ozlabs.org ([203.11.71.1] helo=ozlabs.org)
+	id 1jiYt2-0002w7-NP; Tue, 09 Jun 2020 07:41:32 +0000
+Received: from lucky1.263xmail.com ([211.157.147.131])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jiXHM-0001DR-P3; Tue, 09 Jun 2020 05:58:36 +0000
-Received: by ozlabs.org (Postfix, from userid 1034)
- id 49gzvB1bJMz9sSy; Tue,  9 Jun 2020 15:58:30 +1000 (AEST)
-X-powerpc-patch-notification: thanks
-X-powerpc-patch-commit: bac7ca7b985b72873bd4ac2553b13b5af5b1f08a
-In-Reply-To: <994931554238042@iva8-b333b7f98ab0.qloud-c.yandex.net>
-To: Andrey Abramov <st5pub@yandex.ru>, vgupta <vgupta@synopsys.com>,
- benh <benh@kernel.crashing.org>, paulus <paulus@samba.org>,
- tglx <tglx@linutronix.de>, mingo <mingo@redhat.com>, bp <bp@alien8.de>,
- hpa <hpa@zytor.com>, x86 <x86@kernel.org>, mark <mark@fasheh.com>,
- jlbec <jlbec@evilplan.org>, richard <richard@nod.at>,
- dedekind1 <dedekind1@gmail.com>, adrian.hunter <adrian.hunter@intel.com>,
- gregkh <gregkh@linuxfoundation.org>,
- naveen.n.rao <naveen.n.rao@linux.vnet.ibm.com>, jpoimboe <jpoimboe@redhat.com>,
- Dave Chinner <dchinner@redhat.com>, darrick.wong <darrick.wong@oracle.com>,
- ard.biesheuvel <ard.biesheuvel@linaro.org>, George Spelvin <lkml@sdf.org>,
- linux-snps-arc <linux-snps-arc@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- ocfs2-devel <ocfs2-devel@oss.oracle.com>,
- linux-mtd <linux-mtd@lists.infradead.org>, sfr <sfr@canb.auug.org.au>
-From: Michael Ellerman <patch-notifications@ellerman.id.au>
-Subject: Re: [PATCH v3 2/5] powerpc: module_[32|64].c: replace swap function
- with built-in one
-Message-Id: <49gzvB1bJMz9sSy@ozlabs.org>
-Date: Tue,  9 Jun 2020 15:58:30 +1000 (AEST)
+ id 1jiYsC-0002HF-9C; Tue, 09 Jun 2020 07:40:42 +0000
+Received: from localhost (unknown [192.168.167.235])
+ by lucky1.263xmail.com (Postfix) with ESMTP id 094B9AD4DA;
+ Tue,  9 Jun 2020 15:40:30 +0800 (CST)
+X-MAIL-GRAY: 0
+X-MAIL-DELIVERY: 1
+X-ADDR-CHECKED4: 1
+X-ANTISPAM-LEVEL: 2
+X-ABS-CHECKED: 0
+Received: from ubuntu18.lan (unknown [58.22.7.114])
+ by smtp.263.net (postfix) whith ESMTP id
+ P31250T139912844142336S1591688422511107_; 
+ Tue, 09 Jun 2020 15:40:28 +0800 (CST)
+X-IP-DOMAINF: 1
+X-UNIQUE-TAG: <f1bb287535e694da4612b79938bd4beb>
+X-RL-SENDER: yifeng.zhao@rock-chips.com
+X-SENDER: zyf@rock-chips.com
+X-LOGIN-NAME: yifeng.zhao@rock-chips.com
+X-FST-TO: miquel.raynal@bootlin.com
+X-SENDER-IP: 58.22.7.114
+X-ATTACHMENT-NUM: 0
+X-DNS-TYPE: 0
+X-System-Flag: 0
+From: Yifeng Zhao <yifeng.zhao@rock-chips.com>
+To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
+ robh+dt@kernel.org
+Subject: [PATCH v6 0/8] Add Rockchip NFC drivers for RK3308 and others
+Date: Tue,  9 Jun 2020 15:40:17 +0800
+Message-Id: <20200609074020.23860-1-yifeng.zhao@rock-chips.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200608_225832_974026_A402C56C 
-X-CRM114-Status: UNSURE (   4.46  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.2 (/)
+X-CRM114-CacheID: sfid-20200609_004040_551621_5C4CE2D6 
+X-CRM114-Status: GOOD (  12.27  )
+X-Spam-Score: 1.5 (+)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.2 points)
+ Content analysis details:   (1.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [211.157.147.131 listed in list.dnswl.org]
+ 1.5 RCVD_IN_SORBS_WEB      RBL: SORBS: sender is an abusable web server
+ [58.22.7.114 listed in dnsbl.sorbs.net]
+ 0.0 T_SPF_PERMERROR        SPF: test of record failed (permerror)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [211.157.147.131 listed in wl.mailspike.net]
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,32 +78,82 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: malat <malat@debian.org>, "yamada.masahiro" <yamada.masahiro@socionext.com>,
- npiggin <npiggin@gmail.com>
+Cc: devicetree@vger.kernel.org, heiko@sntech.de,
+ Yifeng Zhao <yifeng.zhao@rock-chips.com>, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-mtd@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Tue, 2019-04-02 at 20:47:22 UTC, Andrey Abramov wrote:
-> Replace relaswap with built-in one, because relaswap
-> does a simple byte to byte swap.
-> 
-> Since Spectre mitigations have made indirect function calls more
-> expensive, and the default simple byte copies swap is implemented
-> without them, an "optimized" custom swap function is now
-> a waste of time as well as code.
-> 
-> Signed-off-by: Andrey Abramov <st5pub@yandex.ru>
-> Reviewed by: George Spelvin <lkml@sdf.org>
-> Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
 
-Applied to powerpc next, thanks.
+Rockchp's NFC(Nand Flash Controller) has four versions: V600, V622, V800 and V900.
+This series patch can support all four versions.
 
-https://git.kernel.org/powerpc/c/bac7ca7b985b72873bd4ac2553b13b5af5b1f08a
 
-cheers
+Changes in v6:
+- Fix some wrong define
+- Modified the definition of compatible
+- The mtd->name set by NAND label property.
+- Add some comments.
+- Fix compile error.
+
+Changes in v5:
+- Fix some wrong define
+- Add boot-medium define
+- Remove some compatible define
+- Add boot blocks support  with different ecc for bootrom.
+- Rename rockchip-nand.c to rockchip-nand-controller.c.
+- Unification of other variable names.
+- Remove some compatible define.
+
+Changes in v4:
+- The compatible define with rkxx_nfc
+- Add assigned-clocks
+- Fix some wrong define
+- Define platform data structure for the register offsets.
+- The compatible define with rkxx_nfc.
+- Use SET_SYSTEM_SLEEP_PM_OPS to define PM_OPS.
+- Use exec_op instead of legacy hooks.
+
+Changes in v3:
+- Change the title for the dt-bindings
+
+Changes in v2:
+- Fix compile error.
+- Include header files sorted by file name.
+
+Yifeng Zhao (8):
+  dt-bindings: mtd: Describe Rockchip RK3xxx NAND flash controller
+  mtd: rawnand: rockchip: NFC drivers for RK3308, RK2928 and others
+  MAINTAINERS: add maintainers to rockchip nfc
+  arm64: dts: rockchip: Add nfc dts for RK3308 SOC
+  arm64: dts: rockchip: Add nfc dts for PX30 SOC
+  arm: dts: rockchip: Add nfc dts for RV1108 SOC
+  arm: dts: rockchip: Add nfc dts for RK2928 and other SOC
+  arm: dts: rockchip: Add nfc dts for RK3036 SOC
+
+ .../mtd/rockchip,nand-controller.yaml         |  154 ++
+ MAINTAINERS                                   |    4 +-
+ arch/arm/boot/dts/rk3036.dtsi                 |   52 +
+ arch/arm/boot/dts/rk3xxx.dtsi                 |    9 +
+ arch/arm/boot/dts/rv1108.dtsi                 |   11 +
+ arch/arm64/boot/dts/rockchip/px30.dtsi        |   15 +
+ arch/arm64/boot/dts/rockchip/rk3308.dtsi      |   15 +
+ drivers/mtd/nand/raw/Kconfig                  |   21 +
+ drivers/mtd/nand/raw/Makefile                 |    1 +
+ .../mtd/nand/raw/rockchip-nand-controller.c   | 1393 +++++++++++++++++
+ 10 files changed, 1673 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mtd/rockchip,nand-controller.yaml
+ create mode 100644 drivers/mtd/nand/raw/rockchip-nand-controller.c
+
+-- 
+2.17.1
+
+
+
 
 ______________________________________________________
 Linux MTD discussion mailing list
