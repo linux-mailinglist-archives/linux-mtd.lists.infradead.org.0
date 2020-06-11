@@ -2,67 +2,92 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 899B51F65D6
-	for <lists+linux-mtd@lfdr.de>; Thu, 11 Jun 2020 12:40:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2F05D1F6AB8
+	for <lists+linux-mtd@lfdr.de>; Thu, 11 Jun 2020 17:16:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wdYQQ0h/GfEFUi/7VzN2H+64K8cevtnLh9fbCuz9HHw=; b=q3p83uHmtqKYeL
-	03Bm5nmu4b59Xn6Ifok5iXAHUqyafq74KCOPZrCm4q1gXqDalQeU66yOlfXj/cU8WAASA/FKPaP3z
-	acf+04WitBGVPuxp2JrCaICvsbbinmcyoTLzP2EK3VkHPM/ohstqw1iR2XGEv61OBNhAdp6XCUVpl
-	r63nYTui+jLq/G1PxzrlAammPFokF+G0BtVObKX8ff3beVzC/k3gdItWokxBaEAU9cI5IyeGeUOIS
-	Mdb/NrPyR6Sx+f+EzLbPlaU8JCHI4/LlmSDh1u1FEHw6I8ccycnkuEHx8E8Ae2Bz03hn3kdDqZEQ8
-	pKXv1HmJJAki66ICCDGQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6qLrWRwKvVKE1VojOUrmIZ8DyZ9hk+NvpPYJxEOm5hs=; b=Us7oRHMACqpPXd
+	oAHw/FE/KK9YFLr/uMRV81D+dJwdMOMjR8urKB5h+H0VKOEfI3nHzIhtgDvtlDfiN8yzqFxueoXZJ
+	V3xsn5Wlk6rx1anps6TY+NBZzzyqXpL7QD65M+tqUCmQQKh7znqfxoMNFg4PqMFCQoNSJRgzS2mNj
+	+Q+zRiO7BpNKtlScQ8E92Eba+VeimOaVto7iefKlsadIeOF3RC073UpqXsbm2bLjb1G3dU3me/Tbj
+	Y4vBhe1JupCyPXMiF9fzMmLwUxcHDB6J+3Nssu8wtvTciqNHojw0tppyUEmteczg91W+UraPNnOOL
+	rBao7dXccmO88rV+1Yow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjKd6-0004Cu-3n; Thu, 11 Jun 2020 10:40:16 +0000
-Received: from mga02.intel.com ([134.134.136.20])
+	id 1jjOwa-0004RP-Cn; Thu, 11 Jun 2020 15:16:40 +0000
+Received: from mail-wr1-x444.google.com ([2a00:1450:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjKcj-0004CN-1j
- for linux-mtd@lists.infradead.org; Thu, 11 Jun 2020 10:39:54 +0000
-IronPort-SDR: ZQ4+a3zkN2N16SY0efLGUUeE9MVmwU0U37KTgkOtLskkcJIUKCidh9WWhwYP7Nqzh4ohMvH8qg
- AUTBOM4EJdLA==
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
- by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 Jun 2020 03:39:51 -0700
-IronPort-SDR: n1oDAK+8ZZRCo4XPJCfRE/6cleWAyxhiJPzudO4+U5xSV/Bp68ZuhzSbxXvQkATLEVN8eu6V0y
- T7NxhaoTxIKA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.73,499,1583222400"; d="scan'208";a="380349596"
-Received: from lahna.fi.intel.com (HELO lahna) ([10.237.72.163])
- by fmsmga001.fm.intel.com with SMTP; 11 Jun 2020 03:39:48 -0700
-Received: by lahna (sSMTP sendmail emulation); Thu, 11 Jun 2020 13:39:47 +0300
-Date: Thu, 11 Jun 2020 13:39:47 +0300
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Luis Alberto Herrera <luisalberto@google.com>
-Subject: Re: [PATCH] mtd: revert "spi-nor: intel: provide a range for
- poll_timout"
-Message-ID: <20200611103947.GC247495@lahna.fi.intel.com>
-References: <20200610224652.64336-1-luisalberto@google.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200610224652.64336-1-luisalberto@google.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+ id 1jjOw5-0004HZ-VR; Thu, 11 Jun 2020 15:16:11 +0000
+Received: by mail-wr1-x444.google.com with SMTP id q11so6582900wrp.3;
+ Thu, 11 Jun 2020 08:16:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=ekZS4aH+9SdzL+TCB6y0YZ7lKqUewvODAqRgveIbzBQ=;
+ b=boniqFtwc6F5pPI2Ls4+Ba7k45IGWop1Bff1qXYj94NW5TCfQBIOcWtiS+/AR2EVJG
+ 7F4g67hCPrnfisVbm7XAtyEdyYCdD2qWd6u6CU3bQdl54QMFLwta81YoFrh0tI4QQdYN
+ FHjtpTFxDnbjJgs+4rpqSlE7L3Bg4IENUJ2yd4pTMWCFlwjwVOfABk+hwOVHfnXTHdfI
+ 0iPw9nxcEiBXTChqMqbCgzyVOvfcrskmrApZyc6v7VXj5Ue8Vr16/C8e7RsHxBvh8xK9
+ qDCFDJm159eyRs4whTdZpBtuaDUUXTQrNpa5zFxgqY7A4kejR/IMc4wvQkIA5IIzNvWb
+ 0C0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=ekZS4aH+9SdzL+TCB6y0YZ7lKqUewvODAqRgveIbzBQ=;
+ b=Ob4KhFib8V8ivqlI1w2CpiAVtUzUKS7qzLT7BtlGk6C5m7+lY7tpZJfEbDQhVFdxPC
+ LEm9HnClKEbdJbvcwdfCjsNv5+xxK2/Z9p63O5SeMHUGBgoiNQ1S7xeLqCX62JJxo/wu
+ cXUGt2mJ+BEpzmJTsJTpW+s+ajwysqj+gzP0aX7msAg9eDmd/v75KHbxc2WTx6PitjWq
+ LoIrn4jNFh+zRO2kltLznRW5g/brDiuGsKrxw3YCQbEIxRfIicpZvjP15aIzm8hLmk5+
+ wGbRWQDlK6qssPPx4cD/bS8l29MsJLmkUSfSffKZeDffOkKv5wYMopZ0G34+KNPzPX0K
+ pbAA==
+X-Gm-Message-State: AOAM5302dhoPKalYucqx1oVs3kvWurh/CWnx5PNQPiS+6marC35mYDp+
+ Y4wOJuLkH56Anp+nyVS+jWA=
+X-Google-Smtp-Source: ABdhPJwA+DiZuy6xl8wG41wqWju0oynDNJh6M3rEm018zeY+edIUL8WNZYWusLz93cuBSfoRG/fQhg==
+X-Received: by 2002:a05:6000:1ce:: with SMTP id
+ t14mr10050620wrx.300.1591888567919; 
+ Thu, 11 Jun 2020 08:16:07 -0700 (PDT)
+Received: from macbook-pro-alvaro.lan (28.red-83-49-61.dynamicip.rima-tde.net.
+ [83.49.61.28])
+ by smtp.gmail.com with ESMTPSA id z6sm5408008wrh.79.2020.06.11.08.16.06
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Thu, 11 Jun 2020 08:16:07 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.80.23.2.2\))
+Subject: Re: [PATCH v2] mtd: parsers: bcm63xx: simplify CFE detection
+From: =?utf-8?Q?=C3=81lvaro_Fern=C3=A1ndez_Rojas?= <noltari@gmail.com>
+In-Reply-To: <20200611095540.250184d2@xps13>
+Date: Thu, 11 Jun 2020 17:16:04 +0200
+Message-Id: <779D37C7-58CB-49AF-8739-C34295B86FC4@gmail.com>
+References: <20200608094053.3381512-1-noltari@gmail.com>
+ <20200608160649.3717152-1-noltari@gmail.com> <20200611095540.250184d2@xps13>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: Apple Mail (2.3608.80.23.2.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200611_033953_160139_BE5B928A 
-X-CRM114-Status: GOOD (  10.09  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200611_081610_011563_A13C9343 
+X-CRM114-Status: GOOD (  14.21  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [134.134.136.20 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:444 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [noltari[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [134.134.136.20 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,46 +99,67 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
- Boris Brezillon <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
- tudor.ambarus@microchip.com, Jethro Beekman <jethro@fortanix.com>,
- linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
- Miquel Raynal <miquel.raynal@bootlin.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Florian Fainelli <f.fainelli@gmail.com>, vigneshr@ti.com, richard@nod.at,
+ linus.walleij@linaro.org, linux-mips@vger.kernel.org,
+ linux-kernel@vger.kernel.org, tsbogend@alpha.franken.de,
+ bcm-kernel-feedback-list@broadcom.com, Jonas Gorski <jonas.gorski@gmail.com>,
+ linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Wed, Jun 10, 2020 at 10:46:49PM +0000, Luis Alberto Herrera wrote:
-> This change reverts aba3a882a178: "mtd: spi-nor: intel: provide a range
-> for poll_timout". That change introduces a performance regression when
-> reading sequentially from flash. Logging calls to intel_spi_read without
-> this change we get:
-> 
-> Start MTD read
-> [   20.045527] intel_spi_read(from=1800000, len=400000)
-> [   20.045527] intel_spi_read(from=1800000, len=400000)
-> [  282.199274] intel_spi_read(from=1c00000, len=400000)
-> [  282.199274] intel_spi_read(from=1c00000, len=400000)
-> [  544.351528] intel_spi_read(from=2000000, len=400000)
-> [  544.351528] intel_spi_read(from=2000000, len=400000)
-> End MTD read
-> 
-> With this change:
-> 
-> Start MTD read
-> [   21.942922] intel_spi_read(from=1c00000, len=400000)
-> [   21.942922] intel_spi_read(from=1c00000, len=400000)
-> [   23.784058] intel_spi_read(from=2000000, len=400000)
-> [   23.784058] intel_spi_read(from=2000000, len=400000)
-> [   25.625006] intel_spi_read(from=2400000, len=400000)
-> [   25.625006] intel_spi_read(from=2400000, len=400000)
-> End MTD read
-> 
-> Signed-off-by: Luis Alberto Herrera <luisalberto@google.com>
-
-Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+SGkgTWlxdWVsLAoKPiBFbCAxMSBqdW4gMjAyMCwgYSBsYXMgOTo1NSwgTWlxdWVsIFJheW5hbCA8
+bWlxdWVsLnJheW5hbEBib290bGluLmNvbT4gZXNjcmliacOzOgo+IAo+IEhpIMOBbHZhcm8sCj4g
+Cj4gw4FsdmFybyBGZXJuw6FuZGV6IFJvamFzIDxub2x0YXJpQGdtYWlsLmNvbT4gd3JvdGUgb24g
+TW9uLCAgOCBKdW4gMjAyMAo+IDE4OjA2OjQ5ICswMjAwOgo+IAo+PiBJbnN0ZWFkIG9mIHRyeWlu
+ZyB0byBwYXJzZSBDRkUgdmVyc2lvbiBzdHJpbmcsIHdoaWNoIGlzIGN1c3RvbWl6ZWQgYnkgc29t
+ZQo+PiB2ZW5kb3JzLCBsZXQncyBqdXN0IGNoZWNrIHRoYXQgIkNGRTEiIHdhcyBwYXNzZWQgb24g
+YXJndW1lbnQgMy4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IMOBbHZhcm8gRmVybsOhbmRleiBSb2ph
+cyA8bm9sdGFyaUBnbWFpbC5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IEpvbmFzIEdvcnNraSA8am9u
+YXMuZ29yc2tpQGdtYWlsLmNvbT4KPj4gLS0tCj4+IHYyOiB1c2UgQ0ZFX0VQVFNFQUwgZGVmaW5p
+dGlvbiBhbmQgYXZvaWQgdXNpbmcgYW4gYWRkaXRpb25hbCBmdW50aW9uLgo+PiAKPj4gZHJpdmVy
+cy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jIHwgMjkgKysrKy0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0KPj4gMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMjUgZGVsZXRpb25zKC0p
+Cj4+IAo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jIGIv
+ZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jCj4+IGluZGV4IDc4ZjkwYzZjMThmZC4u
+NDkzYTc1YjJmMjY2IDEwMDY0NAo+PiAtLS0gYS9kcml2ZXJzL210ZC9wYXJzZXJzL2JjbTYzeHhw
+YXJ0LmMKPj4gKysrIGIvZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jCj4+IEBAIC0y
+Miw2ICsyMiw5IEBACj4+ICNpbmNsdWRlIDxsaW51eC9tdGQvcGFydGl0aW9ucy5oPgo+PiAjaW5j
+bHVkZSA8bGludXgvb2YuaD4KPj4gCj4+ICsjaW5jbHVkZSA8YXNtL2Jvb3RpbmZvLmg+Cj4+ICsj
+aW5jbHVkZSA8YXNtL2Z3L2NmZS9jZmVfYXBpLmg+Cj4gCj4gQXJlIHlvdSBzdXJlIGJvdGggaW5j
+bHVkZXMgYXJlIG5lZWRlZD8KCmFzbS9ib290aW5mby5oIGlzIG5lZWRlZCBmb3IgZndfYXJnMyBh
+bmQgYXNtL2Z3L2NmZS9jZmVfYXBpLmggaXMgbmVlZGVkIGZvciBDRkVfRVBUU0VBTC4KCj4gCj4g
+SSBkb24ndCB0aGluayBpdCBpcyBhIGdvb2QgaGFiaXQgdG8gaW5jbHVkZSBhc20vIGhlYWRlcnMs
+IGFyZSB5b3Ugc3VyZQo+IHRoZXJlIGlzIG5vdCBhbm90aGVyIGhlYWRlciBkb2luZyBpdCBqdXN0
+IGZpbmU/CgpCb3RoIGFyZSBuZWVkZWQgdW5sZXNzIHlvdSB3YW50IHRvIGFkZCBhbm90aGVyIGRl
+ZmluaXRpb24gb2YgQ0ZFX0VQVFNFQUwgdmFsdWUuClRoZXJlIGFyZSBjdXJyZW50bHkgdHdvIENG
+RSBtYWdpYyBkZWZpbml0aW9ucywgdGhlIG9uZSBpbiBhc20vZncvY2ZlL2NmZV9hcGkuaCBhbmQg
+YW5vdGhlciBvbmUgaW4gYmNtNDd4eHBhcnQuYzoKaHR0cHM6Ly9naXRodWIuY29tL3RvcnZhbGRz
+L2xpbnV4L2Jsb2IvbWFzdGVyL2FyY2gvbWlwcy9pbmNsdWRlL2FzbS9mdy9jZmUvY2ZlX2FwaS5o
+I0wyOApodHRwczovL2dpdGh1Yi5jb20vdG9ydmFsZHMvbGludXgvYmxvYi9tYXN0ZXIvZHJpdmVy
+cy9tdGQvcGFyc2Vycy9iY200N3h4cGFydC5jI0wzMwoKPiAKPj4gKwo+PiAjZGVmaW5lIEJDTTk2
+M1hYX0NGRV9CTE9DS19TSVpFCQlTWl82NEsJLyogYWx3YXlzIGF0IGxlYXN0IDY0S2lCICovCj4+
+IAo+PiAjZGVmaW5lIEJDTTk2M1hYX0NGRV9NQUdJQ19PRkZTRVQJMHg0ZTAKPj4gQEAgLTMyLDMw
+ICszNSw2IEBACj4+ICNkZWZpbmUgU1RSX05VTExfVEVSTUlOQVRFKHgpIFwKPj4gCWRvIHsgY2hh
+ciAqX3N0ciA9ICh4KTsgX3N0cltzaXplb2YoeCkgLSAxXSA9IDA7IH0gd2hpbGUgKDApCj4+IAo+
+PiAtc3RhdGljIGludCBiY202M3h4X2RldGVjdF9jZmUoc3RydWN0IG10ZF9pbmZvICptYXN0ZXIp
+Cj4+IC17Cj4+IC0JY2hhciBidWZbOV07Cj4+IC0JaW50IHJldDsKPj4gLQlzaXplX3QgcmV0bGVu
+Owo+PiAtCj4+IC0JcmV0ID0gbXRkX3JlYWQobWFzdGVyLCBCQ005NjNYWF9DRkVfVkVSU0lPTl9P
+RkZTRVQsIDUsICZyZXRsZW4sCj4+IC0JCSAgICAgICAodm9pZCAqKWJ1Zik7Cj4+IC0JYnVmW3Jl
+dGxlbl0gPSAwOwo+PiAtCj4+IC0JaWYgKHJldCkKPj4gLQkJcmV0dXJuIHJldDsKPj4gLQo+PiAt
+CWlmIChzdHJuY21wKCJjZmUtdiIsIGJ1ZiwgNSkgPT0gMCkKPj4gLQkJcmV0dXJuIDA7Cj4+IC0K
+Pj4gLQkvKiB2ZXJ5IG9sZCBDRkUncyBkbyBub3QgaGF2ZSB0aGUgY2ZlLXYgc3RyaW5nLCBzbyBj
+aGVjayBmb3IgbWFnaWMgKi8KPj4gLQlyZXQgPSBtdGRfcmVhZChtYXN0ZXIsIEJDTTk2M1hYX0NG
+RV9NQUdJQ19PRkZTRVQsIDgsICZyZXRsZW4sCj4+IC0JCSAgICAgICAodm9pZCAqKWJ1Zik7Cj4+
+IC0JYnVmW3JldGxlbl0gPSAwOwo+PiAtCj4+IC0JcmV0dXJuIHN0cm5jbXAoIkNGRTFDRkUxIiwg
+YnVmLCA4KTsKPj4gLX0KPj4gLQo+PiBzdGF0aWMgaW50IGJjbTYzeHhfcmVhZF9udnJhbShzdHJ1
+Y3QgbXRkX2luZm8gKm1hc3RlciwKPj4gCXN0cnVjdCBiY205NjN4eF9udnJhbSAqbnZyYW0pCj4+
+IHsKPj4gQEAgLTEzOCw3ICsxMTcsNyBAQCBzdGF0aWMgaW50IGJjbTYzeHhfcGFyc2VfY2ZlX3Bh
+cnRpdGlvbnMoc3RydWN0IG10ZF9pbmZvICptYXN0ZXIsCj4+IAlzdHJ1Y3QgYmNtOTYzeHhfbnZy
+YW0gKm52cmFtID0gTlVMTDsKPj4gCWludCByZXQ7Cj4+IAo+PiAtCWlmIChiY202M3h4X2RldGVj
+dF9jZmUobWFzdGVyKSkKPj4gKwlpZiAoZndfYXJnMyAhPSBDRkVfRVBUU0VBTCkKPj4gCQlyZXR1
+cm4gLUVJTlZBTDsKPj4gCj4+IAludnJhbSA9IHZ6YWxsb2Moc2l6ZW9mKCpudnJhbSkpOwoKQmVz
+dCByZWdhcmRzLArDgWx2YXJvLgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpMaW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0
+cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
