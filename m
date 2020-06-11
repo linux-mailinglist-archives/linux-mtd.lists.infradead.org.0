@@ -2,56 +2,67 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7D8C01F630E
-	for <lists+linux-mtd@lfdr.de>; Thu, 11 Jun 2020 09:56:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 899B51F65D6
+	for <lists+linux-mtd@lfdr.de>; Thu, 11 Jun 2020 12:40:26 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rdqTdg/NJtO47JcrqUuUoqy/dgRD4Zmc7ZLGOInppsM=; b=LagHOWvQoyKInv
-	zrS07EdOBro/1y4B/mt9vqyXxVjWkBepr12zxpIwBt0mNcaeU2URTEetQSXCvbFdOvJosuiFikgap
-	9QF4gM3uoUPyUo+dHJ8RwT+oh52yHGPeTBseoBN6bDWBmAUkHxMnMQZwvMz9jaPDI0fcL3T5fkUwZ
-	8MRylppqNnXC0BE74hzNk617jjqnw/AbRoeeHLe8W9mYnWWyxD1+B4UwoITicgGQLiBbTZ/NkR3qr
-	vC+t4bdOkm5QhwRbGBPfUpr1FG4uKbytDRrQgobMkMf/15sQZbizAGUmCUPqdj8TkHAplqd3idwqY
-	/gVzbYjvLdu84PZqAPoQ==;
+	List-Owner; bh=wdYQQ0h/GfEFUi/7VzN2H+64K8cevtnLh9fbCuz9HHw=; b=q3p83uHmtqKYeL
+	03Bm5nmu4b59Xn6Ifok5iXAHUqyafq74KCOPZrCm4q1gXqDalQeU66yOlfXj/cU8WAASA/FKPaP3z
+	acf+04WitBGVPuxp2JrCaICvsbbinmcyoTLzP2EK3VkHPM/ohstqw1iR2XGEv61OBNhAdp6XCUVpl
+	r63nYTui+jLq/G1PxzrlAammPFokF+G0BtVObKX8ff3beVzC/k3gdItWokxBaEAU9cI5IyeGeUOIS
+	Mdb/NrPyR6Sx+f+EzLbPlaU8JCHI4/LlmSDh1u1FEHw6I8ccycnkuEHx8E8Ae2Bz03hn3kdDqZEQ8
+	pKXv1HmJJAki66ICCDGQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjI4K-0006tb-7n; Thu, 11 Jun 2020 07:56:12 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1jjKd6-0004Cu-3n; Thu, 11 Jun 2020 10:40:16 +0000
+Received: from mga02.intel.com ([134.134.136.20])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjI3u-0006jy-Cw; Thu, 11 Jun 2020 07:55:47 +0000
-X-Originating-IP: 91.224.148.103
-Received: from xps13 (unknown [91.224.148.103])
- (Authenticated sender: miquel.raynal@bootlin.com)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 2A8FEFF808;
- Thu, 11 Jun 2020 07:55:41 +0000 (UTC)
-Date: Thu, 11 Jun 2020 09:55:40 +0200
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: =?UTF-8?B?w4FsdmFybyBGZXJuw6FuZGV6?= Rojas <noltari@gmail.com>
-Subject: Re: [PATCH v2] mtd: parsers: bcm63xx: simplify CFE detection
-Message-ID: <20200611095540.250184d2@xps13>
-In-Reply-To: <20200608160649.3717152-1-noltari@gmail.com>
-References: <20200608094053.3381512-1-noltari@gmail.com>
- <20200608160649.3717152-1-noltari@gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+ id 1jjKcj-0004CN-1j
+ for linux-mtd@lists.infradead.org; Thu, 11 Jun 2020 10:39:54 +0000
+IronPort-SDR: ZQ4+a3zkN2N16SY0efLGUUeE9MVmwU0U37KTgkOtLskkcJIUKCidh9WWhwYP7Nqzh4ohMvH8qg
+ AUTBOM4EJdLA==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+ by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 11 Jun 2020 03:39:51 -0700
+IronPort-SDR: n1oDAK+8ZZRCo4XPJCfRE/6cleWAyxhiJPzudO4+U5xSV/Bp68ZuhzSbxXvQkATLEVN8eu6V0y
+ T7NxhaoTxIKA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,499,1583222400"; d="scan'208";a="380349596"
+Received: from lahna.fi.intel.com (HELO lahna) ([10.237.72.163])
+ by fmsmga001.fm.intel.com with SMTP; 11 Jun 2020 03:39:48 -0700
+Received: by lahna (sSMTP sendmail emulation); Thu, 11 Jun 2020 13:39:47 +0300
+Date: Thu, 11 Jun 2020 13:39:47 +0300
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Luis Alberto Herrera <luisalberto@google.com>
+Subject: Re: [PATCH] mtd: revert "spi-nor: intel: provide a range for
+ poll_timout"
+Message-ID: <20200611103947.GC247495@lahna.fi.intel.com>
+References: <20200610224652.64336-1-luisalberto@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200610224652.64336-1-luisalberto@google.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200611_005546_575698_491A1497 
-X-CRM114-Status: GOOD (  13.78  )
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200611_033953_160139_BE5B928A 
+X-CRM114-Status: GOOD (  10.09  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.183.199 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.70.183.199 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [134.134.136.20 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [134.134.136.20 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,56 +74,46 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: f.fainelli@gmail.com, vigneshr@ti.com, richard@nod.at,
- linus.walleij@linaro.org, linux-mips@vger.kernel.org,
- linux-kernel@vger.kernel.org, tsbogend@alpha.franken.de,
- bcm-kernel-feedback-list@broadcom.com, jonas.gorski@gmail.com,
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Boris Brezillon <bbrezillon@kernel.org>, Richard Weinberger <richard@nod.at>,
+ tudor.ambarus@microchip.com, Jethro Beekman <jethro@fortanix.com>,
+ linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-SGkgw4FsdmFybywKCsOBbHZhcm8gRmVybsOhbmRleiBSb2phcyA8bm9sdGFyaUBnbWFpbC5jb20+
-IHdyb3RlIG9uIE1vbiwgIDggSnVuIDIwMjAKMTg6MDY6NDkgKzAyMDA6Cgo+IEluc3RlYWQgb2Yg
-dHJ5aW5nIHRvIHBhcnNlIENGRSB2ZXJzaW9uIHN0cmluZywgd2hpY2ggaXMgY3VzdG9taXplZCBi
-eSBzb21lCj4gdmVuZG9ycywgbGV0J3MganVzdCBjaGVjayB0aGF0ICJDRkUxIiB3YXMgcGFzc2Vk
-IG9uIGFyZ3VtZW50IDMuCj4gCj4gU2lnbmVkLW9mZi1ieTogw4FsdmFybyBGZXJuw6FuZGV6IFJv
-amFzIDxub2x0YXJpQGdtYWlsLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBKb25hcyBHb3Jza2kgPGpv
-bmFzLmdvcnNraUBnbWFpbC5jb20+Cj4gLS0tCj4gIHYyOiB1c2UgQ0ZFX0VQVFNFQUwgZGVmaW5p
-dGlvbiBhbmQgYXZvaWQgdXNpbmcgYW4gYWRkaXRpb25hbCBmdW50aW9uLgo+IAo+ICBkcml2ZXJz
-L210ZC9wYXJzZXJzL2JjbTYzeHhwYXJ0LmMgfCAyOSArKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLQo+ICAxIGZpbGUgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspLCAyNSBkZWxldGlvbnMoLSkK
-PiAKPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jIGIvZHJp
-dmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jCj4gaW5kZXggNzhmOTBjNmMxOGZkLi40OTNh
-NzViMmYyNjYgMTAwNjQ0Cj4gLS0tIGEvZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5j
-Cj4gKysrIGIvZHJpdmVycy9tdGQvcGFyc2Vycy9iY202M3h4cGFydC5jCj4gQEAgLTIyLDYgKzIy
-LDkgQEAKPiAgI2luY2x1ZGUgPGxpbnV4L210ZC9wYXJ0aXRpb25zLmg+Cj4gICNpbmNsdWRlIDxs
-aW51eC9vZi5oPgo+ICAKPiArI2luY2x1ZGUgPGFzbS9ib290aW5mby5oPgo+ICsjaW5jbHVkZSA8
-YXNtL2Z3L2NmZS9jZmVfYXBpLmg+CgpBcmUgeW91IHN1cmUgYm90aCBpbmNsdWRlcyBhcmUgbmVl
-ZGVkPwoKSSBkb24ndCB0aGluayBpdCBpcyBhIGdvb2QgaGFiaXQgdG8gaW5jbHVkZSBhc20vIGhl
-YWRlcnMsIGFyZSB5b3Ugc3VyZQp0aGVyZSBpcyBub3QgYW5vdGhlciBoZWFkZXIgZG9pbmcgaXQg
-anVzdCBmaW5lPwoKPiArCj4gICNkZWZpbmUgQkNNOTYzWFhfQ0ZFX0JMT0NLX1NJWkUJCVNaXzY0
-SwkvKiBhbHdheXMgYXQgbGVhc3QgNjRLaUIgKi8KPiAgCj4gICNkZWZpbmUgQkNNOTYzWFhfQ0ZF
-X01BR0lDX09GRlNFVAkweDRlMAo+IEBAIC0zMiwzMCArMzUsNiBAQAo+ICAjZGVmaW5lIFNUUl9O
-VUxMX1RFUk1JTkFURSh4KSBcCj4gIAlkbyB7IGNoYXIgKl9zdHIgPSAoeCk7IF9zdHJbc2l6ZW9m
-KHgpIC0gMV0gPSAwOyB9IHdoaWxlICgwKQo+ICAKPiAtc3RhdGljIGludCBiY202M3h4X2RldGVj
-dF9jZmUoc3RydWN0IG10ZF9pbmZvICptYXN0ZXIpCj4gLXsKPiAtCWNoYXIgYnVmWzldOwo+IC0J
-aW50IHJldDsKPiAtCXNpemVfdCByZXRsZW47Cj4gLQo+IC0JcmV0ID0gbXRkX3JlYWQobWFzdGVy
-LCBCQ005NjNYWF9DRkVfVkVSU0lPTl9PRkZTRVQsIDUsICZyZXRsZW4sCj4gLQkJICAgICAgICh2
-b2lkICopYnVmKTsKPiAtCWJ1ZltyZXRsZW5dID0gMDsKPiAtCj4gLQlpZiAocmV0KQo+IC0JCXJl
-dHVybiByZXQ7Cj4gLQo+IC0JaWYgKHN0cm5jbXAoImNmZS12IiwgYnVmLCA1KSA9PSAwKQo+IC0J
-CXJldHVybiAwOwo+IC0KPiAtCS8qIHZlcnkgb2xkIENGRSdzIGRvIG5vdCBoYXZlIHRoZSBjZmUt
-diBzdHJpbmcsIHNvIGNoZWNrIGZvciBtYWdpYyAqLwo+IC0JcmV0ID0gbXRkX3JlYWQobWFzdGVy
-LCBCQ005NjNYWF9DRkVfTUFHSUNfT0ZGU0VULCA4LCAmcmV0bGVuLAo+IC0JCSAgICAgICAodm9p
-ZCAqKWJ1Zik7Cj4gLQlidWZbcmV0bGVuXSA9IDA7Cj4gLQo+IC0JcmV0dXJuIHN0cm5jbXAoIkNG
-RTFDRkUxIiwgYnVmLCA4KTsKPiAtfQo+IC0KPiAgc3RhdGljIGludCBiY202M3h4X3JlYWRfbnZy
-YW0oc3RydWN0IG10ZF9pbmZvICptYXN0ZXIsCj4gIAlzdHJ1Y3QgYmNtOTYzeHhfbnZyYW0gKm52
-cmFtKQo+ICB7Cj4gQEAgLTEzOCw3ICsxMTcsNyBAQCBzdGF0aWMgaW50IGJjbTYzeHhfcGFyc2Vf
-Y2ZlX3BhcnRpdGlvbnMoc3RydWN0IG10ZF9pbmZvICptYXN0ZXIsCj4gIAlzdHJ1Y3QgYmNtOTYz
-eHhfbnZyYW0gKm52cmFtID0gTlVMTDsKPiAgCWludCByZXQ7Cj4gIAo+IC0JaWYgKGJjbTYzeHhf
-ZGV0ZWN0X2NmZShtYXN0ZXIpKQo+ICsJaWYgKGZ3X2FyZzMgIT0gQ0ZFX0VQVFNFQUwpCj4gIAkJ
-cmV0dXJuIC1FSU5WQUw7Cj4gIAo+ICAJbnZyYW0gPSB2emFsbG9jKHNpemVvZigqbnZyYW0pKTsK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpM
-aW51eCBNVEQgZGlzY3Vzc2lvbiBtYWlsaW5nIGxpc3QKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1tdGQvCg==
+On Wed, Jun 10, 2020 at 10:46:49PM +0000, Luis Alberto Herrera wrote:
+> This change reverts aba3a882a178: "mtd: spi-nor: intel: provide a range
+> for poll_timout". That change introduces a performance regression when
+> reading sequentially from flash. Logging calls to intel_spi_read without
+> this change we get:
+> 
+> Start MTD read
+> [   20.045527] intel_spi_read(from=1800000, len=400000)
+> [   20.045527] intel_spi_read(from=1800000, len=400000)
+> [  282.199274] intel_spi_read(from=1c00000, len=400000)
+> [  282.199274] intel_spi_read(from=1c00000, len=400000)
+> [  544.351528] intel_spi_read(from=2000000, len=400000)
+> [  544.351528] intel_spi_read(from=2000000, len=400000)
+> End MTD read
+> 
+> With this change:
+> 
+> Start MTD read
+> [   21.942922] intel_spi_read(from=1c00000, len=400000)
+> [   21.942922] intel_spi_read(from=1c00000, len=400000)
+> [   23.784058] intel_spi_read(from=2000000, len=400000)
+> [   23.784058] intel_spi_read(from=2000000, len=400000)
+> [   25.625006] intel_spi_read(from=2400000, len=400000)
+> [   25.625006] intel_spi_read(from=2400000, len=400000)
+> End MTD read
+> 
+> Signed-off-by: Luis Alberto Herrera <luisalberto@google.com>
+
+Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+
+______________________________________________________
+Linux MTD discussion mailing list
+http://lists.infradead.org/mailman/listinfo/linux-mtd/
