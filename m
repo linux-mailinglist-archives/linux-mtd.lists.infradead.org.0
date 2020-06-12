@@ -2,60 +2,87 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F58B1F74EC
-	for <lists+linux-mtd@lfdr.de>; Fri, 12 Jun 2020 09:59:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A27011F7AB6
+	for <lists+linux-mtd@lfdr.de>; Fri, 12 Jun 2020 17:23:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2UU1eniN4jEeWajjTOFZ82UHSDcndPeUvvLFYOTRc0A=; b=rm6sBW9lNemQf4
-	+IF9E9ugds9E0O8FrRIXV/LqLMwMam7BB6k0EMPyer+mIQhBrNaIogIbalc9Gxh5a3EpzEFZNbMY/
-	j/5eHn/E5DD98J1JAX/ABOyIG5V1XdygGNZMiWhhzPoFFTU7GVnKkHQi3cuv3eIW+Is1Pdqt7fxXr
-	PyGfU8JLd0qRZ93yR/q1SX5sLeYyVslwhWrMmMQE6EZfIMxNNrvGGldm8ICiSgvllhewBV9E86+3m
-	bEZdiaibCzwEV7WAwzUkFN43NkQUdFGRCJUdw30YMCx+H2q4LqmKdTkAx+uOfI9qqemC2R9BKhVp6
-	xVHX7mgomHUgHssQTYkg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6Mm9+vC4o13hNs5/c7o0yGfHbOj8r7I1IXSQSvc8RAQ=; b=rVHXOSPIC5YdnY
+	GUylYzY3ezfuE5/nvGRLoDQsKkFYidg4ga181yh6dzdzBtORm/Ib3Xl82VMp9CoEN/Mx7SnlnFd2a
+	3xYF+uxXpuG/VaT4yxjQ1gy0oteQrMpgyieCByb2yZKiBH+cXVT/uQT1dQVQV8oJvccTzQYU7kogS
+	x827/IrrrmRLNRuq0SBCCk/tmqPpwqYyBdAGIpe+dSgvvD9T/t1GmOMDtAW/CteBpDSr/++bMODy0
+	i4FOSb07C1Z1Y+R03IYFVCINrRqhBGRP6XzVLJ3CSBUjuft6EpoRQ1p/A2lAdygG7R7ojbIiM7nSA
+	1oezxgVO9Xfg0ZUmtFtA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jjeaU-0001CK-CX; Fri, 12 Jun 2020 07:58:54 +0000
-Received: from alexa-out-sd-02.qualcomm.com ([199.106.114.39])
+	id 1jjlWr-00023p-A9; Fri, 12 Jun 2020 15:23:37 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93]
+ helo=mx07-00178001.pphosted.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jjeaC-00019A-Os
- for linux-mtd@lists.infradead.org; Fri, 12 Jun 2020 07:58:38 +0000
-Received: from unknown (HELO ironmsg-SD-alpha.qualcomm.com) ([10.53.140.30])
- by alexa-out-sd-02.qualcomm.com with ESMTP; 12 Jun 2020 00:58:25 -0700
-Received: from sivaprak-linux.qualcomm.com ([10.201.3.202])
- by ironmsg-SD-alpha.qualcomm.com with ESMTP; 12 Jun 2020 00:58:23 -0700
-Received: by sivaprak-linux.qualcomm.com (Postfix, from userid 459349)
- id CE32321880; Fri, 12 Jun 2020 13:28:21 +0530 (IST)
-From: Sivaprakash Murugesan <sivaprak@codeaurora.org>
-To: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
- peter.ujfalusi@ti.com, sivaprak@codeaurora.org,
- boris.brezillon@collabora.com, linux-mtd@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH V4 2/2] mtd: rawnand: qcom: set BAM mode only if not set
- already
-Date: Fri, 12 Jun 2020 13:28:16 +0530
-Message-Id: <1591948696-16015-3-git-send-email-sivaprak@codeaurora.org>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1591948696-16015-1-git-send-email-sivaprak@codeaurora.org>
-References: <1591948696-16015-1-git-send-email-sivaprak@codeaurora.org>
+ id 1jjlWh-00022s-Jl
+ for linux-mtd@lists.infradead.org; Fri, 12 Jun 2020 15:23:29 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+ by mx07-00178001.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 05CF1VeH016986; Fri, 12 Jun 2020 17:23:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=st.com;
+ h=from : to : cc : subject
+ : date : message-id : mime-version : content-type; s=STMicroelectronics;
+ bh=ZNCgFY29ushPSChdQisNmd/nPHJRu5GNLEvEuVDL5BM=;
+ b=V3oHbThVFkfRLV1aqUq4Dvf3ONhnmS7OuMBOhlANd777f+fD9tVVoIHaEwJ4vgFpvSZg
+ ny2jfjYOv8WKIkMSjIjFTk1FrvIB5BnbeNpKH6maohfuQ408ijgATIlmvcpp/WGF8ken
+ yhOmcT8+nBDSVFsBEFSOcrzGFWyKtA25YStyyT1nOgNdn/yyBXg0p/abfGQW5Mu3KYKX
+ nh9D9z8m9I6iztupBtDMJEcYx/OnMXF3EgJXK8zxXq0gOzsqig1v2pffJtgeN0ILZPS+
+ ieUcR3UoocZX38owaQxDBdc4zbuFRzQM5+meJgD+bGymcZCR8WxA2oGIDZ2Qx+LWV0Ay LQ== 
+Received: from beta.dmz-eu.st.com (beta.dmz-eu.st.com [164.129.1.35])
+ by mx07-00178001.pphosted.com with ESMTP id 31g097s1j5-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Fri, 12 Jun 2020 17:23:14 +0200
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+ by beta.dmz-eu.st.com (STMicroelectronics) with ESMTP id AF14210002A;
+ Fri, 12 Jun 2020 17:23:12 +0200 (CEST)
+Received: from Webmail-eu.st.com (sfhdag6node2.st.com [10.75.127.17])
+ by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 960112B9918;
+ Fri, 12 Jun 2020 17:23:12 +0200 (CEST)
+Received: from localhost (10.75.127.50) by SFHDAG6NODE2.st.com (10.75.127.17)
+ with Microsoft SMTP Server (TLS) id 15.0.1347.2;
+ Fri, 12 Jun 2020 17:23:11 +0200
+From: Christophe Kerello <christophe.kerello@st.com>
+To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
+ <robh+dt@kernel.org>, <mark.rutland@arm.com>, <arnd@linaro.org>,
+ <alexandre.torgue@st.com>
+Subject: [PATCH v5 0/6] add STM32 FMC2 EBI controller driver
+Date: Fri, 12 Jun 2020 17:22:36 +0200
+Message-ID: <1591975362-22009-1-git-send-email-christophe.kerello@st.com>
+X-Mailer: git-send-email 1.9.1
+MIME-Version: 1.0
+X-Originating-IP: [10.75.127.50]
+X-ClientProxiedBy: SFHDAG6NODE1.st.com (10.75.127.16) To SFHDAG6NODE2.st.com
+ (10.75.127.17)
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.216, 18.0.687
+ definitions=2020-06-12_11:2020-06-12,
+ 2020-06-12 signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200612_005836_859750_6D6E4190 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20200612_082327_995316_D3D76F8A 
+X-CRM114-Status: GOOD (  14.93  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.0 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [199.106.114.39 listed in list.dnswl.org]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [91.207.212.93 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,49 +94,75 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
+Cc: marex@denx.de, devicetree@vger.kernel.org,
+ Christophe Kerello <christophe.kerello@st.com>, linux-kernel@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-BAM is DMA controller on QCOM ipq platforms, BAM mode on NAND driver
-is set by writing BAM_MODE_EN bit on NAND_CTRL register.
+The FMC2 functional block makes the interface with: synchronous and
+asynchronous static devices (such as PSNOR, PSRAM or other memory-mapped
+peripherals) and NAND flash memories.
+Its main purposes are:
+  - to translate AXI transactions into the appropriate external device
+    protocol
+  - to meet the access time requirements of the external devices
+All external devices share the addresses, data and control signals with the
+controller. Each external device is accessed by means of a unique Chip
+Select. The FMC2 performs only one access at a time to an external device.
 
-NAND_CTRL is an operational register and in BAM mode operational
-registers are read only.
+Changes in v5:
+ - NAND:
+   - do not display errors if the driver is deferred.
+   - look at the parent compatible string to match what we expect.
+ - bindings:
+   - add Rob reviewed-by tag on patch 3.
+   - fix indent descriptions.
+   - add new NFC compatible string to handle reg number of entries. 
 
-So, before enabling BAM mode by writing the NAND_CTRL register, check
-if BAM mode was already enabled by the bootloader, and enable BAM mode
-only if it is not enabled already.
+Changes in v4:
+ - bindings:
+   - fix filename: st,stm32-fmc2-ebi.yaml
 
-Signed-off-by: Sivaprakash Murugesan <sivaprak@codeaurora.org>
----
- drivers/mtd/nand/raw/qcom_nandc.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+Changes in v3:
+ - NAND:
+   - rename labels used on errors
+   - add in the commit log the reason to increase FMC2_TIMEOUT_MS (patch 3)
+   - add Miquel reviewed-by tag (patches 2/4/5/9)
+ - EBI:
+   - move in memory folder
+   - merge MFD and BUS drivers to avoid a MFD driver
+ - bindings:
+   - pattern name has been modified
+   - vendor properties have been modified
+     - s/_/-/
+     - add unit suffix (-ns) on timing properties
 
-diff --git a/drivers/mtd/nand/raw/qcom_nandc.c b/drivers/mtd/nand/raw/qcom_nandc.c
-index 78b5f21..a3ef428 100644
---- a/drivers/mtd/nand/raw/qcom_nandc.c
-+++ b/drivers/mtd/nand/raw/qcom_nandc.c
-@@ -2784,7 +2784,14 @@ static int qcom_nandc_setup(struct qcom_nand_controller *nandc)
- 	/* enable ADM or BAM DMA */
- 	if (nandc->props->is_bam) {
- 		nand_ctrl = nandc_read(nandc, NAND_CTRL);
--		nandc_write(nandc, NAND_CTRL, nand_ctrl | BAM_MODE_EN);
-+		/* NAND_CTRL is an operational registers, and CPU
-+		 * access to operational registers are read only
-+		 * in BAM mode. So update the NAND_CTRL register
-+		 * only if it is not in BAM mode. In most cases BAM
-+		 * mode will be enabled in bootloader
-+		 */
-+		if (!(nand_ctrl | BAM_MODE_EN))
-+			nandc_write(nandc, NAND_CTRL, nand_ctrl | BAM_MODE_EN);
- 	} else {
- 		nandc_write(nandc, NAND_FLASH_CHIP_SELECT, DM_EN);
- 	}
+Christophe Kerello (6):
+  mtd: rawnand: stm32_fmc2: do not display errors if the driver is
+    deferred
+  dt-bindings: mtd: update STM32 FMC2 NAND controller documentation
+  dt-bindings: memory-controller: add STM32 FMC2 EBI controller
+    documentation
+  memory: stm32-fmc2-ebi: add STM32 FMC2 EBI controller driver
+  mtd: rawnand: stm32_fmc2: use regmap APIs
+  mtd: rawnand: stm32_fmc2: get resources from parent node
+
+ .../memory-controllers/st,stm32-fmc2-ebi.yaml      |  252 ++++
+ .../bindings/mtd/st,stm32-fmc2-nand.yaml           |   83 +-
+ drivers/memory/Kconfig                             |   10 +
+ drivers/memory/Makefile                            |    1 +
+ drivers/memory/stm32-fmc2-ebi.c                    | 1206 ++++++++++++++++++++
+ drivers/mtd/nand/raw/Kconfig                       |    1 +
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c             |  311 ++---
+ 7 files changed, 1688 insertions(+), 176 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32-fmc2-ebi.yaml
+ create mode 100644 drivers/memory/stm32-fmc2-ebi.c
+
 -- 
-2.7.4
+1.9.1
 
 
 ______________________________________________________
