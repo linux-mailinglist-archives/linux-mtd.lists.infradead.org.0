@@ -2,48 +2,49 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE5D91F92ED
-	for <lists+linux-mtd@lfdr.de>; Mon, 15 Jun 2020 11:11:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C0DE11F92EE
+	for <lists+linux-mtd@lfdr.de>; Mon, 15 Jun 2020 11:11:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NDdvLpQg9/w863INV3PhlqOsglkA5UprMu2R+2R46Vo=; b=jBDzH1xskMc6/q
-	ZnNwyadSuffVI2vS1nqZs/SXl3IJscXpPLt9b+9JVWC7/80SsJ++W74eZ4CT8dKSvWZjPwL+5iCeo
-	INWkSeG/NCaRlLanBTKr1zmVponPj6CtWxRCpiSocMqlIZ37tsJiUfT9b5xga40ftcoPvQCagulYJ
-	PvEkyzcT4AJkfMj7sFDRQjOl9ZTlOK4hW1stAjvYWpX1K35iWSMM07FbN5KAVnWerHpy1RkgldyW3
-	pYXTHDUqjeh7KSbUqNixs+9zljF/sM//GoRZkTTkG9+BANGGVFCGfbujktgfdIs08cHgnGB1+FRSK
-	IFC81XhH5JHr9eBIGi3A==;
+	List-Owner; bh=XBgbgACroJ4akN4xpRUF/14qQ6U8Fxq4uQIKXUpc1xM=; b=H21ZbEUqTJY3cB
+	5qk4h9zPApd4rS3RYpY+8zXN00tf8z24VFKpX6d/Xvm4MDvDc0LECCVvd4xDT4W65pWwr6YAyp1KB
+	cvbzAz8uTHNdxGjzffJeoinv8JImbyRDfTi3dddl2JnQ6raZGGbMIwjS/NrBl99YwtHSWhudZx5OP
+	YQkp+IETrwBr8p4gh47szp9aODERbIkMBudRp2+oNzN8K6FJM9gGczBR8maQ9GOXZnTcAoUllZ+vW
+	4N7cyT0ix8uYiGVIZidkl16U7sqHX/qxuZO6gJUFL+i4oX52OSacaeiHtzV34YWV72L6sbqYnqY/a
+	fDTGvuL096CRAUsS2jOw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jkl9Q-0001rt-Ck; Mon, 15 Jun 2020 09:11:32 +0000
-Received: from relay12.mail.gandi.net ([217.70.178.232])
+	id 1jkl9g-000283-9o; Mon, 15 Jun 2020 09:11:48 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jkl2H-0000Br-2D
- for linux-mtd@lists.infradead.org; Mon, 15 Jun 2020 09:04:15 +0000
+ id 1jkl2S-0000Jh-6E
+ for linux-mtd@lists.infradead.org; Mon, 15 Jun 2020 09:04:21 +0000
+X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay12.mail.gandi.net (Postfix) with ESMTPSA id ACBBC200007;
- Mon, 15 Jun 2020 09:04:04 +0000 (UTC)
+ by relay1-d.mail.gandi.net (Postfix) with ESMTPSA id 4200A240008;
+ Mon, 15 Jun 2020 09:04:17 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <Tudor.Ambarus@microchip.com>, linux-mtd@lists.infradead.org
-Subject: Re: [PATCH v7 21/28] mtd: rawnand: Introduce
- nand_choose_best_sdr_timings()
-Date: Mon, 15 Jun 2020 11:04:03 +0200
-Message-Id: <20200615090403.24997-1-miquel.raynal@bootlin.com>
+Subject: Re: [PATCH v7 20/28] mtd: rawnand: timings: Make
+ onfi_fill_interface_config() a void helper
+Date: Mon, 15 Jun 2020 11:04:15 +0200
+Message-Id: <20200615090415.25059-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200529111322.7184-22-miquel.raynal@bootlin.com>
+In-Reply-To: <20200529111322.7184-21-miquel.raynal@bootlin.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: a5e33de20ba04947885573af6a499a208fabd063
+X-linux-mtd-patch-commit: 2d0239a93a2bf80a4db346363b42d6273da6bd7c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200615_020409_252368_86CB4B20 
-X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-CacheID: sfid-20200615_020420_416921_7E627B2B 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -51,9 +52,12 @@ X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [217.70.178.232 listed in list.dnswl.org]
+ low trust [217.70.183.193 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [217.70.183.193 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -74,10 +78,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 2020-05-29 at 11:13:15 UTC, Miquel Raynal wrote:
-> Extract the logic out of nand_choose_interface() to create a
-> public helper that can be reused by manufacturer drivers. Add the
-> possibility to provide a specific set of timings.
+On Fri, 2020-05-29 at 11:13:14 UTC, Miquel Raynal wrote:
+> Warn the user if the parameters are wrong but basically it would mean
+> there is a serious issue in the NAND core. So no need to ever check
+> its output, let's make this helper return void.
 > 
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 > Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
