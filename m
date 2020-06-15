@@ -2,50 +2,50 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE6FF1F932B
-	for <lists+linux-mtd@lfdr.de>; Mon, 15 Jun 2020 11:20:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D50891F932C
+	for <lists+linux-mtd@lfdr.de>; Mon, 15 Jun 2020 11:20:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LVAj8RMrrZ7LJVgqsnt6aLdtyPANpSzVthmtJ066dz4=; b=j2+0fJity2QMdl
-	MylYYLDhup5n4BdAcii3HnKRKPuFFTx0kdWnkdd/YcKtBHxVqrtoqleSvVsm2DwqTSnkzvtKam48f
-	BV1pJivMU5McKUfTZjcWqiFDlRGrZNN2daBN2VYmcfu6lkstrmLtp57Mae1Xh82K4pWrsviIiVEu5
-	5+yKsr/0THn+8wIZdQo5vGYjgcvjphUylhfNSh530mXWhNtXAzVFCszRuY0nVB5WbBS6Abqa1dkOV
-	ThMQ5+P7fEme/wHdCc3Jvqe1ucGtBSrhPWws0BhmJJbYoB+Hvh4Uszv8eXP6pv9QqMgA3Ij2gAyRk
-	5DxFBklUM8VGillZ1J1A==;
+	List-Owner; bh=5uU3biaRI1DlKu7KcgijbrIAwYBTyD9JEOcYIlcVDn0=; b=bdXakcozvkcvBI
+	kfy+Zuwr0W508MA0UtwhQHOxwYW9oqd37s4IyUfm2wEODSpkMPAzIoxcCCqSJH6ph9wV4hRU6122R
+	YgJqxhPLQQqBhmJHkOHgh//+Qa1vdVkCN2XS/wkSrLze4cTJ8/VntL7WAeBX8Zxn/8tb9tJNdn3cL
+	ZAjakq2yKxrNJwKtxcx2zmk3dO7yKgJy4zxPxHWx4X3cp4PMsv9Mm9Hm7BtYqVgsqU3Cr3jrNFNXV
+	I1RPlRh4IUjQWK1tqSY3IAQk+Fwer51q//8eYz6zgm5zfgiQyCy+afO61WkUhBwJm5phmokwmlFVq
+	rXsrBRaLdEOlAr8eaNaA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jklIG-00068Z-3W; Mon, 15 Jun 2020 09:20:40 +0000
+	id 1jklIS-0006OJ-Tb; Mon, 15 Jun 2020 09:20:52 +0000
 Received: from relay5-d.mail.gandi.net ([217.70.183.197])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jkl6B-0005Tk-F3; Mon, 15 Jun 2020 09:08:14 +0000
+ id 1jkl6L-0005bY-Ri
+ for linux-mtd@lists.infradead.org; Mon, 15 Jun 2020 09:08:28 +0000
 X-Originating-IP: 91.224.148.103
 Received: from localhost.localdomain (unknown [91.224.148.103])
  (Authenticated sender: miquel.raynal@bootlin.com)
- by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 625851C0009;
- Mon, 15 Jun 2020 09:08:06 +0000 (UTC)
+ by relay5-d.mail.gandi.net (Postfix) with ESMTPSA id 2F6D21C0014;
+ Mon, 15 Jun 2020 09:08:19 +0000 (UTC)
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tudor Ambarus <Tudor.Ambarus@microchip.com>, linux-mtd@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH v7 09/20] mtd: nand: Move nand_device forward declaration
- to the top
-Date: Mon, 15 Jun 2020 11:08:05 +0200
-Message-Id: <20200615090805.26488-1-miquel.raynal@bootlin.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+ Paul Cercueil <paul@crapouillou.net>,
+ Harvey Hunt <harveyhuntnexus@gmail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>, linux-mtd@lists.infradead.org
+Subject: Re: [PATCH v2 2/4] dt-bindings: mtd: nand: Document the generic
+ rb-gpios property
+Date: Mon, 15 Jun 2020 11:08:17 +0200
+Message-Id: <20200615090818.26550-1-miquel.raynal@bootlin.com>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200529002517.3546-10-miquel.raynal@bootlin.com>
+In-Reply-To: <20200519232454.374081-2-boris.brezillon@collabora.com>
 References: 
 MIME-Version: 1.0
 X-linux-mtd-patch-notification: thanks
-X-linux-mtd-patch-commit: 278f38e584560410a3a5c9e9f17399bfd5dc8f6a
+X-linux-mtd-patch-commit: f454df020bcdb2ffbd1b0fc70ee1a7c60cafad94
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200615_020811_669533_6CA81EB5 
-X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-CacheID: sfid-20200615_020822_050292_834A743C 
+X-CRM114-Status: UNSURE (   7.06  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -67,25 +67,24 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: Julien Su <juliensu@mxic.com.tw>, Weijie Gao <weijie.gao@mediatek.com>,
- Paul Cercueil <paul@crapouillou.net>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Mason Yang <masonccyang@mxic.com.tw>, Chuanhong Guo <gch981213@gmail.com>,
- linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ Vignesh Raghavendra <vigneshr@ti.com>,
+ Tudor Ambarus <tudor.ambarus@microchip.com>,
+ Richard Weinberger <richard@nod.at>, Rob Herring <robh+dt@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Fri, 2020-05-29 at 00:25:06 UTC, Miquel Raynal wrote:
-> This structure might be used earlier in this file, let's move the
-> forward declaration at the top.
+On Tue, 2020-05-19 at 23:24:52 UTC, Boris Brezillon wrote:
+> A few drivers use this property to describe GPIO pins used to sample
+> the NAND Ready/Busy state. Let's make it part of the generic binding
+> doc.
 > 
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-> Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
+> Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
+> Reviewed-by: Rob Herring <robh@kernel.org>
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next.
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git nand/next, thanks.
 
 Miquel
 
