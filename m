@@ -2,62 +2,55 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0CB1D1FA9CB
-	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 09:12:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4F2E91FA9C6
+	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 09:11:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9Wr929quGRHVxzW/QfSE8Y/GYDLVnIUd4e9SR9JmCw8=; b=qpl0iXwoxPYs4Z
-	V/ERUwD8MIPsVbuNNFrP1hUZchXxy7VVbpRnGSK/9yTtWVLtwGFz/U/kR9CyTejEJ7QXjjrWzaWaF
-	GCgExChkNcKyQlpCdu8i0L1mqn0BA0SjQFb7eiQJFpo0dhQY5PtoWByujgoMq7KgjF617NSPjPapO
-	ZLZZTbBo0hOBx6n/YEuXikVJ9uRMXM9S/RMXPnFJHCQCh6aJirTXm0e/2NBTA5GrN2309jwSOArvH
-	Gmv5IOHWSL9DTF6mQDz1uORaP4qJQi/0pYdHVEeu8qONuFijZc1gXZDVU56Vx1MIwsceAkBgCmhcq
-	h+owMwUNwDQ49/H3Uziw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=FsI69GeRlz1XESZTrfXVvCJOZunvg6mb5vplHS0M+pc=; b=G/VUgSK3LHhslh
+	xyzDr8CwodhSmANEY1ekXGA02LH9PN5ZAWzie3AsoaoOkncAmHSXGTvPbdNCrBQgwg7MhJBhhKrkZ
+	VjQAHYTaVsBKS0RJbql5/zocomfqGJaefmFI/80SaPjo1y+BrvLDkTyqUyGzgK8c8xKhnfktIVdeb
+	lznrX0vTufrBnj+2RU64vOAaol7xE5DUnav7aXAFo5Lck8FERZm9zBg/cwaPOGwKePT4gp9E13FT4
+	Zus4c3bJhPV67yRa1VRB1pyqVqtjX+hcd3vyu8u/8xTdzTnh8XL8wrlLzYQfrkJkid5RBcVjyVUjd
+	TPuQJz0wnVr/0dSRNhbg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jl5lv-00080n-SY; Tue, 16 Jun 2020 07:12:40 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1jl5ks-00074p-V6; Tue, 16 Jun 2020 07:11:35 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190] helo=huawei.com)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jl5kL-0006jV-9b
- for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 07:11:04 +0000
-Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.59])
- by Forcepoint Email with ESMTP id F14FEEBF59673FC47EBA;
- Tue, 16 Jun 2020 15:10:58 +0800 (CST)
-Received: from [10.65.58.147] (10.65.58.147) by DGGEMS412-HUB.china.huawei.com
- (10.3.19.212) with Microsoft SMTP Server id 14.3.487.0;
- Tue, 16 Jun 2020 15:10:49 +0800
-Subject: Re: [RFC PATCH v2 1/2] mtd: spi-nor: Add capability to disable flash
- quad mode
-To: Pratyush Yadav <p.yadav@ti.com>
-References: <1589282819-42358-1-git-send-email-yangyicong@hisilicon.com>
- <1589282819-42358-2-git-send-email-yangyicong@hisilicon.com>
- <20200615105321.d2pjwjmm3wch4qtx@ti.com>
-From: Yicong Yang <yangyicong@hisilicon.com>
-Message-ID: <01838d06-29ec-5931-988a-51ebc12f25b0@hisilicon.com>
-Date: Tue, 16 Jun 2020 15:10:54 +0800
-User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+ id 1jl5kD-0006bl-73
+ for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 07:10:55 +0000
+Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.60])
+ by Forcepoint Email with ESMTP id AC51B34C361747865690;
+ Tue, 16 Jun 2020 15:10:38 +0800 (CST)
+Received: from huawei.com (10.175.127.227) by DGGEMS412-HUB.china.huawei.com
+ (10.3.19.212) with Microsoft SMTP Server id 14.3.487.0; Tue, 16 Jun 2020
+ 15:10:31 +0800
+From: Zhihao Cheng <chengzhihao1@huawei.com>
+To: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH RFC 0/5] ubifs: Prevent memory oob accessing while dumping node
+Date: Tue, 16 Jun 2020 15:11:41 +0800
+Message-ID: <20200616071146.2607061-1-chengzhihao1@huawei.com>
+X-Mailer: git-send-email 2.25.4
 MIME-Version: 1.0
-In-Reply-To: <20200615105321.d2pjwjmm3wch4qtx@ti.com>
-X-Originating-IP: [10.65.58.147]
+X-Originating-IP: [10.175.127.227]
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200616_001102_149824_C5C137F3 
-X-CRM114-Status: GOOD (  16.74  )
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20200616_001054_419465_6FEADFED 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
+ medium trust [45.249.212.190 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.35 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ [45.249.212.190 listed in wl.mailspike.net]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
@@ -72,134 +65,80 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com,
- tudor.ambarus@microchip.com, richard@nod.at, me@yadavpratyush.com,
- john.garry@huawei.com, linuxarm@huawei.com, linux-mtd@lists.infradead.org,
- miquel.raynal@bootlin.com, alexander.sverdlin@nokia.com
+Cc: richard@nod.at, liu.song11@zte.com.cn, yi.zhang@huawei.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-Hi Pratyush,
+We use function ubifs_dump_node() to dump bad node caused by some
+reasons (Such as bit flipping caused by hardware error, writing bypass
+ubifs or unknown bugs in ubifs). The node content can not be trusted
+anymore, so we should prevent memory out-of-bounds accessing while
+dumping node in following situations:
 
-Thanks for your review. I'll modify Patch 1 and 2 and
-send a formal serie.
+1. bad node_len: Dumping data according to 'ch->len' which may exceed
+   the size of memory allocated for node.
+2. bad node content: Some kinds of node can record additional data, eg.
+   index node and orphan node, make sure the size of additional data
+   not beyond the node length.
+3. node_type changes: Read data according to type A, but expected type
+   B, before that, node is allocated according to type B's size. Length
+   of type A node is greater than type B node.
 
-Regards,
-Yicong
+Commit acc5af3efa303d5f3 ("ubifs: Fix out-of-bounds memory access caused
+by abnormal value of node_len") handles situation 1 for data node only,
+it would be better if we can solve problems in above situations for all
+kinds of nodes.
 
+Patch 1 adds a new parameter 'node_len'(size of memory which is allocated
+for the node) in function ubifs_dump_node(), safe dumping length of the
+node should be: minimum(ch->len, c->ranges[node_type].max_len, node_len).
+Besides, c->ranges[node_type].min_len can not greater than safe dumping
+length, which may caused by node_type changes(situation 3).
 
-On 2020/6/15 18:53, Pratyush Yadav wrote:
-> Hi Yicong,
->
-> You generally shouldn't mark a series as "RFC" if you intend it to get 
-> merged in.
->
-> On 12/05/20 07:26PM, Yicong Yang wrote:
->> Previous we didn't provide a way to disable the flash's quad mode.
->> Which means we cannot do some cleanup works when to remove or
->> poweroff the flash, like what set 4-byte address mode does in
->> spi_nor_restore().
->>
->> Add the capability to disable the flash quad mode, by introducing
->> an enable flag in the flash parameters quad_enable() hooks and
->> related functions.
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>  drivers/mtd/spi-nor/core.c | 53 ++++++++++++++++++++++++++++++++--------------
->>  drivers/mtd/spi-nor/core.h |  8 +++----
->>  2 files changed, 41 insertions(+), 20 deletions(-)
-> Reviewed-by: Pratyush Yadav <p.yadav@ti.com>
->
-> Nits below.
->
->> diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
->> index cc68ea8..72e8d8b 100644
->> --- a/drivers/mtd/spi-nor/core.c
->> +++ b/drivers/mtd/spi-nor/core.c
->> @@ -1907,15 +1907,17 @@ static int spi_nor_is_locked(struct mtd_info *mtd, loff_t ofs, uint64_t len)
->>  }
->>  
->>  /**
->> - * spi_nor_sr1_bit6_quad_enable() - Set the Quad Enable BIT(6) in the Status
->> + * spi_nor_sr1_bit6_quad_enable() - Set/Unset the Quad Enable BIT(6) in the
->> + *                                  Status
->>   * Register 1.
-> The "Register 1" should be on the same line as the "Status above".
->
->>   * @nor:	pointer to a 'struct spi_nor'
->> + * @enable:	true to enter quad mode. false to leave quad mode.
->>   *
->>   * Bit 6 of the Status Register 1 is the QE bit for Macronix like QSPI memories.
->>   *
->>   * Return: 0 on success, -errno otherwise.
->>   */
->> -int spi_nor_sr1_bit6_quad_enable(struct spi_nor *nor)
->> +int spi_nor_sr1_bit6_quad_enable(struct spi_nor *nor, bool enable)
->>  {
->>  	int ret;
->>  
->> @@ -1923,45 +1925,59 @@ int spi_nor_sr1_bit6_quad_enable(struct spi_nor *nor)
->>  	if (ret)
->>  		return ret;
->>  
->> -	if (nor->bouncebuf[0] & SR1_QUAD_EN_BIT6)
->> +	if ((enable && (nor->bouncebuf[0] & SR1_QUAD_EN_BIT6)) ||
->> +	    !(enable || (nor->bouncebuf[0] & SR1_QUAD_EN_BIT6)))
-> I still think writing it as:
->
->     (!enable && !(nor->bouncebuf[0] & SR1_QUAD_EN_BIT6))
->
-> is slightly more readable. But maybe it's just me so this is OK I guess.
->
->>  		return 0;
->>  
->> -	nor->bouncebuf[0] |= SR1_QUAD_EN_BIT6;
->> +	if (enable)
->> +		nor->bouncebuf[0] |= SR1_QUAD_EN_BIT6;
->> +	else
->> +		nor->bouncebuf[0] &= ~SR1_QUAD_EN_BIT6;
->>  
->>  	return spi_nor_write_sr1_and_check(nor, nor->bouncebuf[0]);
->>  }
->>  
->>  /**
->> - * spi_nor_sr2_bit1_quad_enable() - set the Quad Enable BIT(1) in the Status
->> + * spi_nor_sr2_bit1_quad_enable() - set/unset the Quad Enable BIT(1) in the
->> + *                                  Status
->>   * Register 2.
-> The "Register 2" should be on the same line as the "Status above".
->
->>   * @nor:       pointer to a 'struct spi_nor'.
->> + * @enable:	true to enter quad mode. false to leave quad mode.
->>   *
->>   * Bit 1 of the Status Register 2 is the QE bit for Spansion like QSPI memories.
->>   *
->>   * Return: 0 on success, -errno otherwise.
->>   */
->> -int spi_nor_sr2_bit1_quad_enable(struct spi_nor *nor)
->> +int spi_nor_sr2_bit1_quad_enable(struct spi_nor *nor, bool enable)
->>  {
->>  	int ret;
-> [...]
->> diff --git a/drivers/mtd/spi-nor/core.h b/drivers/mtd/spi-nor/core.h
->> index 6f2f6b2..719a31d 100644
->> --- a/drivers/mtd/spi-nor/core.h
->> +++ b/drivers/mtd/spi-nor/core.h
->> @@ -219,7 +219,7 @@ struct spi_nor_flash_parameter {
->>  
->>  	struct spi_nor_erase_map        erase_map;
->>  
->> -	int (*quad_enable)(struct spi_nor *nor);
->> +	int (*quad_enable)(struct spi_nor *nor, bool enable);
-> Update the comment above reflecting that @quad_enable "enables/disables 
-> SPI NOR quad mode".
->
->>  	int (*set_4byte_addr_mode)(struct spi_nor *nor, bool enable);
->>  	u32 (*convert_addr)(struct spi_nor *nor, u32 addr);
->>  	int (*setup)(struct spi_nor *nor, const struct spi_nor_hwcaps *hwcaps);
+Patch 2 reverts commit acc5af3efa303d5f ("ubifs: Fix out-of-bounds memory
+access caused by abnormal value of node_len") to prepare for patch 3.
+
+Patch 3 replaces modified function ubifs_dump_node() in all node dumping
+places except for ubifs_dump_sleb().
+
+Patch 4 removes unused function ubifs_dump_sleb(),
+
+Patch 5 allows ubifs_dump_node() to dump all branches of the index node.
+
+Some tests after patchset applied:
+https://bugzilla.kernel.org/show_bug.cgi?id=208203
+
+Zhihao Cheng (5):
+  ubifs: Limit dumping length by size of memory which is allocated for
+    the node
+  Revert "ubifs: Fix out-of-bounds memory access caused by abnormal
+    value of node_len"
+  ubifs: Pass node length in all node dumping callers
+  ubifs: ubifs_dump_sleb: Remove unused function
+  ubifs: ubifs_dump_node: Dump all branches of the index node
+
+ fs/ubifs/commit.c   |   4 +-
+ fs/ubifs/debug.c    | 111 ++++++++++++++++++++++++++------------------
+ fs/ubifs/debug.h    |   5 +-
+ fs/ubifs/file.c     |   2 +-
+ fs/ubifs/io.c       |  37 +++++----------
+ fs/ubifs/journal.c  |   3 +-
+ fs/ubifs/master.c   |   4 +-
+ fs/ubifs/orphan.c   |   6 ++-
+ fs/ubifs/recovery.c |   6 +--
+ fs/ubifs/replay.c   |   4 +-
+ fs/ubifs/sb.c       |   2 +-
+ fs/ubifs/scan.c     |   4 +-
+ fs/ubifs/super.c    |   2 +-
+ fs/ubifs/tnc.c      |   8 ++--
+ fs/ubifs/tnc_misc.c |   4 +-
+ fs/ubifs/ubifs.h    |   4 +-
+ 16 files changed, 108 insertions(+), 98 deletions(-)
+
+-- 
+2.25.4
 
 
 ______________________________________________________
