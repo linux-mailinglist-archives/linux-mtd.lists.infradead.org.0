@@ -2,61 +2,65 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D22191FA9C7
-	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 09:11:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D83141FAC95
+	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 11:36:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qj1xzs/Dfls3CxPpXtuWOMuFDsXvxRMorOAtsHgdsaQ=; b=XN87ohkjNj03Zk
-	81Pe7U0v3Mx+7b8J+KpZGbRcLIgayGo81fRc7g7JnZFuR5ePFHR8o+xzbHcZQ3nTxm65F2IQFHQ3S
-	coytWtQZzyrBzq5BxRaecbWQ+ihAO/RnwdnUAmbOu176SH3YWJwtkNv4e4SkqP/e/c8yCPVIyL/pp
-	HsCGtTsSrQcOEbGeSCNCxMy0pYBGbt9RFX2K9KgyS994FWmIMIgPIg1QhP5fAucx5mxZriwFl/oTj
-	g4yGlEMLIPTF6qttgzCNAh2qxDivx2dQM/28Gt4wx+z59gmFWLxFJb883bd1URZ/EAt4J0CTqvBxR
-	o7Dvlh+5HihLaARq3sIQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=CGqM5Z6pm2wuhVljMQY73+HqeV/WFPS/fdEos0iDk7M=; b=VuZ
+	fo6RLX50zuwhist27EmJzXA28IDQ1wrTSsKnKDDk6zY3jrqjeZrJlHoDddZfqHVCd78R+eC3U4fOR
+	b7YbQYD6UqaabDf6q8woUw6icxkrdhWtwxPoAsbbNYc26+tfPEwJU9V+1HpFmXNRvkkpkql7y9zs6
+	up8gRfg/UkqHlg+UXauMvfmnotFOX4KtQavLrWE0jAPZpRc23cgs62Q0eOUq5o0HDMzkEtHwgnO4j
+	ikrIwn1UQG0iWqEragc40s4Tjgzt+l9ffl71TfsudNEmSKV8YoDkZZN6jAuISFVd7seEr4465hxhJ
+	XAF8oWH2782ExH+KB4Ihjt5dhG7bWvw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jl5l5-0007K2-O9; Tue, 16 Jun 2020 07:11:47 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32] helo=huawei.com)
+	id 1jl80k-0001Qh-UU; Tue, 16 Jun 2020 09:36:06 +0000
+Received: from mga02.intel.com ([134.134.136.20])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jl5kF-0006bi-IF
- for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 07:10:56 +0000
-Received: from DGGEMS412-HUB.china.huawei.com (unknown [172.30.72.59])
- by Forcepoint Email with ESMTP id C4488A028FD2A23B8667;
- Tue, 16 Jun 2020 15:10:43 +0800 (CST)
-Received: from huawei.com (10.175.127.227) by DGGEMS412-HUB.china.huawei.com
- (10.3.19.212) with Microsoft SMTP Server id 14.3.487.0; Tue, 16 Jun 2020
- 15:10:34 +0800
-From: Zhihao Cheng <chengzhihao1@huawei.com>
-To: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH RFC 5/5] ubifs: ubifs_dump_node: Dump all branches of the
- index node
-Date: Tue, 16 Jun 2020 15:11:46 +0800
-Message-ID: <20200616071146.2607061-6-chengzhihao1@huawei.com>
-X-Mailer: git-send-email 2.25.4
-In-Reply-To: <20200616071146.2607061-1-chengzhihao1@huawei.com>
-References: <20200616071146.2607061-1-chengzhihao1@huawei.com>
-MIME-Version: 1.0
-X-Originating-IP: [10.175.127.227]
-X-CFilter-Loop: Reflected
+ id 1jl800-0007nZ-99
+ for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 09:35:37 +0000
+IronPort-SDR: 4CN9KOoRwcRlU9xOXu1kUMa52dxXPnlqH6rIgTnDZWYIdHFXnA+3Lq4vzbrx8MIthTnvSZGWwg
+ ezJRbNmv+jzw==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+ by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 16 Jun 2020 02:35:17 -0700
+IronPort-SDR: tPIe9CrVZst9Nt2oJX8Dee4+DGxcICSrc10i1t2Ky1CZkP320jTN5cdZAu4YmUnUuQZpEytnvo
+ 4c1L9ptmqe4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.73,518,1583222400"; d="scan'208";a="308403436"
+Received: from sgsxdev004.isng.intel.com (HELO localhost) ([10.226.88.13])
+ by orsmga008.jf.intel.com with ESMTP; 16 Jun 2020 02:35:12 -0700
+From: "Ramuthevar,
+ Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>
+To: linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org,
+ devicetree@vger.kernel.org, miquel.raynal@bootlin.com
+Subject: [RESEND,
+ v11 0/2] mtd: rawnand: Add NAND controller support on Intel LGM SoC
+Date: Tue, 16 Jun 2020 17:33:30 +0800
+Message-Id: <20200616093332.53927-1-vadivel.muruganx.ramuthevar@linux.intel.com>
+X-Mailer: git-send-email 2.11.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200616_001055_764755_2C127C4A 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200616_023520_434035_18A42EB9 
+X-CRM114-Status: GOOD (  13.16  )
+X-Spam-Score: -0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.32 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.32 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ medium trust [134.134.136.20 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [134.134.136.20 listed in wl.mailspike.net]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 1.5 AC_FROM_MANY_DOTS      Multiple periods in From user name
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -68,35 +72,139 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: richard@nod.at, liu.song11@zte.com.cn, yi.zhang@huawei.com
+Cc: cheol.yong.kim@intel.com, hauke.mehrtens@intel.com, qi-ming.wu@intel.com,
+ anders.roxell@linaro.org, vigneshr@ti.com, arnd@arndb.de, richard@nod.at,
+ brendanhiggins@google.com, linux-mips@vger.kernel.org, robh+dt@kernel.org,
+ "Ramuthevar, Vadivel MuruganX" <vadivel.muruganx.ramuthevar@linux.intel.com>,
+ boris.brezillon@collabora.com, tglx@linutronix.de, masonccyang@mxic.com.tw,
+ andriy.shevchenko@intel.com
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-An index node can have up to c->fanout branches, all branches should be
-displayed while dumping index node.
+This patch adds the new IP of Nand Flash Controller(NFC) support
+on Intel's Lightning Mountain(LGM) SoC.
 
-Signed-off-by: Zhihao Cheng <chengzhihao1@huawei.com>
+DMA is used for burst data transfer operation, also DMA HW supports
+aligned 32bit memory address and aligned data access by default.
+DMA burst of 8 supported. Data register used to support the read/write
+operation from/to device.
+
+NAND controller also supports in-built HW ECC engine.
+
+NAND controller driver implements ->exec_op() to replace legacy hooks,
+these specific call-back method to execute NAND operations.
+
+Thanks Boris, Andy, Arnd and Rob for the review comments and suggestions.
 ---
- fs/ubifs/debug.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+v11-resend:
+  - Rebase to v5.8-rc1
+v11:
+  - No Change
+v10:
+  - No Change
+v9:
+  - No change
+v8:
+  - fix the kbuild bot warnings
+  - correct the typo's
+v7:
+  - indentation issue is fixed
+  - add error check for retrieve the resource from dt
+v6:
+  - update EBU_ADDR_SELx register base value build it from DT
+  - Add tabs in in Kconfig
+v5:
+  - replace by 'HSNAND_CLE_OFFS | HSNAND_CS_OFFS' to NAND_WRITE_CMD and NAND_WRITE_ADDR
+  - remove the unused macros
+  - update EBU_ADDR_MASK(x) macro
+  - update the EBU_ADDR_SELx register values to be written
+v4:
+  - add ebu_nand_cs structure for multiple-CS support
+  - mask/offset encoding for 0x51 value
+  - update macro HSNAND_CTL_ENABLE_ECC
+  - drop the op argument and un-used macros.
+  - updated the datatype and macros
+  - add function disable nand module
+  - remove ebu_host->dma_rx = NULL;
+  - rename MMIO address range variables to ebu and hsnand
+  - implement ->setup_data_interface()
+  - update label err_cleanup_nand and err_cleanup_dma
+  - add return value check in the nand_remove function
+  - add/remove tabs and spaces as per coding standard
+  - encoded CS ids by reg property
+v3:
+  - Add depends on MACRO in Kconfig
+  - file name update in Makefile
+  - file name update to intel-nand-controller
+  - modification of MACRO divided like EBU, HSNAND and NAND
+  - add NAND_ALE_OFFS, NAND_CLE_OFFS and NAND_CS_OFFS
+  - rename lgm_ to ebu_ and _va suffix is removed in the whole file
+  - rename structure and varaibles as per review comments.
+  - remove lgm_read_byte(), lgm_dev_ready() and cmd_ctrl() un-used function
+  - update in exec_op() as per review comments
+  - rename function lgm_dma_exit() by lgm_dma_cleanup()
+  - hardcoded magic value  for base and offset replaced by MACRO defined
+  - mtd_device_unregister() + nand_cleanup() instead of nand_release()
+v2:
+  - implement the ->exec_op() to replaces the legacy hook-up.
+  - update the commit message
+  - add MIPS maintainers and xway_nand driver author in CC
 
-diff --git a/fs/ubifs/debug.c b/fs/ubifs/debug.c
-index 2d07615369f9..a65f73e91b4f 100644
---- a/fs/ubifs/debug.c
-+++ b/fs/ubifs/debug.c
-@@ -537,7 +537,7 @@ void ubifs_dump_node(const struct ubifs_info *c, const void *node, int node_len)
- 		pr_err("\tlevel          %d\n", (int)le16_to_cpu(idx->level));
- 		pr_err("\tBranches:\n");
+v1:
+ - initial version
  
--		for (i = 0; i < n && i < c->fanout - 1; i++) {
-+		for (i = 0; i < n && i < c->fanout; i++) {
- 			const struct ubifs_branch *br;
- 
- 			br = ubifs_idx_branch(c, idx, i);
+dt-bindings: mtd: Add Nand Flash Controller support for Intel LGM SoC
+---
+v11-resend:
+  - No change
+v11:
+  - Fixed the compatible issue with example
+10:
+  - fix bot errors
+v9:
+  - Rob's review comments address
+  - dual licensed
+  - compatible change
+  - add reg-names
+  - drop clock-names and clock-cells
+  - correct typo's
+v8:
+  No change
+v7:
+  - Rob's review comments addressed
+  - dt-schema build issue fixed with upgraded dt-schema
+v6:
+  - Rob's review comments addressed in YAML file
+  - add addr_sel0 and addr_sel1 reg-names in YAML example
+v5:
+  - add the example in YAML file
+v4:
+  - No change
+v3:
+  - No change
+v2:
+  YAML compatible string update to intel, lgm-nand-controller
+v1:
+  - initial version
+
+
+Ramuthevar Vadivel Murugan (2):
+  dt-bindings: mtd: Add Nand Flash Controller support for Intel LGM SoC
+  mtd: rawnand: Add NAND controller support on Intel LGM SoC
+
+ .../devicetree/bindings/mtd/intel,lgm-nand.yaml    |  99 +++
+ drivers/mtd/nand/raw/Kconfig                       |   8 +
+ drivers/mtd/nand/raw/Makefile                      |   1 +
+ drivers/mtd/nand/raw/intel-nand-controller.c       | 747 +++++++++++++++++++++
+ 4 files changed, 855 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mtd/intel,lgm-nand.yaml
+ create mode 100644 drivers/mtd/nand/raw/intel-nand-controller.c
+
 -- 
-2.25.4
+2.11.0
 
 
 ______________________________________________________
