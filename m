@@ -2,62 +2,101 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB2DF1FB180
-	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 15:03:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F3B7D1FB195
+	for <lists+linux-mtd@lfdr.de>; Tue, 16 Jun 2020 15:05:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GbvWo7ixsWPCF1TPuH/bSMzV0ZINO8ay/SSwqo8J8zc=; b=Bqwam+kWj3p22e
-	RRok5YX7cLy4yanfoBIcOY1F0zd8sMYBxCQeSKru2qTRHal8anbpuHGiBZs0hp1CkJ3uqYVygtbZd
-	aylBYVVRjBPIwsRHWXqaDCNMtZPPVLiQ1SRL47X5OTvPALHVHECC3F8SqUtUZx9XdBSdKZ51nKCvq
-	zDk2u2nlC5AOxFc0MF6+81kVs4WutEcpxd4tUlLSIxziUrE7KWmM7ng3Du+01DjFyYG6soeBSxrji
-	4HBtWAFngUDTDqnALHO88ryqZt8dr2PorHLbEihTDGFXFwTgXgS6hfQ+2AmC7mnv14Mg4Js+WA2Gk
-	2X+Nw2825YZCHBmoyr2Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5nxhaKsKoE+D8xK9tfulAmZ97m/CA/cmDqd/ngFbOI0=; b=Lj9/Xv8eIqojEt
+	DHJZqQt7dlbQU9deilX7R2b8XrsIaLsBphSeXR5fXbzC6GWSDkQ0gdvs/hT6/8Ovjj9Be3jCZJYtk
+	SxBlTOKso6n9tpGGVvoMhk5aVDnwc4XWk/HhMW8ThrXLguflX+9I3DyjensJxPRNiKmvudj7SHlQY
+	DzY9EBu/j4W/G8ap2N9BtN0+5W7v51R41pK/OyMtmDRfhlg0JQnyJSz2xFea7enXXWvtI346j4+HC
+	DizvLNYwYrzoJLpyNKN/iAUO276FtX0F6QICzz43SGqV/dhl1vIJDnNWdG80n4iZn1cDjYYjc1j3K
+	D5hLsiLy8xdAowA8kf9Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jlBFU-0000u9-5g; Tue, 16 Jun 2020 13:03:32 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191] helo=huawei.com)
+	id 1jlBHC-0001zg-OA; Tue, 16 Jun 2020 13:05:18 +0000
+Received: from youngberry.canonical.com ([91.189.89.112])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jlBF7-0000k4-Qh
- for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 13:03:11 +0000
-Received: from DGGEMS410-HUB.china.huawei.com (unknown [172.30.72.59])
- by Forcepoint Email with ESMTP id 388677838EE962A5220F;
- Tue, 16 Jun 2020 21:03:01 +0800 (CST)
-Received: from localhost.localdomain (10.67.165.24) by
- DGGEMS410-HUB.china.huawei.com (10.3.19.210) with Microsoft SMTP Server id
- 14.3.487.0; Tue, 16 Jun 2020 21:02:53 +0800
-From: Yicong Yang <yangyicong@hisilicon.com>
-To: <tudor.ambarus@microchip.com>, <linux-mtd@lists.infradead.org>
-Subject: [PATCH 2/2] mtd: spi-nor: Disable the flash quad mode in
- spi_nor_restore()
-Date: Tue, 16 Jun 2020 21:02:27 +0800
-Message-ID: <1592312547-19239-3-git-send-email-yangyicong@hisilicon.com>
-X-Mailer: git-send-email 2.8.1
-In-Reply-To: <1592312547-19239-1-git-send-email-yangyicong@hisilicon.com>
-References: <1592312547-19239-1-git-send-email-yangyicong@hisilicon.com>
+ id 1jlBGu-0001dm-I8
+ for linux-mtd@lists.infradead.org; Tue, 16 Jun 2020 13:05:02 +0000
+Received: from 1.general.cking.uk.vpn ([10.172.193.212])
+ by youngberry.canonical.com with esmtpsa
+ (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128) (Exim 4.86_2)
+ (envelope-from <colin.king@canonical.com>)
+ id 1jlBGs-0006JI-0n; Tue, 16 Jun 2020 13:04:58 +0000
+Subject: Re: [PATCH][next] mtd: rawnand: qcom: fix incorrect masking operator, 
+ used & instead of |
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20200616115125.74298-1-colin.king@canonical.com>
+ <20200616145756.4875d0c6@xps13>
+From: Colin Ian King <colin.king@canonical.com>
+Autocrypt: addr=colin.king@canonical.com; prefer-encrypt=mutual; keydata=
+ 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
+Message-ID: <2df422ef-5e47-ed5b-31b0-58b29f2f0f8e@canonical.com>
+Date: Tue, 16 Jun 2020 14:04:57 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.9.0
 MIME-Version: 1.0
-X-Originating-IP: [10.67.165.24]
-X-CFilter-Loop: Reflected
+In-Reply-To: <20200616145756.4875d0c6@xps13>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200616_060310_031902_EA55F0A7 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.0 (--)
+X-CRM114-CacheID: sfid-20200616_060500_731894_8C6C5288 
+X-CRM114-Status: GOOD (  15.62  )
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.0 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.191 listed in wl.mailspike.net]
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.191 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [91.189.89.112 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [91.189.89.112 listed in wl.mailspike.net]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -70,46 +109,40 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: vigneshr@ti.com, sergei.shtylyov@cogentembedded.com, richard@nod.at,
- me@yadavpratyush.com, john.garry@huawei.com, linuxarm@huawei.com,
- yangyicong@hisilicon.com, alexander.sverdlin@nokia.com,
- miquel.raynal@bootlin.com, p.yadav@ti.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Richard Weinberger <richard@nod.at>, kernel-janitors@vger.kernel.org,
+ linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-If the flash's quad mode is enabled, it'll remain in the quad mode when
-it's removed. If we drive the flash next time in SPI/Dual mode, then
-problem occurs as the flash's quad enable bit is not cleared.
-
-Disable the quad mode in spi_nor_restore(), the flash will leave
-quad mode when remove. This will make sure the flash always enter the
-correct mode when loaded.
-
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Reviewed-by: Pratyush Yadav <p.yadav@ti.com>
----
- drivers/mtd/spi-nor/core.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index ad5498f..4c9d88b 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -3002,6 +3002,8 @@ void spi_nor_restore(struct spi_nor *nor)
- 	if (nor->addr_width == 4 && !(nor->flags & SNOR_F_4B_OPCODES) &&
- 	    nor->flags & SNOR_F_BROKEN_RESET)
- 		nor->params->set_4byte_addr_mode(nor, false);
-+
-+	spi_nor_quad_enable(nor, false);
- }
- EXPORT_SYMBOL_GPL(spi_nor_restore);
- 
--- 
-2.8.1
-
-
-______________________________________________________
-Linux MTD discussion mailing list
-http://lists.infradead.org/mailman/listinfo/linux-mtd/
+T24gMTYvMDYvMjAyMCAxMzo1NywgTWlxdWVsIFJheW5hbCB3cm90ZToKPiBIaSBDb2xpbiwKPiAK
+PiBDb2xpbiBLaW5nIDxjb2xpbi5raW5nQGNhbm9uaWNhbC5jb20+IHdyb3RlIG9uIFR1ZSwgMTYg
+SnVuIDIwMjAKPiAxMjo1MToyNSArMDEwMDoKPiAKPj4gRnJvbTogQ29saW4gSWFuIEtpbmcgPGNv
+bGluLmtpbmdAY2Fub25pY2FsLmNvbT4KPj4KPj4gQ3VycmVudGx5IHRoZSBleHByZXNzaW9uIChu
+YW5kX2N0cmwgfCBCQU1fTU9ERV9FTikgaXMgYWx3YXlzIHRydWUgbm8KPj4gbWF0dGVyIHRoZSB2
+YWx1ZSBvZiBuYW5kX2N0cmwgYmVjYXVzZSB0aGUgaW5jb3JyZWN0IG1hc2tpbmcgb3BlcmF0b3IK
+Pj4gaXMgYmVpbmcgdXNlZC4gIEZpeCB0aGlzIGJ5IHVzaW5nIGJpdC13aXNlICYgaW5zdGVhZCBv
+ZiB8Lgo+IAo+IEkgc2F3IGl0IHdoZW4gcmV2aWV3aW5nIGFuZCBtYXJrZWQgaXQgdG8gc29sdmUg
+YmVmb3JlIGFwcGx5aW5nIGJ1dCBpdAo+IGxvb2tzIGxpa2UgSSBmb3Jnb3QgdG8gZG8gc28uIElm
+IHlvdSBkb24ndCBtaW5kIEknbGwgbWVyZ2UgdGhpcyB3aXRoCj4gdGhlIG9yaWdpbmFsIGNvbW1p
+dC4KPiAKPj4KPj4gQWRkcmVzc2VzLUNvdmVyaXR5OiAoIldyb25nIG9wZXJhdG9yIHVzZWQiKQo+
+PiBGaXhlczogZGQwYzFmYzhkZTEyICgibXRkOiByYXduYW5kOiBxY29tOiBzZXQgQkFNIG1vZGUg
+b25seSBpZiBub3Qgc2V0IGFscmVhZHkiKQo+PiBTaWduZWQtb2ZmLWJ5OiBDb2xpbiBJYW4gS2lu
+ZyA8Y29saW4ua2luZ0BjYW5vbmljYWwuY29tPgo+PiAtLS0KPj4gIGRyaXZlcnMvbXRkL25hbmQv
+cmF3L3Fjb21fbmFuZGMuYyB8IDIgKy0KPj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigr
+KSwgMSBkZWxldGlvbigtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tdGQvbmFuZC9yYXcv
+cWNvbV9uYW5kYy5jIGIvZHJpdmVycy9tdGQvbmFuZC9yYXcvcWNvbV9uYW5kYy5jCj4+IGluZGV4
+IGEzZWY0Mjg4YmUyNy4uMzdkOTU1MzJiYTdlIDEwMDY0NAo+PiAtLS0gYS9kcml2ZXJzL210ZC9u
+YW5kL3Jhdy9xY29tX25hbmRjLmMKPj4gKysrIGIvZHJpdmVycy9tdGQvbmFuZC9yYXcvcWNvbV9u
+YW5kYy5jCj4+IEBAIC0yNzkwLDcgKzI3OTAsNyBAQCBzdGF0aWMgaW50IHFjb21fbmFuZGNfc2V0
+dXAoc3RydWN0IHFjb21fbmFuZF9jb250cm9sbGVyICpuYW5kYykKPj4gIAkJICogb25seSBpZiBp
+dCBpcyBub3QgaW4gQkFNIG1vZGUuIEluIG1vc3QgY2FzZXMgQkFNCj4+ICAJCSAqIG1vZGUgd2ls
+bCBiZSBlbmFibGVkIGluIGJvb3Rsb2FkZXIKPj4gIAkJICovCj4+IC0JCWlmICghKG5hbmRfY3Ry
+bCB8IEJBTV9NT0RFX0VOKSkKPj4gKwkJaWYgKCEobmFuZF9jdHJsICYgQkFNX01PREVfRU4pKQo+
+PiAgCQkJbmFuZGNfd3JpdGUobmFuZGMsIE5BTkRfQ1RSTCwgbmFuZF9jdHJsIHwgQkFNX01PREVf
+RU4pOwo+PiAgCX0gZWxzZSB7Cj4+ICAJCW5hbmRjX3dyaXRlKG5hbmRjLCBOQU5EX0ZMQVNIX0NI
+SVBfU0VMRUNULCBETV9FTik7Cj4gCj4gVGhhbmtzLAo+IE1pcXXDqGwKPiAKClN1cmUgbWVyZ2Ug
+aXQuCgpDb2xpbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCkxpbnV4IE1URCBkaXNjdXNzaW9uIG1haWxpbmcgbGlzdApodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LW10ZC8K
