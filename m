@@ -2,59 +2,71 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F93420049F
-	for <lists+linux-mtd@lfdr.de>; Fri, 19 Jun 2020 11:08:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BCB16200765
+	for <lists+linux-mtd@lfdr.de>; Fri, 19 Jun 2020 12:57:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UoxoZPqrkqzo6i+pG7aycEHeUxew+5dQw6bmYaLQh4U=; b=NOKBXZjX/qm/w7
-	YVuC1f8JREhS7GE4qwrN+owrdbWk45kBIRHchXJmEqrvqk/VH0gsjtEUn4VjsAJWd1lDuIocCGco1
-	+IuN/PGopKZ2a7pYkdRIdeEn4ZhLEBMa0B1fSSoDCxHspWv3SB6Qmnd7Yhuio+mkI4IFk6zhvL/bD
-	NbycoNAXjJJp4atGyucLnM/PGMYq2FlUU/t0qC1baS3OP9Ss0yX7W6A0/l4Ib3P3O3p21NkWnfF8f
-	TQObZSK1NTF0eDEz9jt8cwsR8PeZmDK9f3jjrVxOf06ZACepU1FI24J5+H2gue6TV/egzyAUIDI3h
-	XSEqH3BPcXwk3FLcwlOw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=4laJfPX14B/My268QA/wpEOwzikH1huj/Aj/ot3oH5U=; b=GDlXv9wVRDbhdHokORkVbp4kr
+	0JnDFSgcgZhiXOTAjPem0EM0XWs9wodIYKbI3ECrGpDuFKa7UpoVEerpfHmMFBjBeYXfNa64h1MVD
+	kNdjEq+OeLjRNyUFOBAL5dxcLockWsMfZGYfBKa9HaEhtOZymYlVDrz18EX+Ae7btJZ2vSBH+EgAa
+	nib2u1BtXJHxdW9QJOr6RUqMRClfsa87o2XOmNApanzgHsk7Sy+HY7N1fiqAEfVyfSsFqyWGRIxSF
+	O6XYDVqY/Gnbg8ttFBK/Xtl8TOCm2DMFADRV+JnyqysYdsSSsoHxpQrglViOwtHg+x25u78Xofn5k
+	5Pv0Kvo5A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jmD0D-0004bt-AE; Fri, 19 Jun 2020 09:08:01 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35] helo=huawei.com)
+	id 1jmEiH-0004SZ-MT; Fri, 19 Jun 2020 10:57:37 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jmCzD-0003jJ-Sr
- for linux-mtd@lists.infradead.org; Fri, 19 Jun 2020 09:07:02 +0000
-Received: from DGGEMS414-HUB.china.huawei.com (unknown [172.30.72.60])
- by Forcepoint Email with ESMTP id DC06B6324870621A196D;
- Fri, 19 Jun 2020 17:06:48 +0800 (CST)
-Received: from DESKTOP-FKFNUOQ.china.huawei.com (10.67.101.2) by
- DGGEMS414-HUB.china.huawei.com (10.3.19.214) with Microsoft SMTP Server id
- 14.3.487.0; Fri, 19 Jun 2020 17:06:39 +0800
-From: Zhe Li <lizhe67@huawei.com>
-To: <dwmw2@infradead.org>, <richard@nod.at>, <linux-mtd@lists.infradead.org>, 
- <linux-kernel@vger.kernel.org>
-Subject: [PATCH] jffs2: fix UAF problem
-Date: Fri, 19 Jun 2020 17:06:35 +0800
-Message-ID: <20200619090635.58548-1-lizhe67@huawei.com>
-X-Mailer: git-send-email 2.21.0.windows.1
+ id 1jmEhl-0004C6-Ky
+ for linux-mtd@lists.infradead.org; Fri, 19 Jun 2020 10:57:08 +0000
+Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id CC20F208B8;
+ Fri, 19 Jun 2020 10:57:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1592564225;
+ bh=GIHyfpmtdoRnt3hDj/nrol1WQSHP0lZsUz5oCSQRoFE=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=eTZQjOiCjsnAWqGElToyVGFjzvqVCb/t+eXA9fjVbDOLAR6m04xz7b4CIs7V1Tb6Q
+ +xx/zDBVQws+RSMSrIN092I7dpmGVa7v3U+cv3i2c+EyHViVfHSR7VkQq7sIsLV5Z4
+ WqHzJDmVJINinn4sJN35OuS2KOMaBsuWGSbndLKo=
+Date: Fri, 19 Jun 2020 11:57:03 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [RESEND PATCH v3 0/8] mtd: spi-nor: Move cadence-qaudspi to
+ spi-mem framework
+Message-ID: <20200619105701.GD5396@sirena.org.uk>
+References: <20200601070444.16923-1-vigneshr@ti.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.67.101.2]
-X-CFilter-Loop: Reflected
+In-Reply-To: <20200601070444.16923-1-vigneshr@ti.com>
+X-Cookie: Robot, n.:
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200619_020700_638659_2CCE26B8 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20200619_035706_850798_54054015 
+X-CRM114-Status: UNSURE (   8.37  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [45.249.212.35 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 RCVD_IN_MSPIKE_H4      RBL: Very Good reputation (+4)
- [45.249.212.35 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-mtd@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -66,83 +78,62 @@ List-Post: <mailto:linux-mtd@lists.infradead.org>
 List-Help: <mailto:linux-mtd-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-mtd>,
  <mailto:linux-mtd-request@lists.infradead.org?subject=subscribe>
-Cc: zhongjubin@huawei.com, lizhe67@huawei.com, qiuxi1@huawei.com,
- wangfangpeng1@huawei.com, chenjie6@huawei.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: marex@denx.de, simon.k.r.goldschmidt@gmail.com,
+ Boris Brezillon <bbrezillon@kernel.org>, dinguyen@kernel.org,
+ Tudor Ambarus <tudor.ambarus@microchip.com>, linux-kernel@vger.kernel.org,
+ linux-spi@vger.kernel.org,
+ Ramuthevar Vadivel Murugan <vadivel.muruganx.ramuthevar@linux.intel.com>,
+ linux-mtd@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============7530124456439015654=="
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-The log of UAF problem is listed below.
-BUG: KASAN: use-after-free in jffs2_rmdir+0xa4/0x1cc [jffs2] at addr c1f165fc
-Read of size 4 by task rm/8283
-=============================================================================
-BUG kmalloc-32 (Tainted: P    B      O   ): kasan: bad access detected
------------------------------------------------------------------------------
 
-INFO: Allocated in 0xbbbbbbbb age=3054364 cpu=0 pid=0
-        0xb0bba6ef
-        jffs2_write_dirent+0x11c/0x9c8 [jffs2]
-        __slab_alloc.isra.21.constprop.25+0x2c/0x44
-        __kmalloc+0x1dc/0x370
-        jffs2_write_dirent+0x11c/0x9c8 [jffs2]
-        jffs2_do_unlink+0x328/0x5fc [jffs2]
-        jffs2_rmdir+0x110/0x1cc [jffs2]
-        vfs_rmdir+0x180/0x268
-        do_rmdir+0x2cc/0x300
-        ret_from_syscall+0x0/0x3c
-INFO: Freed in 0x205b age=3054364 cpu=0 pid=0
-        0x2e9173
-        jffs2_add_fd_to_list+0x138/0x1dc [jffs2]
-        jffs2_add_fd_to_list+0x138/0x1dc [jffs2]
-        jffs2_garbage_collect_dirent.isra.3+0x21c/0x288 [jffs2]
-        jffs2_garbage_collect_live+0x16bc/0x1800 [jffs2]
-        jffs2_garbage_collect_pass+0x678/0x11d4 [jffs2]
-        jffs2_garbage_collect_thread+0x1e8/0x3b0 [jffs2]
-        kthread+0x1a8/0x1b0
-        ret_from_kernel_thread+0x5c/0x64
-Call Trace:
-[c17ddd20] [c02452d4] kasan_report.part.0+0x298/0x72c (unreliable)
-[c17ddda0] [d2509680] jffs2_rmdir+0xa4/0x1cc [jffs2]
-[c17dddd0] [c026da04] vfs_rmdir+0x180/0x268
-[c17dde00] [c026f4e4] do_rmdir+0x2cc/0x300
-[c17ddf40] [c001a658] ret_from_syscall+0x0/0x3c
-
-The root cause is that we don't get "jffs2_inode_info.sem" before
-we scan list "jffs2_inode_info.dents" in function jffs2_rmdir.
-This patch add codes to get "jffs2_inode_info.sem" before we scan
-"jffs2_inode_info.dents" to slove the UAF problem.
-
-Signed-off-by: Zhe Li <lizhe67@huawei.com>
----
- fs/jffs2/dir.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/fs/jffs2/dir.c b/fs/jffs2/dir.c
-index f20cff1..7764937 100644
---- a/fs/jffs2/dir.c
-+++ b/fs/jffs2/dir.c
-@@ -590,10 +590,14 @@ static int jffs2_rmdir (struct inode *dir_i, struct dentry *dentry)
- 	int ret;
- 	uint32_t now = JFFS2_NOW();
- 
-+	mutex_lock(&f->sem);
- 	for (fd = f->dents ; fd; fd = fd->next) {
--		if (fd->ino)
-+		if (fd->ino) {
-+			mutex_unlock(&f->sem);
- 			return -ENOTEMPTY;
-+		}
- 	}
-+	mutex_unlock(&f->sem);
- 
- 	ret = jffs2_do_unlink(c, dir_f, dentry->d_name.name,
- 			      dentry->d_name.len, f, now);
--- 
-2.7.4
+--===============7530124456439015654==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="8w3uRX/HFJGApMzv"
+Content-Disposition: inline
 
 
+--8w3uRX/HFJGApMzv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Mon, Jun 01, 2020 at 12:34:36PM +0530, Vignesh Raghavendra wrote:
+> This series is a subset of "[PATCH v12 0/4] spi: cadence-quadspi: Add
+> support for the Cadence QSPI controller" by Ramuthevar,Vadivel MuruganX
+> <vadivel.muruganx.ramuthevar@linux.intel.com> that intended to move
+> cadence-quadspi driver to spi-mem framework
+
+Are people OK with me applying this to the SPI tree?
+
+--8w3uRX/HFJGApMzv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl7smf0ACgkQJNaLcl1U
+h9AJCgf9FonwA/DZUb07wl0aFcbJGqHii8lawwyZEGqOYL9qHfuLpnXAowrmNewt
+n5DwzQvxqRYNCIDJNb5+i81koko+UC2YsJWgqEZ4OkHVDVJeacnW2/YSHsZPTmHl
+cko1Yi3YzBEe2+dGfAQBeToMgvhB8A4x336ktfToVGKYHLPTb9kyVr7x9+uxuK5G
+cViQa7wLizddnx+U6RoMR26d0Ak8dw02Ckm8isA9wsJghbgczA1zWhtxXWlzvN9D
+fPZduLohNH5Im33OnwHwJdp6o1eVoXYzPMkSco8bUW4BOBPQ3RZyhwPOyjdV+gzk
+eZUVhlqqPIsCpspvPVSQ3uiCxe2Gyg==
+=OeKp
+-----END PGP SIGNATURE-----
+
+--8w3uRX/HFJGApMzv--
+
+
+--===============7530124456439015654==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 ______________________________________________________
 Linux MTD discussion mailing list
 http://lists.infradead.org/mailman/listinfo/linux-mtd/
+
+--===============7530124456439015654==--
+
