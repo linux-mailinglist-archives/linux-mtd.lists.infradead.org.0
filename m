@@ -2,51 +2,51 @@ Return-Path: <linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-mtd@lfdr.de
 Delivered-To: lists+linux-mtd@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7BD4200A0D
-	for <lists+linux-mtd@lfdr.de>; Fri, 19 Jun 2020 15:28:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 26DC8200A10
+	for <lists+linux-mtd@lfdr.de>; Fri, 19 Jun 2020 15:28:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:
 	References:In-Reply-To:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=24R9L7WDsaLGvNIqL6lRvu001B84dkU+8OYGfcJZ4GA=; b=LLjKespwOKMK58
-	gnR9p0eb6FhIasKZ/z/XgSZ/G9alN0PmdNFVkVBUbuYruq8/qi90IsC3hry6/pi0+CifAmjl7tgJy
-	txsS9Y+CCJN250Lub06HCtlrCSHbcJRGX6Ma+pU+tVYSKfywJsFmNb7a+SAX4G9I4BulnZMlFG8wH
-	L/dCUj36BEehszW8ZaNyitnLLIMtzTNaLvT0L+Br3pGVQUSzi4WpUXJ/9Ksvkq7UrHZS61B+dxDKx
-	/cMQz3nIS1KmLH3mqFQLpLWHvNerT7OFx/tL3OHB67xJ2r7P0BdF56DJeTHxVC6WVlyoMx5/lFa8B
-	Mni2eSiE66kb6RkiLJVw==;
+	List-Owner; bh=a6xcQ4hIuHNLPZekkhqPnaFeN/Pu3lWIYNkATsntXIk=; b=MYtZHTziwnUyen
+	hmo+X3iz5KvBRYlRaBHWBJwIO8Rlk5W5DqqoJe27XLSJiae7VwT3doezJmAV9ZwD7IGeAYAbcC2wA
+	OlsIIWIY0/OpMsgssOpv4VHris8toyns3qaQcb0DtHsta/uXLSNv37aO8eWi8RmRGqB5n6g6Xaqnz
+	w20r+Ff+4XH1XnL8jyEh40egpZsvQqCCHJ9Oh0RcgfofsHtP6drradyvvAQhD63tn3P03ij2Y84IO
+	8rMXlJ71afAIDfvuesSAm6Nrqk3W3uJkZNDSBEeraNlCN71lRQnfdOOxNpMFT/7FODBtJ3StoDz6u
+	Fz7dsfMf8IHQjGoww88Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jmH43-00053g-Ny; Fri, 19 Jun 2020 13:28:15 +0000
+	id 1jmH4L-0005CH-6F; Fri, 19 Jun 2020 13:28:33 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jmH3v-00052v-M4
- for linux-mtd@lists.infradead.org; Fri, 19 Jun 2020 13:28:09 +0000
+ id 1jmH44-00058f-M0
+ for linux-mtd@lists.infradead.org; Fri, 19 Jun 2020 13:28:18 +0000
 Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 2E6F221556;
- Fri, 19 Jun 2020 13:28:05 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id C55A62166E;
+ Fri, 19 Jun 2020 13:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1592573285;
- bh=PFkCCeYnJboxa0bSQm5EdkilSpndfFBjlZlTuD7GYZI=;
+ s=default; t=1592573296;
+ bh=Zlz05WKmcUJTYXlIz5yl2H2syQ5FgQ4vwLVGbolffuk=;
  h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
- b=o2GfRR17AIys3dzQSLK9VRQTBfHMgWdkbVioUwKPe8fXgqMOrwCrQUyoFVkNyrsXP
- xZtDzPvlotCzDGQ+zFwARvX8jOJL7hr9xt4RzQeB4TEx7Aiyg71/e4PY271FExWA1W
- PGKnMmmfPc7kZQ4TtGfVXJTC4qiaDmpytvuI1564=
-Date: Fri, 19 Jun 2020 14:28:03 +0100
+ b=KPk1NJwhF3h9BXiQXEbwEs/ZhjAPrfR3osy0dtW+Jpygxkl+kyMBz6EiRUiZ3IZuT
+ KiwGpZBrx5Rp3NwBP6xwTrJJn311rfVhw0HcI/0hsnbUrh/WHeWs9w4/QFdmJFyVxW
+ fhvT+vIF6jzKSqu5k6uW6u40NbS3zLc15j75Fms4=
+Date: Fri, 19 Jun 2020 14:28:14 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Vignesh Raghavendra <vigneshr@ti.com>,
  Tudor Ambarus <tudor.ambarus@microchip.com>
-In-Reply-To: <20200601070444.16923-1-vigneshr@ti.com>
-References: <20200601070444.16923-1-vigneshr@ti.com>
-Subject: Re: [RESEND PATCH v3 0/8] mtd: spi-nor: Move cadence-qaudspi to
- spi-mem framework
-Message-Id: <159257327822.5984.1131311345326865649.b4-ty@kernel.org>
+In-Reply-To: <20200526093604.11846-1-vigneshr@ti.com>
+References: <20200526093604.11846-1-vigneshr@ti.com>
+Subject: Re: [PATCH v2 0/6] mtd: spi-nor: Move cadence-qaudspi to spi-mem
+ framework
+Message-Id: <159257327821.5984.8587819746986520265.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200619_062807_742857_AF7219D5 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20200619_062816_752577_F2384310 
+X-CRM114-Status: GOOD (  12.14  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -86,7 +86,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-mtd" <linux-mtd-bounces@lists.infradead.org>
 Errors-To: linux-mtd-bounces+lists+linux-mtd=lfdr.de@lists.infradead.org
 
-On Mon, 1 Jun 2020 12:34:36 +0530, Vignesh Raghavendra wrote:
+On Tue, 26 May 2020 15:05:58 +0530, Vignesh Raghavendra wrote:
 > This series is a subset of "[PATCH v12 0/4] spi: cadence-quadspi: Add
 > support for the Cadence QSPI controller" by Ramuthevar,Vadivel MuruganX
 > <vadivel.muruganx.ramuthevar@linux.intel.com> that intended to move
@@ -104,21 +104,17 @@ Applied to
 
 Thanks!
 
-[1/8] mtd: spi-nor: cadence-quadspi: Make driver independent of flash geometry
+[1/6] mtd: spi-nor: cadence-quadspi: Make driver independent of flash geometry
       commit: 834b4e8d344139ba64cda22099b2b2ef6c9a542d
-[2/8] mtd: spi-nor: cadence-quadspi: Provide a way to disable DAC mode
+[2/6] mtd: spi-nor: cadence-quadspi: Provide a way to disable DAC mode
       commit: a99705079a91e6373122bd0ca2fc129b688fc5b3
-[3/8] mtd: spi-nor: cadence-quadspi: Don't initialize rx_dma_complete on failure
+[3/6] mtd: spi-nor: cadence-quadspi: Don't initialize rx_dma_complete on failure
       commit: 48aae57f0f9f57797772bd462b4d64902b1b4ae1
-[4/8] mtd: spi-nor: cadence-quadspi: Fix error path on failure to acquire reset lines
+[4/6] mtd: spi-nor: cadence-quadspi: Fix error path on failure to acquire reset lines
       commit: c61088d1f9932940af780b674f028140eda09a94
-[5/8] mtd: spi-nor: cadence-quadspi: Handle probe deferral while requesting DMA channel
-      commit: 935da5e5100f57d843cac4781b21f1c235059aa0
-[6/8] mtd: spi-nor: cadence-quadspi: Drop redundant WREN in erase path
-      commit: 41b5ed6e677ca73cb031b7657eefb5cf27071be3
-[7/8] mtd: spi-nor: Convert cadence-quadspi to use spi-mem framework
+[5/6] mtd: spi-nor: Convert cadence-quadspi to use spi-mem framework
       commit: a314f6367787ee1d767df9a2120f17e4511144d0
-[8/8] spi: Move cadence-quadspi driver to drivers/spi/
+[6/6] spi: Move cadence-quadspi driver to drivers/spi/
       commit: 31fb632b5d43ca16713095b3a4fe17e3d7331e28
 
 All being well this means that it will be integrated into the linux-next
